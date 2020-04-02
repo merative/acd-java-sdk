@@ -1,0 +1,13 @@
+{
+  "id": "testSDK_MockACD_DeleteProfile_G_profile",
+  "name": "testSDK_MockACD_DeleteProfile_G",
+  "description": "Mock test profile for testSDK_MockACD_DeleteProfile_G.",
+  "annotators": [
+    {
+      "name": "concept_detection"
+    },
+    {
+      "name": "allergies"
+    }
+  ]
+}

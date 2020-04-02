@@ -1,0 +1,34 @@
+{
+  "id": "testSDK_MockACD_DeleteFlow_G_flow",
+  "name": "testSDK_MockACD_DeleteFlow_G",
+  "description": "Mock test flow for testSDK_MockACD_DeleteFlow_G.",
+  "annotatorFlows": [
+    {
+      "flow": {
+        "elements": [
+          {
+            "annotator": {
+              "name": "concept_detection"
+            }
+          },
+          {
+            "annotator": {
+              "name": "disambiguation"
+            }
+          },
+          {
+            "annotator": {
+              "name": "hypothetical"
+            }
+          },
+          {
+            "annotator": {
+              "name": "negation"
+            }
+          }
+        ],
+        "async": false
+      }
+    }
+  ]
+}
