@@ -29,6 +29,7 @@ import com.ibm.cloud.sdk.core.service.BaseService;
 import com.ibm.cloud.sdk.core.util.GsonSingleton;
 import com.ibm.cloud.sdk.core.util.ResponseConverterUtils;
 import com.ibm.cloud.sdk.core.util.Validator;
+import com.ibm.cloud.whcs.SdkCommon;
 import com.ibm.watson.health.acd.v1.model.AcdFlow;
 import com.ibm.watson.health.acd.v1.model.AcdProfile;
 import com.ibm.watson.health.acd.v1.model.AnalyzeOptions;
@@ -208,7 +209,10 @@ public class AnnotatorForClinicalData extends BaseService {
 		builder.query(VERSION, versionDate);
 		builder.query(RETURN_ANALYZED_TEXT,
 				String.valueOf(analyzeOptions.returnAnalyzedText()));
-
+		Map<String, String> sdkHeaders = SdkCommon.getSdkHeaders(SERVICE_NAME, "v1", "analyze");
+		for (Entry<String, String> header : sdkHeaders.entrySet()) {
+			builder.header(header.getKey(), header.getValue());
+		}
 		if (analyzeOptions != null) {
 			final JsonObject contentJson = new JsonObject();
 			if (analyzeOptions.unstructured() != null) {
@@ -256,6 +260,10 @@ public class AnnotatorForClinicalData extends BaseService {
 		RequestBuilder builder = RequestBuilder
 				.post(RequestBuilder.constructHttpUrl(getServiceUrl(),
 						pathSegments, pathParameters));
+		Map<String, String> sdkHeaders = SdkCommon.getSdkHeaders(SERVICE_NAME, "v1", "analyzeWithFlow");
+		for (Entry<String, String> header : sdkHeaders.entrySet()) {
+			builder.header(header.getKey(), header.getValue());
+		}
 		builder.query(VERSION, versionDate);
 		builder.query(RETURN_ANALYZED_TEXT,
 				String.valueOf(analyzeWithFlowOptions.returnAnalyzedText()));
@@ -295,7 +303,10 @@ public class AnnotatorForClinicalData extends BaseService {
 				.get(RequestBuilder.constructHttpUrl(getServiceUrl(),
 						pathSegments, pathParameters));
 		builder.query(VERSION, versionDate);
-
+		Map<String, String> sdkHeaders = SdkCommon.getSdkHeaders(SERVICE_NAME, "v1", "getAnnotator");
+		for (Entry<String, String> header : sdkHeaders.entrySet()) {
+			builder.header(header.getKey(), header.getValue());
+		}
 		return createServiceCall(builder.build(),
 				ResponseConverterUtils.getObject(Annotator.class));
 	}
@@ -318,7 +329,10 @@ public class AnnotatorForClinicalData extends BaseService {
 		RequestBuilder builder = RequestBuilder.get(
 				RequestBuilder.constructHttpUrl(getServiceUrl(), pathSegments));
 		builder.query(VERSION, versionDate);
-
+		Map<String, String> sdkHeaders = SdkCommon.getSdkHeaders(SERVICE_NAME, "v1", "listAnnotators");
+		for (Entry<String, String> header : sdkHeaders.entrySet()) {
+			builder.header(header.getKey(), header.getValue());
+		}
 		if (listAnnotatorsOptions != null) {
 		}
 		return createServiceCall(builder.build(),
@@ -342,7 +356,10 @@ public class AnnotatorForClinicalData extends BaseService {
 				.get(RequestBuilder.constructHttpUrl(getServiceUrl(),
 						pathSegments, pathParameters));
 		builder.query(VERSION, versionDate);
-
+		Map<String, String> sdkHeaders = SdkCommon.getSdkHeaders(SERVICE_NAME, "v1", "getFlow");
+		for (Entry<String, String> header : sdkHeaders.entrySet()) {
+			builder.header(header.getKey(), header.getValue());
+		}
 		return createServiceCall(builder.build(),
 				ResponseConverterUtils.getObject(AcdFlow.class));
 	}
@@ -363,7 +380,10 @@ public class AnnotatorForClinicalData extends BaseService {
 		RequestBuilder builder = RequestBuilder.get(
 				RequestBuilder.constructHttpUrl(getServiceUrl(), pathSegments));
 		builder.query(VERSION, versionDate);
-
+		Map<String, String> sdkHeaders = SdkCommon.getSdkHeaders(SERVICE_NAME, "v1", "getflowOptions");
+		for (Entry<String, String> header : sdkHeaders.entrySet()) {
+			builder.header(header.getKey(), header.getValue());
+		}
 		if (getFlowsOptions != null) {
 		}
 		return createServiceCall(builder.build(),
@@ -390,7 +410,10 @@ public class AnnotatorForClinicalData extends BaseService {
 				.get(RequestBuilder.constructHttpUrl(getServiceUrl(),
 						pathSegments, pathParameters));
 		builder.query(VERSION, versionDate);
-
+		Map<String, String> sdkHeaders = SdkCommon.getSdkHeaders(SERVICE_NAME, "v1", "getProfile");
+		for (Entry<String, String> header : sdkHeaders.entrySet()) {
+			builder.header(header.getKey(), header.getValue());
+		}
 		return createServiceCall(builder.build(),
 				ResponseConverterUtils.getObject(AcdProfile.class));
 	}
@@ -411,7 +434,10 @@ public class AnnotatorForClinicalData extends BaseService {
 		RequestBuilder builder = RequestBuilder.get(
 				RequestBuilder.constructHttpUrl(getServiceUrl(), pathSegments));
 		builder.query(VERSION, versionDate);
-
+		Map<String, String> sdkHeaders = SdkCommon.getSdkHeaders(SERVICE_NAME, "v1", "getProfiles");
+		for (Entry<String, String> header : sdkHeaders.entrySet()) {
+			builder.header(header.getKey(), header.getValue());
+		}
 		if (getProfilesOptions != null) {
 		}
 		return createServiceCall(builder.build(),
@@ -434,7 +460,10 @@ public class AnnotatorForClinicalData extends BaseService {
 		RequestBuilder builder = RequestBuilder.get(
 				RequestBuilder.constructHttpUrl(getServiceUrl(), pathSegments));
 		builder.query(VERSION, versionDate);
-
+		Map<String, String> sdkHeaders = SdkCommon.getSdkHeaders(SERVICE_NAME, "v1", "getHealthCheck");
+		for (Entry<String, String> header : sdkHeaders.entrySet()) {
+			builder.header(header.getKey(), header.getValue());
+		}
 		// Override the default 'Accept: application/json' for this API
 		builder.header(HttpHeaders.ACCEPT, HttpMediaType.WILDCARD);
 

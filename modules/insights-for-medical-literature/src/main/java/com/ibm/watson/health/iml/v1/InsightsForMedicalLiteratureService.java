@@ -27,6 +27,7 @@ import com.ibm.cloud.sdk.core.util.GsonSingleton;
 import com.ibm.cloud.sdk.core.util.RequestUtils;
 import com.ibm.cloud.sdk.core.util.ResponseConverterUtils;
 import com.ibm.cloud.sdk.core.util.Validator;
+import com.ibm.cloud.whcs.SdkCommon;
 import com.ibm.watson.health.iml.v1.model.AddArtifactOptions;
 import com.ibm.watson.health.iml.v1.model.AddCorpusDocumentOptions;
 import com.ibm.watson.health.iml.v1.model.AnnotationsModel;
@@ -173,8 +174,13 @@ public class InsightsForMedicalLiteratureService extends BaseService {
     Validator.notNull(getFieldsOptions, "getFieldsOptions cannot be null");
     String[] pathSegments = {"v1/corpora", "search/metadata"};
     String[] pathParameters = {getFieldsOptions.corpus()};
+
     RequestBuilder builder = RequestBuilder.get(RequestBuilder
-    		.constructHttpUrl(getServiceUrl(), pathSegments, pathParameters));
+        .constructHttpUrl(getServiceUrl(), pathSegments, pathParameters));
+    Map<String, String> sdkHeaders = SdkCommon.getSdkHeaders(SERVICE_NAME, "v1", "getFields");
+    for (Entry<String, String> header : sdkHeaders.entrySet()) {
+        builder.header(header.getKey(), header.getValue());
+     }
     builder.query(VERSION, versionDate);
     return createServiceCall(builder.build(),
     		ResponseConverterUtils.getObject(MetadataModel.class));
@@ -194,7 +200,11 @@ public class InsightsForMedicalLiteratureService extends BaseService {
     String[] pathSegments = {"v1/corpora", "search"};
     String[] pathParameters = {searchOptions.corpus()};
     RequestBuilder builder = RequestBuilder.post(RequestBuilder
-    		.constructHttpUrl(getServiceUrl(), pathSegments, pathParameters));
+        .constructHttpUrl(getServiceUrl(), pathSegments, pathParameters));
+    Map<String, String> sdkHeaders = SdkCommon.getSdkHeaders(SERVICE_NAME, "v1", "search");
+    for (Entry<String, String> header : sdkHeaders.entrySet()) {
+        builder.header(header.getKey(), header.getValue());
+    }
     builder.query(VERSION, versionDate);
     if (searchOptions.verbose() != null) {
       builder.query("verbose", String.valueOf(searchOptions.verbose()));
@@ -233,7 +243,11 @@ public class InsightsForMedicalLiteratureService extends BaseService {
     String[] pathSegments = {"v1/corpora", "search/typeahead"};
     String[] pathParameters = {typeaheadOptions.corpus()};
     RequestBuilder builder = RequestBuilder.get(RequestBuilder
-    		.constructHttpUrl(getServiceUrl(), pathSegments, pathParameters));
+        .constructHttpUrl(getServiceUrl(), pathSegments, pathParameters));
+    Map<String, String> sdkHeaders = SdkCommon.getSdkHeaders(SERVICE_NAME, "v1", "typeahead");
+    for (Entry<String, String> header : sdkHeaders.entrySet()) {
+        builder.header(header.getKey(), header.getValue());
+     }
     builder.query(VERSION, versionDate);
     builder.query("query", typeaheadOptions.query());
     if (typeaheadOptions.ontologies() != null) {
@@ -282,7 +296,11 @@ public class InsightsForMedicalLiteratureService extends BaseService {
     String[] pathSegments = {"v1/corpora", "concepts"};
     String[] pathParameters = {getConceptsOptions.corpus()};
     RequestBuilder builder = RequestBuilder.get(RequestBuilder
-    		.constructHttpUrl(getServiceUrl(), pathSegments, pathParameters));
+        .constructHttpUrl(getServiceUrl(), pathSegments, pathParameters));
+    Map<String, String> sdkHeaders = SdkCommon.getSdkHeaders(SERVICE_NAME, "v1", "getConcepts");
+    for (Entry<String, String> header : sdkHeaders.entrySet()) {
+        builder.header(header.getKey(), header.getValue());
+     }
     builder.query(VERSION, versionDate);
     if (getConceptsOptions.cuis() != null) {
       builder.query("cuis", getConceptsOptions.cuis().toArray());
@@ -330,7 +348,11 @@ public class InsightsForMedicalLiteratureService extends BaseService {
     String[] pathSegments = {"v1/corpora", "concepts/definitions"};
     String[] pathParameters = {addArtifactOptions.corpus()};
     RequestBuilder builder = RequestBuilder.post(RequestBuilder
-    		.constructHttpUrl(getServiceUrl(), pathSegments, pathParameters));
+        .constructHttpUrl(getServiceUrl(), pathSegments, pathParameters));
+    Map<String, String> sdkHeaders = SdkCommon.getSdkHeaders(SERVICE_NAME, "v1", "addArtifact");
+    for (Entry<String, String> header : sdkHeaders.entrySet()) {
+        builder.header(header.getKey(), header.getValue());
+     }
     builder.query(VERSION, versionDate);
 
     final JsonObject contentJson = new JsonObject();
@@ -374,7 +396,11 @@ public class InsightsForMedicalLiteratureService extends BaseService {
     		getCuiInfoOptions.cui()};
     RequestBuilder builder = RequestBuilder
     		.get(RequestBuilder.constructHttpUrl(getServiceUrl(), pathSegments,
-    				pathParameters));
+            pathParameters));
+    Map<String, String> sdkHeaders = SdkCommon.getSdkHeaders(SERVICE_NAME, "v1", "getCuiInfo");
+    for (Entry<String, String> header : sdkHeaders.entrySet()) {
+        builder.header(header.getKey(), header.getValue());
+    }
     builder.query(VERSION, versionDate);
     if (getCuiInfoOptions.ontology() != null) {
     builder.query("ontology", getCuiInfoOptions.ontology());
@@ -407,7 +433,11 @@ public class InsightsForMedicalLiteratureService extends BaseService {
     String[] pathParameters = {getHitCountOptions.corpus(),
     		getHitCountOptions.cui()};
     RequestBuilder builder = RequestBuilder.get(RequestBuilder
-    		.constructHttpUrl(getServiceUrl(), pathSegments, pathParameters));
+        .constructHttpUrl(getServiceUrl(), pathSegments, pathParameters));
+    Map<String, String> sdkHeaders = SdkCommon.getSdkHeaders(SERVICE_NAME, "v1", "getHitCount");
+    for (Entry<String, String> header : sdkHeaders.entrySet()) {
+        builder.header(header.getKey(), header.getValue());
+    }
     builder.query(VERSION, versionDate);
     if (getHitCountOptions.ontology() != null) {
     builder.query("ontology", getHitCountOptions.ontology());
@@ -444,7 +474,11 @@ public class InsightsForMedicalLiteratureService extends BaseService {
     String[] pathParameters = {getRelatedConceptsOptions.corpus(),
     		getRelatedConceptsOptions.cui()};
     RequestBuilder builder = RequestBuilder.get(RequestBuilder
-    		.constructHttpUrl(getServiceUrl(), pathSegments, pathParameters));
+        .constructHttpUrl(getServiceUrl(), pathSegments, pathParameters));
+    Map<String, String> sdkHeaders = SdkCommon.getSdkHeaders(SERVICE_NAME, "v1", "getRelatedConcepts");
+    for (Entry<String, String> header : sdkHeaders.entrySet()) {
+        builder.header(header.getKey(), header.getValue());
+    }
     builder.query(VERSION, versionDate);
     if (getRelatedConceptsOptions.ontology() != null) {
     builder.query("ontology", getRelatedConceptsOptions.ontology());
@@ -495,7 +529,11 @@ public class InsightsForMedicalLiteratureService extends BaseService {
     String[] pathParameters = {getSimilarConceptsOptions.corpus(),
     		getSimilarConceptsOptions.nameOrId()};
     RequestBuilder builder = RequestBuilder.get(RequestBuilder
-    		.constructHttpUrl(this.getServiceUrl(), pathSegments, pathParameters));
+        .constructHttpUrl(this.getServiceUrl(), pathSegments, pathParameters));
+    Map<String, String> sdkHeaders = SdkCommon.getSdkHeaders(SERVICE_NAME, "v1", "getSimilarConcepts");
+    for (Entry<String, String> header : sdkHeaders.entrySet()) {
+        builder.header(header.getKey(), header.getValue());
+    }
     builder.query("version", versionDate);
 
     if (getSimilarConceptsOptions.ontology() != null) {
@@ -528,7 +566,11 @@ public class InsightsForMedicalLiteratureService extends BaseService {
 		  final GetCorporaConfigOptions getCorporaConfigOptions) {
     String[] pathSegments = {"v1/corpora"};
     RequestBuilder builder = RequestBuilder
-    		.get(RequestBuilder.constructHttpUrl(getServiceUrl(), pathSegments));
+        .get(RequestBuilder.constructHttpUrl(getServiceUrl(), pathSegments));
+    Map<String, String> sdkHeaders = SdkCommon.getSdkHeaders(SERVICE_NAME, "v1", "getCorporaConfig");
+    for (Entry<String, String> header : sdkHeaders.entrySet()) {
+        builder.header(header.getKey(), header.getValue());
+    }
     builder.query(VERSION, versionDate);
     if (getCorporaConfigOptions != null) {
     if (getCorporaConfigOptions.verbose() != null) {
@@ -599,7 +641,10 @@ public class InsightsForMedicalLiteratureService extends BaseService {
     RequestBuilder builder = RequestBuilder.post(RequestBuilder
     		.constructHttpUrl(getServiceUrl(), pathSegments));
     builder.query(VERSION, versionDate);
-
+    Map<String, String> sdkHeaders = SdkCommon.getSdkHeaders(SERVICE_NAME, "v1", "setCorpusSchema");
+    for (Entry<String, String> header : sdkHeaders.entrySet()) {
+        builder.header(header.getKey(), header.getValue());
+    }
     final JsonObject contentJson = new JsonObject();
     if (setCorpusSchemaOptions.userName() != null) {
       contentJson.addProperty("userName", setCorpusSchemaOptions.userName());
@@ -650,7 +695,10 @@ public class InsightsForMedicalLiteratureService extends BaseService {
     RequestBuilder builder = RequestBuilder.delete(RequestBuilder
     		.constructHttpUrl(getServiceUrl(), pathSegments));
     builder.query(VERSION, versionDate);
-
+    Map<String, String> sdkHeaders = SdkCommon.getSdkHeaders(SERVICE_NAME, "v1", "deleteSchema");
+    for (Entry<String, String> header : sdkHeaders.entrySet()) {
+        builder.header(header.getKey(), header.getValue());
+    }
     builder.query("instance", deleteCorpusSchemaOptions.instance());
 
     return createServiceCall(builder.build(),
@@ -685,7 +733,10 @@ public class InsightsForMedicalLiteratureService extends BaseService {
     RequestBuilder builder = RequestBuilder.post(RequestBuilder
     		.constructHttpUrl(getServiceUrl(), pathSegments));
     builder.query(VERSION, versionDate);
-
+    Map<String, String> sdkHeaders = SdkCommon.getSdkHeaders(SERVICE_NAME, "v1", "setCorpusConfig");
+    for (Entry<String, String> header : sdkHeaders.entrySet()) {
+        builder.header(header.getKey(), header.getValue());
+    }
     final JsonObject contentJson = new JsonObject();
     if (setCorpusConfigOptions.userName() != null) {
       contentJson.addProperty("userName", setCorpusConfigOptions.userName());
@@ -721,7 +772,10 @@ public class InsightsForMedicalLiteratureService extends BaseService {
     RequestBuilder builder = RequestBuilder.put(RequestBuilder
     		.constructHttpUrl(getServiceUrl(), pathSegments));
     builder.query(VERSION, versionDate);
-
+    Map<String, String> sdkHeaders = SdkCommon.getSdkHeaders(SERVICE_NAME, "v1", "monitorCorpus");
+    for (Entry<String, String> header : sdkHeaders.entrySet()) {
+        builder.header(header.getKey(), header.getValue());
+    }
     builder.query("apikey", monitorCorpusOptions.apikey());
     ResponseConverter<Void> responseConverter = ResponseConverterUtils
     		.getVoid();
@@ -744,7 +798,11 @@ public class InsightsForMedicalLiteratureService extends BaseService {
     String[] pathSegments = {"v1/corpora"};
     String[] pathParameters = {getCorpusConfigOptions.corpus()};
     RequestBuilder builder = RequestBuilder.get(RequestBuilder
-    		.constructHttpUrl(getServiceUrl(), pathSegments, pathParameters));
+        .constructHttpUrl(getServiceUrl(), pathSegments, pathParameters));
+    Map<String, String> sdkHeaders = SdkCommon.getSdkHeaders(SERVICE_NAME, "v1", "getCorpusConfig");
+    for (Entry<String, String> header : sdkHeaders.entrySet()) {
+        builder.header(header.getKey(), header.getValue());
+    }
     builder.query(VERSION, versionDate);
     if (getCorpusConfigOptions.verbose() != null) {
     builder.query("verbose", String.valueOf(getCorpusConfigOptions.verbose()));
@@ -768,7 +826,11 @@ public class InsightsForMedicalLiteratureService extends BaseService {
 		  final GetHealthCheckStatusOptions getHealthCheckStatusOptions) {
     String[] pathSegments = {"v1/status/health_check"};
     RequestBuilder builder = RequestBuilder.get(RequestBuilder
-    		.constructHttpUrl(getServiceUrl(), pathSegments));
+        .constructHttpUrl(getServiceUrl(), pathSegments));
+    Map<String, String> sdkHeaders = SdkCommon.getSdkHeaders(SERVICE_NAME, "v1", "getHealthCheckStatus");
+    for (Entry<String, String> header : sdkHeaders.entrySet()) {
+        builder.header(header.getKey(), header.getValue());
+    }
     builder.query(VERSION, versionDate);
     if (getHealthCheckStatusOptions != null) {
     if (getHealthCheckStatusOptions.accept() != null) {
@@ -818,6 +880,10 @@ public class InsightsForMedicalLiteratureService extends BaseService {
     RequestBuilder builder = RequestBuilder.get(RequestBuilder
     		.constructHttpUrl(getServiceUrl(), pathSegments, pathParameters));
     builder.query(VERSION, versionDate);
+    Map<String, String> sdkHeaders = SdkCommon.getSdkHeaders(SERVICE_NAME, "v1", "getDocumentAnnotations");
+    for (Entry<String, String> header : sdkHeaders.entrySet()) {
+        builder.header(header.getKey(), header.getValue());
+    }
     builder.query("document_section",
     		getDocumentAnnotationsOptions.documentSection());
     if (getDocumentAnnotationsOptions.cuis() != null) {
@@ -854,6 +920,10 @@ public class InsightsForMedicalLiteratureService extends BaseService {
     RequestBuilder builder = RequestBuilder.get(RequestBuilder
     		.constructHttpUrl(getServiceUrl(), pathSegments, pathParameters));
     builder.query(VERSION, versionDate);
+    Map<String, String> sdkHeaders = SdkCommon.getSdkHeaders(SERVICE_NAME, "v1", "getDocumentCategories");
+    for (Entry<String, String> header : sdkHeaders.entrySet()) {
+        builder.header(header.getKey(), header.getValue());
+    }
     if (getDocumentCategoriesOptions.highlightTagBegin() != null) {
     builder.query("highlight_tag_begin",
     		getDocumentCategoriesOptions.highlightTagBegin());
@@ -913,7 +983,11 @@ public class InsightsForMedicalLiteratureService extends BaseService {
     String[] pathParameters = {getDocumentInfoOptions.corpus(),
     		getDocumentInfoOptions.documentId()};
     RequestBuilder builder = RequestBuilder.get(RequestBuilder.
-    		constructHttpUrl(getServiceUrl(), pathSegments, pathParameters));
+        constructHttpUrl(getServiceUrl(), pathSegments, pathParameters));
+    Map<String, String> sdkHeaders = SdkCommon.getSdkHeaders(SERVICE_NAME, "v1", "getDocumentInfo");
+    for (Entry<String, String> header : sdkHeaders.entrySet()) {
+        builder.header(header.getKey(), header.getValue());
+    }
     builder.query(VERSION, versionDate);
     builder.query("verbose", getDocumentInfoOptions.verbose());
     if (getDocumentInfoOptions.fields() != null) {
@@ -972,6 +1046,10 @@ public class InsightsForMedicalLiteratureService extends BaseService {
     RequestBuilder builder = RequestBuilder.post(RequestBuilder
     		.constructHttpUrl(getServiceUrl(), pathSegments, pathParameters));
     builder.query(VERSION, versionDate);
+    Map<String, String> sdkHeaders = SdkCommon.getSdkHeaders(SERVICE_NAME, "v1", "getDocumentMultipleCategories");
+    for (Entry<String, String> header : sdkHeaders.entrySet()) {
+        builder.header(header.getKey(), header.getValue());
+    }
     if (getDocumentMultipleCategoriesOptions.highlightTagBegin() != null) {
     builder.query("highlight_tag_begin",
     		getDocumentMultipleCategoriesOptions.highlightTagBegin());
@@ -1016,7 +1094,11 @@ public class InsightsForMedicalLiteratureService extends BaseService {
     String[] pathSegments = { "v1/corpora", "documents" };
     String[] pathParameters = { getDocumentsOptions.corpus() };
     RequestBuilder builder = RequestBuilder.get(RequestBuilder
-    		.constructHttpUrl(getServiceUrl(), pathSegments, pathParameters));
+        .constructHttpUrl(getServiceUrl(), pathSegments, pathParameters));
+    Map<String, String> sdkHeaders = SdkCommon.getSdkHeaders(SERVICE_NAME, "v1", "getDocuments");
+    for (Entry<String, String> header : sdkHeaders.entrySet()) {
+        builder.header(header.getKey(), header.getValue());
+    }
     builder.query(VERSION, versionDate);
     return createServiceCall(builder.build(),
     		ResponseConverterUtils.getObject(CorpusInfoModel.class));
@@ -1057,7 +1139,10 @@ public class InsightsForMedicalLiteratureService extends BaseService {
     RequestBuilder builder = RequestBuilder.post(RequestBuilder
     		.constructHttpUrl(getServiceUrl(), pathSegments, pathParameters));
     builder.query(VERSION, versionDate);
-
+    Map<String, String> sdkHeaders = SdkCommon.getSdkHeaders(SERVICE_NAME, "v1", "addCorpusDocument");
+    for (Entry<String, String> header : sdkHeaders.entrySet()) {
+        builder.header(header.getKey(), header.getValue());
+    }
     final JsonObject contentJson = new JsonObject();
     if (addCorpusDocumentOptions.document() != null) {
       contentJson.add("document", GsonSingleton.getGson()
@@ -1125,6 +1210,10 @@ public class InsightsForMedicalLiteratureService extends BaseService {
     RequestBuilder builder = RequestBuilder.get(RequestBuilder
     		.constructHttpUrl(getServiceUrl(), pathSegments, pathParameters));
     builder.query(VERSION, versionDate);
+    Map<String, String> sdkHeaders = SdkCommon.getSdkHeaders(SERVICE_NAME, "v1", "getSearchMatches");
+    for (Entry<String, String> header : sdkHeaders.entrySet()) {
+        builder.header(header.getKey(), header.getValue());
+    }
     if (getSearchMatchesOptions.cuis() != null) {
     builder.query("cuis", getSearchMatchesOptions.cuis().toArray());
     }
