@@ -50,24 +50,6 @@ public class TestGetConceptRelatedConcepts extends WatsonServiceTest {
 		Response<RelatedConceptsModel> response = sc.execute();
 		RelatedConceptsModel relatedConcepts = response.getResult();
 		Assert.assertNotNull(relatedConcepts);
-		List<RelatedConceptModel> relations = relatedConcepts.getConcepts();
-
-		for (RelatedConceptModel relation : relations) {
-			relation.getAlternativeName();
-			relation.getChildren();
-			relation.getCorpora();
-			relation.getCui();
-			relation.getHitCount();
-			relation.getNextConcepts();
-			relation.getOntology();
-			relation.getParents();
-			relation.getPreferredName();
-			relation.getRank();
-			relation.getRelated();
-			relation.getSiblings();
-			relation.getSurfaceForms();
-			relation.getType();
-		}
 	}
 
 	@Test

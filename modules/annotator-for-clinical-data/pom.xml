@@ -8,7 +8,7 @@
   <url>http://maven.apache.org</url>
   <parent>
     <groupId>com.ibm.watson.health.cognitive_services</groupId>
-    <artifactId>whcs-java-sdk</artifactId>
+    <artifactId>ibm-whcs-services</artifactId>
     <version>1.0.1-SNAPSHOT</version>
   </parent>
   <properties>
