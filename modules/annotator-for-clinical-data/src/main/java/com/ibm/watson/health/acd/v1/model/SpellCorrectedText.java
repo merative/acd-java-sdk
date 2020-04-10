@@ -26,7 +26,7 @@ import com.ibm.watson.developer_cloud.util.GsonSerializationHelper;
  */
 public class SpellCorrectedText extends DynamicModel {
 
-	private Type correctedTextType = new TypeToken<String>() { } .getType();
+  private Type correctedTextType = new TypeToken<String>() { } .getType();
   private Type debugTextType = new TypeToken<String>() { } .getType();
 
   /**

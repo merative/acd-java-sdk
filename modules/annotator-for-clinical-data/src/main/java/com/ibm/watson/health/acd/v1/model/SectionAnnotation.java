@@ -134,7 +134,7 @@ public class SectionAnnotation extends DynamicModel {
 //
 //
 //  public void setTrigger(final SectionTrigger sectionTrigger) {
-//	    this.put("trigger", sectionTrigger);
+//      this.put("trigger", sectionTrigger);
 //  }
 //
 //  /**
@@ -146,4 +146,3 @@ public class SectionAnnotation extends DynamicModel {
 //  }
 
 }
-

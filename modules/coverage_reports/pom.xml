@@ -5,8 +5,8 @@
     <parent>
         <artifactId>ibm-whcs-services</artifactId>
         <groupId>com.ibm.watson.health.cognitive_services</groupId>
-        <version>1.0.1-SNAPSHOT<</version>
-        <relativePath>../..</relativePath>
+        <version>1.0.1-SNAPSHOT</version>
+        <relativePath>../../pom.xml</relativePath>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 

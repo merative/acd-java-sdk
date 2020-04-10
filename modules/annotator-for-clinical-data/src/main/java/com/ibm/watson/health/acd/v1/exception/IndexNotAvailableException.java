@@ -23,20 +23,20 @@ package com.ibm.watson.health.acd.v1.exception;
 
 public class IndexNotAvailableException extends RuntimeException {
 
-	/**
-	 *
-	 */
-	private static final long serialVersionUID = -7516951251400587682L;
+  /**
+   *
+   */
+  private static final long serialVersionUID = -7516951251400587682L;
 
-	/**
-	   * Instantiates a new Index Not Available Exception.
-	   *
-	   * @param message the error message
-	   */
+  /**
+     * Instantiates a new Index Not Available Exception.
+     *
+     * @param message the error message
+     */
 
-	public IndexNotAvailableException(String message) {
-		super(message);
+  public IndexNotAvailableException(String message) {
+    super(message);
 
-	}
+  }
 
 }

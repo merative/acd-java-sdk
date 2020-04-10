@@ -23,20 +23,20 @@ package com.ibm.watson.health.acd.v1.exception;
 
 public class IllegalMethodException extends RuntimeException {
 
-	/**
-	 *
-	 */
-	private static final long serialVersionUID = 783568751185118411L;
+  /**
+   *
+   */
+  private static final long serialVersionUID = 783568751185118411L;
 
-	/**
-	   * Instantiates a new Illegal Method Exception.
-	   *
-	   * @param message the error message
-	   */
+  /**
+     * Instantiates a new Illegal Method Exception.
+     *
+     * @param message the error message
+     */
 
-	public IllegalMethodException(String message) {
-		super(message);
+  public IllegalMethodException(String message) {
+    super(message);
 
-	}
+  }
 
 }

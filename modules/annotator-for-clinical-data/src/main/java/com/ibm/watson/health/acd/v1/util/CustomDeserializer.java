@@ -28,31 +28,31 @@ import com.google.gson.JsonObject;
 
 public class CustomDeserializer {
 
-	/** @param response
-	 *
-	 * @return the {@link JsonObject}
-	 */
+  /** @param response
+   *
+   * @return the {@link JsonObject}
+   */
 
-	public JsonObject convertJsonObject(String response) {
-		CustomDeserializer cd = new CustomDeserializer();
-		Gson gson = new GsonBuilder().setPrettyPrinting().create();
-		JsonObject jsonObject = gson.fromJson(response, JsonObject.class);
-		return jsonObject;
+  public JsonObject convertJsonObject(String response) {
+    CustomDeserializer cd = new CustomDeserializer();
+    Gson gson = new GsonBuilder().setPrettyPrinting().create();
+    JsonObject jsonObject = gson.fromJson(response, JsonObject.class);
+    return jsonObject;
 
-	}
+  }
 
-	/** @param response
-	 *
-	 * @return the {@link CustomCollection}
-	 */
+  /** @param response
+   *
+   * @return the {@link CustomCollection}
+   */
 
-	public CustomCollection convertObject(String response) {
-		CustomCollection cd = new CustomCollection();
-		Gson gson = new GsonBuilder().setPrettyPrinting().create();
-		JsonElement jsonObject = gson.fromJson(response, JsonElement.class);
-		cd.setObject(jsonObject);
-		return cd;
-	}
+  public CustomCollection convertObject(String response) {
+    CustomCollection cd = new CustomCollection();
+    Gson gson = new GsonBuilder().setPrettyPrinting().create();
+    JsonElement jsonObject = gson.fromJson(response, JsonElement.class);
+    cd.setObject(jsonObject);
+    return cd;
+  }
 
 
 

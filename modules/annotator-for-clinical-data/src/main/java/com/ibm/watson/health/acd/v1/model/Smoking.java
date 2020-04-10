@@ -99,11 +99,11 @@ public class Smoking extends DynamicModel {
    * @return the negated
    */
   public Boolean isNegated() {
-	  Boolean negated = GsonSerializationHelper.serializeDynamicModelProperty(this.get("negated"), negatedType);
-	  if (negated == null) {
-		  negated = false;
-	  }
-	  return negated;
+    Boolean negated = GsonSerializationHelper.serializeDynamicModelProperty(this.get("negated"), negatedType);
+    if (negated == null) {
+      negated = false;
+    }
+    return negated;
   }
 
   /**
@@ -112,11 +112,11 @@ public class Smoking extends DynamicModel {
    * @return the hypothetical
    */
   public Boolean isHypothetical() {
-	  Boolean hypothetical = GsonSerializationHelper.serializeDynamicModelProperty(this.get("hypothetical"), hypotheticalType);
-	  if (hypothetical == null) {
-		  hypothetical = false;
-	  }
-	  return hypothetical;
+    Boolean hypothetical = GsonSerializationHelper.serializeDynamicModelProperty(this.get("hypothetical"), hypotheticalType);
+    if (hypothetical == null) {
+      hypothetical = false;
+    }
+    return hypothetical;
   }
 
   /**
@@ -317,4 +317,3 @@ public class Smoking extends DynamicModel {
 //    this.put("sectionSurfaceForm", sectionSurfaceForm);
 //  }
 }
-
