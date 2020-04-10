@@ -192,11 +192,11 @@ public class AnnotatorForClinicalData extends BaseService {
    * "async": false}}], "unstructured": [{"text": "The patient was diagnosed with lungcancer, on Dec 23, 2011."
    * }]}
    *
-   * <b>Annotators that support annotation augmentation:</b> allergy,
+   * Annotators that support annotation augmentation: allergy,
    * bathing_assistance, cancer, dressing_assistance, eating_assistance,
    * ejection_fraction, lab_value, medication, named_entities, procedure,
    * seeing_assistance, smoking, symptom_disease, toileting_assistance,
-   * walking_assistance.<br/>
+   * walking_assistance.
    * .
    *
    * @param analyzeOptions

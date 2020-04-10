@@ -1182,7 +1182,7 @@ public class InsightsForMedicalLiteratureService extends BaseService {
    * allows an application to easily show the annotation details when hovering
    * over a text span.  The iml-annotation-id may also be used to color code
    * the text spans.  The ibm_annotation-id is used as a key for the returned
-   * annotations. <p>For example, a search match on the concept
+   * annotations. For example, a search match on the concept
    *  \"Breast Carcinoma\" will have a class name \"iml-breast-carcinoma\"
    * inserted in the highlight tag, and the returned
    * annotations['umls-breast_carcinoma-hypothetical'] JSON field will contain
