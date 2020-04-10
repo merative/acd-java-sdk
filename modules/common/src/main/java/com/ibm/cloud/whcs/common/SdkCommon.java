@@ -12,7 +12,7 @@
  * specific language governing permissions and limitations under the License.
  */
 
-package com.ibm.cloud.whcs;
+package com.ibm.cloud.whcs.common;
 
 import java.io.InputStream;
 import java.util.HashMap;
@@ -69,7 +69,7 @@ public class SdkCommon {
      * This function uses lazy initialization to build the SDK's "user agent" value.
      * This will consist of the SDK name and version, followed by a set of
      * properties provided by the Java Core's RequestUtils class.
-     * 
+     *
      * @return the SDK-specific user agent value
      */
     private static synchronized String getUserAgent() {

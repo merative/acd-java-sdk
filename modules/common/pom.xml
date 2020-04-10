@@ -6,9 +6,10 @@
         <artifactId>ibm-whcs-services</artifactId>
         <groupId>com.ibm.watson.health.cognitive_services</groupId>
 	    <version>1.0.1-SNAPSHOT</version>
-        <relativePath>../..</relativePath>
+        <relativePath>../../pom.xml</relativePath>
     </parent>
 
+    <groupId>com.ibm.watson.health.cognitive_services</groupId>
     <artifactId>ibm-whcs-services-common</artifactId>
 
     <name>IBM Watson Health Cognitive Services Common Library</name>

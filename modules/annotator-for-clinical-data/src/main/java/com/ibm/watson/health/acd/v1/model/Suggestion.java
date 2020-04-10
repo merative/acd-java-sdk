@@ -9,12 +9,12 @@ import com.ibm.watson.developer_cloud.util.GsonSerializationHelper;
 
 public class Suggestion extends DynamicModel {
 
-	private Type appliedType = new TypeToken<Boolean>() { } .getType();
-	private Type confidenceType = new TypeToken<Double>() { } .getType();
-	private Type semtypesType = new TypeToken<List<String>>() { } .getType();
-	private Type textType = new TypeToken<String>() { } .getType();
+  private Type appliedType = new TypeToken<Boolean>() { } .getType();
+  private Type confidenceType = new TypeToken<Double>() { } .getType();
+  private Type semtypesType = new TypeToken<List<String>>() { } .getType();
+  private Type textType = new TypeToken<String>() { } .getType();
 
-	/**
+  /**
    * Gets the applied field.
    *
    * @return the applied field

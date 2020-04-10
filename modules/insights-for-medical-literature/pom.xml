@@ -11,6 +11,7 @@
     <groupId>com.ibm.watson.health.cognitive_services</groupId>
     <artifactId>ibm-whcs-services</artifactId>
     <version>1.0.1-SNAPSHOT</version>
+    <relativePath>../../pom.xml</relativePath>
   </parent>
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -52,6 +53,7 @@
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
       <scope>test</scope>
+      <version>4.13</version>
     </dependency>
 <!--     <dependency>
       <groupId>com.ibm.watson.developer_cloud</groupId>
@@ -69,10 +71,12 @@
     <dependency>
       <groupId>ch.qos.logback</groupId>
       <artifactId>ch.qos.logback.slf4j</artifactId>
+      <version>0.9.27</version>
     </dependency>
     <dependency>
       <groupId>org.slf4j</groupId>
       <artifactId>slf4j-log4j12</artifactId>
+      <version>1.7.30</version>
     </dependency>
   </dependencies>
 </project>

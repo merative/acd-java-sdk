@@ -137,8 +137,8 @@ public class MedicationAnnotation extends DynamicModel {
   public List<CustomCollection> getDrug() {
     List<Object> listObjects = GsonSerializationHelper.serializeDynamicModelProperty(this.get("drug"), drugType);
     CustomCollection customCollection = new CustomCollection();
-	  List<CustomCollection> listValues = customCollection.convertToCustomCollectionList(listObjects);
-	  return listValues;
+    List<CustomCollection> listValues = customCollection.convertToCustomCollectionList(listObjects);
+    return listValues;
   }
 
   /**
@@ -266,8 +266,7 @@ public class MedicationAnnotation extends DynamicModel {
 public CustomCollection getDrug(int index) {
     List<Object> listObjects = GsonSerializationHelper.serializeDynamicModelProperty(this.get("drug"), drugType);
     CustomCollection customCollection = new CustomCollection();
-	  CustomCollection drug = customCollection.convertToCustomCollection(listObjects.get(index));
-	  return drug;
+    CustomCollection drug = customCollection.convertToCustomCollection(listObjects.get(index));
+    return drug;
   }
 }
-

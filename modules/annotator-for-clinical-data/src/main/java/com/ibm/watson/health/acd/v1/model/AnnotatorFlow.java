@@ -22,10 +22,10 @@ public class AnnotatorFlow extends GenericModel {
 
   private String profile;
   private Flow flow;
-  
+
   /*Manually added code*/
   public AnnotatorFlow() {
-	}
+  }
 
   /**
    * Builder.

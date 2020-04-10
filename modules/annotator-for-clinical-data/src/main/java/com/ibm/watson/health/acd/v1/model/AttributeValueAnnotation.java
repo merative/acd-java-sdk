@@ -114,26 +114,26 @@ public class AttributeValueAnnotation extends DynamicModel {
    *
    * @return the negated
    */
-	  public Boolean isNegated() {
-		  Boolean negated = GsonSerializationHelper.serializeDynamicModelProperty(this.get("negated"), negatedType);
-		  if (negated == null) {
-			  negated = false;
-		  }
-		  return negated;
-	  }
+    public Boolean isNegated() {
+      Boolean negated = GsonSerializationHelper.serializeDynamicModelProperty(this.get("negated"), negatedType);
+      if (negated == null) {
+        negated = false;
+      }
+      return negated;
+    }
 
-	  /**
-	   * Gets the hypothetical.
-	   *
-	   * @return the hypothetical
-	   */
-	  public Boolean isHypothetical() {
-		  Boolean hypothetical = GsonSerializationHelper.serializeDynamicModelProperty(this.get("hypothetical"), hypotheticalType);
-		  if (hypothetical == null) {
-			  hypothetical = false;
-		  }
-		  return hypothetical;
-	  }
+    /**
+     * Gets the hypothetical.
+     *
+     * @return the hypothetical
+     */
+    public Boolean isHypothetical() {
+      Boolean hypothetical = GsonSerializationHelper.serializeDynamicModelProperty(this.get("hypothetical"), hypotheticalType);
+      if (hypothetical == null) {
+        hypothetical = false;
+      }
+      return hypothetical;
+    }
 
   /**
    * Gets the preferredName.
@@ -150,10 +150,10 @@ public class AttributeValueAnnotation extends DynamicModel {
    * @return the values
    */
   public List<CustomCollection> getValues() {
-	  List<Object> listObjects = GsonSerializationHelper.serializeDynamicModelProperty(this.get("values"), valuesType);
-	  CustomCollection customCollection = new CustomCollection();
-	  List<CustomCollection> listValues = customCollection.convertToCustomCollectionList(listObjects);
-	  return listValues;
+    List<Object> listObjects = GsonSerializationHelper.serializeDynamicModelProperty(this.get("values"), valuesType);
+    CustomCollection customCollection = new CustomCollection();
+    List<CustomCollection> listValues = customCollection.convertToCustomCollectionList(listObjects);
+    return listValues;
   }
 
   /**
@@ -180,8 +180,8 @@ public class AttributeValueAnnotation extends DynamicModel {
    * @return the concept
    */
   public Concept getConcept() {
-	    return GsonSerializationHelper.serializeDynamicModelProperty(this.get("concept"), conceptType);
-	  }
+      return GsonSerializationHelper.serializeDynamicModelProperty(this.get("concept"), conceptType);
+    }
 
   /**
    * Gets the name.
@@ -207,7 +207,7 @@ public class AttributeValueAnnotation extends DynamicModel {
    * @return the sectionSurfaceForm
    */
   public String getSectionSurfaceForm() {
-	  return GsonSerializationHelper.serializeDynamicModelProperty(this.get("sectionSurfaceForm"), sectionSurfaceFormType);
+    return GsonSerializationHelper.serializeDynamicModelProperty(this.get("sectionSurfaceForm"), sectionSurfaceFormType);
   }
 
   /**
@@ -215,7 +215,7 @@ public class AttributeValueAnnotation extends DynamicModel {
    * @return
    */
   public String getIcd9Code() {
-	  return GsonSerializationHelper.serializeDynamicModelProperty(this.get("icd9Code"), icd9CodeType);
+    return GsonSerializationHelper.serializeDynamicModelProperty(this.get("icd9Code"), icd9CodeType);
   }
 
   /**
@@ -223,7 +223,7 @@ public class AttributeValueAnnotation extends DynamicModel {
    * @return
    */
   public String getIcd10Code() {
-	  return GsonSerializationHelper.serializeDynamicModelProperty(this.get("icd10Code"), icd10CodeType);
+    return GsonSerializationHelper.serializeDynamicModelProperty(this.get("icd10Code"), icd10CodeType);
   }
 
   /**
@@ -231,7 +231,7 @@ public class AttributeValueAnnotation extends DynamicModel {
    * @return
    */
   public String getSnomedConceptId() {
-	  return GsonSerializationHelper.serializeDynamicModelProperty(this.get("snomedConceptId"), snomedConceptIdType);
+    return GsonSerializationHelper.serializeDynamicModelProperty(this.get("snomedConceptId"), snomedConceptIdType);
   }
 
   /**
@@ -239,7 +239,7 @@ public class AttributeValueAnnotation extends DynamicModel {
    * @return
    */
   public String getNciCode() {
-	  return GsonSerializationHelper.serializeDynamicModelProperty(this.get("nciCode"), nciCodeType);
+    return GsonSerializationHelper.serializeDynamicModelProperty(this.get("nciCode"), nciCodeType);
   }
 
   /**
@@ -247,7 +247,7 @@ public class AttributeValueAnnotation extends DynamicModel {
    * @return
    */
   public String getMeshId() {
-	  return GsonSerializationHelper.serializeDynamicModelProperty(this.get("meshId"), meshIdType);
+    return GsonSerializationHelper.serializeDynamicModelProperty(this.get("meshId"), meshIdType);
   }
 
   /**
@@ -255,7 +255,7 @@ public class AttributeValueAnnotation extends DynamicModel {
    * @return
    */
   public String getRxNormId() {
-	  return GsonSerializationHelper.serializeDynamicModelProperty(this.get("rxNormId"), rxNormIdType);
+    return GsonSerializationHelper.serializeDynamicModelProperty(this.get("rxNormId"), rxNormIdType);
   }
 
   /**
@@ -263,7 +263,7 @@ public class AttributeValueAnnotation extends DynamicModel {
    * @return
    */
   public String getLoincId() {
-	  return GsonSerializationHelper.serializeDynamicModelProperty(this.get("loincId"), loincIdType);
+    return GsonSerializationHelper.serializeDynamicModelProperty(this.get("loincId"), loincIdType);
   }
 
   /**
@@ -271,7 +271,7 @@ public class AttributeValueAnnotation extends DynamicModel {
    * @return
    */
   public String getVocabs() {
-	  return GsonSerializationHelper.serializeDynamicModelProperty(this.get("vocabs"), vocabsType);
+    return GsonSerializationHelper.serializeDynamicModelProperty(this.get("vocabs"), vocabsType);
   }
 
   /**
@@ -404,8 +404,8 @@ public class AttributeValueAnnotation extends DynamicModel {
    * @param concept the new concept
    */
   public void setConcept(final Concept concept) {
-	    this.put("concept", concept);
-	  }
+      this.put("concept", concept);
+    }
 
   /**
    * Sets the name.
@@ -423,10 +423,10 @@ public class AttributeValueAnnotation extends DynamicModel {
    *
    * */
   public CustomCollection getValues(int index) {
-	  List<Object> listObjects = GsonSerializationHelper.serializeDynamicModelProperty(this.get("values"), valuesType);
-	  CustomCollection customCollection = new CustomCollection();
-	  CustomCollection values = customCollection.convertToCustomCollection(listObjects.get(index));
-	  return values;
+    List<Object> listObjects = GsonSerializationHelper.serializeDynamicModelProperty(this.get("values"), valuesType);
+    CustomCollection customCollection = new CustomCollection();
+    CustomCollection values = customCollection.convertToCustomCollection(listObjects.get(index));
+    return values;
   }
 
 
@@ -456,7 +456,7 @@ public class AttributeValueAnnotation extends DynamicModel {
    * @param id the new icd 9 Code
    */
   public void setIcd9Code(final String icd9Code) {
-	this.put("icd9Code", icd9Code);
+  this.put("icd9Code", icd9Code);
   }
 
   /**
@@ -465,7 +465,7 @@ public class AttributeValueAnnotation extends DynamicModel {
    * @param id the new icd 10 code
    */
   public void setIcd10Code(final String icd10Code) {
-	  this.put("icd10Code", icd10Code);
+    this.put("icd10Code", icd10Code);
   }
 
   /**
@@ -474,7 +474,7 @@ public class AttributeValueAnnotation extends DynamicModel {
    * @param id the new snomed concept id
    */
   public void setSnomedConceptId(final String snomedConceptId) {
-	  this.put("snomedConceptId", snomedConceptId);
+    this.put("snomedConceptId", snomedConceptId);
   }
 
   /**
@@ -483,7 +483,7 @@ public class AttributeValueAnnotation extends DynamicModel {
    * @param id the new nci code
    */
   public void setNciCode(final String nciCode) {
-	  this.put("nciCode", nciCode);
+    this.put("nciCode", nciCode);
   }
 
   /**
@@ -492,7 +492,7 @@ public class AttributeValueAnnotation extends DynamicModel {
    * @param id the new mesh id
    */
   public void setMeshId(final String meshId) {
-	  this.put("meshId", meshId);
+    this.put("meshId", meshId);
   }
 
   /**
@@ -501,7 +501,7 @@ public class AttributeValueAnnotation extends DynamicModel {
    * @param id the new rx norm id
    */
   public void setRxNormId(final String rxNormId) {
-	  this.put("rxNormId", rxNormId);
+    this.put("rxNormId", rxNormId);
   }
 
   /**
@@ -510,7 +510,7 @@ public class AttributeValueAnnotation extends DynamicModel {
    * @param id the new loinc id
    */
   public void setLoincId(final String loincId) {
-	  this.put("loincId", loincId);
+    this.put("loincId", loincId);
   }
 
   /**
@@ -519,7 +519,7 @@ public class AttributeValueAnnotation extends DynamicModel {
    * @param id the new vocabs id
    */
   public void setVocabs(final String vocabs) {
-	  this.put("vocabs", vocabs);
+    this.put("vocabs", vocabs);
   }
 
   /**
@@ -528,7 +528,7 @@ public class AttributeValueAnnotation extends DynamicModel {
    * @param id the new cpt code
    */
   public void setCptCode(final String cptCode) {
-	  this.put("cptCode", cptCode);
+    this.put("cptCode", cptCode);
   }
 
   /**
@@ -541,4 +541,3 @@ public class AttributeValueAnnotation extends DynamicModel {
   }
 
 }
-

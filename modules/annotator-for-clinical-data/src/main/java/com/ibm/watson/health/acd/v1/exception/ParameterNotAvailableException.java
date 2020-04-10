@@ -24,20 +24,20 @@ package com.ibm.watson.health.acd.v1.exception;
 public class ParameterNotAvailableException extends RuntimeException {
 
 
-	/**
-	 *
-	 */
-	private static final long serialVersionUID = 1753483375901349174L;
+  /**
+   *
+   */
+  private static final long serialVersionUID = 1753483375901349174L;
 
-	/**
-	   * Instantiates a new Parameter Not Available Exception.
-	   *
-	   * @param message the error message
-	   */
+  /**
+     * Instantiates a new Parameter Not Available Exception.
+     *
+     * @param message the error message
+     */
 
-	public ParameterNotAvailableException(String message) {
-		super(message);
+  public ParameterNotAvailableException(String message) {
+    super(message);
 
-	}
+  }
 
 }

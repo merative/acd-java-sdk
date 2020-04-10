@@ -110,11 +110,11 @@ public class CancerDiagnosis extends DynamicModel {
    * @return the negated
    */
   public Boolean isNegated() {
-	  Boolean negated = GsonSerializationHelper.serializeDynamicModelProperty(this.get("negated"), negatedType);
-	  if (negated == null) {
-		  negated = false;
-	  }
-	  return negated;
+    Boolean negated = GsonSerializationHelper.serializeDynamicModelProperty(this.get("negated"), negatedType);
+    if (negated == null) {
+      negated = false;
+    }
+    return negated;
   }
 
   /**
@@ -123,11 +123,11 @@ public class CancerDiagnosis extends DynamicModel {
    * @return the hypothetical
    */
   public Boolean isHypothetical() {
-	  Boolean hypothetical = GsonSerializationHelper.serializeDynamicModelProperty(this.get("hypothetical"), hypotheticalType);
-	  if (hypothetical == null) {
-		  hypothetical = false;
-	  }
-	  return hypothetical;
+    Boolean hypothetical = GsonSerializationHelper.serializeDynamicModelProperty(this.get("hypothetical"), hypotheticalType);
+    if (hypothetical == null) {
+      hypothetical = false;
+    }
+    return hypothetical;
   }
 
   /**
@@ -311,10 +311,9 @@ public class CancerDiagnosis extends DynamicModel {
    * */
 
   public CustomCollection getCancer(int index) {
-	    List<Object> listCancer = GsonSerializationHelper.serializeDynamicModelProperty(this.get("cancer"), cancerType);
-	    CustomCollection customCollection = new CustomCollection();
-	    return customCollection.convertToCustomCollection(listCancer.get(0));
+      List<Object> listCancer = GsonSerializationHelper.serializeDynamicModelProperty(this.get("cancer"), cancerType);
+      CustomCollection customCollection = new CustomCollection();
+      return customCollection.convertToCustomCollection(listCancer.get(0));
 
-	  }
+    }
 }
-
