@@ -14,7 +14,7 @@
   <module name="FileLength">
     <property name="max" value="2500"/>
   </module>
-  <module name="FileTabCharacter"/>
+ <!-- <module name="FileTabCharacter"/> -->
 
   <!-- Trailing spaces -->
   <module name="RegexpSingleline">
