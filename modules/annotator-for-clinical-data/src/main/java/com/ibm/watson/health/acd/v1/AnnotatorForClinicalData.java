@@ -18,8 +18,6 @@ package com.ibm.watson.health.acd.v1;
 import java.util.Map;
 import java.util.Map.Entry;
 
-import javax.xml.ws.Response;
-
 import com.google.gson.JsonObject;
 import com.ibm.cloud.sdk.core.http.HttpConfigOptions;
 import com.ibm.cloud.sdk.core.http.HttpHeaders;
@@ -33,7 +31,7 @@ import com.ibm.cloud.sdk.core.security.NoAuthAuthenticator;
 import com.ibm.cloud.sdk.core.service.BaseService;
 import com.ibm.cloud.sdk.core.util.GsonSingleton;
 import com.ibm.cloud.sdk.core.util.ResponseConverterUtils;
-import com.ibm.cloud.sdk.core.util.Valdiator;
+import com.ibm.cloud.sdk.core.util.Validator;
 import com.ibm.cloud.whcs.common.SdkCommon;
 import com.ibm.watson.health.acd.v1.model.AcdFlow;
 import com.ibm.watson.health.acd.v1.model.AcdProfile;
