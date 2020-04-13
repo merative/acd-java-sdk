@@ -81,7 +81,7 @@ public class AnalyzeWithFlowOptions extends GenericModel {
       /**
        * Set the flowId.
        *
-       * @param flowId the flowId
+       * @param contentType the content type for request
        * @return the AnalyzeWithFlowOptions builder
        */
       public Builder contentType(String contentType) {
@@ -127,7 +127,7 @@ public class AnalyzeWithFlowOptions extends GenericModel {
       /**
        * Set the returnAnalyzedText.
        *
-       * @param flowId the flowId
+       * @param returnAnalyzedText whether to return the submitted text
        * @return the AnalyzeWithFlowOptions builder
        */
       public Builder returnAnalyzedText(boolean returnAnalyzedText) {

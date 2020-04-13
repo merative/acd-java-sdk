@@ -116,8 +116,8 @@ public class AnalyzeOptions extends GenericModel {
       /**
        * Set the returnAnalyzedText.
        *
-       * @param flowId the flowId
-       * @return the AnalyzeWithFlowOptions builder
+       * @param returnAnalyzedText whether to return the submitted text
+       * @return the AnalyzeOptionsbuilder
        */
       public Builder returnAnalyzedText(boolean returnAnalyzedText) {
           this.returnAnalyzedText = returnAnalyzedText;

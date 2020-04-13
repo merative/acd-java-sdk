@@ -331,7 +331,7 @@ public class ContainerAnnotation extends GenericModel {
 
     /**
      * Returns the spelling corrections.
-     * @return
+     * @return list of spelling corrections
      */
     public List<SpellingCorrection> getSpellingCorrections() {
       return spellingCorrections;

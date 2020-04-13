@@ -212,7 +212,7 @@ public class AttributeValueAnnotation extends DynamicModel {
 
   /**
    * Get icd9 code or null.
-   * @return
+   * @return the icd9 code
    */
   public String getIcd9Code() {
     return GsonSerializationHelper.serializeDynamicModelProperty(this.get("icd9Code"), icd9CodeType);
@@ -220,7 +220,7 @@ public class AttributeValueAnnotation extends DynamicModel {
 
   /**
    * Get icd10 code or null.
-   * @return
+   * @return t he icd10 code
    */
   public String getIcd10Code() {
     return GsonSerializationHelper.serializeDynamicModelProperty(this.get("icd10Code"), icd10CodeType);
@@ -228,7 +228,7 @@ public class AttributeValueAnnotation extends DynamicModel {
 
   /**
    * Get snomed code or null.
-   * @return
+   * @return the snomed identifier
    */
   public String getSnomedConceptId() {
     return GsonSerializationHelper.serializeDynamicModelProperty(this.get("snomedConceptId"), snomedConceptIdType);
@@ -236,7 +236,7 @@ public class AttributeValueAnnotation extends DynamicModel {
 
   /**
    * Get snomed nci code or null.
-   * @return
+   * @return the nci code
    */
   public String getNciCode() {
     return GsonSerializationHelper.serializeDynamicModelProperty(this.get("nciCode"), nciCodeType);
@@ -260,7 +260,7 @@ public class AttributeValueAnnotation extends DynamicModel {
 
   /**
    * Get Loinc id or null.
-   * @return
+   * @return the loinc identifier
    */
   public String getLoincId() {
     return GsonSerializationHelper.serializeDynamicModelProperty(this.get("loincId"), loincIdType);
@@ -268,7 +268,7 @@ public class AttributeValueAnnotation extends DynamicModel {
 
   /**
    * Get vocabularies or null.
-   * @return
+   * @return artifact vocabs
    */
   public String getVocabs() {
     return GsonSerializationHelper.serializeDynamicModelProperty(this.get("vocabs"), vocabsType);
@@ -453,7 +453,7 @@ public class AttributeValueAnnotation extends DynamicModel {
   /**
    * Sets the icd 9 code.
    *
-   * @param id the new icd 9 Code
+   * @param icd9Code the new icd 9 Code
    */
   public void setIcd9Code(final String icd9Code) {
   this.put("icd9Code", icd9Code);
@@ -462,7 +462,7 @@ public class AttributeValueAnnotation extends DynamicModel {
   /**
    * Sets the icd 10 code.
    *
-   * @param id the new icd 10 code
+   * @param icd10Code the new icd 10 code
    */
   public void setIcd10Code(final String icd10Code) {
     this.put("icd10Code", icd10Code);
@@ -471,7 +471,7 @@ public class AttributeValueAnnotation extends DynamicModel {
   /**
    * Sets the snomed concept id.
    *
-   * @param id the new snomed concept id
+   * @param snomedConceptId the new snomed concept id
    */
   public void setSnomedConceptId(final String snomedConceptId) {
     this.put("snomedConceptId", snomedConceptId);
@@ -480,7 +480,7 @@ public class AttributeValueAnnotation extends DynamicModel {
   /**
    * Sets the nci code.
    *
-   * @param id the new nci code
+   * @param nciCode the new nci code
    */
   public void setNciCode(final String nciCode) {
     this.put("nciCode", nciCode);
@@ -489,7 +489,7 @@ public class AttributeValueAnnotation extends DynamicModel {
   /**
    * Sets the mesh id.
    *
-   * @param id the new mesh id
+   * @param meshId the new mesh id
    */
   public void setMeshId(final String meshId) {
     this.put("meshId", meshId);
@@ -498,7 +498,7 @@ public class AttributeValueAnnotation extends DynamicModel {
   /**
    * Sets the rx norm id.
    *
-   * @param id the new rx norm id
+   * @param rxNormId the new rx norm id
    */
   public void setRxNormId(final String rxNormId) {
     this.put("rxNormId", rxNormId);
@@ -507,7 +507,7 @@ public class AttributeValueAnnotation extends DynamicModel {
   /**
    * Sets the loinc id.
    *
-   * @param id the new loinc id
+   * @param loincId the new loinc id
    */
   public void setLoincId(final String loincId) {
     this.put("loincId", loincId);
@@ -516,7 +516,7 @@ public class AttributeValueAnnotation extends DynamicModel {
   /**
    * Sets the vocabs.
    *
-   * @param id the new vocabs id
+   * @param vocabs the new vocabs id
    */
   public void setVocabs(final String vocabs) {
     this.put("vocabs", vocabs);
@@ -525,7 +525,7 @@ public class AttributeValueAnnotation extends DynamicModel {
   /**
    * Sets the cpt code.
    *
-   * @param id the new cpt code
+   * @param cptCode the new cpt code
    */
   public void setCptCode(final String cptCode) {
     this.put("cptCode", cptCode);
@@ -534,7 +534,7 @@ public class AttributeValueAnnotation extends DynamicModel {
   /**
    * Sets the disambiguation data.
    *
-   * @param id the new disambiguation data
+   * @param disambiguationData the new disambiguation data
    */
   public void setDisambiguationData(final Disambiguation disambiguationData) {
       this.put("disambiguationData", disambiguationData);

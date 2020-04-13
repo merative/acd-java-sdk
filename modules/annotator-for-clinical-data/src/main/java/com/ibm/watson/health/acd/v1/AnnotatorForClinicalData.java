@@ -77,7 +77,7 @@ public class AnnotatorForClinicalData extends BaseService {
      *                          use. Specifying this value will keep your API calls
      *                          from failing when the service introduces breaking
      *                          changes.
-     * @param httpClientOptions Customization of the HTTP Client If null = no HTTP
+     * @param httpConfigOptions Customization of the HTTP Client If null = no HTTP
      *                          client customization
      * @param auth              Authenticator to use for accessing environment
      * @param url               The ACD endpoint URL
@@ -438,7 +438,7 @@ public class AnnotatorForClinicalData extends BaseService {
      * @param text data to be analyzed
      * @param flow {@link Flow} analytics to apply to the text
      *
-     * @return the {@link Response<ContainerGroup>}
+     * @return the response with {@link ContainerGroup}
      */
 
     public Response<ContainerGroup> analyzeInclResponseDetails(final String text, final Flow flow) {
@@ -857,7 +857,7 @@ public class AnnotatorForClinicalData extends BaseService {
         /**
          * Builder http config options method to configure HTTP settings of the client.
          *
-         * @param val HTTP client configuration
+         * @param options HTTP client configuration
          * @return builder object with the http config options
          */
         public Builder httpConfigOptions(final HttpConfigOptions options) {

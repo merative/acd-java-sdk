@@ -39,7 +39,7 @@ public class CustomCollection extends CustomDeserializer {
 
   /**
    * Retrieves element within collection.
-   * @return
+   * @return json object
    */
   public JsonElement getObject() {
     return object;
@@ -47,13 +47,15 @@ public class CustomCollection extends CustomDeserializer {
 
   /**
    * Sets element within collection.
-   * @param tempobj
+   * @param tempobj object to add to collection
    */
   public void setObject(JsonElement tempobj) {
     this.object = tempobj;
   }
 
-  /** @param key
+  /** 
+   * Retrieves collection by key.
+   * @param key object key to retrieve
    *
    * @return the {@link CustomCollection}
    */
@@ -74,7 +76,9 @@ public class CustomCollection extends CustomDeserializer {
 
   }
 
-  /** @param key
+  /** 
+   * Retrieves collection by position.
+   * @param key object position to retrieve
    *
    * @return the {@link CustomCollection}
    */
@@ -97,9 +101,11 @@ public class CustomCollection extends CustomDeserializer {
 
   }
 
-  /** @param key
+  /** 
+   * Retrieve list of collections by key.
+   * @param key key for retrieval
    *
-   * @return the {@link List<CustomCollection>}
+   * @return the {@link <CustomCollection} list
    */
 
   public List<CustomCollection> getList(String key) throws ParameterNotAvailableException, IllegalMethodException {
@@ -130,7 +136,9 @@ public class CustomCollection extends CustomDeserializer {
 
   }
 
-  /** @param key
+  /** 
+   * Retrieves value for key.
+   * @param key value key
    *
    * @return the {@link String}
    */
@@ -150,9 +158,11 @@ public class CustomCollection extends CustomDeserializer {
 
   }
 
-  /** @param annotation
+  /** 
+   * Retrieves collection list for annotation list
+   * @param listAnnotation annotation list for retrieval
    *
-   * @return the {@link List<CustomCollection>}
+   * @return the {@link CustomCollection} list
    */
 
   public List<CustomCollection> convertToCustomCollectionList(List<Object> listAnnotation) {
@@ -170,7 +180,9 @@ public class CustomCollection extends CustomDeserializer {
     return lisCustomCollections;
   }
 
-  /** @param annotation
+  /** 
+   * Converts annotation to collection
+   * @param annotation annotation to convert
    *
    * @return the {@link CustomCollection}
    */

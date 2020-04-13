@@ -28,7 +28,7 @@ public class SectionTrigger extends GenericModel {
 
   /**
    * Get the trigger type.
-   * @return
+   * @return the trigger type
    */
   public String getType() {
     return type;
@@ -39,7 +39,7 @@ public class SectionTrigger extends GenericModel {
 
   /**
    * Get the trigger beginning offset.
-   * @return
+   * @return beginning offset
    */
   public String getBegin() {
     return begin;
@@ -50,7 +50,7 @@ public class SectionTrigger extends GenericModel {
 
   /**
    * Get the trigger ending offset.
-   * @return
+   * @return ending offset
    */
   public String getEnd() {
     return end;
@@ -61,7 +61,7 @@ public class SectionTrigger extends GenericModel {
 
   /**
    * Get the trigger text.
-   * @return
+   * @return covered text
    */
   public String getCoveredText() {
     return coveredText;
@@ -72,7 +72,7 @@ public class SectionTrigger extends GenericModel {
 
   /**
    * Get the trigger ontology source.
-   * @return
+   * @return the source
    */
   public String getSource() {
     return source;
@@ -83,7 +83,7 @@ public class SectionTrigger extends GenericModel {
 
   /**
    * Get the trigger section name.
-   * @return
+   * @return normalized section name
    */
   public String getSectionNormalizedName() {
     return sectionNormalizedName;

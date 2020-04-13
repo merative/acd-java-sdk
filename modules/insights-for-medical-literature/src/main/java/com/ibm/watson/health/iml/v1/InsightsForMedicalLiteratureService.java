@@ -22,9 +22,7 @@ import com.google.gson.JsonObject;
 import com.ibm.cloud.sdk.core.http.HttpConfigOptions;
 import com.ibm.cloud.sdk.core.http.RequestBuilder;
 import com.ibm.cloud.sdk.core.http.ResponseConverter;
-import com.ibm.cloud.sdk.core.http.Response;
 import com.ibm.cloud.sdk.core.http.ServiceCall;
-import com.ibm.cloud.sdk.core.security.Authenticator;
 import com.ibm.cloud.sdk.core.security.IamAuthenticator;
 import com.ibm.cloud.sdk.core.security.NoAuthAuthenticator;
 import com.ibm.cloud.sdk.core.service.BaseService;
@@ -1089,7 +1087,7 @@ public class InsightsForMedicalLiteratureService extends BaseService {
      * client.
      *
      * @param val the version date string as YYYY-MM-DD
-     * 
+     *
      * @return builder object with the version date
      */
     public Builder versionDate(final String val) {
@@ -1101,7 +1099,7 @@ public class InsightsForMedicalLiteratureService extends BaseService {
      * Builder url method to configure the URL of the IBM Access Manager.
      *
      * @param val the URL for Identry and Access Manager instance
-     * 
+     *
      * @return builder object with the IAM url
      */
     public Builder iamUrl(final String val) {
@@ -1113,7 +1111,7 @@ public class InsightsForMedicalLiteratureService extends BaseService {
      * Builder url method to configure the URL of the client.
      *
      * @param val the URL to the service instance
-     * 
+     *
      * @return builder object with the service url
      */
     public Builder url(final String val) {
@@ -1125,7 +1123,7 @@ public class InsightsForMedicalLiteratureService extends BaseService {
      * Builder http configuration options for establishing a connection.
      *
      * @param options the http config options
-     * 
+     *
      * @return builder object with the options
      */
     public Builder httpConfigOptions(final HttpConfigOptions options) {
@@ -1137,7 +1135,7 @@ public class InsightsForMedicalLiteratureService extends BaseService {
      * Builder apikey method to set the authentication key.
      *
      * @param val the apikey for the instance
-     * 
+     *
      * @return buidler object with the apikey
      */
     public Builder apikey(final String val) {
@@ -1147,7 +1145,7 @@ public class InsightsForMedicalLiteratureService extends BaseService {
 
     /**
      * Builder build method to create the client based on configuration settings.
-     * 
+     *
      * @return service instance
      */
     public InsightsForMedicalLiteratureService build() {
