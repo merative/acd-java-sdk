@@ -395,9 +395,7 @@ public class AnnotatorForClinicalData extends BaseService {
      *
      * Returns OK (HTTP 200) if service running ok; else 500
      *
-     *
-     * @param getHealthCheckOptions the {@link GetHealthCheckOptions} containing the
-     *                              options for the call
+     * @param getHealthCheckOptions the {@link GetHealthCheckOptions} containing the options for the call
      * @return the {@link ListStringWrapper} with the response
      */
     public ServiceCall<String> getHealthCheck(final GetHealthCheckOptions getHealthCheckOptions) {
@@ -418,7 +416,7 @@ public class AnnotatorForClinicalData extends BaseService {
 
     /**
      * Method to analyze text with a manually defined annotator flow.
-     * 
+     *
      * @param text data to be analyzed
      * @param flow {@link Flow} analytics to apply to the text
      *
@@ -436,7 +434,7 @@ public class AnnotatorForClinicalData extends BaseService {
 
     /**
      * Method to analyze text with a manually defined annotator flow.
-     * 
+     *
      * @param text data to be analyzed
      * @param flow {@link Flow} analytics to apply to the text
      *
@@ -454,7 +452,7 @@ public class AnnotatorForClinicalData extends BaseService {
 
     /**
      * Method to analyze text with a manually defined annotator flow.
-     * 
+     *
      * @param text data to be analyzed
      * @param flow analytics to appply to the text {@link Flow}
      * @param returnAnalyzedText where to return the submitted data
@@ -473,7 +471,7 @@ public class AnnotatorForClinicalData extends BaseService {
 
     /**
      * Method to analyze text with a manually defined annotator flow.
-     * 
+     *
      * @param text data to be analyzed
      * @param flow  analytics to appply to the text {@link Flow}
      * @param returnAnalyzedText where to return the submitted data
@@ -493,7 +491,7 @@ public class AnnotatorForClinicalData extends BaseService {
 
     /**
      * Method to analyze text with an existing annotator flow.
-     * 
+     *
      * @param flowId identifier of existing analytic flow to apply to the text
      * @param text data to be analyzed
      *
@@ -509,7 +507,7 @@ public class AnnotatorForClinicalData extends BaseService {
 
     /**
      * Method to analyze text with an existing annotator flow.
-     * 
+     *
      * @param flowId identifier of existing analytic flow to apply to the text
      * @param text data to be analyzed
      *
@@ -525,7 +523,7 @@ public class AnnotatorForClinicalData extends BaseService {
 
     /**
      * Method to analyze text with an existing annotator flow.
-     * 
+     *
      * @param flowId identifier of existing analytic flow to apply to the text
      * @param text data to be analyzed
      * @param returnAnalyzedText where to return the submitted data
@@ -542,7 +540,7 @@ public class AnnotatorForClinicalData extends BaseService {
 
     /**
      * Method to analyze text with an existing annotator flow.
-     * 
+     *
      * @param flowId identifier of existing analytic flow to apply to the text
      * @param text data to be analyzed
      * @param returnAnalyzedText where to return the submitted data
@@ -560,7 +558,7 @@ public class AnnotatorForClinicalData extends BaseService {
 
     /**
      * Method to analyze text with an existing annotator flow.
-     * 
+     *
      * @param flowId identifier of existing analytic flow to apply to the text
      * @param unstructuredContainer {@link UnstructuredContainer} discovered cogntive artifacts
      *
@@ -579,7 +577,7 @@ public class AnnotatorForClinicalData extends BaseService {
 
     /**
      * Method to analyze text with an existing annotator flow.
-     * 
+     *
      * @param flowId identifier of existing analytic flow to apply to the text
      * @param unstructuredContainer {@link UnstructuredContainer} discovered cogntive artifacts
      *
@@ -599,7 +597,7 @@ public class AnnotatorForClinicalData extends BaseService {
 
     /**
      * Method to analyze text with an existing annotator flow.
-     * 
+     *
      * @param flowId identifier of existing analytic flow to apply to the text
      * @param unstructuredContainer {@link UnstructuredContainer}
      * @param returnAnalyzedText where to return the submitted data
@@ -620,7 +618,7 @@ public class AnnotatorForClinicalData extends BaseService {
 
     /**
      * Method to analyze text with an existing annotator flow.
-     * 
+     *
      * @param flowId identifier of existing analytic flow to apply to the text
      * @param unstructuredContainer {@link UnstructuredContainer}
      * @param returnAnalyzedText where to return the submitted data
@@ -641,7 +639,7 @@ public class AnnotatorForClinicalData extends BaseService {
 
     /**
      * Method to get an annotator description.
-     * 
+     *
      * @param annotator name of an existing annotator
      *
      * @return the {@link Annotator} annotator description
@@ -655,7 +653,7 @@ public class AnnotatorForClinicalData extends BaseService {
 
     /**
      * Method to get an annotator description.
-     * 
+     *
      * @param annotator  name of an existing annotator
      *
      * @return the response with result representing {@link Annotator}
@@ -669,7 +667,7 @@ public class AnnotatorForClinicalData extends BaseService {
 
     /**
      * Method to get a list of existing annotators.
-     * 
+     *
      * @return the list of existing annotators
      */
     public String listAnnotators() {
@@ -680,7 +678,7 @@ public class AnnotatorForClinicalData extends BaseService {
 
     /**
      * Method to get a list of existing annotators.
-     * 
+     *
      * @return the reponse with result listing existing annotators
      */
     public Response<String> listAnnotatorsInclResponseDetails() {
@@ -691,7 +689,7 @@ public class AnnotatorForClinicalData extends BaseService {
 
     /**
      * Method to get an existing flow definition.
-     * 
+     *
      * @param id identifier of existing analytic flow that can be applied to text
      *
      * @return the {@link AcdFlow} flow definition
@@ -717,7 +715,7 @@ public class AnnotatorForClinicalData extends BaseService {
 
     /**
      * Method to get list of existing flows.
-     * 
+     *
      * @return list of existing flows
      */
     public String getFlows() {
@@ -728,7 +726,7 @@ public class AnnotatorForClinicalData extends BaseService {
 
     /**
      * Method to get list of existing flows.
-     * 
+     *
      * @return reponse with result containing list of existing flows
      */
     public Response<String> getFlowsInclResponseDetails() {
@@ -752,7 +750,7 @@ public class AnnotatorForClinicalData extends BaseService {
 
     /**
      * Method to get an existing profile defintion.
-     * 
+     *
      * @param id identifier of existing analytic profile with one or flows
      *
      * @return the response with resuilt representing {@link AcdProfile}
@@ -765,7 +763,7 @@ public class AnnotatorForClinicalData extends BaseService {
 
     /**
      * Method to get a list of existing profiles.
-     * 
+     *
      * @return list of existing profiles
      */
     public String getProfiles() {
@@ -776,7 +774,7 @@ public class AnnotatorForClinicalData extends BaseService {
 
     /**
      * Method to get a list of existing profiles.
-     * 
+     *
      * @return the response with result containing list of existing profiles
      */
     public Response<String> getProfilesInclResponseDetails() {
@@ -787,7 +785,7 @@ public class AnnotatorForClinicalData extends BaseService {
 
     /**
      * Method to get the current service state.
-     * 
+     *
      * @return the service state 
      */
     public String getHealthCheck() {
@@ -798,7 +796,7 @@ public class AnnotatorForClinicalData extends BaseService {
 
     /**
      * Method to get teh current service state.
-     * 
+     *
      * @return resposne with result containing the service state
      */
     public Response<String> getHealthCheckInclResponseDetails() {
@@ -809,7 +807,7 @@ public class AnnotatorForClinicalData extends BaseService {
 
     /**
      * Check for Watson Service credentials.
-     * 
+     *
      * @param parm url param
      * @return credential or date string
      */
@@ -819,7 +817,7 @@ public class AnnotatorForClinicalData extends BaseService {
 
     /**
      * Check for Watson Service credential.
-     * 
+     *
      * @param parm url param
      * @return credential or url
      */
@@ -902,7 +900,7 @@ public class AnnotatorForClinicalData extends BaseService {
 
         /**
          * Builder build method to create the client based on configuration settings.
-         * 
+         *
          * @return service instance
          */
         public AnnotatorForClinicalData build() {
