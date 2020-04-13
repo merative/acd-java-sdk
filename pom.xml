@@ -39,7 +39,7 @@
   	<git-repository-name>whcs-java-sdk</git-repository-name>
 
         <testng-version>7.1.0</testng-version>
-        <okhttp3-version>3.13.1</okhttp3-version>
+        <okhttp3-version>4.5.0</okhttp3-version>
         <surefire-version>3.0.0-M3</surefire-version>
         <jacoco-plugin-version>0.8.5</jacoco-plugin-version>
         <maven-source-plugin-version>3.1.0</maven-source-plugin-version>
