@@ -16,6 +16,7 @@
 package com.ibm.watson.health.iml.v1;
 
 import java.util.Map;
+import java.util.Map.Entry;
 
 import com.google.gson.JsonObject;
 import com.ibm.cloud.sdk.core.http.HttpConfigOptions;
