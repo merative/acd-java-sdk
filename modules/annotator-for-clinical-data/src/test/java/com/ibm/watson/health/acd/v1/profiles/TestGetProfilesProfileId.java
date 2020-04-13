@@ -68,7 +68,7 @@ public class TestGetProfilesProfileId extends WatsonServiceTest {
 		for (Annotator annotator : annotators) {
 			Assert.assertNotNull(annotator.name());
 			Assert.assertNull(annotator.description());
-			Assert.assertNotNull(annotator.configurations());
+			Assert.assertNull(annotator.configurations());
 		}
 	}
 
@@ -86,7 +86,7 @@ public class TestGetProfilesProfileId extends WatsonServiceTest {
 		for (Annotator annotator : annotators) {
 			Assert.assertNotNull(annotator.name());
 			Assert.assertNull(annotator.description());
-			Assert.assertNull(annotator.configurations());
+			Assert.assertNotNull(annotator.configurations());
 		}
 	}
 
@@ -124,7 +124,7 @@ public class TestGetProfilesProfileId extends WatsonServiceTest {
 		for (Annotator annotator : annotators) {
 			Assert.assertNotNull(annotator.name());
 			Assert.assertNull(annotator.description());
-			Assert.assertNull(annotator.configurations());
+			Assert.assertNotNull(annotator.configurations());
 		}
 	}
 
