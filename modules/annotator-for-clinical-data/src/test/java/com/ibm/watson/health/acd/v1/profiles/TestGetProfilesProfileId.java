@@ -68,7 +68,7 @@ public class TestGetProfilesProfileId extends WatsonServiceTest {
 		for (Annotator annotator : annotators) {
 			Assert.assertNotNull(annotator.name());
 			Assert.assertNull(annotator.description());
-			Assert.assertNull(annotator.configurations());
+			Assert.assertNotNull(annotator.configurations());
 		}
 	}
 
@@ -80,7 +80,7 @@ public class TestGetProfilesProfileId extends WatsonServiceTest {
 		Assert.assertNotNull(profile);
 		Assert.assertEquals(profile.getId(), Constants.PROFILE_ID);
 		Assert.assertNotNull(profile.getName());
-		Assert.assertNull(profile.getDescription());
+		Assert.assertNotNull(profile.getDescription());
 		List<Annotator> annotators = profile.getAnnotators();
 		Assert.assertNotNull(annotators);
 		for (Annotator annotator : annotators) {
@@ -98,7 +98,7 @@ public class TestGetProfilesProfileId extends WatsonServiceTest {
 		Assert.assertNotNull(profile);
 		Assert.assertEquals(profile.getId(), Constants.PROFILE_ID);
 		Assert.assertNotNull(profile.getName());
-		Assert.assertNull(profile.getDescription());
+		Assert.assertNotNull(profile.getDescription());
 		List<Annotator> annotators = profile.getAnnotators();
 		Assert.assertNotNull(annotators);
 		for (Annotator annotator : annotators) {
@@ -118,7 +118,7 @@ public class TestGetProfilesProfileId extends WatsonServiceTest {
 		Assert.assertNotNull(profile);
 		Assert.assertEquals(profile.getId(), Constants.PROFILE_ID);
 		Assert.assertNotNull(profile.getName());
-		Assert.assertNull(profile.getDescription());
+		Assert.assertNotNull(profile.getDescription());
 		List<Annotator> annotators = profile.getAnnotators();
 		Assert.assertNotNull(annotators);
 		for (Annotator annotator : annotators) {
