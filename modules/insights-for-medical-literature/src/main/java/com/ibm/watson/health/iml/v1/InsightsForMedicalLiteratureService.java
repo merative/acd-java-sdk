@@ -31,7 +31,7 @@ import com.ibm.cloud.sdk.core.util.GsonSingleton;
 import com.ibm.cloud.sdk.core.util.RequestUtils;
 import com.ibm.cloud.sdk.core.util.ResponseConverterUtils;
 import com.ibm.cloud.sdk.core.util.Validator;
-import com.ibm.cloud.whcs.SdkCommon;
+import om.ibm.cloud.whcs.common.SdkCommon;
 import com.ibm.watson.health.iml.v1.model.AddArtifactOptions;
 import com.ibm.watson.health.iml.v1.model.AddCorpusDocumentOptions;
 import com.ibm.watson.health.iml.v1.model.AnnotationsModel;
