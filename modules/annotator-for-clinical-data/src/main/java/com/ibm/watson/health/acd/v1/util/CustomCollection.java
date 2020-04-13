@@ -53,7 +53,7 @@ public class CustomCollection extends CustomDeserializer {
     this.object = tempobj;
   }
 
-  /** 
+  /**
    * Retrieves collection by key.
    * @param key object key to retrieve
    *
@@ -76,7 +76,7 @@ public class CustomCollection extends CustomDeserializer {
 
   }
 
-  /** 
+  /**
    * Retrieves collection by position.
    * @param key object position to retrieve
    *
@@ -101,11 +101,11 @@ public class CustomCollection extends CustomDeserializer {
 
   }
 
-  /** 
+  /**
    * Retrieve list of collections by key.
    * @param key key for retrieval
    *
-   * @return the {@link <CustomCollection} list
+   * @return the {@link CustomCollection} list
    */
 
   public List<CustomCollection> getList(String key) throws ParameterNotAvailableException, IllegalMethodException {
@@ -136,7 +136,7 @@ public class CustomCollection extends CustomDeserializer {
 
   }
 
-  /** 
+  /**
    * Retrieves value for key.
    * @param key value key
    *
@@ -158,8 +158,8 @@ public class CustomCollection extends CustomDeserializer {
 
   }
 
-  /** 
-   * Retrieves collection list for annotation list
+  /**
+   * Retrieves collection list for annotation list.
    * @param listAnnotation annotation list for retrieval
    *
    * @return the {@link CustomCollection} list
@@ -180,8 +180,8 @@ public class CustomCollection extends CustomDeserializer {
     return lisCustomCollections;
   }
 
-  /** 
-   * Converts annotation to collection
+  /**
+   * Converts annotation to collection.
    * @param annotation annotation to convert
    *
    * @return the {@link CustomCollection}
