@@ -702,7 +702,7 @@ public class AnnotatorForClinicalData extends BaseService {
 
     /**
      * Method to get an existing flow definition.
-     * 
+     *
      * @param id identifier of existing analytic flow that can be applied to text
      *
      * @return the resposne with result representing {@link AcdFlow}
@@ -737,7 +737,7 @@ public class AnnotatorForClinicalData extends BaseService {
 
     /**
      * Method to get an existing profile definition.
-     * 
+     *
      * @param id identifier of existing analytic profile with one or flows
      *
      * @return the {@link AcdProfile} profile definition
@@ -786,7 +786,7 @@ public class AnnotatorForClinicalData extends BaseService {
     /**
      * Method to get the current service state.
      *
-     * @return the service state 
+     * @return the service state
      */
     public String getHealthCheck() {
         GetHealthCheckOptions getHealthCheckOptions = new GetHealthCheckOptions.Builder().build();
