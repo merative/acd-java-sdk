@@ -92,35 +92,13 @@
         <url>https://github.ibm.com/IBM/whcs-java-sdk/issues</url>
     </issueManagement>
 
-    <!-- >>> Update these values to reflect your project >
-    <ciManagement>
-        <system>Travis-CI</system>
-        <url>https://travis.ibm.com/CloudEngineering/java-sdk-template/</url>
-    </ciManagement>
-
-    <repositories>
-        <repository>
-            <id>na-artifactory-ibmcloud-sdks</id>
-            <url>https://na.artifactory.swg-devops.com:443/artifactory/wcp-ibmcloud-sdks-team-maven-local/</url>
-        </repository>
-
-        <repository>
-            <id>jcenter</id>
-            <url>https://jcenter.bintray.com/</url>
-        </repository>
-    </repositories-->
-
-    <!-- >>> Update this section to reflect where you will be deploying your project jars >
+    <!-- we use the travis providers for deployment so don't need to specify repositories here -->
     <distributionManagement>
-        <repository>
-            <id>na-artifactory-ibmcloud-sdks</id>
-            <url>https://na.artifactory.swg-devops.com:443/artifactory/wcp-ibmcloud-sdks-team-maven-local</url>
-        </repository>
-        <snapshotRepository>
-            <id>na-artifactory-sdkcodegen</id>
-            <url>https://na.artifactory.swg-devops.com:443/artifactory/wcp-ibmcloud-sdks-team-maven-local</url>
-        </snapshotRepository>
-    </distributionManagement-->
+    </distributionManagement>
+
+    <!-- we currently don't need any non-public repositories -->
+    <repositories>
+    </repositories>
 
     <dependencyManagement>
         <dependencies>
