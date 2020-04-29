@@ -7,7 +7,7 @@
   <name>annotator-for-clinical-data</name>
   <url>http://maven.apache.org</url>
   <parent>
-    <groupId>com.ibm.watson.health.cognitive_services</groupId>
+    <groupId>com.ibm.watson.health.cognitive-services</groupId>
     <artifactId>ibm-whcs-services</artifactId>
     <version>1.0.1-SNAPSHOT</version>
     <relativePath>../../pom.xml</relativePath>
