@@ -27,7 +27,7 @@ To define a dependency on the entire set of services contained in the project, u
 
 ```xml
 <dependency>
-	<groupId>com.ibm.watson.health.cognitive_services</groupId>
+	<groupId>com.ibm.watson.health.cognitive-services</groupId>
 	<artifactId>ibm-whcs-services</artifactId>
 	<version>0.0.1</version>
 </dependency>
@@ -36,7 +36,7 @@ To define a dependency on the entire set of services contained in the project, u
 ##### Gradle
 
 ```gradle
-'com.ibm.watson.health.cognitive_services:ibm-whcs-services:0.0.1'
+'com.ibm.watson.health.cognitive-services:ibm-whcs-services:0.0.1'
 ```
 
 #### A single service
@@ -46,7 +46,7 @@ To define a dependency on a single service, use a dependency that contains the a
 
 ```xml
 <dependency>
-    <groupId>com.ibm.watson.health.cognitive_services</groupId>
+    <groupId>com.ibm.watson.health.cognitive-services</groupId>
     <artifactId>annotator-for-clinical-data</artifactId>
     <version>0.0.1</version>
 </dependency>
@@ -54,7 +54,7 @@ To define a dependency on a single service, use a dependency that contains the a
 
 ##### Gradle
 ```gradle
-'com.ibm.watson.health.cognitive_services:annotator-for-clinical-data:0.0.1'
+'com.ibm.watson.health.cognitive-services:annotator-for-clinical-data:0.0.1'
 ```
 Each service's artifact id is listed in the table of services above.
 
