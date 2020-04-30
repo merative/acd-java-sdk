@@ -12,7 +12,7 @@
     <url>https://github.com/IBM/whcs-java-sdk</url>
 
     <groupId>com.ibm.watson.health.cognitive-services</groupId>
-    <version>1.0.1-SNAPSHOT</version>
+    <version>0.0.2-SNAPSHOT</version>
     <packaging>pom</packaging>
 
     <developers>
