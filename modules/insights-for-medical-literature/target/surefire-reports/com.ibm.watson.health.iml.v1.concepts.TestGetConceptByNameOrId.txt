@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: com.ibm.watson.health.iml.v1.concepts.TestGetConceptByNameOrId
+-------------------------------------------------------------------------------
+Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 5.856 sec

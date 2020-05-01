@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../jacoco-resources/report.gif" type="image/gif"/><title>HttpClientOptions.java</title><link rel="stylesheet" href="../../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../../index.html" class="el_report">IBM Watson Health Cognitive Services Coverage Reports</a> &gt; <a href="../index.html" class="el_bundle">insights-for-medical-literature</a> &gt; <a href="index.source.html" class="el_package">com.ibm.watson.health.iml.v1.util</a> &gt; <span class="el_source">HttpClientOptions.java</span></div><h1>HttpClientOptions.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2018, 2020 IBM Corp. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the &quot;License&quot;); you may not use this file except in compliance with
+ * the License. You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on
+ * an &quot;AS IS&quot; BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the
+ * specific language governing permissions and limitations under the License.
+ */
+package com.ibm.watson.health.iml.v1.util;
+
+/**
+ * Options for customizing the HttpClient.  The available HttpClient options provided by this class are:
+ * 1. Trust All Certificates
+ * 2. Keystore Provided (containing your client certificate and private key)
+ * NOTE:  These options default to 'false' if not set.
+ *
+ * Trust All Certificates:  By default, SSL certificate verification is performed using a CA certificate store.  Ensuring
+ * that the certificate is signed by a CA that is present in the store is how to verify that the remote server is who it claims
+ * it is.  In the case of self-signed certificates, the server is using a certificate that may not be signed by one of the
+ * CAs in the store.  In this case, attempting to establish a connection to the server will result in an SSLHandshakeException.
+ * By configuring your HTTP Client options with 'trust all certificates' is one way to deal with self-signed certificates.
+ * NOTE:  This mode is considered insecure with the possibility for a man-in-the-middle attack.
+ *
+ * Usage Example: HttpClientOptions httpOptions = new HttpClientOptions.Builder().trustAllCertificates(true).build();
+ *
+ * Keystore Provided:  If the endpoint that you are connecting to has Mutual TLS configured, as a Java client, you will be
+ * required to provide a keystore.  The keystore will need to contain your client certificate and private key.  For reference, a
+ * PKCS12 keystore can be created using the 'openssl' utility:
+ *
+ * openssl pkcs12 -export -in &lt;file_containing_your_client_certificate&gt; -inkey &lt;file_containing_your_private_key&gt;
+ *     -out &lt;desired_keystore_filename.p12&gt;
+ *
+ * The keystore file, keystore password, and keystore type can be configured one of two ways:
+ * 1. System properties
+ *       -Djavax.net.ssl.keyStore=&lt;your_keystore_filename&gt;
+ *       -Djavax.net.ssl.keyStorePassword=&lt;your_keystore_password&gt;
+ *       -Djavax.net.ssl.keyStoreType=&lt;your_keystore_type&gt;
+ * 2. HttpClientOptions.Builder keyStoreFile(), keyStorePassword(), and keyStoreType() methods
+ * NOTE:  When customizing your HttpClient with a keystore, the Builder keyStoreProvided() method must be set to 'true'.
+ *
+ * Usage Example: HttpClientOptions httpOptions = new HttpClientOptions.Builder().keyStoreProvided(true).build()
+ * =&gt; In this example, keyStoreProvided() is 'true', and since the Builder's keyStoreFile(),  keyStorePassword(), and
+ * keyStoreType()  were not included, the code will look in the system properties for the keyStoreFile, keyStorePassword,
+ * and keyStoreType.
+ *
+ */
+public class HttpClientOptions {
+    private final boolean trustAllCertificates;
+    private final boolean keyStoreProvided;
+    private final String keyStoreFile;
+    private final String keyStoreType;
+    private final String keyStorePass;
+
+    /**
+     * Check if trustAllCertificates is set.
+     *
+     * @return true or false
+     */
+    public boolean isTrustAllCertificates() {
+<span class="nc" id="L64">        return trustAllCertificates;</span>
+    }
+
+    /**
+     * Check if keyStore is provided.
+     *
+     * @return true or false
+     */
+    public boolean isKeyStoreProvided() {
+<span class="nc" id="L73">        return keyStoreProvided;</span>
+    }
+
+    /**
+     * Get the name of the keyStoreFile.
+     *
+     * @return name of keyStore file
+     */
+    public String getKeyStoreFile() {
+<span class="nc" id="L82">        return keyStoreFile;</span>
+    }
+
+    /**
+     * Get the keyStore type.
+     *
+     * @return the keyStore type, i.e &quot;PKCS12&quot;
+     */
+
+    public String getKeyStoreType() {
+<span class="nc" id="L92">        return keyStoreType;</span>
+    }
+
+    /**
+     * Get the keyStore password.
+     *
+     * @return keyStore password
+     */
+    public String getKeyStorePass() {
+<span class="nc" id="L101">        return keyStorePass;</span>
+    }
+
+    /**
+     * Builder.
+     */
+    public static final class Builder {
+<span class="nc" id="L108">        private boolean trustAllCertificates = false;</span>
+<span class="nc" id="L109">        private boolean keyStoreProvided = false;</span>
+<span class="nc" id="L110">        private String keyStoreFile = null;</span>
+<span class="nc" id="L111">        private String keyStoreType = null;</span>
+<span class="nc" id="L112">        private String keyStorePass = null;</span>
+
+<span class="nc" id="L114">        public Builder() {</span>
+<span class="nc" id="L115">        }</span>
+
+        public Builder trustAllCertificates(boolean val) {
+<span class="nc" id="L118">            this.trustAllCertificates = val;</span>
+<span class="nc" id="L119">            return this;</span>
+        }
+
+        public Builder keyStoreProvided(boolean val) {
+<span class="nc" id="L123">            this.keyStoreProvided = val;</span>
+<span class="nc" id="L124">            return this;</span>
+        }
+
+        public Builder keyStoreFile(String keyStoreFile) {
+            // Name of the file including path
+<span class="nc" id="L129">            this.keyStoreFile = keyStoreFile;</span>
+<span class="nc" id="L130">            return this;</span>
+        }
+
+        public Builder keyStoreType(String keyStoreType) {
+            // For example, &quot;PKCS12&quot;
+<span class="nc" id="L135">            this.keyStoreType = keyStoreType;</span>
+<span class="nc" id="L136">            return this;</span>
+        }
+
+        public Builder keyStorePassword(String keyStorePass) {
+<span class="nc" id="L140">            this.keyStorePass = keyStorePass;</span>
+<span class="nc" id="L141">            return this;</span>
+        }
+
+        public HttpClientOptions build() {
+<span class="nc" id="L145">            return new HttpClientOptions(this);</span>
+        }
+    }
+
+<span class="nc" id="L149">    private HttpClientOptions(Builder builder) {</span>
+<span class="nc" id="L150">        this.trustAllCertificates = builder.trustAllCertificates;</span>
+<span class="nc" id="L151">        this.keyStoreProvided = builder.keyStoreProvided;</span>
+<span class="nc" id="L152">        this.keyStoreFile = builder.keyStoreFile;</span>
+<span class="nc" id="L153">        this.keyStoreType = builder.keyStoreType;</span>
+<span class="nc" id="L154">        this.keyStorePass = builder.keyStorePass;</span>
+<span class="nc" id="L155">    }</span>
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>

@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../jacoco-resources/report.gif" type="image/gif"/><title>Flow.java</title><link rel="stylesheet" href="../../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../../index.html" class="el_report">IBM Watson Health Cognitive Services Coverage Reports</a> &gt; <a href="../index.html" class="el_bundle">annotator-for-clinical-data</a> &gt; <a href="index.source.html" class="el_package">com.ibm.watson.health.acd.v1.model</a> &gt; <span class="el_source">Flow.java</span></div><h1>Flow.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2018 IBM Corp. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the &quot;License&quot;); you may not use this file except in compliance with
+ * the License. You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on
+ * an &quot;AS IS&quot; BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the
+ * specific language governing permissions and limitations under the License.
+ */
+package com.ibm.watson.health.acd.v1.model;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import com.ibm.watson.developer_cloud.service.model.GenericModel;
+import com.ibm.watson.developer_cloud.util.Validator;
+
+
+/**
+ * Flow.
+ */
+public class Flow extends GenericModel {
+
+  private List&lt;FlowEntry&gt; elements;
+<span class="fc" id="L28">  private Boolean async = true;</span>
+
+  /**
+   * Builder.
+   */
+  public static class Builder {
+    private List&lt;FlowEntry&gt; elements;
+    private Boolean async;
+
+<span class="fc" id="L37">    private Builder(Flow flow) {</span>
+<span class="fc" id="L38">      elements = flow.elements;</span>
+<span class="fc" id="L39">      async = flow.async;</span>
+<span class="fc" id="L40">    }</span>
+
+    /**
+     * Instantiates a new builder.
+     */
+<span class="fc" id="L45">    public Builder() {</span>
+<span class="fc" id="L46">    }</span>
+
+    /**
+     * Builds a Flow.
+     *
+     * @return the flow
+     */
+    public Flow build() {
+<span class="fc" id="L54">      return new Flow(this);</span>
+    }
+
+    /**
+     * Adds an elements to elements.
+     *
+     * @param elements the new elements
+     * @return the Flow builder
+     */
+    public Builder addElements(FlowEntry elements) {
+<span class="fc" id="L64">      Validator.notNull(elements, &quot;elements cannot be null&quot;);</span>
+<span class="pc bpc" id="L65" title="1 of 2 branches missed.">      if (this.elements == null) {</span>
+<span class="fc" id="L66">        this.elements = new ArrayList&lt;FlowEntry&gt;();</span>
+      }
+<span class="fc" id="L68">      this.elements.add(elements);</span>
+<span class="fc" id="L69">      return this;</span>
+    }
+
+    /**
+     * Set the elements.
+     * Existing elements will be replaced.
+     *
+     * @param elements the elements
+     * @return the Flow builder
+     */
+    public Builder elements(List&lt;FlowEntry&gt; elements) {
+<span class="fc" id="L80">      this.elements = elements;</span>
+<span class="fc" id="L81">      return this;</span>
+    }
+
+    /**
+     * Set the async.
+     *
+     * @param async the async
+     * @return the Flow builder
+     */
+    public Builder async(Boolean async) {
+<span class="fc" id="L91">      this.async = async;</span>
+<span class="fc" id="L92">      return this;</span>
+    }
+  }
+
+<span class="fc" id="L96">  private Flow(Builder builder) {</span>
+<span class="fc" id="L97">    elements = builder.elements;</span>
+<span class="fc" id="L98">    async = builder.async;</span>
+<span class="fc" id="L99">  }</span>
+
+  /**
+   * New builder.
+   *
+   * @return a Flow builder
+   */
+  public Builder newBuilder() {
+<span class="fc" id="L107">    return new Builder(this);</span>
+  }
+
+  /**
+   * Gets the elements.
+   *
+   * @return the elements
+   */
+  public List&lt;FlowEntry&gt; elements() {
+<span class="fc" id="L116">    return elements;</span>
+  }
+
+  /**
+   * Gets the async.
+   *
+   * @return the async
+   */
+  public Boolean async() {
+<span class="nc" id="L125">    return async;</span>
+  }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>

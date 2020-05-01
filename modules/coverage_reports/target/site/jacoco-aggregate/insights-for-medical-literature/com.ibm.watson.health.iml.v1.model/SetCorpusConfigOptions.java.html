@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../jacoco-resources/report.gif" type="image/gif"/><title>SetCorpusConfigOptions.java</title><link rel="stylesheet" href="../../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../../index.html" class="el_report">IBM Watson Health Cognitive Services Coverage Reports</a> &gt; <a href="../index.html" class="el_bundle">insights-for-medical-literature</a> &gt; <a href="index.source.html" class="el_package">com.ibm.watson.health.iml.v1.model</a> &gt; <span class="el_source">SetCorpusConfigOptions.java</span></div><h1>SetCorpusConfigOptions.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2018 IBM Corp. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
+ * you may not use this file except in compliance with
+ * the License. You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing,
+ * software distributed under the License is distributed on
+ * an &quot;AS IS&quot; BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND,
+ * either express or implied. See the License for the
+ * specific language governing permissions and limitations under the License.
+ */
+package com.ibm.watson.health.iml.v1.model;
+
+import com.ibm.cloud.sdk.core.service.model.GenericModel;
+
+/**
+ * The setCorpusConfig options.
+ */
+public class SetCorpusConfigOptions extends GenericModel {
+
+  private String userName;
+  private String password;
+  private String corpusURI;
+
+  /**
+   * Builder.
+   */
+  public static class Builder {
+    private String userName;
+    private String password;
+    private String corpusURI;
+
+<span class="nc" id="L37">    private Builder(SetCorpusConfigOptions setCorpusConfigOptions) {</span>
+<span class="nc" id="L38">      this.userName = setCorpusConfigOptions.userName;</span>
+<span class="nc" id="L39">      this.password = setCorpusConfigOptions.password;</span>
+<span class="nc" id="L40">      this.corpusURI = setCorpusConfigOptions.corpusURI;</span>
+<span class="nc" id="L41">    }</span>
+
+    /**
+     * Instantiates a new builder.
+     */
+<span class="fc" id="L46">    public Builder() {</span>
+<span class="fc" id="L47">    }</span>
+
+    /**
+     * Builds a SetCorpusConfigOptions.
+     *
+     * @return the setCorpusConfigOptions
+     */
+    public SetCorpusConfigOptions build() {
+<span class="fc" id="L55">      return new SetCorpusConfigOptions(this);</span>
+    }
+
+    /**
+     * Set the userName.
+     *
+     * @param userName the userName
+     * @return the SetCorpusConfigOptions builder
+     */
+    public Builder userName(String userName) {
+<span class="fc" id="L65">      this.userName = userName;</span>
+<span class="fc" id="L66">      return this;</span>
+    }
+
+    /**
+     * Set the password.
+     *
+     * @param password the password
+     * @return the SetCorpusConfigOptions builder
+     */
+    public Builder password(String password) {
+<span class="fc" id="L76">      this.password = password;</span>
+<span class="fc" id="L77">      return this;</span>
+    }
+
+    /**
+     * Set the corpusURI.
+     *
+     * @param corpusURI the corpusURI
+     * @return the SetCorpusConfigOptions builder
+     */
+    public Builder corpusURI(String corpusURI) {
+<span class="fc" id="L87">      this.corpusURI = corpusURI;</span>
+<span class="fc" id="L88">      return this;</span>
+    }
+  }
+
+<span class="fc" id="L92">  private SetCorpusConfigOptions(Builder builder) {</span>
+<span class="fc" id="L93">    userName = builder.userName;</span>
+<span class="fc" id="L94">    password = builder.password;</span>
+<span class="fc" id="L95">    corpusURI = builder.corpusURI;</span>
+<span class="fc" id="L96">  }</span>
+
+  /**
+   * New builder.
+   *
+   * @return a SetCorpusConfigOptions builder
+   */
+  public Builder newBuilder() {
+<span class="nc" id="L104">    return new Builder(this);</span>
+  }
+
+  /**
+   * Gets the userName.
+   *
+   * Repository connection userid.
+   *
+   * @return the userName
+   */
+  public String userName() {
+<span class="fc" id="L115">    return userName;</span>
+  }
+
+  /**
+   * Gets the password.
+   *
+   * Repository connection password.
+   *
+   * @return the password
+   */
+  public String password() {
+<span class="fc" id="L126">    return password;</span>
+  }
+
+  /**
+   * Gets the corpusURI.
+   *
+   * Repository connection URI.
+   *
+   * @return the corpusURI
+   */
+  public String corpusURI() {
+<span class="fc" id="L137">    return corpusURI;</span>
+  }
+}
+
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>

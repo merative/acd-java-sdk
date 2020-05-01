@@ -1,0 +1,430 @@
+GROUP,PACKAGE,CLASS,INSTRUCTION_MISSED,INSTRUCTION_COVERED,BRANCH_MISSED,BRANCH_COVERED,LINE_MISSED,LINE_COVERED,COMPLEXITY_MISSED,COMPLEXITY_COVERED,METHOD_MISSED,METHOD_COVERED
+IBM Watson Health Cognitive Services Coverage Reports/ibm-whcs-services-common,com.ibm.cloud.whcs.common,SdkCommon,18,68,0,2,6,17,2,5,2,4
+IBM Watson Health Cognitive Services Coverage Reports/insights-for-medical-literature,com.ibm.watson.health.iml.v1.exception,SDKException,5,0,0,0,2,0,1,0,1,0
+IBM Watson Health Cognitive Services Coverage Reports/insights-for-medical-literature,com.ibm.watson.health.iml.v1.exception,ParameterNotAvailableException,4,0,0,0,2,0,1,0,1,0
+IBM Watson Health Cognitive Services Coverage Reports/insights-for-medical-literature,com.ibm.watson.health.iml.v1.util,HttpClientOptions,38,0,0,0,12,0,6,0,6,0
+IBM Watson Health Cognitive Services Coverage Reports/insights-for-medical-literature,com.ibm.watson.health.iml.v1.util,HttpClientOptions.Builder,49,0,0,0,18,0,7,0,7,0
+IBM Watson Health Cognitive Services Coverage Reports/insights-for-medical-literature,com.ibm.watson.health.iml.v1,InsightsForMedicalLiteratureService.Builder,20,63,2,2,2,20,2,7,0,7
+IBM Watson Health Cognitive Services Coverage Reports/insights-for-medical-literature,com.ibm.watson.health.iml.v1,InsightsForMedicalLiteratureService,70,3294,37,193,13,439,34,109,1,27
+IBM Watson Health Cognitive Services Coverage Reports/insights-for-medical-literature,com.ibm.watson.health.iml.v1,InsightsForMedicalLiteratureService.new TypeToken() {...},0,6,0,0,0,1,0,1,0,1
+IBM Watson Health Cognitive Services Coverage Reports/insights-for-medical-literature,com.ibm.watson.health.iml.v1.model,RankedDocConcept,15,0,0,0,5,0,5,0,5,0
+IBM Watson Health Cognitive Services Coverage Reports/insights-for-medical-literature,com.ibm.watson.health.iml.v1.model,GetCorporaConfigOptions.Builder,0,21,0,0,0,8,0,4,0,4
+IBM Watson Health Cognitive Services Coverage Reports/insights-for-medical-literature,com.ibm.watson.health.iml.v1.model,Qualifer,9,0,0,0,3,0,3,0,3,0
+IBM Watson Health Cognitive Services Coverage Reports/insights-for-medical-literature,com.ibm.watson.health.iml.v1.model,GetRelatedConceptsOptions.Builder,0,107,0,0,0,37,0,13,0,13
+IBM Watson Health Cognitive Services Coverage Reports/insights-for-medical-literature,com.ibm.watson.health.iml.v1.model,Backend,6,0,0,0,2,0,2,0,2,0
+IBM Watson Health Cognitive Services Coverage Reports/insights-for-medical-literature,com.ibm.watson.health.iml.v1.model,TypeaheadOptions,0,80,0,0,0,23,0,11,0,11
+IBM Watson Health Cognitive Services Coverage Reports/insights-for-medical-literature,com.ibm.watson.health.iml.v1.model,GetDocumentsOptions,0,20,0,0,0,6,0,3,0,3
+IBM Watson Health Cognitive Services Coverage Reports/insights-for-medical-literature,com.ibm.watson.health.iml.v1.model,MonitorCorpusOptions.Builder,0,27,0,0,0,11,0,5,0,5
+IBM Watson Health Cognitive Services Coverage Reports/insights-for-medical-literature,com.ibm.watson.health.iml.v1.model,SortEntry.Order,3,34,0,0,1,6,1,2,1,2
+IBM Watson Health Cognitive Services Coverage Reports/insights-for-medical-literature,com.ibm.watson.health.iml.v1.model,DeleteCorpusSchemaOptions,6,14,0,0,1,5,1,2,1,2
+IBM Watson Health Cognitive Services Coverage Reports/insights-for-medical-literature,com.ibm.watson.health.iml.v1.model,Corpus,15,9,0,0,5,3,5,3,5,3
+IBM Watson Health Cognitive Services Coverage Reports/insights-for-medical-literature,com.ibm.watson.health.iml.v1.model,GetHitCountOptions,6,32,0,0,1,10,1,4,1,4
+IBM Watson Health Cognitive Services Coverage Reports/insights-for-medical-literature,com.ibm.watson.health.iml.v1.model,GetFieldsOptions,0,20,0,0,0,6,0,3,0,3
+IBM Watson Health Cognitive Services Coverage Reports/insights-for-medical-literature,com.ibm.watson.health.iml.v1.model,MetadataModel,0,6,0,0,0,2,0,2,0,2
+IBM Watson Health Cognitive Services Coverage Reports/insights-for-medical-literature,com.ibm.watson.health.iml.v1.model,SearchOptions.Builder,0,77,0,0,0,25,0,8,0,8
+IBM Watson Health Cognitive Services Coverage Reports/insights-for-medical-literature,com.ibm.watson.health.iml.v1.model,GetSimilarConceptsOptions,0,52,0,0,0,15,0,7,0,7
+IBM Watson Health Cognitive Services Coverage Reports/insights-for-medical-literature,com.ibm.watson.health.iml.v1.model,Attribute,0,12,0,0,0,4,0,4,0,4
+IBM Watson Health Cognitive Services Coverage Reports/insights-for-medical-literature,com.ibm.watson.health.iml.v1.model,Query,32,27,0,0,12,13,10,7,10,7
+IBM Watson Health Cognitive Services Coverage Reports/insights-for-medical-literature,com.ibm.watson.health.iml.v1.model,CorpusProvider,0,9,0,0,0,3,0,3,0,3
+IBM Watson Health Cognitive Services Coverage Reports/insights-for-medical-literature,com.ibm.watson.health.iml.v1.model,PossibleValues,0,17,0,0,0,7,0,5,0,5
+IBM Watson Health Cognitive Services Coverage Reports/insights-for-medical-literature,com.ibm.watson.health.iml.v1.model,Message,21,0,0,0,7,0,7,0,7,0
+IBM Watson Health Cognitive Services Coverage Reports/insights-for-medical-literature,com.ibm.watson.health.iml.v1.model,Typeahead,15,24,0,0,5,11,5,6,5,6
+IBM Watson Health Cognitive Services Coverage Reports/insights-for-medical-literature,com.ibm.watson.health.iml.v1.model,RankedDocument,0,24,0,0,0,8,0,8,0,8
+IBM Watson Health Cognitive Services Coverage Reports/insights-for-medical-literature,com.ibm.watson.health.iml.v1.model,GetSearchMatchesOptions.Builder,0,241,5,5,0,77,5,23,0,23
+IBM Watson Health Cognitive Services Coverage Reports/insights-for-medical-literature,com.ibm.watson.health.iml.v1.model,ServiceStatus,0,9,0,0,0,3,0,3,0,3
+IBM Watson Health Cognitive Services Coverage Reports/insights-for-medical-literature,com.ibm.watson.health.iml.v1.model,RelatedConceptModel,45,0,0,0,15,0,15,0,15,0
+IBM Watson Health Cognitive Services Coverage Reports/insights-for-medical-literature,com.ibm.watson.health.iml.v1.model,AddCorpusDocumentOptions,0,62,0,0,0,18,0,9,0,9
+IBM Watson Health Cognitive Services Coverage Reports/insights-for-medical-literature,com.ibm.watson.health.iml.v1.model,GetDocumentInfoOptions,0,45,0,0,0,13,0,6,0,6
+IBM Watson Health Cognitive Services Coverage Reports/insights-for-medical-literature,com.ibm.watson.health.iml.v1.model,HistogramData,9,0,0,0,3,0,3,0,3,0
+IBM Watson Health Cognitive Services Coverage Reports/insights-for-medical-literature,com.ibm.watson.health.iml.v1.model,ConceptListModel,0,6,0,0,0,2,0,2,0,2
+IBM Watson Health Cognitive Services Coverage Reports/insights-for-medical-literature,com.ibm.watson.health.iml.v1.model,RelatedConceptsModel,3,3,0,0,1,1,1,1,1,1
+IBM Watson Health Cognitive Services Coverage Reports/insights-for-medical-literature,com.ibm.watson.health.iml.v1.model,EntryModel,24,0,0,0,10,0,7,0,7,0
+IBM Watson Health Cognitive Services Coverage Reports/insights-for-medical-literature,com.ibm.watson.health.iml.v1.model,SearchModel,7,45,0,0,3,15,2,15,2,15
+IBM Watson Health Cognitive Services Coverage Reports/insights-for-medical-literature,com.ibm.watson.health.iml.v1.model,SetCorpusConfigOptions.Builder,15,24,0,0,5,9,1,5,1,5
+IBM Watson Health Cognitive Services Coverage Reports/insights-for-medical-literature,com.ibm.watson.health.iml.v1.model,Range,6,11,0,0,2,5,2,3,2,3
+IBM Watson Health Cognitive Services Coverage Reports/insights-for-medical-literature,com.ibm.watson.health.iml.v1.model,ReturnsModel,34,39,0,0,12,20,11,10,11,10
+IBM Watson Health Cognitive Services Coverage Reports/insights-for-medical-literature,com.ibm.watson.health.iml.v1.model,Concepts,15,24,0,0,5,12,5,6,5,6
+IBM Watson Health Cognitive Services Coverage Reports/insights-for-medical-literature,com.ibm.watson.health.iml.v1.model,AddArtifactOptions.Builder,10,35,0,0,4,13,2,5,2,5
+IBM Watson Health Cognitive Services Coverage Reports/insights-for-medical-literature,com.ibm.watson.health.iml.v1.model,DataModel,0,15,0,0,0,5,0,5,0,5
+IBM Watson Health Cognitive Services Coverage Reports/insights-for-medical-literature,com.ibm.watson.health.iml.v1.model,AddArtifactOptions,0,34,0,0,0,10,0,5,0,5
+IBM Watson Health Cognitive Services Coverage Reports/insights-for-medical-literature,com.ibm.watson.health.iml.v1.model,BooleanConcepts,9,0,0,0,3,0,3,0,3,0
+IBM Watson Health Cognitive Services Coverage Reports/insights-for-medical-literature,com.ibm.watson.health.iml.v1.model,Ranges,3,7,0,0,1,4,1,2,1,2
+IBM Watson Health Cognitive Services Coverage Reports/insights-for-medical-literature,com.ibm.watson.health.iml.v1.model,StringBuilder,3,0,0,0,1,0,1,0,1,0
+IBM Watson Health Cognitive Services Coverage Reports/insights-for-medical-literature,com.ibm.watson.health.iml.v1.model,Supports,0,6,0,0,0,2,0,2,0,2
+IBM Watson Health Cognitive Services Coverage Reports/insights-for-medical-literature,com.ibm.watson.health.iml.v1.model,GetDocumentCategoriesOptions.Builder,0,121,1,1,0,41,1,14,0,14
+IBM Watson Health Cognitive Services Coverage Reports/insights-for-medical-literature,com.ibm.watson.health.iml.v1.model,GetSearchMatchesOptions,0,119,0,0,0,34,0,16,0,16
+IBM Watson Health Cognitive Services Coverage Reports/insights-for-medical-literature,com.ibm.watson.health.iml.v1.model,Passages,21,35,0,0,7,17,7,8,7,8
+IBM Watson Health Cognitive Services Coverage Reports/insights-for-medical-literature,com.ibm.watson.health.iml.v1.model,MultipleCategoriesModel,0,14,0,0,0,4,0,3,0,3
+IBM Watson Health Cognitive Services Coverage Reports/insights-for-medical-literature,com.ibm.watson.health.iml.v1.model,SentenceModel,0,18,0,0,0,6,0,6,0,6
+IBM Watson Health Cognitive Services Coverage Reports/insights-for-medical-literature,com.ibm.watson.health.iml.v1.model,AnnotationModel,24,33,0,0,8,11,8,11,8,11
+IBM Watson Health Cognitive Services Coverage Reports/insights-for-medical-literature,com.ibm.watson.health.iml.v1.model,TypeaheadOptions.Builder,0,140,2,2,0,46,2,15,0,15
+IBM Watson Health Cognitive Services Coverage Reports/insights-for-medical-literature,com.ibm.watson.health.iml.v1.model,AggregationModel,0,9,0,0,0,3,0,3,0,3
+IBM Watson Health Cognitive Services Coverage Reports/insights-for-medical-literature,com.ibm.watson.health.iml.v1.model,AnnotationsModel,0,6,0,0,0,2,0,2,0,2
+IBM Watson Health Cognitive Services Coverage Reports/insights-for-medical-literature,com.ibm.watson.health.iml.v1.model,GetRelatedConceptsOptions,0,84,0,0,0,24,0,11,0,11
+IBM Watson Health Cognitive Services Coverage Reports/insights-for-medical-literature,com.ibm.watson.health.iml.v1.model,ArtifactModel,30,0,0,0,10,0,10,0,10,0
+IBM Watson Health Cognitive Services Coverage Reports/insights-for-medical-literature,com.ibm.watson.health.iml.v1.model,AddCorpusDocumentOptions.Builder,34,65,2,0,12,22,5,8,4,8
+IBM Watson Health Cognitive Services Coverage Reports/insights-for-medical-literature,com.ibm.watson.health.iml.v1.model,GetCorporaConfigOptions,0,16,0,0,0,5,0,3,0,3
+IBM Watson Health Cognitive Services Coverage Reports/insights-for-medical-literature,com.ibm.watson.health.iml.v1.model,UmlsTypesModel,6,0,0,0,2,0,2,0,2,0
+IBM Watson Health Cognitive Services Coverage Reports/insights-for-medical-literature,com.ibm.watson.health.iml.v1.model,QueryConcept,35,34,0,0,13,17,11,8,11,8
+IBM Watson Health Cognitive Services Coverage Reports/insights-for-medical-literature,com.ibm.watson.health.iml.v1.model,GetHealthCheckStatusOptions,0,23,0,0,0,7,0,4,0,4
+IBM Watson Health Cognitive Services Coverage Reports/insights-for-medical-literature,com.ibm.watson.health.iml.v1.model,Documents,12,21,0,0,4,10,4,5,4,5
+IBM Watson Health Cognitive Services Coverage Reports/insights-for-medical-literature,com.ibm.watson.health.iml.v1.model,Concept,3,57,0,0,1,19,1,19,1,19
+IBM Watson Health Cognitive Services Coverage Reports/insights-for-medical-literature,com.ibm.watson.health.iml.v1.model,ConceptModel,27,15,0,0,9,5,9,5,9,5
+IBM Watson Health Cognitive Services Coverage Reports/insights-for-medical-literature,com.ibm.watson.health.iml.v1.model,CorpusInfoModel,0,9,0,0,0,3,0,3,0,3
+IBM Watson Health Cognitive Services Coverage Reports/insights-for-medical-literature,com.ibm.watson.health.iml.v1.model,DocumentTextModel,0,12,0,0,0,4,0,4,0,4
+IBM Watson Health Cognitive Services Coverage Reports/insights-for-medical-literature,com.ibm.watson.health.iml.v1.model,AttributeEntry,0,94,0,0,0,40,0,27,0,27
+IBM Watson Health Cognitive Services Coverage Reports/insights-for-medical-literature,com.ibm.watson.health.iml.v1.model,GetDocumentCategoriesOptions,0,80,0,0,0,23,0,11,0,11
+IBM Watson Health Cognitive Services Coverage Reports/insights-for-medical-literature,com.ibm.watson.health.iml.v1.model,GetFieldsOptions.Builder,0,27,0,0,0,11,0,5,0,5
+IBM Watson Health Cognitive Services Coverage Reports/insights-for-medical-literature,com.ibm.watson.health.iml.v1.model,SetCorpusSchemaOptions,0,58,0,0,0,17,0,9,0,9
+IBM Watson Health Cognitive Services Coverage Reports/insights-for-medical-literature,com.ibm.watson.health.iml.v1.model,Attributes,0,3,0,0,0,2,0,1,0,1
+IBM Watson Health Cognitive Services Coverage Reports/insights-for-medical-literature,com.ibm.watson.health.iml.v1.model,RankedDocLinks,0,9,0,0,0,3,0,3,0,3
+IBM Watson Health Cognitive Services Coverage Reports/insights-for-medical-literature,com.ibm.watson.health.iml.v1.model,CategoriesModel,0,21,0,0,0,7,0,7,0,7
+IBM Watson Health Cognitive Services Coverage Reports/insights-for-medical-literature,com.ibm.watson.health.iml.v1.model,Values,17,7,0,0,7,4,5,2,5,2
+IBM Watson Health Cognitive Services Coverage Reports/insights-for-medical-literature,com.ibm.watson.health.iml.v1.model,MonitorCorpusOptions,0,20,0,0,0,6,0,3,0,3
+IBM Watson Health Cognitive Services Coverage Reports/insights-for-medical-literature,com.ibm.watson.health.iml.v1.model,GetCorpusConfigOptions,0,27,0,0,0,8,0,4,0,4
+IBM Watson Health Cognitive Services Coverage Reports/insights-for-medical-literature,com.ibm.watson.health.iml.v1.model,SearchOptions,0,41,0,0,0,12,0,6,0,6
+IBM Watson Health Cognitive Services Coverage Reports/insights-for-medical-literature,com.ibm.watson.health.iml.v1.model,DateHistograms,0,18,0,0,0,8,0,5,0,5
+IBM Watson Health Cognitive Services Coverage Reports/insights-for-medical-literature,com.ibm.watson.health.iml.v1.model,SearchMatchesModel,15,39,0,0,5,13,5,13,5,13
+IBM Watson Health Cognitive Services Coverage Reports/insights-for-medical-literature,com.ibm.watson.health.iml.v1.model,SortEntry,6,11,0,0,2,6,2,3,2,3
+IBM Watson Health Cognitive Services Coverage Reports/insights-for-medical-literature,com.ibm.watson.health.iml.v1.model,MetadataField,0,26,0,0,0,12,0,6,0,6
+IBM Watson Health Cognitive Services Coverage Reports/insights-for-medical-literature,com.ibm.watson.health.iml.v1.model,GetHealthCheckStatusOptions.Builder,0,30,0,0,0,11,0,5,0,5
+IBM Watson Health Cognitive Services Coverage Reports/insights-for-medical-literature,com.ibm.watson.health.iml.v1.model,Entry,0,16,0,0,0,5,0,4,0,4
+IBM Watson Health Cognitive Services Coverage Reports/insights-for-medical-literature,com.ibm.watson.health.iml.v1.model,GetDocumentInfoOptions.Builder,0,66,0,0,0,22,0,8,0,8
+IBM Watson Health Cognitive Services Coverage Reports/insights-for-medical-literature,com.ibm.watson.health.iml.v1.model,Passage,12,0,0,0,4,0,4,0,4,0
+IBM Watson Health Cognitive Services Coverage Reports/insights-for-medical-literature,com.ibm.watson.health.iml.v1.model,CorporaConfigModel,0,6,0,0,0,2,0,2,0,2
+IBM Watson Health Cognitive Services Coverage Reports/insights-for-medical-literature,com.ibm.watson.health.iml.v1.model,DictonaryEntry,0,94,0,0,0,40,0,27,0,27
+IBM Watson Health Cognitive Services Coverage Reports/insights-for-medical-literature,com.ibm.watson.health.iml.v1.model,GetDocumentAnnotationsOptions.Builder,0,87,1,1,0,30,1,10,0,10
+IBM Watson Health Cognitive Services Coverage Reports/insights-for-medical-literature,com.ibm.watson.health.iml.v1.model,GetConceptsOptions,0,69,0,0,0,20,0,10,0,10
+IBM Watson Health Cognitive Services Coverage Reports/insights-for-medical-literature,com.ibm.watson.health.iml.v1.model,GetDocumentMultipleCategoriesOptions,0,66,0,0,0,19,0,9,0,9
+IBM Watson Health Cognitive Services Coverage Reports/insights-for-medical-literature,com.ibm.watson.health.iml.v1.model,GetDocumentMultipleCategoriesOptions.Builder,0,103,1,1,0,36,1,12,0,12
+IBM Watson Health Cognitive Services Coverage Reports/insights-for-medical-literature,com.ibm.watson.health.iml.v1.model,GetDocumentsOptions.Builder,0,27,0,0,0,11,0,5,0,5
+IBM Watson Health Cognitive Services Coverage Reports/insights-for-medical-literature,com.ibm.watson.health.iml.v1.model,Aggregations,0,11,0,0,0,4,0,3,0,3
+IBM Watson Health Cognitive Services Coverage Reports/insights-for-medical-literature,com.ibm.watson.health.iml.v1.model,GetHitCountOptions.Builder,15,33,0,0,5,13,1,6,1,6
+IBM Watson Health Cognitive Services Coverage Reports/insights-for-medical-literature,com.ibm.watson.health.iml.v1.model,GetCuiInfoOptions.Builder,23,43,0,0,7,17,1,8,1,8
+IBM Watson Health Cognitive Services Coverage Reports/insights-for-medical-literature,com.ibm.watson.health.iml.v1.model,YearAndHits,0,9,0,0,0,3,0,3,0,3
+IBM Watson Health Cognitive Services Coverage Reports/insights-for-medical-literature,com.ibm.watson.health.iml.v1.model,ConceptInfoModel,0,30,0,0,0,10,0,10,0,10
+IBM Watson Health Cognitive Services Coverage Reports/insights-for-medical-literature,com.ibm.watson.health.iml.v1.model,Title,3,8,0,0,1,3,1,2,1,2
+IBM Watson Health Cognitive Services Coverage Reports/insights-for-medical-literature,com.ibm.watson.health.iml.v1.model,UmlsRelationshipCountsModel,9,0,0,0,3,0,3,0,3,0
+IBM Watson Health Cognitive Services Coverage Reports/insights-for-medical-literature,com.ibm.watson.health.iml.v1.model,GetConceptsOptions.Builder,0,163,4,4,0,52,4,16,0,16
+IBM Watson Health Cognitive Services Coverage Reports/insights-for-medical-literature,com.ibm.watson.health.iml.v1.model,GetCuiInfoOptions,6,46,0,0,1,14,1,6,1,6
+IBM Watson Health Cognitive Services Coverage Reports/insights-for-medical-literature,com.ibm.watson.health.iml.v1.model,SetCorpusConfigOptions,6,24,0,0,1,8,1,4,1,4
+IBM Watson Health Cognitive Services Coverage Reports/insights-for-medical-literature,com.ibm.watson.health.iml.v1.model,GetCorpusConfigOptions.Builder,0,36,0,0,0,14,0,6,0,6
+IBM Watson Health Cognitive Services Coverage Reports/insights-for-medical-literature,com.ibm.watson.health.iml.v1.model,Category,16,15,0,0,6,7,5,4,5,4
+IBM Watson Health Cognitive Services Coverage Reports/insights-for-medical-literature,com.ibm.watson.health.iml.v1.model,UnstructuredModel,0,9,0,0,0,3,0,3,0,3
+IBM Watson Health Cognitive Services Coverage Reports/insights-for-medical-literature,com.ibm.watson.health.iml.v1.model,SetCorpusSchemaOptions.Builder,0,111,2,2,0,36,2,12,0,12
+IBM Watson Health Cognitive Services Coverage Reports/insights-for-medical-literature,com.ibm.watson.health.iml.v1.model,GetDocumentAnnotationsOptions,0,56,0,0,0,16,0,7,0,7
+IBM Watson Health Cognitive Services Coverage Reports/insights-for-medical-literature,com.ibm.watson.health.iml.v1.model,HitCount,0,6,0,0,0,2,0,2,0,2
+IBM Watson Health Cognitive Services Coverage Reports/insights-for-medical-literature,com.ibm.watson.health.iml.v1.model,Types,10,0,0,0,5,0,3,0,3,0
+IBM Watson Health Cognitive Services Coverage Reports/insights-for-medical-literature,com.ibm.watson.health.iml.v1.model,UmlsConceptInfoModel,24,3,0,0,8,1,8,1,8,1
+IBM Watson Health Cognitive Services Coverage Reports/insights-for-medical-literature,com.ibm.watson.health.iml.v1.model,GetSimilarConceptsOptions.Builder,0,88,1,1,0,30,1,10,0,10
+IBM Watson Health Cognitive Services Coverage Reports/insights-for-medical-literature,com.ibm.watson.health.iml.v1.model,DeleteCorpusSchemaOptions.Builder,13,14,0,0,6,5,2,3,2,3
+IBM Watson Health Cognitive Services Coverage Reports/insights-for-medical-literature,com.ibm.watson.health.iml.v1.model,EnrichmentTarget,0,26,0,0,0,12,0,6,0,6
+IBM Watson Health Cognitive Services Coverage Reports/annotator-for-clinical-data,com.ibm.watson.health.acd.v1.model,AssistanceAnnotation,0,212,0,4,0,33,0,16,0,14
+IBM Watson Health Cognitive Services Coverage Reports/annotator-for-clinical-data,com.ibm.watson.health.acd.v1.model,ListAnnotator,0,3,0,0,0,1,0,1,0,1
+IBM Watson Health Cognitive Services Coverage Reports/annotator-for-clinical-data,com.ibm.watson.health.acd.v1.model,SymptomDisease.new TypeToken() {...},0,6,0,0,0,1,0,1,0,1
+IBM Watson Health Cognitive Services Coverage Reports/annotator-for-clinical-data,com.ibm.watson.health.acd.v1.model,SymptomDisease.new TypeToken() {...},0,6,0,0,0,1,0,1,0,1
+IBM Watson Health Cognitive Services Coverage Reports/annotator-for-clinical-data,com.ibm.watson.health.acd.v1.model,SymptomDisease.new TypeToken() {...},0,6,0,0,0,1,0,1,0,1
+IBM Watson Health Cognitive Services Coverage Reports/annotator-for-clinical-data,com.ibm.watson.health.acd.v1.model,SymptomDisease.new TypeToken() {...},0,6,0,0,0,1,0,1,0,1
+IBM Watson Health Cognitive Services Coverage Reports/annotator-for-clinical-data,com.ibm.watson.health.acd.v1.model,SymptomDisease.new TypeToken() {...},0,6,0,0,0,1,0,1,0,1
+IBM Watson Health Cognitive Services Coverage Reports/annotator-for-clinical-data,com.ibm.watson.health.acd.v1.model,SymptomDisease.new TypeToken() {...},0,6,0,0,0,1,0,1,0,1
+IBM Watson Health Cognitive Services Coverage Reports/annotator-for-clinical-data,com.ibm.watson.health.acd.v1.model,SymptomDisease.new TypeToken() {...},0,6,0,0,0,1,0,1,0,1
+IBM Watson Health Cognitive Services Coverage Reports/annotator-for-clinical-data,com.ibm.watson.health.acd.v1.model,SymptomDisease.new TypeToken() {...},0,6,0,0,0,1,0,1,0,1
+IBM Watson Health Cognitive Services Coverage Reports/annotator-for-clinical-data,com.ibm.watson.health.acd.v1.model,MedicationAnnotation.new TypeToken() {...},0,6,0,0,0,1,0,1,0,1
+IBM Watson Health Cognitive Services Coverage Reports/annotator-for-clinical-data,com.ibm.watson.health.acd.v1.model,MedicationAnnotation.new TypeToken() {...},0,6,0,0,0,1,0,1,0,1
+IBM Watson Health Cognitive Services Coverage Reports/annotator-for-clinical-data,com.ibm.watson.health.acd.v1.model,MedicationAnnotation.new TypeToken() {...},0,6,0,0,0,1,0,1,0,1
+IBM Watson Health Cognitive Services Coverage Reports/annotator-for-clinical-data,com.ibm.watson.health.acd.v1.model,MedicationAnnotation.new TypeToken() {...},0,6,0,0,0,1,0,1,0,1
+IBM Watson Health Cognitive Services Coverage Reports/annotator-for-clinical-data,com.ibm.watson.health.acd.v1.model,CancerDiagnosis.new TypeToken() {...},0,6,0,0,0,1,0,1,0,1
+IBM Watson Health Cognitive Services Coverage Reports/annotator-for-clinical-data,com.ibm.watson.health.acd.v1.model,CancerDiagnosis.new TypeToken() {...},0,6,0,0,0,1,0,1,0,1
+IBM Watson Health Cognitive Services Coverage Reports/annotator-for-clinical-data,com.ibm.watson.health.acd.v1.model,CancerDiagnosis.new TypeToken() {...},0,6,0,0,0,1,0,1,0,1
+IBM Watson Health Cognitive Services Coverage Reports/annotator-for-clinical-data,com.ibm.watson.health.acd.v1.model,MedicationAnnotation.new TypeToken() {...},0,6,0,0,0,1,0,1,0,1
+IBM Watson Health Cognitive Services Coverage Reports/annotator-for-clinical-data,com.ibm.watson.health.acd.v1.model,NluEntity,0,123,0,0,0,17,0,9,0,9
+IBM Watson Health Cognitive Services Coverage Reports/annotator-for-clinical-data,com.ibm.watson.health.acd.v1.model,CancerDiagnosis.new TypeToken() {...},0,6,0,0,0,1,0,1,0,1
+IBM Watson Health Cognitive Services Coverage Reports/annotator-for-clinical-data,com.ibm.watson.health.acd.v1.model,CancerDiagnosis.new TypeToken() {...},0,6,0,0,0,1,0,1,0,1
+IBM Watson Health Cognitive Services Coverage Reports/annotator-for-clinical-data,com.ibm.watson.health.acd.v1.model,CancerDiagnosis.new TypeToken() {...},0,6,0,0,0,1,0,1,0,1
+IBM Watson Health Cognitive Services Coverage Reports/annotator-for-clinical-data,com.ibm.watson.health.acd.v1.model,CancerDiagnosis.new TypeToken() {...},0,6,0,0,0,1,0,1,0,1
+IBM Watson Health Cognitive Services Coverage Reports/annotator-for-clinical-data,com.ibm.watson.health.acd.v1.model,MedicationAnnotation.new TypeToken() {...},0,6,0,0,0,1,0,1,0,1
+IBM Watson Health Cognitive Services Coverage Reports/annotator-for-clinical-data,com.ibm.watson.health.acd.v1.model,MedicationAnnotation.new TypeToken() {...},0,6,0,0,0,1,0,1,0,1
+IBM Watson Health Cognitive Services Coverage Reports/annotator-for-clinical-data,com.ibm.watson.health.acd.v1.model,CancerDiagnosis.new TypeToken() {...},0,6,0,0,0,1,0,1,0,1
+IBM Watson Health Cognitive Services Coverage Reports/annotator-for-clinical-data,com.ibm.watson.health.acd.v1.model,MedicationAnnotation.new TypeToken() {...},0,6,0,0,0,1,0,1,0,1
+IBM Watson Health Cognitive Services Coverage Reports/annotator-for-clinical-data,com.ibm.watson.health.acd.v1.model,CancerDiagnosis.new TypeToken() {...},0,6,0,0,0,1,0,1,0,1
+IBM Watson Health Cognitive Services Coverage Reports/annotator-for-clinical-data,com.ibm.watson.health.acd.v1.model,MedicationAnnotation.new TypeToken() {...},0,6,0,0,0,1,0,1,0,1
+IBM Watson Health Cognitive Services Coverage Reports/annotator-for-clinical-data,com.ibm.watson.health.acd.v1.model,Annotation.new TypeToken() {...},0,6,0,0,0,1,0,1,0,1
+IBM Watson Health Cognitive Services Coverage Reports/annotator-for-clinical-data,com.ibm.watson.health.acd.v1.model,RelationNode.new TypeToken() {...},0,6,0,0,0,1,0,1,0,1
+IBM Watson Health Cognitive Services Coverage Reports/annotator-for-clinical-data,com.ibm.watson.health.acd.v1.model,Annotation.new TypeToken() {...},0,6,0,0,0,1,0,1,0,1
+IBM Watson Health Cognitive Services Coverage Reports/annotator-for-clinical-data,com.ibm.watson.health.acd.v1.model,ContainerGroup,22,809,0,0,6,131,3,64,3,64
+IBM Watson Health Cognitive Services Coverage Reports/annotator-for-clinical-data,com.ibm.watson.health.acd.v1.model,Annotation.new TypeToken() {...},0,6,0,0,0,1,0,1,0,1
+IBM Watson Health Cognitive Services Coverage Reports/annotator-for-clinical-data,com.ibm.watson.health.acd.v1.model,Annotation.new TypeToken() {...},0,6,0,0,0,1,0,1,0,1
+IBM Watson Health Cognitive Services Coverage Reports/annotator-for-clinical-data,com.ibm.watson.health.acd.v1.model,Suggestion,0,63,0,0,0,9,0,5,0,5
+IBM Watson Health Cognitive Services Coverage Reports/annotator-for-clinical-data,com.ibm.watson.health.acd.v1.model,AttributeValueAnnotation.new TypeToken() {...},0,6,0,0,0,1,0,1,0,1
+IBM Watson Health Cognitive Services Coverage Reports/annotator-for-clinical-data,com.ibm.watson.health.acd.v1.model,AttributeValueAnnotation.new TypeToken() {...},0,6,0,0,0,1,0,1,0,1
+IBM Watson Health Cognitive Services Coverage Reports/annotator-for-clinical-data,com.ibm.watson.health.acd.v1.model,Annotation.new TypeToken() {...},0,6,0,0,0,1,0,1,0,1
+IBM Watson Health Cognitive Services Coverage Reports/annotator-for-clinical-data,com.ibm.watson.health.acd.v1.model,Annotation.new TypeToken() {...},0,6,0,0,0,1,0,1,0,1
+IBM Watson Health Cognitive Services Coverage Reports/annotator-for-clinical-data,com.ibm.watson.health.acd.v1.model,AttributeValueAnnotation.new TypeToken() {...},0,6,0,0,0,1,0,1,0,1
+IBM Watson Health Cognitive Services Coverage Reports/annotator-for-clinical-data,com.ibm.watson.health.acd.v1.model,AttributeValueAnnotation.new TypeToken() {...},0,6,0,0,0,1,0,1,0,1
+IBM Watson Health Cognitive Services Coverage Reports/annotator-for-clinical-data,com.ibm.watson.health.acd.v1.model,AttributeValueAnnotation.new TypeToken() {...},0,6,0,0,0,1,0,1,0,1
+IBM Watson Health Cognitive Services Coverage Reports/annotator-for-clinical-data,com.ibm.watson.health.acd.v1.model,SymptomDisease.new TypeToken() {...},0,6,0,0,0,1,0,1,0,1
+IBM Watson Health Cognitive Services Coverage Reports/annotator-for-clinical-data,com.ibm.watson.health.acd.v1.model,AttributeValueAnnotation.new TypeToken() {...},0,6,0,0,0,1,0,1,0,1
+IBM Watson Health Cognitive Services Coverage Reports/annotator-for-clinical-data,com.ibm.watson.health.acd.v1.model,AttributeValueAnnotation.new TypeToken() {...},0,6,0,0,0,1,0,1,0,1
+IBM Watson Health Cognitive Services Coverage Reports/annotator-for-clinical-data,com.ibm.watson.health.acd.v1.model,AttributeValueAnnotation.new TypeToken() {...},0,6,0,0,0,1,0,1,0,1
+IBM Watson Health Cognitive Services Coverage Reports/annotator-for-clinical-data,com.ibm.watson.health.acd.v1.model,AttributeValueAnnotation.new TypeToken() {...},0,6,0,0,0,1,0,1,0,1
+IBM Watson Health Cognitive Services Coverage Reports/annotator-for-clinical-data,com.ibm.watson.health.acd.v1.model,AttributeValueAnnotation.new TypeToken() {...},0,6,0,0,0,1,0,1,0,1
+IBM Watson Health Cognitive Services Coverage Reports/annotator-for-clinical-data,com.ibm.watson.health.acd.v1.model,GetProfilesOptions.Builder,0,12,0,0,0,5,0,3,0,3
+IBM Watson Health Cognitive Services Coverage Reports/annotator-for-clinical-data,com.ibm.watson.health.acd.v1.model,RequestContainer,12,11,0,0,3,4,3,1,3,1
+IBM Watson Health Cognitive Services Coverage Reports/annotator-for-clinical-data,com.ibm.watson.health.acd.v1.model,AttributeValueAnnotation.new TypeToken() {...},0,6,0,0,0,1,0,1,0,1
+IBM Watson Health Cognitive Services Coverage Reports/annotator-for-clinical-data,com.ibm.watson.health.acd.v1.model,AttributeValueAnnotation.new TypeToken() {...},0,6,0,0,0,1,0,1,0,1
+IBM Watson Health Cognitive Services Coverage Reports/annotator-for-clinical-data,com.ibm.watson.health.acd.v1.model,AttributeValueAnnotation.new TypeToken() {...},0,6,0,0,0,1,0,1,0,1
+IBM Watson Health Cognitive Services Coverage Reports/annotator-for-clinical-data,com.ibm.watson.health.acd.v1.model,AttributeValueAnnotation.new TypeToken() {...},0,6,0,0,0,1,0,1,0,1
+IBM Watson Health Cognitive Services Coverage Reports/annotator-for-clinical-data,com.ibm.watson.health.acd.v1.model,AttributeValueAnnotation.new TypeToken() {...},0,6,0,0,0,1,0,1,0,1
+IBM Watson Health Cognitive Services Coverage Reports/annotator-for-clinical-data,com.ibm.watson.health.acd.v1.model,AttributeValueAnnotation.new TypeToken() {...},0,6,0,0,0,1,0,1,0,1
+IBM Watson Health Cognitive Services Coverage Reports/annotator-for-clinical-data,com.ibm.watson.health.acd.v1.model,Annotator.Builder,75,14,2,0,26,5,9,3,8,3
+IBM Watson Health Cognitive Services Coverage Reports/annotator-for-clinical-data,com.ibm.watson.health.acd.v1.model,Flow,3,24,0,0,1,7,1,3,1,3
+IBM Watson Health Cognitive Services Coverage Reports/annotator-for-clinical-data,com.ibm.watson.health.acd.v1.model,AttributeValueAnnotation.new TypeToken() {...},0,6,0,0,0,1,0,1,0,1
+IBM Watson Health Cognitive Services Coverage Reports/annotator-for-clinical-data,com.ibm.watson.health.acd.v1.model,AttributeValueAnnotation.new TypeToken() {...},0,6,0,0,0,1,0,1,0,1
+IBM Watson Health Cognitive Services Coverage Reports/annotator-for-clinical-data,com.ibm.watson.health.acd.v1.model,AttributeValueAnnotation.new TypeToken() {...},0,6,0,0,0,1,0,1,0,1
+IBM Watson Health Cognitive Services Coverage Reports/annotator-for-clinical-data,com.ibm.watson.health.acd.v1.model,AttributeValueAnnotation.new TypeToken() {...},0,6,0,0,0,1,0,1,0,1
+IBM Watson Health Cognitive Services Coverage Reports/annotator-for-clinical-data,com.ibm.watson.health.acd.v1.model,AttributeValueAnnotation.new TypeToken() {...},0,6,0,0,0,1,0,1,0,1
+IBM Watson Health Cognitive Services Coverage Reports/annotator-for-clinical-data,com.ibm.watson.health.acd.v1.model,AttributeValueAnnotation.new TypeToken() {...},0,6,0,0,0,1,0,1,0,1
+IBM Watson Health Cognitive Services Coverage Reports/annotator-for-clinical-data,com.ibm.watson.health.acd.v1.model,AttributeValueAnnotation.new TypeToken() {...},0,6,0,0,0,1,0,1,0,1
+IBM Watson Health Cognitive Services Coverage Reports/annotator-for-clinical-data,com.ibm.watson.health.acd.v1.model,AttributeValueAnnotation.new TypeToken() {...},0,6,0,0,0,1,0,1,0,1
+IBM Watson Health Cognitive Services Coverage Reports/annotator-for-clinical-data,com.ibm.watson.health.acd.v1.model,AssistanceAnnotation.new TypeToken() {...},0,6,0,0,0,1,0,1,0,1
+IBM Watson Health Cognitive Services Coverage Reports/annotator-for-clinical-data,com.ibm.watson.health.acd.v1.model,AssistanceAnnotation.new TypeToken() {...},0,6,0,0,0,1,0,1,0,1
+IBM Watson Health Cognitive Services Coverage Reports/annotator-for-clinical-data,com.ibm.watson.health.acd.v1.model,UnstructuredContainer,46,335,0,0,10,65,10,58,10,58
+IBM Watson Health Cognitive Services Coverage Reports/annotator-for-clinical-data,com.ibm.watson.health.acd.v1.model,AssistanceAnnotation.new TypeToken() {...},0,6,0,0,0,1,0,1,0,1
+IBM Watson Health Cognitive Services Coverage Reports/annotator-for-clinical-data,com.ibm.watson.health.acd.v1.model,AttributeValueAnnotation.new TypeToken() {...},0,6,0,0,0,1,0,1,0,1
+IBM Watson Health Cognitive Services Coverage Reports/annotator-for-clinical-data,com.ibm.watson.health.acd.v1.model,AssistanceAnnotation.new TypeToken() {...},0,6,0,0,0,1,0,1,0,1
+IBM Watson Health Cognitive Services Coverage Reports/annotator-for-clinical-data,com.ibm.watson.health.acd.v1.model,SectionTrigger,0,21,0,0,0,7,0,7,0,7
+IBM Watson Health Cognitive Services Coverage Reports/annotator-for-clinical-data,com.ibm.watson.health.acd.v1.model,AttributeValueAnnotation.new TypeToken() {...},0,6,0,0,0,1,0,1,0,1
+IBM Watson Health Cognitive Services Coverage Reports/annotator-for-clinical-data,com.ibm.watson.health.acd.v1.model,GetFlowOptions,0,20,0,0,0,6,0,3,0,3
+IBM Watson Health Cognitive Services Coverage Reports/annotator-for-clinical-data,com.ibm.watson.health.acd.v1.model,GetAnnotatorOptions,0,20,0,0,0,6,0,3,0,3
+IBM Watson Health Cognitive Services Coverage Reports/annotator-for-clinical-data,com.ibm.watson.health.acd.v1.model,LabValueAnnotation.new TypeToken() {...},0,6,0,0,0,1,0,1,0,1
+IBM Watson Health Cognitive Services Coverage Reports/annotator-for-clinical-data,com.ibm.watson.health.acd.v1.model,Smoking.new TypeToken() {...},0,6,0,0,0,1,0,1,0,1
+IBM Watson Health Cognitive Services Coverage Reports/annotator-for-clinical-data,com.ibm.watson.health.acd.v1.model,Concept.new TypeToken() {...},0,6,0,0,0,1,0,1,0,1
+IBM Watson Health Cognitive Services Coverage Reports/annotator-for-clinical-data,com.ibm.watson.health.acd.v1.model,Smoking.new TypeToken() {...},0,6,0,0,0,1,0,1,0,1
+IBM Watson Health Cognitive Services Coverage Reports/annotator-for-clinical-data,com.ibm.watson.health.acd.v1.model,Concept.new TypeToken() {...},0,6,0,0,0,1,0,1,0,1
+IBM Watson Health Cognitive Services Coverage Reports/annotator-for-clinical-data,com.ibm.watson.health.acd.v1.model,Smoking.new TypeToken() {...},0,6,0,0,0,1,0,1,0,1
+IBM Watson Health Cognitive Services Coverage Reports/annotator-for-clinical-data,com.ibm.watson.health.acd.v1.model,Concept.new TypeToken() {...},0,6,0,0,0,1,0,1,0,1
+IBM Watson Health Cognitive Services Coverage Reports/annotator-for-clinical-data,com.ibm.watson.health.acd.v1.model,Smoking.new TypeToken() {...},0,6,0,0,0,1,0,1,0,1
+IBM Watson Health Cognitive Services Coverage Reports/annotator-for-clinical-data,com.ibm.watson.health.acd.v1.model,Smoking.new TypeToken() {...},0,6,0,0,0,1,0,1,0,1
+IBM Watson Health Cognitive Services Coverage Reports/annotator-for-clinical-data,com.ibm.watson.health.acd.v1.model,Smoking.new TypeToken() {...},0,6,0,0,0,1,0,1,0,1
+IBM Watson Health Cognitive Services Coverage Reports/annotator-for-clinical-data,com.ibm.watson.health.acd.v1.model,Flow.Builder,0,48,1,1,0,16,1,6,0,6
+IBM Watson Health Cognitive Services Coverage Reports/annotator-for-clinical-data,com.ibm.watson.health.acd.v1.model,AnalyzeWithFlowOptions.Builder,0,78,0,0,0,26,0,9,0,9
+IBM Watson Health Cognitive Services Coverage Reports/annotator-for-clinical-data,com.ibm.watson.health.acd.v1.model,Procedure,0,257,1,3,0,39,1,18,0,17
+IBM Watson Health Cognitive Services Coverage Reports/annotator-for-clinical-data,com.ibm.watson.health.acd.v1.model,SpellCorrectedText.new TypeToken() {...},0,6,0,0,0,1,0,1,0,1
+IBM Watson Health Cognitive Services Coverage Reports/annotator-for-clinical-data,com.ibm.watson.health.acd.v1.model,Smoking.new TypeToken() {...},0,6,0,0,0,1,0,1,0,1
+IBM Watson Health Cognitive Services Coverage Reports/annotator-for-clinical-data,com.ibm.watson.health.acd.v1.model,SpellCorrectedText.new TypeToken() {...},0,6,0,0,0,1,0,1,0,1
+IBM Watson Health Cognitive Services Coverage Reports/annotator-for-clinical-data,com.ibm.watson.health.acd.v1.model,Annotator,9,46,0,0,2,14,2,6,2,6
+IBM Watson Health Cognitive Services Coverage Reports/annotator-for-clinical-data,com.ibm.watson.health.acd.v1.model,Smoking.new TypeToken() {...},0,6,0,0,0,1,0,1,0,1
+IBM Watson Health Cognitive Services Coverage Reports/annotator-for-clinical-data,com.ibm.watson.health.acd.v1.model,Smoking.new TypeToken() {...},0,6,0,0,0,1,0,1,0,1
+IBM Watson Health Cognitive Services Coverage Reports/annotator-for-clinical-data,com.ibm.watson.health.acd.v1.model,Smoking.new TypeToken() {...},0,6,0,0,0,1,0,1,0,1
+IBM Watson Health Cognitive Services Coverage Reports/annotator-for-clinical-data,com.ibm.watson.health.acd.v1.model,Smoking.new TypeToken() {...},0,6,0,0,0,1,0,1,0,1
+IBM Watson Health Cognitive Services Coverage Reports/annotator-for-clinical-data,com.ibm.watson.health.acd.v1.model,Smoking.new TypeToken() {...},0,6,0,0,0,1,0,1,0,1
+IBM Watson Health Cognitive Services Coverage Reports/annotator-for-clinical-data,com.ibm.watson.health.acd.v1.model,Smoking.new TypeToken() {...},0,6,0,0,0,1,0,1,0,1
+IBM Watson Health Cognitive Services Coverage Reports/annotator-for-clinical-data,com.ibm.watson.health.acd.v1.model,Smoking.new TypeToken() {...},0,6,0,0,0,1,0,1,0,1
+IBM Watson Health Cognitive Services Coverage Reports/annotator-for-clinical-data,com.ibm.watson.health.acd.v1.model,Smoking.new TypeToken() {...},0,6,0,0,0,1,0,1,0,1
+IBM Watson Health Cognitive Services Coverage Reports/annotator-for-clinical-data,com.ibm.watson.health.acd.v1.model,MedicationAnnotation,108,177,0,0,30,26,15,11,15,11
+IBM Watson Health Cognitive Services Coverage Reports/annotator-for-clinical-data,com.ibm.watson.health.acd.v1.model,AnalyzeWithFlowOptions,1,55,1,1,0,15,1,7,0,7
+IBM Watson Health Cognitive Services Coverage Reports/annotator-for-clinical-data,com.ibm.watson.health.acd.v1.model,EjectionFractionAnnotation.new TypeToken() {...},0,6,0,0,0,1,0,1,0,1
+IBM Watson Health Cognitive Services Coverage Reports/annotator-for-clinical-data,com.ibm.watson.health.acd.v1.model,EjectionFractionAnnotation.new TypeToken() {...},0,6,0,0,0,1,0,1,0,1
+IBM Watson Health Cognitive Services Coverage Reports/annotator-for-clinical-data,com.ibm.watson.health.acd.v1.model,GetProfileOptions.Builder,0,27,0,0,0,11,0,5,0,5
+IBM Watson Health Cognitive Services Coverage Reports/annotator-for-clinical-data,com.ibm.watson.health.acd.v1.model,EjectionFractionAnnotation,38,264,4,0,9,36,5,17,3,17
+IBM Watson Health Cognitive Services Coverage Reports/annotator-for-clinical-data,com.ibm.watson.health.acd.v1.model,EjectionFractionAnnotation.new TypeToken() {...},0,6,0,0,0,1,0,1,0,1
+IBM Watson Health Cognitive Services Coverage Reports/annotator-for-clinical-data,com.ibm.watson.health.acd.v1.model,EjectionFractionAnnotation.new TypeToken() {...},0,6,0,0,0,1,0,1,0,1
+IBM Watson Health Cognitive Services Coverage Reports/annotator-for-clinical-data,com.ibm.watson.health.acd.v1.model,EjectionFractionAnnotation.new TypeToken() {...},0,6,0,0,0,1,0,1,0,1
+IBM Watson Health Cognitive Services Coverage Reports/annotator-for-clinical-data,com.ibm.watson.health.acd.v1.model,EjectionFractionAnnotation.new TypeToken() {...},0,6,0,0,0,1,0,1,0,1
+IBM Watson Health Cognitive Services Coverage Reports/annotator-for-clinical-data,com.ibm.watson.health.acd.v1.model,NluEntity.new TypeToken() {...},0,6,0,0,0,1,0,1,0,1
+IBM Watson Health Cognitive Services Coverage Reports/annotator-for-clinical-data,com.ibm.watson.health.acd.v1.model,NluEntity.new TypeToken() {...},0,6,0,0,0,1,0,1,0,1
+IBM Watson Health Cognitive Services Coverage Reports/annotator-for-clinical-data,com.ibm.watson.health.acd.v1.model,AssistanceAnnotation.new TypeToken() {...},0,6,0,0,0,1,0,1,0,1
+IBM Watson Health Cognitive Services Coverage Reports/annotator-for-clinical-data,com.ibm.watson.health.acd.v1.model,NluEntity.new TypeToken() {...},0,6,0,0,0,1,0,1,0,1
+IBM Watson Health Cognitive Services Coverage Reports/annotator-for-clinical-data,com.ibm.watson.health.acd.v1.model,AssistanceAnnotation.new TypeToken() {...},0,6,0,0,0,1,0,1,0,1
+IBM Watson Health Cognitive Services Coverage Reports/annotator-for-clinical-data,com.ibm.watson.health.acd.v1.model,NluEntity.new TypeToken() {...},0,6,0,0,0,1,0,1,0,1
+IBM Watson Health Cognitive Services Coverage Reports/annotator-for-clinical-data,com.ibm.watson.health.acd.v1.model,AssistanceAnnotation.new TypeToken() {...},0,6,0,0,0,1,0,1,0,1
+IBM Watson Health Cognitive Services Coverage Reports/annotator-for-clinical-data,com.ibm.watson.health.acd.v1.model,NluEntity.new TypeToken() {...},0,6,0,0,0,1,0,1,0,1
+IBM Watson Health Cognitive Services Coverage Reports/annotator-for-clinical-data,com.ibm.watson.health.acd.v1.model,NluEntity.new TypeToken() {...},0,6,0,0,0,1,0,1,0,1
+IBM Watson Health Cognitive Services Coverage Reports/annotator-for-clinical-data,com.ibm.watson.health.acd.v1.model,AssistanceAnnotation.new TypeToken() {...},0,6,0,0,0,1,0,1,0,1
+IBM Watson Health Cognitive Services Coverage Reports/annotator-for-clinical-data,com.ibm.watson.health.acd.v1.model,NluEntity.new TypeToken() {...},0,6,0,0,0,1,0,1,0,1
+IBM Watson Health Cognitive Services Coverage Reports/annotator-for-clinical-data,com.ibm.watson.health.acd.v1.model,AssistanceAnnotation.new TypeToken() {...},0,6,0,0,0,1,0,1,0,1
+IBM Watson Health Cognitive Services Coverage Reports/annotator-for-clinical-data,com.ibm.watson.health.acd.v1.model,AssistanceAnnotation.new TypeToken() {...},0,6,0,0,0,1,0,1,0,1
+IBM Watson Health Cognitive Services Coverage Reports/annotator-for-clinical-data,com.ibm.watson.health.acd.v1.model,Concept.new TypeToken() {...},0,6,0,0,0,1,0,1,0,1
+IBM Watson Health Cognitive Services Coverage Reports/annotator-for-clinical-data,com.ibm.watson.health.acd.v1.model,Concept.new TypeToken() {...},0,6,0,0,0,1,0,1,0,1
+IBM Watson Health Cognitive Services Coverage Reports/annotator-for-clinical-data,com.ibm.watson.health.acd.v1.model,AssistanceAnnotation.new TypeToken() {...},0,6,0,0,0,1,0,1,0,1
+IBM Watson Health Cognitive Services Coverage Reports/annotator-for-clinical-data,com.ibm.watson.health.acd.v1.model,NluEntity.new TypeToken() {...},0,6,0,0,0,1,0,1,0,1
+IBM Watson Health Cognitive Services Coverage Reports/annotator-for-clinical-data,com.ibm.watson.health.acd.v1.model,AnnotatorFlow,3,23,0,0,1,8,1,4,1,4
+IBM Watson Health Cognitive Services Coverage Reports/annotator-for-clinical-data,com.ibm.watson.health.acd.v1.model,Concept.new TypeToken() {...},0,6,0,0,0,1,0,1,0,1
+IBM Watson Health Cognitive Services Coverage Reports/annotator-for-clinical-data,com.ibm.watson.health.acd.v1.model,AssistanceAnnotation.new TypeToken() {...},0,6,0,0,0,1,0,1,0,1
+IBM Watson Health Cognitive Services Coverage Reports/annotator-for-clinical-data,com.ibm.watson.health.acd.v1.model,Concept.new TypeToken() {...},0,6,0,0,0,1,0,1,0,1
+IBM Watson Health Cognitive Services Coverage Reports/annotator-for-clinical-data,com.ibm.watson.health.acd.v1.model,AssistanceAnnotation.new TypeToken() {...},0,6,0,0,0,1,0,1,0,1
+IBM Watson Health Cognitive Services Coverage Reports/annotator-for-clinical-data,com.ibm.watson.health.acd.v1.model,GetHealthCheckOptions.Builder,0,12,0,0,0,5,0,3,0,3
+IBM Watson Health Cognitive Services Coverage Reports/annotator-for-clinical-data,com.ibm.watson.health.acd.v1.model,Concept.new TypeToken() {...},0,6,0,0,0,1,0,1,0,1
+IBM Watson Health Cognitive Services Coverage Reports/annotator-for-clinical-data,com.ibm.watson.health.acd.v1.model,Concept.new TypeToken() {...},0,6,0,0,0,1,0,1,0,1
+IBM Watson Health Cognitive Services Coverage Reports/annotator-for-clinical-data,com.ibm.watson.health.acd.v1.model,LabValueAnnotation.new TypeToken() {...},0,6,0,0,0,1,0,1,0,1
+IBM Watson Health Cognitive Services Coverage Reports/annotator-for-clinical-data,com.ibm.watson.health.acd.v1.model,EjectionFractionAnnotation.new TypeToken() {...},0,6,0,0,0,1,0,1,0,1
+IBM Watson Health Cognitive Services Coverage Reports/annotator-for-clinical-data,com.ibm.watson.health.acd.v1.model,LabValueAnnotation.new TypeToken() {...},0,6,0,0,0,1,0,1,0,1
+IBM Watson Health Cognitive Services Coverage Reports/annotator-for-clinical-data,com.ibm.watson.health.acd.v1.model,EjectionFractionAnnotation.new TypeToken() {...},0,6,0,0,0,1,0,1,0,1
+IBM Watson Health Cognitive Services Coverage Reports/annotator-for-clinical-data,com.ibm.watson.health.acd.v1.model,LabValueAnnotation.new TypeToken() {...},0,6,0,0,0,1,0,1,0,1
+IBM Watson Health Cognitive Services Coverage Reports/annotator-for-clinical-data,com.ibm.watson.health.acd.v1.model,LabValueAnnotation.new TypeToken() {...},0,6,0,0,0,1,0,1,0,1
+IBM Watson Health Cognitive Services Coverage Reports/annotator-for-clinical-data,com.ibm.watson.health.acd.v1.model,EjectionFractionAnnotation.new TypeToken() {...},0,6,0,0,0,1,0,1,0,1
+IBM Watson Health Cognitive Services Coverage Reports/annotator-for-clinical-data,com.ibm.watson.health.acd.v1.model,LabValueAnnotation.new TypeToken() {...},0,6,0,0,0,1,0,1,0,1
+IBM Watson Health Cognitive Services Coverage Reports/annotator-for-clinical-data,com.ibm.watson.health.acd.v1.model,LabValueAnnotation.new TypeToken() {...},0,6,0,0,0,1,0,1,0,1
+IBM Watson Health Cognitive Services Coverage Reports/annotator-for-clinical-data,com.ibm.watson.health.acd.v1.model,LabValueAnnotation.new TypeToken() {...},0,6,0,0,0,1,0,1,0,1
+IBM Watson Health Cognitive Services Coverage Reports/annotator-for-clinical-data,com.ibm.watson.health.acd.v1.model,LabValueAnnotation.new TypeToken() {...},0,6,0,0,0,1,0,1,0,1
+IBM Watson Health Cognitive Services Coverage Reports/annotator-for-clinical-data,com.ibm.watson.health.acd.v1.model,SectionAnnotation,0,93,0,0,0,13,0,7,0,7
+IBM Watson Health Cognitive Services Coverage Reports/annotator-for-clinical-data,com.ibm.watson.health.acd.v1.model,FlowEntry,6,17,0,0,2,5,2,2,2,2
+IBM Watson Health Cognitive Services Coverage Reports/annotator-for-clinical-data,com.ibm.watson.health.acd.v1.model,Reference.new TypeToken() {...},0,6,0,0,0,1,0,1,0,1
+IBM Watson Health Cognitive Services Coverage Reports/annotator-for-clinical-data,com.ibm.watson.health.acd.v1.model,EjectionFractionAnnotation.new TypeToken() {...},0,6,0,0,0,1,0,1,0,1
+IBM Watson Health Cognitive Services Coverage Reports/annotator-for-clinical-data,com.ibm.watson.health.acd.v1.model,EjectionFractionAnnotation.new TypeToken() {...},0,6,0,0,0,1,0,1,0,1
+IBM Watson Health Cognitive Services Coverage Reports/annotator-for-clinical-data,com.ibm.watson.health.acd.v1.model,NegatedSpan.new TypeToken() {...},0,6,0,0,0,1,0,1,0,1
+IBM Watson Health Cognitive Services Coverage Reports/annotator-for-clinical-data,com.ibm.watson.health.acd.v1.model,EjectionFractionAnnotation.new TypeToken() {...},0,6,0,0,0,1,0,1,0,1
+IBM Watson Health Cognitive Services Coverage Reports/annotator-for-clinical-data,com.ibm.watson.health.acd.v1.model,NegatedSpan.new TypeToken() {...},0,6,0,0,0,1,0,1,0,1
+IBM Watson Health Cognitive Services Coverage Reports/annotator-for-clinical-data,com.ibm.watson.health.acd.v1.model,EjectionFractionAnnotation.new TypeToken() {...},0,6,0,0,0,1,0,1,0,1
+IBM Watson Health Cognitive Services Coverage Reports/annotator-for-clinical-data,com.ibm.watson.health.acd.v1.model,NegatedSpan.new TypeToken() {...},0,6,0,0,0,1,0,1,0,1
+IBM Watson Health Cognitive Services Coverage Reports/annotator-for-clinical-data,com.ibm.watson.health.acd.v1.model,EjectionFractionAnnotation.new TypeToken() {...},0,6,0,0,0,1,0,1,0,1
+IBM Watson Health Cognitive Services Coverage Reports/annotator-for-clinical-data,com.ibm.watson.health.acd.v1.model,NegatedSpan.new TypeToken() {...},0,6,0,0,0,1,0,1,0,1
+IBM Watson Health Cognitive Services Coverage Reports/annotator-for-clinical-data,com.ibm.watson.health.acd.v1.model,NegatedSpan.new TypeToken() {...},0,6,0,0,0,1,0,1,0,1
+IBM Watson Health Cognitive Services Coverage Reports/annotator-for-clinical-data,com.ibm.watson.health.acd.v1.model,NegatedSpan.new TypeToken() {...},0,6,0,0,0,1,0,1,0,1
+IBM Watson Health Cognitive Services Coverage Reports/annotator-for-clinical-data,com.ibm.watson.health.acd.v1.model,NegatedSpan.new TypeToken() {...},0,6,0,0,0,1,0,1,0,1
+IBM Watson Health Cognitive Services Coverage Reports/annotator-for-clinical-data,com.ibm.watson.health.acd.v1.model,Procedure.new TypeToken() {...},0,6,0,0,0,1,0,1,0,1
+IBM Watson Health Cognitive Services Coverage Reports/annotator-for-clinical-data,com.ibm.watson.health.acd.v1.model,NegatedSpan.new TypeToken() {...},0,6,0,0,0,1,0,1,0,1
+IBM Watson Health Cognitive Services Coverage Reports/annotator-for-clinical-data,com.ibm.watson.health.acd.v1.model,UnstructuredContainer.Builder,53,14,0,0,18,5,6,3,6,3
+IBM Watson Health Cognitive Services Coverage Reports/annotator-for-clinical-data,com.ibm.watson.health.acd.v1.model,Procedure.new TypeToken() {...},0,6,0,0,0,1,0,1,0,1
+IBM Watson Health Cognitive Services Coverage Reports/annotator-for-clinical-data,com.ibm.watson.health.acd.v1.model,NegatedSpan.new TypeToken() {...},0,6,0,0,0,1,0,1,0,1
+IBM Watson Health Cognitive Services Coverage Reports/annotator-for-clinical-data,com.ibm.watson.health.acd.v1.model,Procedure.new TypeToken() {...},0,6,0,0,0,1,0,1,0,1
+IBM Watson Health Cognitive Services Coverage Reports/annotator-for-clinical-data,com.ibm.watson.health.acd.v1.model,EjectionFractionAnnotation.new TypeToken() {...},0,6,0,0,0,1,0,1,0,1
+IBM Watson Health Cognitive Services Coverage Reports/annotator-for-clinical-data,com.ibm.watson.health.acd.v1.model,AnalyzeOptions,0,30,0,0,0,9,0,5,0,5
+IBM Watson Health Cognitive Services Coverage Reports/annotator-for-clinical-data,com.ibm.watson.health.acd.v1.model,Procedure.new TypeToken() {...},0,6,0,0,0,1,0,1,0,1
+IBM Watson Health Cognitive Services Coverage Reports/annotator-for-clinical-data,com.ibm.watson.health.acd.v1.model,EjectionFractionAnnotation.new TypeToken() {...},0,6,0,0,0,1,0,1,0,1
+IBM Watson Health Cognitive Services Coverage Reports/annotator-for-clinical-data,com.ibm.watson.health.acd.v1.model,Procedure.new TypeToken() {...},0,6,0,0,0,1,0,1,0,1
+IBM Watson Health Cognitive Services Coverage Reports/annotator-for-clinical-data,com.ibm.watson.health.acd.v1.model,EjectionFractionAnnotation.new TypeToken() {...},0,6,0,0,0,1,0,1,0,1
+IBM Watson Health Cognitive Services Coverage Reports/annotator-for-clinical-data,com.ibm.watson.health.acd.v1.model,Procedure.new TypeToken() {...},0,6,0,0,0,1,0,1,0,1
+IBM Watson Health Cognitive Services Coverage Reports/annotator-for-clinical-data,com.ibm.watson.health.acd.v1.model,EjectionFractionAnnotation.new TypeToken() {...},0,6,0,0,0,1,0,1,0,1
+IBM Watson Health Cognitive Services Coverage Reports/annotator-for-clinical-data,com.ibm.watson.health.acd.v1.model,Procedure.new TypeToken() {...},0,6,0,0,0,1,0,1,0,1
+IBM Watson Health Cognitive Services Coverage Reports/annotator-for-clinical-data,com.ibm.watson.health.acd.v1.model,EjectionFractionAnnotation.new TypeToken() {...},0,6,0,0,0,1,0,1,0,1
+IBM Watson Health Cognitive Services Coverage Reports/annotator-for-clinical-data,com.ibm.watson.health.acd.v1.model,LabValueAnnotation.new TypeToken() {...},0,6,0,0,0,1,0,1,0,1
+IBM Watson Health Cognitive Services Coverage Reports/annotator-for-clinical-data,com.ibm.watson.health.acd.v1.model,LabValueAnnotation.new TypeToken() {...},0,6,0,0,0,1,0,1,0,1
+IBM Watson Health Cognitive Services Coverage Reports/annotator-for-clinical-data,com.ibm.watson.health.acd.v1.model,LabValueAnnotation.new TypeToken() {...},0,6,0,0,0,1,0,1,0,1
+IBM Watson Health Cognitive Services Coverage Reports/annotator-for-clinical-data,com.ibm.watson.health.acd.v1.model,LabValueAnnotation.new TypeToken() {...},0,6,0,0,0,1,0,1,0,1
+IBM Watson Health Cognitive Services Coverage Reports/annotator-for-clinical-data,com.ibm.watson.health.acd.v1.model,ListStringWrapper,7,3,0,0,3,1,2,1,2,1
+IBM Watson Health Cognitive Services Coverage Reports/annotator-for-clinical-data,com.ibm.watson.health.acd.v1.model,LabValueAnnotation.new TypeToken() {...},0,6,0,0,0,1,0,1,0,1
+IBM Watson Health Cognitive Services Coverage Reports/annotator-for-clinical-data,com.ibm.watson.health.acd.v1.model,LabValueAnnotation.new TypeToken() {...},0,6,0,0,0,1,0,1,0,1
+IBM Watson Health Cognitive Services Coverage Reports/annotator-for-clinical-data,com.ibm.watson.health.acd.v1.model,LabValueAnnotation.new TypeToken() {...},0,6,0,0,0,1,0,1,0,1
+IBM Watson Health Cognitive Services Coverage Reports/annotator-for-clinical-data,com.ibm.watson.health.acd.v1.model,RelationNode,0,18,0,0,0,3,0,2,0,2
+IBM Watson Health Cognitive Services Coverage Reports/annotator-for-clinical-data,com.ibm.watson.health.acd.v1.model,CancerDiagnosis.new TypeToken() {...},0,6,0,0,0,1,0,1,0,1
+IBM Watson Health Cognitive Services Coverage Reports/annotator-for-clinical-data,com.ibm.watson.health.acd.v1.model,AttributeValueAnnotation,170,423,4,0,50,68,23,33,21,33
+IBM Watson Health Cognitive Services Coverage Reports/annotator-for-clinical-data,com.ibm.watson.health.acd.v1.model,CancerDiagnosis.new TypeToken() {...},0,6,0,0,0,1,0,1,0,1
+IBM Watson Health Cognitive Services Coverage Reports/annotator-for-clinical-data,com.ibm.watson.health.acd.v1.model,CancerDiagnosis.new TypeToken() {...},0,6,0,0,0,1,0,1,0,1
+IBM Watson Health Cognitive Services Coverage Reports/annotator-for-clinical-data,com.ibm.watson.health.acd.v1.model,CancerDiagnosis.new TypeToken() {...},0,6,0,0,0,1,0,1,0,1
+IBM Watson Health Cognitive Services Coverage Reports/annotator-for-clinical-data,com.ibm.watson.health.acd.v1.model,Smoking,0,242,2,2,0,37,2,16,0,16
+IBM Watson Health Cognitive Services Coverage Reports/annotator-for-clinical-data,com.ibm.watson.health.acd.v1.model,CancerDiagnosis.new TypeToken() {...},0,6,0,0,0,1,0,1,0,1
+IBM Watson Health Cognitive Services Coverage Reports/annotator-for-clinical-data,com.ibm.watson.health.acd.v1.model,GetFlowOptions.Builder,0,27,0,0,0,11,0,5,0,5
+IBM Watson Health Cognitive Services Coverage Reports/annotator-for-clinical-data,com.ibm.watson.health.acd.v1.model,AcdProfile,0,15,0,0,0,5,0,5,0,5
+IBM Watson Health Cognitive Services Coverage Reports/annotator-for-clinical-data,com.ibm.watson.health.acd.v1.model,ConceptValue,142,115,4,0,22,17,18,1,16,1
+IBM Watson Health Cognitive Services Coverage Reports/annotator-for-clinical-data,com.ibm.watson.health.acd.v1.model,SymptomDisease.new TypeToken() {...},0,6,0,0,0,1,0,1,0,1
+IBM Watson Health Cognitive Services Coverage Reports/annotator-for-clinical-data,com.ibm.watson.health.acd.v1.model,Reference,0,18,0,0,0,3,0,2,0,2
+IBM Watson Health Cognitive Services Coverage Reports/annotator-for-clinical-data,com.ibm.watson.health.acd.v1.model,ConceptValue.new TypeToken() {...},0,6,0,0,0,1,0,1,0,1
+IBM Watson Health Cognitive Services Coverage Reports/annotator-for-clinical-data,com.ibm.watson.health.acd.v1.model,SpellingCorrection,0,63,0,0,0,9,0,5,0,5
+IBM Watson Health Cognitive Services Coverage Reports/annotator-for-clinical-data,com.ibm.watson.health.acd.v1.model,ConceptValue.new TypeToken() {...},0,6,0,0,0,1,0,1,0,1
+IBM Watson Health Cognitive Services Coverage Reports/annotator-for-clinical-data,com.ibm.watson.health.acd.v1.model,SymptomDisease.new TypeToken() {...},0,6,0,0,0,1,0,1,0,1
+IBM Watson Health Cognitive Services Coverage Reports/annotator-for-clinical-data,com.ibm.watson.health.acd.v1.model,ConceptValue.new TypeToken() {...},0,6,0,0,0,1,0,1,0,1
+IBM Watson Health Cognitive Services Coverage Reports/annotator-for-clinical-data,com.ibm.watson.health.acd.v1.model,ConceptValue.new TypeToken() {...},0,6,0,0,0,1,0,1,0,1
+IBM Watson Health Cognitive Services Coverage Reports/annotator-for-clinical-data,com.ibm.watson.health.acd.v1.model,ConceptValue.new TypeToken() {...},0,6,0,0,0,1,0,1,0,1
+IBM Watson Health Cognitive Services Coverage Reports/annotator-for-clinical-data,com.ibm.watson.health.acd.v1.model,ConceptValue.new TypeToken() {...},0,6,0,0,0,1,0,1,0,1
+IBM Watson Health Cognitive Services Coverage Reports/annotator-for-clinical-data,com.ibm.watson.health.acd.v1.model,FlowEntry.Builder,5,25,0,0,2,9,1,4,1,4
+IBM Watson Health Cognitive Services Coverage Reports/annotator-for-clinical-data,com.ibm.watson.health.acd.v1.model,ConceptValue.new TypeToken() {...},0,6,0,0,0,1,0,1,0,1
+IBM Watson Health Cognitive Services Coverage Reports/annotator-for-clinical-data,com.ibm.watson.health.acd.v1.model,Relation.new TypeToken() {...},0,6,0,0,0,1,0,1,0,1
+IBM Watson Health Cognitive Services Coverage Reports/annotator-for-clinical-data,com.ibm.watson.health.acd.v1.model,Concept.new TypeToken() {...},0,6,0,0,0,1,0,1,0,1
+IBM Watson Health Cognitive Services Coverage Reports/annotator-for-clinical-data,com.ibm.watson.health.acd.v1.model,Concept.new TypeToken() {...},0,6,0,0,0,1,0,1,0,1
+IBM Watson Health Cognitive Services Coverage Reports/annotator-for-clinical-data,com.ibm.watson.health.acd.v1.model,Relation.new TypeToken() {...},0,6,0,0,0,1,0,1,0,1
+IBM Watson Health Cognitive Services Coverage Reports/annotator-for-clinical-data,com.ibm.watson.health.acd.v1.model,SymptomDisease.new TypeToken() {...},0,6,0,0,0,1,0,1,0,1
+IBM Watson Health Cognitive Services Coverage Reports/annotator-for-clinical-data,com.ibm.watson.health.acd.v1.model,Concept.new TypeToken() {...},0,6,0,0,0,1,0,1,0,1
+IBM Watson Health Cognitive Services Coverage Reports/annotator-for-clinical-data,com.ibm.watson.health.acd.v1.model,SymptomDisease.new TypeToken() {...},0,6,0,0,0,1,0,1,0,1
+IBM Watson Health Cognitive Services Coverage Reports/annotator-for-clinical-data,com.ibm.watson.health.acd.v1.model,Relation.new TypeToken() {...},0,6,0,0,0,1,0,1,0,1
+IBM Watson Health Cognitive Services Coverage Reports/annotator-for-clinical-data,com.ibm.watson.health.acd.v1.model,Concept.new TypeToken() {...},0,6,0,0,0,1,0,1,0,1
+IBM Watson Health Cognitive Services Coverage Reports/annotator-for-clinical-data,com.ibm.watson.health.acd.v1.model,ConceptValue.new TypeToken() {...},0,6,0,0,0,1,0,1,0,1
+IBM Watson Health Cognitive Services Coverage Reports/annotator-for-clinical-data,com.ibm.watson.health.acd.v1.model,ConceptValue.new TypeToken() {...},0,6,0,0,0,1,0,1,0,1
+IBM Watson Health Cognitive Services Coverage Reports/annotator-for-clinical-data,com.ibm.watson.health.acd.v1.model,Relation.new TypeToken() {...},0,6,0,0,0,1,0,1,0,1
+IBM Watson Health Cognitive Services Coverage Reports/annotator-for-clinical-data,com.ibm.watson.health.acd.v1.model,Concept.new TypeToken() {...},0,6,0,0,0,1,0,1,0,1
+IBM Watson Health Cognitive Services Coverage Reports/annotator-for-clinical-data,com.ibm.watson.health.acd.v1.model,MedicationAnnotation.new TypeToken() {...},0,6,0,0,0,1,0,1,0,1
+IBM Watson Health Cognitive Services Coverage Reports/annotator-for-clinical-data,com.ibm.watson.health.acd.v1.model,Concept.new TypeToken() {...},0,6,0,0,0,1,0,1,0,1
+IBM Watson Health Cognitive Services Coverage Reports/annotator-for-clinical-data,com.ibm.watson.health.acd.v1.model,MedicationAnnotation.new TypeToken() {...},0,6,0,0,0,1,0,1,0,1
+IBM Watson Health Cognitive Services Coverage Reports/annotator-for-clinical-data,com.ibm.watson.health.acd.v1.model,MedicationAnnotation.new TypeToken() {...},0,6,0,0,0,1,0,1,0,1
+IBM Watson Health Cognitive Services Coverage Reports/annotator-for-clinical-data,com.ibm.watson.health.acd.v1.model,Concept.new TypeToken() {...},0,6,0,0,0,1,0,1,0,1
+IBM Watson Health Cognitive Services Coverage Reports/annotator-for-clinical-data,com.ibm.watson.health.acd.v1.model,Concept.new TypeToken() {...},0,6,0,0,0,1,0,1,0,1
+IBM Watson Health Cognitive Services Coverage Reports/annotator-for-clinical-data,com.ibm.watson.health.acd.v1.model,Concept.new TypeToken() {...},0,6,0,0,0,1,0,1,0,1
+IBM Watson Health Cognitive Services Coverage Reports/annotator-for-clinical-data,com.ibm.watson.health.acd.v1.model,Concept.new TypeToken() {...},0,6,0,0,0,1,0,1,0,1
+IBM Watson Health Cognitive Services Coverage Reports/annotator-for-clinical-data,com.ibm.watson.health.acd.v1.model,Suggestion.new TypeToken() {...},0,6,0,0,0,1,0,1,0,1
+IBM Watson Health Cognitive Services Coverage Reports/annotator-for-clinical-data,com.ibm.watson.health.acd.v1.model,GetProfileOptions,0,20,0,0,0,6,0,3,0,3
+IBM Watson Health Cognitive Services Coverage Reports/annotator-for-clinical-data,com.ibm.watson.health.acd.v1.model,Annotation,0,93,0,0,0,13,0,7,0,7
+IBM Watson Health Cognitive Services Coverage Reports/annotator-for-clinical-data,com.ibm.watson.health.acd.v1.model,Suggestion.new TypeToken() {...},0,6,0,0,0,1,0,1,0,1
+IBM Watson Health Cognitive Services Coverage Reports/annotator-for-clinical-data,com.ibm.watson.health.acd.v1.model,Suggestion.new TypeToken() {...},0,6,0,0,0,1,0,1,0,1
+IBM Watson Health Cognitive Services Coverage Reports/annotator-for-clinical-data,com.ibm.watson.health.acd.v1.model,Suggestion.new TypeToken() {...},0,6,0,0,0,1,0,1,0,1
+IBM Watson Health Cognitive Services Coverage Reports/annotator-for-clinical-data,com.ibm.watson.health.acd.v1.model,ContainerAnnotation,0,93,0,0,0,31,0,31,0,31
+IBM Watson Health Cognitive Services Coverage Reports/annotator-for-clinical-data,com.ibm.watson.health.acd.v1.model,SymptomDisease.new TypeToken() {...},0,6,0,0,0,1,0,1,0,1
+IBM Watson Health Cognitive Services Coverage Reports/annotator-for-clinical-data,com.ibm.watson.health.acd.v1.model,SymptomDisease.new TypeToken() {...},0,6,0,0,0,1,0,1,0,1
+IBM Watson Health Cognitive Services Coverage Reports/annotator-for-clinical-data,com.ibm.watson.health.acd.v1.model,SymptomDisease.new TypeToken() {...},0,6,0,0,0,1,0,1,0,1
+IBM Watson Health Cognitive Services Coverage Reports/annotator-for-clinical-data,com.ibm.watson.health.acd.v1.model,SymptomDisease.new TypeToken() {...},0,6,0,0,0,1,0,1,0,1
+IBM Watson Health Cognitive Services Coverage Reports/annotator-for-clinical-data,com.ibm.watson.health.acd.v1.model,SymptomDisease.new TypeToken() {...},0,6,0,0,0,1,0,1,0,1
+IBM Watson Health Cognitive Services Coverage Reports/annotator-for-clinical-data,com.ibm.watson.health.acd.v1.model,SymptomDisease.new TypeToken() {...},0,6,0,0,0,1,0,1,0,1
+IBM Watson Health Cognitive Services Coverage Reports/annotator-for-clinical-data,com.ibm.watson.health.acd.v1.model,SymptomDisease.new TypeToken() {...},0,6,0,0,0,1,0,1,0,1
+IBM Watson Health Cognitive Services Coverage Reports/annotator-for-clinical-data,com.ibm.watson.health.acd.v1.model,SymptomDisease.new TypeToken() {...},0,6,0,0,0,1,0,1,0,1
+IBM Watson Health Cognitive Services Coverage Reports/annotator-for-clinical-data,com.ibm.watson.health.acd.v1.model,SpellCorrectedText,0,33,0,0,0,5,0,3,0,3
+IBM Watson Health Cognitive Services Coverage Reports/annotator-for-clinical-data,com.ibm.watson.health.acd.v1.model,AnnotatorFlow.Builder,5,25,0,0,2,9,1,4,1,4
+IBM Watson Health Cognitive Services Coverage Reports/annotator-for-clinical-data,com.ibm.watson.health.acd.v1.model,Concept.new TypeToken() {...},0,6,0,0,0,1,0,1,0,1
+IBM Watson Health Cognitive Services Coverage Reports/annotator-for-clinical-data,com.ibm.watson.health.acd.v1.model,SpellingCorrection.new TypeToken() {...},0,6,0,0,0,1,0,1,0,1
+IBM Watson Health Cognitive Services Coverage Reports/annotator-for-clinical-data,com.ibm.watson.health.acd.v1.model,Concept.new TypeToken() {...},0,6,0,0,0,1,0,1,0,1
+IBM Watson Health Cognitive Services Coverage Reports/annotator-for-clinical-data,com.ibm.watson.health.acd.v1.model,Concept.new TypeToken() {...},0,6,0,0,0,1,0,1,0,1
+IBM Watson Health Cognitive Services Coverage Reports/annotator-for-clinical-data,com.ibm.watson.health.acd.v1.model,Concept.new TypeToken() {...},0,6,0,0,0,1,0,1,0,1
+IBM Watson Health Cognitive Services Coverage Reports/annotator-for-clinical-data,com.ibm.watson.health.acd.v1.model,GetAnnotatorOptions.Builder,0,27,0,0,0,11,0,5,0,5
+IBM Watson Health Cognitive Services Coverage Reports/annotator-for-clinical-data,com.ibm.watson.health.acd.v1.model,Concept.new TypeToken() {...},0,6,0,0,0,1,0,1,0,1
+IBM Watson Health Cognitive Services Coverage Reports/annotator-for-clinical-data,com.ibm.watson.health.acd.v1.model,Concept.new TypeToken() {...},0,6,0,0,0,1,0,1,0,1
+IBM Watson Health Cognitive Services Coverage Reports/annotator-for-clinical-data,com.ibm.watson.health.acd.v1.model,NegatedSpan,0,159,2,2,0,27,2,10,0,10
+IBM Watson Health Cognitive Services Coverage Reports/annotator-for-clinical-data,com.ibm.watson.health.acd.v1.model,GetProfilesOptions,0,9,0,0,0,3,0,2,0,2
+IBM Watson Health Cognitive Services Coverage Reports/annotator-for-clinical-data,com.ibm.watson.health.acd.v1.model,SpellingCorrection.new TypeToken() {...},0,6,0,0,0,1,0,1,0,1
+IBM Watson Health Cognitive Services Coverage Reports/annotator-for-clinical-data,com.ibm.watson.health.acd.v1.model,SpellingCorrection.new TypeToken() {...},0,6,0,0,0,1,0,1,0,1
+IBM Watson Health Cognitive Services Coverage Reports/annotator-for-clinical-data,com.ibm.watson.health.acd.v1.model,SpellingCorrection.new TypeToken() {...},0,6,0,0,0,1,0,1,0,1
+IBM Watson Health Cognitive Services Coverage Reports/annotator-for-clinical-data,com.ibm.watson.health.acd.v1.model,CancerDiagnosis,32,221,2,2,6,34,4,14,2,14
+IBM Watson Health Cognitive Services Coverage Reports/annotator-for-clinical-data,com.ibm.watson.health.acd.v1.model,AcdFlow,0,15,0,0,0,5,0,5,0,5
+IBM Watson Health Cognitive Services Coverage Reports/annotator-for-clinical-data,com.ibm.watson.health.acd.v1.model,GetHealthCheckOptions,0,9,0,0,0,3,0,2,0,2
+IBM Watson Health Cognitive Services Coverage Reports/annotator-for-clinical-data,com.ibm.watson.health.acd.v1.model,AnalyzeOptions.Builder,10,65,2,2,4,20,4,6,2,6
+IBM Watson Health Cognitive Services Coverage Reports/annotator-for-clinical-data,com.ibm.watson.health.acd.v1.model,ListAnnotatorsOptions.Builder,0,12,0,0,0,5,0,3,0,3
+IBM Watson Health Cognitive Services Coverage Reports/annotator-for-clinical-data,com.ibm.watson.health.acd.v1.model,GetFlowsOptions.Builder,0,12,0,0,0,5,0,3,0,3
+IBM Watson Health Cognitive Services Coverage Reports/annotator-for-clinical-data,com.ibm.watson.health.acd.v1.model,SymptomDisease,3,329,1,3,1,48,1,23,0,22
+IBM Watson Health Cognitive Services Coverage Reports/annotator-for-clinical-data,com.ibm.watson.health.acd.v1.model,ConceptValue.new TypeToken() {...},0,6,0,0,0,1,0,1,0,1
+IBM Watson Health Cognitive Services Coverage Reports/annotator-for-clinical-data,com.ibm.watson.health.acd.v1.model,Relation,0,65,0,0,0,10,0,5,0,5
+IBM Watson Health Cognitive Services Coverage Reports/annotator-for-clinical-data,com.ibm.watson.health.acd.v1.model,GetFlowsOptions,0,9,0,0,0,3,0,2,0,2
+IBM Watson Health Cognitive Services Coverage Reports/annotator-for-clinical-data,com.ibm.watson.health.acd.v1.model,ConceptValue.new TypeToken() {...},0,6,0,0,0,1,0,1,0,1
+IBM Watson Health Cognitive Services Coverage Reports/annotator-for-clinical-data,com.ibm.watson.health.acd.v1.model,ConceptValue.new TypeToken() {...},0,6,0,0,0,1,0,1,0,1
+IBM Watson Health Cognitive Services Coverage Reports/annotator-for-clinical-data,com.ibm.watson.health.acd.v1.model,ConceptValue.new TypeToken() {...},0,6,0,0,0,1,0,1,0,1
+IBM Watson Health Cognitive Services Coverage Reports/annotator-for-clinical-data,com.ibm.watson.health.acd.v1.model,ConceptValue.new TypeToken() {...},0,6,0,0,0,1,0,1,0,1
+IBM Watson Health Cognitive Services Coverage Reports/annotator-for-clinical-data,com.ibm.watson.health.acd.v1.model,ConceptValue.new TypeToken() {...},0,6,0,0,0,1,0,1,0,1
+IBM Watson Health Cognitive Services Coverage Reports/annotator-for-clinical-data,com.ibm.watson.health.acd.v1.model,ConceptValue.new TypeToken() {...},0,6,0,0,0,1,0,1,0,1
+IBM Watson Health Cognitive Services Coverage Reports/annotator-for-clinical-data,com.ibm.watson.health.acd.v1.model,Disambiguation,0,6,0,0,0,2,0,2,0,2
+IBM Watson Health Cognitive Services Coverage Reports/annotator-for-clinical-data,com.ibm.watson.health.acd.v1.model,ListAnnotatorsOptions,0,9,0,0,0,3,0,2,0,2
+IBM Watson Health Cognitive Services Coverage Reports/annotator-for-clinical-data,com.ibm.watson.health.acd.v1.model,Concept,84,446,0,4,28,75,14,37,14,35
+IBM Watson Health Cognitive Services Coverage Reports/annotator-for-clinical-data,com.ibm.watson.health.acd.v1.model,ConfigurationEntity,9,16,0,0,3,7,3,4,3,4
+IBM Watson Health Cognitive Services Coverage Reports/annotator-for-clinical-data,com.ibm.watson.health.acd.v1.model,LabValueAnnotation,46,211,4,0,10,29,6,13,4,13
+IBM Watson Health Cognitive Services Coverage Reports/annotator-for-clinical-data,com.ibm.watson.health.acd.v1.model,Procedure.new TypeToken() {...},0,6,0,0,0,1,0,1,0,1
+IBM Watson Health Cognitive Services Coverage Reports/annotator-for-clinical-data,com.ibm.watson.health.acd.v1.model,Procedure.new TypeToken() {...},0,6,0,0,0,1,0,1,0,1
+IBM Watson Health Cognitive Services Coverage Reports/annotator-for-clinical-data,com.ibm.watson.health.acd.v1.model,Procedure.new TypeToken() {...},0,6,0,0,0,1,0,1,0,1
+IBM Watson Health Cognitive Services Coverage Reports/annotator-for-clinical-data,com.ibm.watson.health.acd.v1.model,Procedure.new TypeToken() {...},0,6,0,0,0,1,0,1,0,1
+IBM Watson Health Cognitive Services Coverage Reports/annotator-for-clinical-data,com.ibm.watson.health.acd.v1.model,Procedure.new TypeToken() {...},0,6,0,0,0,1,0,1,0,1
+IBM Watson Health Cognitive Services Coverage Reports/annotator-for-clinical-data,com.ibm.watson.health.acd.v1.model,Procedure.new TypeToken() {...},0,6,0,0,0,1,0,1,0,1
+IBM Watson Health Cognitive Services Coverage Reports/annotator-for-clinical-data,com.ibm.watson.health.acd.v1.model,Procedure.new TypeToken() {...},0,6,0,0,0,1,0,1,0,1
+IBM Watson Health Cognitive Services Coverage Reports/annotator-for-clinical-data,com.ibm.watson.health.acd.v1.model,Procedure.new TypeToken() {...},0,6,0,0,0,1,0,1,0,1
+IBM Watson Health Cognitive Services Coverage Reports/annotator-for-clinical-data,com.ibm.watson.health.acd.v1.model,SectionAnnotation.new TypeToken() {...},0,6,0,0,0,1,0,1,0,1
+IBM Watson Health Cognitive Services Coverage Reports/annotator-for-clinical-data,com.ibm.watson.health.acd.v1.model,SectionAnnotation.new TypeToken() {...},0,6,0,0,0,1,0,1,0,1
+IBM Watson Health Cognitive Services Coverage Reports/annotator-for-clinical-data,com.ibm.watson.health.acd.v1.model,SectionAnnotation.new TypeToken() {...},0,6,0,0,0,1,0,1,0,1
+IBM Watson Health Cognitive Services Coverage Reports/annotator-for-clinical-data,com.ibm.watson.health.acd.v1.model,SectionAnnotation.new TypeToken() {...},0,6,0,0,0,1,0,1,0,1
+IBM Watson Health Cognitive Services Coverage Reports/annotator-for-clinical-data,com.ibm.watson.health.acd.v1.model,SectionAnnotation.new TypeToken() {...},0,6,0,0,0,1,0,1,0,1
+IBM Watson Health Cognitive Services Coverage Reports/annotator-for-clinical-data,com.ibm.watson.health.acd.v1.model,SectionAnnotation.new TypeToken() {...},0,6,0,0,0,1,0,1,0,1
+IBM Watson Health Cognitive Services Coverage Reports/annotator-for-clinical-data,com.ibm.watson.health.acd.v1.model,RequestContainer.Builder,39,27,3,1,13,8,6,3,4,3
+IBM Watson Health Cognitive Services Coverage Reports/annotator-for-clinical-data,com.ibm.watson.health.acd.v1.model,Procedure.new TypeToken() {...},0,6,0,0,0,1,0,1,0,1
+IBM Watson Health Cognitive Services Coverage Reports/annotator-for-clinical-data,com.ibm.watson.health.acd.v1,AnnotatorForClinicalData,99,1283,35,35,20,202,29,48,4,38
+IBM Watson Health Cognitive Services Coverage Reports/annotator-for-clinical-data,com.ibm.watson.health.acd.v1,AnnotatorForClinicalData.Builder,20,60,2,2,2,19,2,7,0,7
+IBM Watson Health Cognitive Services Coverage Reports/annotator-for-clinical-data,com.ibm.watson.health.acd.v1.util,CustomCollection,154,102,6,4,31,27,6,8,2,7
+IBM Watson Health Cognitive Services Coverage Reports/annotator-for-clinical-data,com.ibm.watson.health.acd.v1.util,CustomDeserializer,18,24,0,0,4,6,1,2,1,2
+IBM Watson Health Cognitive Services Coverage Reports/annotator-for-clinical-data,com.ibm.watson.health.acd.v1.util,HttpClientOptions,0,38,0,0,0,12,0,6,0,6
+IBM Watson Health Cognitive Services Coverage Reports/annotator-for-clinical-data,com.ibm.watson.health.acd.v1.util,HttpClientOptions.Builder,0,49,0,0,0,18,0,7,0,7
+IBM Watson Health Cognitive Services Coverage Reports/annotator-for-clinical-data,com.ibm.watson.health.acd.v1.util,FlowUtil.Builder,11,72,2,4,4,20,3,6,1,5
+IBM Watson Health Cognitive Services Coverage Reports/annotator-for-clinical-data,com.ibm.watson.health.acd.v1.util,FlowUtil,23,18,0,0,7,4,4,2,4,2
+IBM Watson Health Cognitive Services Coverage Reports/annotator-for-clinical-data,com.ibm.watson.health.acd.v1.exception,IllegalMethodException,4,0,0,0,2,0,1,0,1,0
+IBM Watson Health Cognitive Services Coverage Reports/annotator-for-clinical-data,com.ibm.watson.health.acd.v1.exception,IndexNotAvailableException,4,0,0,0,2,0,1,0,1,0
+IBM Watson Health Cognitive Services Coverage Reports/annotator-for-clinical-data,com.ibm.watson.health.acd.v1.exception,ParameterNotAvailableException,4,0,0,0,2,0,1,0,1,0

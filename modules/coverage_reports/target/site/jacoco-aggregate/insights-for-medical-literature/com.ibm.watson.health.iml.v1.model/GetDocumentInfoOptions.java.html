@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../jacoco-resources/report.gif" type="image/gif"/><title>GetDocumentInfoOptions.java</title><link rel="stylesheet" href="../../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../../index.html" class="el_report">IBM Watson Health Cognitive Services Coverage Reports</a> &gt; <a href="../index.html" class="el_bundle">insights-for-medical-literature</a> &gt; <a href="index.source.html" class="el_package">com.ibm.watson.health.iml.v1.model</a> &gt; <span class="el_source">GetDocumentInfoOptions.java</span></div><h1>GetDocumentInfoOptions.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2018 IBM Corp. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
+ * you may not use this file except in compliance with
+ * the License. You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing,
+ * software distributed under the License is distributed on
+ * an &quot;AS IS&quot; BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND,
+ * either express or implied. See the License for the
+ * specific language governing permissions and limitations under the License.
+ */
+package com.ibm.watson.health.iml.v1.model;
+
+import com.ibm.cloud.sdk.core.service.model.GenericModel;
+import com.ibm.cloud.sdk.core.util.Validator;
+
+/**
+ * The getDocumentInfo options.
+ */
+public class GetDocumentInfoOptions extends GenericModel {
+
+  private String corpus;
+  private String documentId;
+  private String fields;
+  private boolean verbose;
+
+  /**
+   * Builder.
+   */
+  public static class Builder {
+    private String corpus;
+    private String documentId;
+    private String fields;
+<span class="fc" id="L38">    private boolean verbose = true;</span>
+
+<span class="fc" id="L40">    private Builder(GetDocumentInfoOptions getDocumentInfoOptions) {</span>
+<span class="fc" id="L41">      corpus = getDocumentInfoOptions.corpus;</span>
+<span class="fc" id="L42">      documentId = getDocumentInfoOptions.documentId;</span>
+<span class="fc" id="L43">      fields = getDocumentInfoOptions.fields;</span>
+<span class="fc" id="L44">      verbose = getDocumentInfoOptions.verbose;</span>
+<span class="fc" id="L45">    }</span>
+
+    /**
+     * Instantiates a new builder.
+     */
+<span class="fc" id="L50">    public Builder() {</span>
+<span class="fc" id="L51">    }</span>
+
+    /**
+     * Instantiates a new builder with required properties.
+     *
+     * @param corpus the corpus
+     * @param documentId the documentId
+     */
+<span class="fc" id="L59">    public Builder(String corpus, String documentId) {</span>
+<span class="fc" id="L60">      this.corpus = corpus;</span>
+<span class="fc" id="L61">      this.documentId = documentId;</span>
+<span class="fc" id="L62">    }</span>
+
+    /**
+     * Builds a GetDocumentInfoOptions.
+     *
+     * @return the getDocumentInfoOptions
+     */
+    public GetDocumentInfoOptions build() {
+<span class="fc" id="L70">      return new GetDocumentInfoOptions(this);</span>
+    }
+
+    /**
+     * Set the corpus.
+     *
+     * @param corpus the corpus
+     * @return the GetDocumentInfoOptions builder
+     */
+    public Builder corpus(String corpus) {
+<span class="fc" id="L80">      this.corpus = corpus;</span>
+<span class="fc" id="L81">      return this;</span>
+    }
+
+    /**
+     * Set the documentId.
+     *
+     * @param documentId the documentId
+     * @return the GetDocumentInfoOptions builder
+     */
+    public Builder documentId(String documentId) {
+<span class="fc" id="L91">      this.documentId = documentId;</span>
+<span class="fc" id="L92">      return this;</span>
+    }
+
+    /**
+     * Set the fields.
+     *
+     * @param fields the fields
+     * @return the GetDocumentInfoOptions builder
+     */
+    public Builder fields(String fields) {
+<span class="fc" id="L102">      this.fields = fields;</span>
+<span class="fc" id="L103">      return this;</span>
+    }
+
+    /**
+     * Set the fields.
+     *
+     * @param fields the fields
+     * @return the GetDocumentInfoOptions builder
+     */
+    public Builder verbose(boolean flag) {
+<span class="fc" id="L113">      this.verbose = flag;</span>
+<span class="fc" id="L114">      return this;</span>
+    }
+  }
+
+<span class="fc" id="L118">  private GetDocumentInfoOptions(Builder builder) {</span>
+<span class="fc" id="L119">    Validator.notEmpty(builder.corpus, &quot;corpus cannot be empty&quot;);</span>
+<span class="fc" id="L120">    Validator.notEmpty(builder.documentId, &quot;documentId cannot be empty&quot;);</span>
+<span class="fc" id="L121">    corpus = builder.corpus;</span>
+<span class="fc" id="L122">    documentId = builder.documentId;</span>
+<span class="fc" id="L123">    fields = builder.fields;</span>
+<span class="fc" id="L124">    verbose = builder.verbose;</span>
+<span class="fc" id="L125">  }</span>
+
+  /**
+   * New builder.
+   *
+   * @return a GetDocumentInfoOptions builder
+   */
+  public Builder newBuilder() {
+<span class="fc" id="L133">    return new Builder(this);</span>
+  }
+
+  /**
+   * Gets the corpus.
+   *
+   * Corpus name.
+   *
+   * @return the corpus
+   */
+  public String corpus() {
+<span class="fc" id="L144">    return corpus;</span>
+  }
+
+  /**
+   * Gets the documentId.
+   *
+   * Document ID.
+   *
+   * @return the documentId
+   */
+  public String documentId() {
+<span class="fc" id="L155">    return documentId;</span>
+  }
+
+  /**
+   * Gets the fields.
+   *
+   * Comma separated list of fields to return:  externalId, parentDocumentId,
+   *  title, abstract, body, pdfUrl,
+   * referenceUrl, metadata.
+   *
+   * @return the fields
+   */
+  public String fields() {
+<span class="fc" id="L168">    return fields;</span>
+  }
+
+  /**
+   * Gets the verbose setting (default true).
+   *
+   * True or False to indicate whether verbose mode is enabled.
+   * Verbose mode returns all text sections.
+   *
+   * @return the fields
+   */
+  public boolean verbose() {
+<span class="fc" id="L180">    return verbose;</span>
+  }
+}
+
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>

@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../jacoco-resources/report.gif" type="image/gif"/><title>Query.java</title><link rel="stylesheet" href="../../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../../index.html" class="el_report">IBM Watson Health Cognitive Services Coverage Reports</a> &gt; <a href="../index.html" class="el_bundle">insights-for-medical-literature</a> &gt; <a href="index.source.html" class="el_package">com.ibm.watson.health.iml.v1.model</a> &gt; <span class="el_source">Query.java</span></div><h1>Query.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2018 IBM Corp. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
+ * you may not use this file except in compliance with
+ * the License. You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing,
+ * software distributed under the License is distributed on
+ * an &quot;AS IS&quot; BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND,
+ * either express or implied. See the License for the
+ * specific language governing permissions and limitations under the License.
+ */
+package com.ibm.watson.health.iml.v1.model;
+
+import java.util.List;
+import java.util.Map;
+
+import com.ibm.cloud.sdk.core.service.model.GenericModel;
+
+/**
+ * Query.
+ */
+<span class="fc" id="L26">public class Query extends GenericModel {</span>
+
+  private String boolExpression;
+  private List&lt;QueryConcept&gt; concepts;
+  private Map&lt;String, String&gt; boolTerm;
+  private Map&lt;String, String&gt; boolRegexp;
+  private List&lt;Map&lt;String, String&gt;&gt; regexp;
+  private Map&lt;String, Range&gt; dateRange;
+  private Title title;
+  private String cursorId;
+
+  /**
+   * Gets the bool.
+   *
+   * @return the bool
+   */
+  public String getBool() {
+<span class="nc" id="L43">    return boolExpression;</span>
+  }
+
+  /**
+   * Gets the concepts.
+   *
+   * @return the concepts
+   */
+  public List&lt;QueryConcept&gt; getConcepts() {
+<span class="nc" id="L52">    return concepts;</span>
+  }
+
+  /**
+   * Gets the boolTerm.
+   *
+   * @return the boolTerm
+   */
+  public Map&lt;String, String&gt; getBoolTerm() {
+<span class="nc" id="L61">    return boolTerm;</span>
+  }
+
+  /**
+   * Gets the boolRegexp.
+   *
+   * @return the boolRegexp
+   */
+  public Map&lt;String, String&gt; getBoolRegexp() {
+<span class="nc" id="L70">    return boolRegexp;</span>
+  }
+
+  /**
+   * Gets the regexp.
+   *
+   * @return the regexp
+   */
+  public List&lt;Map&lt;String, String&gt;&gt; getRegexp() {
+<span class="nc" id="L79">    return regexp;</span>
+  }
+
+  /**
+   * Gets the dateRange.
+   *
+   * @return the dateRange
+   */
+  public Map&lt;String, Range&gt; getDateRange() {
+<span class="nc" id="L88">    return dateRange;</span>
+  }
+
+  /**
+   * Gets the title.
+   *
+   * @return the title
+   */
+  public Title getTitle() {
+<span class="nc" id="L97">    return title;</span>
+  }
+
+  /**
+   * Sets the bool.
+   *
+   * @param bool the new bool
+   */
+  public void setBool(final String bool) {
+<span class="fc" id="L106">    this.boolExpression = bool;</span>
+<span class="fc" id="L107">  }</span>
+
+  /**
+   * Sets the concepts.
+   *
+   * @param concepts the new concepts
+   */
+  public void setConcepts(final List&lt;QueryConcept&gt; concepts) {
+<span class="fc" id="L115">    this.concepts = concepts;</span>
+<span class="fc" id="L116">  }</span>
+
+  /**
+   * Sets the boolTerm.
+   *
+   * @param boolTerm the new boolTerm
+   */
+  public void setBoolTerm(final Map&lt;String, String&gt; boolTerm) {
+<span class="fc" id="L124">    this.boolTerm = boolTerm;</span>
+<span class="fc" id="L125">  }</span>
+
+  /**
+   * Sets the boolRegexp.
+   *
+   * @param boolRegexp the new boolRegexp
+   */
+  public void setBoolRegexp(final Map&lt;String, String&gt; boolRegexp) {
+<span class="fc" id="L133">    this.boolRegexp = boolRegexp;</span>
+<span class="fc" id="L134">  }</span>
+
+  /**
+   * Sets the regexp.
+   *
+   * @param regexp the new regexp
+   */
+  public void setRegexp(final List&lt;Map&lt;String, String&gt;&gt; regexp) {
+<span class="nc" id="L142">    this.regexp = regexp;</span>
+<span class="nc" id="L143">  }</span>
+
+  /**
+   * Sets the dateRange.
+   *
+   * @param dateRange the new dateRange
+   */
+  public void setDateRange(final Map&lt;String, Range&gt; dateRange) {
+<span class="fc" id="L151">    this.dateRange = dateRange;</span>
+<span class="fc" id="L152">  }</span>
+
+  /**
+   * Sets the title.
+   *
+   * @param title the new title
+   */
+  public void setTitle(final Title title) {
+<span class="fc" id="L160">    this.title = title;</span>
+<span class="fc" id="L161">  }</span>
+
+  /**
+   * Gets set of scroll IDs for processing large result sets.
+   * @return
+   */
+	public String getCursorId() {
+<span class="nc" id="L168">		return this.cursorId;</span>
+	}
+
+	/**
+	 * Sets the scroll IDs of large result sets.
+	 * @param map
+	 */
+	public void setCursorId(String id) {
+<span class="nc" id="L176">		this.cursorId = id;</span>
+<span class="nc" id="L177">	}</span>
+}
+
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>

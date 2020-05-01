@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../jacoco-resources/report.gif" type="image/gif"/><title>SectionAnnotation.java</title><link rel="stylesheet" href="../../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../../index.html" class="el_report">IBM Watson Health Cognitive Services Coverage Reports</a> &gt; <a href="../index.html" class="el_bundle">annotator-for-clinical-data</a> &gt; <a href="index.source.html" class="el_package">com.ibm.watson.health.acd.v1.model</a> &gt; <span class="el_source">SectionAnnotation.java</span></div><h1>SectionAnnotation.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2018 IBM Corp. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the &quot;License&quot;); you may not use this file except in compliance with
+ * the License. You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on
+ * an &quot;AS IS&quot; BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the
+ * specific language governing permissions and limitations under the License.
+ */
+package com.ibm.watson.health.acd.v1.model;
+
+import java.lang.reflect.Type;
+
+import com.google.gson.reflect.TypeToken;
+import com.ibm.watson.developer_cloud.service.model.DynamicModel;
+import com.ibm.watson.developer_cloud.util.GsonSerializationHelper;
+
+
+/**
+ * SectionAnnotation.
+ */
+<span class="fc" id="L25">public class SectionAnnotation extends DynamicModel {</span>
+
+
+<span class="fc" id="L28">  private Type beginType = new TypeToken&lt;Long&gt;() { } .getType();</span>
+<span class="fc" id="L29">  private Type endType = new TypeToken&lt;Long&gt;() { } .getType();</span>
+<span class="fc" id="L30">  private Type typeType = new TypeToken&lt;String&gt;() { } .getType();</span>
+<span class="fc" id="L31">  private Type coveredTextType = new TypeToken&lt;String&gt;() { } .getType();</span>
+<span class="fc" id="L32">  private Type sectionType = new TypeToken&lt;String&gt;() { } .getType();</span>
+<span class="fc" id="L33">  private Type sectionTriggerType = new TypeToken&lt;SectionTrigger&gt;() { } .getType();</span>
+
+
+
+
+
+
+
+
+
+
+  /**
+   * Gets the begin.
+   *
+   * @return the begin
+   */
+  public Long getBegin() {
+<span class="fc" id="L50">    return GsonSerializationHelper.serializeDynamicModelProperty(this.get(&quot;begin&quot;), beginType);</span>
+  }
+
+  /**
+   * Gets the end.
+   *
+   * @return the end
+   */
+  public Long getEnd() {
+<span class="fc" id="L59">    return GsonSerializationHelper.serializeDynamicModelProperty(this.get(&quot;end&quot;), endType);</span>
+  }
+
+
+  /**
+   * Gets the sectionTrigger.
+   * @return the sectionTrigger
+   */
+  public SectionTrigger getTrigger() {
+<span class="fc" id="L68">    return GsonSerializationHelper.serializeDynamicModelProperty(this.get(&quot;trigger&quot;), sectionTriggerType);</span>
+  }
+
+
+  /**
+   * Gets the coveredText.
+   *
+   * @return the coveredText
+   */
+  public String getCoveredText() {
+<span class="fc" id="L78">    return GsonSerializationHelper.serializeDynamicModelProperty(this.get(&quot;coveredText&quot;), coveredTextType);</span>
+  }
+
+
+  /**
+   * Gets the type.
+   *
+   * @return the type
+   */
+  public String getType() {
+<span class="fc" id="L88">    return GsonSerializationHelper.serializeDynamicModelProperty(this.get(&quot;type&quot;), typeType);</span>
+  }
+
+  /**
+   * Gets the type.
+   *
+   * @return the type
+   */
+  public String getSectionType() {
+<span class="fc" id="L97">    return GsonSerializationHelper.serializeDynamicModelProperty(this.get(&quot;sectionType&quot;), typeType);</span>
+  }
+
+
+
+//  /**
+//   * Sets the begin.
+//   * @param begin the new begin
+//   */
+//  public void setBegin(final Long begin) {
+//    this.put(&quot;begin&quot;, begin);
+//  }
+//
+//  /**
+//   * Sets the end.
+//   * @param end the new end
+//   */
+//  public void setEnd(final Long end) {
+//    this.put(&quot;end&quot;, end);
+//  }
+//
+//  /**
+//   * Sets the type.
+//   * @param type the new type
+//   */
+//  public void setType(final String type) {
+//    this.put(&quot;type&quot;, type);
+//  }
+//
+//  /**
+//   * Sets the coveredText.
+//   *
+//   * @param coveredText the new coveredText
+//   */
+//  public void setCoveredText(final String coveredText) {
+//    this.put(&quot;coveredText&quot;, coveredText);
+//  }
+//
+//
+//  public void setTrigger(final SectionTrigger sectionTrigger) {
+//      this.put(&quot;trigger&quot;, sectionTrigger);
+//  }
+//
+//  /**
+//   * Sets the type.
+//   * @param type the new type
+//   */
+//  public void setSectionType(final String sectionType) {
+//    this.put(&quot;sectionType&quot;, sectionType);
+//  }
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>
