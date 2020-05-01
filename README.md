@@ -1,6 +1,6 @@
 # IBM Watson Health Cognitive Services Java SDK Version 0.0.1
 
-The IBM Watson Health Cognitive Services (WHCS) Python SDK allows developers to programmatically interact with the following WHCS services:
+The IBM Watson Health Cognitive Services (WHCS) Java SDK allows developers to programmatically interact with the following WHCS services:
 
 | Service Name | Artifact Id |
 |--------------|-------------|
