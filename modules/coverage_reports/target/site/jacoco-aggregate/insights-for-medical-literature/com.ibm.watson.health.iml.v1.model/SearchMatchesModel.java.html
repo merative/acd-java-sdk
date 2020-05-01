@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../jacoco-resources/report.gif" type="image/gif"/><title>SearchMatchesModel.java</title><link rel="stylesheet" href="../../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../../index.html" class="el_report">IBM Watson Health Cognitive Services Coverage Reports</a> &gt; <a href="../index.html" class="el_bundle">insights-for-medical-literature</a> &gt; <a href="index.source.html" class="el_package">com.ibm.watson.health.iml.v1.model</a> &gt; <span class="el_source">SearchMatchesModel.java</span></div><h1>SearchMatchesModel.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2018 IBM Corp. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
+ * you may not use this file except in compliance with
+ * the License. You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing,
+ * software distributed under the License is distributed on
+ * an &quot;AS IS&quot; BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND,
+ * either express or implied. See the License for the
+ * specific language governing permissions and limitations under the License.
+ */
+package com.ibm.watson.health.iml.v1.model;
+
+import java.util.List;
+import java.util.Map;
+
+import com.ibm.cloud.sdk.core.service.model.GenericModel;
+
+/**
+ * SearchMatchesModel.
+ */
+<span class="fc" id="L26">public class SearchMatchesModel extends GenericModel {</span>
+
+  private String externalId;
+  private String documentId;
+  private String parentDocumentId;
+  private String publicationName;
+  private String publicationDate;
+  private String publicationURL;
+  private List&lt;String&gt; authors;
+  private String title;
+  private String medlineLicense;
+  private String hrefPubMed;
+  private String pdfUrl;
+  private String referenceUrl;
+  private String highlightedTitle;
+  private String highlightedAbstract;
+  private String highlightedBody;
+  private Map&lt;String, Map&lt;String, Entry&gt;&gt; passages;
+  private Map&lt;String, AnnotationModel&gt; annotations;
+
+  /**
+   * Gets the externalId.
+   *
+   * @return the externalId
+   */
+  public String getExternalId() {
+<span class="fc" id="L52">    return externalId;</span>
+  }
+
+  /**
+   * Gets the documentId.
+   *
+   * @return the documentId
+   */
+  public String getDocumentId() {
+<span class="fc" id="L61">    return documentId;</span>
+  }
+
+  /**
+   * Gets the parentDocumentId.
+   *
+   * @return the parentDocumentId
+   */
+  public String getParentDocumentId() {
+<span class="nc" id="L70">    return parentDocumentId;</span>
+  }
+
+  /**
+   * Gets the publicationName.
+   *
+   * @return the publicationName
+   */
+  public String getPublicationName() {
+<span class="fc" id="L79">    return publicationName;</span>
+  }
+
+  /**
+   * Gets the publicationDate.
+   *
+   * @return the publicationDate
+   */
+  public String getPublicationDate() {
+<span class="fc" id="L88">    return publicationDate;</span>
+  }
+
+  /**
+   * Gets the publicationURL.
+   *
+   * @return the publicationURL
+   */
+  public String getPublicationURL() {
+<span class="nc" id="L97">    return publicationURL;</span>
+  }
+
+  /**
+   * Gets the authors.
+   *
+   * @return the authors
+   */
+  public List&lt;String&gt; getAuthors() {
+<span class="fc" id="L106">    return authors;</span>
+  }
+
+  /**
+   * Gets the title.
+   *
+   * @return the title
+   */
+  public String getTitle() {
+<span class="fc" id="L115">    return title;</span>
+  }
+
+  /**
+   * Gets the medlineLicense.
+   *
+   * @return the medlineLicense
+   */
+  public String getMedlineLicense() {
+<span class="fc" id="L124">    return medlineLicense;</span>
+  }
+
+  /**
+   * Gets the hrefPubMed.
+   *
+   * @return the hrefPubMed
+   */
+  public String getHrefPubMed() {
+<span class="fc" id="L133">    return hrefPubMed;</span>
+  }
+
+  /**
+   * Gets the pdfUrl.
+   *
+   * @return the pdfUrl
+   */
+  public String getPdfUrl() {
+<span class="nc" id="L142">    return pdfUrl;</span>
+  }
+
+  /**
+   * Gets the referenceUrl.
+   *
+   * @return the referenceUrl
+   */
+  public String getReferenceUrl() {
+<span class="nc" id="L151">    return referenceUrl;</span>
+  }
+
+  /**
+   * Gets the highlightedTitle.
+   *
+   * @return the highlightedTitle
+   */
+  public String getHighlightedTitle() {
+<span class="fc" id="L160">    return highlightedTitle;</span>
+  }
+
+  /**
+   * Gets the highlightedAbstract.
+   *
+   * @return the highlightedAbstract
+   */
+  public String getHighlightedAbstract() {
+<span class="fc" id="L169">    return highlightedAbstract;</span>
+  }
+
+  /**
+   * Gets the highlightedBody.
+   *
+   * @return the highlightedBody
+   */
+  public String getHighlightedBody() {
+<span class="nc" id="L178">    return highlightedBody;</span>
+  }
+
+  /**
+   * Gets the passages.
+   *
+   * @return the passages
+   */
+  public Map&lt;String, Map&lt;String, Entry&gt;&gt; getPassages() {
+<span class="fc" id="L187">    return passages;</span>
+  }
+
+  /**
+   * Gets the annotations.
+   *
+   * @return the annotations
+   */
+  public Map&lt;String, AnnotationModel&gt; getAnnotations() {
+<span class="fc" id="L196">    return annotations;</span>
+  }
+}
+
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>

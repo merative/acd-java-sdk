@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../jacoco-resources/report.gif" type="image/gif"/><title>DeleteCorpusSchemaOptions.java</title><link rel="stylesheet" href="../../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../../index.html" class="el_report">IBM Watson Health Cognitive Services Coverage Reports</a> &gt; <a href="../index.html" class="el_bundle">insights-for-medical-literature</a> &gt; <a href="index.source.html" class="el_package">com.ibm.watson.health.iml.v1.model</a> &gt; <span class="el_source">DeleteCorpusSchemaOptions.java</span></div><h1>DeleteCorpusSchemaOptions.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2018 IBM Corp. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
+ * you may not use this file except in compliance with
+ * the License. You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing,
+ * software distributed under the License is distributed on
+ * an &quot;AS IS&quot; BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND,
+ * either express or implied. See the License for the
+ * specific language governing permissions and limitations under the License.
+ */
+package com.ibm.watson.health.iml.v1.model;
+
+import com.ibm.cloud.sdk.core.service.model.GenericModel;
+import com.ibm.cloud.sdk.core.util.Validator;
+
+/**
+ * The deleteCorpusSchema options.
+ */
+public class DeleteCorpusSchemaOptions extends GenericModel {
+
+  private String instance;
+
+  /**
+   * Builder.
+   */
+  public static class Builder {
+    private String instance;
+
+<span class="nc" id="L34">    private Builder(DeleteCorpusSchemaOptions deleteCorpusSchemaOptions) {</span>
+<span class="nc" id="L35">      this.instance = deleteCorpusSchemaOptions.instance;</span>
+<span class="nc" id="L36">    }</span>
+
+    /**
+     * Instantiates a new builder.
+     */
+<span class="fc" id="L41">    public Builder() {</span>
+<span class="fc" id="L42">    }</span>
+
+    /**
+     * Instantiates a new builder with required properties.
+     *
+     * @param instance the instance
+     */
+<span class="nc" id="L49">    public Builder(String instance) {</span>
+<span class="nc" id="L50">      this.instance = instance;</span>
+<span class="nc" id="L51">    }</span>
+
+    /**
+     * Builds a DeleteCorpusSchemaOptions.
+     *
+     * @return the deleteCorpusSchemaOptions
+     */
+    public DeleteCorpusSchemaOptions build() {
+<span class="fc" id="L59">      return new DeleteCorpusSchemaOptions(this);</span>
+    }
+
+    /**
+     * Set the instance.
+     *
+     * @param instance the instance
+     * @return the DeleteCorpusSchemaOptions builder
+     */
+    public Builder instance(String instance) {
+<span class="fc" id="L69">      this.instance = instance;</span>
+<span class="fc" id="L70">      return this;</span>
+    }
+  }
+
+<span class="fc" id="L74">  private DeleteCorpusSchemaOptions(Builder builder) {</span>
+<span class="fc" id="L75">    Validator.notNull(builder.instance, &quot;instance cannot be null&quot;);</span>
+<span class="fc" id="L76">    instance = builder.instance;</span>
+<span class="fc" id="L77">  }</span>
+
+  /**
+   * New builder.
+   *
+   * @return a DeleteCorpusSchemaOptions builder
+   */
+  public Builder newBuilder() {
+<span class="nc" id="L85">    return new Builder(this);</span>
+  }
+
+  /**
+   * Gets the instance.
+   *
+   * corpus schema.
+   *
+   * @return the instance
+   */
+  public String instance() {
+<span class="fc" id="L96">    return instance;</span>
+  }
+}
+
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>

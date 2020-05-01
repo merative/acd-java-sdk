@@ -1,0 +1,339 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../jacoco-resources/report.gif" type="image/gif"/><title>Procedure.java</title><link rel="stylesheet" href="../../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../../index.html" class="el_report">IBM Watson Health Cognitive Services Coverage Reports</a> &gt; <a href="../index.html" class="el_bundle">annotator-for-clinical-data</a> &gt; <a href="index.source.html" class="el_package">com.ibm.watson.health.acd.v1.model</a> &gt; <span class="el_source">Procedure.java</span></div><h1>Procedure.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2018 IBM Corp. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the &quot;License&quot;); you may not use this file except in compliance with
+ * the License. You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on
+ * an &quot;AS IS&quot; BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the
+ * specific language governing permissions and limitations under the License.
+ */
+package com.ibm.watson.health.acd.v1.model;
+
+import java.lang.reflect.Type;
+
+import com.google.gson.reflect.TypeToken;
+import com.ibm.watson.developer_cloud.service.model.DynamicModel;
+import com.ibm.watson.developer_cloud.util.GsonSerializationHelper;
+
+/**
+ * Procedure.
+ */
+<span class="fc" id="L24">public class Procedure extends DynamicModel {</span>
+<span class="fc" id="L25">  private Type idType = new TypeToken&lt;String&gt;() { } .getType();</span>
+<span class="fc" id="L26">  private Type typeType = new TypeToken&lt;String&gt;() { } .getType();</span>
+<span class="fc" id="L27">  private Type uidType = new TypeToken&lt;Long&gt;() { } .getType();</span>
+<span class="fc" id="L28">  private Type beginType = new TypeToken&lt;Long&gt;() { } .getType();</span>
+<span class="fc" id="L29">  private Type endType = new TypeToken&lt;Long&gt;() { } .getType();</span>
+<span class="fc" id="L30">  private Type coveredTextType = new TypeToken&lt;String&gt;() { } .getType();</span>
+<span class="fc" id="L31">  private Type negatedType = new TypeToken&lt;Boolean&gt;() { } .getType();</span>
+<span class="fc" id="L32">  private Type hypotheticalType = new TypeToken&lt;Boolean&gt;() { } .getType();</span>
+<span class="fc" id="L33">  private Type cuiType = new TypeToken&lt;String&gt;() { } .getType();</span>
+<span class="fc" id="L34">  private Type sectionNormalizedNameType = new TypeToken&lt;String&gt;() { } .getType();</span>
+<span class="fc" id="L35">  private Type dateInMillisecondsType = new TypeToken&lt;String&gt;() { } .getType();</span>
+<span class="fc" id="L36">  private Type snomedConceptIdType = new TypeToken&lt;String&gt;() { } .getType();</span>
+<span class="fc" id="L37">  private Type procedureSurfaceFormType = new TypeToken&lt;String&gt;() { } .getType();</span>
+<span class="fc" id="L38">  private Type procedureNormalizedNameType = new TypeToken&lt;String&gt;() { } .getType();</span>
+<span class="fc" id="L39">  private Type sectionSurfaceFormType = new TypeToken&lt;String&gt;() { } .getType();</span>
+<span class="fc" id="L40">  private Type disambiguationDataType = new TypeToken&lt;Disambiguation&gt;() { } .getType();</span>
+
+
+  /**
+   * Gets the id.
+   *
+   * @return the id
+   */
+  public String getId() {
+<span class="fc" id="L49">    return GsonSerializationHelper.serializeDynamicModelProperty(this.get(&quot;id&quot;), idType);</span>
+  }
+
+  /**
+   * Gets the type.
+   *
+   * @return the type
+   */
+  public String getType() {
+<span class="fc" id="L58">    return GsonSerializationHelper.serializeDynamicModelProperty(this.get(&quot;type&quot;), typeType);</span>
+  }
+
+  /**
+   * Gets the uid.
+   *
+   * @return the uid
+   */
+  public Long getUid() {
+<span class="fc" id="L67">    return GsonSerializationHelper.serializeDynamicModelProperty(this.get(&quot;uid&quot;), uidType);</span>
+  }
+
+  /**
+   * Gets the begin.
+   *
+   * @return the begin
+   */
+  public Long getBegin() {
+<span class="fc" id="L76">    return GsonSerializationHelper.serializeDynamicModelProperty(this.get(&quot;begin&quot;), beginType);</span>
+  }
+
+  /**
+   * Gets the end.
+   *
+   * @return the end
+   */
+  public Long getEnd() {
+<span class="fc" id="L85">    return GsonSerializationHelper.serializeDynamicModelProperty(this.get(&quot;end&quot;), endType);</span>
+  }
+
+  /**
+   * Gets the coveredText.
+   *
+   * @return the coveredText
+   */
+  public String getCoveredText() {
+<span class="fc" id="L94">    return GsonSerializationHelper.serializeDynamicModelProperty(this.get(&quot;coveredText&quot;), coveredTextType);</span>
+  }
+
+  /**
+   * Gets the negated.
+   *
+   * @return the negated
+   */
+  public Boolean isNegated() {
+<span class="fc" id="L103">    Boolean negated = GsonSerializationHelper.serializeDynamicModelProperty(this.get(&quot;negated&quot;), negatedType);</span>
+<span class="fc bfc" id="L104" title="All 2 branches covered.">    if (negated == null) {</span>
+<span class="fc" id="L105">      negated = false;</span>
+    }
+<span class="fc" id="L107">    return negated;</span>
+  }
+
+  /**
+   * Gets the hypothetical.
+   *
+   * @return the hypothetical
+   */
+  public Boolean isHypothetical() {
+<span class="fc" id="L116">    Boolean hypothetical = GsonSerializationHelper.serializeDynamicModelProperty(this.get(&quot;hypothetical&quot;), hypotheticalType);</span>
+<span class="pc bpc" id="L117" title="1 of 2 branches missed.">    if (hypothetical == null) {</span>
+<span class="fc" id="L118">      hypothetical = false;</span>
+    }
+<span class="fc" id="L120">    return hypothetical;</span>
+  }
+
+  /**
+   * Gets the cui.
+   *
+   * @return the cui
+   */
+  public String getCui() {
+<span class="fc" id="L129">    return GsonSerializationHelper.serializeDynamicModelProperty(this.get(&quot;cui&quot;), cuiType);</span>
+  }
+
+  /**
+   * Gets the sectionNormalizedName.
+   *
+   * @return the sectionNormalizedName
+   */
+  public String getSectionNormalizedName() {
+<span class="fc" id="L138">    return GsonSerializationHelper.serializeDynamicModelProperty(this.get(&quot;sectionNormalizedName&quot;), sectionNormalizedNameType);</span>
+  }
+
+  /**
+   * Gets the dateInMilliseconds.
+   *
+   * @return the dateInMilliseconds
+   */
+  public String getDateInMilliseconds() {
+<span class="fc" id="L147">    return GsonSerializationHelper.serializeDynamicModelProperty(this.get(&quot;dateInMilliseconds&quot;), dateInMillisecondsType);</span>
+  }
+
+  /**
+   * Gets the snomedConceptId.
+   *
+   * @return the snomedConceptId
+   */
+  public String getSnomedConceptId() {
+<span class="fc" id="L156">    return GsonSerializationHelper.serializeDynamicModelProperty(this.get(&quot;snomedConceptId&quot;), snomedConceptIdType);</span>
+  }
+
+  /**
+   * Gets the procedureSurfaceForm.
+   *
+   * @return the procedureSurfaceForm
+   */
+  public String getProcedureSurfaceForm() {
+<span class="fc" id="L165">    return GsonSerializationHelper.serializeDynamicModelProperty(this.get(&quot;procedureSurfaceForm&quot;), procedureSurfaceFormType);</span>
+  }
+
+  /**
+   * Gets the procedureNormalizedName.
+   *
+   * @return the procedureNormalizedName
+   */
+  public String getProcedureNormalizedName() {
+<span class="fc" id="L174">    return GsonSerializationHelper.serializeDynamicModelProperty(this.get(&quot;procedureNormalizedName&quot;), procedureNormalizedNameType);</span>
+  }
+
+  /**
+   * Gets the sectionSurfaceForm.
+   *
+   * @return the sectionSurfaceForm
+   */
+  public String getSectionSurfaceForm() {
+<span class="fc" id="L183">    return GsonSerializationHelper.serializeDynamicModelProperty(this.get(&quot;sectionSurfaceForm&quot;), sectionSurfaceFormType);</span>
+  }
+
+  /**
+   * Gets the disambiguationData.
+   *
+   * @return the disambiguationData
+   */
+  public Disambiguation getDisambiguationData() {
+<span class="fc" id="L192">    return GsonSerializationHelper.serializeDynamicModelProperty(this.get(&quot;disambiguationData&quot;), disambiguationDataType);</span>
+  }
+
+//  /**
+//   * Sets the id.
+//   *
+//   * @param id the new id
+//   */
+//  public void setId(final String id) {
+//    this.put(&quot;id&quot;, id);
+//  }
+//
+//  /**
+//   * Sets the type.
+//   *
+//   * @param type the new type
+//   */
+//  public void setType(final String type) {
+//    this.put(&quot;type&quot;, type);
+//  }
+//
+//  /**
+//   * Sets the uid.
+//   *
+//   * @param uid the new uid
+//   */
+//  public void setUid(final Long uid) {
+//    this.put(&quot;uid&quot;, uid);
+//  }
+//
+//  /**
+//   * Sets the begin.
+//   *
+//   * @param begin the new begin
+//   */
+//  public void setBegin(final Long begin) {
+//    this.put(&quot;begin&quot;, begin);
+//  }
+//
+//  /**
+//   * Sets the end.
+//   *
+//   * @param end the new end
+//   */
+//  public void setEnd(final Long end) {
+//    this.put(&quot;end&quot;, end);
+//  }
+//
+//  /**
+//   * Sets the coveredText.
+//   *
+//   * @param coveredText the new coveredText
+//   */
+//  public void setCoveredText(final String coveredText) {
+//    this.put(&quot;coveredText&quot;, coveredText);
+//  }
+//
+//  /**
+//   * Sets the negated.
+//   *
+//   * @param negated the new negated
+//   */
+//  public void setNegated(final Boolean negated) {
+//    this.put(&quot;negated&quot;, negated);
+//  }
+//
+//  /**
+//   * Sets the hypothetical.
+//   *
+//   * @param hypothetical the new hypothetical
+//   */
+//  public void setHypothetical(final Boolean hypothetical) {
+//    this.put(&quot;hypothetical&quot;, hypothetical);
+//  }
+//
+//  /**
+//   * Sets the cui.
+//   *
+//   * @param cui the new cui
+//   */
+//  public void setCui(final String cui) {
+//    this.put(&quot;cui&quot;, cui);
+//  }
+//
+//  /**
+//   * Sets the sectionNormalizedName.
+//   *
+//   * @param sectionNormalizedName the new sectionNormalizedName
+//   */
+//  public void setSectionNormalizedName(final String sectionNormalizedName) {
+//    this.put(&quot;sectionNormalizedName&quot;, sectionNormalizedName);
+//  }
+//
+//  /**
+//   * Sets the dateInMilliseconds.
+//   *
+//   * @param dateInMilliseconds the new dateInMilliseconds
+//   */
+//  public void setDateInMilliseconds(final String dateInMilliseconds) {
+//    this.put(&quot;dateInMilliseconds&quot;, dateInMilliseconds);
+//  }
+//
+//  /**
+//   * Sets the snomedConceptId.
+//   *
+//   * @param snomedConceptId the new snomedConceptId
+//   */
+//  public void setSnomedConceptId(final String snomedConceptId) {
+//    this.put(&quot;snomedConceptId&quot;, snomedConceptId);
+//  }
+//
+//  /**
+//   * Sets the procedureSurfaceForm.
+//   *
+//   * @param procedureSurfaceForm the new procedureSurfaceForm
+//   */
+//  public void setProcedureSurfaceForm(final String procedureSurfaceForm) {
+//    this.put(&quot;procedureSurfaceForm&quot;, procedureSurfaceForm);
+//  }
+//
+//  /**
+//   * Sets the procedureNormalizedName.
+//   *
+//   * @param procedureNormalizedName the new procedureNormalizedName
+//   */
+//  public void setProcedureNormalizedName(final String procedureNormalizedName) {
+//    this.put(&quot;procedureNormalizedName&quot;, procedureNormalizedName);
+//  }
+//
+//  /**
+//   * Sets the sectionSurfaceForm.
+//   *
+//   * @param sectionSurfaceForm the new sectionSurfaceForm
+//   */
+//  public void setSectionSurfaceForm(final String sectionSurfaceForm) {
+//    this.put(&quot;sectionSurfaceForm&quot;, sectionSurfaceForm);
+//  }
+//
+//  /**
+//   * Sets the disambiguationData.
+//   *
+//   * @param disambiguationData the new disambiguationData
+//   */
+//  public void setDisambiguationData(final Disambiguation disambiguationData) {
+//    this.put(&quot;disambiguationData&quot;, disambiguationData);
+//  }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>
