@@ -1,0 +1,289 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../jacoco-resources/report.gif" type="image/gif"/><title>Annotator.java</title><link rel="stylesheet" href="../../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../../index.html" class="el_report">IBM Watson Health Cognitive Services Coverage Reports</a> &gt; <a href="../index.html" class="el_bundle">annotator-for-clinical-data</a> &gt; <a href="index.source.html" class="el_package">com.ibm.watson.health.acd.v1.model</a> &gt; <span class="el_source">Annotator.java</span></div><h1>Annotator.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2018 IBM Corp. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the &quot;License&quot;); you may not use this file except in compliance with
+ * the License. You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on
+ * an &quot;AS IS&quot; BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the
+ * specific language governing permissions and limitations under the License.
+ */
+package com.ibm.watson.health.acd.v1.model;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+
+import com.ibm.watson.developer_cloud.service.model.GenericModel;
+import com.ibm.watson.developer_cloud.util.Validator;
+
+
+
+/**
+ * Annotator.
+ */
+public class Annotator extends GenericModel {
+
+    public interface Name {
+      /** allergy. */
+      String ALLERGY = &quot;allergy&quot;;
+      /** attribute_detection. */
+      String ATTRIBUTE_DETECTION = &quot;attribute_detection&quot;;
+      /** bathing_assistance. */
+      String BATHING_ASSISTANCE = &quot;bathing_assistance&quot;;
+      /** cancer. */
+      String CANCER = &quot;cancer&quot;;
+      /** concept_detection. */
+      String CONCEPT_DETECTION = &quot;concept_detection&quot;;
+      /** concept_value. */
+      String CONCEPT_VALUE = &quot;concept_value&quot;;
+      /** disambiguation. */
+      String DISAMBIGUATION = &quot;disambiguation&quot;;
+      /** dressing_assistance. */
+      String DRESSING_ASSISTANCE = &quot;dressing_assistance&quot;;
+      /** eating_assistance. */
+      String EATING_ASSISTANCE = &quot;eating_assistance&quot;;
+      /** ejection_fraction. */
+      String EJECTION_FRACTION = &quot;ejection_fraction&quot;;
+      /** hypothetical. */
+      String HYPOTHETICAL = &quot;hypothetical&quot;;
+      /** lab_value. */
+      String LAB_VALUE = &quot;lab_value&quot;;
+      /** medication. */
+      String MEDICATION = &quot;medication&quot;;
+      /** named_entities. */
+      String NAMED_ENTITIES = &quot;named_entities&quot;;
+      /** negation. */
+      String NEGATION = &quot;negation&quot;;
+      /** nlu. */
+      String NLU = &quot;nlu&quot;;
+      /** procedure. */
+      String PROCEDURE = &quot;procedure&quot;;
+      /** section. */
+      String SECTION = &quot;section&quot;;
+      /** seeing_assistance. */
+      String SEEING_ASSISTANCE = &quot;seeing_assistance&quot;;
+      /** smoking. */
+      String SMOKING = &quot;smoking&quot;;
+      /** symptom_disease. */
+      String SYMPTOM_DISEASE = &quot;symptom_disease&quot;;
+      /** toileting_assistance. */
+      String TOILETING_ASSISTANCE = &quot;toileting_assistance&quot;;
+      /** walking_assistance. */
+      String WALKING_ASSISTANCE = &quot;walking_assistance&quot;;
+      /** relation. */
+      String RELATION = &quot;relation&quot;;
+      /** spell checker. */
+      String SPELL_CHECKER = &quot;spell_checker&quot;;
+    }
+
+    private Annotator annotator;
+    private Flow flow;
+    private String name;
+    private String description;
+    private Map parameters;
+    private List&lt;ConfigurationEntity&gt; configurations;
+
+    /**
+     * Builder.
+     */
+    public static class Builder {
+      private Annotator annotator;
+      private Flow flow;
+      private String name;
+      private String description;
+      private Map parameters;
+      private List&lt;ConfigurationEntity&gt; configurations;
+
+<span class="nc" id="L100">      private Builder(Annotator annotator) {</span>
+<span class="nc" id="L101">        annotator = annotator.annotator;</span>
+<span class="nc" id="L102">        flow = annotator.flow;</span>
+<span class="nc" id="L103">        name = annotator.name;</span>
+<span class="nc" id="L104">        description = annotator.description;</span>
+<span class="nc" id="L105">        parameters = annotator.parameters;</span>
+<span class="nc" id="L106">        configurations = annotator.configurations;</span>
+<span class="nc" id="L107">      }</span>
+
+      /**
+       * Instantiates a new builder.
+       */
+<span class="fc" id="L112">      public Builder() {</span>
+<span class="fc" id="L113">      }</span>
+
+      /**
+       * Instantiates a new builder with required properties.
+       *
+       * @param name the name
+       */
+<span class="nc" id="L120">      public Builder(String name) {</span>
+<span class="nc" id="L121">        this.name = name;</span>
+<span class="nc" id="L122">      }</span>
+
+      /**
+       * Builds a Annotator.
+       *
+       * @return the annotator
+       */
+      public Annotator build() {
+<span class="fc" id="L130">        return new Annotator(this);</span>
+      }
+
+      /**
+       * Adds an configurations to configurations.
+       *
+       * @param configurations the new configurations
+       * @return the Annotator builder
+       */
+      public Builder addConfigurations(ConfigurationEntity configurations) {
+<span class="nc" id="L140">        Validator.notNull(configurations, &quot;configurations cannot be null&quot;);</span>
+<span class="nc bnc" id="L141" title="All 2 branches missed.">        if (this.configurations == null) {</span>
+<span class="nc" id="L142">          this.configurations = new ArrayList&lt;ConfigurationEntity&gt;();</span>
+        }
+<span class="nc" id="L144">        this.configurations.add(configurations);</span>
+<span class="nc" id="L145">        return this;</span>
+      }
+
+      /**
+       * Set the annotator.
+       *
+       * @param annotator the annotator
+       * @return the Annotator builder
+       */
+      public Builder annotator(Annotator annotator) {
+<span class="nc" id="L155">        this.annotator = annotator;</span>
+<span class="nc" id="L156">        return this;</span>
+      }
+
+      /**
+       * Set the flow.
+       *
+       * @param flow the flow
+       * @return the Annotator builder
+       */
+      public Builder flow(Flow flow) {
+<span class="nc" id="L166">        this.flow = flow;</span>
+<span class="nc" id="L167">        return this;</span>
+      }
+
+      /**
+       * Set the name.
+       *
+       * @param name the name
+       * @return the Annotator builder
+       */
+      public Builder name(String name) {
+<span class="fc" id="L177">        this.name = name;</span>
+<span class="fc" id="L178">        return this;</span>
+      }
+
+      /**
+       * Set the description.
+       *
+       * @param description the description
+       * @return the Annotator builder
+       */
+      public Builder description(String description) {
+<span class="nc" id="L188">        this.description = description;</span>
+<span class="nc" id="L189">        return this;</span>
+      }
+
+      /**
+       * Set the parameters.
+       *
+       * @param parameters the parameters
+       * @return the Annotator builder
+       */
+      public Builder parameters(Map parameters) {
+<span class="nc" id="L199">        this.parameters = parameters;</span>
+<span class="nc" id="L200">        return this;</span>
+      }
+
+      /**
+       * Set the configurations.
+       * Existing configurations will be replaced.
+       *
+       * @param configurations the configurations
+       * @return the Annotator builder
+       */
+      public Builder configurations(List&lt;ConfigurationEntity&gt; configurations) {
+<span class="nc" id="L211">        this.configurations = configurations;</span>
+<span class="nc" id="L212">        return this;</span>
+      }
+    }
+
+<span class="fc" id="L216">    private Annotator(Builder builder) {</span>
+<span class="fc" id="L217">      Validator.notNull(builder.name, &quot;name cannot be null&quot;);</span>
+<span class="fc" id="L218">      annotator = builder.annotator;</span>
+<span class="fc" id="L219">      flow = builder.flow;</span>
+<span class="fc" id="L220">      name = builder.name;</span>
+<span class="fc" id="L221">      description = builder.description;</span>
+<span class="fc" id="L222">      parameters = builder.parameters;</span>
+<span class="fc" id="L223">      configurations = builder.configurations;</span>
+<span class="fc" id="L224">    }</span>
+
+    /**
+     * New builder.
+     *
+     * @return a Annotator builder
+     */
+    public Builder newBuilder() {
+<span class="nc" id="L232">      return new Builder(this);</span>
+    }
+
+    /**
+     * Gets the annotator.
+     *
+     * @return the annotator
+     */
+    public Annotator annotator() {
+<span class="fc" id="L241">      return annotator;</span>
+    }
+
+    /**
+     * Gets the flow.
+     *
+     * @return the flow
+     */
+    public Flow flow() {
+<span class="nc" id="L250">      return flow;</span>
+    }
+
+    /**
+     * Gets the name.
+     *
+     * @return the name
+     */
+    public String name() {
+<span class="fc" id="L259">      return name;</span>
+    }
+
+    /**
+     * Gets the description.
+     *
+     * @return the description
+     */
+    public String description() {
+<span class="fc" id="L268">      return description;</span>
+    }
+
+    /**
+     * Gets the parameters.
+     *
+     * @return the parameters
+     */
+    public Map parameters() {
+<span class="fc" id="L277">      return parameters;</span>
+    }
+
+    /**
+     * Gets the configurations.
+     *
+     * @return the configurations
+     */
+    public List&lt;ConfigurationEntity&gt; configurations() {
+<span class="fc" id="L286">      return configurations;</span>
+    }
+  }
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>

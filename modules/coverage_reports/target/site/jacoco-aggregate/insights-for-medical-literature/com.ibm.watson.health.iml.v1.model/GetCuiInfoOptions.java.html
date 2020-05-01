@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../jacoco-resources/report.gif" type="image/gif"/><title>GetCuiInfoOptions.java</title><link rel="stylesheet" href="../../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../../index.html" class="el_report">IBM Watson Health Cognitive Services Coverage Reports</a> &gt; <a href="../index.html" class="el_bundle">insights-for-medical-literature</a> &gt; <a href="index.source.html" class="el_package">com.ibm.watson.health.iml.v1.model</a> &gt; <span class="el_source">GetCuiInfoOptions.java</span></div><h1>GetCuiInfoOptions.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2018 IBM Corp. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
+ * you may not use this file except in compliance with
+ * the License. You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing,
+ * software distributed under the License is distributed on
+ * an &quot;AS IS&quot; BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND,
+ * either express or implied. See the License for the
+ * specific language governing permissions and limitations under the License.
+ */
+package com.ibm.watson.health.iml.v1.model;
+
+import com.ibm.cloud.sdk.core.service.model.GenericModel;
+import com.ibm.cloud.sdk.core.util.Validator;
+
+/**
+ * The getCuiInfo options.
+ */
+public class GetCuiInfoOptions extends GenericModel {
+
+  private String corpus;
+  private String cui;
+  private String ontology;
+  private String fields;
+  private Boolean treeLayout;
+
+  /**
+   * Builder.
+   */
+  public static class Builder {
+    private String corpus;
+    private String cui;
+    private String ontology;
+    private String fields;
+    private Boolean treeLayout;
+
+<span class="nc" id="L42">    private Builder(GetCuiInfoOptions getCuiInfoOptions) {</span>
+<span class="nc" id="L43">      corpus = getCuiInfoOptions.corpus;</span>
+<span class="nc" id="L44">      cui = getCuiInfoOptions.cui;</span>
+<span class="nc" id="L45">      ontology = getCuiInfoOptions.ontology;</span>
+<span class="nc" id="L46">      fields = getCuiInfoOptions.fields;</span>
+<span class="nc" id="L47">      treeLayout = getCuiInfoOptions.treeLayout;</span>
+<span class="nc" id="L48">    }</span>
+
+    /**
+     * Instantiates a new builder.
+     */
+<span class="fc" id="L53">    public Builder() {</span>
+<span class="fc" id="L54">    }</span>
+
+    /**
+     * Instantiates a new builder with required properties.
+     *
+     * @param corpus the corpus
+     * @param cui the cui
+     */
+<span class="fc" id="L62">    public Builder(String corpus, String cui) {</span>
+<span class="fc" id="L63">      this.corpus = corpus;</span>
+<span class="fc" id="L64">      this.cui = cui;</span>
+<span class="fc" id="L65">    }</span>
+
+    /**
+     * Builds a GetCuiInfoOptions.
+     *
+     * @return the getCuiInfoOptions
+     */
+    public GetCuiInfoOptions build() {
+<span class="fc" id="L73">      return new GetCuiInfoOptions(this);</span>
+    }
+
+    /**
+     * Set the corpus.
+     *
+     * @param corpus the corpus
+     * @return the GetCuiInfoOptions builder
+     */
+    public Builder corpus(String corpus) {
+<span class="fc" id="L83">      this.corpus = corpus;</span>
+<span class="fc" id="L84">      return this;</span>
+    }
+
+    /**
+     * Set the cui.
+     *
+     * @param cui the cui
+     * @return the GetCuiInfoOptions builder
+     */
+    public Builder cui(String cui) {
+<span class="fc" id="L94">      this.cui = cui;</span>
+<span class="fc" id="L95">      return this;</span>
+    }
+
+    /**
+     * Set the ontology.
+     *
+     * @param ontology the ontology
+     * @return the GetCuiInfoOptions builder
+     */
+    public Builder ontology(String ontology) {
+<span class="fc" id="L105">      this.ontology = ontology;</span>
+<span class="fc" id="L106">      return this;</span>
+    }
+
+    /**
+     * Set the fields.
+     *
+     * @param fields the fields
+     * @return the GetCuiInfoOptions builder
+     */
+    public Builder fields(String fields) {
+<span class="fc" id="L116">      this.fields = fields;</span>
+<span class="fc" id="L117">      return this;</span>
+    }
+
+    /**
+     * Set the treeLayout.
+     *
+     * @param treeLayout the treeLayout
+     * @return the GetCuiInfoOptions builder
+     */
+    public Builder treeLayout(Boolean treeLayout) {
+<span class="fc" id="L127">      this.treeLayout = treeLayout;</span>
+<span class="fc" id="L128">      return this;</span>
+    }
+  }
+
+<span class="fc" id="L132">  private GetCuiInfoOptions(Builder builder) {</span>
+<span class="fc" id="L133">    Validator.notEmpty(builder.corpus, &quot;corpus cannot be empty&quot;);</span>
+<span class="fc" id="L134">    Validator.notEmpty(builder.cui, &quot;cui cannot be empty&quot;);</span>
+<span class="fc" id="L135">    corpus = builder.corpus;</span>
+<span class="fc" id="L136">    cui = builder.cui;</span>
+<span class="fc" id="L137">    ontology = builder.ontology;</span>
+<span class="fc" id="L138">    fields = builder.fields;</span>
+<span class="fc" id="L139">    treeLayout = builder.treeLayout;</span>
+<span class="fc" id="L140">  }</span>
+
+  /**
+   * New builder.
+   *
+   * @return a GetCuiInfoOptions builder
+   */
+  public Builder newBuilder() {
+<span class="nc" id="L148">    return new Builder(this);</span>
+  }
+
+  /**
+   * Gets the corpus.
+   *
+   * Corpus name.
+   *
+   * @return the corpus
+   */
+  public String corpus() {
+<span class="fc" id="L159">    return corpus;</span>
+  }
+
+  /**
+   * Gets the cui.
+   *
+   * Concept Unique Identifier.
+   *
+   * @return the cui
+   */
+  public String cui() {
+<span class="fc" id="L170">    return cui;</span>
+  }
+
+  /**
+   * Gets the ontology.
+   *
+   * The ontology that defines the cui.
+   *
+   * @return the ontology
+   */
+  public String ontology() {
+<span class="fc" id="L181">    return ontology;</span>
+  }
+
+  /**
+   * Gets the fields.
+   *
+   * Comma separated list of fields to return: preferredName, semanticTypes,
+   *  surfaceForms, typeahead, variants, definition.
+   *  Defaults to all fields.
+   *
+   * @return the fields
+   */
+  public String fields() {
+<span class="fc" id="L194">    return fields;</span>
+  }
+
+  /**
+   * Gets the treeLayout.
+   *
+   * Generate JSON output that is compatible with a d3 tree layout.
+   * Default is false.
+   *
+   * @return the treeLayout
+   */
+  public Boolean treeLayout() {
+<span class="fc" id="L206">    return treeLayout;</span>
+  }
+}
+
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>

@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../jacoco-resources/report.gif" type="image/gif"/><title>SdkCommon.java</title><link rel="stylesheet" href="../../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../../index.html" class="el_report">IBM Watson Health Cognitive Services Coverage Reports</a> &gt; <a href="../index.html" class="el_bundle">ibm-whcs-services-common</a> &gt; <a href="index.source.html" class="el_package">com.ibm.cloud.whcs.common</a> &gt; <span class="el_source">SdkCommon.java</span></div><h1>SdkCommon.java</h1><pre class="source lang-java linenums">
+/**
+ * Copyright 2019 IBM Corp. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the &quot;License&quot;); you may not use this file except in compliance with
+ * the License. You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on
+ * an &quot;AS IS&quot; BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the
+ * specific language governing permissions and limitations under the License.
+ */
+
+package com.ibm.cloud.whcs.common;
+
+import java.io.InputStream;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Properties;
+
+import com.ibm.cloud.sdk.core.http.HttpHeaders;
+import com.ibm.cloud.sdk.core.util.RequestUtils;
+
+/**
+ * The purpose of this class is to provide SDK-specific HTTP headers to be included in REST API requests made
+ * by the SDK.
+ */
+public class SdkCommon {
+
+    /**
+     * SDK-specific &quot;user agent&quot; header value.
+     */
+    private static String userAgent;
+
+    private static String projectName;
+    private static String version;
+
+<span class="fc" id="L39">    private static String parentArtifactId = &quot;whcs-java-sdk&quot;;</span>
+
+    static {
+<span class="fc" id="L42">        readBuildProperties();</span>
+<span class="fc" id="L43">    }</span>
+
+    private SdkCommon() {
+    }
+
+    public static String getVersion() {
+<span class="nc" id="L49">        return version;</span>
+    }
+
+    public static String getProjectName() {
+<span class="nc" id="L53">        return projectName;</span>
+    }
+
+    protected static void readBuildProperties() {
+<span class="fc" id="L57">        final Properties buildProps = new Properties();</span>
+<span class="fc" id="L58">        try (InputStream is = SdkCommon.class.getResourceAsStream(&quot;/&quot; + parentArtifactId + &quot;.properties&quot;)) {</span>
+<span class="nc" id="L59">            buildProps.load(is);</span>
+<span class="nc" id="L60">            version = buildProps.getProperty(&quot;version&quot;, &quot;unknown&quot;);</span>
+<span class="nc" id="L61">            projectName = buildProps.getProperty(&quot;title&quot;, &quot;unknown&quot;);</span>
+<span class="fc" id="L62">        } catch (final Throwable t) {</span>
+<span class="fc" id="L63">            version = &quot;unknown&quot;;</span>
+<span class="fc" id="L64">            projectName = &quot;unknown&quot;;</span>
+<span class="nc" id="L65">        }</span>
+<span class="fc" id="L66">    }</span>
+
+    /**
+     * This function uses lazy initialization to build the SDK's &quot;user agent&quot; value.
+     * This will consist of the SDK name and version, followed by a set of
+     * properties provided by the Java Core's RequestUtils class.
+     *
+     * @return the SDK-specific user agent value
+     */
+    private static synchronized String getUserAgent() {
+<span class="fc bfc" id="L76" title="All 2 branches covered.">        if (userAgent == null) {</span>
+<span class="fc" id="L77">            String systemInfo = RequestUtils.getSystemInfo();</span>
+<span class="fc" id="L78">            systemInfo = systemInfo.replace(&quot;(&quot;, &quot;(lang=java; &quot;);</span>
+<span class="fc" id="L79">            userAgent = String.format(&quot;%s/%s %s&quot;, projectName, version, systemInfo);</span>
+        }
+<span class="fc" id="L81">        return userAgent;</span>
+    }
+
+    /**
+     * This function is invoked by generated service methods (i.e. methods which
+     * implement the REST API operations defined within the API definition). The
+     * purpose of this function is to give the SDK implementor the opportunity to
+     * provide SDK-specific HTTP headers that will be sent with an outgoing REST API
+     * request.
+     * &lt;p&gt;
+     * This function is invoked for &lt;b&gt;each&lt;/b&gt; invocation of a generated service
+     * method, so the set of HTTP headers could be request-specific. As an
+     * optimization, if your SDK will be returning the same set of HTTP headers for
+     * each invocation of this function, it is recommended that you initialize the
+     * returned map just once (perhaps by using lazy initialization) and simply
+     * return it each time the function is invoked, instead of building it each time
+     * as in the example below.
+     *
+     * If you plan to gather metrics for your SDK, the User-Agent header value must
+     * be a string similar to the following: my-java-sdk/0.0.1 (lang=java;
+     * java.vendor=AdoptOpenJDK; java.version=1.8.0_232; os.arch=x86_64;
+     * os.name=Linux; os.version=5.1) In the example above, the analytics tool will
+     * parse the user-agent header and use the following properties: &quot;my-java-sdk&quot; -
+     * the name of your sdk &quot;0.0.1&quot;- the version of your sdk &quot;lang=java&quot; - the
+     * language of the current sdk &quot;java.vendor=AdoptOpenJDK;
+     * java.version=1.8.0_232; os.arch=x86_64; os.name=Linux; os.version=5.1&quot; -
+     * system information
+     *
+     * Note: It is very important that the sdk name ends with the string `-sdk`, as
+     * the analytics data collector uses this to gather usage data.
+     *
+     * @param serviceName    the name of the service as defined in the API
+     *                       definition (e.g. &quot;MyService1&quot;)
+     * @param serviceVersion the version of the service as defined in the API
+     *                       definition (e.g. &quot;V1&quot;)
+     * @param operationId    the operationId as defined in the API definition (e.g.
+     *                       getContext)
+     * @return a Map which contains the set of headers to be included in the REST
+     *         API request
+     */
+    public static Map&lt;String, String&gt; getSdkHeaders(final String serviceName, final String serviceVersion,
+            final String operationId) {
+<span class="fc" id="L123">        final Map&lt;String, String&gt; headers = new HashMap&lt;&gt;();</span>
+<span class="fc" id="L124">        headers.put(HttpHeaders.USER_AGENT, getUserAgent());</span>
+<span class="fc" id="L125">        return headers;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>

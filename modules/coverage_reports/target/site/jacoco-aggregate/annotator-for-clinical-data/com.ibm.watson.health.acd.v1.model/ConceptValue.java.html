@@ -1,0 +1,343 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../jacoco-resources/report.gif" type="image/gif"/><title>ConceptValue.java</title><link rel="stylesheet" href="../../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../../index.html" class="el_report">IBM Watson Health Cognitive Services Coverage Reports</a> &gt; <a href="../index.html" class="el_bundle">annotator-for-clinical-data</a> &gt; <a href="index.source.html" class="el_package">com.ibm.watson.health.acd.v1.model</a> &gt; <span class="el_source">ConceptValue.java</span></div><h1>ConceptValue.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2018 IBM Corp. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the &quot;License&quot;); you may not use this file except in compliance with
+ * the License. You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on
+ * an &quot;AS IS&quot; BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the
+ * specific language governing permissions and limitations under the License.
+ */
+package com.ibm.watson.health.acd.v1.model;
+
+import java.lang.reflect.Type;
+
+import com.google.gson.reflect.TypeToken;
+import com.ibm.watson.developer_cloud.service.model.DynamicModel;
+import com.ibm.watson.developer_cloud.util.GsonSerializationHelper;
+
+/**
+ * ConceptValue.
+ */
+<span class="fc" id="L24">public class ConceptValue extends DynamicModel {</span>
+<span class="fc" id="L25">  private Type idType = new TypeToken&lt;String&gt;() { } .getType();</span>
+<span class="fc" id="L26">  private Type typeType = new TypeToken&lt;String&gt;() { } .getType();</span>
+<span class="fc" id="L27">  private Type uidType = new TypeToken&lt;Long&gt;() { } .getType();</span>
+<span class="fc" id="L28">  private Type beginType = new TypeToken&lt;Long&gt;() { } .getType();</span>
+<span class="fc" id="L29">  private Type endType = new TypeToken&lt;Long&gt;() { } .getType();</span>
+<span class="fc" id="L30">  private Type coveredTextType = new TypeToken&lt;String&gt;() { } .getType();</span>
+<span class="fc" id="L31">  private Type negatedType = new TypeToken&lt;Boolean&gt;() { } .getType();</span>
+<span class="fc" id="L32">  private Type hypotheticalType = new TypeToken&lt;Boolean&gt;() { } .getType();</span>
+<span class="fc" id="L33">  private Type cuiType = new TypeToken&lt;Long&gt;() { } .getType();</span>
+<span class="fc" id="L34">  private Type dimensionType = new TypeToken&lt;String&gt;() { } .getType();</span>
+<span class="fc" id="L35">  private Type preferredNameType = new TypeToken&lt;String&gt;() { } .getType();</span>
+<span class="fc" id="L36">  private Type triggerType = new TypeToken&lt;String&gt;() { } .getType();</span>
+<span class="fc" id="L37">  private Type sourceType = new TypeToken&lt;String&gt;() { } .getType();</span>
+<span class="fc" id="L38">  private Type valueType = new TypeToken&lt;String&gt;() { } .getType();</span>
+<span class="fc" id="L39">  private Type sectionNormalizedNameType = new TypeToken&lt;String&gt;() { } .getType();</span>
+<span class="fc" id="L40">  private Type sectionSurfaceFormType = new TypeToken&lt;String&gt;() { } .getType();</span>
+
+
+
+  /**
+   * Gets the id.
+   *
+   * @return the id
+   */
+  public String getId() {
+<span class="nc" id="L50">    return GsonSerializationHelper.serializeDynamicModelProperty(this.get(&quot;id&quot;), idType);</span>
+  }
+
+  /**
+   * Gets the type.
+   *
+   * @return the type
+   */
+  public String getType() {
+<span class="nc" id="L59">    return GsonSerializationHelper.serializeDynamicModelProperty(this.get(&quot;type&quot;), typeType);</span>
+  }
+
+  /**
+   * Gets the uid.
+   *
+   * @return the uid
+   */
+  public Long getUid() {
+<span class="nc" id="L68">    return GsonSerializationHelper.serializeDynamicModelProperty(this.get(&quot;uid&quot;), uidType);</span>
+  }
+
+  /**
+   * Gets the begin.
+   *
+   * @return the begin
+   */
+  public Long getBegin() {
+<span class="nc" id="L77">    return GsonSerializationHelper.serializeDynamicModelProperty(this.get(&quot;begin&quot;), beginType);</span>
+  }
+
+  /**
+   * Gets the end.
+   *
+   * @return the end
+   */
+  public Long getEnd() {
+<span class="nc" id="L86">    return GsonSerializationHelper.serializeDynamicModelProperty(this.get(&quot;end&quot;), endType);</span>
+  }
+
+  /**
+   * Gets the coveredText.
+   *
+   * @return the coveredText
+   */
+  public String getCoveredText() {
+<span class="nc" id="L95">    return GsonSerializationHelper.serializeDynamicModelProperty(this.get(&quot;coveredText&quot;), coveredTextType);</span>
+  }
+
+  /**
+   * Gets the negated.
+   *
+   * @return the negated
+   */
+  public Boolean isNegated() {
+<span class="nc" id="L104">    Boolean negated = GsonSerializationHelper.serializeDynamicModelProperty(this.get(&quot;negated&quot;), negatedType);</span>
+<span class="nc bnc" id="L105" title="All 2 branches missed.">    if (negated == null) {</span>
+<span class="nc" id="L106">      negated = false;</span>
+    }
+<span class="nc" id="L108">    return negated;</span>
+  }
+
+  /**
+   * Gets the hypothetical.
+   *
+   * @return the hypothetical
+   */
+  public Boolean isHypothetical() {
+<span class="nc" id="L117">    Boolean hypothetical = GsonSerializationHelper.serializeDynamicModelProperty(this.get(&quot;hypothetical&quot;), hypotheticalType);</span>
+<span class="nc bnc" id="L118" title="All 2 branches missed.">    if (hypothetical == null) {</span>
+<span class="nc" id="L119">      hypothetical = false;</span>
+    }
+<span class="nc" id="L121">    return hypothetical;</span>
+  }
+
+  /**
+   * Gets the cui.
+   *
+   * @return the cui
+   */
+  public Long getCui() {
+<span class="nc" id="L130">    return GsonSerializationHelper.serializeDynamicModelProperty(this.get(&quot;cui&quot;), cuiType);</span>
+  }
+
+  /**
+   * Gets the dimension.
+   *
+   * @return the dimension
+   */
+  public String getDimension() {
+<span class="nc" id="L139">    return GsonSerializationHelper.serializeDynamicModelProperty(this.get(&quot;dimension&quot;), dimensionType);</span>
+  }
+
+  /**
+   * Gets the preferredName.
+   *
+   * @return the preferredName
+   */
+  public String getPreferredName() {
+<span class="nc" id="L148">    return GsonSerializationHelper.serializeDynamicModelProperty(this.get(&quot;preferredName&quot;), preferredNameType);</span>
+  }
+
+  /**
+   * Gets the trigger.
+   *
+   * @return the trigger
+   */
+  public String getTrigger() {
+<span class="nc" id="L157">    return GsonSerializationHelper.serializeDynamicModelProperty(this.get(&quot;trigger&quot;), triggerType);</span>
+  }
+
+  /**
+   * Gets the source.
+   *
+   * @return the source
+   */
+  public String getSource() {
+<span class="nc" id="L166">    return GsonSerializationHelper.serializeDynamicModelProperty(this.get(&quot;source&quot;), sourceType);</span>
+  }
+
+  /**
+   * Gets the value.
+   *
+   * @return the value
+   */
+  public String getValue() {
+<span class="nc" id="L175">    return GsonSerializationHelper.serializeDynamicModelProperty(this.get(&quot;value&quot;), valueType);</span>
+  }
+
+  /**
+   * Gets the sectionNormalizedName.
+   *
+   * @return the sectionNormalizedName
+   */
+  public String getSectionNormalizedName() {
+<span class="nc" id="L184">    return GsonSerializationHelper.serializeDynamicModelProperty(this.get(&quot;sectionNormalizedName&quot;), sectionNormalizedNameType);</span>
+  }
+
+  /**
+   * Gets the sectionSurfaceForm.
+   *
+   * @return the sectionSurfaceForm
+   */
+  public String getSectionSurfaceForm() {
+<span class="nc" id="L193">    return GsonSerializationHelper.serializeDynamicModelProperty(this.get(&quot;sectionSurfaceForm&quot;), sectionSurfaceFormType);</span>
+  }
+
+
+//  /**
+//   * Sets the id.
+//   *
+//   * @param id the new id
+//   */
+//  public void setId(final String id) {
+//    this.put(&quot;id&quot;, id);
+//  }
+//
+//  /**
+//   * Sets the type.
+//   *
+//   * @param type the new type
+//   */
+//  public void setType(final String type) {
+//    this.put(&quot;type&quot;, type);
+//  }
+//
+//  /**
+//   * Sets the uid.
+//   *
+//   * @param uid the new uid
+//   */
+//  public void setUid(final Long uid) {
+//    this.put(&quot;uid&quot;, uid);
+//  }
+//
+//  /**
+//   * Sets the begin.
+//   *
+//   * @param begin the new begin
+//   */
+//  public void setBegin(final Long begin) {
+//    this.put(&quot;begin&quot;, begin);
+//  }
+//
+//  /**
+//   * Sets the end.
+//   *
+//   * @param end the new end
+//   */
+//  public void setEnd(final Long end) {
+//    this.put(&quot;end&quot;, end);
+//  }
+//
+//  /**
+//   * Sets the coveredText.
+//   *
+//   * @param coveredText the new coveredText
+//   */
+//  public void setCoveredText(final String coveredText) {
+//    this.put(&quot;coveredText&quot;, coveredText);
+//  }
+//
+//  /**
+//   * Sets the negated.
+//   *
+//   * @param negated the new negated
+//   */
+//  public void setNegated(final Boolean negated) {
+//    this.put(&quot;negated&quot;, negated);
+//  }
+//
+//  /**
+//   * Sets the hypothetical.
+//   *
+//   * @param hypothetical the new hypothetical
+//   */
+//  public void setHypothetical(final Boolean hypothetical) {
+//    this.put(&quot;hypothetical&quot;, hypothetical);
+//  }
+//
+//  /**
+//   * Sets the cui.
+//   *
+//   * @param cui the new cui
+//   */
+//  public void setCui(final Long cui) {
+//    this.put(&quot;cui&quot;, cui);
+//  }
+//
+//  /**
+//   * Sets the dimension.
+//   *
+//   * @param dimension the new dimension
+//   */
+//  public void setDimension(final String dimension) {
+//    this.put(&quot;dimension&quot;, dimension);
+//  }
+//
+//  /**
+//   * Sets the preferredName.
+//   *
+//   * @param preferredName the new preferredName
+//   */
+//  public void setPreferredName(final String preferredName) {
+//    this.put(&quot;preferredName&quot;, preferredName);
+//  }
+//
+//  /**
+//   * Sets the trigger.
+//   *
+//   * @param trigger the new trigger
+//   */
+//  public void setTrigger(final String trigger) {
+//    this.put(&quot;trigger&quot;, trigger);
+//  }
+//
+//  /**
+//   * Sets the source.
+//   *
+//   * @param source the new source
+//   */
+//  public void setSource(final String source) {
+//    this.put(&quot;source&quot;, source);
+//  }
+//
+//  /**
+//   * Sets the value.
+//   *
+//   * @param value the new value
+//   */
+//  public void setValue(final String value) {
+//    this.put(&quot;value&quot;, value);
+//  }
+//
+//  /**
+//   * Sets the sectionSurfaceForm.
+//   *
+//   * @param sectionSurfaceForm the new sectionSurfaceForm
+//   */
+//  public void setSectionSurfaceForm(final String sectionSurfaceForm) {
+//    this.put(&quot;sectionSurfaceForm&quot;, sectionSurfaceForm);
+//  }
+//
+//
+//  /**
+//   * Sets the sectionNormalizedName.
+//   *
+//   * @param sectionNormalizedName the new sectionNormalizedName
+//   */
+//  public void setSectionNormalizedName(final String sectionNormalizedName) {
+//    this.put(&quot;sectionNormalizedName&quot;, sectionNormalizedName);
+//  }
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>

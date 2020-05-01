@@ -1,0 +1,34 @@
+{
+  "id": "testSDK_MockACD_PostFlow_G_flow",
+  "name": "testSDK_MockACD_PostFlow_G",
+  "description": "Mock test flow for testSDK_MockACD_PostFlow_G.",
+  "annotatorFlows": [
+    {
+      "flow": {
+        "elements": [
+          {
+            "annotator": {
+              "name": "concept_detection"
+            }
+          },
+          {
+            "annotator": {
+              "name": "concept_value"
+            }
+          },
+          {
+            "annotator": {
+              "name": "hypothetical"
+            }
+          },
+          {
+            "annotator": {
+              "name": "negation"
+            }
+          }
+        ],
+        "async": false
+      }
+    }
+  ]
+}
