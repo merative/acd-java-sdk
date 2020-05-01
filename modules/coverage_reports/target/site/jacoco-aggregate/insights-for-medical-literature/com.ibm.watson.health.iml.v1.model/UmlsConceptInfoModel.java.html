@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../jacoco-resources/report.gif" type="image/gif"/><title>UmlsConceptInfoModel.java</title><link rel="stylesheet" href="../../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../../index.html" class="el_report">IBM Watson Health Cognitive Services Coverage Reports</a> &gt; <a href="../index.html" class="el_bundle">insights-for-medical-literature</a> &gt; <a href="index.source.html" class="el_package">com.ibm.watson.health.iml.v1.model</a> &gt; <span class="el_source">UmlsConceptInfoModel.java</span></div><h1>UmlsConceptInfoModel.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2018, 2020 IBM Corp. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the &quot;License&quot;); you may not use this file except in compliance with
+ * the License. You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on
+ * an &quot;AS IS&quot; BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the
+ * specific language governing permissions and limitations under the License.
+ */
+package com.ibm.watson.health.iml.v1.model;
+
+import java.util.List;
+
+import com.ibm.cloud.sdk.core.service.model.GenericModel;
+
+/**
+ * UmlsConceptInfoModel.
+ */
+<span class="fc" id="L22">public class UmlsConceptInfoModel extends GenericModel {</span>
+
+  private String cui;
+  private String ontology;
+  private Object preferredName;
+  private List&lt;String&gt; semanticTypes;
+  private List&lt;String&gt; surfaceForms;
+  private List&lt;String&gt; typeahead;
+  private List&lt;String&gt; variants;
+  private String definition;
+
+  /**
+   * Gets the cui.
+   *
+   * @return the cui
+   */
+  public String getCui() {
+<span class="nc" id="L39">    return cui;</span>
+  }
+
+  /**
+   * Gets the ontology.
+   *
+   * @return the ontology
+   */
+  public String getOntology() {
+<span class="nc" id="L48">    return ontology;</span>
+  }
+
+  /**
+   * Gets the preferredName.
+   *
+   * @return the preferredName
+   */
+  public Object getPreferredName() {
+<span class="nc" id="L57">    return preferredName;</span>
+  }
+
+  /**
+   * Gets the semanticTypes.
+   *
+   * @return the semanticTypes
+   */
+  public List&lt;String&gt; getSemanticTypes() {
+<span class="nc" id="L66">    return semanticTypes;</span>
+  }
+
+  /**
+   * Gets the surfaceForms.
+   *
+   * @return the surfaceForms
+   */
+  public List&lt;String&gt; getSurfaceForms() {
+<span class="nc" id="L75">    return surfaceForms;</span>
+  }
+
+  /**
+   * Gets the typeahead.
+   *
+   * @return the typeahead
+   */
+  public List&lt;String&gt; getTypeahead() {
+<span class="nc" id="L84">    return typeahead;</span>
+  }
+
+  /**
+   * Gets the variants.
+   *
+   * @return the variants
+   */
+  public List&lt;String&gt; getVariants() {
+<span class="nc" id="L93">    return variants;</span>
+  }
+
+  /**
+   * Gets the definition.
+   *
+   * @return the definition
+   */
+  public String getDefinition() {
+<span class="nc" id="L102">    return definition;</span>
+  }
+}
+
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>

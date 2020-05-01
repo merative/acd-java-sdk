@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../jacoco-resources/report.gif" type="image/gif"/><title>ConceptModel.java</title><link rel="stylesheet" href="../../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../../index.html" class="el_report">IBM Watson Health Cognitive Services Coverage Reports</a> &gt; <a href="../index.html" class="el_bundle">insights-for-medical-literature</a> &gt; <a href="index.source.html" class="el_package">com.ibm.watson.health.iml.v1.model</a> &gt; <span class="el_source">ConceptModel.java</span></div><h1>ConceptModel.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2018 IBM Corp. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
+ * you may not use this file except in compliance with
+ * the License. You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing,
+ * software distributed under the License is distributed on
+ * an &quot;AS IS&quot; BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND,
+ * either express or implied. See the License for the
+ * specific language governing permissions and limitations under the License.
+ */
+package com.ibm.watson.health.iml.v1.model;
+
+import java.util.List;
+import java.util.Map;
+
+import com.ibm.cloud.sdk.core.service.model.GenericModel;
+
+/**
+ * ConceptModel.
+ */
+<span class="fc" id="L26">public class ConceptModel extends GenericModel {</span>
+
+  private String cui;
+  private String ontology;
+  private Map&lt;String, Long&gt; corpora;
+  private String preferredName;
+  private String alternativeName;
+  private String semanticType;
+  private Long rank;
+  private Long hitCount;
+  private UmlsRelationshipCountsModel parents;
+  private UmlsRelationshipCountsModel children;
+  private UmlsRelationshipCountsModel siblings;
+  private UmlsRelationshipCountsModel related;
+  private List&lt;String&gt; surfaceForms;
+
+  /**
+   * Gets the cui.
+   *
+   * @return the cui
+   */
+  public String getCui() {
+<span class="fc" id="L48">    return cui;</span>
+  }
+
+  /**
+   * Gets the ontology.
+   *
+   * @return the ontology
+   */
+  public String getOntology() {
+<span class="fc" id="L57">    return ontology;</span>
+  }
+
+  /**
+   * Gets the corpora.
+   *
+   * @return the corpora
+   */
+  public Map&lt;String, Long&gt; getCorpora() {
+<span class="nc" id="L66">    return corpora;</span>
+  }
+
+  /**
+   * Gets the preferredName.
+   *
+   * @return the preferredName
+   */
+  public String getPreferredName() {
+<span class="fc" id="L75">    return preferredName;</span>
+  }
+
+  /**
+   * Gets the alternativeName.
+   *
+   * @return the alternativeName
+   */
+  public String getAlternativeName() {
+<span class="nc" id="L84">    return alternativeName;</span>
+  }
+
+  /**
+   * Gets the type.
+   *
+   * @return the type
+   */
+  public String getType() {
+<span class="fc" id="L93">    return semanticType;</span>
+  }
+
+  /**
+   * Gets the rank.
+   *
+   * @return the rank
+   */
+  public Long getRank() {
+<span class="nc" id="L102">    return rank;</span>
+  }
+
+  /**
+   * Gets the hitCount.
+   *
+   * @return the hitCount
+   */
+  public Long getHitCount() {
+<span class="nc" id="L111">    return hitCount;</span>
+  }
+
+  /**
+   * Gets the parents.
+   *
+   * @return the parents
+   */
+  public UmlsRelationshipCountsModel getParents() {
+<span class="nc" id="L120">    return parents;</span>
+  }
+
+  /**
+   * Gets the children.
+   *
+   * @return the children
+   */
+  public UmlsRelationshipCountsModel getChildren() {
+<span class="nc" id="L129">    return children;</span>
+  }
+
+  /**
+   * Gets the siblings.
+   *
+   * @return the siblings
+   */
+  public UmlsRelationshipCountsModel getSiblings() {
+<span class="nc" id="L138">    return siblings;</span>
+  }
+
+  /**
+   * Gets the related.
+   *
+   * @return the related
+   */
+  public UmlsRelationshipCountsModel getRelated() {
+<span class="nc" id="L147">    return related;</span>
+  }
+
+  /**
+   * Gets the surfaceForms.
+   *
+   * @return the surfaceForms
+   */
+  public List&lt;String&gt; getSurfaceForms() {
+<span class="nc" id="L156">    return surfaceForms;</span>
+  }
+}
+
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>

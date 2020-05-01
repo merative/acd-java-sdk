@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../jacoco-resources/report.gif" type="image/gif"/><title>FlowUtil.java</title><link rel="stylesheet" href="../../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../../index.html" class="el_report">IBM Watson Health Cognitive Services Coverage Reports</a> &gt; <a href="../index.html" class="el_bundle">annotator-for-clinical-data</a> &gt; <a href="index.source.html" class="el_package">com.ibm.watson.health.acd.v1.util</a> &gt; <span class="el_source">FlowUtil.java</span></div><h1>FlowUtil.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2018 IBM Corp. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the &quot;License&quot;); you may not use this file except in compliance with
+ * the License. You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on
+ * an &quot;AS IS&quot; BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the
+ * specific language governing permissions and limitations under the License.
+ */
+package com.ibm.watson.health.acd.v1.util;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import com.ibm.watson.developer_cloud.service.model.GenericModel;
+import com.ibm.watson.developer_cloud.util.Validator;
+import com.ibm.watson.health.acd.v1.model.Annotator;
+import com.ibm.watson.health.acd.v1.model.Flow;
+import com.ibm.watson.health.acd.v1.model.FlowEntry;
+
+/**
+ * FlowUtil
+ *
+ * To create flow object.
+ *
+ * This class is manually written and not generated from swagger codegen.
+ * */
+
+public class FlowUtil extends GenericModel {
+
+  private List&lt;String&gt; annotators;
+  private Boolean async;
+
+  /**
+   * Builder.
+   */
+  public static class Builder {
+    private List&lt;String&gt; annotators;
+    private Boolean async;
+
+<span class="nc" id="L44">    private Builder(FlowUtil flowUtil) {</span>
+<span class="nc" id="L45">      annotators = flowUtil.annotators;</span>
+<span class="nc" id="L46">      async = flowUtil.async;</span>
+<span class="nc" id="L47">    }</span>
+
+    /**
+     * Instantiates a new builder.
+     */
+<span class="fc" id="L52">    public Builder() {</span>
+<span class="fc" id="L53">    }</span>
+
+    /**
+     * Builds a FlowUtil.
+     *
+     * @return the flowUtil
+     */
+    /*
+     *
+     * Following code is temporary. Currently async does not work and default value is false.
+     * So there is no point of keeping multiple level of flow.
+     * In future we have comment out the existing code and following commented code will work.
+     *
+     * */
+    public Flow build() {
+<span class="fc" id="L68">      Flow flow = null;</span>
+<span class="fc" id="L69">      List&lt;FlowEntry&gt; elementList = new ArrayList&lt;FlowEntry&gt;();</span>
+
+<span class="pc bpc" id="L71" title="1 of 2 branches missed.">      if (!annotators.isEmpty()) {</span>
+<span class="fc bfc" id="L72" title="All 2 branches covered.">        for (String annotator : annotators) {</span>
+<span class="fc" id="L73">          FlowEntry flowEntry = createAnnotator(annotator);</span>
+<span class="fc" id="L74">          elementList.add(flowEntry);</span>
+<span class="fc" id="L75">        }</span>
+<span class="fc" id="L76">        flow = new Flow.Builder().elements(elementList).async(false).build();</span>
+
+      }
+<span class="fc" id="L79">      return flow;</span>
+
+    }
+
+    /**
+     * Adds an annotators to annotators.
+     *
+     * @param annotators
+     *            the new annotators
+     * @return the FlowUtil builder
+     */
+    public Builder addAnnotators(String annotators) {
+<span class="fc" id="L91">      Validator.notNull(annotators, &quot;annotators cannot be null&quot;);</span>
+<span class="pc bpc" id="L92" title="1 of 2 branches missed.">      if (this.annotators == null) {</span>
+<span class="fc" id="L93">        this.annotators = new ArrayList&lt;String&gt;();</span>
+      }
+<span class="fc" id="L95">      this.annotators.add(annotators);</span>
+<span class="fc" id="L96">      return this;</span>
+    }
+
+    /**
+     * Set the annotators. Existing annotators will be replaced.
+     *
+     * @param annotators
+     *            the annotators
+     * @return the FlowUtil builder
+     */
+    public Builder annotators(List&lt;String&gt; annotators) {
+<span class="fc" id="L107">      this.annotators = annotators;</span>
+<span class="fc" id="L108">      return this;</span>
+    }
+
+    /**
+     * Set the async.
+     *
+     * @param async
+     *            the async
+     * @return the FlowUtil builder
+     */
+    public Builder async(Boolean async) {
+<span class="fc" id="L119">      this.async = async;</span>
+<span class="fc" id="L120">      return this;</span>
+    }
+  }
+
+<span class="nc" id="L124">  private FlowUtil(Builder builder) {</span>
+<span class="nc" id="L125">    annotators = builder.annotators;</span>
+<span class="nc" id="L126">    async = builder.async;</span>
+<span class="nc" id="L127">  }</span>
+
+  /**
+   * New builder.
+   *
+   * @return a FlowUtil builder
+   */
+  public Builder newBuilder() {
+<span class="nc" id="L135">    return new Builder(this);</span>
+  }
+
+  /**
+   * Gets the annotators.
+   *
+   * @return the annotators
+   */
+  public List&lt;String&gt; annotators() {
+<span class="nc" id="L144">    return annotators;</span>
+  }
+
+  /**
+   * Gets the async.
+   *
+   * @return the async
+   */
+  public Boolean async() {
+<span class="nc" id="L153">    return async;</span>
+  }
+
+  public static FlowEntry createAnnotator(String name) {
+<span class="fc" id="L157">    Annotator annotator = new Annotator.Builder().name(name).build();</span>
+<span class="fc" id="L158">    FlowEntry flowEntry = new FlowEntry.Builder().annotator(annotator).build();</span>
+<span class="fc" id="L159">    return flowEntry;</span>
+  }
+
+  public static Flow buildFlow(Flow flow) {
+<span class="fc" id="L163">    return flow;</span>
+  }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>

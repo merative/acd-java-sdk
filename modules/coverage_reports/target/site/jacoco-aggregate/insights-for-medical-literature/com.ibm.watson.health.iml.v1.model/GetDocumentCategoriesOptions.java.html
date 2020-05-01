@@ -1,0 +1,336 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../jacoco-resources/report.gif" type="image/gif"/><title>GetDocumentCategoriesOptions.java</title><link rel="stylesheet" href="../../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../../index.html" class="el_report">IBM Watson Health Cognitive Services Coverage Reports</a> &gt; <a href="../index.html" class="el_bundle">insights-for-medical-literature</a> &gt; <a href="index.source.html" class="el_package">com.ibm.watson.health.iml.v1.model</a> &gt; <span class="el_source">GetDocumentCategoriesOptions.java</span></div><h1>GetDocumentCategoriesOptions.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2018 IBM Corp. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
+ * you may not use this file except in compliance with
+ * the License. You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing,
+ * software distributed under the License is distributed on
+ * an &quot;AS IS&quot; BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND,
+ * either express or implied. See the License for the
+ * specific language governing permissions and limitations under the License.
+ */
+package com.ibm.watson.health.iml.v1.model;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import com.ibm.cloud.sdk.core.service.model.GenericModel;
+import com.ibm.cloud.sdk.core.util.Validator;
+
+/**
+ * The getDocumentCategories options.
+ */
+public class GetDocumentCategoriesOptions extends GenericModel {
+
+  private String corpus;
+  private String documentId;
+  private String highlightTagBegin;
+  private String highlightTagEnd;
+  private List&lt;String&gt; types;
+  private String category;
+  private Boolean onlyNegatedConcepts;
+  private String fields;
+  private Long limit;
+
+  /**
+   * Builder.
+   */
+  public static class Builder {
+    private String corpus;
+    private String documentId;
+    private String highlightTagBegin;
+    private String highlightTagEnd;
+    private List&lt;String&gt; types;
+    private String category;
+    private Boolean onlyNegatedConcepts;
+    private String fields;
+    private Long limit;
+
+<span class="fc" id="L53">    private Builder(GetDocumentCategoriesOptions getDocumentCategoriesOptions) {</span>
+<span class="fc" id="L54">      corpus = getDocumentCategoriesOptions.corpus;</span>
+<span class="fc" id="L55">      documentId = getDocumentCategoriesOptions.documentId;</span>
+<span class="fc" id="L56">      highlightTagBegin = getDocumentCategoriesOptions.highlightTagBegin;</span>
+<span class="fc" id="L57">      highlightTagEnd = getDocumentCategoriesOptions.highlightTagEnd;</span>
+<span class="fc" id="L58">      types = getDocumentCategoriesOptions.types;</span>
+<span class="fc" id="L59">      category = getDocumentCategoriesOptions.category;</span>
+<span class="fc" id="L60">      onlyNegatedConcepts = getDocumentCategoriesOptions.onlyNegatedConcepts;</span>
+<span class="fc" id="L61">      fields = getDocumentCategoriesOptions.fields;</span>
+<span class="fc" id="L62">      limit = getDocumentCategoriesOptions.limit;</span>
+<span class="fc" id="L63">    }</span>
+
+    /**
+     * Instantiates a new builder.
+     */
+<span class="fc" id="L68">    public Builder() {</span>
+<span class="fc" id="L69">    }</span>
+
+    /**
+     * Instantiates a new builder with required properties.
+     *
+     * @param corpus the corpus
+     * @param documentId the documentId
+     */
+<span class="fc" id="L77">    public Builder(String corpus, String documentId) {</span>
+<span class="fc" id="L78">      this.corpus = corpus;</span>
+<span class="fc" id="L79">      this.documentId = documentId;</span>
+<span class="fc" id="L80">    }</span>
+
+    /**
+     * Builds a GetDocumentCategoriesOptions.
+     *
+     * @return the getDocumentCategoriesOptions
+     */
+    public GetDocumentCategoriesOptions build() {
+<span class="fc" id="L88">      return new GetDocumentCategoriesOptions(this);</span>
+    }
+
+    /**
+     * Adds an types to types.
+     *
+     * @param types the new types
+     * @return the GetDocumentCategoriesOptions builder
+     */
+    public Builder addTypes(String types) {
+<span class="fc" id="L98">      Validator.notNull(types, &quot;types cannot be null&quot;);</span>
+<span class="pc bpc" id="L99" title="1 of 2 branches missed.">      if (this.types == null) {</span>
+<span class="fc" id="L100">        this.types = new ArrayList&lt;String&gt;();</span>
+      }
+<span class="fc" id="L102">      this.types.add(types);</span>
+<span class="fc" id="L103">      return this;</span>
+    }
+
+    /**
+     * Set the corpus.
+     *
+     * @param corpus the corpus
+     * @return the GetDocumentCategoriesOptions builder
+     */
+    public Builder corpus(String corpus) {
+<span class="fc" id="L113">      this.corpus = corpus;</span>
+<span class="fc" id="L114">      return this;</span>
+    }
+
+    /**
+     * Set the documentId.
+     *
+     * @param documentId the documentId
+     * @return the GetDocumentCategoriesOptions builder
+     */
+    public Builder documentId(String documentId) {
+<span class="fc" id="L124">      this.documentId = documentId;</span>
+<span class="fc" id="L125">      return this;</span>
+    }
+
+    /**
+     * Set the highlightTagBegin.
+     *
+     * @param highlightTagBegin the highlightTagBegin
+     * @return the GetDocumentCategoriesOptions builder
+     */
+    public Builder highlightTagBegin(String highlightTagBegin) {
+<span class="fc" id="L135">      this.highlightTagBegin = highlightTagBegin;</span>
+<span class="fc" id="L136">      return this;</span>
+    }
+
+    /**
+     * Set the highlightTagEnd.
+     *
+     * @param highlightTagEnd the highlightTagEnd
+     * @return the GetDocumentCategoriesOptions builder
+     */
+    public Builder highlightTagEnd(String highlightTagEnd) {
+<span class="fc" id="L146">      this.highlightTagEnd = highlightTagEnd;</span>
+<span class="fc" id="L147">      return this;</span>
+    }
+
+    /**
+     * Set the types.
+     * Existing types will be replaced.
+     *
+     * @param types the types
+     * @return the GetDocumentCategoriesOptions builder
+     */
+    public Builder types(List&lt;String&gt; types) {
+<span class="fc" id="L158">      this.types = types;</span>
+<span class="fc" id="L159">      return this;</span>
+    }
+
+    /**
+     * Set the category.
+     *
+     * @param category the category
+     * @return the GetDocumentCategoriesOptions builder
+     */
+    public Builder category(String category) {
+<span class="fc" id="L169">      this.category = category;</span>
+<span class="fc" id="L170">      return this;</span>
+    }
+
+    /**
+     * Set the onlyNegatedConcepts.
+     *
+     * @param onlyNegatedConcepts the onlyNegatedConcepts
+     * @return the GetDocumentCategoriesOptions builder
+     */
+    public Builder onlyNegatedConcepts(Boolean onlyNegatedConcepts) {
+<span class="fc" id="L180">      this.onlyNegatedConcepts = onlyNegatedConcepts;</span>
+<span class="fc" id="L181">      return this;</span>
+    }
+
+    /**
+     * Set the fields.
+     *
+     * @param fields the fields
+     * @return the GetDocumentCategoriesOptions builder
+     */
+    public Builder fields(String fields) {
+<span class="fc" id="L191">      this.fields = fields;</span>
+<span class="fc" id="L192">      return this;</span>
+    }
+
+    /**
+     * Set the limit.
+     *
+     * @param limit the limit
+     * @return the GetDocumentCategoriesOptions builder
+     */
+    public Builder limit(long limit) {
+<span class="fc" id="L202">      this.limit = limit;</span>
+<span class="fc" id="L203">      return this;</span>
+    }
+  }
+
+<span class="fc" id="L207">  private GetDocumentCategoriesOptions(Builder builder) {</span>
+<span class="fc" id="L208">    Validator.notEmpty(builder.corpus, &quot;corpus cannot be empty&quot;);</span>
+<span class="fc" id="L209">    Validator.notEmpty(builder.documentId, &quot;documentId cannot be empty&quot;);</span>
+<span class="fc" id="L210">    corpus = builder.corpus;</span>
+<span class="fc" id="L211">    documentId = builder.documentId;</span>
+<span class="fc" id="L212">    highlightTagBegin = builder.highlightTagBegin;</span>
+<span class="fc" id="L213">    highlightTagEnd = builder.highlightTagEnd;</span>
+<span class="fc" id="L214">    types = builder.types;</span>
+<span class="fc" id="L215">    category = builder.category;</span>
+<span class="fc" id="L216">    onlyNegatedConcepts = builder.onlyNegatedConcepts;</span>
+<span class="fc" id="L217">    fields = builder.fields;</span>
+<span class="fc" id="L218">    limit = builder.limit;</span>
+<span class="fc" id="L219">  }</span>
+
+  /**
+   * New builder.
+   *
+   * @return a GetDocumentCategoriesOptions builder
+   */
+  public Builder newBuilder() {
+<span class="fc" id="L227">    return new Builder(this);</span>
+  }
+
+  /**
+   * Gets the corpus.
+   *
+   * Corpus name.
+   *
+   * @return the corpus
+   */
+  public String corpus() {
+<span class="fc" id="L238">    return corpus;</span>
+  }
+
+  /**
+   * Gets the documentId.
+   *
+   * Document ID.
+   *
+   * @return the documentId
+   */
+  public String documentId() {
+<span class="fc" id="L249">    return documentId;</span>
+  }
+
+  /**
+   * Gets the highlightTagBegin.
+   *
+   * HTML tag used to highlight concepts found in the text.
+   * Default is '&amp;ltb&amp;gt'.
+   *
+   * @return the highlightTagBegin
+   */
+  public String highlightTagBegin() {
+<span class="fc" id="L261">    return highlightTagBegin;</span>
+  }
+
+  /**
+   * Gets the highlightTagEnd.
+   *
+   * HTML tag used to highlight concepts found in the text.
+   * Default is '&amp;lt/b&amp;gt'.
+   *
+   * @return the highlightTagEnd
+   */
+  public String highlightTagEnd() {
+<span class="fc" id="L273">    return highlightTagEnd;</span>
+  }
+
+  /**
+   * Gets the types.
+   *
+   * Select concepts belonging to these semantic types to return.
+   * Defaults to 'all'.
+   *
+   * @return the types
+   */
+  public List&lt;String&gt; types() {
+<span class="fc" id="L285">    return types;</span>
+  }
+
+  /**
+   * Gets the category.
+   *
+   * Select concepts belonging to disorders, drugs or genes.
+   *
+   * @return the category
+   */
+  public String category() {
+<span class="fc" id="L296">    return category;</span>
+  }
+
+  /**
+   * Gets the onlyNegatedConcepts.
+   *
+   * Only return negated concepts?.
+   *
+   * @return the onlyNegatedConcepts
+   */
+  public Boolean onlyNegatedConcepts() {
+<span class="fc" id="L307">    return onlyNegatedConcepts;</span>
+  }
+
+  /**
+   * Gets the fields.
+   *
+   * Comma separated list of fields to return:  passages, annotations,
+   *  highlightedTitle, highlightedAbstract,
+   * highlightedBody.
+   *
+   * @return the fields
+   */
+  public String fields() {
+<span class="fc" id="L320">    return fields;</span>
+  }
+
+  /**
+   * Gets the limit.
+   *
+   * Limit the number of passages per search concept (1 to 250).
+   * Default is 50.
+   *
+   * @return the limit
+   */
+  public Long limit() {
+<span class="fc" id="L332">    return limit;</span>
+  }
+}
+
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>

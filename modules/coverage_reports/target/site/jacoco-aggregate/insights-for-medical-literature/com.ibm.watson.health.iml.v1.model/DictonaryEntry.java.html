@@ -1,0 +1,278 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../jacoco-resources/report.gif" type="image/gif"/><title>DictonaryEntry.java</title><link rel="stylesheet" href="../../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../../index.html" class="el_report">IBM Watson Health Cognitive Services Coverage Reports</a> &gt; <a href="../index.html" class="el_bundle">insights-for-medical-literature</a> &gt; <a href="index.source.html" class="el_package">com.ibm.watson.health.iml.v1.model</a> &gt; <span class="el_source">DictonaryEntry.java</span></div><h1>DictonaryEntry.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2018 IBM Corp. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
+ * you may not use this file except in compliance with
+ * the License. You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing,
+ * software distributed under the License is distributed on
+ * an &quot;AS IS&quot; BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND,
+ * either express or implied. See the License for the
+ * specific language governing permissions and limitations under the License.
+ */
+package com.ibm.watson.health.iml.v1.model;
+
+import java.util.List;
+
+import com.google.gson.annotations.SerializedName;
+import com.ibm.cloud.sdk.core.service.model.GenericModel;
+
+/**
+ * DictonaryEntry.
+ */
+<span class="fc" id="L26">public class DictonaryEntry extends GenericModel {</span>
+
+  private List&lt;String&gt; children;
+  private String cui;
+  private List&lt;String&gt; definition;
+  private List&lt;String&gt; parents;
+  private String preferredName;
+  private List&lt;String&gt; semtypes;
+  private List&lt;String&gt; siblings;
+  private List&lt;String&gt; surfaceForms;
+  private List&lt;String&gt; variants;
+  private String vocab;
+  private List&lt;String&gt; related;
+  private String source;
+  @SerializedName(&quot;source_version&quot;)
+  private String sourceVersion;
+
+  /**
+   * Gets the children.
+   *
+   * @return the children
+   */
+  public List&lt;String&gt; getChildren() {
+<span class="fc" id="L49">    return children;</span>
+  }
+
+  /**
+   * Gets the cui.
+   *
+   * @return the cui
+   */
+  public String getCui() {
+<span class="fc" id="L58">    return cui;</span>
+  }
+
+  /**
+   * Gets the definition.
+   *
+   * @return the definition
+   */
+  public List&lt;String&gt; getDefinition() {
+<span class="fc" id="L67">    return definition;</span>
+  }
+
+  /**
+   * Gets the parents.
+   *
+   * @return the parents
+   */
+  public List&lt;String&gt; getParents() {
+<span class="fc" id="L76">    return parents;</span>
+  }
+
+  /**
+   * Gets the preferredName.
+   *
+   * @return the preferredName
+   */
+  public String getPreferredName() {
+<span class="fc" id="L85">    return preferredName;</span>
+  }
+
+  /**
+   * Gets the semtypes.
+   *
+   * @return the semtypes
+   */
+  public List&lt;String&gt; getSemtypes() {
+<span class="fc" id="L94">    return semtypes;</span>
+  }
+
+  /**
+   * Gets the siblings.
+   *
+   * @return the siblings
+   */
+  public List&lt;String&gt; getSiblings() {
+<span class="fc" id="L103">    return siblings;</span>
+  }
+
+  /**
+   * Gets the surfaceForms.
+   *
+   * @return the surfaceForms
+   */
+  public List&lt;String&gt; getSurfaceForms() {
+<span class="fc" id="L112">    return surfaceForms;</span>
+  }
+
+  /**
+   * Gets the variants.
+   *
+   * @return the variants
+   */
+  public List&lt;String&gt; getVariants() {
+<span class="fc" id="L121">    return variants;</span>
+  }
+
+  /**
+   * Gets the vocab.
+   *
+   * @return the vocab
+   */
+  public String getVocab() {
+<span class="fc" id="L130">    return vocab;</span>
+  }
+
+  /**
+   * Gets the related.
+   *
+   * @return the related
+   */
+  public List&lt;String&gt; getRelated() {
+<span class="fc" id="L139">    return related;</span>
+  }
+
+  /**
+   * Gets the source.
+   *
+   * @return the source
+   */
+  public String getSource() {
+<span class="fc" id="L148">    return source;</span>
+  }
+
+  /**
+   * Gets the sourceVersion.
+   *
+   * @return the sourceVersion
+   */
+  public String getSourceVersion() {
+<span class="fc" id="L157">    return sourceVersion;</span>
+  }
+
+  /**
+   * Sets the children.
+   *
+   * @param children the new children
+   */
+  public void setChildren(final List&lt;String&gt; children) {
+<span class="fc" id="L166">    this.children = children;</span>
+<span class="fc" id="L167">  }</span>
+
+  /**
+   * Sets the cui.
+   *
+   * @param cui the new cui
+   */
+  public void setCui(final String cui) {
+<span class="fc" id="L175">    this.cui = cui;</span>
+<span class="fc" id="L176">  }</span>
+
+  /**
+   * Sets the definition.
+   *
+   * @param definition the new definition
+   */
+  public void setDefinition(final List&lt;String&gt; definition) {
+<span class="fc" id="L184">    this.definition = definition;</span>
+<span class="fc" id="L185">  }</span>
+
+  /**
+   * Sets the parents.
+   *
+   * @param parents the new parents
+   */
+  public void setParents(final List&lt;String&gt; parents) {
+<span class="fc" id="L193">    this.parents = parents;</span>
+<span class="fc" id="L194">  }</span>
+
+  /**
+   * Sets the preferredName.
+   *
+   * @param preferredName the new preferredName
+   */
+  public void setPreferredName(final String preferredName) {
+<span class="fc" id="L202">    this.preferredName = preferredName;</span>
+<span class="fc" id="L203">  }</span>
+
+  /**
+   * Sets the semtypes.
+   *
+   * @param semtypes the new semtypes
+   */
+  public void setSemtypes(final List&lt;String&gt; semtypes) {
+<span class="fc" id="L211">    this.semtypes = semtypes;</span>
+<span class="fc" id="L212">  }</span>
+
+  /**
+   * Sets the siblings.
+   *
+   * @param siblings the new siblings
+   */
+  public void setSiblings(final List&lt;String&gt; siblings) {
+<span class="fc" id="L220">    this.siblings = siblings;</span>
+<span class="fc" id="L221">  }</span>
+
+  /**
+   * Sets the surfaceForms.
+   *
+   * @param surfaceForms the new surfaceForms
+   */
+  public void setSurfaceForms(final List&lt;String&gt; surfaceForms) {
+<span class="fc" id="L229">    this.surfaceForms = surfaceForms;</span>
+<span class="fc" id="L230">  }</span>
+
+  /**
+   * Sets the variants.
+   *
+   * @param variants the new variants
+   */
+  public void setVariants(final List&lt;String&gt; variants) {
+<span class="fc" id="L238">    this.variants = variants;</span>
+<span class="fc" id="L239">  }</span>
+
+  /**
+   * Sets the vocab.
+   *
+   * @param vocab the new vocab
+   */
+  public void setVocab(final String vocab) {
+<span class="fc" id="L247">    this.vocab = vocab;</span>
+<span class="fc" id="L248">  }</span>
+
+  /**
+   * Sets the related.
+   *
+   * @param related the new related
+   */
+  public void setRelated(final List&lt;String&gt; related) {
+<span class="fc" id="L256">    this.related = related;</span>
+<span class="fc" id="L257">  }</span>
+
+  /**
+   * Sets the source.
+   *
+   * @param source the new source
+   */
+  public void setSource(final String source) {
+<span class="fc" id="L265">    this.source = source;</span>
+<span class="fc" id="L266">  }</span>
+
+  /**
+   * Sets the sourceVersion.
+   *
+   * @param sourceVersion the new sourceVersion
+   */
+  public void setSourceVersion(final String sourceVersion) {
+<span class="fc" id="L274">    this.sourceVersion = sourceVersion;</span>
+<span class="fc" id="L275">  }</span>
+}
+
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>

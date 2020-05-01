@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../jacoco-resources/report.gif" type="image/gif"/><title>SearchModel.java</title><link rel="stylesheet" href="../../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../../index.html" class="el_report">IBM Watson Health Cognitive Services Coverage Reports</a> &gt; <a href="../index.html" class="el_bundle">insights-for-medical-literature</a> &gt; <a href="index.source.html" class="el_package">com.ibm.watson.health.iml.v1.model</a> &gt; <span class="el_source">SearchModel.java</span></div><h1>SearchModel.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2018 IBM Corp. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
+ * you may not use this file except in compliance with
+ * the License. You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing,
+ * software distributed under the License is distributed on
+ * an &quot;AS IS&quot; BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND,
+ * either express or implied. See the License for the
+ * specific language governing permissions and limitations under the License.
+ */
+package com.ibm.watson.health.iml.v1.model;
+
+import java.util.List;
+import java.util.Map;
+
+import com.google.gson.annotations.SerializedName;
+import com.ibm.cloud.sdk.core.service.model.GenericModel;
+
+/**
+ * SearchModel.
+ */
+<span class="fc" id="L27">public class SearchModel extends GenericModel {</span>
+
+  private String href;
+  private List&lt;RankedDocConcept&gt; queryConcepts;
+  private Long pageNumber;
+  @SerializedName(&quot;get_limit&quot;)
+  private Long getLimit;
+  private Long totalDocumentCount;
+  private List&lt;Concept&gt; concepts;
+  private List&lt;String&gt; types;
+  private List&lt;Attribute&gt; attributes;
+  private List&lt;Concept&gt; values;
+  private Map&lt;String, Range&gt; ranges;
+  private List&lt;Concept&gt; typeahead;
+  private Map&lt;String, List&lt;AggregationModel&gt;&gt; aggregations;
+  private Map&lt;String, List&lt;YearAndHits&gt;&gt; dateHistograms;
+  private List&lt;RankedDocument&gt; documents;
+  private String cursorId;
+
+  /**
+   * Gets the href.
+   *
+   * @return the href
+   */
+  public String getHref() {
+<span class="fc" id="L52">    return href;</span>
+  }
+
+  /**
+   * Gets the queryConcepts.
+   *
+   * @return the queryConcepts
+   */
+  public List&lt;RankedDocConcept&gt; getQueryConcepts() {
+<span class="fc" id="L61">    return queryConcepts;</span>
+  }
+
+  /**
+   * Gets the pageNumber.
+   *
+   * @return the pageNumber
+   */
+  public Long getPageNumber() {
+<span class="fc" id="L70">    return pageNumber;</span>
+  }
+
+  /**
+   * Gets the getLimit.
+   *
+   * @return the getLimit
+   */
+  public Long getGetLimit() {
+<span class="fc" id="L79">    return getLimit;</span>
+  }
+
+  /**
+   * Gets the totalDocumentCount.
+   *
+   * @return the totalDocumentCount
+   */
+  public Long getTotalDocumentCount() {
+<span class="fc" id="L88">    return totalDocumentCount;</span>
+  }
+
+  /**
+   * Gets the concepts.
+   *
+   * @return the concepts
+   */
+  public List&lt;Concept&gt; getConcepts() {
+<span class="fc" id="L97">    return concepts;</span>
+  }
+
+  /**
+   * Gets the types.
+   *
+   * @return the types
+   */
+  public List&lt;String&gt; getTypes() {
+<span class="nc" id="L106">    return types;</span>
+  }
+
+  /**
+   * Gets the attributes.
+   *
+   * @return the attributes
+   */
+  public List&lt;Attribute&gt; getAttributes() {
+<span class="fc" id="L115">    return attributes;</span>
+  }
+
+  /**
+   * Gets the values.
+   *
+   * @return the values
+   */
+  public List&lt;Concept&gt; getValues() {
+<span class="fc" id="L124">    return values;</span>
+  }
+
+  /**
+   * Gets the ranges.
+   *
+   * @return the ranges
+   */
+  public Map&lt;String, Range&gt; getRanges() {
+<span class="fc" id="L133">    return ranges;</span>
+  }
+
+  /**
+   * Gets the typeahead.
+   *
+   * @return the typeahead
+   */
+  public List&lt;Concept&gt; getTypeahead() {
+<span class="fc" id="L142">    return typeahead;</span>
+  }
+
+  /**
+   * Gets the aggregations.
+   *
+   * @return the aggregations
+   */
+  public Map&lt;String, List&lt;AggregationModel&gt;&gt; getAggregations() {
+<span class="fc" id="L151">    return aggregations;</span>
+  }
+
+  /**
+   * Gets the dateHistograms.
+   *
+   * @return the dateHistograms
+   */
+  public Map&lt;String, List&lt;YearAndHits&gt;&gt; getDateHistograms() {
+<span class="fc" id="L160">    return dateHistograms;</span>
+  }
+
+  /**
+   * Gets the documents.
+   *
+   * @return the documents
+   */
+  public List&lt;RankedDocument&gt; getDocuments() {
+<span class="fc" id="L169">    return documents;</span>
+  }
+
+  /**
+   * Gets set of scroll IDs for processing large result sets.
+   * @return
+   */
+	public String getCursorId() {
+<span class="fc" id="L177">		return this.cursorId;</span>
+	}
+
+	/**
+	 * Sets the scroll IDs of large result sets.
+	 * @param map
+	 */
+	public void setCursorId(String id) {
+<span class="nc" id="L185">		this.cursorId = id;</span>
+<span class="nc" id="L186">	}</span>
+}
+
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>

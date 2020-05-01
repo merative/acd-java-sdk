@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../jacoco-resources/report.gif" type="image/gif"/><title>AnnotationModel.java</title><link rel="stylesheet" href="../../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../../index.html" class="el_report">IBM Watson Health Cognitive Services Coverage Reports</a> &gt; <a href="../index.html" class="el_bundle">insights-for-medical-literature</a> &gt; <a href="index.source.html" class="el_package">com.ibm.watson.health.iml.v1.model</a> &gt; <span class="el_source">AnnotationModel.java</span></div><h1>AnnotationModel.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2018 IBM Corp. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
+ * you may not use this file except in compliance with
+ * the License. You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing,
+ * software distributed under the License is distributed on
+ * an &quot;AS IS&quot; BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND,
+ * either express or implied. See the License for the
+ * specific language governing permissions and limitations under the License.
+ */
+package com.ibm.watson.health.iml.v1.model;
+
+import java.util.Map;
+
+import com.ibm.cloud.sdk.core.service.model.GenericModel;
+
+/**
+ * AnnotationModel.
+ */
+<span class="fc" id="L25">public class AnnotationModel extends GenericModel {</span>
+
+  private String source;
+  private String ontology;
+  private String section;
+  private String preferredName;
+  private String cui;
+  private String attributeId;
+  private String type;
+  private Boolean negated;
+  private Boolean hypothetical;
+  private String unit;
+  private String minValue;
+  private String maxValue;
+  private String operator;
+  private Long begin;
+  private Long end;
+  private Float score;
+  private String coveredText;
+  private Map&lt;String, String&gt; features;
+
+  /**
+   * Gets the ontology.
+   *
+   * @return the ontology
+   */
+  public String getOntology() {
+<span class="fc" id="L52">    return ontology;</span>
+  }
+
+  /**
+   * Gets the ontology.
+   *
+   * @return the ontology
+   */
+  public String getSource() {
+<span class="fc" id="L61">    return source;</span>
+  }
+
+  /**
+   * Gets the section.
+   *
+   * @return the section
+   */
+  public String getSection() {
+<span class="fc" id="L70">    return section;</span>
+  }
+
+  /**
+   * Gets the preferredName.
+   *
+   * @return the preferredName
+   */
+  public String getPreferredName() {
+<span class="fc" id="L79">    return preferredName;</span>
+  }
+
+  /**
+   * Gets the cui.
+   *
+   * @return the cui
+   */
+  public String getCui() {
+<span class="fc" id="L88">    return cui;</span>
+  }
+
+  /**
+   * Gets the attributeId.
+   *
+   * @return the attributeId
+   */
+  public String getAttributeId() {
+<span class="fc" id="L97">    return attributeId;</span>
+  }
+
+  /**
+   * Gets the type.
+   *
+   * @return the type
+   */
+  public String getType() {
+<span class="fc" id="L106">    return type;</span>
+  }
+
+  /**
+   * Gets the negated.
+   *
+   * @return the negated
+   */
+  public Boolean isNegated() {
+<span class="nc" id="L115">    return negated;</span>
+  }
+
+  /**
+   * Gets the hypothetical.
+   *
+   * @return the hypothetical
+   */
+  public Boolean isHypothetical() {
+<span class="nc" id="L124">    return hypothetical;</span>
+  }
+
+  /**
+   * Gets the unit.
+   *
+   * @return the unit
+   */
+  public String getUnit() {
+<span class="nc" id="L133">    return unit;</span>
+  }
+
+  /**
+   * Gets the minValue.
+   *
+   * @return the minValue
+   */
+  public String getMinValue() {
+<span class="nc" id="L142">    return minValue;</span>
+  }
+
+  /**
+   * Gets the maxValue.
+   *
+   * @return the maxValue
+   */
+  public String getMaxValue() {
+<span class="nc" id="L151">    return maxValue;</span>
+  }
+
+  /**
+   * Gets the operator.
+   *
+   * @return the operator
+   */
+  public String getOperator() {
+<span class="nc" id="L160">    return operator;</span>
+  }
+
+  /**
+   * Gets the begin.
+   *
+   * @return the begin
+   */
+  public Long getBegin() {
+<span class="fc" id="L169">    return begin;</span>
+  }
+
+  /**
+   * Gets the end.
+   *
+   * @return the end
+   */
+  public Long getEnd() {
+<span class="fc" id="L178">    return end;</span>
+  }
+
+  /**
+   * Gets the score.
+   *
+   * @return the score
+   */
+  public Float getScore() {
+<span class="nc" id="L187">    return score;</span>
+  }
+
+  /**
+   * Gets the annotation text.
+   *
+   * @return covered text
+   */
+  public String getCoveredText() {
+<span class="fc" id="L196">	  return coveredText;</span>
+  }
+
+  /**
+   * Gets the annotation features.
+   *
+   * @return features
+   */
+  public Map&lt;String, String&gt; getFeatures() {
+<span class="nc" id="L205">	  return features;</span>
+  }
+}
+
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>

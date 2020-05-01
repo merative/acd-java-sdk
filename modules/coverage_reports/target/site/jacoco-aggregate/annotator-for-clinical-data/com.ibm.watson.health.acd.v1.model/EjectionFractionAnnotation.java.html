@@ -1,0 +1,399 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../jacoco-resources/report.gif" type="image/gif"/><title>EjectionFractionAnnotation.java</title><link rel="stylesheet" href="../../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../../index.html" class="el_report">IBM Watson Health Cognitive Services Coverage Reports</a> &gt; <a href="../index.html" class="el_bundle">annotator-for-clinical-data</a> &gt; <a href="index.source.html" class="el_package">com.ibm.watson.health.acd.v1.model</a> &gt; <span class="el_source">EjectionFractionAnnotation.java</span></div><h1>EjectionFractionAnnotation.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2018 IBM Corp. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the &quot;License&quot;); you may not use this file except in compliance with
+ * the License. You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on
+ * an &quot;AS IS&quot; BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the
+ * specific language governing permissions and limitations under the License.
+ */
+package com.ibm.watson.health.acd.v1.model;
+
+import java.lang.reflect.Type;
+
+import com.google.gson.reflect.TypeToken;
+import com.ibm.watson.developer_cloud.service.model.DynamicModel;
+import com.ibm.watson.developer_cloud.util.GsonSerializationHelper;
+
+/**
+ * EjectionFractionAnnotation.
+ */
+<span class="fc" id="L24">public class EjectionFractionAnnotation extends DynamicModel {</span>
+<span class="fc" id="L25">  private Type idType = new TypeToken&lt;String&gt;() { } .getType();</span>
+<span class="fc" id="L26">  private Type typeType = new TypeToken&lt;String&gt;() { } .getType();</span>
+<span class="fc" id="L27">  private Type uidType = new TypeToken&lt;Long&gt;() { } .getType();</span>
+<span class="fc" id="L28">  private Type beginType = new TypeToken&lt;Long&gt;() { } .getType();</span>
+<span class="fc" id="L29">  private Type endType = new TypeToken&lt;Long&gt;() { } .getType();</span>
+<span class="fc" id="L30">  private Type coveredTextType = new TypeToken&lt;String&gt;() { } .getType();</span>
+<span class="fc" id="L31">  private Type negatedType = new TypeToken&lt;Boolean&gt;() { } .getType();</span>
+<span class="fc" id="L32">  private Type hypotheticalType = new TypeToken&lt;Boolean&gt;() { } .getType();</span>
+<span class="fc" id="L33">  private Type firstValueType = new TypeToken&lt;String&gt;() { } .getType();</span>
+<span class="fc" id="L34">  private Type efAlphabeticValueSurfaceFormType = new TypeToken&lt;String&gt;() { } .getType();</span>
+<span class="fc" id="L35">  private Type secondValueType = new TypeToken&lt;String&gt;() { } .getType();</span>
+<span class="fc" id="L36">  private Type efTermSurfaceFormType = new TypeToken&lt;String&gt;() { } .getType();</span>
+<span class="fc" id="L37">  private Type efSuffixSurfaceFormType = new TypeToken&lt;String&gt;() { } .getType();</span>
+<span class="fc" id="L38">  private Type efSuffixNormalizedNameType = new TypeToken&lt;String&gt;() { } .getType();</span>
+<span class="fc" id="L39">  private Type efAlphabeticValueNormalizedNameType = new TypeToken&lt;String&gt;() { } .getType();</span>
+<span class="fc" id="L40">  private Type efTermNormalizedNameType = new TypeToken&lt;String&gt;() { } .getType();</span>
+<span class="fc" id="L41">  private Type isRangeType = new TypeToken&lt;String&gt;() { } .getType();</span>
+<span class="fc" id="L42">  private Type sectionNormalizedNameType = new TypeToken&lt;String&gt;() { } .getType();</span>
+<span class="fc" id="L43">  private Type sectionSurfaceFormType = new TypeToken&lt;String&gt;() { } .getType();</span>
+
+
+  /**
+   * Gets the id.
+   *
+   * @return the id
+   */
+  public String getId() {
+<span class="fc" id="L52">    return GsonSerializationHelper.serializeDynamicModelProperty(this.get(&quot;id&quot;), idType);</span>
+  }
+
+  /**
+   * Gets the type.
+   *
+   * @return the type
+   */
+  public String getType() {
+<span class="fc" id="L61">    return GsonSerializationHelper.serializeDynamicModelProperty(this.get(&quot;type&quot;), typeType);</span>
+  }
+
+  /**
+   * Gets the uid.
+   *
+   * @return the uid
+   */
+  public Long getUid() {
+<span class="fc" id="L70">    return GsonSerializationHelper.serializeDynamicModelProperty(this.get(&quot;uid&quot;), uidType);</span>
+  }
+
+  /**
+   * Gets the begin.
+   *
+   * @return the begin
+   */
+  public Long getBegin() {
+<span class="fc" id="L79">    return GsonSerializationHelper.serializeDynamicModelProperty(this.get(&quot;begin&quot;), beginType);</span>
+  }
+
+  /**
+   * Gets the end.
+   *
+   * @return the end
+   */
+  public Long getEnd() {
+<span class="fc" id="L88">    return GsonSerializationHelper.serializeDynamicModelProperty(this.get(&quot;end&quot;), endType);</span>
+  }
+
+  /**
+   * Gets the coveredText.
+   *
+   * @return the coveredText
+   */
+  public String getCoveredText() {
+<span class="fc" id="L97">    return GsonSerializationHelper.serializeDynamicModelProperty(this.get(&quot;coveredText&quot;), coveredTextType);</span>
+  }
+
+  /**
+   * Gets the negated.
+   *
+   * @return the negated
+   */
+  public Boolean isNegated() {
+<span class="nc" id="L106">    Boolean negated = GsonSerializationHelper.serializeDynamicModelProperty(this.get(&quot;negated&quot;), negatedType);</span>
+<span class="nc bnc" id="L107" title="All 2 branches missed.">    if (negated == null) {</span>
+<span class="nc" id="L108">      negated = false;</span>
+    }
+<span class="nc" id="L110">    return negated;</span>
+  }
+
+  /**
+   * Gets the hypothetical.
+   *
+   * @return the hypothetical
+   */
+  public Boolean isHypothetical() {
+<span class="nc" id="L119">    Boolean hypothetical = GsonSerializationHelper.serializeDynamicModelProperty(this.get(&quot;hypothetical&quot;), hypotheticalType);</span>
+<span class="nc bnc" id="L120" title="All 2 branches missed.">    if (hypothetical == null) {</span>
+<span class="nc" id="L121">      hypothetical = false;</span>
+    }
+<span class="nc" id="L123">    return hypothetical;</span>
+  }
+
+  /**
+   * Gets the firstValue.
+   *
+   * @return the firstValue
+   */
+  public String getFirstValue() {
+<span class="fc" id="L132">    return GsonSerializationHelper.serializeDynamicModelProperty(this.get(&quot;firstValue&quot;), firstValueType);</span>
+  }
+
+  /**
+   * Gets the efAlphabeticValueSurfaceForm.
+   *
+   * @return the efAlphabeticValueSurfaceForm
+   */
+  public String getEfAlphabeticValueSurfaceForm() {
+<span class="fc" id="L141">    return GsonSerializationHelper.serializeDynamicModelProperty(this.get(&quot;efAlphabeticValueSurfaceForm&quot;), efAlphabeticValueSurfaceFormType);</span>
+  }
+
+  /**
+   * Gets the secondValue.
+   *
+   * @return the secondValue
+   */
+  public String getSecondValue() {
+<span class="fc" id="L150">    return GsonSerializationHelper.serializeDynamicModelProperty(this.get(&quot;secondValue&quot;), secondValueType);</span>
+  }
+
+  /**
+   * Gets the efTermSurfaceForm.
+   *
+   * @return the efTermSurfaceForm
+   */
+  public String getEfTermSurfaceForm() {
+<span class="fc" id="L159">    return GsonSerializationHelper.serializeDynamicModelProperty(this.get(&quot;efTermSurfaceForm&quot;), efTermSurfaceFormType);</span>
+  }
+
+  /**
+   * Gets the efSuffixSurfaceForm.
+   *
+   * @return the efSuffixSurfaceForm
+   */
+  public String getEfSuffixSurfaceForm() {
+<span class="fc" id="L168">    return GsonSerializationHelper.serializeDynamicModelProperty(this.get(&quot;efSuffixSurfaceForm&quot;), efSuffixSurfaceFormType);</span>
+  }
+
+  /**
+   * Gets the efSuffixNormalizedName.
+   *
+   * @return the efSuffixNormalizedName
+   */
+  public String getEfSuffixNormalizedName() {
+<span class="fc" id="L177">    return GsonSerializationHelper.serializeDynamicModelProperty(this.get(&quot;efSuffixNormalizedName&quot;), efSuffixNormalizedNameType);</span>
+  }
+
+  /**
+   * Gets the efAlphabeticValueNormalizedName.
+   *
+   * @return the efAlphabeticValueNormalizedName
+   */
+  public String getEfAlphabeticValueNormalizedName() {
+<span class="fc" id="L186">    return GsonSerializationHelper.serializeDynamicModelProperty(this.get(&quot;efAlphabeticValueNormalizedName&quot;), efAlphabeticValueNormalizedNameType);</span>
+  }
+
+  /**
+   * Gets the efTermNormalizedName.
+   *
+   * @return the efTermNormalizedName
+   */
+  public String getEfTermNormalizedName() {
+<span class="fc" id="L195">    return GsonSerializationHelper.serializeDynamicModelProperty(this.get(&quot;efTermNormalizedName&quot;), efTermNormalizedNameType);</span>
+  }
+
+  /**
+   * Gets the isRange.
+   *
+   * @return the isRange
+   */
+  public String getIsRange() {
+<span class="fc" id="L204">    return GsonSerializationHelper.serializeDynamicModelProperty(this.get(&quot;isRange&quot;), isRangeType);</span>
+  }
+
+  /**
+   * Gets the sectionNormalizedName.
+   *
+   * @return the sectionNormalizedName
+   */
+  public String getSectionNormalizedName() {
+<span class="fc" id="L213">    return GsonSerializationHelper.serializeDynamicModelProperty(this.get(&quot;sectionNormalizedName&quot;), sectionNormalizedNameType);</span>
+  }
+
+  /**
+   * Gets the sectionSurfaceForm.
+   *
+   * @return the sectionSurfaceForm
+   */
+  public String getSectionSurfaceForm() {
+<span class="nc" id="L222">    return GsonSerializationHelper.serializeDynamicModelProperty(this.get(&quot;sectionSurfaceForm&quot;), sectionSurfaceFormType);</span>
+  }
+
+
+//  /**
+//   * Sets the id.
+//   *
+//   * @param id the new id
+//   */
+//  public void setId(final String id) {
+//    this.put(&quot;id&quot;, id);
+//  }
+//
+//  /**
+//   * Sets the type.
+//   *
+//   * @param type the new type
+//   */
+//  public void setType(final String type) {
+//    this.put(&quot;type&quot;, type);
+//  }
+//
+//  /**
+//   * Sets the uid.
+//   *
+//   * @param uid the new uid
+//   */
+//  public void setUid(final Long uid) {
+//    this.put(&quot;uid&quot;, uid);
+//  }
+//
+//  /**
+//   * Sets the begin.
+//   *
+//   * @param begin the new begin
+//   */
+//  public void setBegin(final Long begin) {
+//    this.put(&quot;begin&quot;, begin);
+//  }
+//
+//  /**
+//   * Sets the end.
+//   *
+//   * @param end the new end
+//   */
+//  public void setEnd(final Long end) {
+//    this.put(&quot;end&quot;, end);
+//  }
+//
+//  /**
+//   * Sets the coveredText.
+//   *
+//   * @param coveredText the new coveredText
+//   */
+//  public void setCoveredText(final String coveredText) {
+//    this.put(&quot;coveredText&quot;, coveredText);
+//  }
+//
+//  /**
+//   * Sets the negated.
+//   *
+//   * @param negated the new negated
+//   */
+//  public void setNegated(final Boolean negated) {
+//    this.put(&quot;negated&quot;, negated);
+//  }
+//
+//  /**
+//   * Sets the hypothetical.
+//   *
+//   * @param hypothetical the new hypothetical
+//   */
+//  public void setHypothetical(final Boolean hypothetical) {
+//    this.put(&quot;hypothetical&quot;, hypothetical);
+//  }
+//
+//  /**
+//   * Sets the firstValue.
+//   *
+//   * @param firstValue the new firstValue
+//   */
+//  public void setFirstValue(final String firstValue) {
+//    this.put(&quot;firstValue&quot;, firstValue);
+//  }
+//
+//  /**
+//   * Sets the efAlphabeticValueSurfaceForm.
+//   *
+//   * @param efAlphabeticValueSurfaceForm the new efAlphabeticValueSurfaceForm
+//   */
+//  public void setEfAlphabeticValueSurfaceForm(final String efAlphabeticValueSurfaceForm) {
+//    this.put(&quot;efAlphabeticValueSurfaceForm&quot;, efAlphabeticValueSurfaceForm);
+//  }
+//
+//  /**
+//   * Sets the secondValue.
+//   *
+//   * @param secondValue the new secondValue
+//   */
+//  public void setSecondValue(final String secondValue) {
+//    this.put(&quot;secondValue&quot;, secondValue);
+//  }
+//
+//  /**
+//   * Sets the efTermSurfaceForm.
+//   *
+//   * @param efTermSurfaceForm the new efTermSurfaceForm
+//   */
+//  public void setEfTermSurfaceForm(final String efTermSurfaceForm) {
+//    this.put(&quot;efTermSurfaceForm&quot;, efTermSurfaceForm);
+//  }
+//
+//  /**
+//   * Sets the efSuffixSurfaceForm.
+//   *
+//   * @param efSuffixSurfaceForm the new efSuffixSurfaceForm
+//   */
+//  public void setEfSuffixSurfaceForm(final String efSuffixSurfaceForm) {
+//    this.put(&quot;efSuffixSurfaceForm&quot;, efSuffixSurfaceForm);
+//  }
+//
+//  /**
+//   * Sets the efSuffixNormalizedName.
+//   *
+//   * @param efSuffixNormalizedName the new efSuffixNormalizedName
+//   */
+//  public void setEfSuffixNormalizedName(final String efSuffixNormalizedName) {
+//    this.put(&quot;efSuffixNormalizedName&quot;, efSuffixNormalizedName);
+//  }
+//
+//  /**
+//   * Sets the efAlphabeticValueNormalizedName.
+//   *
+//   * @param efAlphabeticValueNormalizedName the new efAlphabeticValueNormalizedName
+//   */
+//  public void setEfAlphabeticValueNormalizedName(final String efAlphabeticValueNormalizedName) {
+//    this.put(&quot;efAlphabeticValueNormalizedName&quot;, efAlphabeticValueNormalizedName);
+//  }
+//
+//  /**
+//   * Sets the efTermNormalizedName.
+//   *
+//   * @param efTermNormalizedName the new efTermNormalizedName
+//   */
+//  public void setEfTermNormalizedName(final String efTermNormalizedName) {
+//    this.put(&quot;efTermNormalizedName&quot;, efTermNormalizedName);
+//  }
+//
+//  /**
+//   * Sets the isRange.
+//   *
+//   * @param isRange the new isRange
+//   */
+//  public void setIsRange(final String isRange) {
+//    this.put(&quot;isRange&quot;, isRange);
+//  }
+//
+//  /**
+//   * Sets the sectionSurfaceForm.
+//   *
+//   * @param sectionSurfaceForm the new sectionSurfaceForm
+//   */
+//  public void setSectionSurfaceForm(final String sectionSurfaceForm) {
+//    this.put(&quot;sectionSurfaceForm&quot;, sectionSurfaceForm);
+//  }
+//
+//
+//  /**
+//   * Sets the sectionNormalizedName.
+//   *
+//   * @param sectionNormalizedName the new sectionNormalizedName
+//   */
+//  public void setSectionNormalizedName(final String sectionNormalizedName) {
+//    this.put(&quot;sectionNormalizedName&quot;, sectionNormalizedName);
+//  }
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>
