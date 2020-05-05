@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
-  <groupId>com.ibm.watson.health.cognitive_services</groupId>
+  <groupId>com.ibm.watson.health.cognitive-services</groupId>
   <artifactId>annotator-for-clinical-data</artifactId>
   <packaging>jar</packaging>
   <name>annotator-for-clinical-data</name>
   <url>http://maven.apache.org</url>
   <parent>
-    <groupId>com.ibm.watson.health.cognitive_services</groupId>
+    <groupId>com.ibm.watson.health.cognitive-services</groupId>
     <artifactId>ibm-whcs-services</artifactId>
     <version>1.0.1-SNAPSHOT</version>
     <relativePath>../../pom.xml</relativePath>
@@ -65,7 +65,7 @@
       <version>6.14.2</version>
     </dependency>
     <dependency>
-      <groupId>com.ibm.watson.health.cognitive_services</groupId>
+      <groupId>com.ibm.watson.health.cognitive-services</groupId>
       <artifactId>ibm-whcs-services-common</artifactId>
 			<version>${project.version}</version>
     </dependency>

@@ -4,12 +4,12 @@
 
     <parent>
         <artifactId>ibm-whcs-services</artifactId>
-        <groupId>com.ibm.watson.health.cognitive_services</groupId>
+        <groupId>com.ibm.watson.health.cognitive-services</groupId>
 	    <version>1.0.1-SNAPSHOT</version>
         <relativePath>../../pom.xml</relativePath>
     </parent>
 
-    <groupId>com.ibm.watson.health.cognitive_services</groupId>
+    <groupId>com.ibm.watson.health.cognitive-services</groupId>
     <artifactId>ibm-whcs-services-common</artifactId>
 
     <name>IBM Watson Health Cognitive Services Common Library</name>
@@ -36,5 +36,27 @@
                 </includes>
             </resource>
         </resources>
+        <plugins>
+          <plugin>
+           <groupId>org.apache.maven.plugins</groupId>
+           <artifactId>maven-gpg-plugin</artifactId>
+           <version>1.5</version>
+           <executions>
+             <execution>
+               <id>sign-artifacts</id>
+               <phase>verify</phase>
+               <goals>
+                 <goal>sign</goal>
+               </goals>
+               <configuration>
+                 <gpgArguments>
+                   <arg>--pinentry-mode</arg>
+                   <arg>loopback</arg>
+                 </gpgArguments>
+               </configuration>
+             </execution>
+           </executions>
+         </plugin>
+      </plugins>
     </build>
 </project>
