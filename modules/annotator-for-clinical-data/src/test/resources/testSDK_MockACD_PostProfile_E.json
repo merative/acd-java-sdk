@@ -1,7 +1,0 @@
-{
-  "code": 409,
-  "message": "Conflict",
-  "level": "ERROR",
-  "description": "Profile ID: testSDK_MockACD_PostProfile_G_profile already exists",
-  "correlationId": "592e5149-d164-4424-9a7b-ca77cca2779b"
-}

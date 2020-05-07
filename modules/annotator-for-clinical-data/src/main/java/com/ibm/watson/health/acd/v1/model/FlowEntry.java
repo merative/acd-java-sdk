@@ -1,5 +1,5 @@
 /*
- * Copyright 2018 IBM Corp. All Rights Reserved.
+ * (C) Copyright IBM Corp. 2020.
  *
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with
  * the License. You may obtain a copy of the License at
@@ -12,96 +12,94 @@
  */
 package com.ibm.watson.health.acd.v1.model;
 
-import com.ibm.watson.developer_cloud.service.model.GenericModel;
-
+import com.ibm.cloud.sdk.core.service.model.GenericModel;
 
 /**
  * FlowEntry.
  */
 public class FlowEntry extends GenericModel {
-
-  private Annotator annotator;
-  private Flow flow;
-
-  /**
-   * Builder.
-   */
-  public static class Builder {
     private Annotator annotator;
     private Flow flow;
 
-    private Builder(FlowEntry flowEntry) {
-      annotator = flowEntry.annotator;
-      flow = flowEntry.flow;
-    }
-
     /**
-     * Instantiates a new builder.
+     * Builder.
      */
-    public Builder() {
+    public static class Builder {
+      private Annotator annotator;
+      private Flow flow;
+
+      private Builder(FlowEntry flowEntry) {
+        annotator = flowEntry.annotator;
+        flow = flowEntry.flow;
+      }
+
+      /**
+       * Instantiates a new builder.
+       */
+      public Builder() {
+      }
+
+      /**
+       * Builds a FlowEntry.
+       *
+       * @return the flowEntry
+       */
+      public FlowEntry build() {
+        return new FlowEntry(this);
+      }
+
+      /**
+       * Set the annotator.
+       *
+       * @param annotator the annotator
+       * @return the FlowEntry builder
+       */
+      public Builder annotator(Annotator annotator) {
+        this.annotator = annotator;
+        return this;
+      }
+
+      /**
+       * Set the flow.
+       *
+       * @param flow the flow
+       * @return the FlowEntry builder
+       */
+      public Builder flow(Flow flow) {
+        this.flow = flow;
+        return this;
+      }
+    }
+
+    private FlowEntry(Builder builder) {
+      annotator = builder.annotator;
+      flow = builder.flow;
     }
 
     /**
-     * Builds a FlowEntry.
+     * New builder.
      *
-     * @return the flowEntry
+     * @return a FlowEntry builder
      */
-    public FlowEntry build() {
-      return new FlowEntry(this);
+    public Builder newBuilder() {
+      return new Builder(this);
     }
 
     /**
-     * Set the annotator.
+     * Gets the annotator.
      *
-     * @param annotator the annotator
-     * @return the FlowEntry builder
+     * @return the annotator
      */
-    public Builder annotator(Annotator annotator) {
-      this.annotator = annotator;
-      return this;
+    public Annotator annotator() {
+      return annotator;
     }
 
     /**
-     * Set the flow.
+     * Gets the flow.
      *
-     * @param flow the flow
-     * @return the FlowEntry builder
+     * @return the flow
      */
-    public Builder flow(Flow flow) {
-      this.flow = flow;
-      return this;
+    public Flow flow() {
+      return flow;
     }
-  }
-
-  private FlowEntry(Builder builder) {
-    annotator = builder.annotator;
-    flow = builder.flow;
-  }
-
-  /**
-   * New builder.
-   *
-   * @return a FlowEntry builder
-   */
-  public Builder newBuilder() {
-    return new Builder(this);
-  }
-
-  /**
-   * Gets the annotator.
-   *
-   * @return the annotator
-   */
-  public Annotator annotator() {
-    return annotator;
-  }
-
-  /**
-   * Gets the flow.
-   *
-   * @return the flow
-   */
-  public Flow flow() {
-    return flow;
-  }
 }

@@ -1,16 +1,13 @@
 /*
- * Copyright 2018 IBM Corp. All Rights Reserved.
+ * (C) Copyright IBM Corp. 2020.
  *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with
+ * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with
  * the License. You may obtain a copy of the License at
  *
  * http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing,
- * software distributed under the License is distributed on
- * an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND,
- * either express or implied. See the License for the
+ * Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on
+ * an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the
  * specific language governing permissions and limitations under the License.
  */
 package com.ibm.watson.health.iml.v1.model;
@@ -19,22 +16,40 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.ibm.cloud.sdk.core.service.model.GenericModel;
-import com.ibm.cloud.sdk.core.util.Validator;
 
 /**
  * The typeahead options.
  */
 public class TypeaheadOptions extends GenericModel {
 
-  private String corpus;
-  private String query;
-  private List<String> ontologies;
-  private List<String> types;
-  private String category;
-  private Boolean verbose;
-  private Long limit;
-  private Long maxHitCount;
-  private Boolean noDuplicates;
+  public interface Ontologies {
+    /** concepts. */
+    String CONCEPTS = "concepts";
+    /** mesh. */
+    String MESH = "mesh";
+  }
+
+  /**
+   * Select concepts belonging to disorders, drugs or genes.
+   */
+  public interface Category {
+    /** disorders. */
+    String DISORDERS = "disorders";
+    /** drugs. */
+    String DRUGS = "drugs";
+    /** genes. */
+    String GENES = "genes";
+  }
+
+  protected String corpus;
+  protected String query;
+  protected List<String> ontologies;
+  protected List<String> types;
+  protected String category;
+  protected Boolean verbose;
+  protected Long limit;
+  protected Long maxHitCount;
+  protected Boolean noDuplicates;
 
   /**
    * Builder.
@@ -51,15 +66,15 @@ public class TypeaheadOptions extends GenericModel {
     private Boolean noDuplicates;
 
     private Builder(TypeaheadOptions typeaheadOptions) {
-      corpus = typeaheadOptions.corpus;
-      query = typeaheadOptions.query;
-      ontologies = typeaheadOptions.ontologies;
-      types = typeaheadOptions.types;
-      category = typeaheadOptions.category;
-      verbose = typeaheadOptions.verbose;
-      limit = typeaheadOptions.limit;
-      maxHitCount = typeaheadOptions.maxHitCount;
-      noDuplicates = typeaheadOptions.noDuplicates;
+      this.corpus = typeaheadOptions.corpus;
+      this.query = typeaheadOptions.query;
+      this.ontologies = typeaheadOptions.ontologies;
+      this.types = typeaheadOptions.types;
+      this.category = typeaheadOptions.category;
+      this.verbose = typeaheadOptions.verbose;
+      this.limit = typeaheadOptions.limit;
+      this.maxHitCount = typeaheadOptions.maxHitCount;
+      this.noDuplicates = typeaheadOptions.noDuplicates;
     }
 
     /**
@@ -82,7 +97,7 @@ public class TypeaheadOptions extends GenericModel {
     /**
      * Builds a TypeaheadOptions.
      *
-     * @return the typeaheadOptions
+     * @return the new TypeaheadOptions instance
      */
     public TypeaheadOptions build() {
       return new TypeaheadOptions(this);
@@ -95,7 +110,8 @@ public class TypeaheadOptions extends GenericModel {
      * @return the TypeaheadOptions builder
      */
     public Builder addOntologies(String ontologies) {
-      Validator.notNull(ontologies, "ontologies cannot be null");
+      com.ibm.cloud.sdk.core.util.Validator.notNull(ontologies,
+        "ontologies cannot be null");
       if (this.ontologies == null) {
         this.ontologies = new ArrayList<String>();
       }
@@ -110,7 +126,8 @@ public class TypeaheadOptions extends GenericModel {
      * @return the TypeaheadOptions builder
      */
     public Builder addTypes(String types) {
-      Validator.notNull(types, "types cannot be null");
+      com.ibm.cloud.sdk.core.util.Validator.notNull(types,
+        "types cannot be null");
       if (this.types == null) {
         this.types = new ArrayList<String>();
       }
@@ -220,9 +237,11 @@ public class TypeaheadOptions extends GenericModel {
     }
   }
 
-  private TypeaheadOptions(Builder builder) {
-    Validator.notEmpty(builder.corpus, "corpus cannot be empty");
-    Validator.notNull(builder.query, "query cannot be null");
+  protected TypeaheadOptions(Builder builder) {
+    com.ibm.cloud.sdk.core.util.Validator.notEmpty(builder.corpus,
+      "corpus cannot be empty");
+    com.ibm.cloud.sdk.core.util.Validator.notNull(builder.query,
+      "query cannot be null");
     corpus = builder.corpus;
     query = builder.query;
     ontologies = builder.ontologies;
@@ -279,7 +298,8 @@ public class TypeaheadOptions extends GenericModel {
   /**
    * Gets the types.
    *
-   * Include or exclude suggestions belonging to one of these types.
+   * Include or exclude suggestions belonging to one of these types.  Types can be found using
+   * /v1/corpora/{corpus}/types method.  Defaults to all.
    *
    * @return the types
    */

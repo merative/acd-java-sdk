@@ -66,7 +66,7 @@ public class SortEntry {
 
 	/**
 	 * Sets field name to sort.
-	 * @param fieldName
+	 * @param fieldName field to sort on
 	 */
 	public void setField(String fieldName) {
 		field = fieldName;
@@ -82,7 +82,7 @@ public class SortEntry {
 
 	/**
 	 * Sets sort order for field.
-	 * @param order
+	 * @param order sort order
 	 */
 	public void setOrder(Order order) {
 		sortOrder = order;

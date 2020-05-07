@@ -18,24 +18,23 @@ import org.junit.Test;
 import com.ibm.cloud.sdk.core.http.Response;
 import com.ibm.cloud.sdk.core.http.ServiceCall;
 import com.ibm.watson.health.acd.v1.AnnotatorForClinicalData;
-import com.ibm.watson.health.acd.v1.WatsonServiceTest;
 import com.ibm.watson.health.acd.v1.common.Constants;
 import com.ibm.watson.health.acd.v1.model.GetFlowsOptions;
 import com.ibm.watson.health.acd.v1.model.GetFlowsOptions.Builder;
+import com.ibm.watson.health.acd.v1.model.ListStringWrapper;
+import com.ibm.watson.health.acd.v1.utils.ServiceUtilities;
 
 /**
  *
  * Class for testing /v1/flows.
  *
  */
-public class TestGetFlows extends WatsonServiceTest {
+public class TestGetFlows {
 	private AnnotatorForClinicalData service;
 
 	public TestGetFlows() {
-		super();
 		try {
-			this.setUp();
-			service = this.getServiceInstance();
+			service = ServiceUtilities.getServiceInstance();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -50,18 +49,9 @@ public class TestGetFlows extends WatsonServiceTest {
 	public void testGetFlowsOptions() {
 		GetFlowsOptions options = new GetFlowsOptions.Builder().build();
 
-		ServiceCall<String> sc = service.getFlows(options);
-		Response<String> response = sc.execute();
+		ServiceCall<ListStringWrapper> sc = service.getFlows(options);
+		Response<ListStringWrapper> response = sc.execute();
 		Assert.assertNotNull(response.getResult());
-		Assert.assertTrue(response.getResult().contains(Constants.FLOW_ID));
-	}
-
-	@Test
-	public void testGetFlowsInclResponseDetails() {
-		Response<String> response = service.getFlowsInclResponseDetails();
-
-		Assert.assertNotNull(response.getResult());
-		Assert.assertTrue(response.getResult().contains(Constants.FLOW_ID));
 	}
 
 	@Test

@@ -1,18 +1,27 @@
+/*
+ * (C) Copyright IBM Corp. 2020.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with
+ * the License. You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on
+ * an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the
+ * specific language governing permissions and limitations under the License.
+ */
 package com.ibm.watson.health.acd.v1.model;
 
-import java.lang.reflect.Type;
 import java.util.List;
 
-import com.google.gson.reflect.TypeToken;
-import com.ibm.watson.developer_cloud.service.model.DynamicModel;
-import com.ibm.watson.developer_cloud.util.GsonSerializationHelper;
+import com.ibm.cloud.sdk.core.service.model.GenericModel;
 
-public class Suggestion extends DynamicModel {
+public class Suggestion extends GenericModel {
 
-  private Type appliedType = new TypeToken<Boolean>() { } .getType();
-  private Type confidenceType = new TypeToken<Double>() { } .getType();
-  private Type semtypesType = new TypeToken<List<String>>() { } .getType();
-  private Type textType = new TypeToken<String>() { } .getType();
+  private Boolean appliedType;
+  private Double confidenceType;
+  private List<String> semtypesType;
+  private String textType;
 
   /**
    * Gets the applied field.
@@ -20,7 +29,7 @@ public class Suggestion extends DynamicModel {
    * @return the applied field
    */
   public Boolean getApplied() {
-    return GsonSerializationHelper.serializeDynamicModelProperty(this.get("applied"), appliedType);
+    return appliedType;
   }
 
   /**
@@ -29,7 +38,7 @@ public class Suggestion extends DynamicModel {
    * @return the confidence field
    */
   public Double getConfidence() {
-    return GsonSerializationHelper.serializeDynamicModelProperty(this.get("confidence"), confidenceType);
+    return confidenceType;
   }
 
   /**
@@ -38,7 +47,7 @@ public class Suggestion extends DynamicModel {
    * @return the semtypes field
    */
   public List<String> getSemtypes() {
-    return GsonSerializationHelper.serializeDynamicModelProperty(this.get("semtypes"), semtypesType);
+    return semtypesType;
   }
 
   /**
@@ -47,7 +56,7 @@ public class Suggestion extends DynamicModel {
    * @return the text field
    */
   public String getText() {
-    return GsonSerializationHelper.serializeDynamicModelProperty(this.get("text"), textType);
+    return textType;
   }
 
 //  /**

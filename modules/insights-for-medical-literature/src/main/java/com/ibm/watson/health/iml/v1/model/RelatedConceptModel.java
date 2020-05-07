@@ -1,5 +1,5 @@
 /*
- * Copyright 2018, 2020 IBM Corp. All Rights Reserved.
+ * (C) Copyright IBM Corp. 2020.
  *
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with
  * the License. You may obtain a copy of the License at
@@ -13,32 +13,29 @@
 package com.ibm.watson.health.iml.v1.model;
 
 import java.util.List;
-import java.util.Map;
 
 import com.ibm.cloud.sdk.core.service.model.GenericModel;
 
 /**
- * RelatedConceptModel.
+ * Model for concept ontology relation.
  */
 public class RelatedConceptModel extends GenericModel {
 
-  private String cui;
-  private String ontology;
-  private Map<String, Long> corpora;
-  private String preferredName;
-  private String alternativeName;
-  private String type;
-  private Long rank;
-  private Long hitCount;
-  private UmlsRelationshipCountsModel parents;
-  private UmlsRelationshipCountsModel children;
-  private UmlsRelationshipCountsModel siblings;
-  private UmlsRelationshipCountsModel related;
-  private List<String> surfaceForms;
-  private List<RelatedConceptModel> nextConcepts;
+  protected String cui;
+  protected String ontology;
+  protected String preferredName;
+  protected String alternativeName;
+  protected String semanticType;
+  protected Long rank;
+  protected Long hitCount;
+  protected Float score;
+  protected List<String> surfaceForms;
+  protected List<RelatedConceptModel> nextConcepts;
 
   /**
    * Gets the cui.
+   *
+   * Ontology provided unique identifier for artifact.
    *
    * @return the cui
    */
@@ -49,6 +46,8 @@ public class RelatedConceptModel extends GenericModel {
   /**
    * Gets the ontology.
    *
+   * Source ontology for artifact.
+   *
    * @return the ontology
    */
   public String getOntology() {
@@ -56,16 +55,9 @@ public class RelatedConceptModel extends GenericModel {
   }
 
   /**
-   * Gets the corpora.
-   *
-   * @return the corpora
-   */
-  public Map<String, Long> getCorpora() {
-    return corpora;
-  }
-
-  /**
    * Gets the preferredName.
+   *
+   * Ontology provided normalized name for artifact.
    *
    * @return the preferredName
    */
@@ -76,6 +68,8 @@ public class RelatedConceptModel extends GenericModel {
   /**
    * Gets the alternativeName.
    *
+   * Ontology provided alternative name for artifact.
+   *
    * @return the alternativeName
    */
   public String getAlternativeName() {
@@ -83,16 +77,20 @@ public class RelatedConceptModel extends GenericModel {
   }
 
   /**
-   * Gets the type.
+   * Gets the semanticType.
    *
-   * @return the type
+   * Ontology semantic type for artifact.
+   *
+   * @return the semanticType
    */
-  public String getType() {
-    return type;
+  public String getSemanticType() {
+    return semanticType;
   }
 
   /**
    * Gets the rank.
+   *
+   * Search weight assigned to artifact.
    *
    * @return the rank
    */
@@ -103,6 +101,8 @@ public class RelatedConceptModel extends GenericModel {
   /**
    * Gets the hitCount.
    *
+   * Number of corpus documents artifact was found in.
+   *
    * @return the hitCount
    */
   public Long getHitCount() {
@@ -110,43 +110,20 @@ public class RelatedConceptModel extends GenericModel {
   }
 
   /**
-   * Gets the parents.
+   * Gets the score.
    *
-   * @return the parents
-   */
-  public UmlsRelationshipCountsModel getParents() {
-    return parents;
-  }
-
-  /**
-   * Gets the children.
+   * Relevance score for artifact.
    *
-   * @return the children
+   * @return the score
    */
-  public UmlsRelationshipCountsModel getChildren() {
-    return children;
-  }
-
-  /**
-   * Gets the siblings.
-   *
-   * @return the siblings
-   */
-  public UmlsRelationshipCountsModel getSiblings() {
-    return siblings;
-  }
-
-  /**
-   * Gets the related.
-   *
-   * @return the related
-   */
-  public UmlsRelationshipCountsModel getRelated() {
-    return related;
+  public Float getScore() {
+    return score;
   }
 
   /**
    * Gets the surfaceForms.
+   *
+   * List of artifact synonyms.
    *
    * @return the surfaceForms
    */
@@ -156,6 +133,8 @@ public class RelatedConceptModel extends GenericModel {
 
   /**
    * Gets the nextConcepts.
+   *
+   * List of artifacts for the relation.
    *
    * @return the nextConcepts
    */

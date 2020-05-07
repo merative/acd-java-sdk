@@ -44,7 +44,7 @@ public class MetadataField extends GenericModel {
 
 	/**
 	 * Retrieves name of the field.
-	 * @return
+	 * @return field name
 	 */
 	public String getFieldName() {
 		return fieldName;
@@ -60,7 +60,7 @@ public class MetadataField extends GenericModel {
 
 	/**
 	 * Retrieves field data type.
-	 * @return
+	 * @return field type
 	 */
 	public String getFieldType() {
 		return fieldType;
@@ -68,7 +68,7 @@ public class MetadataField extends GenericModel {
 
 	/**
 	 * Sets field data type (text, boolean, date, keyword, object).
-	 * @param type
+	 * @param type data type
 	 */
 	public void setFieldType(String type) {
 		fieldType = type;

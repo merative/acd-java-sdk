@@ -18,20 +18,17 @@ import org.junit.Test;
 import com.ibm.cloud.sdk.core.http.Response;
 import com.ibm.cloud.sdk.core.http.ServiceCall;
 import com.ibm.watson.health.acd.v1.AnnotatorForClinicalData;
-import com.ibm.watson.health.acd.v1.WatsonServiceTest;
 import com.ibm.watson.health.acd.v1.common.Constants;
 import com.ibm.watson.health.acd.v1.model.Annotator;
-import com.ibm.watson.health.acd.v1.model.GetAnnotatorOptions;
-import com.ibm.watson.health.acd.v1.model.GetAnnotatorOptions.Builder;
+import com.ibm.watson.health.acd.v1.model.GetAnnotatorsByIdOptions;
+import com.ibm.watson.health.acd.v1.utils.ServiceUtilities;
 
-public class TestGetAnnotatorsAnnotatorId extends WatsonServiceTest {
+public class TestGetAnnotatorsAnnotatorId {
 	private AnnotatorForClinicalData service;
 
 	public TestGetAnnotatorsAnnotatorId() {
-		super();
 		try {
-			this.setUp();
-			service = this.getServiceInstance();
+			service = ServiceUtilities.getServiceInstance();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -39,36 +36,13 @@ public class TestGetAnnotatorsAnnotatorId extends WatsonServiceTest {
 
 	@Test
 	public void testGetAnnotator() {
-		GetAnnotatorOptions options = new GetAnnotatorOptions.Builder().id(Constants.CONCEPT_DETECTION_NAME).build();
+		GetAnnotatorsByIdOptions options = new GetAnnotatorsByIdOptions.Builder().id(Constants.CONCEPT_DETECTION_NAME).build();
 
-		ServiceCall<Annotator> sc = service.getAnnotator(options);
+		ServiceCall<Annotator> sc = service.getAnnotatorsById(options);
 		Response<Annotator> response = sc.execute();
 		Annotator annotator = response.getResult();
-		if (annotator.description() !=  null) {
-			Assert.assertTrue(annotator.description().length() > 0);
-		}
-		Assert.assertNull(annotator.configurations());
-
-	}
-
-	@Test
-	public void testGetAnnotatorForName() {
-		Annotator annotator = service.getAnnotator(Constants.CONCEPT_DETECTION_NAME);
-
-		if (annotator.description() !=  null) {
-			Assert.assertTrue(annotator.description().length() > 0);
-		}
-		Assert.assertNull(annotator.configurations());
-
-	}
-
-	@Test
-	public void testGetAnnotatorIncResponseDetail() {
-		Response<Annotator> response = service.getAnnotatorInclResponseDetails(Constants.CONCEPT_DETECTION_NAME);
-		Annotator annotator = response.getResult();
-
-		if (annotator.description() !=  null) {
-			Assert.assertTrue(annotator.description().length() > 0);
+		if (annotator.name() !=  null) {
+			Assert.assertTrue(annotator.name().length() > 0);
 		}
 		Assert.assertNull(annotator.configurations());
 
@@ -76,22 +50,15 @@ public class TestGetAnnotatorsAnnotatorId extends WatsonServiceTest {
 
 	@Test
 	public void testGetAnnotatorBuilder() {
-		GetAnnotatorOptions options = new GetAnnotatorOptions.Builder(Constants.CONCEPT_DETECTION_NAME).build();
+		GetAnnotatorsByIdOptions options = new GetAnnotatorsByIdOptions.Builder(Constants.CONCEPT_DETECTION_NAME).build();
 
-		ServiceCall<Annotator> sc = service.getAnnotator(options);
+		ServiceCall<Annotator> sc = service.getAnnotatorsById(options);
 		Response<Annotator> response = sc.execute();
 		Annotator annotator = response.getResult();
-		if (annotator.description() !=  null) {
-			Assert.assertTrue(annotator.description().length() > 0);
+		if (annotator.name() !=  null) {
+			Assert.assertTrue(annotator.name().length() > 0);
 		}
 		Assert.assertNull(annotator.configurations());
 
-	}
-
-	@Test
-	public void testBuilderFromOptions() {
-		GetAnnotatorOptions options = new GetAnnotatorOptions.Builder(Constants.CONCEPT_DETECTION_NAME).build();
-		Builder builder = options.newBuilder();
-		Assert.assertNotNull(builder);
 	}
 }

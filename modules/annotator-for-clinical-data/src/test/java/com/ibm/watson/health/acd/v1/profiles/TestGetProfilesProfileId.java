@@ -20,26 +20,24 @@ import org.junit.Test;
 import com.ibm.cloud.sdk.core.http.Response;
 import com.ibm.cloud.sdk.core.http.ServiceCall;
 import com.ibm.watson.health.acd.v1.AnnotatorForClinicalData;
-import com.ibm.watson.health.acd.v1.WatsonServiceTest;
 import com.ibm.watson.health.acd.v1.common.Constants;
 import com.ibm.watson.health.acd.v1.model.AcdProfile;
 import com.ibm.watson.health.acd.v1.model.Annotator;
 import com.ibm.watson.health.acd.v1.model.GetProfileOptions;
 import com.ibm.watson.health.acd.v1.model.GetProfileOptions.Builder;
+import com.ibm.watson.health.acd.v1.utils.ServiceUtilities;
 
 /**
  *
  * Class for testing /v1/profiles/{id}.
  *
  */
-public class TestGetProfilesProfileId extends WatsonServiceTest {
+public class TestGetProfilesProfileId {
 	private AnnotatorForClinicalData service;
 
 	public TestGetProfilesProfileId() {
-		super();
 		try {
-			this.setUp();
-			service = this.getServiceInstance();
+			service = ServiceUtilities.getServiceInstance();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -58,50 +56,15 @@ public class TestGetProfilesProfileId extends WatsonServiceTest {
 		Response<AcdProfile> response = sc.execute();
 		AcdProfile profile = response.getResult();
 		Assert.assertNotNull(profile);
-		Assert.assertEquals(profile.getId(), Constants.PROFILE_ID);
-		Assert.assertNotNull(profile.getName());
-		if (profile.getDescription() != null) {
-			Assert.assertTrue(profile.getDescription().length() > 0);
+		Assert.assertEquals(profile.id(), Constants.PROFILE_ID);
+		Assert.assertNotNull(profile.name());
+		if (profile.description() != null) {
+			Assert.assertTrue(profile.description().length() > 0);
 		}
-		List<Annotator> annotators = profile.getAnnotators();
+		List<Annotator> annotators = profile.annotators();
 		Assert.assertNotNull(annotators);
 		for (Annotator annotator : annotators) {
 			Assert.assertNotNull(annotator.name());
-			Assert.assertNull(annotator.description());
-		}
-	}
-
-	@Test
-	public void testGetProfileForId() {
-
-		AcdProfile profile = service.getProfile(Constants.PROFILE_ID);
-
-		Assert.assertNotNull(profile);
-		Assert.assertEquals(profile.getId(), Constants.PROFILE_ID);
-		Assert.assertNotNull(profile.getName());
-		Assert.assertNotNull(profile.getDescription());
-		List<Annotator> annotators = profile.getAnnotators();
-		Assert.assertNotNull(annotators);
-		for (Annotator annotator : annotators) {
-			Assert.assertNotNull(annotator.name());
-			Assert.assertNull(annotator.description());
-		}
-	}
-
-	@Test
-	public void testGetProfileForIdIncResponseDetails() {
-
-		Response<AcdProfile> response  = service.getProfileInclResponseDetails(Constants.PROFILE_ID);
-		AcdProfile profile = response.getResult();
-		Assert.assertNotNull(profile);
-		Assert.assertEquals(profile.getId(), Constants.PROFILE_ID);
-		Assert.assertNotNull(profile.getName());
-		Assert.assertNotNull(profile.getDescription());
-		List<Annotator> annotators = profile.getAnnotators();
-		Assert.assertNotNull(annotators);
-		for (Annotator annotator : annotators) {
-			Assert.assertNotNull(annotator.name());
-			Assert.assertNull(annotator.description());
 		}
 	}
 
@@ -113,14 +76,13 @@ public class TestGetProfilesProfileId extends WatsonServiceTest {
 		Response<AcdProfile> response = sc.execute();
 		AcdProfile profile = response.getResult();
 		Assert.assertNotNull(profile);
-		Assert.assertEquals(profile.getId(), Constants.PROFILE_ID);
-		Assert.assertNotNull(profile.getName());
-		Assert.assertNotNull(profile.getDescription());
-		List<Annotator> annotators = profile.getAnnotators();
+		Assert.assertEquals(profile.id(), Constants.PROFILE_ID);
+		Assert.assertNotNull(profile.name());
+		Assert.assertNotNull(profile.description());
+		List<Annotator> annotators = profile.annotators();
 		Assert.assertNotNull(annotators);
 		for (Annotator annotator : annotators) {
 			Assert.assertNotNull(annotator.name());
-			Assert.assertNull(annotator.description());
 		}
 	}
 

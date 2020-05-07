@@ -1,5 +1,5 @@
 /*
- * Copyright 2018 IBM Corp. All Rights Reserved.
+ * (C) Copyright IBM Corp. 2020.
  *
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with
  * the License. You may obtain a copy of the License at
@@ -12,20 +12,25 @@
  */
 package com.ibm.watson.health.acd.v1.model;
 
-import com.ibm.watson.developer_cloud.service.model.GenericModel;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
 
+import com.ibm.cloud.sdk.core.service.model.GenericModel;
 
 /**
  * AnnotatorFlow.
  */
 public class AnnotatorFlow extends GenericModel {
 
-  private String profile;
-  private Flow flow;
-
-  /*Manually added code*/
-  public AnnotatorFlow() {
-  }
+  protected String profile;
+  protected Flow flow;
+  protected String id;
+  protected String type;
+  protected Map<String, List<Entity>> data;
+  protected Map<String, Object> metadata;
+  protected List<ConfigurationEntity> globalConfigurations;
+  protected Long uid;
 
   /**
    * Builder.
@@ -33,10 +38,22 @@ public class AnnotatorFlow extends GenericModel {
   public static class Builder {
     private String profile;
     private Flow flow;
+    private String id;
+    private String type;
+    private Map<String, List<Entity>> data;
+    private Map<String, Object> metadata;
+    private List<ConfigurationEntity> globalConfigurations;
+    private Long uid;
 
     private Builder(AnnotatorFlow annotatorFlow) {
-      profile = annotatorFlow.profile;
-      flow = annotatorFlow.flow;
+      this.profile = annotatorFlow.profile;
+      this.flow = annotatorFlow.flow;
+      this.id = annotatorFlow.id;
+      this.type = annotatorFlow.type;
+      this.data = annotatorFlow.data;
+      this.metadata = annotatorFlow.metadata;
+      this.globalConfigurations = annotatorFlow.globalConfigurations;
+      this.uid = annotatorFlow.uid;
     }
 
     /**
@@ -46,12 +63,37 @@ public class AnnotatorFlow extends GenericModel {
     }
 
     /**
+     * Instantiates a new builder with required properties.
+     *
+     * @param flow the flow
+     */
+    public Builder(Flow flow) {
+      this.flow = flow;
+    }
+
+    /**
      * Builds a AnnotatorFlow.
      *
-     * @return the annotatorFlow
+     * @return the new AnnotatorFlow instance
      */
     public AnnotatorFlow build() {
       return new AnnotatorFlow(this);
+    }
+
+    /**
+     * Adds an globalConfigurations to globalConfigurations.
+     *
+     * @param globalConfigurations the new globalConfigurations
+     * @return the AnnotatorFlow builder
+     */
+    public Builder addGlobalConfigurations(ConfigurationEntity globalConfigurations) {
+      com.ibm.cloud.sdk.core.util.Validator.notNull(globalConfigurations,
+        "globalConfigurations cannot be null");
+      if (this.globalConfigurations == null) {
+        this.globalConfigurations = new ArrayList<ConfigurationEntity>();
+      }
+      this.globalConfigurations.add(globalConfigurations);
+      return this;
     }
 
     /**
@@ -75,11 +117,86 @@ public class AnnotatorFlow extends GenericModel {
       this.flow = flow;
       return this;
     }
+
+    /**
+     * Set the id.
+     *
+     * @param id the id
+     * @return the AnnotatorFlow builder
+     */
+    public Builder id(String id) {
+      this.id = id;
+      return this;
+    }
+
+    /**
+     * Set the type.
+     *
+     * @param type the type
+     * @return the AnnotatorFlow builder
+     */
+    public Builder type(String type) {
+      this.type = type;
+      return this;
+    }
+
+    /**
+     * Set the data.
+     *
+     * @param data the data
+     * @return the AnnotatorFlow builder
+     */
+    public Builder data(Map<String, List<Entity>> data) {
+      this.data = data;
+      return this;
+    }
+
+    /**
+     * Set the metadata.
+     *
+     * @param metadata the metadata
+     * @return the AnnotatorFlow builder
+     */
+    public Builder metadata(Map<String, Object> metadata) {
+      this.metadata = metadata;
+      return this;
+    }
+
+    /**
+     * Set the globalConfigurations.
+     * Existing globalConfigurations will be replaced.
+     *
+     * @param globalConfigurations the globalConfigurations
+     * @return the AnnotatorFlow builder
+     */
+    public Builder globalConfigurations(List<ConfigurationEntity> globalConfigurations) {
+      this.globalConfigurations = globalConfigurations;
+      return this;
+    }
+
+    /**
+     * Set the uid.
+     *
+     * @param uid the uid
+     * @return the AnnotatorFlow builder
+     */
+    public Builder uid(long uid) {
+      this.uid = uid;
+      return this;
+    }
   }
 
-  private AnnotatorFlow(Builder builder) {
+  protected AnnotatorFlow(Builder builder) {
+    com.ibm.cloud.sdk.core.util.Validator.notNull(builder.flow,
+      "flow cannot be null");
     profile = builder.profile;
     flow = builder.flow;
+    id = builder.id;
+    type = builder.type;
+    data = builder.data;
+    metadata = builder.metadata;
+    globalConfigurations = builder.globalConfigurations;
+    uid = builder.uid;
   }
 
   /**
@@ -108,4 +225,59 @@ public class AnnotatorFlow extends GenericModel {
   public Flow flow() {
     return flow;
   }
+
+  /**
+   * Gets the id.
+   *
+   * @return the id
+   */
+  public String id() {
+    return id;
+  }
+
+  /**
+   * Gets the type.
+   *
+   * @return the type
+   */
+  public String type() {
+    return type;
+  }
+
+  /**
+   * Gets the data.
+   *
+   * @return the data
+   */
+  public Map<String, List<Entity>> data() {
+    return data;
+  }
+
+  /**
+   * Gets the metadata.
+   *
+   * @return the metadata
+   */
+  public Map<String, Object> metadata() {
+    return metadata;
+  }
+
+  /**
+   * Gets the globalConfigurations.
+   *
+   * @return the globalConfigurations
+   */
+  public List<ConfigurationEntity> globalConfigurations() {
+    return globalConfigurations;
+  }
+
+  /**
+   * Gets the uid.
+   *
+   * @return the uid
+   */
+  public Long uid() {
+    return uid;
+  }
 }
+

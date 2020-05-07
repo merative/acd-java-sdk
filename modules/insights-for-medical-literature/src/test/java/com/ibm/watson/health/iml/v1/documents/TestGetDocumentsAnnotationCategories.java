@@ -12,6 +12,8 @@
  */
 package com.ibm.watson.health.iml.v1.documents;
 
+import static com.ibm.watson.health.iml.v1.utils.ServiceUtilities.getProperty;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -23,28 +25,28 @@ import org.junit.Test;
 import com.ibm.cloud.sdk.core.http.Response;
 import com.ibm.cloud.sdk.core.http.ServiceCall;
 import com.ibm.watson.health.iml.v1.InsightsForMedicalLiteratureService;
-import com.ibm.watson.health.iml.v1.WatsonServiceTest;
 import com.ibm.watson.health.iml.v1.common.Constants;
 import com.ibm.watson.health.iml.v1.model.AnnotationModel;
 import com.ibm.watson.health.iml.v1.model.CategoriesModel;
 import com.ibm.watson.health.iml.v1.model.Entry;
+import com.ibm.watson.health.iml.v1.model.EntryModel;
 import com.ibm.watson.health.iml.v1.model.GetDocumentCategoriesOptions;
 import com.ibm.watson.health.iml.v1.model.GetDocumentCategoriesOptions.Builder;
 import com.ibm.watson.health.iml.v1.model.SentenceModel;
+import com.ibm.watson.health.iml.v1.model.StringBuilder;
+import com.ibm.watson.health.iml.v1.utils.ServiceUtilities;
 
 /**
  *
  * Class for testing /v1/corpoora/{corpus}/documents/{document_id}/categories.
  *
  */
-public class TestGetDocumentsAnnotationCategories extends WatsonServiceTest {
+public class TestGetDocumentsAnnotationCategories {
 	private InsightsForMedicalLiteratureService imlService;
 
 	public TestGetDocumentsAnnotationCategories() {
-		super();
 		try {
-			this.setUp();
-			imlService = this.getServiceInstance();
+			imlService = ServiceUtilities.getServiceInstance();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -58,48 +60,48 @@ public class TestGetDocumentsAnnotationCategories extends WatsonServiceTest {
 		ServiceCall<CategoriesModel> sc = imlService.getDocumentCategories(options);
 		Response<CategoriesModel> response = sc.execute();
 		CategoriesModel model = response.getResult();
-		Assert.assertNotNull(model.getHighlightedTitle());
-		String highlightedAbstract = model.getHighlightedAbstract();
+		Assert.assertNotNull(model.highlightedTitle());
+		StringBuilder highlightedAbstract = model.highlightedAbstract();
 		if (highlightedAbstract != null) {
-			Assert.assertTrue(highlightedAbstract.length() > 0);
+			Assert.assertTrue(highlightedAbstract.toString().length() > 0);
 		}
-		String highlightedBody = model.getHighlightedBody();
+		StringBuilder highlightedBody = model.highlightedBody();
 		if (highlightedBody != null) {
-			Assert.assertTrue(highlightedBody.length() > 0);
+			Assert.assertTrue(highlightedBody.toString().length() > 0);
 		}
-		String license = model.getLicense();
+		String license = model.modelLicense();
 		if (license != null) {
 			Assert.assertTrue(license.length() > 0);
 		}
-		Map<String, AnnotationModel> annotationModel = model.getAnnotations();
+		Map<String, AnnotationModel> annotationModel = model.annotations();
 		if (annotationModel != null) {
 			Set<String> keys = annotationModel.keySet();
 			for (String key : keys) {
 				AnnotationModel annotation = annotationModel.get(key);
-				Assert.assertNotNull(annotation.getPreferredName());
-				Assert.assertNotNull(annotation.getOntology());
-				Assert.assertNotNull(annotation.getType());
-				Assert.assertNotNull(annotation.getSection());
-				Assert.assertTrue(annotation.getBegin() < annotation.getEnd());
+				Assert.assertNotNull(annotation.preferredName());
+				Assert.assertNotNull(annotation.ontology());
+				Assert.assertNotNull(annotation.type());
+				Assert.assertNotNull(annotation.section());
+				Assert.assertTrue(annotation.begin() < annotation.end());
 			}
 		}
-		Map<String, Map<String, Entry>> passagesModel = model.getPassages();
+		Map<String, Map<String, EntryModel>> passagesModel = model.passages();
 		if (passagesModel != null) {
 			Set<String> passageKeys = passagesModel.keySet();
 			for (String passageKey : passageKeys) {
-				Map<String, Entry> passageMap = passagesModel.get(passageKey);
+				Map<String, EntryModel> passageMap = passagesModel.get(passageKey);
 				Set<String> keys = passageMap.keySet();
 				for (String key : keys) {
-					Entry entry = passageMap.get(key);
-					Assert.assertNotNull(entry.getId());
-					Assert.assertFalse(entry.isNegated());
-					List<SentenceModel> sentences = entry.getSentences();
+					EntryModel entry = passageMap.get(key);
+					Assert.assertNotNull(entry.id());
+					Assert.assertFalse(entry.negated());
+					List<SentenceModel> sentences = entry.sentences();
 					for (SentenceModel sentence : sentences) {
-						Assert.assertTrue(sentence.getBegin() > -1);
-						Assert.assertTrue(sentence.getEnd() > sentence.getBegin());
-						Assert.assertNotNull(sentence.getText());
-						Assert.assertNotNull(sentence.getDocumentSection());
-						Assert.assertTrue(sentence.getTimestamp() == 0);
+						Assert.assertTrue(sentence.begin() > -1);
+						Assert.assertTrue(sentence.end() > sentence.begin());
+						Assert.assertNotNull(sentence.text());
+						Assert.assertNotNull(sentence.documentSection());
+						Assert.assertTrue(sentence.timestamp() == 0);
 					}
 				}
 			}
@@ -109,53 +111,53 @@ public class TestGetDocumentsAnnotationCategories extends WatsonServiceTest {
 	@Test
 	public void getTestGetDocumentCategoresCustomTags() {
 		GetDocumentCategoriesOptions options = new GetDocumentCategoriesOptions.Builder()
-				.corpus(getProperty(Constants.CORPUS)).documentId(Constants.TEST_DOCUMENT_ID)
-				.highlightTagBegin("<u>").highlightTagEnd("</u>").build();
+				.corpus(getProperty(Constants.CORPUS)).documentId(Constants.TEST_DOCUMENT_ID).highlightTagBegin("<u>")
+				.highlightTagEnd("</u>").build();
 
 		ServiceCall<CategoriesModel> sc = imlService.getDocumentCategories(options);
 		Response<CategoriesModel> response = sc.execute();
 		CategoriesModel model = response.getResult();
-		Assert.assertNotNull(model.getHighlightedTitle());
-		String highlightedAbstract = model.getHighlightedAbstract();
+		Assert.assertNotNull(model.highlightedTitle());
+		String highlightedAbstract = model.highlightedAbstract().toString();
 		if (highlightedAbstract != null) {
 			Assert.assertTrue(highlightedAbstract.length() > 0);
 		}
-		String highlightedBody = model.getHighlightedBody();
+		String highlightedBody = model.highlightedBody().toString();
 		if (highlightedBody != null) {
 			Assert.assertTrue(highlightedBody.length() > 0);
 		}
-		String license = model.getLicense();
+		String license = model.modelLicense();
 		if (license != null) {
 			Assert.assertTrue(license.length() > 0);
 		}
-		Map<String, AnnotationModel> annotationModel = model.getAnnotations();
+		Map<String, AnnotationModel> annotationModel = model.annotations();
 		if (annotationModel != null) {
 			Set<String> keys = annotationModel.keySet();
 			for (String key : keys) {
 				AnnotationModel annotation = annotationModel.get(key);
-				Assert.assertNotNull(annotation.getPreferredName());
-				Assert.assertNotNull(annotation.getOntology());
-				Assert.assertNotNull(annotation.getType());
-				Assert.assertNotNull(annotation.getSection());
-				Assert.assertTrue(annotation.getBegin() < annotation.getEnd());
+				Assert.assertNotNull(annotation.preferredName());
+				Assert.assertNotNull(annotation.ontology());
+				Assert.assertNotNull(annotation.type());
+				Assert.assertNotNull(annotation.section());
+				Assert.assertTrue(annotation.begin() < annotation.end());
 			}
 		}
-		Map<String, Map<String, Entry>> passagesModel = model.getPassages();
+		Map<String, Map<String, EntryModel>> passagesModel = model.passages();
 		if (passagesModel != null) {
 			Set<String> passageKeys = passagesModel.keySet();
 			for (String passageKey : passageKeys) {
-				Map<String, Entry> passageMap = passagesModel.get(passageKey);
+				Map<String, EntryModel> passageMap = passagesModel.get(passageKey);
 				Set<String> keys = passageMap.keySet();
 				for (String key : keys) {
-					Entry entry = passageMap.get(key);
-					Assert.assertNotNull(entry.getId());
-					List<SentenceModel> sentences = entry.getSentences();
+					EntryModel entry = passageMap.get(key);
+					Assert.assertNotNull(entry.id());
+					List<SentenceModel> sentences = entry.sentences();
 					for (SentenceModel sentence : sentences) {
-						Assert.assertTrue(sentence.getBegin() > -1);
-						Assert.assertTrue(sentence.getEnd() > sentence.getBegin());
-						Assert.assertNotNull(sentence.getText());
-						Assert.assertNotNull(sentence.getDocumentSection());
-						Assert.assertTrue(sentence.getTimestamp() == 0);
+						Assert.assertTrue(sentence.begin() > -1);
+						Assert.assertTrue(sentence.end() > sentence.begin());
+						Assert.assertNotNull(sentence.text());
+						Assert.assertNotNull(sentence.documentSection());
+						Assert.assertTrue(sentence.timestamp() == 0);
 					}
 				}
 			}
@@ -165,49 +167,49 @@ public class TestGetDocumentsAnnotationCategories extends WatsonServiceTest {
 	@Test
 	public void getTestGetDocumentCategoresSpecificType() {
 		GetDocumentCategoriesOptions options = new GetDocumentCategoriesOptions.Builder()
-				.corpus(getProperty(Constants.CORPUS)).documentId(Constants.TEST_DOCUMENT_ID)
-				.addTypes("Finding").build();
+				.corpus(getProperty(Constants.CORPUS)).documentId(Constants.TEST_DOCUMENT_ID).addTypes("Finding")
+				.build();
 
 		ServiceCall<CategoriesModel> sc = imlService.getDocumentCategories(options);
 		Response<CategoriesModel> response = sc.execute();
 		CategoriesModel model = response.getResult();
 
-		String highlightedAbstract = model.getHighlightedAbstract();
+		String highlightedAbstract = model.highlightedAbstract().toString();
 		if (highlightedAbstract != null) {
 			Assert.assertTrue(highlightedAbstract.length() > 0);
 		}
-		String license = model.getLicense();
+		String license = model.modelLicense();
 		if (license != null) {
 			Assert.assertTrue(license.length() > 0);
 		}
-		Map<String, AnnotationModel> annotationModel = model.getAnnotations();
+		Map<String, AnnotationModel> annotationModel = model.annotations();
 		if (annotationModel != null) {
 			Set<String> keys = annotationModel.keySet();
 			for (String key : keys) {
 				AnnotationModel annotation = annotationModel.get(key);
-				Assert.assertNotNull(annotation.getPreferredName());
-				Assert.assertNotNull(annotation.getOntology());
-				Assert.assertNotNull(annotation.getType());
-				Assert.assertNotNull(annotation.getSection());
-				Assert.assertTrue(annotation.getBegin() < annotation.getEnd());
+				Assert.assertNotNull(annotation.preferredName());
+				Assert.assertNotNull(annotation.ontology());
+				Assert.assertNotNull(annotation.type());
+				Assert.assertNotNull(annotation.section());
+				Assert.assertTrue(annotation.begin() < annotation.end());
 			}
 		}
-		Map<String, Map<String, Entry>> passagesModel = model.getPassages();
+		Map<String, Map<String, EntryModel>> passagesModel = model.passages();
 		if (passagesModel != null) {
 			Set<String> passageKeys = passagesModel.keySet();
 			for (String passageKey : passageKeys) {
-				Map<String, Entry> passageMap = passagesModel.get(passageKey);
+				Map<String, EntryModel> passageMap = passagesModel.get(passageKey);
 				Set<String> keys = passageMap.keySet();
 				for (String key : keys) {
-					Entry entry = passageMap.get(key);
-					Assert.assertNotNull(entry.getId());
-					List<SentenceModel> sentences = entry.getSentences();
+					EntryModel entry = passageMap.get(key);
+					Assert.assertNotNull(entry.id());
+					List<SentenceModel> sentences = entry.sentences();
 					for (SentenceModel sentence : sentences) {
-						Assert.assertTrue(sentence.getBegin() > -1);
-						Assert.assertTrue(sentence.getEnd() > sentence.getBegin());
-						Assert.assertNotNull(sentence.getText());
-						Assert.assertNotNull(sentence.getDocumentSection());
-						Assert.assertTrue(sentence.getTimestamp() == 0);
+						Assert.assertTrue(sentence.begin() > -1);
+						Assert.assertTrue(sentence.end() > sentence.begin());
+						Assert.assertNotNull(sentence.text());
+						Assert.assertNotNull(sentence.documentSection());
+						Assert.assertTrue(sentence.timestamp() == 0);
 					}
 				}
 			}
@@ -220,50 +222,49 @@ public class TestGetDocumentsAnnotationCategories extends WatsonServiceTest {
 		types.add("Finding");
 		types.add("DiseaseOrSyndrome");
 		GetDocumentCategoriesOptions options = new GetDocumentCategoriesOptions.Builder()
-				.corpus(getProperty(Constants.CORPUS)).documentId(Constants.TEST_DOCUMENT_ID)
-				.types(types).build();
+				.corpus(getProperty(Constants.CORPUS)).documentId(Constants.TEST_DOCUMENT_ID).types(types).build();
 
 		ServiceCall<CategoriesModel> sc = imlService.getDocumentCategories(options);
 		Response<CategoriesModel> response = sc.execute();
 		CategoriesModel model = response.getResult();
 
-		String highlightedAbstract = model.getHighlightedAbstract();
+		String highlightedAbstract = model.highlightedAbstract().toString();
 		if (highlightedAbstract != null) {
 			Assert.assertTrue(highlightedAbstract.length() > 0);
 		}
 
-		String license = model.getLicense();
+		String license = model.modelLicense();
 		if (license != null) {
 			Assert.assertTrue(license.length() > 0);
 		}
-		Map<String, AnnotationModel> annotationModel = model.getAnnotations();
+		Map<String, AnnotationModel> annotationModel = model.annotations();
 		if (annotationModel != null) {
 			Set<String> keys = annotationModel.keySet();
 			for (String key : keys) {
 				AnnotationModel annotation = annotationModel.get(key);
-				Assert.assertNotNull(annotation.getPreferredName());
-				Assert.assertNotNull(annotation.getOntology());
-				Assert.assertNotNull(annotation.getType());
-				Assert.assertNotNull(annotation.getSection());
-				Assert.assertTrue(annotation.getBegin() < annotation.getEnd());
+				Assert.assertNotNull(annotation.preferredName());
+				Assert.assertNotNull(annotation.ontology());
+				Assert.assertNotNull(annotation.type());
+				Assert.assertNotNull(annotation.section());
+				Assert.assertTrue(annotation.begin() < annotation.end());
 			}
 		}
-		Map<String, Map<String, Entry>> passagesModel = model.getPassages();
+		Map<String, Map<String, EntryModel>> passagesModel = model.passages();
 		if (passagesModel != null) {
 			Set<String> passageKeys = passagesModel.keySet();
 			for (String passageKey : passageKeys) {
-				Map<String, Entry> passageMap = passagesModel.get(passageKey);
+				Map<String, EntryModel> passageMap = passagesModel.get(passageKey);
 				Set<String> keys = passageMap.keySet();
 				for (String key : keys) {
-					Entry entry = passageMap.get(key);
-					Assert.assertNotNull(entry.getId());
-					List<SentenceModel> sentences = entry.getSentences();
+					EntryModel entry = passageMap.get(key);
+					Assert.assertNotNull(entry.id());
+					List<SentenceModel> sentences = entry.sentences();
 					for (SentenceModel sentence : sentences) {
-						Assert.assertTrue(sentence.getBegin() > -1);
-						Assert.assertTrue(sentence.getEnd() > sentence.getBegin());
-						Assert.assertNotNull(sentence.getText());
-						Assert.assertNotNull(sentence.getDocumentSection());
-						Assert.assertTrue(sentence.getTimestamp() == 0);
+						Assert.assertTrue(sentence.begin() > -1);
+						Assert.assertTrue(sentence.end() > sentence.begin());
+						Assert.assertNotNull(sentence.text());
+						Assert.assertNotNull(sentence.documentSection());
+						Assert.assertTrue(sentence.timestamp() == 0);
 					}
 				}
 			}
@@ -273,49 +274,49 @@ public class TestGetDocumentsAnnotationCategories extends WatsonServiceTest {
 	@Test
 	public void getTestGetDocumentCategoresSpecificCategory() {
 		GetDocumentCategoriesOptions options = new GetDocumentCategoriesOptions.Builder()
-				.corpus(getProperty(Constants.CORPUS)).documentId(Constants.TEST_DOCUMENT_ID)
-				.category("disorders").build();
+				.corpus(getProperty(Constants.CORPUS)).documentId(Constants.TEST_DOCUMENT_ID).category("disorders")
+				.build();
 
 		ServiceCall<CategoriesModel> sc = imlService.getDocumentCategories(options);
 		Response<CategoriesModel> response = sc.execute();
 		CategoriesModel model = response.getResult();
-		Assert.assertNotNull(model.getHighlightedTitle());
-		String highlightedAbstract = model.getHighlightedAbstract();
+		Assert.assertNotNull(model.highlightedTitle());
+		String highlightedAbstract = model.highlightedAbstract().toString();
 		if (highlightedAbstract != null) {
 			Assert.assertTrue(highlightedAbstract.length() > 0);
 		}
-		String license = model.getLicense();
+		String license = model.modelLicense();
 		if (license != null) {
 			Assert.assertTrue(license.length() > 0);
 		}
-		Map<String, AnnotationModel> annotationModel = model.getAnnotations();
+		Map<String, AnnotationModel> annotationModel = model.annotations();
 		if (annotationModel != null) {
 			Set<String> keys = annotationModel.keySet();
 			for (String key : keys) {
 				AnnotationModel annotation = annotationModel.get(key);
-				Assert.assertNotNull(annotation.getPreferredName());
-				Assert.assertNotNull(annotation.getOntology());
-				Assert.assertNotNull(annotation.getType());
-				Assert.assertNotNull(annotation.getSection());
-				Assert.assertTrue(annotation.getBegin() < annotation.getEnd());
+				Assert.assertNotNull(annotation.preferredName());
+				Assert.assertNotNull(annotation.ontology());
+				Assert.assertNotNull(annotation.type());
+				Assert.assertNotNull(annotation.section());
+				Assert.assertTrue(annotation.begin() < annotation.end());
 			}
 		}
-		Map<String, Map<String, Entry>> passagesModel = model.getPassages();
+		Map<String, Map<String, EntryModel>> passagesModel = model.passages();
 		if (passagesModel != null) {
 			Set<String> passageKeys = passagesModel.keySet();
 			for (String passageKey : passageKeys) {
-				Map<String, Entry> passageMap = passagesModel.get(passageKey);
+				Map<String, EntryModel> passageMap = passagesModel.get(passageKey);
 				Set<String> keys = passageMap.keySet();
 				for (String key : keys) {
-					Entry entry = passageMap.get(key);
-					Assert.assertNotNull(entry.getId());
-					List<SentenceModel> sentences = entry.getSentences();
+					EntryModel entry = passageMap.get(key);
+					Assert.assertNotNull(entry.id());
+					List<SentenceModel> sentences = entry.sentences();
 					for (SentenceModel sentence : sentences) {
-						Assert.assertTrue(sentence.getBegin() > -1);
-						Assert.assertTrue(sentence.getEnd() > sentence.getBegin());
-						Assert.assertNotNull(sentence.getText());
-						Assert.assertNotNull(sentence.getDocumentSection());
-						Assert.assertTrue(sentence.getTimestamp() == 0);
+						Assert.assertTrue(sentence.begin() > -1);
+						Assert.assertTrue(sentence.end() > sentence.begin());
+						Assert.assertNotNull(sentence.text());
+						Assert.assertNotNull(sentence.documentSection());
+						Assert.assertTrue(sentence.timestamp() == 0);
 					}
 				}
 			}
@@ -325,14 +326,14 @@ public class TestGetDocumentsAnnotationCategories extends WatsonServiceTest {
 	@Test
 	public void getTestGetDocumentCategoresNegatedOnly() {
 		GetDocumentCategoriesOptions options = new GetDocumentCategoriesOptions.Builder()
-				.corpus(getProperty(Constants.CORPUS)).documentId(Constants.TEST_DOCUMENT_ID)
-				.onlyNegatedConcepts(true).build();
+				.corpus(getProperty(Constants.CORPUS)).documentId(Constants.TEST_DOCUMENT_ID).onlyNegatedConcepts(true)
+				.build();
 
 		ServiceCall<CategoriesModel> sc = imlService.getDocumentCategories(options);
 		Response<CategoriesModel> response = sc.execute();
 		CategoriesModel model = response.getResult();
 
-		String license = model.getLicense();
+		String license = model.modelLicense();
 		if (license != null) {
 			Assert.assertTrue(license.length() > 0);
 		}
@@ -343,61 +344,59 @@ public class TestGetDocumentsAnnotationCategories extends WatsonServiceTest {
 	public void getTestGetDocumentCategoresSpecificFields() {
 		String fields = "highlightedTitle";
 		GetDocumentCategoriesOptions options = new GetDocumentCategoriesOptions.Builder()
-				.corpus(getProperty(Constants.CORPUS)).documentId(Constants.TEST_DOCUMENT_ID)
-				.fields(fields).build();
+				.corpus(getProperty(Constants.CORPUS)).documentId(Constants.TEST_DOCUMENT_ID).fields(fields).build();
 
 		ServiceCall<CategoriesModel> sc = imlService.getDocumentCategories(options);
 		Response<CategoriesModel> response = sc.execute();
 		CategoriesModel model = response.getResult();
-		Assert.assertNotNull(model.getHighlightedTitle());
-		Assert.assertNull(model.getHighlightedAbstract());
-		Assert.assertNull(model.getHighlightedBody());
+		Assert.assertNotNull(model.highlightedTitle());
+		Assert.assertNull(model.highlightedAbstract());
+		Assert.assertNull(model.highlightedBody());
 	}
 
 	@Test
 	public void getTestGetDocumentCategoresLimitedResutls() {
 		GetDocumentCategoriesOptions options = new GetDocumentCategoriesOptions.Builder()
-				.corpus(getProperty(Constants.CORPUS)).documentId(Constants.TEST_DOCUMENT_ID)
-				.limit(5).build();
+				.corpus(getProperty(Constants.CORPUS)).documentId(Constants.TEST_DOCUMENT_ID).limit(5).build();
 
 		ServiceCall<CategoriesModel> sc = imlService.getDocumentCategories(options);
 		Response<CategoriesModel> response = sc.execute();
 		CategoriesModel model = response.getResult();
-		Assert.assertNotNull(model.getHighlightedTitle());
-		String highlightedAbstract = model.getHighlightedAbstract();
-			Assert.assertTrue(highlightedAbstract.length() > 0);
-		String license = model.getLicense();
+		Assert.assertNotNull(model.highlightedTitle());
+		String highlightedAbstract = model.highlightedAbstract().toString();
+		Assert.assertTrue(highlightedAbstract.length() > 0);
+		String license = model.modelLicense();
 		if (license != null) {
 			Assert.assertTrue(license.length() > 0);
 		}
-		Map<String, AnnotationModel> annotationModel = model.getAnnotations();
+		Map<String, AnnotationModel> annotationModel = model.annotations();
 		if (annotationModel != null) {
 			Set<String> keys = annotationModel.keySet();
 			for (String key : keys) {
 				AnnotationModel annotation = annotationModel.get(key);
-				Assert.assertNotNull(annotation.getPreferredName());
-				Assert.assertNotNull(annotation.getOntology());
-				Assert.assertNotNull(annotation.getType());
-				Assert.assertNotNull(annotation.getSection());
-				Assert.assertTrue(annotation.getBegin() < annotation.getEnd());
+				Assert.assertNotNull(annotation.preferredName());
+				Assert.assertNotNull(annotation.ontology());
+				Assert.assertNotNull(annotation.type());
+				Assert.assertNotNull(annotation.section());
+				Assert.assertTrue(annotation.begin() < annotation.end());
 			}
 		}
-		Map<String, Map<String, Entry>> passagesModel = model.getPassages();
+		Map<String, Map<String, EntryModel>> passagesModel = model.passages();
 		if (passagesModel != null) {
 			Set<String> passageKeys = passagesModel.keySet();
 			for (String passageKey : passageKeys) {
-				Map<String, Entry> passageMap = passagesModel.get(passageKey);
+				Map<String, EntryModel> passageMap = passagesModel.get(passageKey);
 				Set<String> keys = passageMap.keySet();
 				for (String key : keys) {
-					Entry entry = passageMap.get(key);
-					Assert.assertNotNull(entry.getId());
-					List<SentenceModel> sentences = entry.getSentences();
+					EntryModel entry = passageMap.get(key);
+					Assert.assertNotNull(entry.id());
+					List<SentenceModel> sentences = entry.sentences();
 					for (SentenceModel sentence : sentences) {
-						Assert.assertTrue(sentence.getBegin() > -1);
-						Assert.assertTrue(sentence.getEnd() > sentence.getBegin());
-						Assert.assertNotNull(sentence.getText());
-						Assert.assertNotNull(sentence.getDocumentSection());
-						Assert.assertTrue(sentence.getTimestamp() == 0);
+						Assert.assertTrue(sentence.begin() > -1);
+						Assert.assertTrue(sentence.end() > sentence.begin());
+						Assert.assertNotNull(sentence.text());
+						Assert.assertNotNull(sentence.documentSection());
+						Assert.assertTrue(sentence.timestamp() == 0);
 					}
 				}
 			}
@@ -412,47 +411,47 @@ public class TestGetDocumentsAnnotationCategories extends WatsonServiceTest {
 		ServiceCall<CategoriesModel> sc = imlService.getDocumentCategories(builder.build());
 		Response<CategoriesModel> response = sc.execute();
 		CategoriesModel model = response.getResult();
-		Assert.assertNotNull(model.getHighlightedTitle());
-		String highlightedAbstract = model.getHighlightedAbstract();
+		Assert.assertNotNull(model.highlightedTitle());
+		String highlightedAbstract = model.highlightedAbstract().toString();
 		if (highlightedAbstract != null) {
 			Assert.assertTrue(highlightedAbstract.length() > 0);
 		}
-		String highlightedBody = model.getHighlightedBody();
+		String highlightedBody = model.highlightedBody().toString();
 		if (highlightedBody != null) {
 			Assert.assertTrue(highlightedBody.length() > 0);
 		}
-		String license = model.getLicense();
+		String license = model.modelLicense();
 		if (license != null) {
 			Assert.assertTrue(license.length() > 0);
 		}
-		Map<String, AnnotationModel> annotationModel = model.getAnnotations();
+		Map<String, AnnotationModel> annotationModel = model.annotations();
 		if (annotationModel != null) {
 			Set<String> keys = annotationModel.keySet();
 			for (String key : keys) {
 				AnnotationModel annotation = annotationModel.get(key);
-				Assert.assertNotNull(annotation.getPreferredName());
-				Assert.assertNotNull(annotation.getOntology());
-				Assert.assertNotNull(annotation.getType());
-				Assert.assertNotNull(annotation.getSection());
-				Assert.assertTrue(annotation.getBegin() < annotation.getEnd());
+				Assert.assertNotNull(annotation.preferredName());
+				Assert.assertNotNull(annotation.ontology());
+				Assert.assertNotNull(annotation.type());
+				Assert.assertNotNull(annotation.section());
+				Assert.assertTrue(annotation.begin() < annotation.end());
 			}
 		}
-		Map<String, Map<String, Entry>> passagesModel = model.getPassages();
+		Map<String, Map<String, EntryModel>> passagesModel = model.passages();
 		if (passagesModel != null) {
 			Set<String> passageKeys = passagesModel.keySet();
 			for (String passageKey : passageKeys) {
-				Map<String, Entry> passageMap = passagesModel.get(passageKey);
+				Map<String, EntryModel> passageMap = passagesModel.get(passageKey);
 				Set<String> keys = passageMap.keySet();
 				for (String key : keys) {
-					Entry entry = passageMap.get(key);
-					Assert.assertNotNull(entry.getId());
-					List<SentenceModel> sentences = entry.getSentences();
+					EntryModel entry = passageMap.get(key);
+					Assert.assertNotNull(entry.id());
+					List<SentenceModel> sentences = entry.sentences();
 					for (SentenceModel sentence : sentences) {
-						Assert.assertTrue(sentence.getBegin() > -1);
-						Assert.assertTrue(sentence.getEnd() > sentence.getBegin());
-						Assert.assertNotNull(sentence.getText());
-						Assert.assertNotNull(sentence.getDocumentSection());
-						Assert.assertTrue(sentence.getTimestamp() == 0);
+						Assert.assertTrue(sentence.begin() > -1);
+						Assert.assertTrue(sentence.end() > sentence.begin());
+						Assert.assertNotNull(sentence.text());
+						Assert.assertNotNull(sentence.documentSection());
+						Assert.assertTrue(sentence.timestamp() == 0);
 					}
 				}
 			}

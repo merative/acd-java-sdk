@@ -18,27 +18,25 @@ import org.junit.Test;
 import com.ibm.cloud.sdk.core.http.Response;
 import com.ibm.cloud.sdk.core.http.ServiceCall;
 import com.ibm.watson.health.acd.v1.AnnotatorForClinicalData;
-import com.ibm.watson.health.acd.v1.WatsonServiceTest;
 import com.ibm.watson.health.acd.v1.common.Constants;
 import com.ibm.watson.health.acd.v1.common.TestContainerGroup;
 import com.ibm.watson.health.acd.v1.model.AnalyzeWithFlowOptions;
 import com.ibm.watson.health.acd.v1.model.AnalyzeWithFlowOptions.Builder;
 import com.ibm.watson.health.acd.v1.model.ContainerGroup;
 import com.ibm.watson.health.acd.v1.model.UnstructuredContainer;
+import com.ibm.watson.health.acd.v1.utils.ServiceUtilities;
 
 /**
  *
  * Class for testing /v1/analyze/(flow_id}.
  *
  */
-public class TestAnalyzeFlowId extends WatsonServiceTest {
+public class TestAnalyzeFlowId {
 	private AnnotatorForClinicalData service;
 
 	public TestAnalyzeFlowId() {
-		super();
 		try {
-			this.setUp();
-			service = this.getServiceInstance();
+			service = ServiceUtilities.getServiceInstance();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

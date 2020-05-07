@@ -1,18 +1,26 @@
+/*
+ * (C) Copyright IBM Corp. 2020.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with
+ * the License. You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on
+ * an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the
+ * specific language governing permissions and limitations under the License.
+ */
 package com.ibm.watson.health.acd.v1.model;
 
-import java.lang.reflect.Type;
 import java.util.List;
+import com.ibm.cloud.sdk.core.service.model.GenericModel;
 
-import com.google.gson.reflect.TypeToken;
-import com.ibm.watson.developer_cloud.service.model.DynamicModel;
-import com.ibm.watson.developer_cloud.util.GsonSerializationHelper;
+public class Relation extends GenericModel {
 
-public class Relation extends DynamicModel {
-
-  private Type typeType = new TypeToken<String>() { } .getType();
-  private Type sourceType = new TypeToken<String>() { } .getType();
-  private Type scoreType = new TypeToken<Double>() { } .getType();
-  private Type nodeType = new TypeToken<List<RelationNode>>() { } .getType();
+  private String typeType;
+  private String sourceType;
+  private Double scoreType;
+  private List<RelationNode> relationNodes;
 
   /**
    * Gets the type.
@@ -20,7 +28,7 @@ public class Relation extends DynamicModel {
    * @return the type
    */
   public String getType() {
-    return GsonSerializationHelper.serializeDynamicModelProperty(this.get("type"), typeType);
+    return typeType;
   }
 
   /**
@@ -29,7 +37,7 @@ public class Relation extends DynamicModel {
    * @return the source
    */
   public String getSource() {
-    return GsonSerializationHelper.serializeDynamicModelProperty(this.get("source"), sourceType);
+    return sourceType;
   }
 
   /**
@@ -38,7 +46,7 @@ public class Relation extends DynamicModel {
    * @return the score
    */
   public Double getScore() {
-    return GsonSerializationHelper.serializeDynamicModelProperty(this.get("score"), scoreType);
+    return scoreType;
   }
 
   /**
@@ -47,11 +55,6 @@ public class Relation extends DynamicModel {
    * @return the node
    */
   public List<RelationNode> getNodes() {
-//    List<Object> listObjects = GsonSerializationHelper.serializeDynamicModelProperty(this.get("nodes"), nodeType);
-//    CustomCollection customCollection = new CustomCollection();
-//    List<CustomCollection> listValues = customCollection.convertToCustomCollectionList(listObjects);
-//    return listValues;
-    List<RelationNode> relationNodes = GsonSerializationHelper.serializeDynamicModelProperty(this.get("nodes"), nodeType);
     return relationNodes;
   }
 

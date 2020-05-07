@@ -12,32 +12,28 @@
  */
 package com.ibm.watson.health.acd.v1.model;
 
-import java.lang.reflect.Type;
-
-import com.google.gson.reflect.TypeToken;
-import com.ibm.watson.developer_cloud.service.model.DynamicModel;
-import com.ibm.watson.developer_cloud.util.GsonSerializationHelper;
+import com.ibm.cloud.sdk.core.service.model.GenericModel;
 
 /**
  * Procedure.
  */
-public class Procedure extends DynamicModel {
-  private Type idType = new TypeToken<String>() { } .getType();
-  private Type typeType = new TypeToken<String>() { } .getType();
-  private Type uidType = new TypeToken<Long>() { } .getType();
-  private Type beginType = new TypeToken<Long>() { } .getType();
-  private Type endType = new TypeToken<Long>() { } .getType();
-  private Type coveredTextType = new TypeToken<String>() { } .getType();
-  private Type negatedType = new TypeToken<Boolean>() { } .getType();
-  private Type hypotheticalType = new TypeToken<Boolean>() { } .getType();
-  private Type cuiType = new TypeToken<String>() { } .getType();
-  private Type sectionNormalizedNameType = new TypeToken<String>() { } .getType();
-  private Type dateInMillisecondsType = new TypeToken<String>() { } .getType();
-  private Type snomedConceptIdType = new TypeToken<String>() { } .getType();
-  private Type procedureSurfaceFormType = new TypeToken<String>() { } .getType();
-  private Type procedureNormalizedNameType = new TypeToken<String>() { } .getType();
-  private Type sectionSurfaceFormType = new TypeToken<String>() { } .getType();
-  private Type disambiguationDataType = new TypeToken<Disambiguation>() { } .getType();
+public class Procedure extends GenericModel {
+  private String idType;
+  private String typeType;
+  private Long uidType;
+  private Long beginType;
+  private Long endType;
+  private String coveredTextType;
+  private Boolean negatedType;
+  private Boolean hypotheticalType;
+  private String cuiType;
+  private String sectionNormalizedNameType;
+  private String dateInMillisecondsType;
+  private String snomedConceptIdType;
+  private String procedureSurfaceFormType;
+  private String procedureNormalizedNameType;
+  private String sectionSurfaceFormType;
+  private Disambiguation disambiguationDataType;
 
 
   /**
@@ -46,7 +42,7 @@ public class Procedure extends DynamicModel {
    * @return the id
    */
   public String getId() {
-    return GsonSerializationHelper.serializeDynamicModelProperty(this.get("id"), idType);
+    return idType;
   }
 
   /**
@@ -55,7 +51,7 @@ public class Procedure extends DynamicModel {
    * @return the type
    */
   public String getType() {
-    return GsonSerializationHelper.serializeDynamicModelProperty(this.get("type"), typeType);
+    return typeType;
   }
 
   /**
@@ -64,7 +60,7 @@ public class Procedure extends DynamicModel {
    * @return the uid
    */
   public Long getUid() {
-    return GsonSerializationHelper.serializeDynamicModelProperty(this.get("uid"), uidType);
+    return uidType;
   }
 
   /**
@@ -73,7 +69,7 @@ public class Procedure extends DynamicModel {
    * @return the begin
    */
   public Long getBegin() {
-    return GsonSerializationHelper.serializeDynamicModelProperty(this.get("begin"), beginType);
+    return beginType;
   }
 
   /**
@@ -82,7 +78,7 @@ public class Procedure extends DynamicModel {
    * @return the end
    */
   public Long getEnd() {
-    return GsonSerializationHelper.serializeDynamicModelProperty(this.get("end"), endType);
+    return endType;
   }
 
   /**
@@ -91,7 +87,7 @@ public class Procedure extends DynamicModel {
    * @return the coveredText
    */
   public String getCoveredText() {
-    return GsonSerializationHelper.serializeDynamicModelProperty(this.get("coveredText"), coveredTextType);
+    return coveredTextType;
   }
 
   /**
@@ -100,11 +96,7 @@ public class Procedure extends DynamicModel {
    * @return the negated
    */
   public Boolean isNegated() {
-    Boolean negated = GsonSerializationHelper.serializeDynamicModelProperty(this.get("negated"), negatedType);
-    if (negated == null) {
-      negated = false;
-    }
-    return negated;
+    return negatedType;
   }
 
   /**
@@ -113,11 +105,7 @@ public class Procedure extends DynamicModel {
    * @return the hypothetical
    */
   public Boolean isHypothetical() {
-    Boolean hypothetical = GsonSerializationHelper.serializeDynamicModelProperty(this.get("hypothetical"), hypotheticalType);
-    if (hypothetical == null) {
-      hypothetical = false;
-    }
-    return hypothetical;
+    return hypotheticalType;
   }
 
   /**
@@ -126,7 +114,7 @@ public class Procedure extends DynamicModel {
    * @return the cui
    */
   public String getCui() {
-    return GsonSerializationHelper.serializeDynamicModelProperty(this.get("cui"), cuiType);
+    return cuiType;
   }
 
   /**
@@ -135,7 +123,7 @@ public class Procedure extends DynamicModel {
    * @return the sectionNormalizedName
    */
   public String getSectionNormalizedName() {
-    return GsonSerializationHelper.serializeDynamicModelProperty(this.get("sectionNormalizedName"), sectionNormalizedNameType);
+    return sectionNormalizedNameType;
   }
 
   /**
@@ -144,7 +132,7 @@ public class Procedure extends DynamicModel {
    * @return the dateInMilliseconds
    */
   public String getDateInMilliseconds() {
-    return GsonSerializationHelper.serializeDynamicModelProperty(this.get("dateInMilliseconds"), dateInMillisecondsType);
+    return dateInMillisecondsType;
   }
 
   /**
@@ -153,7 +141,7 @@ public class Procedure extends DynamicModel {
    * @return the snomedConceptId
    */
   public String getSnomedConceptId() {
-    return GsonSerializationHelper.serializeDynamicModelProperty(this.get("snomedConceptId"), snomedConceptIdType);
+    return snomedConceptIdType;
   }
 
   /**
@@ -162,7 +150,7 @@ public class Procedure extends DynamicModel {
    * @return the procedureSurfaceForm
    */
   public String getProcedureSurfaceForm() {
-    return GsonSerializationHelper.serializeDynamicModelProperty(this.get("procedureSurfaceForm"), procedureSurfaceFormType);
+    return procedureSurfaceFormType;
   }
 
   /**
@@ -171,7 +159,7 @@ public class Procedure extends DynamicModel {
    * @return the procedureNormalizedName
    */
   public String getProcedureNormalizedName() {
-    return GsonSerializationHelper.serializeDynamicModelProperty(this.get("procedureNormalizedName"), procedureNormalizedNameType);
+    return procedureNormalizedNameType;
   }
 
   /**
@@ -180,7 +168,7 @@ public class Procedure extends DynamicModel {
    * @return the sectionSurfaceForm
    */
   public String getSectionSurfaceForm() {
-    return GsonSerializationHelper.serializeDynamicModelProperty(this.get("sectionSurfaceForm"), sectionSurfaceFormType);
+    return sectionSurfaceFormType;
   }
 
   /**
@@ -189,7 +177,7 @@ public class Procedure extends DynamicModel {
    * @return the disambiguationData
    */
   public Disambiguation getDisambiguationData() {
-    return GsonSerializationHelper.serializeDynamicModelProperty(this.get("disambiguationData"), disambiguationDataType);
+    return disambiguationDataType;
   }
 
 //  /**

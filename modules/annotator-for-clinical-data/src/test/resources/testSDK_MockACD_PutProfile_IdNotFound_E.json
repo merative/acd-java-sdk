@@ -1,6 +1,0 @@
-{
-  "code": 404,
-  "message": "Profile ID: testSDK_MockACD_PostProfile_G_invalid was not found in the list.",
-  "level": "ERROR",
-  "correlationId": "f773eaef-b9c2-44a3-912a-8d1f88623149"
-}

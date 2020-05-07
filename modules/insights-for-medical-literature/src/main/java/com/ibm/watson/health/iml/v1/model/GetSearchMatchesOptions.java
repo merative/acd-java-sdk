@@ -1,16 +1,13 @@
 /*
- * Copyright 2018 IBM Corp. All Rights Reserved.
+ * (C) Copyright IBM Corp. 2020.
  *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with
+ * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with
  * the License. You may obtain a copy of the License at
  *
  * http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing,
- * software distributed under the License is distributed on
- * an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND,
- * either express or implied. See the License for the
+ * Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on
+ * an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the
  * specific language governing permissions and limitations under the License.
  */
 package com.ibm.watson.health.iml.v1.model;
@@ -19,284 +16,27 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.ibm.cloud.sdk.core.service.model.GenericModel;
-import com.ibm.cloud.sdk.core.util.Validator;
 
 /**
  * The getSearchMatches options.
  */
 public class GetSearchMatchesOptions extends GenericModel {
 
-//  public interface Types {
-//    /** AcquiredAbnormality. */
-//    String ACQUIREDABNORMALITY = "AcquiredAbnormality";
-//    /** Activity. */
-//    String ACTIVITY = "Activity";
-//    /** AgeGroup. */
-//    String AGEGROUP = "AgeGroup";
-//    /** AminoAcidPeptideOrProtein. */
-//    String AMINOACIDPEPTIDEORPROTEIN = "AminoAcidPeptideOrProtein";
-//    /** AminoAcidSequence. */
-//    String AMINOACIDSEQUENCE = "AminoAcidSequence";
-//    /** Amphibian. */
-//    String AMPHIBIAN = "Amphibian";
-//    /** AnatomicalAbnormality. */
-//    String ANATOMICALABNORMALITY = "AnatomicalAbnormality";
-//    /** AnatomicalStructure. */
-//    String ANATOMICALSTRUCTURE = "AnatomicalStructure";
-//    /** Animal. */
-//    String ANIMAL = "Animal";
-//    /** Antibiotic. */
-//    String ANTIBIOTIC = "Antibiotic";
-//    /** Archaeon. */
-//    String ARCHAEON = "Archaeon";
-//    /** Bacterium. */
-//    String BACTERIUM = "Bacterium";
-//    /** Behavior. */
-//    String BEHAVIOR = "Behavior";
-//    /** BiologicFunction. */
-//    String BIOLOGICFUNCTION = "BiologicFunction";
-//    /** BiologicallyActiveSubstance. */
-//    String BIOLOGICALLYACTIVESUBSTANCE = "BiologicallyActiveSubstance";
-//    /** BiomedicalOccupationOrDiscipline. */
-//    String BIOMEDICALOCCUPATIONORDISCIPLINE = "BiomedicalOccupationOrDiscipline";
-//    /** BiomedicalOrDentalMaterial. */
-//    String BIOMEDICALORDENTALMATERIAL = "BiomedicalOrDentalMaterial";
-//    /** Bird. */
-//    String BIRD = "Bird";
-//    /** BodyLocationOrRegion. */
-//    String BODYLOCATIONORREGION = "BodyLocationOrRegion";
-//    /** BodyPartOrganOrOrganComponent. */
-//    String BODYPARTORGANORORGANCOMPONENT = "BodyPartOrganOrOrganComponent";
-//    /** BodySpaceOrJunction. */
-//    String BODYSPACEORJUNCTION = "BodySpaceOrJunction";
-//    /** BodySubstance. */
-//    String BODYSUBSTANCE = "BodySubstance";
-//    /** BodySystem. */
-//    String BODYSYSTEM = "BodySystem";
-//    /** CarbohydrateSequence. */
-//    String CARBOHYDRATESEQUENCE = "CarbohydrateSequence";
-//    /** Cell. */
-//    String CELL = "Cell";
-//    /** CellComponent. */
-//    String CELLCOMPONENT = "CellComponent";
-//    /** CellFunction. */
-//    String CELLFUNCTION = "CellFunction";
-//    /** CellOrMolecularDysfunction. */
-//    String CELLORMOLECULARDYSFUNCTION = "CellOrMolecularDysfunction";
-//    /** Chemical. */
-//    String CHEMICAL = "Chemical";
-//    /** ChemicalViewedFunctionally. */
-//    String CHEMICALVIEWEDFUNCTIONALLY = "ChemicalViewedFunctionally";
-//    /** ChemicalViewedStructurally. */
-//    String CHEMICALVIEWEDSTRUCTURALLY = "ChemicalViewedStructurally";
-//    /** Classification. */
-//    String CLASSIFICATION = "Classification";
-//    /** ClinicalAttribute. */
-//    String CLINICALATTRIBUTE = "ClinicalAttribute";
-//    /** ClinicalDrug. */
-//    String CLINICALDRUG = "ClinicalDrug";
-//    /** ConceptualEntity. */
-//    String CONCEPTUALENTITY = "ConceptualEntity";
-//    /** CongenitalAbnormality. */
-//    String CONGENITALABNORMALITY = "CongenitalAbnormality";
-//    /** DailyOrRecreationalActivity. */
-//    String DAILYORRECREATIONALACTIVITY = "DailyOrRecreationalActivity";
-//    /** DiagnosticProcedure. */
-//    String DIAGNOSTICPROCEDURE = "DiagnosticProcedure";
-//    /** DiseaseOrSyndrome. */
-//    String DISEASEORSYNDROME = "DiseaseOrSyndrome";
-//    /** DrugDeliveryDevice. */
-//    String DRUGDELIVERYDEVICE = "DrugDeliveryDevice";
-//    /** EducationalActivity. */
-//    String EDUCATIONALACTIVITY = "EducationalActivity";
-//    /** ElementIonOrIsotope. */
-//    String ELEMENTIONORISOTOPE = "ElementIonOrIsotope";
-//    /** EmbryonicStructure. */
-//    String EMBRYONICSTRUCTURE = "EmbryonicStructure";
-//    /** Entity. */
-//    String ENTITY = "Entity";
-//    /** EnvironmentalEffectOfHumans. */
-//    String ENVIRONMENTALEFFECTOFHUMANS = "EnvironmentalEffectOfHumans";
-//    /** Enzyme. */
-//    String ENZYME = "Enzyme";
-//    /** Eukaryote. */
-//    String EUKARYOTE = "Eukaryote";
-//    /** Event. */
-//    String EVENT = "Event";
-//    /** ExperimentalModelofDisease. */
-//    String EXPERIMENTALMODELOFDISEASE = "ExperimentalModelofDisease";
-//    /** FamilyGroup. */
-//    String FAMILYGROUP = "FamilyGroup";
-//    /** Finding. */
-//    String FINDING = "Finding";
-//    /** Fish. */
-//    String FISH = "Fish";
-//    /** Food. */
-//    String FOOD = "Food";
-//    /** FullyFormedAnatomicalStructure. */
-//    String FULLYFORMEDANATOMICALSTRUCTURE = "FullyFormedAnatomicalStructure";
-//    /** FunctionalConcept. */
-//    String FUNCTIONALCONCEPT = "FunctionalConcept";
-//    /** Fungus. */
-//    String FUNGUS = "Fungus";
-//    /** GeneOrGenome. */
-//    String GENEORGENOME = "GeneOrGenome";
-//    /** GeneticFunction. */
-//    String GENETICFUNCTION = "GeneticFunction";
-//    /** GeographicArea. */
-//    String GEOGRAPHICAREA = "GeographicArea";
-//    /** GovernmentalOrRegulatoryActivity. */
-//    String GOVERNMENTALORREGULATORYACTIVITY = "GovernmentalOrRegulatoryActivity";
-//    /** Group. */
-//    String GROUP = "Group";
-//    /** GroupAttribute. */
-//    String GROUPATTRIBUTE = "GroupAttribute";
-//    /** HazardousOrPoisonousSubstance. */
-//    String HAZARDOUSORPOISONOUSSUBSTANCE = "HazardousOrPoisonousSubstance";
-//    /** HealthCareActivity. */
-//    String HEALTHCAREACTIVITY = "HealthCareActivity";
-//    /** HealthCareRelatedOrganization. */
-//    String HEALTHCARERELATEDORGANIZATION = "HealthCareRelatedOrganization";
-//    /** Hormone. */
-//    String HORMONE = "Hormone";
-//    /** Human. */
-//    String HUMAN = "Human";
-//    /** HumancausedPhenomenonOrProcess. */
-//    String HUMANCAUSEDPHENOMENONORPROCESS = "HumancausedPhenomenonOrProcess";
-//    /** IdeaOrConcept. */
-//    String IDEAORCONCEPT = "IdeaOrConcept";
-//    /** ImmunologicFactor. */
-//    String IMMUNOLOGICFACTOR = "ImmunologicFactor";
-//    /** IndicatorReagentOrDiagnosticAid. */
-//    String INDICATORREAGENTORDIAGNOSTICAID = "IndicatorReagentOrDiagnosticAid";
-//    /** IndividualBehavior. */
-//    String INDIVIDUALBEHAVIOR = "IndividualBehavior";
-//    /** InjuryOrPoisoning. */
-//    String INJURYORPOISONING = "InjuryOrPoisoning";
-//    /** InorganicChemical. */
-//    String INORGANICCHEMICAL = "InorganicChemical";
-//    /** IntellectualProduct. */
-//    String INTELLECTUALPRODUCT = "IntellectualProduct";
-//    /** LaboratoryOrTestResult. */
-//    String LABORATORYORTESTRESULT = "LaboratoryOrTestResult";
-//    /** LaboratoryProcedure. */
-//    String LABORATORYPROCEDURE = "LaboratoryProcedure";
-//    /** Language. */
-//    String LANGUAGE = "Language";
-//    /** MachineActivity. */
-//    String MACHINEACTIVITY = "MachineActivity";
-//    /** Mammal. */
-//    String MAMMAL = "Mammal";
-//    /** ManufacturedObject. */
-//    String MANUFACTUREDOBJECT = "ManufacturedObject";
-//    /** MedicalDevice. */
-//    String MEDICALDEVICE = "MedicalDevice";
-//    /** MentalOrBehavioralDysfunction. */
-//    String MENTALORBEHAVIORALDYSFUNCTION = "MentalOrBehavioralDysfunction";
-//    /** MentalProcess. */
-//    String MENTALPROCESS = "MentalProcess";
-//    /** MolecularBiologyResearchTechnique. */
-//    String MOLECULARBIOLOGYRESEARCHTECHNIQUE = "MolecularBiologyResearchTechnique";
-//    /** MolecularFunction. */
-//    String MOLECULARFUNCTION = "MolecularFunction";
-//    /** MolecularSequence. */
-//    String MOLECULARSEQUENCE = "MolecularSequence";
-//    /** NaturalPhenomenonOrProcess. */
-//    String NATURALPHENOMENONORPROCESS = "NaturalPhenomenonOrProcess";
-//    /** NeoplasticProcess. */
-//    String NEOPLASTICPROCESS = "NeoplasticProcess";
-//    /** NucleicAcidNucleosideOrNucleotide. */
-//    String NUCLEICACIDNUCLEOSIDEORNUCLEOTIDE = "NucleicAcidNucleosideOrNucleotide";
-//    /** NucleotideSequence. */
-//    String NUCLEOTIDESEQUENCE = "NucleotideSequence";
-//    /** OccupationOrDiscipline. */
-//    String OCCUPATIONORDISCIPLINE = "OccupationOrDiscipline";
-//    /** OccupationalActivity. */
-//    String OCCUPATIONALACTIVITY = "OccupationalActivity";
-//    /** OrganOrTissueFunction. */
-//    String ORGANORTISSUEFUNCTION = "OrganOrTissueFunction";
-//    /** OrganicChemical. */
-//    String ORGANICCHEMICAL = "OrganicChemical";
-//    /** Organism. */
-//    String ORGANISM = "Organism";
-//    /** OrganismAttribute. */
-//    String ORGANISMATTRIBUTE = "OrganismAttribute";
-//    /** OrganismFunction. */
-//    String ORGANISMFUNCTION = "OrganismFunction";
-//    /** Organization. */
-//    String ORGANIZATION = "Organization";
-//    /** PathologicFunction. */
-//    String PATHOLOGICFUNCTION = "PathologicFunction";
-//    /** PatientOrDisabledGroup. */
-//    String PATIENTORDISABLEDGROUP = "PatientOrDisabledGroup";
-//    /** PharmacologicSubstance. */
-//    String PHARMACOLOGICSUBSTANCE = "PharmacologicSubstance";
-//    /** PhenomenonOrProcess. */
-//    String PHENOMENONORPROCESS = "PhenomenonOrProcess";
-//    /** PhysicalObject. */
-//    String PHYSICALOBJECT = "PhysicalObject";
-//    /** PhysiologicFunction. */
-//    String PHYSIOLOGICFUNCTION = "PhysiologicFunction";
-//    /** Plant. */
-//    String PLANT = "Plant";
-//    /** PopulationGroup. */
-//    String POPULATIONGROUP = "PopulationGroup";
-//    /** ProfessionalOrOccupationalGroup. */
-//    String PROFESSIONALOROCCUPATIONALGROUP = "ProfessionalOrOccupationalGroup";
-//    /** ProfessionalSociety. */
-//    String PROFESSIONALSOCIETY = "ProfessionalSociety";
-//    /** QualitativeConcept. */
-//    String QUALITATIVECONCEPT = "QualitativeConcept";
-//    /** QuantitativeConcept. */
-//    String QUANTITATIVECONCEPT = "QuantitativeConcept";
-//    /** Receptor. */
-//    String RECEPTOR = "Receptor";
-//    /** RegulationOrLaw. */
-//    String REGULATIONORLAW = "RegulationOrLaw";
-//    /** Reptile. */
-//    String REPTILE = "Reptile";
-//    /** ResearchActivity. */
-//    String RESEARCHACTIVITY = "ResearchActivity";
-//    /** ResearchDevice. */
-//    String RESEARCHDEVICE = "ResearchDevice";
-//    /** SelfhelpOrReliefOrganization. */
-//    String SELFHELPORRELIEFORGANIZATION = "SelfhelpOrReliefOrganization";
-//    /** SignOrSymptom. */
-//    String SIGNORSYMPTOM = "SignOrSymptom";
-//    /** SocialBehavior. */
-//    String SOCIALBEHAVIOR = "SocialBehavior";
-//    /** SpatialConcept. */
-//    String SPATIALCONCEPT = "SpatialConcept";
-//    /** Substance. */
-//    String SUBSTANCE = "Substance";
-//    /** TemporalConcept. */
-//    String TEMPORALCONCEPT = "TemporalConcept";
-//    /** TherapeuticOrPreventiveProcedure. */
-//    String THERAPEUTICORPREVENTIVEPROCEDURE = "TherapeuticOrPreventiveProcedure";
-//    /** Tissue. */
-//    String TISSUE = "Tissue";
-//    /** Vertebrate. */
-//    String VERTEBRATE = "Vertebrate";
-//    /** Virus. */
-//    String VIRUS = "Virus";
-//    /** Vitamin. */
-//    String VITAMIN = "Vitamin";
-//  }
-
-  private String corpus;
-  private String documentId;
-  private List<String> cuis;
-  private List<String> text;
-  private List<String> types;
-  private List<String> attributes;
-  private List<String> values;
-  private Long limit;
-  private String searchTagBegin;
-  private String searchTagEnd;
-  private String relatedTagBegin;
-  private String relatedTagEnd;
-  private Float minScore;
-  private String fields;
+  protected String corpus;
+  protected String documentId;
+  protected Float minScore;
+  protected List<String> cuis;
+  protected List<String> text;
+  protected List<String> types;
+  protected List<String> attributes;
+  protected List<String> values;
+  protected List<String> nluRelations;
+  protected Long limit;
+  protected String searchTagBegin;
+  protected String searchTagEnd;
+  protected String relatedTagBegin;
+  protected String relatedTagEnd;
+  protected String fields;
 
   /**
    * Builder.
@@ -304,34 +44,36 @@ public class GetSearchMatchesOptions extends GenericModel {
   public static class Builder {
     private String corpus;
     private String documentId;
+    private Float minScore;
     private List<String> cuis;
     private List<String> text;
     private List<String> types;
     private List<String> attributes;
     private List<String> values;
+    private List<String> nluRelations;
     private Long limit;
     private String searchTagBegin;
     private String searchTagEnd;
     private String relatedTagBegin;
     private String relatedTagEnd;
-    private Float minScore;
     private String fields;
 
     private Builder(GetSearchMatchesOptions getSearchMatchesOptions) {
-      corpus = getSearchMatchesOptions.corpus;
-      documentId = getSearchMatchesOptions.documentId;
-      cuis = getSearchMatchesOptions.cuis;
-      text = getSearchMatchesOptions.text;
-      types = getSearchMatchesOptions.types;
-      attributes = getSearchMatchesOptions.attributes;
-      values = getSearchMatchesOptions.values;
-      limit = getSearchMatchesOptions.limit;
-      searchTagBegin = getSearchMatchesOptions.searchTagBegin;
-      searchTagEnd = getSearchMatchesOptions.searchTagEnd;
-      relatedTagBegin = getSearchMatchesOptions.relatedTagBegin;
-      relatedTagEnd = getSearchMatchesOptions.relatedTagEnd;
-      minScore = getSearchMatchesOptions.minScore;
-      fields = getSearchMatchesOptions.fields;
+      this.corpus = getSearchMatchesOptions.corpus;
+      this.documentId = getSearchMatchesOptions.documentId;
+      this.minScore = getSearchMatchesOptions.minScore;
+      this.cuis = getSearchMatchesOptions.cuis;
+      this.text = getSearchMatchesOptions.text;
+      this.types = getSearchMatchesOptions.types;
+      this.attributes = getSearchMatchesOptions.attributes;
+      this.values = getSearchMatchesOptions.values;
+      this.nluRelations = getSearchMatchesOptions.nluRelations;
+      this.limit = getSearchMatchesOptions.limit;
+      this.searchTagBegin = getSearchMatchesOptions.searchTagBegin;
+      this.searchTagEnd = getSearchMatchesOptions.searchTagEnd;
+      this.relatedTagBegin = getSearchMatchesOptions.relatedTagBegin;
+      this.relatedTagEnd = getSearchMatchesOptions.relatedTagEnd;
+      this.fields = getSearchMatchesOptions.fields;
     }
 
     /**
@@ -356,7 +98,7 @@ public class GetSearchMatchesOptions extends GenericModel {
     /**
      * Builds a GetSearchMatchesOptions.
      *
-     * @return the getSearchMatchesOptions
+     * @return the new GetSearchMatchesOptions instance
      */
     public GetSearchMatchesOptions build() {
       return new GetSearchMatchesOptions(this);
@@ -369,7 +111,8 @@ public class GetSearchMatchesOptions extends GenericModel {
      * @return the GetSearchMatchesOptions builder
      */
     public Builder addCuis(String cuis) {
-      Validator.notNull(cuis, "cuis cannot be null");
+      com.ibm.cloud.sdk.core.util.Validator.notNull(cuis,
+        "cuis cannot be null");
       if (this.cuis == null) {
         this.cuis = new ArrayList<String>();
       }
@@ -384,7 +127,8 @@ public class GetSearchMatchesOptions extends GenericModel {
      * @return the GetSearchMatchesOptions builder
      */
     public Builder addText(String text) {
-      Validator.notNull(text, "text cannot be null");
+      com.ibm.cloud.sdk.core.util.Validator.notNull(text,
+        "text cannot be null");
       if (this.text == null) {
         this.text = new ArrayList<String>();
       }
@@ -399,7 +143,8 @@ public class GetSearchMatchesOptions extends GenericModel {
      * @return the GetSearchMatchesOptions builder
      */
     public Builder addTypes(String types) {
-      Validator.notNull(types, "types cannot be null");
+      com.ibm.cloud.sdk.core.util.Validator.notNull(types,
+        "types cannot be null");
       if (this.types == null) {
         this.types = new ArrayList<String>();
       }
@@ -414,7 +159,8 @@ public class GetSearchMatchesOptions extends GenericModel {
      * @return the GetSearchMatchesOptions builder
      */
     public Builder addAttributes(String attributes) {
-      Validator.notNull(attributes, "attributes cannot be null");
+      com.ibm.cloud.sdk.core.util.Validator.notNull(attributes,
+        "attributes cannot be null");
       if (this.attributes == null) {
         this.attributes = new ArrayList<String>();
       }
@@ -429,11 +175,28 @@ public class GetSearchMatchesOptions extends GenericModel {
      * @return the GetSearchMatchesOptions builder
      */
     public Builder addValues(String values) {
-      Validator.notNull(values, "values cannot be null");
+      com.ibm.cloud.sdk.core.util.Validator.notNull(values,
+        "values cannot be null");
       if (this.values == null) {
         this.values = new ArrayList<String>();
       }
       this.values.add(values);
+      return this;
+    }
+
+    /**
+     * Adds an nluRelations to nluRelations.
+     *
+     * @param nluRelations the new nluRelations
+     * @return the GetSearchMatchesOptions builder
+     */
+    public Builder addNluRelations(String nluRelations) {
+      com.ibm.cloud.sdk.core.util.Validator.notNull(nluRelations,
+        "nluRelations cannot be null");
+      if (this.nluRelations == null) {
+        this.nluRelations = new ArrayList<String>();
+      }
+      this.nluRelations.add(nluRelations);
       return this;
     }
 
@@ -456,6 +219,17 @@ public class GetSearchMatchesOptions extends GenericModel {
      */
     public Builder documentId(String documentId) {
       this.documentId = documentId;
+      return this;
+    }
+
+    /**
+     * Set the minScore.
+     *
+     * @param minScore the minScore
+     * @return the GetSearchMatchesOptions builder
+     */
+    public Builder minScore(Float minScore) {
+      this.minScore = minScore;
       return this;
     }
 
@@ -520,6 +294,18 @@ public class GetSearchMatchesOptions extends GenericModel {
     }
 
     /**
+     * Set the nluRelations.
+     * Existing nluRelations will be replaced.
+     *
+     * @param nluRelations the nluRelations
+     * @return the GetSearchMatchesOptions builder
+     */
+    public Builder nluRelations(List<String> nluRelations) {
+      this.nluRelations = nluRelations;
+      return this;
+    }
+
+    /**
      * Set the limit.
      *
      * @param limit the limit
@@ -575,17 +361,6 @@ public class GetSearchMatchesOptions extends GenericModel {
     }
 
     /**
-     * Set the minScore.
-     *
-     * @param minScore the minScore
-     * @return the GetSearchMatchesOptions builder
-     */
-    public Builder minScore(Float minScore) {
-      this.minScore = minScore;
-      return this;
-    }
-
-    /**
      * Set the fields.
      *
      * @param fields the fields
@@ -597,23 +372,27 @@ public class GetSearchMatchesOptions extends GenericModel {
     }
   }
 
-  private GetSearchMatchesOptions(Builder builder) {
-    Validator.notEmpty(builder.corpus, "corpus cannot be empty");
-    Validator.notEmpty(builder.documentId, "documentId cannot be empty");
-    Validator.notNull(builder.minScore, "minScore cannot be null");
+  protected GetSearchMatchesOptions(Builder builder) {
+    com.ibm.cloud.sdk.core.util.Validator.notEmpty(builder.corpus,
+      "corpus cannot be empty");
+    com.ibm.cloud.sdk.core.util.Validator.notEmpty(builder.documentId,
+      "documentId cannot be empty");
+    com.ibm.cloud.sdk.core.util.Validator.notNull(builder.minScore,
+      "minScore cannot be null");
     corpus = builder.corpus;
     documentId = builder.documentId;
+    minScore = builder.minScore;
     cuis = builder.cuis;
     text = builder.text;
     types = builder.types;
     attributes = builder.attributes;
     values = builder.values;
+    nluRelations = builder.nluRelations;
     limit = builder.limit;
     searchTagBegin = builder.searchTagBegin;
     searchTagEnd = builder.searchTagEnd;
     relatedTagBegin = builder.relatedTagBegin;
     relatedTagEnd = builder.relatedTagEnd;
-    minScore = builder.minScore;
     fields = builder.fields;
   }
 
@@ -649,13 +428,23 @@ public class GetSearchMatchesOptions extends GenericModel {
   }
 
   /**
+   * Gets the minScore.
+   *
+   * Minimum score .0 to 1.0.
+   *
+   * @return the minScore
+   */
+  public Float minScore() {
+    return minScore;
+  }
+
+  /**
    * Gets the cuis.
    *
    * cui[,rank,[type]] - Example: "C0030567,10". The rank is an optional value from 0 to 10 (defalut is 10). Special
    * rank values: 0=omit, 10=require. Related concepts can also be included by appending, '-PAR' (parents), '-CHD'
-   * (children), '-SIB' (siblings), or '-RQ' (related) to the CUI (eg., to include all children of C0030567:
-   * 'C0030567-CHD')).  The type may explicitly select a semanic type for a concept.  If no type is specified, a default
-   * type is selected.
+   * (children), or '-SIB' (siblings) to the CUI (eg., to include all children of C0030567: 'C0030567-CHD')).  The type
+   * may explicitly select a semanic type for a concept.  If no type is specified, a default type is selected.
    *
    * @return the cuis
    */
@@ -677,7 +466,8 @@ public class GetSearchMatchesOptions extends GenericModel {
   /**
    * Gets the types.
    *
-   * Highlight all text spans matching these semantic types.
+   * Highlight all text spans matching these semantic types.  Semantic types for the corpus can be found using the
+   * /v1/corpora/{corpus}/types method.
    *
    * @return the types
    */
@@ -689,7 +479,9 @@ public class GetSearchMatchesOptions extends GenericModel {
    * Gets the attributes.
    *
    * Highlight all text spans matching these attributes.  An attribute may also specify a range value (e.g.,
-   * age:years:65-100) or  a string value (e.g., gender:female).
+   * age:years:65-100) or  a string value (e.g., gender:female).  The attribute may be qualified with one or more
+   * qualifiers (e.g., Treated,Severe&gt;&gt;diabetes)  An attribute may target a specific CUI.  (e.g.,
+   * C0003864::disease).
    *
    * @return the attributes
    */
@@ -710,6 +502,17 @@ public class GetSearchMatchesOptions extends GenericModel {
   }
 
   /**
+   * Gets the nluRelations.
+   *
+   * Highlight all text spans matching these NLU relations.  e.g., druggroup,treat,indication.
+   *
+   * @return the nluRelations
+   */
+  public List<String> nluRelations() {
+    return nluRelations;
+  }
+
+  /**
    * Gets the limit.
    *
    * Limit the number of matching passages per search concept/search term (1 to 250).  Default is 50.
@@ -723,7 +526,7 @@ public class GetSearchMatchesOptions extends GenericModel {
   /**
    * Gets the searchTagBegin.
    *
-   * HTML tag used to highlight search concepts found in the text.  Default is '&ltb&gt'.
+   * HTML tag used to highlight search concepts found in the text.  Default is '&amp;ltb&amp;gt'.
    *
    * @return the searchTagBegin
    */
@@ -734,7 +537,7 @@ public class GetSearchMatchesOptions extends GenericModel {
   /**
    * Gets the searchTagEnd.
    *
-   * HTML tag used to highlight search concepts found in the text.  Default is '&lt/b&gt'.
+   * HTML tag used to highlight search concepts found in the text.  Default is '&amp;lt/b&amp;gt'.
    *
    * @return the searchTagEnd
    */
@@ -745,7 +548,7 @@ public class GetSearchMatchesOptions extends GenericModel {
   /**
    * Gets the relatedTagBegin.
    *
-   * HTML tag used to highlight related concepts found in the text.  Default is '&ltu&gt'.
+   * HTML tag used to highlight related concepts found in the text.
    *
    * @return the relatedTagBegin
    */
@@ -756,7 +559,7 @@ public class GetSearchMatchesOptions extends GenericModel {
   /**
    * Gets the relatedTagEnd.
    *
-   * HTML tag used to highlight related concepts found in the text.  Default is '&lt/u&gt'.
+   * HTML tag used to highlight related concepts found in the text.
    *
    * @return the relatedTagEnd
    */
@@ -765,21 +568,10 @@ public class GetSearchMatchesOptions extends GenericModel {
   }
 
   /**
-   * Gets the minScore.
-   *
-   * Minimum score .0 to 1.0.
-   *
-   * @return the minScore
-   */
-  public Float minScore() {
-    return minScore;
-  }
-
-  /**
    * Gets the fields.
    *
    * Comma separated list of fields to return:  passages, annotations, highlightedTitle, highlightedAbstract,
-   * highlightedBody.
+   * highlightedBody, highlightedSections.
    *
    * @return the fields
    */

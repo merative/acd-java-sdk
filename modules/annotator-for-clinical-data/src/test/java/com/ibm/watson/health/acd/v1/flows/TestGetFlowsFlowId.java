@@ -20,28 +20,25 @@ import org.junit.Test;
 import com.ibm.cloud.sdk.core.http.Response;
 import com.ibm.cloud.sdk.core.http.ServiceCall;
 import com.ibm.watson.health.acd.v1.AnnotatorForClinicalData;
-import com.ibm.watson.health.acd.v1.WatsonServiceTest;
 import com.ibm.watson.health.acd.v1.common.Constants;
 import com.ibm.watson.health.acd.v1.model.AcdFlow;
 import com.ibm.watson.health.acd.v1.model.AnnotatorFlow;
 import com.ibm.watson.health.acd.v1.model.Flow;
 import com.ibm.watson.health.acd.v1.model.FlowEntry;
-import com.ibm.watson.health.acd.v1.model.GetFlowOptions;
-import com.ibm.watson.health.acd.v1.model.GetFlowOptions.Builder;
+import com.ibm.watson.health.acd.v1.model.GetFlowsByIdOptions;
+import com.ibm.watson.health.acd.v1.utils.ServiceUtilities;
 
 /**
  *
  * Class for testing /v1/flows/{id}.
  *
  */
-public class TestGetFlowsFlowId extends WatsonServiceTest {
+public class TestGetFlowsFlowId {
 	private AnnotatorForClinicalData service;
 
 	public TestGetFlowsFlowId() {
-		super();
 		try {
-			this.setUp();
-			service = this.getServiceInstance();
+			service = ServiceUtilities.getServiceInstance();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -49,68 +46,19 @@ public class TestGetFlowsFlowId extends WatsonServiceTest {
 
 	@Test
 	public void testGetFlow() {
-		GetFlowOptions options = new GetFlowOptions.Builder().id(Constants.FLOW_ID).build();
+		GetFlowsByIdOptions options = new GetFlowsByIdOptions.Builder().id(Constants.FLOW_ID).build();
 
-		ServiceCall<AcdFlow> sc = service.getFlow(options);
+		ServiceCall<AcdFlow> sc = service.getFlowsById(options);
 		Response<AcdFlow> response = sc.execute();
 		AcdFlow flow = response.getResult();
 		Assert.assertNotNull(flow);
-		Assert.assertEquals(flow.getId(), Constants.FLOW_ID);
-		Assert.assertNotNull(flow.getName());
-		String desc = flow.getDescription();
+		Assert.assertEquals(flow.id(), Constants.FLOW_ID);
+		Assert.assertNotNull(flow.name());
+		String desc = flow.description();
 		if (desc != null) {
 			Assert.assertTrue(desc.length() > 0);
 		}
-		List<AnnotatorFlow> flowList = flow.getAnnotatorFlows();
-		if (flowList != null && !flowList.isEmpty()) {
-			for (AnnotatorFlow annoFlow : flowList) {
-				Flow flowForAnnotator = annoFlow.flow();
-				List<FlowEntry> flowEntries = flowForAnnotator.elements();
-				if (flowEntries != null && !flowEntries.isEmpty()) {
-					for (FlowEntry entry : flowEntries) {
-						Assert.assertNotNull(entry);
-					}
-				}
-			}
-		}
-	}
-
-	@Test
-	public void testGetFlowForId() {
-		AcdFlow flow  = service.getFlow(Constants.FLOW_ID);
-		Assert.assertNotNull(flow);
-		Assert.assertEquals(flow.getId(), Constants.FLOW_ID);
-		Assert.assertNotNull(flow.getName());
-		String desc = flow.getDescription();
-		if (desc != null) {
-			Assert.assertTrue(desc.length() > 0);
-		}
-		List<AnnotatorFlow> flowList = flow.getAnnotatorFlows();
-		if (flowList != null && !flowList.isEmpty()) {
-			for (AnnotatorFlow annoFlow : flowList) {
-				Flow flowForAnnotator = annoFlow.flow();
-				List<FlowEntry> flowEntries = flowForAnnotator.elements();
-				if (flowEntries != null && !flowEntries.isEmpty()) {
-					for (FlowEntry entry : flowEntries) {
-						Assert.assertNotNull(entry);
-					}
-				}
-			}
-		}
-	}
-
-	@Test
-	public void testGetFlowIncResponseDetail() {
-		Response<AcdFlow> response = service.getFlowInclResponseDetails(Constants.FLOW_ID);
-		AcdFlow flow = response.getResult();
-		Assert.assertNotNull(flow);
-		Assert.assertEquals(flow.getId(), Constants.FLOW_ID);
-		Assert.assertNotNull(flow.getName());
-		String desc = flow.getDescription();
-		if (desc != null) {
-			Assert.assertTrue(desc.length() > 0);
-		}
-		List<AnnotatorFlow> flowList = flow.getAnnotatorFlows();
+		List<AnnotatorFlow> flowList = flow.annotatorFlows();
 		if (flowList != null && !flowList.isEmpty()) {
 			for (AnnotatorFlow annoFlow : flowList) {
 				Flow flowForAnnotator = annoFlow.flow();
@@ -126,19 +74,19 @@ public class TestGetFlowsFlowId extends WatsonServiceTest {
 
 	@Test
 	public void testGetFlowBuilder() {
-		GetFlowOptions options = new GetFlowOptions.Builder(Constants.FLOW_ID).build();
+		GetFlowsByIdOptions options = new GetFlowsByIdOptions.Builder(Constants.FLOW_ID).build();
 
-		ServiceCall<AcdFlow> sc = service.getFlow(options);
+		ServiceCall<AcdFlow> sc = service.getFlowsById(options);
 		Response<AcdFlow> response = sc.execute();
 		AcdFlow flow = response.getResult();
 		Assert.assertNotNull(flow);
-		Assert.assertNotNull(flow.getId());
-		Assert.assertNotNull(flow.getName());
-		String desc = flow.getDescription();
+		Assert.assertNotNull(flow.id());
+		Assert.assertNotNull(flow.name());
+		String desc = flow.description();
 		if (desc != null) {
 			Assert.assertTrue(desc.length() > 0);
 		}
-		List<AnnotatorFlow> flowList = flow.getAnnotatorFlows();
+		List<AnnotatorFlow> flowList = flow.annotatorFlows();
 		if (flowList != null && !flowList.isEmpty()) {
 			for (AnnotatorFlow annoFlow : flowList) {
 				Flow flowForAnnotator = annoFlow.flow();
@@ -150,12 +98,5 @@ public class TestGetFlowsFlowId extends WatsonServiceTest {
 				}
 			}
 		}
-	}
-
-	@Test
-	public void testBuilderFromOptions() {
-		GetFlowOptions options = new GetFlowOptions.Builder().id(Constants.FLOW_ID).build();
-		Builder builder = options.newBuilder();
-		Assert.assertNotNull(builder);
 	}
 }

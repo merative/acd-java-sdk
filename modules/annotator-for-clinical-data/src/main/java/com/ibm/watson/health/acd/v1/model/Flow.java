@@ -1,5 +1,5 @@
 /*
- * Copyright 2018 IBM Corp. All Rights Reserved.
+ * (C) Copyright IBM Corp. 2020.
  *
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with
  * the License. You may obtain a copy of the License at
@@ -15,17 +15,15 @@ package com.ibm.watson.health.acd.v1.model;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.ibm.watson.developer_cloud.service.model.GenericModel;
-import com.ibm.watson.developer_cloud.util.Validator;
-
+import com.ibm.cloud.sdk.core.service.model.GenericModel;
 
 /**
  * Flow.
  */
 public class Flow extends GenericModel {
 
-  private List<FlowEntry> elements;
-  private Boolean async = true;
+  protected List<FlowEntry> elements;
+  protected Boolean async;
 
   /**
    * Builder.
@@ -35,8 +33,8 @@ public class Flow extends GenericModel {
     private Boolean async;
 
     private Builder(Flow flow) {
-      elements = flow.elements;
-      async = flow.async;
+      this.elements = flow.elements;
+      this.async = flow.async;
     }
 
     /**
@@ -48,7 +46,7 @@ public class Flow extends GenericModel {
     /**
      * Builds a Flow.
      *
-     * @return the flow
+     * @return the new Flow instance
      */
     public Flow build() {
       return new Flow(this);
@@ -61,7 +59,8 @@ public class Flow extends GenericModel {
      * @return the Flow builder
      */
     public Builder addElements(FlowEntry elements) {
-      Validator.notNull(elements, "elements cannot be null");
+      com.ibm.cloud.sdk.core.util.Validator.notNull(elements,
+        "elements cannot be null");
       if (this.elements == null) {
         this.elements = new ArrayList<FlowEntry>();
       }
@@ -93,7 +92,7 @@ public class Flow extends GenericModel {
     }
   }
 
-  private Flow(Builder builder) {
+  protected Flow(Builder builder) {
     elements = builder.elements;
     async = builder.async;
   }
@@ -125,3 +124,4 @@ public class Flow extends GenericModel {
     return async;
   }
 }
+

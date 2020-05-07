@@ -20,24 +20,22 @@ import org.junit.Test;
 import com.ibm.cloud.sdk.core.http.Response;
 import com.ibm.cloud.sdk.core.http.ServiceCall;
 import com.ibm.watson.health.iml.v1.InsightsForMedicalLiteratureService;
-import com.ibm.watson.health.iml.v1.WatsonServiceTest;
-import com.ibm.watson.health.iml.v1.model.CorporaConfigModel;
-import com.ibm.watson.health.iml.v1.model.Corpus;
+import com.ibm.watson.health.iml.v1.model.CorporaConfig;
+import com.ibm.watson.health.iml.v1.model.CorpusModel;
 import com.ibm.watson.health.iml.v1.model.GetCorporaConfigOptions;
 import com.ibm.watson.health.iml.v1.model.GetCorporaConfigOptions.Builder;
+import com.ibm.watson.health.iml.v1.utils.ServiceUtilities;
 
 /**
  * Class for testing /v1/corpora api.
  *
  */
-public class TestGetCorpora extends WatsonServiceTest {
+public class TestGetCorpora {
 	private InsightsForMedicalLiteratureService imlService;
 
 	public TestGetCorpora() {
-		super();
 		try {
-			this.setUp();
-			imlService = this.getServiceInstance();
+			imlService = ServiceUtilities.getServiceInstance();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -46,13 +44,13 @@ public class TestGetCorpora extends WatsonServiceTest {
 	// retrieves the instance configuration
 	public void testGetCorporaConfig() {
 
-		ServiceCall<CorporaConfigModel> sc = imlService.getCorporaConfig();
+		ServiceCall<CorporaConfig> sc = imlService.getCorporaConfig();
 
 		try {
-			Response<CorporaConfigModel> response = sc.execute();
-			CorporaConfigModel ccm = response.getResult();
-			List<Corpus> corpusList = ccm.getCorpora();
-			for (Corpus corpusConfig : corpusList) {
+			Response<CorporaConfig> response = sc.execute();
+			CorporaConfig ccm = response.getResult();
+			List<CorpusModel> corpusList = ccm.getCorpora();
+			for (CorpusModel corpusConfig : corpusList) {
 				Assert.assertNotNull(corpusConfig.getCorpusName());
 				List<String> corpusOntologies = corpusConfig.getOntologies();
 				for (String ontology : corpusOntologies) {
@@ -68,13 +66,13 @@ public class TestGetCorpora extends WatsonServiceTest {
 	// retrieves the instance configuration - verbose data
 	public void testGetCorporaConfigVerbose() {
 		GetCorporaConfigOptions options = new GetCorporaConfigOptions.Builder().verbose(true).build();
-		ServiceCall<CorporaConfigModel> sc = imlService.getCorporaConfig(options);
+		ServiceCall<CorporaConfig> sc = imlService.getCorporaConfig(options);
 
 		try {
-			Response<CorporaConfigModel> response = sc.execute();
-			CorporaConfigModel ccm = response.getResult();
-			List<Corpus> corpusList = ccm.getCorpora();
-			for (Corpus corpusConfig : corpusList) {
+			Response<CorporaConfig> response = sc.execute();
+			CorporaConfig ccm = response.getResult();
+			List<CorpusModel> corpusList = ccm.getCorpora();
+			for (CorpusModel corpusConfig : corpusList) {
 				Assert.assertNotNull(corpusConfig.getCorpusName());
 				List<String> corpusOntologies = corpusConfig.getOntologies();
 				for (String ontology : corpusOntologies) {

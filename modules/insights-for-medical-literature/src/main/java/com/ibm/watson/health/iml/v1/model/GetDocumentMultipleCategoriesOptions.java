@@ -1,38 +1,33 @@
 /*
- * Copyright 2018 IBM Corp. All Rights Reserved.
+ * (C) Copyright IBM Corp. 2020.
  *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with
+ * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with
  * the License. You may obtain a copy of the License at
  *
  * http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing,
- * software distributed under the License is distributed on
- * an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND,
- * either express or implied. See the License for the
+ * Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on
+ * an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the
  * specific language governing permissions and limitations under the License.
  */
 package com.ibm.watson.health.iml.v1.model;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import com.ibm.cloud.sdk.core.service.model.GenericModel;
-import com.ibm.cloud.sdk.core.util.Validator;
 
 /**
  * The getDocumentMultipleCategories options.
  */
 public class GetDocumentMultipleCategoriesOptions extends GenericModel {
 
-  private String corpus;
-  private String documentId;
-  private String highlightTagBegin;
-  private String highlightTagEnd;
-  private String fields;
-  private List<Category> categories;
-  private Long limit;
+  protected String corpus;
+  protected String documentId;
+  protected List<Category> categories;
+  protected String highlightTagBegin;
+  protected String highlightTagEnd;
+  protected String fields;
+  protected Long limit;
 
   /**
    * Builder.
@@ -40,23 +35,20 @@ public class GetDocumentMultipleCategoriesOptions extends GenericModel {
   public static class Builder {
     private String corpus;
     private String documentId;
+    private List<Category> categories;
     private String highlightTagBegin;
     private String highlightTagEnd;
     private String fields;
-    private List<Category> categories;
     private Long limit;
 
-    private Builder(
-    		GetDocumentMultipleCategoriesOptions
-    		getDocumentMultipleCategoriesOptions) {
-      corpus = getDocumentMultipleCategoriesOptions.corpus;
-      documentId = getDocumentMultipleCategoriesOptions.documentId;
-      highlightTagBegin =
-    		  getDocumentMultipleCategoriesOptions.highlightTagBegin;
-      highlightTagEnd = getDocumentMultipleCategoriesOptions.highlightTagEnd;
-      fields = getDocumentMultipleCategoriesOptions.fields;
-      categories = getDocumentMultipleCategoriesOptions.categories;
-      limit = getDocumentMultipleCategoriesOptions.limit;
+    private Builder(GetDocumentMultipleCategoriesOptions getDocumentMultipleCategoriesOptions) {
+      this.corpus = getDocumentMultipleCategoriesOptions.corpus;
+      this.documentId = getDocumentMultipleCategoriesOptions.documentId;
+      this.categories = getDocumentMultipleCategoriesOptions.categories;
+      this.highlightTagBegin = getDocumentMultipleCategoriesOptions.highlightTagBegin;
+      this.highlightTagEnd = getDocumentMultipleCategoriesOptions.highlightTagEnd;
+      this.fields = getDocumentMultipleCategoriesOptions.fields;
+      this.limit = getDocumentMultipleCategoriesOptions.limit;
     }
 
     /**
@@ -79,25 +71,10 @@ public class GetDocumentMultipleCategoriesOptions extends GenericModel {
     /**
      * Builds a GetDocumentMultipleCategoriesOptions.
      *
-     * @return the getDocumentMultipleCategoriesOptions
+     * @return the new GetDocumentMultipleCategoriesOptions instance
      */
     public GetDocumentMultipleCategoriesOptions build() {
       return new GetDocumentMultipleCategoriesOptions(this);
-    }
-
-    /**
-     * Adds an categories to categories.
-     *
-     * @param categories the new categories
-     * @return the GetDocumentMultipleCategoriesOptions builder
-     */
-    public Builder addCategories(Category categories) {
-      Validator.notNull(categories, "categories cannot be null");
-      if (this.categories == null) {
-        this.categories = new ArrayList<Category>();
-      }
-      this.categories.add(categories);
-      return this;
     }
 
     /**
@@ -119,6 +96,17 @@ public class GetDocumentMultipleCategoriesOptions extends GenericModel {
      */
     public Builder documentId(String documentId) {
       this.documentId = documentId;
+      return this;
+    }
+
+    /**
+     * Set the categories.
+     *
+     * @param categories the annotation categories
+     * @return the GetDocumentMultipleCategoriesOptions builder
+     */
+    public Builder categories(List<Category> categories) {
+      this.categories = categories;
       return this;
     }
 
@@ -156,18 +144,6 @@ public class GetDocumentMultipleCategoriesOptions extends GenericModel {
     }
 
     /**
-     * Set the categories.
-     * Existing categories will be replaced.
-     *
-     * @param categories the categories
-     * @return the GetDocumentMultipleCategoriesOptions builder
-     */
-    public Builder categories(List<Category> categories) {
-      this.categories = categories;
-      return this;
-    }
-
-    /**
      * Set the limit.
      *
      * @param limit the limit
@@ -177,17 +153,20 @@ public class GetDocumentMultipleCategoriesOptions extends GenericModel {
       this.limit = limit;
       return this;
     }
+
   }
 
-  private GetDocumentMultipleCategoriesOptions(Builder builder) {
-    Validator.notEmpty(builder.corpus, "corpus cannot be empty");
-    Validator.notEmpty(builder.documentId, "documentId cannot be empty");
+  protected GetDocumentMultipleCategoriesOptions(Builder builder) {
+    com.ibm.cloud.sdk.core.util.Validator.notEmpty(builder.corpus,
+      "corpus cannot be empty");
+    com.ibm.cloud.sdk.core.util.Validator.notEmpty(builder.documentId,
+      "documentId cannot be empty");
     corpus = builder.corpus;
     documentId = builder.documentId;
+    categories = builder.categories;
     highlightTagBegin = builder.highlightTagBegin;
     highlightTagEnd = builder.highlightTagEnd;
     fields = builder.fields;
-    categories = builder.categories;
     limit = builder.limit;
   }
 
@@ -223,10 +202,20 @@ public class GetDocumentMultipleCategoriesOptions extends GenericModel {
   }
 
   /**
+   * Gets the categories.
+   *
+   * Annotation categories.
+   *
+   * @return the categories
+   */
+  public List<Category> categories() {
+    return categories;
+  }
+
+  /**
    * Gets the highlightTagBegin.
    *
-   * HTML tag used to highlight concepts found in the text.
-   * Default is '&ltb&gt'.
+   * HTML tag used to highlight concepts found in the text.  Default is '&amp;ltb&amp;gt'.
    *
    * @return the highlightTagBegin
    */
@@ -237,8 +226,7 @@ public class GetDocumentMultipleCategoriesOptions extends GenericModel {
   /**
    * Gets the highlightTagEnd.
    *
-   * HTML tag used to highlight concepts found in the text.
-   * Default is '&lt/b&gt'.
+   * HTML tag used to highlight concepts found in the text.  Default is '&amp;lt/b&amp;gt'.
    *
    * @return the highlightTagEnd
    */
@@ -249,9 +237,8 @@ public class GetDocumentMultipleCategoriesOptions extends GenericModel {
   /**
    * Gets the fields.
    *
-   * Comma separated list of fields to return:
-   *   passages, annotations, highlightedTitle, highlightedAbstract,
-   * highlightedBody.
+   * Comma separated list of fields to return:  passages, annotations, highlightedTitle, highlightedAbstract,
+   * highlightedBody, highlightedSections.
    *
    * @return the fields
    */
@@ -260,19 +247,9 @@ public class GetDocumentMultipleCategoriesOptions extends GenericModel {
   }
 
   /**
-   * Gets the categories.
-   *
-   * @return the categories
-   */
-  public List<Category> categories() {
-    return categories;
-  }
-
-  /**
    * Gets the limit.
    *
-   * Limit the number of passages per search concept (1 to 250).
-   * Default is 50.
+   * Limit the number of passages per search concept (1 to 250).  Default is 50.
    *
    * @return the limit
    */

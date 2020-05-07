@@ -12,34 +12,21 @@
  */
 package com.ibm.watson.health.acd.v1.model;
 
-import java.lang.reflect.Type;
-
-import com.google.gson.reflect.TypeToken;
-import com.ibm.watson.developer_cloud.service.model.DynamicModel;
-import com.ibm.watson.developer_cloud.util.GsonSerializationHelper;
+import com.ibm.cloud.sdk.core.service.model.GenericModel;
 
 
 /**
  * SectionAnnotation.
  */
-public class SectionAnnotation extends DynamicModel {
+public class SectionAnnotation extends GenericModel {
 
 
-  private Type beginType = new TypeToken<Long>() { } .getType();
-  private Type endType = new TypeToken<Long>() { } .getType();
-  private Type typeType = new TypeToken<String>() { } .getType();
-  private Type coveredTextType = new TypeToken<String>() { } .getType();
-  private Type sectionType = new TypeToken<String>() { } .getType();
-  private Type sectionTriggerType = new TypeToken<SectionTrigger>() { } .getType();
-
-
-
-
-
-
-
-
-
+  private Long beginType;
+  private Long endType;
+  private String typeType;
+  private String coveredTextType;
+  private String sectionType;
+  private SectionTrigger sectionTriggerType;
 
   /**
    * Gets the begin.
@@ -47,7 +34,7 @@ public class SectionAnnotation extends DynamicModel {
    * @return the begin
    */
   public Long getBegin() {
-    return GsonSerializationHelper.serializeDynamicModelProperty(this.get("begin"), beginType);
+    return beginType;
   }
 
   /**
@@ -56,7 +43,7 @@ public class SectionAnnotation extends DynamicModel {
    * @return the end
    */
   public Long getEnd() {
-    return GsonSerializationHelper.serializeDynamicModelProperty(this.get("end"), endType);
+    return endType;
   }
 
 
@@ -65,7 +52,7 @@ public class SectionAnnotation extends DynamicModel {
    * @return the sectionTrigger
    */
   public SectionTrigger getTrigger() {
-    return GsonSerializationHelper.serializeDynamicModelProperty(this.get("trigger"), sectionTriggerType);
+    return sectionTriggerType;
   }
 
 
@@ -75,7 +62,7 @@ public class SectionAnnotation extends DynamicModel {
    * @return the coveredText
    */
   public String getCoveredText() {
-    return GsonSerializationHelper.serializeDynamicModelProperty(this.get("coveredText"), coveredTextType);
+    return coveredTextType;
   }
 
 
@@ -85,7 +72,7 @@ public class SectionAnnotation extends DynamicModel {
    * @return the type
    */
   public String getType() {
-    return GsonSerializationHelper.serializeDynamicModelProperty(this.get("type"), typeType);
+    return typeType;
   }
 
   /**
@@ -94,7 +81,7 @@ public class SectionAnnotation extends DynamicModel {
    * @return the type
    */
   public String getSectionType() {
-    return GsonSerializationHelper.serializeDynamicModelProperty(this.get("sectionType"), typeType);
+    return typeType;
   }
 
 

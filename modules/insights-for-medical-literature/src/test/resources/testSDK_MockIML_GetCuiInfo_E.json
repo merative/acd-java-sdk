@@ -1,6 +1,0 @@
-{
-  "code": 400,
-  "message": "Bad Request",
-  "level": "ERROR",
-  "description": "CUI F is not mentioned in corpus medline2017"
-}

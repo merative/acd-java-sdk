@@ -1,25 +1,33 @@
+/*
+ * Copyright 2018 IBM Corp. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with
+ * the License. You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on
+ * an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the
+ * specific language governing permissions and limitations under the License.
+ */
 package com.ibm.watson.health.acd.v1.model;
 
-import java.lang.reflect.Type;
+import com.ibm.cloud.sdk.core.service.model.GenericModel;
 
-import com.google.gson.reflect.TypeToken;
-import com.ibm.watson.developer_cloud.service.model.DynamicModel;
-import com.ibm.watson.developer_cloud.util.GsonSerializationHelper;
-
-public class NluEntity extends DynamicModel {
+public class NluEntity extends GenericModel {
 
   /*
    * Manually added code below
    */
 
-  private Type beginType = new TypeToken<Long>() { } .getType();
-  private Type endType = new TypeToken<Long>() { } .getType();
-  private Type typeType = new TypeToken<String>() { } .getType();
-  private Type coveredTextType = new TypeToken<String>() { } .getType();
-  private Type relevanceType = new TypeToken<Double>() { } .getType();
-  private Type sectionNormalizedNameType = new TypeToken<String>() { } .getType();
-  private Type sectionSurfaceFormType = new TypeToken<String>() { } .getType();
-  private Type sourceType = new TypeToken<String>() { } .getType();
+  private Long beginType;
+  private Long endType;
+  private String typeType;
+  private String coveredTextType;
+  private Double relevanceType;
+  private String sectionNormalizedNameType;
+  private String sectionSurfaceFormType;
+  private String sourceType;
 
   /**
    * Gets the begin.
@@ -27,7 +35,7 @@ public class NluEntity extends DynamicModel {
    * @return the begin
    */
   public Long getBegin() {
-    return GsonSerializationHelper.serializeDynamicModelProperty(this.get("begin"), beginType);
+    return beginType;
   }
 
   /**
@@ -36,7 +44,7 @@ public class NluEntity extends DynamicModel {
    * @return the end
    */
   public Long getEnd() {
-    return GsonSerializationHelper.serializeDynamicModelProperty(this.get("end"), endType);
+    return endType;
   }
 
   /**
@@ -45,7 +53,7 @@ public class NluEntity extends DynamicModel {
    * @return the type
    */
   public String getType() {
-    return GsonSerializationHelper.serializeDynamicModelProperty(this.get("type"), typeType);
+    return typeType;
   }
 
   /**
@@ -54,7 +62,7 @@ public class NluEntity extends DynamicModel {
    * @return the coveredText
    */
   public String getCoveredText() {
-    return GsonSerializationHelper.serializeDynamicModelProperty(this.get("coveredText"), coveredTextType);
+    return coveredTextType;
   }
 
   /**
@@ -63,7 +71,7 @@ public class NluEntity extends DynamicModel {
    * @return the type
    */
   public Double getRelevance() {
-    return GsonSerializationHelper.serializeDynamicModelProperty(this.get("relevance"), relevanceType);
+    return relevanceType;
   }
 
   /**
@@ -72,7 +80,7 @@ public class NluEntity extends DynamicModel {
    * @return the sectionNormalizedName
    */
   public String getSectionNormalizedName() {
-    return GsonSerializationHelper.serializeDynamicModelProperty(this.get("sectionNormalizedName"), sectionNormalizedNameType);
+    return sectionNormalizedNameType;
   }
 
   /**
@@ -81,7 +89,7 @@ public class NluEntity extends DynamicModel {
    * @return the sectionSurfaceForm
    */
   public String getSectionSurfaceForm() {
-    return GsonSerializationHelper.serializeDynamicModelProperty(this.get("sectionSurfaceForm"), sectionSurfaceFormType);
+    return sectionSurfaceFormType;
   }
 
   /**
@@ -90,7 +98,7 @@ public class NluEntity extends DynamicModel {
    * @return the source
    */
   public String getSource() {
-    return GsonSerializationHelper.serializeDynamicModelProperty(this.get("source"), sourceType);
+    return sourceType;
   }
 
 

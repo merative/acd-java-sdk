@@ -11,7 +11,7 @@
  * specific language governing permissions and limitations under the License.
  */
 package com.ibm.watson.health.iml.v1.concepts;
-
+import static com.ibm.watson.health.iml.v1.utils.ServiceUtilities.getProperty;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -21,26 +21,24 @@ import org.junit.Test;
 import com.ibm.cloud.sdk.core.http.Response;
 import com.ibm.cloud.sdk.core.http.ServiceCall;
 import com.ibm.watson.health.iml.v1.InsightsForMedicalLiteratureService;
-import com.ibm.watson.health.iml.v1.WatsonServiceTest;
 import com.ibm.watson.health.iml.v1.common.Constants;
+import com.ibm.watson.health.iml.v1.model.ArtifactModel;
 import com.ibm.watson.health.iml.v1.model.ConceptListModel;
 import com.ibm.watson.health.iml.v1.model.ConceptModel;
 import com.ibm.watson.health.iml.v1.model.GetSimilarConceptsOptions;
 import com.ibm.watson.health.iml.v1.model.GetSimilarConceptsOptions.Builder;
+import com.ibm.watson.health.iml.v1.utils.ServiceUtilities;
 
 /**
  * Class for testing /v1/corpora/{corpus}/concepts/{name_of_id}/similar_concepts api.
  *
  */
-public class TestGetConceptSimilarConcepts extends WatsonServiceTest {
+public class TestGetConceptSimilarConcepts {
 	private InsightsForMedicalLiteratureService imlService;
 
 	public TestGetConceptSimilarConcepts() {
-		super();
 		try {
-			this.setUp();
-			imlService = this.getServiceInstance();
-			imlService = this.getServiceInstance();
+			imlService = ServiceUtilities.getServiceInstance();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -54,8 +52,8 @@ public class TestGetConceptSimilarConcepts extends WatsonServiceTest {
 		ServiceCall<ConceptListModel> sc = imlService.getSimilarConcepts(options);
 		Response<ConceptListModel> response = sc.execute();
 		ConceptListModel clm = response.getResult();
-		List<ConceptModel> concepts = clm.getConcepts();
-		for (ConceptModel concept : concepts) {
+		List<ArtifactModel> concepts = clm.getConcepts();
+		for (ArtifactModel concept : concepts) {
 			Assert.assertNotNull(concept.getCui());
 			Assert.assertEquals(concept.getOntology(), "mesh");
 			Assert.assertNotNull(concept.getPreferredName());
@@ -71,8 +69,8 @@ public class TestGetConceptSimilarConcepts extends WatsonServiceTest {
 		ServiceCall<ConceptListModel> sc = imlService.getSimilarConcepts(options);
 		Response<ConceptListModel> response = sc.execute();
 		ConceptListModel clm = response.getResult();
-		List<ConceptModel> concepts = clm.getConcepts();
-		for (ConceptModel concept : concepts) {
+		List<ArtifactModel> concepts = clm.getConcepts();
+		for (ArtifactModel concept : concepts) {
 			Assert.assertNotNull(concept.getCui());
 			Assert.assertEquals(concept.getOntology(), "mesh");
 			Assert.assertNotNull(concept.getPreferredName());
@@ -88,8 +86,8 @@ public class TestGetConceptSimilarConcepts extends WatsonServiceTest {
 		ServiceCall<ConceptListModel> sc = imlService.getSimilarConcepts(options);
 		Response<ConceptListModel> response = sc.execute();
 		ConceptListModel clm = response.getResult();
-		List<ConceptModel> concepts = clm.getConcepts();
-		for (ConceptModel concept : concepts) {
+		List<ArtifactModel> concepts = clm.getConcepts();
+		for (ArtifactModel concept : concepts) {
 			Assert.assertNotNull(concept.getCui());
 			Assert.assertEquals(concept.getOntology(), "mesh");
 			Assert.assertNotNull(concept.getPreferredName());
@@ -108,8 +106,8 @@ public class TestGetConceptSimilarConcepts extends WatsonServiceTest {
 		ServiceCall<ConceptListModel> sc = imlService.getSimilarConcepts(options);
 		Response<ConceptListModel> response = sc.execute();
 		ConceptListModel clm = response.getResult();
-		List<ConceptModel> concepts = clm.getConcepts();
-		for (ConceptModel concept : concepts) {
+		List<ArtifactModel> concepts = clm.getConcepts();
+		for (ArtifactModel concept : concepts) {
 			Assert.assertNotNull(concept.getCui());
 			Assert.assertNotNull(concept.getOntology());
 			Assert.assertNotNull(concept.getPreferredName());
@@ -126,8 +124,8 @@ public class TestGetConceptSimilarConcepts extends WatsonServiceTest {
 		ServiceCall<ConceptListModel> sc = imlService.getSimilarConcepts(builder.build());
 		Response<ConceptListModel> response = sc.execute();
 		ConceptListModel clm = response.getResult();
-		List<ConceptModel> concepts = clm.getConcepts();
-		for (ConceptModel concept : concepts) {
+		List<ArtifactModel> concepts = clm.getConcepts();
+		for (ArtifactModel concept : concepts) {
 			Assert.assertNotNull(concept.getCui());
 			Assert.assertEquals(concept.getOntology(), "mesh");
 			Assert.assertNotNull(concept.getPreferredName());

@@ -18,18 +18,16 @@ import org.junit.Test;
 import com.ibm.cloud.sdk.core.http.Response;
 import com.ibm.cloud.sdk.core.http.ServiceCall;
 import com.ibm.watson.health.iml.v1.InsightsForMedicalLiteratureService;
-import com.ibm.watson.health.iml.v1.WatsonServiceTest;
 import com.ibm.watson.health.iml.v1.model.MonitorCorpusOptions;
 import com.ibm.watson.health.iml.v1.model.MonitorCorpusOptions.Builder;
+import com.ibm.watson.health.iml.v1.utils.ServiceUtilities;
 
-public class TestMonitorCorpus extends WatsonServiceTest {
+public class TestMonitorCorpus {
 	private InsightsForMedicalLiteratureService imlService;
 
 	public TestMonitorCorpus() {
-		super();
 		try {
-			this.setUp();
-			imlService = this.getServiceInstance();
+			imlService = ServiceUtilities.getServiceInstance();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

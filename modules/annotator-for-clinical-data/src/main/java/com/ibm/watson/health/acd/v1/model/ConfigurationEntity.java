@@ -1,5 +1,5 @@
 /*
- * Copyright 2018 IBM Corp. All Rights Reserved.
+ * (C) Copyright IBM Corp. 2020.
  *
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with
  * the License. You may obtain a copy of the License at
@@ -12,23 +12,116 @@
  */
 package com.ibm.watson.health.acd.v1.model;
 
-import com.ibm.watson.developer_cloud.service.model.GenericModel;
+import com.ibm.cloud.sdk.core.service.model.GenericModel;
 
 /**
  * ConfigurationEntity.
  */
 public class ConfigurationEntity extends GenericModel {
 
-  private String id;
-  private String type;
-  private Long uid;
+  protected String id;
+  protected String type;
+  protected Long uid;
+  protected Long mergeid;
+
+  /**
+   * Builder.
+   */
+  public static class Builder {
+    private String id;
+    private String type;
+    private Long uid;
+    private Long mergeid;
+
+    private Builder(ConfigurationEntity configurationEntity) {
+      this.id = configurationEntity.id;
+      this.type = configurationEntity.type;
+      this.uid = configurationEntity.uid;
+      this.mergeid = configurationEntity.mergeid;
+    }
+
+    /**
+     * Instantiates a new builder.
+     */
+    public Builder() {
+    }
+
+    /**
+     * Builds a ConfigurationEntity.
+     *
+     * @return the new ConfigurationEntity instance
+     */
+    public ConfigurationEntity build() {
+      return new ConfigurationEntity(this);
+    }
+
+    /**
+     * Set the id.
+     *
+     * @param id the id
+     * @return the ConfigurationEntity builder
+     */
+    public Builder id(String id) {
+      this.id = id;
+      return this;
+    }
+
+    /**
+     * Set the type.
+     *
+     * @param type the type
+     * @return the ConfigurationEntity builder
+     */
+    public Builder type(String type) {
+      this.type = type;
+      return this;
+    }
+
+    /**
+     * Set the uid.
+     *
+     * @param uid the uid
+     * @return the ConfigurationEntity builder
+     */
+    public Builder uid(long uid) {
+      this.uid = uid;
+      return this;
+    }
+
+    /**
+     * Set the mergeid.
+     *
+     * @param mergeid the mergeid
+     * @return the ConfigurationEntity builder
+     */
+    public Builder mergeid(long mergeid) {
+      this.mergeid = mergeid;
+      return this;
+    }
+  }
+
+  protected ConfigurationEntity(Builder builder) {
+    id = builder.id;
+    type = builder.type;
+    uid = builder.uid;
+    mergeid = builder.mergeid;
+  }
+
+  /**
+   * New builder.
+   *
+   * @return a ConfigurationEntity builder
+   */
+  public Builder newBuilder() {
+    return new Builder(this);
+  }
 
   /**
    * Gets the id.
    *
    * @return the id
    */
-  public String getId() {
+  public String id() {
     return id;
   }
 
@@ -37,7 +130,7 @@ public class ConfigurationEntity extends GenericModel {
    *
    * @return the type
    */
-  public String getType() {
+  public String type() {
     return type;
   }
 
@@ -46,34 +139,17 @@ public class ConfigurationEntity extends GenericModel {
    *
    * @return the uid
    */
-  public Long getUid() {
+  public Long uid() {
     return uid;
   }
 
   /**
-   * Sets the id.
+   * Gets the mergeid.
    *
-   * @param id the new id
+   * @return the mergeid
    */
-  public void setId(final String id) {
-    this.id = id;
-  }
-
-  /**
-   * Sets the type.
-   *
-   * @param type the new type
-   */
-  public void setType(final String type) {
-    this.type = type;
-  }
-
-  /**
-   * Sets the uid.
-   *
-   * @param uid the new uid
-   */
-  public void setUid(final long uid) {
-    this.uid = uid;
+  public Long mergeid() {
+    return mergeid;
   }
 }
+

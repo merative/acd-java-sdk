@@ -11,7 +11,7 @@
  * specific language governing permissions and limitations under the License.
  */
 package com.ibm.watson.health.iml.v1.concepts;
-
+import static com.ibm.watson.health.iml.v1.utils.ServiceUtilities.getProperty;
 import java.util.List;
 
 import org.junit.Assert;
@@ -20,22 +20,20 @@ import org.junit.Test;
 import com.ibm.cloud.sdk.core.http.Response;
 import com.ibm.cloud.sdk.core.http.ServiceCall;
 import com.ibm.watson.health.iml.v1.InsightsForMedicalLiteratureService;
-import com.ibm.watson.health.iml.v1.WatsonServiceTest;
 import com.ibm.watson.health.iml.v1.model.GetRelatedConceptsOptions;
 import com.ibm.watson.health.iml.v1.model.GetRelatedConceptsOptions.Builder;
 import com.ibm.watson.health.iml.v1.model.RelatedConceptModel;
 import com.ibm.watson.health.iml.v1.model.RelatedConceptsModel;
+import com.ibm.watson.health.iml.v1.utils.ServiceUtilities;
 
-public class TestGetConceptRelatedConcepts extends WatsonServiceTest {
+public class TestGetConceptRelatedConcepts {
 
 	static final String CORPUS = "CORPUS";
 	private InsightsForMedicalLiteratureService imlService;
 
 	public TestGetConceptRelatedConcepts() {
-		super();
 		try {
-			this.setUp();
-			imlService = this.getServiceInstance();
+			imlService = ServiceUtilities.getServiceInstance();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -44,7 +42,7 @@ public class TestGetConceptRelatedConcepts extends WatsonServiceTest {
 	@Test
 	public void getRelatedConcepts() {
 		GetRelatedConceptsOptions options = new GetRelatedConceptsOptions.Builder().corpus(getProperty(CORPUS))
-				.cui("C0243026").relationship("children").maxHitCount(10000).verbose(false).build();
+				.nameOrId("C0243026").relationship("children").maxDepth(10000).build();
 
 		ServiceCall<RelatedConceptsModel> sc = imlService.getRelatedConcepts(options);
 		Response<RelatedConceptsModel> response = sc.execute();
@@ -55,7 +53,7 @@ public class TestGetConceptRelatedConcepts extends WatsonServiceTest {
 	@Test
 	public void getRelatedConceptsOntology() {
 		GetRelatedConceptsOptions options = new GetRelatedConceptsOptions.Builder().corpus(getProperty(CORPUS))
-				.cui("C0243026").relationship("children").ontology("umls").build();
+				.nameOrId("C0243026").relationship("children").ontology("umls").build();
 
 		ServiceCall<RelatedConceptsModel> sc = imlService.getRelatedConcepts(options);
 		Response<RelatedConceptsModel> response = sc.execute();
@@ -66,7 +64,7 @@ public class TestGetConceptRelatedConcepts extends WatsonServiceTest {
 	@Test
 	public void getRelatedConceptsRecursive() {
 		GetRelatedConceptsOptions options = new GetRelatedConceptsOptions.Builder().corpus(getProperty(CORPUS))
-				.cui("C0243026").relationship("children").recursive(true).build();
+				.nameOrId("C0243026").relationship("children").recursive(true).build();
 
 		ServiceCall<RelatedConceptsModel> sc = imlService.getRelatedConcepts(options);
 		Response<RelatedConceptsModel> response = sc.execute();
@@ -77,7 +75,7 @@ public class TestGetConceptRelatedConcepts extends WatsonServiceTest {
 	@Test
 	public void getRelatedConceptsSingleLayerMaxDepth() {
 		GetRelatedConceptsOptions options = new GetRelatedConceptsOptions.Builder().corpus(getProperty(CORPUS))
-				.cui("C0243026").relationship("children").maxDepth(1).build();
+				.nameOrId("C0243026").relationship("children").maxDepth(1).build();
 
 		ServiceCall<RelatedConceptsModel> sc = imlService.getRelatedConcepts(options);
 		Response<RelatedConceptsModel> response = sc.execute();
@@ -88,7 +86,7 @@ public class TestGetConceptRelatedConcepts extends WatsonServiceTest {
 	@Test
 	public void getRelatedConceptsTreeLayout() {
 		GetRelatedConceptsOptions options = new GetRelatedConceptsOptions.Builder().corpus(getProperty(CORPUS))
-				.cui("C0243026").relationship("children").treeLayout(true).build();
+				.nameOrId("C0243026").relationship("children").treeLayout(true).build();
 
 		ServiceCall<RelatedConceptsModel> sc = imlService.getRelatedConcepts(options);
 		Response<RelatedConceptsModel> response = sc.execute();
@@ -110,7 +108,7 @@ public class TestGetConceptRelatedConcepts extends WatsonServiceTest {
 	@Test
 	public void getRelatedConceptsBuilderFromOptions() {
 		GetRelatedConceptsOptions options = new GetRelatedConceptsOptions.Builder().corpus(getProperty(CORPUS))
-				.cui("C0243026").relationship("children").treeLayout(true).build();
+				.nameOrId("C0243026").relationship("children").treeLayout(true).build();
 		Builder builder = options.newBuilder();
 	}
 
