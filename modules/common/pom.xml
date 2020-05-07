@@ -4,7 +4,7 @@
 
     <parent>
         <artifactId>ibm-whcs-services</artifactId>
-        <groupId>com.ibm.watson.health.cognitive_services</groupId>
+        <groupId>com.ibm.watson.health.cognitive-services</groupId>
 	    <version>1.0.1-SNAPSHOT</version>
         <relativePath>../../pom.xml</relativePath>
     </parent>
