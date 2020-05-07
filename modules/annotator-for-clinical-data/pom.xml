@@ -68,7 +68,11 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
       <groupId>com.ibm.watson.health.cognitive-services</groupId>
+=======
+      <groupId>com.ibm.watson.health.cognitive_services</groupId>
+>>>>>>> parent of 5898eab... new SDK generator version updates
 =======
       <groupId>com.ibm.watson.health.cognitive_services</groupId>
 >>>>>>> parent of 5898eab... new SDK generator version updates
