@@ -21,28 +21,27 @@ import org.junit.Test;
 import com.ibm.cloud.sdk.core.http.Response;
 import com.ibm.cloud.sdk.core.http.ServiceCall;
 import com.ibm.watson.health.iml.v1.InsightsForMedicalLiteratureService;
-import com.ibm.watson.health.iml.v1.WatsonServiceTest;
 import com.ibm.watson.health.iml.v1.common.Constants;
 import com.ibm.watson.health.iml.v1.model.AnnotationModel;
 import com.ibm.watson.health.iml.v1.model.AnnotationsModel;
+import com.ibm.watson.health.iml.v1.model.ConceptModel;
 import com.ibm.watson.health.iml.v1.model.DataModel;
 import com.ibm.watson.health.iml.v1.model.GetDocumentAnnotationsOptions;
 import com.ibm.watson.health.iml.v1.model.GetDocumentAnnotationsOptions.Builder;
 import com.ibm.watson.health.iml.v1.model.UnstructuredModel;
+import com.ibm.watson.health.iml.v1.utils.ServiceUtilities;
 
 /**
  *
  * Class for testing /v1/corpoora/{corpus}/documents/{document_id}/annotations.
  *
  */
-public class TestGetDocumentsDocumentAnnotations extends WatsonServiceTest {
+public class TestGetDocumentsDocumentAnnotations {
 	private InsightsForMedicalLiteratureService imlService;
 
 	public TestGetDocumentsDocumentAnnotations() {
-		super();
 		try {
-			this.setUp();
-			imlService = this.getServiceInstance();
+			imlService = ServiceUtilities.getServiceInstance();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -51,7 +50,7 @@ public class TestGetDocumentsDocumentAnnotations extends WatsonServiceTest {
 	@Test
 	public void testGetDocumentAnnotations() {
 		GetDocumentAnnotationsOptions options = new GetDocumentAnnotationsOptions.Builder()
-				.corpus(getProperty(Constants.CORPUS)).documentId(Constants.TEST_DOCUMENT_ID)
+				.corpus(ServiceUtilities.getProperty(Constants.CORPUS)).documentId(Constants.TEST_DOCUMENT_ID)
 				.documentSection(Constants.DOCUMENT_ANNOTATION_SECTION).build();
 
 		ServiceCall<AnnotationsModel> sc = imlService.getDocumentAnnotations(options);
@@ -62,9 +61,9 @@ public class TestGetDocumentsDocumentAnnotations extends WatsonServiceTest {
 		for (UnstructuredModel unstructuredModel : unstructuredModelList) {
 			DataModel data = unstructuredModel.getData();
 			Assert.assertNotNull(data);
-			List<AnnotationModel> concepts = data.getConcepts();
+			List<ConceptModel> concepts = data.getConcepts();
 			Assert.assertNotNull(concepts);
-			for (AnnotationModel annotation : concepts) {
+			for (ConceptModel annotation : concepts) {
 				Assert.assertNull(annotation.getAttributeId());
 				Assert.assertNotNull(annotation.getCui());
 				Assert.assertNotNull(annotation.getPreferredName());
@@ -73,9 +72,9 @@ public class TestGetDocumentsDocumentAnnotations extends WatsonServiceTest {
 				Assert.assertNotNull(annotation.getSection());
 				Assert.assertTrue(annotation.getBegin() < annotation.getEnd());
 			}
-			List<AnnotationModel> attributes = data.getAttributeValues();
+			List<ConceptModel> attributes = data.getAttributeValues();
 			Assert.assertNotNull(attributes);
-			for (AnnotationModel annotation : attributes) {
+			for (ConceptModel annotation : attributes) {
 				Assert.assertNotNull(annotation.getAttributeId());
 				Assert.assertNotNull(annotation.getPreferredName());
 				Assert.assertNotNull(annotation.getSource());
@@ -83,16 +82,13 @@ public class TestGetDocumentsDocumentAnnotations extends WatsonServiceTest {
 				Assert.assertNotNull(annotation.getSection());
 				Assert.assertTrue(annotation.getBegin() < annotation.getEnd());
 			}
-			//default analytics don't include hypothetical or negations
-			Assert.assertNull(data.getHypotheticalSpans());
-			Assert.assertNull(data.getNegatedSpans());
 		}
 	}
 
 	@Test
 	public void testGetDocumentAnnotationsIncludeText() {
 		GetDocumentAnnotationsOptions options = new GetDocumentAnnotationsOptions.Builder()
-				.corpus(getProperty(Constants.CORPUS)).documentId(Constants.TEST_DOCUMENT_ID)
+				.corpus(ServiceUtilities.getProperty(Constants.CORPUS)).documentId(Constants.TEST_DOCUMENT_ID)
 				.documentSection(Constants.DOCUMENT_ANNOTATION_SECTION).includeText(true).build();
 
 		ServiceCall<AnnotationsModel> sc = imlService.getDocumentAnnotations(options);
@@ -104,9 +100,9 @@ public class TestGetDocumentsDocumentAnnotations extends WatsonServiceTest {
 			Assert.assertNotNull(unstructuredModel.getText());
 			DataModel data = unstructuredModel.getData();
 			Assert.assertNotNull(data);
-			List<AnnotationModel> concepts = data.getConcepts();
+			List<ConceptModel> concepts = data.getConcepts();
 			Assert.assertNotNull(concepts);
-			for (AnnotationModel annotation : concepts) {
+			for (ConceptModel annotation : concepts) {
 				Assert.assertNull(annotation.getAttributeId());
 				Assert.assertNotNull(annotation.getCui());
 				Assert.assertNotNull(annotation.getPreferredName());
@@ -115,9 +111,9 @@ public class TestGetDocumentsDocumentAnnotations extends WatsonServiceTest {
 				Assert.assertNotNull(annotation.getSection());
 				Assert.assertTrue(annotation.getBegin() < annotation.getEnd());
 			}
-			List<AnnotationModel> attributes = data.getAttributeValues();
+			List<ConceptModel> attributes = data.getAttributeValues();
 			Assert.assertNotNull(attributes);
-			for (AnnotationModel annotation : attributes) {
+			for (ConceptModel annotation : attributes) {
 				Assert.assertNotNull(annotation.getAttributeId());
 				Assert.assertNotNull(annotation.getPreferredName());
 				Assert.assertNotNull(annotation.getSource());
@@ -125,16 +121,13 @@ public class TestGetDocumentsDocumentAnnotations extends WatsonServiceTest {
 				Assert.assertNotNull(annotation.getSection());
 				Assert.assertTrue(annotation.getBegin() < annotation.getEnd());
 			}
-			//default analytics don't include hypothetical or negations
-			Assert.assertNull(data.getHypotheticalSpans());
-			Assert.assertNull(data.getNegatedSpans());
 		}
 	}
 
 	@Test
 	public void testGetDocumentAnnotationsSpecificArtifacts() {
 		GetDocumentAnnotationsOptions options = new GetDocumentAnnotationsOptions.Builder()
-				.corpus(getProperty(Constants.CORPUS)).documentId(Constants.TEST_DOCUMENT_ID)
+				.corpus(ServiceUtilities.getProperty(Constants.CORPUS)).documentId(Constants.TEST_DOCUMENT_ID)
 				.documentSection(Constants.DOCUMENT_ANNOTATION_SECTION).addCuis("C0007028").build();
 
 		ServiceCall<AnnotationsModel> sc = imlService.getDocumentAnnotations(options);
@@ -145,9 +138,9 @@ public class TestGetDocumentsDocumentAnnotations extends WatsonServiceTest {
 		for (UnstructuredModel unstructuredModel : unstructuredModelList) {
 			DataModel data = unstructuredModel.getData();
 			Assert.assertNotNull(data);
-			List<AnnotationModel> concepts = data.getConcepts();
+			List<ConceptModel> concepts = data.getConcepts();
 			Assert.assertNotNull(concepts);
-			for (AnnotationModel annotation : concepts) {
+			for (ConceptModel annotation : concepts) {
 				Assert.assertNull(annotation.getAttributeId());
 				Assert.assertNotNull(annotation.getCui());
 				Assert.assertNotNull(annotation.getPreferredName());
@@ -166,7 +159,7 @@ public class TestGetDocumentsDocumentAnnotations extends WatsonServiceTest {
 		cuis.add("C0007028");
 		cuis.add("C0332285");
 		GetDocumentAnnotationsOptions options = new GetDocumentAnnotationsOptions.Builder()
-				.corpus(getProperty(Constants.CORPUS)).documentId(Constants.TEST_DOCUMENT_ID)
+				.corpus(ServiceUtilities.getProperty(Constants.CORPUS)).documentId(Constants.TEST_DOCUMENT_ID)
 				.documentSection(Constants.DOCUMENT_ANNOTATION_SECTION).cuis(cuis).build();
 
 		ServiceCall<AnnotationsModel> sc = imlService.getDocumentAnnotations(options);
@@ -177,9 +170,9 @@ public class TestGetDocumentsDocumentAnnotations extends WatsonServiceTest {
 		for (UnstructuredModel unstructuredModel : unstructuredModelList) {
 			DataModel data = unstructuredModel.getData();
 			Assert.assertNotNull(data);
-			List<AnnotationModel> concepts = data.getConcepts();
+			List<ConceptModel> concepts = data.getConcepts();
 			Assert.assertNotNull(concepts);
-			for (AnnotationModel annotation : concepts) {
+			for (ConceptModel annotation : concepts) {
 				Assert.assertNull(annotation.getAttributeId());
 				Assert.assertNotNull(annotation.getCui());
 				Assert.assertNotNull(annotation.getPreferredName());
@@ -195,7 +188,7 @@ public class TestGetDocumentsDocumentAnnotations extends WatsonServiceTest {
 	@Test
 	public void testGetDocumentAnnotationsBuilder() {
 		Builder builder = new GetDocumentAnnotationsOptions
-				.Builder(getProperty(Constants.CORPUS), Constants.TEST_DOCUMENT_ID, Constants.DOCUMENT_ANNOTATION_SECTION);
+				.Builder(ServiceUtilities.getProperty(Constants.CORPUS), Constants.TEST_DOCUMENT_ID, Constants.DOCUMENT_ANNOTATION_SECTION);
 
 		ServiceCall<AnnotationsModel> sc = imlService.getDocumentAnnotations(builder.build());
 		Response<AnnotationsModel> response = sc.execute();
@@ -205,9 +198,9 @@ public class TestGetDocumentsDocumentAnnotations extends WatsonServiceTest {
 		for (UnstructuredModel unstructuredModel : unstructuredModelList) {
 			DataModel data = unstructuredModel.getData();
 			Assert.assertNotNull(data);
-			List<AnnotationModel> concepts = data.getConcepts();
+			List<ConceptModel> concepts = data.getConcepts();
 			Assert.assertNotNull(concepts);
-			for (AnnotationModel annotation : concepts) {
+			for (ConceptModel annotation : concepts) {
 				Assert.assertNull(annotation.getAttributeId());
 				Assert.assertNotNull(annotation.getCui());
 				Assert.assertNotNull(annotation.getPreferredName());
@@ -223,7 +216,7 @@ public class TestGetDocumentsDocumentAnnotations extends WatsonServiceTest {
 	@Test
 	public void testGetBuilderFromOptions() {
 		GetDocumentAnnotationsOptions options = new GetDocumentAnnotationsOptions.Builder()
-				.corpus(getProperty(Constants.CORPUS)).documentId(Constants.TEST_DOCUMENT_ID)
+				.corpus(ServiceUtilities.getProperty(Constants.CORPUS)).documentId(Constants.TEST_DOCUMENT_ID)
 				.documentSection(Constants.DOCUMENT_ANNOTATION_SECTION).includeText(true).build();
 		Builder builder = options.newBuilder();
 		Assert.assertNotNull(builder);

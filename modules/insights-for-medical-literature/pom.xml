@@ -2,7 +2,7 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
-  <groupId>com.ibm.watson.health.cognitive_services</groupId>
+  <groupId>com.ibm.watson.health.cognitive-services</groupId>
   <artifactId>insights-for-medical-literature</artifactId>
   <packaging>jar</packaging>
   <name>insights-for-medical-literature</name>
@@ -55,19 +55,15 @@
       <scope>test</scope>
       <version>4.13</version>
     </dependency>
-<!--     <dependency>
-      <groupId>com.ibm.watson.developer_cloud</groupId>
-      <artifactId>core</artifactId>
-    </dependency> -->
      <dependency>
       <groupId>com.ibm.cloud</groupId>
       <artifactId>sdk-core</artifactId>
       <version>8.1.0</version>
     </dependency>
     <dependency>
-      <groupId>com.ibm.watson.health.cognitive_services</groupId>
+      <groupId>com.ibm.watson.health.cognitive-services</groupId>
       <artifactId>ibm-whcs-services-common</artifactId>
-			<version>${project.version}</version>
+			<version>0.0.10</version>
     </dependency>
     <dependency>
       <groupId>com.squareup.okhttp3</groupId>
@@ -75,14 +71,27 @@
       <version>3.12.1</version>
     </dependency>
     <dependency>
-      <groupId>ch.qos.logback</groupId>
-      <artifactId>ch.qos.logback.slf4j</artifactId>
-      <version>1.0.7-v20121108-1250</version>
-    </dependency>
-    <dependency>
       <groupId>org.slf4j</groupId>
       <artifactId>slf4j-log4j12</artifactId>
       <version>1.7.30</version>
+    </dependency>
+    <dependency>
+      <groupId>org.testng</groupId>
+      <artifactId>testng</artifactId>
+      <version>${testng-version}</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.powermock</groupId>
+      <artifactId>powermock-api-mockito2</artifactId>
+      <version>${powermock-version}</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.powermock</groupId>
+      <artifactId>powermock-module-testng</artifactId>
+      <version>${powermock-version}</version>
+      <scope>test</scope>
     </dependency>
   </dependencies>
 </project>

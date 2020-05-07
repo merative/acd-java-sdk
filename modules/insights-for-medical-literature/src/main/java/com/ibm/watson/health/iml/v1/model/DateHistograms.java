@@ -40,7 +40,7 @@ public class DateHistograms extends GenericModel {
   /**
    * Gets the interval.
    *
-   * @return the interval
+   * @param timespan the interval
    */
   public void setInterval(String timespan) {
     interval = timespan;
@@ -58,7 +58,7 @@ public class DateHistograms extends GenericModel {
   /**
    * Sets the utc offset for timezone.
    *
-   * @return the utc
+   * @param timezoneOffset the utc
    */
   public void setUtc(long timezoneOffset) {
     utc = timezoneOffset;

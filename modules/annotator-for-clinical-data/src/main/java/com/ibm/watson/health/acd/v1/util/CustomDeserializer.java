@@ -28,7 +28,7 @@ import com.google.gson.JsonObject;
 
 public class CustomDeserializer {
 
-  /** @param response
+  /** @param response http response
    *
    * @return the {@link JsonObject}
    */
@@ -41,7 +41,7 @@ public class CustomDeserializer {
 
   }
 
-  /** @param response
+  /** @param response http response
    *
    * @return the {@link CustomCollection}
    */

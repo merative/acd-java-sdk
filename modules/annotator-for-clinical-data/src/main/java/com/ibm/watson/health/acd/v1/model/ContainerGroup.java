@@ -14,8 +14,8 @@ package com.ibm.watson.health.acd.v1.model;
 
 import java.util.List;
 
-import com.ibm.watson.developer_cloud.service.model.GenericModel;
-import com.ibm.watson.developer_cloud.util.Validator;
+import com.ibm.cloud.sdk.core.service.model.GenericModel;
+import com.ibm.cloud.sdk.core.util.Validator;
 
 /**
  * ContainerGroup.
@@ -487,10 +487,13 @@ public class ContainerGroup extends GenericModel {
   }
 
 
-  /*
-   * Manually added method
+  /**
+   * Gets the concept.
+   *
+   * @param index concept position to return
+   *
+   * @return the concept
    */
-
   public Concept getConcepts(int index) {
     validateUnstructuredElementData("Concepts");
     return this.getUnstructured().get(0).data().getConcepts().get(index);
@@ -502,6 +505,8 @@ public class ContainerGroup extends GenericModel {
 
   /**
    * Gets the symptomDiseaseInd.
+   *
+   * @param index position to return
    *
    * @return the symptomDiseaseInd
    */
@@ -518,6 +523,8 @@ public class ContainerGroup extends GenericModel {
   /**
    * Gets the bathingAssistanceInd.
    *
+   * @param index position to return
+   *
    * @return the bathingAssistanceInd
    */
   public AssistanceAnnotation getBathingAssistance(int index) {
@@ -531,6 +538,8 @@ public class ContainerGroup extends GenericModel {
 
   /**
    * Gets the dressingAssistanceInd.
+   *
+   * @param index position to return
    *
    * @return the dressingAssistanceInd
    */
@@ -546,6 +555,8 @@ public class ContainerGroup extends GenericModel {
   /**
    * Gets the eatingAssistanceInd.
    *
+   * @param index position to return
+   *
    * @return the eatingAssistanceInd
    */
   public AssistanceAnnotation getEatingAssistance(int index) {
@@ -559,6 +570,8 @@ public class ContainerGroup extends GenericModel {
 
   /**
    * Gets the walkingAssistanceInd.
+   *
+   * @param index position to return
    *
    * @return the walkingAssistanceInd
    */
@@ -574,6 +587,8 @@ public class ContainerGroup extends GenericModel {
   /**
    * Gets the toiletingAssistanceInd.
    *
+   * @param index position to return
+   *
    * @return the toiletingAssistanceInd
    */
   public AssistanceAnnotation getToiletingAssistance(int index) {
@@ -587,6 +602,8 @@ public class ContainerGroup extends GenericModel {
 
   /**
    * Gets the icaCancerDiagnosisInd.
+   *
+   * @param index position to return
    *
    * @return the icaCancerDiagnosisInd
    */
@@ -602,6 +619,8 @@ public class ContainerGroup extends GenericModel {
   /**
    * Gets the hypotheticalSpans.
    *
+   * @param index position to return
+   *
    * @return the hypotheticalSpans
    */
   public Annotation getHypotheticalSpans(int index) {
@@ -615,6 +634,8 @@ public class ContainerGroup extends GenericModel {
 
   /**
    * Gets the allergyInd.
+   *
+   * @param index position to return
    *
    * @return the allergyInd
    */
@@ -630,6 +651,8 @@ public class ContainerGroup extends GenericModel {
   /**
    * Gets the negatedSpans.
    *
+   * @param index position to return
+   *
    * @return the negatedSpans
    */
   public NegatedSpan getNegatedSpans(int index) {
@@ -643,6 +666,8 @@ public class ContainerGroup extends GenericModel {
 
   /**
    * Gets the conceptValues.
+   *
+   * @param index position to return
    *
    * @return the conceptValues
    */
@@ -658,6 +683,8 @@ public class ContainerGroup extends GenericModel {
   /**
    * Gets the procedureInd.
    *
+   * @param index position to return
+   *
    * @return the procedureInd
    */
   public Procedure getProcedure(int index) {
@@ -671,6 +698,8 @@ public class ContainerGroup extends GenericModel {
 
   /**
    * Gets the smokingInd.
+   *
+   * @param index position to return
    *
    * @return the smokingInd
    */
@@ -686,6 +715,8 @@ public class ContainerGroup extends GenericModel {
   /**
    * Gets the organizationInd.
    *
+   * @param index position to return
+   *
    * @return the organizationInd
    */
   public Annotation getOrganization(int index) {
@@ -700,6 +731,8 @@ public class ContainerGroup extends GenericModel {
   /**
    * Gets the personInd.
    *
+   * @param index position to return
+   *
    * @return the personInd
    */
   public Annotation getPerson(int index) {
@@ -713,6 +746,8 @@ public class ContainerGroup extends GenericModel {
 
   /**
    * Gets the medicalInstitutionInd.
+   *
+   * @param index position to return
    *
    * @return the medicalInstitutionInd
    */
@@ -729,6 +764,8 @@ public class ContainerGroup extends GenericModel {
   /**
    * Gets the attributeValues.
    *
+   * @param index position to return
+   *
    * @return the attributeValues
    */
   public AttributeValueAnnotation getAttributeValues(int index) {
@@ -742,6 +779,8 @@ public class ContainerGroup extends GenericModel {
 
   /**
    * Gets the ejectionFractionInd.
+   *
+   * @param index position to return
    *
    * @return the ejectionFractionInd
    */
@@ -757,6 +796,8 @@ public class ContainerGroup extends GenericModel {
   /**
    * Gets the labValueInd.
    *
+   * @param index position to return
+   *
    * @return the labValueInd
    */
   public LabValueAnnotation getLabValueInd(int index) {
@@ -770,6 +811,8 @@ public class ContainerGroup extends GenericModel {
 
   /**
    * Gets the medicationInd.
+   *
+   * @param index position to return
    *
    * @return the medicationInd
    */
@@ -785,6 +828,8 @@ public class ContainerGroup extends GenericModel {
   /**
    * Gets the emailAddressInd.
    *
+   * @param index position to return
+   *
    * @return the emailAddressInd
    */
   public Annotation getEmailAddressInd(int index) {
@@ -798,6 +843,8 @@ public class ContainerGroup extends GenericModel {
 
   /**
    * Gets the locationInd.
+   *
+   * @param index position to return
    *
    * @return the locationInd
    */
@@ -813,6 +860,8 @@ public class ContainerGroup extends GenericModel {
   /**
    * Gets the uSPhoneNumberInd.
    *
+   * @param index position to return
+   *
    * @return the uSPhoneNumberInd
    */
   public Annotation getUSPhoneNumberInd(int index) {
@@ -826,6 +875,8 @@ public class ContainerGroup extends GenericModel {
 
   /**
    * Gets the seeingAssistanceInd.
+   *
+   * @param index position to return
    *
    * @return the seeingAssistanceInd
    */
@@ -842,6 +893,8 @@ public class ContainerGroup extends GenericModel {
   /**
    * Gets the sectionAnnotations.
    *
+   * @param index position to return
+   *
    * @return the sectionAnnotations
    */
   public SectionAnnotation getSectionAnnotations(int index) {
@@ -855,6 +908,8 @@ public class ContainerGroup extends GenericModel {
 
   /**
    * Gets the NluEntity.
+   *
+   * @param index position to return
    *
    * @return the NluEntity
    */
@@ -870,6 +925,8 @@ public class ContainerGroup extends GenericModel {
   /**
    * Gets the Relation.
    *
+   * @param index position to return
+   *
    * @return the Relation
    */
   public Relation getRelation(int index) {
@@ -880,6 +937,8 @@ public class ContainerGroup extends GenericModel {
   /**
    * Gets the SpellCorrectedText.
    *
+   * @param index position to return
+   *
    * @return the SpellCorrectedText
    */
   public SpellCorrectedText getSpellCorrectedText(int index) {
@@ -889,6 +948,8 @@ public class ContainerGroup extends GenericModel {
 
   /**
    * Gets SpellingCorrections at the given index.
+   *
+   * @param index position to return
    *
    * @return the SpellingCorrection
    */
@@ -904,6 +965,8 @@ public class ContainerGroup extends GenericModel {
   /**
    * Validator to prevent possible NullPointerException.  Validator
    * will generate IllegalArgumentException if 'notNull' check is true.
+   *
+   * @param annoType annotation type
    */
   private void validateUnstructuredElementData(String annoType) {
     String errorMsg = "No " + annoType + " Annotations - Unstructured List is Null";

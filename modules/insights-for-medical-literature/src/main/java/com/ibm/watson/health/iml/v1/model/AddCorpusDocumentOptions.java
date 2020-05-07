@@ -1,5 +1,5 @@
 /*
- * Copyright 2018, 2020 IBM Corp. All Rights Reserved.
+ * (C) Copyright IBM Corp. 2020.
  *
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with
  * the License. You may obtain a copy of the License at
@@ -17,20 +17,19 @@ import java.util.List;
 import java.util.Map;
 
 import com.ibm.cloud.sdk.core.service.model.GenericModel;
-import com.ibm.cloud.sdk.core.util.Validator;
 
 /**
  * The addCorpusDocument options.
  */
 public class AddCorpusDocumentOptions extends GenericModel {
 
-  private String corpus;
-  private Map<String, Object> document;
-  private String acdUrl;
-  private String apiKey;
-  private String flowId;
-  private String accessToken;
-  private List<Object> otherAnnotators;
+  protected String corpus;
+  protected Map<String, Object> document;
+  protected String acdUrl;
+  protected String apiKey;
+  protected String flowId;
+  protected String accessToken;
+  protected List<Object> otherAnnotators;
 
   /**
    * Builder.
@@ -44,7 +43,7 @@ public class AddCorpusDocumentOptions extends GenericModel {
     private String accessToken;
     private List<Object> otherAnnotators;
 
-    private Builder(final AddCorpusDocumentOptions addCorpusDocumentOptions) {
+    private Builder(AddCorpusDocumentOptions addCorpusDocumentOptions) {
       this.corpus = addCorpusDocumentOptions.corpus;
       this.document = addCorpusDocumentOptions.document;
       this.acdUrl = addCorpusDocumentOptions.acdUrl;
@@ -65,30 +64,28 @@ public class AddCorpusDocumentOptions extends GenericModel {
      *
      * @param corpus the corpus
      */
-    public Builder(final String corpus) {
+    public Builder(String corpus) {
       this.corpus = corpus;
     }
 
     /**
      * Builds a AddCorpusDocumentOptions.
      *
-     * @return the addCorpusDocumentOptions
+     * @return the new AddCorpusDocumentOptions instance
      */
     public AddCorpusDocumentOptions build() {
       return new AddCorpusDocumentOptions(this);
     }
 
     /**
-     * Adds an object representing custom Annotators to forward analytic
-     *  output to for additional analysis.
-     * Additional annotators must be able to consume and contribute to the
-     *  forwarded analytic output model.
+     * Adds an otherAnnotators to otherAnnotators.
      *
      * @param otherAnnotators the new otherAnnotators
      * @return the AddCorpusDocumentOptions builder
      */
-    public Builder addOtherAnnotators(final Object otherAnnotators) {
-      Validator.notNull(otherAnnotators, "otherAnnotators cannot be null");
+    public Builder addOtherAnnotators(Object otherAnnotators) {
+      com.ibm.cloud.sdk.core.util.Validator.notNull(otherAnnotators,
+        "otherAnnotators cannot be null");
       if (this.otherAnnotators == null) {
         this.otherAnnotators = new ArrayList<Object>();
       }
@@ -102,7 +99,7 @@ public class AddCorpusDocumentOptions extends GenericModel {
      * @param corpus the corpus
      * @return the AddCorpusDocumentOptions builder
      */
-    public Builder corpus(final String corpus) {
+    public Builder corpus(String corpus) {
       this.corpus = corpus;
       return this;
     }
@@ -113,7 +110,7 @@ public class AddCorpusDocumentOptions extends GenericModel {
      * @param document the document
      * @return the AddCorpusDocumentOptions builder
      */
-    public Builder document(final Map<String, Object> document) {
+    public Builder document(Map<String, Object> document) {
       this.document = document;
       return this;
     }
@@ -121,10 +118,10 @@ public class AddCorpusDocumentOptions extends GenericModel {
     /**
      * Set the acdUrl.
      *
-     * @param acdUrl the URL to Annotation for Clinical Data instance
+     * @param acdUrl the acdUrl
      * @return the AddCorpusDocumentOptions builder
      */
-    public Builder acdUrl(final String acdUrl) {
+    public Builder acdUrl(String acdUrl) {
       this.acdUrl = acdUrl;
       return this;
     }
@@ -132,10 +129,10 @@ public class AddCorpusDocumentOptions extends GenericModel {
     /**
      * Set the apiKey.
      *
-     * @param apiKey the apiKey to access Annotator for Clinical Data
+     * @param apiKey the apiKey
      * @return the AddCorpusDocumentOptions builder
      */
-    public Builder apiKey(final String apiKey) {
+    public Builder apiKey(String apiKey) {
       this.apiKey = apiKey;
       return this;
     }
@@ -143,10 +140,10 @@ public class AddCorpusDocumentOptions extends GenericModel {
     /**
      * Set the flowId.
      *
-     * @param flowId the flowId for Annotation for Clinical Data
+     * @param flowId the flowId
      * @return the AddCorpusDocumentOptions builder
      */
-    public Builder flowId(final String flowId) {
+    public Builder flowId(String flowId) {
       this.flowId = flowId;
       return this;
     }
@@ -154,10 +151,10 @@ public class AddCorpusDocumentOptions extends GenericModel {
     /**
      * Set the accessToken.
      *
-     * @param accessToken the accessToken for Annotation for Clinical Data
+     * @param accessToken the accessToken
      * @return the AddCorpusDocumentOptions builder
      */
-    public Builder accessToken(final String accessToken) {
+    public Builder accessToken(String accessToken) {
       this.accessToken = accessToken;
       return this;
     }
@@ -166,17 +163,18 @@ public class AddCorpusDocumentOptions extends GenericModel {
      * Set the otherAnnotators.
      * Existing otherAnnotators will be replaced.
      *
-     * @param otherAnnotators Custom annotator URLs
+     * @param otherAnnotators the otherAnnotators
      * @return the AddCorpusDocumentOptions builder
      */
-    public Builder otherAnnotators(final List<Object> otherAnnotators) {
+    public Builder otherAnnotators(List<Object> otherAnnotators) {
       this.otherAnnotators = otherAnnotators;
       return this;
     }
   }
 
-  private AddCorpusDocumentOptions(final Builder builder) {
-    Validator.notEmpty(builder.corpus, "corpus cannot be empty");
+  protected AddCorpusDocumentOptions(Builder builder) {
+    com.ibm.cloud.sdk.core.util.Validator.notEmpty(builder.corpus,
+      "corpus cannot be empty");
     corpus = builder.corpus;
     document = builder.document;
     acdUrl = builder.acdUrl;
@@ -220,7 +218,7 @@ public class AddCorpusDocumentOptions extends GenericModel {
   /**
    * Gets the acdUrl.
    *
-   * Annotator for Clincial Data url.
+   * Annotator for clincial data url.
    *
    * @return the acdUrl
    */

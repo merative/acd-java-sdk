@@ -1,7 +1,0 @@
-{
-  "code": 400,
-  "message": "Bad Request",
-  "level": "ERROR",
-  "description": "Invalid json object provided as input. ID in the request body must match the profile ID: testSDK_MockACD_PostProfile_G_profile",
-  "correlationId": "2082ff0e-4d96-48cd-b6bc-f66bb2fc1a74"
-}

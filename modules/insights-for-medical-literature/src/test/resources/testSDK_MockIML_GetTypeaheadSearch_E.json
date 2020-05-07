@@ -1,6 +1,0 @@
-{
-	"code": 400,
-	"message": "Bad Request",
-	"level": "ERROR",
-	"description": "returns.typeahead.ontology 'F' is unknown"
-}

@@ -1,5 +1,5 @@
 /*
- * Copyright 2018, 2020 IBM Corp. All Rights Reserved.
+ * (C) Copyright IBM Corp. 2020.
  *
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with
  * the License. You may obtain a copy of the License at
@@ -13,18 +13,15 @@
 package com.ibm.watson.health.iml.v1.model;
 
 import com.ibm.cloud.sdk.core.service.model.GenericModel;
-import com.ibm.cloud.sdk.core.util.Validator;
+
 /**
  * The addArtifact options.
- *
- * Class allows either a dictionary or attribute entry to be added
- * to the instance.
  */
 public class AddArtifactOptions extends GenericModel {
 
-  private String corpus;
-  private DictonaryEntry dictionaryEntry;
-  private AttributeEntry attributeEntry;
+  protected String corpus;
+  protected DictonaryEntry dictionaryEntry;
+  protected AttributeEntry attributeEntry;
 
   /**
    * Builder.
@@ -34,7 +31,7 @@ public class AddArtifactOptions extends GenericModel {
     private DictonaryEntry dictionaryEntry;
     private AttributeEntry attributeEntry;
 
-    private Builder(final AddArtifactOptions addArtifactOptions) {
+    private Builder(AddArtifactOptions addArtifactOptions) {
       this.corpus = addArtifactOptions.corpus;
       this.dictionaryEntry = addArtifactOptions.dictionaryEntry;
       this.attributeEntry = addArtifactOptions.attributeEntry;
@@ -51,14 +48,14 @@ public class AddArtifactOptions extends GenericModel {
      *
      * @param corpus the corpus
      */
-    public Builder(final String corpus) {
+    public Builder(String corpus) {
       this.corpus = corpus;
     }
 
     /**
      * Builds a AddArtifactOptions.
      *
-     * @return the addArtifactOptions
+     * @return the new AddArtifactOptions instance
      */
     public AddArtifactOptions build() {
       return new AddArtifactOptions(this);
@@ -70,7 +67,7 @@ public class AddArtifactOptions extends GenericModel {
      * @param corpus the corpus
      * @return the AddArtifactOptions builder
      */
-    public Builder corpus(final String corpus) {
+    public Builder corpus(String corpus) {
       this.corpus = corpus;
       return this;
     }
@@ -81,7 +78,7 @@ public class AddArtifactOptions extends GenericModel {
      * @param dictionaryEntry the dictionaryEntry
      * @return the AddArtifactOptions builder
      */
-    public Builder dictionaryEntry(final DictonaryEntry dictionaryEntry) {
+    public Builder dictionaryEntry(DictonaryEntry dictionaryEntry) {
       this.dictionaryEntry = dictionaryEntry;
       return this;
     }
@@ -92,14 +89,15 @@ public class AddArtifactOptions extends GenericModel {
      * @param attributeEntry the attributeEntry
      * @return the AddArtifactOptions builder
      */
-    public Builder attributeEntry(final AttributeEntry attributeEntry) {
+    public Builder attributeEntry(AttributeEntry attributeEntry) {
       this.attributeEntry = attributeEntry;
       return this;
     }
   }
 
-  private AddArtifactOptions(final Builder builder) {
-    Validator.notEmpty(builder.corpus, "corpus cannot be empty");
+  protected AddArtifactOptions(Builder builder) {
+    com.ibm.cloud.sdk.core.util.Validator.notEmpty(builder.corpus,
+      "corpus cannot be empty");
     corpus = builder.corpus;
     dictionaryEntry = builder.dictionaryEntry;
     attributeEntry = builder.attributeEntry;

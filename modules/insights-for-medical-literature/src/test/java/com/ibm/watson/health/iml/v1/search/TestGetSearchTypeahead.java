@@ -11,7 +11,7 @@
  * specific language governing permissions and limitations under the License.
  */
 package com.ibm.watson.health.iml.v1.search;
-
+import static com.ibm.watson.health.iml.v1.utils.ServiceUtilities.getProperty;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -21,21 +21,19 @@ import org.junit.Test;
 import com.ibm.cloud.sdk.core.http.Response;
 import com.ibm.cloud.sdk.core.http.ServiceCall;
 import com.ibm.watson.health.iml.v1.InsightsForMedicalLiteratureService;
-import com.ibm.watson.health.iml.v1.WatsonServiceTest;
 import com.ibm.watson.health.iml.v1.common.Constants;
 import com.ibm.watson.health.iml.v1.model.ConceptListModel;
-import com.ibm.watson.health.iml.v1.model.ConceptModel;
+import com.ibm.watson.health.iml.v1.model.ArtifactModel;
 import com.ibm.watson.health.iml.v1.model.TypeaheadOptions;
 import com.ibm.watson.health.iml.v1.model.TypeaheadOptions.Builder;
+import com.ibm.watson.health.iml.v1.utils.ServiceUtilities;
 
-public class TestGetSearchTypeahead extends WatsonServiceTest {
+public class TestGetSearchTypeahead {
 	private InsightsForMedicalLiteratureService imlService;
 
 	public TestGetSearchTypeahead() {
-		super();
 		try {
-			this.setUp();
-			imlService = this.getServiceInstance();
+			imlService = ServiceUtilities.getServiceInstance();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -49,12 +47,12 @@ public class TestGetSearchTypeahead extends WatsonServiceTest {
 
 		Response<ConceptListModel> response = sc.execute();
 		ConceptListModel clm = response.getResult();
-		List<ConceptModel> cmList = clm.getConcepts();
-		for (ConceptModel cm : cmList) {
+		List<ArtifactModel> cmList = clm.getConcepts();
+		for (ArtifactModel cm : cmList) {
 			Assert.assertNotNull(cm.getCui());
 			Assert.assertNotNull(cm.getOntology());
 			Assert.assertNotNull(cm.getPreferredName());
-			Assert.assertNotNull(cm.getType());
+			Assert.assertNotNull(cm.getSemanticType());
 		}
 	}
 
@@ -66,12 +64,12 @@ public class TestGetSearchTypeahead extends WatsonServiceTest {
 
 		Response<ConceptListModel> response = sc.execute();
 		ConceptListModel clm = response.getResult();
-		List<ConceptModel> cmList = clm.getConcepts();
-		for (ConceptModel cm : cmList) {
+		List<ArtifactModel> cmList = clm.getConcepts();
+		for (ArtifactModel cm : cmList) {
 			Assert.assertNotNull(cm.getCui());
 			Assert.assertNotNull(cm.getOntology());
 			Assert.assertNotNull(cm.getPreferredName());
-			Assert.assertNotNull(cm.getType());
+			Assert.assertNotNull(cm.getSemanticType());
 		}
 	}
 
@@ -85,12 +83,12 @@ public class TestGetSearchTypeahead extends WatsonServiceTest {
 
 		Response<ConceptListModel> response = sc.execute();
 		ConceptListModel clm = response.getResult();
-		List<ConceptModel> cmList = clm.getConcepts();
-		for (ConceptModel cm : cmList) {
+		List<ArtifactModel> cmList = clm.getConcepts();
+		for (ArtifactModel cm : cmList) {
 			Assert.assertNotNull(cm.getCui());
 			Assert.assertNotNull(cm.getOntology());
 			Assert.assertNotNull(cm.getPreferredName());
-			Assert.assertNotNull(cm.getType());
+			Assert.assertNotNull(cm.getSemanticType());
 		}
 	}
 
@@ -108,12 +106,12 @@ public class TestGetSearchTypeahead extends WatsonServiceTest {
 
 		Response<ConceptListModel> response = sc.execute();
 		ConceptListModel clm = response.getResult();
-		List<ConceptModel> cmList = clm.getConcepts();
-		for (ConceptModel cm : cmList) {
+		List<ArtifactModel> cmList = clm.getConcepts();
+		for (ArtifactModel cm : cmList) {
 			Assert.assertNotNull(cm.getCui());
 			Assert.assertNotNull(cm.getOntology());
 			Assert.assertNotNull(cm.getPreferredName());
-			Assert.assertNotNull(cm.getType());
+			Assert.assertNotNull(cm.getSemanticType());
 		}
 	}
 

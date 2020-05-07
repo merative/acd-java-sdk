@@ -1,6 +1,0 @@
-{
-  "code": 400,
-  "message": "Bad Request",
-  "level": "ERROR",
-  "description": "Unknown corpus path paramater value: medline2005"
-}

@@ -12,31 +12,27 @@
  */
 package com.ibm.watson.health.acd.v1.model;
 
-import java.lang.reflect.Type;
 import java.util.List;
-import java.util.Map;
 
-import com.google.gson.reflect.TypeToken;
-import com.ibm.watson.developer_cloud.service.model.DynamicModel;
-import com.ibm.watson.developer_cloud.util.GsonSerializationHelper;
+import com.ibm.cloud.sdk.core.service.model.GenericModel;
 import com.ibm.watson.health.acd.v1.util.CustomCollection;
 
 /**
  * MedicationAnnotation.
  */
-public class MedicationAnnotation extends DynamicModel {
-  private Type idType = new TypeToken<String>() { } .getType();
-  private Type typeType = new TypeToken<String>() { } .getType();
-  private Type uidType = new TypeToken<Long>() { } .getType();
-  private Type beginType = new TypeToken<Long>() { } .getType();
-  private Type endType = new TypeToken<Long>() { } .getType();
-  private Type coveredTextType = new TypeToken<String>() { } .getType();
-  private Type negatedType = new TypeToken<Boolean>() { } .getType();
-  private Type hypotheticalType = new TypeToken<Boolean>() { } .getType();
-  private Type sectionNormalizedNameType = new TypeToken<String>() { } .getType();
-  private Type cuiType = new TypeToken<String>() { } .getType();
-  private Type drugType = new TypeToken<List<Map>>() { } .getType();
-  private Type sectionSurfaceFormType = new TypeToken<String>() { } .getType();
+public class MedicationAnnotation extends GenericModel {
+  private String idType;
+  private String typeType;
+  private Long uidType;
+  private Long beginType;
+  private Long endType;
+  private String coveredTextType;
+  private Boolean negatedType;
+  private Boolean hypotheticalType;
+  private String sectionNormalizedNameType;
+  private String cuiType;
+  private List<CustomCollection> drugType;
+  private String sectionSurfaceFormType;
 
 
   /**
@@ -45,7 +41,7 @@ public class MedicationAnnotation extends DynamicModel {
    * @return the id
    */
   public String getId() {
-    return GsonSerializationHelper.serializeDynamicModelProperty(this.get("id"), idType);
+    return idType;
   }
 
   /**
@@ -54,7 +50,7 @@ public class MedicationAnnotation extends DynamicModel {
    * @return the type
    */
   public String getType() {
-    return GsonSerializationHelper.serializeDynamicModelProperty(this.get("type"), typeType);
+    return typeType;
   }
 
   /**
@@ -63,7 +59,7 @@ public class MedicationAnnotation extends DynamicModel {
    * @return the uid
    */
   public Long getUid() {
-    return GsonSerializationHelper.serializeDynamicModelProperty(this.get("uid"), uidType);
+    return uidType;
   }
 
   /**
@@ -72,7 +68,7 @@ public class MedicationAnnotation extends DynamicModel {
    * @return the begin
    */
   public Long getBegin() {
-    return GsonSerializationHelper.serializeDynamicModelProperty(this.get("begin"), beginType);
+    return beginType;
   }
 
   /**
@@ -81,7 +77,7 @@ public class MedicationAnnotation extends DynamicModel {
    * @return the end
    */
   public Long getEnd() {
-    return GsonSerializationHelper.serializeDynamicModelProperty(this.get("end"), endType);
+    return endType;
   }
 
   /**
@@ -90,7 +86,7 @@ public class MedicationAnnotation extends DynamicModel {
    * @return the coveredText
    */
   public String getCoveredText() {
-    return GsonSerializationHelper.serializeDynamicModelProperty(this.get("coveredText"), coveredTextType);
+    return coveredTextType;
   }
 
   /**
@@ -99,7 +95,7 @@ public class MedicationAnnotation extends DynamicModel {
    * @return the negated
    */
   public Boolean isNegated() {
-    return GsonSerializationHelper.serializeDynamicModelProperty(this.get("negated"), negatedType);
+    return negatedType;
   }
 
   /**
@@ -108,7 +104,7 @@ public class MedicationAnnotation extends DynamicModel {
    * @return the hypothetical
    */
   public Boolean isHypothetical() {
-    return GsonSerializationHelper.serializeDynamicModelProperty(this.get("hypothetical"), hypotheticalType);
+    return hypotheticalType;
   }
 
   /**
@@ -117,7 +113,16 @@ public class MedicationAnnotation extends DynamicModel {
    * @return the sectionNormalizedName
    */
   public String getSectionNormalizedName() {
-    return GsonSerializationHelper.serializeDynamicModelProperty(this.get("sectionNormalizedName"), sectionNormalizedNameType);
+    return sectionNormalizedNameType;
+  }
+
+  /**
+   * Gets the sectionNormalizedName.
+   *
+   * @return the sectionNormalizedName
+   */
+  public String getSectionSurfaceForm() {
+    return sectionSurfaceFormType;
   }
 
   /**
@@ -126,7 +131,7 @@ public class MedicationAnnotation extends DynamicModel {
    * @return the cui
    */
   public String getCui() {
-    return GsonSerializationHelper.serializeDynamicModelProperty(this.get("cui"), cuiType);
+    return cuiType;
   }
 
   /**
@@ -135,138 +140,6 @@ public class MedicationAnnotation extends DynamicModel {
    * @return the drug
    */
   public List<CustomCollection> getDrug() {
-    List<Object> listObjects = GsonSerializationHelper.serializeDynamicModelProperty(this.get("drug"), drugType);
-    CustomCollection customCollection = new CustomCollection();
-    List<CustomCollection> listValues = customCollection.convertToCustomCollectionList(listObjects);
-    return listValues;
-  }
-
-  /**
-   * Gets the sectionSurfaceForm.
-   *
-   * @return the sectionSurfaceForm
-   */
-  public String getSectionSurfaceForm() {
-    return GsonSerializationHelper.serializeDynamicModelProperty(this.get("sectionSurfaceForm"), sectionSurfaceFormType);
-  }
-
-  /**
-   * Sets the id.
-   *
-   * @param id the new id
-   */
-  public void setId(final String id) {
-    this.put("id", id);
-  }
-
-  /**
-   * Sets the type.
-   *
-   * @param type the new type
-   */
-  public void setType(final String type) {
-    this.put("type", type);
-  }
-
-  /**
-   * Sets the uid.
-   *
-   * @param uid the new uid
-   */
-  public void setUid(final Long uid) {
-    this.put("uid", uid);
-  }
-
-  /**
-   * Sets the begin.
-   *
-   * @param begin the new begin
-   */
-  public void setBegin(final Long begin) {
-    this.put("begin", begin);
-  }
-
-  /**
-   * Sets the end.
-   *
-   * @param end the new end
-   */
-  public void setEnd(final Long end) {
-    this.put("end", end);
-  }
-
-  /**
-   * Sets the coveredText.
-   *
-   * @param coveredText the new coveredText
-   */
-  public void setCoveredText(final String coveredText) {
-    this.put("coveredText", coveredText);
-  }
-
-  /**
-   * Sets the negated.
-   *
-   * @param negated the new negated
-   */
-  public void setNegated(final Boolean negated) {
-    this.put("negated", negated);
-  }
-
-  /**
-   * Sets the hypothetical.
-   *
-   * @param hypothetical the new hypothetical
-   */
-  public void setHypothetical(final Boolean hypothetical) {
-    this.put("hypothetical", hypothetical);
-  }
-
-  /**
-   * Sets the sectionNormalizedName.
-   *
-   * @param sectionNormalizedName the new sectionNormalizedName
-   */
-  public void setSectionNormalizedName(final String sectionNormalizedName) {
-    this.put("sectionNormalizedName", sectionNormalizedName);
-  }
-
-  /**
-   * Sets the cui.
-   *
-   * @param cui the new cui
-   */
-  public void setCui(final String cui) {
-    this.put("cui", cui);
-  }
-
-  /**
-   * Sets the drug.
-   *
-   * @param drug the new drug
-   */
-  public void setDrug(final List<Map> drug) {
-    this.put("drug", drug);
-  }
-
-  /**
-   * Sets the sectionSurfaceForm.
-   *
-   * @param sectionSurfaceForm the new sectionSurfaceForm
-   */
-  public void setSectionSurfaceForm(final String sectionSurfaceForm) {
-    this.put("sectionSurfaceForm", sectionSurfaceForm);
-  }
-
-/*
- *
- * Manually Added code
- *
- * */
-public CustomCollection getDrug(int index) {
-    List<Object> listObjects = GsonSerializationHelper.serializeDynamicModelProperty(this.get("drug"), drugType);
-    CustomCollection customCollection = new CustomCollection();
-    CustomCollection drug = customCollection.convertToCustomCollection(listObjects.get(index));
-    return drug;
+    return drugType;
   }
 }

@@ -1,5 +1,5 @@
 /*
- * Copyright 2018 IBM Corp. All Rights Reserved.
+ * (C) Copyright IBM Corp. 2020.
  *
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with
  * the License. You may obtain a copy of the License at
@@ -14,14 +14,14 @@ package com.ibm.watson.health.acd.v1.model;
 
 import java.util.List;
 
-import com.ibm.watson.developer_cloud.service.model.GenericModel;
+import com.ibm.cloud.sdk.core.service.model.GenericModel;
 
 /**
  * ListStringWrapper.
  */
 public class ListStringWrapper extends GenericModel {
 
-  private List<String> data;
+  protected List<String> data;
 
   /**
    * Gets the data.
@@ -31,13 +31,5 @@ public class ListStringWrapper extends GenericModel {
   public List<String> getData() {
     return data;
   }
-
-  /**
-   * Sets the data.
-   *
-   * @param data the new data
-   */
-  public void setData(final List<String> data) {
-    this.data = data;
-  }
 }
+

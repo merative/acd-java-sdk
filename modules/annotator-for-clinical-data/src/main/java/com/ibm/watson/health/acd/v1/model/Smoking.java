@@ -12,31 +12,27 @@
  */
 package com.ibm.watson.health.acd.v1.model;
 
-import java.lang.reflect.Type;
-
-import com.google.gson.reflect.TypeToken;
-import com.ibm.watson.developer_cloud.service.model.DynamicModel;
-import com.ibm.watson.developer_cloud.util.GsonSerializationHelper;
+import com.ibm.cloud.sdk.core.service.model.GenericModel;
 
 /**
  * Smoking.
  */
-public class Smoking extends DynamicModel {
-  private Type idType = new TypeToken<String>() { } .getType();
-  private Type typeType = new TypeToken<String>() { } .getType();
-  private Type uidType = new TypeToken<Long>() { } .getType();
-  private Type beginType = new TypeToken<Long>() { } .getType();
-  private Type endType = new TypeToken<Long>() { } .getType();
-  private Type coveredTextType = new TypeToken<String>() { } .getType();
-  private Type negatedType = new TypeToken<Boolean>() { } .getType();
-  private Type hypotheticalType = new TypeToken<Boolean>() { } .getType();
-  private Type participationType = new TypeToken<String>() { } .getType();
-  private Type sectionNormalizedNameType = new TypeToken<String>() { } .getType();
-  private Type modalityType = new TypeToken<String>() { } .getType();
-  private Type currentType = new TypeToken<String>() { } .getType();
-  private Type smokeTermSurfaceFormType = new TypeToken<String>() { } .getType();
-  private Type smokeTermNormalizedNameType = new TypeToken<String>() { } .getType();
-  private Type sectionSurfaceFormType = new TypeToken<String>() { } .getType();
+public class Smoking extends GenericModel {
+  private String idType;
+  private String typeType;
+  private Long uidType;
+  private Long beginType;
+  private Long endType;
+  private String coveredTextType;
+  private Boolean negatedType;
+  private Boolean hypotheticalType;
+  private String participationType;
+  private String sectionNormalizedNameType;
+  private String modalityType;
+  private String currentType;
+  private String smokeTermSurfaceFormType;
+  private String smokeTermNormalizedNameType;
+  private String sectionSurfaceFormType;
 
 
   /**
@@ -45,7 +41,7 @@ public class Smoking extends DynamicModel {
    * @return the id
    */
   public String getId() {
-    return GsonSerializationHelper.serializeDynamicModelProperty(this.get("id"), idType);
+    return idType;
   }
 
   /**
@@ -54,7 +50,7 @@ public class Smoking extends DynamicModel {
    * @return the type
    */
   public String getType() {
-    return GsonSerializationHelper.serializeDynamicModelProperty(this.get("type"), typeType);
+    return typeType;
   }
 
   /**
@@ -63,7 +59,7 @@ public class Smoking extends DynamicModel {
    * @return the uid
    */
   public Long getUid() {
-    return GsonSerializationHelper.serializeDynamicModelProperty(this.get("uid"), uidType);
+    return uidType;
   }
 
   /**
@@ -72,7 +68,7 @@ public class Smoking extends DynamicModel {
    * @return the begin
    */
   public Long getBegin() {
-    return GsonSerializationHelper.serializeDynamicModelProperty(this.get("begin"), beginType);
+    return beginType;
   }
 
   /**
@@ -81,7 +77,7 @@ public class Smoking extends DynamicModel {
    * @return the end
    */
   public Long getEnd() {
-    return GsonSerializationHelper.serializeDynamicModelProperty(this.get("end"), endType);
+    return endType;
   }
 
   /**
@@ -90,7 +86,7 @@ public class Smoking extends DynamicModel {
    * @return the coveredText
    */
   public String getCoveredText() {
-    return GsonSerializationHelper.serializeDynamicModelProperty(this.get("coveredText"), coveredTextType);
+    return coveredTextType;
   }
 
   /**
@@ -99,11 +95,7 @@ public class Smoking extends DynamicModel {
    * @return the negated
    */
   public Boolean isNegated() {
-    Boolean negated = GsonSerializationHelper.serializeDynamicModelProperty(this.get("negated"), negatedType);
-    if (negated == null) {
-      negated = false;
-    }
-    return negated;
+    return negatedType;
   }
 
   /**
@@ -112,11 +104,7 @@ public class Smoking extends DynamicModel {
    * @return the hypothetical
    */
   public Boolean isHypothetical() {
-    Boolean hypothetical = GsonSerializationHelper.serializeDynamicModelProperty(this.get("hypothetical"), hypotheticalType);
-    if (hypothetical == null) {
-      hypothetical = false;
-    }
-    return hypothetical;
+    return hypotheticalType;
   }
 
   /**
@@ -125,7 +113,7 @@ public class Smoking extends DynamicModel {
    * @return the participation
    */
   public String getParticipation() {
-    return GsonSerializationHelper.serializeDynamicModelProperty(this.get("participation"), participationType);
+    return participationType;
   }
 
   /**
@@ -134,7 +122,7 @@ public class Smoking extends DynamicModel {
    * @return the sectionNormalizedName
    */
   public String getSectionNormalizedName() {
-    return GsonSerializationHelper.serializeDynamicModelProperty(this.get("sectionNormalizedName"), sectionNormalizedNameType);
+    return sectionNormalizedNameType;
   }
 
   /**
@@ -143,7 +131,7 @@ public class Smoking extends DynamicModel {
    * @return the modality
    */
   public String getModality() {
-    return GsonSerializationHelper.serializeDynamicModelProperty(this.get("modality"), modalityType);
+    return modalityType;
   }
 
   /**
@@ -152,7 +140,7 @@ public class Smoking extends DynamicModel {
    * @return the current
    */
   public String getCurrent() {
-    return GsonSerializationHelper.serializeDynamicModelProperty(this.get("current"), currentType);
+    return currentType;
   }
 
   /**
@@ -161,7 +149,7 @@ public class Smoking extends DynamicModel {
    * @return the smokeTermSurfaceForm
    */
   public String getSmokeTermSurfaceForm() {
-    return GsonSerializationHelper.serializeDynamicModelProperty(this.get("smokeTermSurfaceForm"), smokeTermSurfaceFormType);
+    return smokeTermSurfaceFormType;
   }
 
   /**
@@ -170,7 +158,7 @@ public class Smoking extends DynamicModel {
    * @return the smokeTermNormalizedName
    */
   public String getSmokeTermNormalizedName() {
-    return GsonSerializationHelper.serializeDynamicModelProperty(this.get("smokeTermNormalizedName"), smokeTermNormalizedNameType);
+    return smokeTermNormalizedNameType;
   }
 
   /**
@@ -179,7 +167,7 @@ public class Smoking extends DynamicModel {
    * @return the sectionSurfaceForm
    */
   public String getSectionSurfaceForm() {
-    return GsonSerializationHelper.serializeDynamicModelProperty(this.get("sectionSurfaceForm"), sectionSurfaceFormType);
+    return sectionSurfaceFormType;
   }
 
 //  /**

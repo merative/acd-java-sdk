@@ -1,16 +1,13 @@
 /*
- * Copyright 2018 IBM Corp. All Rights Reserved.
+ * (C) Copyright IBM Corp. 2020.
  *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with
+ * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with
  * the License. You may obtain a copy of the License at
  *
  * http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing,
- * software distributed under the License is distributed on
- * an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND,
- * either express or implied. See the License for the
+ * Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on
+ * an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the
  * specific language governing permissions and limitations under the License.
  */
 package com.ibm.watson.health.iml.v1.model;
@@ -19,35 +16,20 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.ibm.cloud.sdk.core.service.model.GenericModel;
-import com.ibm.cloud.sdk.core.util.Validator;
 
 /**
  * The getConcepts options.
  */
 public class GetConceptsOptions extends GenericModel {
 
-  /**
-   * Sort by hitCount (in document count).
-   * Set to ascending order (_sort=+hitCount) or descending order
-   * (_sort=-hitCount).
-   */
-//  public interface Sort {
-//    /** hitCount. */
-//    String HITCOUNT = "hitCount";
-//    /** +hitCount. */
-////    String _HITCOUNT = "+hitCount";
-////    /** -hitCount. */
-////    String _HITCOUNT = "-hitCount";
-//  }
-
-  private String corpus;
-  private List<String> cuis;
-  private List<String> preferredNames;
-  private List<String> surfaceForms;
-  private List<String> attributes;
-  private Boolean verbose;
-  private String sort;
-  private Long limit;
+  protected String corpus;
+  protected List<String> cuis;
+  protected List<String> preferredNames;
+  protected List<String> surfaceForms;
+  protected List<String> attributes;
+  protected Boolean verbose;
+  protected String sort;
+  protected Long limit;
 
   /**
    * Builder.
@@ -63,14 +45,14 @@ public class GetConceptsOptions extends GenericModel {
     private Long limit;
 
     private Builder(GetConceptsOptions getConceptsOptions) {
-      corpus = getConceptsOptions.corpus;
-      cuis = getConceptsOptions.cuis;
-      preferredNames = getConceptsOptions.preferredNames;
-      surfaceForms = getConceptsOptions.surfaceForms;
-      attributes = getConceptsOptions.attributes;
-      verbose = getConceptsOptions.verbose;
-      sort = getConceptsOptions.sort;
-      limit = getConceptsOptions.limit;
+      this.corpus = getConceptsOptions.corpus;
+      this.cuis = getConceptsOptions.cuis;
+      this.preferredNames = getConceptsOptions.preferredNames;
+      this.surfaceForms = getConceptsOptions.surfaceForms;
+      this.attributes = getConceptsOptions.attributes;
+      this.verbose = getConceptsOptions.verbose;
+      this.sort = getConceptsOptions.sort;
+      this.limit = getConceptsOptions.limit;
     }
 
     /**
@@ -91,7 +73,7 @@ public class GetConceptsOptions extends GenericModel {
     /**
      * Builds a GetConceptsOptions.
      *
-     * @return the getConceptsOptions
+     * @return the new GetConceptsOptions instance
      */
     public GetConceptsOptions build() {
       return new GetConceptsOptions(this);
@@ -104,7 +86,8 @@ public class GetConceptsOptions extends GenericModel {
      * @return the GetConceptsOptions builder
      */
     public Builder addCuis(String cuis) {
-      Validator.notNull(cuis, "cuis cannot be null");
+      com.ibm.cloud.sdk.core.util.Validator.notNull(cuis,
+        "cuis cannot be null");
       if (this.cuis == null) {
         this.cuis = new ArrayList<String>();
       }
@@ -119,7 +102,8 @@ public class GetConceptsOptions extends GenericModel {
      * @return the GetConceptsOptions builder
      */
     public Builder addPreferredNames(String preferredNames) {
-      Validator.notNull(preferredNames, "preferredNames cannot be null");
+      com.ibm.cloud.sdk.core.util.Validator.notNull(preferredNames,
+        "preferredNames cannot be null");
       if (this.preferredNames == null) {
         this.preferredNames = new ArrayList<String>();
       }
@@ -134,7 +118,8 @@ public class GetConceptsOptions extends GenericModel {
      * @return the GetConceptsOptions builder
      */
     public Builder addSurfaceForms(String surfaceForms) {
-      Validator.notNull(surfaceForms, "surfaceForms cannot be null");
+      com.ibm.cloud.sdk.core.util.Validator.notNull(surfaceForms,
+        "surfaceForms cannot be null");
       if (this.surfaceForms == null) {
         this.surfaceForms = new ArrayList<String>();
       }
@@ -149,7 +134,8 @@ public class GetConceptsOptions extends GenericModel {
      * @return the GetConceptsOptions builder
      */
     public Builder addAttributes(String attributes) {
-      Validator.notNull(attributes, "attributes cannot be null");
+      com.ibm.cloud.sdk.core.util.Validator.notNull(attributes,
+        "attributes cannot be null");
       if (this.attributes == null) {
         this.attributes = new ArrayList<String>();
       }
@@ -250,8 +236,9 @@ public class GetConceptsOptions extends GenericModel {
     }
   }
 
-  private GetConceptsOptions(Builder builder) {
-    Validator.notEmpty(builder.corpus, "corpus cannot be empty");
+  protected GetConceptsOptions(Builder builder) {
+    com.ibm.cloud.sdk.core.util.Validator.notEmpty(builder.corpus,
+      "corpus cannot be empty");
     corpus = builder.corpus;
     cuis = builder.cuis;
     preferredNames = builder.preferredNames;
@@ -285,9 +272,8 @@ public class GetConceptsOptions extends GenericModel {
   /**
    * Gets the cuis.
    *
-   * Select concepts with the specified CUIs. Each cui is assumed to
-   * be from UMLS unless an ontology is explicitly
-   * specified using the syntax [ontology:]cui, e.g., 'umls:C0018787'.
+   * Select concepts with the specified CUIs. Each cui is assumed to be from UMLS unless an ontology is explicitly
+   * specified using the syntax [ontology:]cui, e.g., 'concepts:C0018787'.
    *
    * @return the cuis
    */
@@ -298,10 +284,8 @@ public class GetConceptsOptions extends GenericModel {
   /**
    * Gets the preferredNames.
    *
-   * Select concepts with the specified preferred names. Each preferred name
-   *  is assumed to be from UMLS unless an
-   * ontology is explicitly specified using the syntax
-   *  [ontology:::]preferred_name, e.g., 'umls:::HEART'.
+   * Select concepts with the specified preferred names. Each preferred name is assumed to be from UMLS unless an
+   * ontology is explicitly specified using the syntax [ontology:::]preferred_name, e.g., 'concepts:::HEART'.
    *
    * @return the preferredNames
    */
@@ -312,10 +296,8 @@ public class GetConceptsOptions extends GenericModel {
   /**
    * Gets the surfaceForms.
    *
-   * Select all concepts having these surface forms.
-   * The match is case insensitive. Each surface form is matched against
-   * UMLS unless an ontology is explicitly specified using the syntax
-   *  [ontology:::]surface_form, e.g., 'umls:::heart
+   * Select all concepts having these surface forms. The match is case insensitive. Each surface form is matched against
+   * UMLS unless an ontology is explicitly specified using the syntax [ontology:::]surface_form, e.g., 'concepts:::heart
    * attack'.
    *
    * @return the surfaceForms
@@ -327,8 +309,7 @@ public class GetConceptsOptions extends GenericModel {
   /**
    * Gets the attributes.
    *
-   * Select all concepts having these attributes.
-   * The match is case insensitive.
+   * Select all concepts having these attributes. The match is case insensitive.
    *
    * @return the attributes
    */
@@ -350,8 +331,7 @@ public class GetConceptsOptions extends GenericModel {
   /**
    * Gets the sort.
    *
-   * Sort by hitCount (in document count).
-   * Set to ascending order (_sort=+hitCount) or descending order
+   * Sort by hitCount (in document count).  Set to ascending order (_sort=+hitCount) or descending order
    * (_sort=-hitCount).
    *
    * @return the sort

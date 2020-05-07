@@ -1,8 +1,0 @@
-{
-  "general_cancer_v1.0": {
-    "description": "This profile features a collection of Clinical Attributes that focus on cancer patient disease characteristics including the cancer type, disease progression, staging, tumor markers, and treatments."
-  },
-  "general_medical_v1.0": {
-    "description": "This profile feature a collection of Clinical Attributes that represent the patient characteristics commonly used by physicians during a medical examination including laboratory, demographics, symptoms, diseases, and procedures."
-  }
-}

@@ -1,16 +1,13 @@
 /*
- * Copyright 2018 IBM Corp. All Rights Reserved.
+ * (C) Copyright IBM Corp. 2020.
  *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with
+ * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with
  * the License. You may obtain a copy of the License at
  *
  * http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing,
- * software distributed under the License is distributed on
- * an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND,
- * either express or implied. See the License for the
+ * Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on
+ * an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the
  * specific language governing permissions and limitations under the License.
  */
 package com.ibm.watson.health.iml.v1.model;
@@ -21,29 +18,24 @@ import java.util.Map;
 import com.ibm.cloud.sdk.core.service.model.GenericModel;
 
 /**
- * RankedDocument.
+ * Object representing a document search result.
  */
 public class RankedDocument extends GenericModel {
 
-  private String title;
-  private String documentId;
-  private String corpus;
-  private RankedDocLinks links;
-  private List<Passage> passages;
-  private Map<String, AnnotationModel> annotations;
-  private Map<String, List<String>> metadata;
-
-  /**
-   * Gets the title.
-   *
-   * @return the title
-   */
-  public String getTitle() {
-    return title;
-  }
+  protected String documentId;
+  protected String title;
+  protected Map<String, List<String>> metadata;
+  protected String sectionName;
+  protected String sectionId;
+  protected String corpus;
+  protected RankedDocLinks links;
+  protected PassagesModel passages;
+  protected Map<String, AnnotationModel> annotations;
 
   /**
    * Gets the documentId.
+   *
+   * Document identifier.
    *
    * @return the documentId
    */
@@ -52,7 +44,53 @@ public class RankedDocument extends GenericModel {
   }
 
   /**
+   * Gets the title.
+   *
+   * Document title.
+   *
+   * @return the title
+   */
+  public String getTitle() {
+    return title;
+  }
+
+  /**
+   * Gets the metadata.
+   *
+   * Additional document fields.
+   *
+   * @return the metadata
+   */
+  public Map<String, List<String>> getMetadata() {
+    return metadata;
+  }
+
+  /**
+   * Gets the sectionName.
+   *
+   * Document section.
+   *
+   * @return the sectionName
+   */
+  public String getSectionName() {
+    return sectionName;
+  }
+
+  /**
+   * Gets the sectionId.
+   *
+   * Document section identifier.
+   *
+   * @return the sectionId
+   */
+  public String getSectionId() {
+    return sectionId;
+  }
+
+  /**
    * Gets the corpus.
+   *
+   * Document corpus.
    *
    * @return the corpus
    */
@@ -70,25 +108,18 @@ public class RankedDocument extends GenericModel {
   }
 
   /**
-   * Gets additional metadata fields.
-   *
-   * @return the additional metadata fields
-   */
-  public Map<String, List<String>> getMetadata() {
-	return metadata;
-  }
-
-  /**
    * Gets the passages.
    *
    * @return the passages
    */
-  public List<Passage> getPassages() {
+  public PassagesModel getPassages() {
     return passages;
   }
 
   /**
    * Gets the annotations.
+   *
+   * Document annotations.
    *
    * @return the annotations
    */

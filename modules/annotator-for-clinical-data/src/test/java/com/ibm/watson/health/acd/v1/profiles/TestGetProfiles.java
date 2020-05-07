@@ -18,24 +18,23 @@ import org.junit.Test;
 import com.ibm.cloud.sdk.core.http.Response;
 import com.ibm.cloud.sdk.core.http.ServiceCall;
 import com.ibm.watson.health.acd.v1.AnnotatorForClinicalData;
-import com.ibm.watson.health.acd.v1.WatsonServiceTest;
 import com.ibm.watson.health.acd.v1.common.Constants;
 import com.ibm.watson.health.acd.v1.model.GetProfilesOptions;
 import com.ibm.watson.health.acd.v1.model.GetProfilesOptions.Builder;
+import com.ibm.watson.health.acd.v1.model.ListStringWrapper;
+import com.ibm.watson.health.acd.v1.utils.ServiceUtilities;
 
 /**
  *
  * Class for testing /v1/profiles.
  *
  */
-public class TestGetProfiles extends WatsonServiceTest {
+public class TestGetProfiles {
 	private AnnotatorForClinicalData service;
 
 	public TestGetProfiles() {
-		super();
 		try {
-			this.setUp();
-			service = this.getServiceInstance();
+			service = ServiceUtilities.getServiceInstance();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -45,21 +44,10 @@ public class TestGetProfiles extends WatsonServiceTest {
 	public void testGetProfiles() {
 		GetProfilesOptions options = new GetProfilesOptions.Builder().build();
 
-		ServiceCall<String> sc = service.getProfiles(options);
-		Response<String> response = sc.execute();
+		ServiceCall<ListStringWrapper> sc = service.getProfiles(options);
+		Response<ListStringWrapper> response = sc.execute();
 
 		Assert.assertNotNull(response.getResult());
-		Assert.assertTrue(response.getResult().contains(Constants.PROFILE_ID));
-		Assert.assertTrue(response.getResult().contains(Constants.PROFILE_ID));
-	}
-
-	@Test
-	public void testGetProfilesInclResponseDetails() {
-		Response<String> response = service.getProfilesInclResponseDetails();
-
-		Assert.assertNotNull(response.getResult());
-		Assert.assertTrue(response.getResult().contains(Constants.PROFILE_ID));
-		Assert.assertTrue(response.getResult().contains(Constants.PROFILE_ID));
 	}
 
 	@Test

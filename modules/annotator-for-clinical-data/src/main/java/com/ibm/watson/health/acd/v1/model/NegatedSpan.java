@@ -12,27 +12,22 @@
  */
 package com.ibm.watson.health.acd.v1.model;
 
-import java.lang.reflect.Type;
-import java.util.Map;
-
-import com.google.gson.reflect.TypeToken;
-import com.ibm.watson.developer_cloud.service.model.DynamicModel;
-import com.ibm.watson.developer_cloud.util.GsonSerializationHelper;
+import com.ibm.cloud.sdk.core.service.model.GenericModel;
 import com.ibm.watson.health.acd.v1.util.CustomCollection;
 
 /**
  * NegatedSpan.
  */
-public class NegatedSpan extends DynamicModel {
-  private Type idType = new TypeToken<String>() { } .getType();
-  private Type typeType = new TypeToken<String>() { } .getType();
-  private Type uidType = new TypeToken<Long>() { } .getType();
-  private Type beginType = new TypeToken<Long>() { } .getType();
-  private Type endType = new TypeToken<Long>() { } .getType();
-  private Type coveredTextType = new TypeToken<String>() { } .getType();
-  private Type negatedType = new TypeToken<Boolean>() { } .getType();
-  private Type hypotheticalType = new TypeToken<Boolean>() { } .getType();
-  private Type triggerType = new TypeToken<Map>() { } .getType();
+public class NegatedSpan extends GenericModel {
+  private String idType;
+  private String typeType;
+  private Long uidType;
+  private Long beginType;
+  private Long endType;
+  private String coveredTextType;
+  private Boolean negatedType;
+  private Boolean hypotheticalType;
+  private CustomCollection triggerType;
 
 
   /**
@@ -41,7 +36,7 @@ public class NegatedSpan extends DynamicModel {
    * @return the id
    */
   public String getId() {
-    return GsonSerializationHelper.serializeDynamicModelProperty(this.get("id"), idType);
+    return idType;
   }
 
   /**
@@ -50,7 +45,7 @@ public class NegatedSpan extends DynamicModel {
    * @return the type
    */
   public String getType() {
-    return GsonSerializationHelper.serializeDynamicModelProperty(this.get("type"), typeType);
+    return typeType;
   }
 
   /**
@@ -59,7 +54,7 @@ public class NegatedSpan extends DynamicModel {
    * @return the uid
    */
   public Long getUid() {
-    return GsonSerializationHelper.serializeDynamicModelProperty(this.get("uid"), uidType);
+    return uidType;
   }
 
   /**
@@ -68,7 +63,7 @@ public class NegatedSpan extends DynamicModel {
    * @return the begin
    */
   public Long getBegin() {
-    return GsonSerializationHelper.serializeDynamicModelProperty(this.get("begin"), beginType);
+    return beginType;
   }
 
   /**
@@ -77,7 +72,7 @@ public class NegatedSpan extends DynamicModel {
    * @return the end
    */
   public Long getEnd() {
-    return GsonSerializationHelper.serializeDynamicModelProperty(this.get("end"), endType);
+    return endType;
   }
 
   /**
@@ -86,7 +81,7 @@ public class NegatedSpan extends DynamicModel {
    * @return the coveredText
    */
   public String getCoveredText() {
-    return GsonSerializationHelper.serializeDynamicModelProperty(this.get("coveredText"), coveredTextType);
+    return coveredTextType;
   }
 
   /**
@@ -95,11 +90,7 @@ public class NegatedSpan extends DynamicModel {
    * @return the negated
    */
   public Boolean isNegated() {
-    Boolean negated = GsonSerializationHelper.serializeDynamicModelProperty(this.get("negated"), negatedType);
-    if (negated == null) {
-      negated = false;
-    }
-    return negated;
+    return negatedType;
   }
 
   /**
@@ -108,11 +99,7 @@ public class NegatedSpan extends DynamicModel {
    * @return the hypothetical
    */
   public Boolean isHypothetical() {
-    Boolean hypothetical = GsonSerializationHelper.serializeDynamicModelProperty(this.get("hypothetical"), hypotheticalType);
-    if (hypothetical == null) {
-      hypothetical = false;
-    }
-    return hypothetical;
+    return hypotheticalType;
   }
 
   /**
@@ -121,9 +108,7 @@ public class NegatedSpan extends DynamicModel {
    * @return the trigger
    */
   public CustomCollection getTrigger() {
-    Object triggerObject = GsonSerializationHelper.serializeDynamicModelProperty(this.get("trigger"), triggerType);
-    CustomCollection customCollection = new CustomCollection();
-    return customCollection.convertToCustomCollection(triggerObject);
+    return triggerType;
   }
 
 //  /**

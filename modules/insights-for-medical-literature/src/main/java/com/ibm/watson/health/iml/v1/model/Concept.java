@@ -1,5 +1,5 @@
 /*
- * Copyright 2018, 2020 IBM Corp. All Rights Reserved.
+ * (C) Copyright IBM Corp. 2020.
  *
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with
  * the License. You may obtain a copy of the License at
@@ -14,35 +14,40 @@ package com.ibm.watson.health.iml.v1.model;
 
 import java.util.List;
 
+import com.google.gson.annotations.SerializedName;
 import com.ibm.cloud.sdk.core.service.model.GenericModel;
 
 /**
- * Concept.
+ * Object reprensting an ontology artifact.
  */
 public class Concept extends GenericModel {
 
-  private String ontology;
-  private String cui;
-  private String preferredName;
-  private String alternativeName;
-  private String semanticType;
-  private Long count;
-  private Long hitCount;
-  private Double idf;
-  private Float score;
-  private HitCount parents;
-  private HitCount children;
-  private HitCount siblings;
-  private HitCount related;
-  private List<String> documentIds;
-  private String dataType;
-  private String unit;
-  private String operator;
-  private String minValue;
-  private String maxValue;
+  protected String ontology;
+  protected String cui;
+  protected String preferredName;
+  protected String alternativeName;
+  protected String semanticType;
+  protected Long count;
+  protected Long hitCount;
+  protected Float score;
+  protected Count parents;
+  protected Count children;
+  protected Count siblings;
+  protected Count related;
+  protected List<String> documentIds;
+  protected String dataType;
+  protected String unit;
+  protected String operator;
+  protected String minValue;
+  protected String maxValue;
+  protected String vocab;
+  @SerializedName("properties")
+  protected List<String> xProperties;
 
   /**
    * Gets the ontology.
+   *
+   * Ontology for artifact in search results.
    *
    * @return the ontology
    */
@@ -51,16 +56,20 @@ public class Concept extends GenericModel {
   }
 
   /**
-   * Gets the id.
+   * Gets the cui.
    *
-   * @return the id
+   * Unique identifier for ontolgoy artifact in search results.
+   *
+   * @return the cui
    */
-  public String getId() {
+  public String getCui() {
     return cui;
   }
 
   /**
    * Gets the preferredName.
+   *
+   * Ontology defined semantic type for artifact in search results.
    *
    * @return the preferredName
    */
@@ -71,6 +80,8 @@ public class Concept extends GenericModel {
   /**
    * Gets the alternativeName.
    *
+   * Ontology defined normalized name for artifact in search results.
+   *
    * @return the alternativeName
    */
   public String getAlternativeName() {
@@ -78,16 +89,20 @@ public class Concept extends GenericModel {
   }
 
   /**
-   * Gets the type.
+   * Gets the semanticType.
    *
-   * @return the type
+   * Ontology defined alternative name for artifact in search results.
+   *
+   * @return the semanticType
    */
-  public String getType() {
+  public String getSemanticType() {
     return semanticType;
   }
 
   /**
    * Gets the count.
+   *
+   * Corpus frequency of artifact.
    *
    * @return the count
    */
@@ -98,6 +113,8 @@ public class Concept extends GenericModel {
   /**
    * Gets the hitCount.
    *
+   * Corpus frequency of artifact.
+   *
    * @return the hitCount
    */
   public Long getHitCount() {
@@ -105,16 +122,9 @@ public class Concept extends GenericModel {
   }
 
   /**
-   * Gets the idf.
-   *
-   * @return the idf
-   */
-  public Double getIdf() {
-    return idf;
-  }
-
-  /**
    * Gets the score.
+   *
+   * Relevancy score of artifact in search results.
    *
    * @return the score
    */
@@ -125,41 +135,51 @@ public class Concept extends GenericModel {
   /**
    * Gets the parents.
    *
+   * Corpus frequency count.
+   *
    * @return the parents
    */
-  public HitCount getParents() {
+  public Count getParents() {
     return parents;
   }
 
   /**
    * Gets the children.
    *
+   * Corpus frequency count.
+   *
    * @return the children
    */
-  public HitCount getChildren() {
+  public Count getChildren() {
     return children;
   }
 
   /**
    * Gets the siblings.
    *
+   * Corpus frequency count.
+   *
    * @return the siblings
    */
-  public HitCount getSiblings() {
+  public Count getSiblings() {
     return siblings;
   }
 
   /**
    * Gets the related.
    *
+   * Corpus frequency count.
+   *
    * @return the related
    */
-  public HitCount getRelated() {
+  public Count getRelated() {
     return related;
   }
 
   /**
    * Gets the documentIds.
+   *
+   * Document identifiers for artifacts in search results.
    *
    * @return the documentIds
    */
@@ -170,6 +190,8 @@ public class Concept extends GenericModel {
   /**
    * Gets the dataType.
    *
+   * attribute data type for artifact in search results.
+   *
    * @return the dataType
    */
   public String getDataType() {
@@ -178,6 +200,8 @@ public class Concept extends GenericModel {
 
   /**
    * Gets the unit.
+   *
+   * Attribute value unit for artifact.
    *
    * @return the unit
    */
@@ -188,6 +212,8 @@ public class Concept extends GenericModel {
   /**
    * Gets the operator.
    *
+   * Attribute value operator for artifact.
+   *
    * @return the operator
    */
   public String getOperator() {
@@ -196,6 +222,8 @@ public class Concept extends GenericModel {
 
   /**
    * Gets the minValue.
+   *
+   * Minimum value for attribute artifact.
    *
    * @return the minValue
    */
@@ -206,10 +234,34 @@ public class Concept extends GenericModel {
   /**
    * Gets the maxValue.
    *
+   * Maximum value for attribute artifact.
+   *
    * @return the maxValue
    */
   public String getMaxValue() {
     return maxValue;
+  }
+
+  /**
+   * Gets the vocab.
+   *
+   * Source vocabulary of arttifact.
+   *
+   * @return the vocab
+   */
+  public String getVocab() {
+    return vocab;
+  }
+
+  /**
+   * Gets the xProperties.
+   *
+   * Artifact properties.
+   *
+   * @return the xProperties
+   */
+  public List<String> getXProperties() {
+    return xProperties;
   }
 }
 
