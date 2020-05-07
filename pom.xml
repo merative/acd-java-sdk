@@ -11,7 +11,7 @@
 
     <url>https://github.com/IBM/whcs-java-sdk</url>
 
-    <groupId>com.ibm.watson.health.cognitive_services</groupId>
+    <groupId>com.ibm.watson.health.cognitive-services</groupId>
     <version>1.0.1-SNAPSHOT</version>
     <packaging>pom</packaging>
 
