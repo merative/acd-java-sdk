@@ -23,6 +23,7 @@ import org.junit.Test;
 import com.ibm.cloud.sdk.core.http.Response;
 import com.ibm.cloud.sdk.core.http.ServiceCall;
 import com.ibm.watson.health.acd.v1.AnnotatorForClinicalData;
+import com.ibm.watson.health.acd.v1.WatsonServiceTest;
 import com.ibm.watson.health.acd.v1.common.Constants;
 import com.ibm.watson.health.acd.v1.common.TestContainerGroup;
 import com.ibm.watson.health.acd.v1.model.AnalyzeOptions;
@@ -36,18 +37,22 @@ import com.ibm.watson.health.acd.v1.model.FlowEntry;
 import com.ibm.watson.health.acd.v1.model.SymptomDisease;
 import com.ibm.watson.health.acd.v1.model.UnstructuredContainer;
 import com.ibm.watson.health.acd.v1.util.FlowUtil;
-import com.ibm.watson.health.acd.v1.utils.ServiceUtilities;
+
 /**
  *
  * Class for testing /v1/analyze.
  *
  */
-public class TestAnalyze {
+public class TestAnalyze extends WatsonServiceTest {
 	private AnnotatorForClinicalData service;
 
 	public TestAnalyze() {
+		super();
 		try {
-			service = ServiceUtilities.getServiceInstance();
+			this.setUp();
+			service = this.getServiceInstance();
+			Map<String, String> headerMap = this.getDefaultHeaders();
+			Assert.assertNotNull(headerMap);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -55,7 +60,10 @@ public class TestAnalyze {
 
 	@Test
 	public void testAnalyzeSingleAnnotaor() {
-		ConfigurationEntity ce = new ConfigurationEntity.Builder().id("t1").type("customType").uid(99).build();;
+		ConfigurationEntity ce = new ConfigurationEntity();
+		ce.setId("t1");
+		ce.setType("customType");
+		ce.setUid(99);
 		Map<String, String> params = new HashMap<String, String>();
 		params.put("include_optional_fields", "medical_codes");
 
@@ -254,6 +262,10 @@ public class TestAnalyze {
 	public void testBuilderFromOptions() {
 		Annotator annotator = new Annotator.Builder().name(Constants.CONCEPT_DETECTION_NAME)
 				.build();
+		Assert.assertNull(annotator.annotator());
+		Assert.assertNull(annotator.description());
+		Assert.assertNull(annotator.configurations());
+		Assert.assertNull(annotator.parameters());
 		FlowEntry flowEntry = new FlowEntry.Builder().annotator(annotator).build();
 		com.ibm.watson.health.acd.v1.model.FlowEntry.Builder flowEntryBuilder = flowEntry.newBuilder();
 		Assert.assertNotNull(flowEntryBuilder);

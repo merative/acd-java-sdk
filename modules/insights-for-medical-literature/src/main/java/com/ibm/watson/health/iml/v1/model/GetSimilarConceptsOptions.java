@@ -1,13 +1,16 @@
 /*
- * (C) Copyright IBM Corp. 2020.
+ * Copyright 2018 IBM Corp. All Rights Reserved.
  *
- * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with
  * the License. You may obtain a copy of the License at
  *
  * http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on
- * an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the
+ * Unless required by applicable law or agreed to in writing,
+ * software distributed under the License is distributed on
+ * an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND,
+ * either express or implied. See the License for the
  * specific language governing permissions and limitations under the License.
  */
 package com.ibm.watson.health.iml.v1.model;
@@ -16,17 +19,18 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.ibm.cloud.sdk.core.service.model.GenericModel;
+import com.ibm.cloud.sdk.core.util.Validator;
 
 /**
  * The getSimilarConcepts options.
  */
 public class GetSimilarConceptsOptions extends GenericModel {
 
-  protected String corpus;
-  protected String nameOrId;
-  protected List<String> returnOntologies;
-  protected String ontology;
-  protected Long limit;
+  private String corpus;
+  private String nameOrId;
+  private String ontology;
+  private List<String> returnOntologies;
+  private Long limit;
 
   /**
    * Builder.
@@ -34,15 +38,15 @@ public class GetSimilarConceptsOptions extends GenericModel {
   public static class Builder {
     private String corpus;
     private String nameOrId;
-    private List<String> returnOntologies;
     private String ontology;
+    private List<String> returnOntologies;
     private Long limit;
 
     private Builder(GetSimilarConceptsOptions getSimilarConceptsOptions) {
       this.corpus = getSimilarConceptsOptions.corpus;
       this.nameOrId = getSimilarConceptsOptions.nameOrId;
-      this.returnOntologies = getSimilarConceptsOptions.returnOntologies;
       this.ontology = getSimilarConceptsOptions.ontology;
+      this.returnOntologies = getSimilarConceptsOptions.returnOntologies;
       this.limit = getSimilarConceptsOptions.limit;
     }
 
@@ -57,7 +61,6 @@ public class GetSimilarConceptsOptions extends GenericModel {
      *
      * @param corpus the corpus
      * @param nameOrId the nameOrId
-     * @param returnOntologies the returnOntologies
      */
     public Builder(String corpus, String nameOrId, List<String> returnOntologies) {
       this.corpus = corpus;
@@ -68,7 +71,7 @@ public class GetSimilarConceptsOptions extends GenericModel {
     /**
      * Builds a GetSimilarConceptsOptions.
      *
-     * @return the new GetSimilarConceptsOptions instance
+     * @return the getSimilarConceptsOptions
      */
     public GetSimilarConceptsOptions build() {
       return new GetSimilarConceptsOptions(this);
@@ -81,8 +84,7 @@ public class GetSimilarConceptsOptions extends GenericModel {
      * @return the GetSimilarConceptsOptions builder
      */
     public Builder addReturnOntologies(String returnOntologies) {
-      com.ibm.cloud.sdk.core.util.Validator.notNull(returnOntologies,
-        "returnOntologies cannot be null");
+      Validator.notNull(returnOntologies, "returnOntologies cannot be null");
       if (this.returnOntologies == null) {
         this.returnOntologies = new ArrayList<String>();
       }
@@ -113,6 +115,17 @@ public class GetSimilarConceptsOptions extends GenericModel {
     }
 
     /**
+     * Set the ontology.
+     *
+     * @param ontology the ontology
+     * @return the GetSimilarConceptsOptions builder
+     */
+    public Builder ontology(String ontology) {
+      this.ontology = ontology;
+      return this;
+    }
+
+    /**
      * Set the returnOntologies.
      * Existing returnOntologies will be replaced.
      *
@@ -121,17 +134,6 @@ public class GetSimilarConceptsOptions extends GenericModel {
      */
     public Builder returnOntologies(List<String> returnOntologies) {
       this.returnOntologies = returnOntologies;
-      return this;
-    }
-
-    /**
-     * Set the ontology.
-     *
-     * @param ontology the ontology
-     * @return the GetSimilarConceptsOptions builder
-     */
-    public Builder ontology(String ontology) {
-      this.ontology = ontology;
       return this;
     }
 
@@ -147,17 +149,13 @@ public class GetSimilarConceptsOptions extends GenericModel {
     }
   }
 
-  protected GetSimilarConceptsOptions(Builder builder) {
-    com.ibm.cloud.sdk.core.util.Validator.notEmpty(builder.corpus,
-      "corpus cannot be empty");
-    com.ibm.cloud.sdk.core.util.Validator.notEmpty(builder.nameOrId,
-      "nameOrId cannot be empty");
-    com.ibm.cloud.sdk.core.util.Validator.notNull(builder.returnOntologies,
-      "returnOntologies cannot be null");
+  private GetSimilarConceptsOptions(Builder builder) {
+    Validator.notEmpty(builder.corpus, "corpus cannot be empty");
+    Validator.notEmpty(builder.nameOrId, "nameOrId cannot be empty");
     corpus = builder.corpus;
     nameOrId = builder.nameOrId;
-    returnOntologies = builder.returnOntologies;
     ontology = builder.ontology;
+    returnOntologies = builder.returnOntologies;
     limit = builder.limit;
   }
 
@@ -193,17 +191,6 @@ public class GetSimilarConceptsOptions extends GenericModel {
   }
 
   /**
-   * Gets the returnOntologies.
-   *
-   * Return similar concepts from any of these ontologites.
-   *
-   * @return the returnOntologies
-   */
-  public List<String> returnOntologies() {
-    return returnOntologies;
-  }
-
-  /**
    * Gets the ontology.
    *
    * The ontology that defines the cui.
@@ -212,6 +199,17 @@ public class GetSimilarConceptsOptions extends GenericModel {
    */
   public String ontology() {
     return ontology;
+  }
+
+  /**
+   * Gets the returnOntologies.
+   *
+   * Return similar concepts from any of these ontologies.
+   *
+   * @return the returnOntologies
+   */
+  public List<String> returnOntologies() {
+    return returnOntologies;
   }
 
   /**

@@ -57,7 +57,7 @@ public class EnrichmentTarget extends GenericModel {
 
 	/**
 	 * Retrieves field name of enrichment target.
-	 * @return field name
+	 * @return
 	 */
 	public String getEnrichmentField() {
 		return enrichmentField;
@@ -65,7 +65,7 @@ public class EnrichmentTarget extends GenericModel {
 
 	/**
 	 * Sets field name of enrichment target.
-	 * @param target field name
+	 * @param target
 	 */
 	public void setEnrichmentField(String target) {
 		enrichmentField = target;

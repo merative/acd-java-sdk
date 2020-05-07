@@ -162,7 +162,7 @@ public class Query extends GenericModel {
 
   /**
    * Gets set of scroll IDs for processing large result sets.
-   * @return scroll id
+   * @return
    */
 	public String getCursorId() {
 		return this.cursorId;
@@ -170,7 +170,7 @@ public class Query extends GenericModel {
 
 	/**
 	 * Sets the scroll IDs of large result sets.
-	 * @param id scroll id for next batch
+	 * @param map
 	 */
 	public void setCursorId(String id) {
 		this.cursorId = id;

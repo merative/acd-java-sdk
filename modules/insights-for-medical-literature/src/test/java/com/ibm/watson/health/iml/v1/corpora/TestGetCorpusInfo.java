@@ -11,7 +11,7 @@
  * specific language governing permissions and limitations under the License.
  */
 package com.ibm.watson.health.iml.v1.corpora;
-import static com.ibm.watson.health.iml.v1.utils.ServiceUtilities.getProperty;
+
 import java.util.List;
 
 import org.junit.Assert;
@@ -20,23 +20,25 @@ import org.junit.Test;
 import com.ibm.cloud.sdk.core.http.Response;
 import com.ibm.cloud.sdk.core.http.ServiceCall;
 import com.ibm.watson.health.iml.v1.InsightsForMedicalLiteratureService;
+import com.ibm.watson.health.iml.v1.WatsonServiceTest;
 import com.ibm.watson.health.iml.v1.common.Constants;
-import com.ibm.watson.health.iml.v1.model.CorporaConfig;
-import com.ibm.watson.health.iml.v1.model.CorpusModel;
+import com.ibm.watson.health.iml.v1.model.CorporaConfigModel;
+import com.ibm.watson.health.iml.v1.model.Corpus;
 import com.ibm.watson.health.iml.v1.model.GetCorpusConfigOptions;
 import com.ibm.watson.health.iml.v1.model.GetCorpusConfigOptions.Builder;
-import com.ibm.watson.health.iml.v1.utils.ServiceUtilities;
 
 /**
  * Class for testing /v1/corpora/{corpus} api.
  *
  */
-public class TestGetCorpusInfo {
+public class TestGetCorpusInfo extends WatsonServiceTest {
 	private InsightsForMedicalLiteratureService imlService;
 
 	public TestGetCorpusInfo() {
+		super();
 		try {
-			imlService = ServiceUtilities.getServiceInstance();
+			this.setUp();
+			imlService = this.getServiceInstance();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -44,14 +46,14 @@ public class TestGetCorpusInfo {
 
 	@Test
 	public void testGetCorpusInfo() {
-		GetCorpusConfigOptions ccOptions = new GetCorpusConfigOptions.Builder(getProperty(Constants.CORPUS)).build();
+		GetCorpusConfigOptions ccOptions = new GetCorpusConfigOptions.Builder(this.getProperty(Constants.CORPUS)).build();
 
-		ServiceCall<CorporaConfig> sc = imlService.getCorpusConfig(ccOptions);
+		ServiceCall<CorporaConfigModel> sc = imlService.getCorpusConfig(ccOptions);
 
-		Response<CorporaConfig> response = sc.execute();
-		CorporaConfig ccm = response.getResult();
-		List<CorpusModel> corpora = ccm.getCorpora();
-		for (CorpusModel corpusConfig : corpora) {
+		Response<CorporaConfigModel> response = sc.execute();
+		CorporaConfigModel ccm = response.getResult();
+		List<Corpus> corpora = ccm.getCorpora();
+		for (Corpus corpusConfig : corpora) {
 			Assert.assertNotNull(corpusConfig.getCorpusName());
 			List<String> corpusOntologies = corpusConfig.getOntologies();
 			for (String ontology : corpusOntologies) {
@@ -62,15 +64,15 @@ public class TestGetCorpusInfo {
 
 	@Test
 	public void testGetCorpusInfoVerbose() {
-		GetCorpusConfigOptions ccOptions = new GetCorpusConfigOptions.Builder(getProperty(Constants.CORPUS))
+		GetCorpusConfigOptions ccOptions = new GetCorpusConfigOptions.Builder(this.getProperty(Constants.CORPUS))
 				.verbose(true).build();
 
-		ServiceCall<CorporaConfig> sc = imlService.getCorpusConfig(ccOptions);
+		ServiceCall<CorporaConfigModel> sc = imlService.getCorpusConfig(ccOptions);
 
-		Response<CorporaConfig> response = sc.execute();
-		CorporaConfig ccm = response.getResult();
-		List<CorpusModel> corpora = ccm.getCorpora();
-		for (CorpusModel corpusConfig : corpora) {
+		Response<CorporaConfigModel> response = sc.execute();
+		CorporaConfigModel ccm = response.getResult();
+		List<Corpus> corpora = ccm.getCorpora();
+		for (Corpus corpusConfig : corpora) {
 			Assert.assertNotNull(corpusConfig.getCorpusName());
 			List<String> corpusOntologies = corpusConfig.getOntologies();
 			for (String ontology : corpusOntologies) {
@@ -84,12 +86,12 @@ public class TestGetCorpusInfo {
 		Builder builder = new GetCorpusConfigOptions.Builder();
 		builder.corpus(getProperty(Constants.CORPUS));
 
-		ServiceCall<CorporaConfig> sc = imlService.getCorpusConfig(builder.build());
+		ServiceCall<CorporaConfigModel> sc = imlService.getCorpusConfig(builder.build());
 
-		Response<CorporaConfig> response = sc.execute();
-		CorporaConfig ccm = response.getResult();
-		List<CorpusModel> corpora = ccm.getCorpora();
-		for (CorpusModel corpusConfig : corpora) {
+		Response<CorporaConfigModel> response = sc.execute();
+		CorporaConfigModel ccm = response.getResult();
+		List<Corpus> corpora = ccm.getCorpora();
+		for (Corpus corpusConfig : corpora) {
 			Assert.assertNotNull(corpusConfig.getCorpusName());
 			List<String> corpusOntologies = corpusConfig.getOntologies();
 			for (String ontology : corpusOntologies) {
@@ -100,7 +102,7 @@ public class TestGetCorpusInfo {
 
 	@Test
 	public void testGetBuilderFromOptions() {
-		GetCorpusConfigOptions ccOptions = new GetCorpusConfigOptions.Builder(getProperty(Constants.CORPUS))
+		GetCorpusConfigOptions ccOptions = new GetCorpusConfigOptions.Builder(this.getProperty(Constants.CORPUS))
 				.verbose(true).build();
 		Builder builder = ccOptions.newBuilder();
 		Assert.assertNotNull(builder);

@@ -18,21 +18,24 @@ import org.junit.Test;
 import com.ibm.cloud.sdk.core.http.Response;
 import com.ibm.cloud.sdk.core.http.ServiceCall;
 import com.ibm.watson.health.acd.v1.AnnotatorForClinicalData;
+import com.ibm.watson.health.acd.v1.WatsonServiceTest;
 import com.ibm.watson.health.acd.v1.common.Constants;
-import com.ibm.watson.health.acd.v1.model.GetAnnotatorsOptions;
-import com.ibm.watson.health.acd.v1.utils.ServiceUtilities;
+import com.ibm.watson.health.acd.v1.model.ListAnnotatorsOptions;
+import com.ibm.watson.health.acd.v1.model.ListAnnotatorsOptions.Builder;
 
 /**
  *
  * Class for testing /v1/annotators.
  *
  */
-public class TestGetAnnotators {
+public class TestGetAnnotators extends WatsonServiceTest {
 	private AnnotatorForClinicalData service;
 
 	public TestGetAnnotators() {
+		super();
 		try {
-			service = ServiceUtilities.getServiceInstance();
+			this.setUp();
+			service = this.getServiceInstance();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -40,15 +43,29 @@ public class TestGetAnnotators {
 
 	@Test
 	public void testGetAnnotators() {
-		Assert.assertNotNull(service.getAnnotators());
+		Assert.assertNotNull(service.listAnnotators());
 	}
 
 	@Test
 	public void testGetAnnotatorsOptions() {
-		GetAnnotatorsOptions options = new GetAnnotatorsOptions.Builder().build();
-		ServiceCall<String> sc = service.getAnnotators(options);
+		ListAnnotatorsOptions options = new ListAnnotatorsOptions.Builder().build();
+		ServiceCall<String> sc = service.listAnnotators(options);
 		Response<String> response = sc.execute();
 		Assert.assertNotNull(response.getResult());
 		Assert.assertTrue(response.getResult().contains(Constants.CONCEPT_DETECTION_NAME));
+	}
+
+	@Test
+	public void testGetAnnotatorsIncResponseDetail() {
+		Response<String> response = service.listAnnotatorsInclResponseDetails();
+		Assert.assertNotNull(response.getResult());
+		Assert.assertTrue(response.getResult().contains(Constants.CONCEPT_DETECTION_NAME));
+	}
+
+	@Test
+	public void testGetBuilderFromOptions() {
+		ListAnnotatorsOptions options = new ListAnnotatorsOptions.Builder().build();
+		Builder builder = options.newBuilder();
+		Assert.assertNotNull(builder);
 	}
 }

@@ -23,17 +23,19 @@ import org.junit.Test;
 import com.ibm.cloud.sdk.core.http.Response;
 import com.ibm.cloud.sdk.core.http.ServiceCall;
 import com.ibm.watson.health.iml.v1.InsightsForMedicalLiteratureService;
+import com.ibm.watson.health.iml.v1.WatsonServiceTest;
 import com.ibm.watson.health.iml.v1.common.Constants;
 import com.ibm.watson.health.iml.v1.model.AddCorpusDocumentOptions;
 import com.ibm.watson.health.iml.v1.model.AddCorpusDocumentOptions.Builder;
-import com.ibm.watson.health.iml.v1.utils.ServiceUtilities;
 
-public class TestAddDocumentToCorpus {
+public class TestAddDocumentToCorpus extends WatsonServiceTest {
 	private InsightsForMedicalLiteratureService imlService;
 
 	public TestAddDocumentToCorpus() {
+		super();
 		try {
-			imlService = ServiceUtilities.getServiceInstance();
+			this.setUp();
+			imlService = this.getServiceInstance();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -53,7 +55,7 @@ public class TestAddDocumentToCorpus {
 		docMap.put("references", refData);
 
 		AddCorpusDocumentOptions docOptions = new AddCorpusDocumentOptions.Builder().acdUrl("https://us-south.wh-acd.cloud.ibm.com/wh-acd/api").apiKey("10zamyYX_Hm4dYJyWhw1o1XOt9tSJzQfNmoSzeEt0oNR")
-				.flowId("iml_general_medical_literature_v9.0_iml_general_medical_literature_flow_flow").corpus(ServiceUtilities.getProperty(Constants.CUSTOM_CORPUS)).document(docMap).build();
+				.flowId("iml_general_medical_literature_v9.0_iml_general_medical_literature_flow_flow").corpus(getProperty(Constants.CUSTOM_CORPUS)).document(docMap).build();
 		ServiceCall<Void> sc = imlService.addCorpusDocument(docOptions);
 
 		try {
@@ -69,8 +71,8 @@ public class TestAddDocumentToCorpus {
 		List<String> otherAnnotators = new ArrayList<String>(1);
 		otherAnnotators.add(annotatorUrl);
 
-		AddCorpusDocumentOptions docOptions = new AddCorpusDocumentOptions.Builder().acdUrl(ServiceUtilities.getProperty(Constants.ACD_URL)).apiKey(Constants.ACD_APIKEY)
-				.flowId("iml_general_medical_literature_v9.0_iml_general_medical_literature_flow_flow").corpus(ServiceUtilities.getProperty(Constants.CUSTOM_CORPUS)).build();
+		AddCorpusDocumentOptions docOptions = new AddCorpusDocumentOptions.Builder().acdUrl(getProperty(Constants.ACD_URL)).apiKey(Constants.ACD_APIKEY)
+				.flowId("iml_general_medical_literature_v9.0_iml_general_medical_literature_flow_flow").corpus(getProperty(Constants.CUSTOM_CORPUS)).build();
 		ServiceCall<Void> sc = imlService.addCorpusDocument(docOptions);
 
 	}

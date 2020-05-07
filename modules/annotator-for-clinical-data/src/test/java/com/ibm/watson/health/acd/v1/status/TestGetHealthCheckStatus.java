@@ -18,22 +18,23 @@ import org.junit.Test;
 import com.ibm.cloud.sdk.core.http.Response;
 import com.ibm.cloud.sdk.core.http.ServiceCall;
 import com.ibm.watson.health.acd.v1.AnnotatorForClinicalData;
-import com.ibm.watson.health.acd.v1.model.GetHealthCheckStatusOptions;
-import com.ibm.watson.health.acd.v1.model.GetHealthCheckStatusOptions.Builder;
-import com.ibm.watson.health.acd.v1.model.ServiceStatus;
-import com.ibm.watson.health.acd.v1.utils.ServiceUtilities;
+import com.ibm.watson.health.acd.v1.WatsonServiceTest;
+import com.ibm.watson.health.acd.v1.model.GetHealthCheckOptions;
+import com.ibm.watson.health.acd.v1.model.GetHealthCheckOptions.Builder;
 
 /**
  *
  * Class to test /v1/status/health_check.
  *
  */
-public class TestGetHealthCheckStatus {
+public class TestGetHealthCheckStatus extends WatsonServiceTest {
 	private AnnotatorForClinicalData service;
 
 	public TestGetHealthCheckStatus() {
+		super();
 		try {
-			service = ServiceUtilities.getServiceInstance();
+			this.setUp();
+			service = this.getServiceInstance();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -41,22 +42,30 @@ public class TestGetHealthCheckStatus {
 
 	@Test
 	public void testGetHealthCheckStatus() {
-		Assert.assertNotNull(service.getHealthCheckStatus());
+		Assert.assertNotNull(service.getHealthCheck());
 	}
 
 	@Test
 	public void testGetHealthCheckStatusOptions() {
-		GetHealthCheckStatusOptions options = new GetHealthCheckStatusOptions.Builder().build();
+		GetHealthCheckOptions options = new GetHealthCheckOptions.Builder().build();
 
-		ServiceCall<ServiceStatus> sc = service.getHealthCheckStatus(options);
-		Response<ServiceStatus> response = sc.execute();
+		ServiceCall<String> sc = service.getHealthCheck(options);
+		Response<String> response = sc.execute();
+
+		Assert.assertEquals(response.getResult(), "{\"serviceState\":\"OK\"}");
+	}
+
+	@Test
+	public void testGetHealthCheckStatusInclResponseDetails() {
+
+		Response<String> response = service.getHealthCheckInclResponseDetails();
 
 		Assert.assertEquals(response.getResult(), "{\"serviceState\":\"OK\"}");
 	}
 
 	@Test
 	public void testGetBuilderFromOptions() {
-		GetHealthCheckStatusOptions options = new GetHealthCheckStatusOptions.Builder().build();
+		GetHealthCheckOptions options = new GetHealthCheckOptions.Builder().build();
 		Builder builder = options.newBuilder();
 		Assert.assertNotNull(builder);
 	}

@@ -11,7 +11,7 @@
  * specific language governing permissions and limitations under the License.
  */
 package com.ibm.watson.health.iml.v1.search;
-import static com.ibm.watson.health.iml.v1.utils.ServiceUtilities.getProperty;
+
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -22,24 +22,26 @@ import org.junit.Test;
 import com.ibm.cloud.sdk.core.http.Response;
 import com.ibm.cloud.sdk.core.http.ServiceCall;
 import com.ibm.watson.health.iml.v1.InsightsForMedicalLiteratureService;
+import com.ibm.watson.health.iml.v1.WatsonServiceTest;
 import com.ibm.watson.health.iml.v1.common.Constants;
-import com.ibm.watson.health.iml.v1.model.FieldOptions;
 import com.ibm.watson.health.iml.v1.model.GetFieldsOptions;
 import com.ibm.watson.health.iml.v1.model.GetFieldsOptions.Builder;
 import com.ibm.watson.health.iml.v1.model.MetadataModel;
-import com.ibm.watson.health.iml.v1.utils.ServiceUtilities;
+import com.ibm.watson.health.iml.v1.model.Supports;
 
 /**
  *
  * Class for testing /v1/corpora/{corpus}/search/metadata.
  *
  */
-public class TestGetSearchMetatdata {
+public class TestGetSearchMetatdata extends WatsonServiceTest {
 	private InsightsForMedicalLiteratureService imlService;
 
 	public TestGetSearchMetatdata() {
+		super();
 		try {
-			imlService = ServiceUtilities.getServiceInstance();
+			this.setUp();
+			imlService = this.getServiceInstance();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -53,10 +55,11 @@ public class TestGetSearchMetatdata {
 		Response<MetadataModel> response = sc.execute();
 		MetadataModel model = response.getResult();
 
-		Map<String, FieldOptions> fieldMap = model.getFields();
+		Map<String, Supports> fieldMap = model.getFields();
 		Set<String> keys = fieldMap.keySet();
 		for (String key : keys) {
-			List<String> supportsList = fieldMap.get(key).getSupports();
+			Supports supports = fieldMap.get(key);
+			List<String> supportsList = supports.getSupports();
 			for (String support : supportsList) {
 				Assert.assertNotNull(support);
 			}
@@ -72,10 +75,11 @@ public class TestGetSearchMetatdata {
 		Response<MetadataModel> response = sc.execute();
 		MetadataModel model = response.getResult();
 
-		Map<String, FieldOptions> fieldMap = model.getFields();
+		Map<String, Supports> fieldMap = model.getFields();
 		Set<String> keys = fieldMap.keySet();
 		for (String key : keys) {
-			List<String> supportsList = fieldMap.get(key).getSupports();
+			Supports supports = fieldMap.get(key);
+			List<String> supportsList = supports.getSupports();
 			for (String support : supportsList) {
 				Assert.assertNotNull(support);
 			}

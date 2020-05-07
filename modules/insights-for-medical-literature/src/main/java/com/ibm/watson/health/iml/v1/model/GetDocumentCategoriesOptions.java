@@ -1,13 +1,16 @@
 /*
- * (C) Copyright IBM Corp. 2020.
+ * Copyright 2018 IBM Corp. All Rights Reserved.
  *
- * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with
  * the License. You may obtain a copy of the License at
  *
  * http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on
- * an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the
+ * Unless required by applicable law or agreed to in writing,
+ * software distributed under the License is distributed on
+ * an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND,
+ * either express or implied. See the License for the
  * specific language governing permissions and limitations under the License.
  */
 package com.ibm.watson.health.iml.v1.model;
@@ -16,33 +19,22 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.ibm.cloud.sdk.core.service.model.GenericModel;
+import com.ibm.cloud.sdk.core.util.Validator;
 
 /**
  * The getDocumentCategories options.
  */
 public class GetDocumentCategoriesOptions extends GenericModel {
 
-  /**
-   * Select concepts belonging to disorders, drugs or genes.
-   */
-  public interface Category {
-    /** disorders. */
-    String DISORDERS = "disorders";
-    /** drugs. */
-    String DRUGS = "drugs";
-    /** genes. */
-    String GENES = "genes";
-  }
-
-  protected String corpus;
-  protected String documentId;
-  protected String highlightTagBegin;
-  protected String highlightTagEnd;
-  protected List<String> types;
-  protected String category;
-  protected Boolean onlyNegatedConcepts;
-  protected String fields;
-  protected Long limit;
+  private String corpus;
+  private String documentId;
+  private String highlightTagBegin;
+  private String highlightTagEnd;
+  private List<String> types;
+  private String category;
+  private Boolean onlyNegatedConcepts;
+  private String fields;
+  private Long limit;
 
   /**
    * Builder.
@@ -59,15 +51,15 @@ public class GetDocumentCategoriesOptions extends GenericModel {
     private Long limit;
 
     private Builder(GetDocumentCategoriesOptions getDocumentCategoriesOptions) {
-      this.corpus = getDocumentCategoriesOptions.corpus;
-      this.documentId = getDocumentCategoriesOptions.documentId;
-      this.highlightTagBegin = getDocumentCategoriesOptions.highlightTagBegin;
-      this.highlightTagEnd = getDocumentCategoriesOptions.highlightTagEnd;
-      this.types = getDocumentCategoriesOptions.types;
-      this.category = getDocumentCategoriesOptions.category;
-      this.onlyNegatedConcepts = getDocumentCategoriesOptions.onlyNegatedConcepts;
-      this.fields = getDocumentCategoriesOptions.fields;
-      this.limit = getDocumentCategoriesOptions.limit;
+      corpus = getDocumentCategoriesOptions.corpus;
+      documentId = getDocumentCategoriesOptions.documentId;
+      highlightTagBegin = getDocumentCategoriesOptions.highlightTagBegin;
+      highlightTagEnd = getDocumentCategoriesOptions.highlightTagEnd;
+      types = getDocumentCategoriesOptions.types;
+      category = getDocumentCategoriesOptions.category;
+      onlyNegatedConcepts = getDocumentCategoriesOptions.onlyNegatedConcepts;
+      fields = getDocumentCategoriesOptions.fields;
+      limit = getDocumentCategoriesOptions.limit;
     }
 
     /**
@@ -90,7 +82,7 @@ public class GetDocumentCategoriesOptions extends GenericModel {
     /**
      * Builds a GetDocumentCategoriesOptions.
      *
-     * @return the new GetDocumentCategoriesOptions instance
+     * @return the getDocumentCategoriesOptions
      */
     public GetDocumentCategoriesOptions build() {
       return new GetDocumentCategoriesOptions(this);
@@ -103,8 +95,7 @@ public class GetDocumentCategoriesOptions extends GenericModel {
      * @return the GetDocumentCategoriesOptions builder
      */
     public Builder addTypes(String types) {
-      com.ibm.cloud.sdk.core.util.Validator.notNull(types,
-        "types cannot be null");
+      Validator.notNull(types, "types cannot be null");
       if (this.types == null) {
         this.types = new ArrayList<String>();
       }
@@ -213,11 +204,9 @@ public class GetDocumentCategoriesOptions extends GenericModel {
     }
   }
 
-  protected GetDocumentCategoriesOptions(Builder builder) {
-    com.ibm.cloud.sdk.core.util.Validator.notEmpty(builder.corpus,
-      "corpus cannot be empty");
-    com.ibm.cloud.sdk.core.util.Validator.notEmpty(builder.documentId,
-      "documentId cannot be empty");
+  private GetDocumentCategoriesOptions(Builder builder) {
+    Validator.notEmpty(builder.corpus, "corpus cannot be empty");
+    Validator.notEmpty(builder.documentId, "documentId cannot be empty");
     corpus = builder.corpus;
     documentId = builder.documentId;
     highlightTagBegin = builder.highlightTagBegin;
@@ -263,7 +252,8 @@ public class GetDocumentCategoriesOptions extends GenericModel {
   /**
    * Gets the highlightTagBegin.
    *
-   * HTML tag used to highlight concepts found in the text.  Default is '&amp;ltb&amp;gt'.
+   * HTML tag used to highlight concepts found in the text.
+   * Default is '&ltb&gt'.
    *
    * @return the highlightTagBegin
    */
@@ -274,7 +264,8 @@ public class GetDocumentCategoriesOptions extends GenericModel {
   /**
    * Gets the highlightTagEnd.
    *
-   * HTML tag used to highlight concepts found in the text.  Default is '&amp;lt/b&amp;gt'.
+   * HTML tag used to highlight concepts found in the text.
+   * Default is '&lt/b&gt'.
    *
    * @return the highlightTagEnd
    */
@@ -285,8 +276,8 @@ public class GetDocumentCategoriesOptions extends GenericModel {
   /**
    * Gets the types.
    *
-   * Select concepts belonging to these semantic types to return. Semantic types for the corpus can be found using the
-   * /v1/corpora/{corpus}/types method.Defaults to 'all'.
+   * Select concepts belonging to these semantic types to return.
+   * Defaults to 'all'.
    *
    * @return the types
    */
@@ -319,8 +310,9 @@ public class GetDocumentCategoriesOptions extends GenericModel {
   /**
    * Gets the fields.
    *
-   * Comma separated list of fields to return:  passages, annotations, highlightedTitle, highlightedAbstract,
-   * highlightedBody, highlightedSections.
+   * Comma separated list of fields to return:  passages, annotations,
+   *  highlightedTitle, highlightedAbstract,
+   * highlightedBody.
    *
    * @return the fields
    */
@@ -331,7 +323,8 @@ public class GetDocumentCategoriesOptions extends GenericModel {
   /**
    * Gets the limit.
    *
-   * Limit the number of passages per search concept (1 to 250).  Default is 50.
+   * Limit the number of passages per search concept (1 to 250).
+   * Default is 50.
    *
    * @return the limit
    */

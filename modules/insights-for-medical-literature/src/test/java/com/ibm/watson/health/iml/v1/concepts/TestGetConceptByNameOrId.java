@@ -11,7 +11,7 @@
  * specific language governing permissions and limitations under the License.
  */
 package com.ibm.watson.health.iml.v1.concepts;
-import static com.ibm.watson.health.iml.v1.utils.ServiceUtilities.getProperty;
+
 import java.util.Map;
 
 import org.junit.Assert;
@@ -20,19 +20,21 @@ import org.junit.Test;
 import com.ibm.cloud.sdk.core.http.Response;
 import com.ibm.cloud.sdk.core.http.ServiceCall;
 import com.ibm.watson.health.iml.v1.InsightsForMedicalLiteratureService;
+import com.ibm.watson.health.iml.v1.WatsonServiceTest;
 import com.ibm.watson.health.iml.v1.common.Constants;
 import com.ibm.watson.health.iml.v1.model.ConceptInfoModel;
 import com.ibm.watson.health.iml.v1.model.GetCuiInfoOptions;
 import com.ibm.watson.health.iml.v1.model.GetCuiInfoOptions.Builder;
-import com.ibm.watson.health.iml.v1.utils.ServiceUtilities;
 
-public class TestGetConceptByNameOrId {
+public class TestGetConceptByNameOrId extends WatsonServiceTest {
 	static final String CORPUS = "CORPUS";
 	private InsightsForMedicalLiteratureService imlService;
 
 	public TestGetConceptByNameOrId() {
+		super();
 		try {
-			imlService = ServiceUtilities.getServiceInstance();
+			this.setUp();
+			imlService = this.getServiceInstance();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -122,7 +124,7 @@ public class TestGetConceptByNameOrId {
 		String fields = "semanticTypes";
 		Builder builder = new GetCuiInfoOptions.Builder();
 		builder.corpus(getProperty(CORPUS));
-		builder.nameOrId("C0243026");
+		builder.cui("C0243026");
 		builder.fields(fields);
 		builder.ontology("umls");
 		builder.treeLayout(false);

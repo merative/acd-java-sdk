@@ -1,5 +1,5 @@
 /*
- * (C) Copyright IBM Corp. 2020.
+ * Copyright 2018 IBM Corp. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with
  * the License. You may obtain a copy of the License at
@@ -12,14 +12,15 @@
  */
 package com.ibm.watson.health.acd.v1.model;
 
-import com.ibm.cloud.sdk.core.service.model.GenericModel;
+import com.ibm.watson.developer_cloud.service.model.GenericModel;
+import com.ibm.watson.developer_cloud.util.Validator;
 
 /**
  * The getProfile options.
  */
 public class GetProfileOptions extends GenericModel {
 
-  protected String id;
+  private String id;
 
   /**
    * Builder.
@@ -28,7 +29,7 @@ public class GetProfileOptions extends GenericModel {
     private String id;
 
     private Builder(GetProfileOptions getProfileOptions) {
-      this.id = getProfileOptions.id;
+      id = getProfileOptions.id;
     }
 
     /**
@@ -49,7 +50,7 @@ public class GetProfileOptions extends GenericModel {
     /**
      * Builds a GetProfileOptions.
      *
-     * @return the new GetProfileOptions instance
+     * @return the getProfileOptions
      */
     public GetProfileOptions build() {
       return new GetProfileOptions(this);
@@ -67,9 +68,8 @@ public class GetProfileOptions extends GenericModel {
     }
   }
 
-  protected GetProfileOptions(Builder builder) {
-    com.ibm.cloud.sdk.core.util.Validator.notEmpty(builder.id,
-      "id cannot be empty");
+  private GetProfileOptions(Builder builder) {
+    Validator.notEmpty(builder.id, "id cannot be empty");
     id = builder.id;
   }
 
@@ -93,4 +93,3 @@ public class GetProfileOptions extends GenericModel {
     return id;
   }
 }
-

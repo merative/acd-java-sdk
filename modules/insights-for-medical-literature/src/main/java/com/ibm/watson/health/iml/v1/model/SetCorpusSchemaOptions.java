@@ -1,13 +1,16 @@
 /*
- * (C) Copyright IBM Corp. 2020.
+ * Copyright 2018 IBM Corp. All Rights Reserved.
  *
- * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with
  * the License. You may obtain a copy of the License at
  *
  * http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on
- * an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the
+ * Unless required by applicable law or agreed to in writing,
+ * software distributed under the License is distributed on
+ * an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND,
+ * either express or implied. See the License for the
  * specific language governing permissions and limitations under the License.
  */
 package com.ibm.watson.health.iml.v1.model;
@@ -17,27 +20,37 @@ import java.util.List;
 import java.util.Map;
 
 import com.ibm.cloud.sdk.core.service.model.GenericModel;
+import com.ibm.cloud.sdk.core.util.Validator;
 
 /**
  * The setCorpusSchema options.
  */
 public class SetCorpusSchemaOptions extends GenericModel {
 
-  protected List<Object> enrichmentTargets;
-  protected List<Object> metadataFields;
-  protected String corpusName;
-  protected Map<String, Object> references;
+  private String userName;
+  private String password;
+  private String corpusURI;
+  private List<EnrichmentTarget> enrichmentTargets;
+  private List<MetadataField> metadataFields;
+  private String corpusName;
+  private Map<String, String> references;
 
   /**
    * Builder.
    */
   public static class Builder {
-    private List<Object> enrichmentTargets;
-    private List<Object> metadataFields;
+    private String userName;
+    private String password;
+    private String corpusURI;
+    private List<EnrichmentTarget> enrichmentTargets;
+    private List<MetadataField> metadataFields;
     private String corpusName;
-    private Map<String, Object> references;
+    private Map<String, String> references;
 
     private Builder(SetCorpusSchemaOptions setCorpusSchemaOptions) {
+      this.userName = setCorpusSchemaOptions.userName;
+      this.password = setCorpusSchemaOptions.password;
+      this.corpusURI = setCorpusSchemaOptions.corpusURI;
       this.enrichmentTargets = setCorpusSchemaOptions.enrichmentTargets;
       this.metadataFields = setCorpusSchemaOptions.metadataFields;
       this.corpusName = setCorpusSchemaOptions.corpusName;
@@ -53,7 +66,7 @@ public class SetCorpusSchemaOptions extends GenericModel {
     /**
      * Builds a SetCorpusSchemaOptions.
      *
-     * @return the new SetCorpusSchemaOptions instance
+     * @return the setCorpusSchemaOptions
      */
     public SetCorpusSchemaOptions build() {
       return new SetCorpusSchemaOptions(this);
@@ -65,13 +78,13 @@ public class SetCorpusSchemaOptions extends GenericModel {
      * @param enrichmentTargets the new enrichmentTargets
      * @return the SetCorpusSchemaOptions builder
      */
-    public Builder addEnrichmentTargets(Object enrichmentTargets) {
-      com.ibm.cloud.sdk.core.util.Validator.notNull(enrichmentTargets,
-        "enrichmentTargets cannot be null");
+    public Builder addEnrichmentTargets(
+    		List<EnrichmentTarget> enrichmentTargets) {
+      Validator.notNull(enrichmentTargets, "enrichmentTargets cannot be null");
       if (this.enrichmentTargets == null) {
-        this.enrichmentTargets = new ArrayList<Object>();
+        this.enrichmentTargets = new ArrayList<EnrichmentTarget>();
       }
-      this.enrichmentTargets.add(enrichmentTargets);
+      this.enrichmentTargets.addAll(enrichmentTargets);
       return this;
     }
 
@@ -81,13 +94,45 @@ public class SetCorpusSchemaOptions extends GenericModel {
      * @param metadataFields the new metadataFields
      * @return the SetCorpusSchemaOptions builder
      */
-    public Builder addMetadataFields(Object metadataFields) {
-      com.ibm.cloud.sdk.core.util.Validator.notNull(metadataFields,
-        "metadataFields cannot be null");
+    public Builder addMetadataFields(List<MetadataField> metadataFields) {
+      Validator.notNull(metadataFields, "metadataFields cannot be null");
       if (this.metadataFields == null) {
-        this.metadataFields = new ArrayList<Object>();
+        this.metadataFields = new ArrayList<MetadataField>();
       }
-      this.metadataFields.add(metadataFields);
+      this.metadataFields.addAll(metadataFields);
+      return this;
+    }
+
+    /**
+     * Set the userName.
+     *
+     * @param userName the userName
+     * @return the SetCorpusSchemaOptions builder
+     */
+    public Builder userName(String userName) {
+      this.userName = userName;
+      return this;
+    }
+
+    /**
+     * Set the password.
+     *
+     * @param password the password
+     * @return the SetCorpusSchemaOptions builder
+     */
+    public Builder password(String password) {
+      this.password = password;
+      return this;
+    }
+
+    /**
+     * Set the corpusURI.
+     *
+     * @param corpusURI the corpusURI
+     * @return the SetCorpusSchemaOptions builder
+     */
+    public Builder corpusURI(String corpusURI) {
+      this.corpusURI = corpusURI;
       return this;
     }
 
@@ -98,7 +143,7 @@ public class SetCorpusSchemaOptions extends GenericModel {
      * @param enrichmentTargets the enrichmentTargets
      * @return the SetCorpusSchemaOptions builder
      */
-    public Builder enrichmentTargets(List<Object> enrichmentTargets) {
+    public Builder enrichmentTargets(List<EnrichmentTarget> enrichmentTargets) {
       this.enrichmentTargets = enrichmentTargets;
       return this;
     }
@@ -110,7 +155,7 @@ public class SetCorpusSchemaOptions extends GenericModel {
      * @param metadataFields the metadataFields
      * @return the SetCorpusSchemaOptions builder
      */
-    public Builder metadataFields(List<Object> metadataFields) {
+    public Builder metadataFields(List<MetadataField> metadataFields) {
       this.metadataFields = metadataFields;
       return this;
     }
@@ -132,13 +177,16 @@ public class SetCorpusSchemaOptions extends GenericModel {
      * @param references the references
      * @return the SetCorpusSchemaOptions builder
      */
-    public Builder references(Map<String, Object> references) {
+    public Builder references(Map<String, String> references) {
       this.references = references;
       return this;
     }
   }
 
-  protected SetCorpusSchemaOptions(Builder builder) {
+  private SetCorpusSchemaOptions(Builder builder) {
+    userName = builder.userName;
+    password = builder.password;
+    corpusURI = builder.corpusURI;
     enrichmentTargets = builder.enrichmentTargets;
     metadataFields = builder.metadataFields;
     corpusName = builder.corpusName;
@@ -155,13 +203,46 @@ public class SetCorpusSchemaOptions extends GenericModel {
   }
 
   /**
+   * Gets the userName.
+   *
+   * Repository connection userid.
+   *
+   * @return the userName
+   */
+  public String userName() {
+    return userName;
+  }
+
+  /**
+   * Gets the password.
+   *
+   * Repository connection password.
+   *
+   * @return the password
+   */
+  public String password() {
+    return password;
+  }
+
+  /**
+   * Gets the corpusURI.
+   *
+   * Repository connection URI.
+   *
+   * @return the corpusURI
+   */
+  public String corpusURI() {
+    return corpusURI;
+  }
+
+  /**
    * Gets the enrichmentTargets.
    *
    * Input and Output field names.
    *
    * @return the enrichmentTargets
    */
-  public List<Object> enrichmentTargets() {
+  public List<EnrichmentTarget> enrichmentTargets() {
     return enrichmentTargets;
   }
 
@@ -172,7 +253,7 @@ public class SetCorpusSchemaOptions extends GenericModel {
    *
    * @return the metadataFields
    */
-  public List<Object> metadataFields() {
+  public List<MetadataField> metadataFields() {
     return metadataFields;
   }
 
@@ -194,7 +275,7 @@ public class SetCorpusSchemaOptions extends GenericModel {
    *
    * @return the references
    */
-  public Map<String, Object> references() {
+  public Map<String, String> references() {
     return references;
   }
 }

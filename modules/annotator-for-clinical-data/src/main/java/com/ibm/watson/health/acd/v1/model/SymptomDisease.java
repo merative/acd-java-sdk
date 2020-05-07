@@ -12,33 +12,37 @@
  */
 package com.ibm.watson.health.acd.v1.model;
 
-import com.ibm.cloud.sdk.core.service.model.GenericModel;
+import java.lang.reflect.Type;
+
+import com.google.gson.reflect.TypeToken;
+import com.ibm.watson.developer_cloud.service.model.DynamicModel;
+import com.ibm.watson.developer_cloud.util.GsonSerializationHelper;
 
 /**
  * SymptomDisease.
  */
-public class SymptomDisease extends GenericModel {
-  private String idType;
-  private String typeType;
-  private Long uidType;
-  private Long beginType;
-  private Long endType;
-  private String coveredTextType;
-  private Boolean negatedType;
-  private Boolean hypotheticalType;
-  private String cuiType;
-  private String icd10CodeType;
-  private String sectionNormalizedNameType;
-  private String modalityType;
-  private String symptomDiseaseSurfaceFormType;
-  private String dateInMillisecondsType;
-  private String snomedConceptIdType;
-  private String ccsCodeType;
-  private String symptomDiseaseNormalizedNameType;
-  private String sectionSurfaceFormType;
-  private String icd9CodeType;
-  private String hccCodeType;
-  private Disambiguation disambiguationDataType;
+public class SymptomDisease extends DynamicModel {
+  private Type idType = new TypeToken<String>() { } .getType();
+  private Type typeType = new TypeToken<String>() { } .getType();
+  private Type uidType = new TypeToken<Long>() { } .getType();
+  private Type beginType = new TypeToken<Long>() { } .getType();
+  private Type endType = new TypeToken<Long>() { } .getType();
+  private Type coveredTextType = new TypeToken<String>() { } .getType();
+  private Type negatedType = new TypeToken<Boolean>() { } .getType();
+  private Type hypotheticalType = new TypeToken<Boolean>() { } .getType();
+  private Type cuiType = new TypeToken<String>() { } .getType();
+  private Type icd10CodeType = new TypeToken<String>() { } .getType();
+  private Type sectionNormalizedNameType = new TypeToken<String>() { } .getType();
+  private Type modalityType = new TypeToken<String>() { } .getType();
+  private Type symptomDiseaseSurfaceFormType = new TypeToken<String>() { } .getType();
+  private Type dateInMillisecondsType = new TypeToken<String>() { } .getType();
+  private Type snomedConceptIdType = new TypeToken<String>() { } .getType();
+  private Type ccsCodeType = new TypeToken<String>() { } .getType();
+  private Type symptomDiseaseNormalizedNameType = new TypeToken<String>() { } .getType();
+  private Type sectionSurfaceFormType = new TypeToken<String>() { } .getType();
+  private Type icd9CodeType = new TypeToken<String>() { } .getType();
+  private Type hccCodeType = new TypeToken<String>() { } .getType();
+  private Type disambiguationDataType = new TypeToken<Disambiguation>() { } .getType();
 
 
   /**
@@ -47,7 +51,7 @@ public class SymptomDisease extends GenericModel {
    * @return the id
    */
   public String getId() {
-    return idType;
+    return GsonSerializationHelper.serializeDynamicModelProperty(this.get("id"), idType);
   }
 
   /**
@@ -56,7 +60,7 @@ public class SymptomDisease extends GenericModel {
    * @return the type
    */
   public String getType() {
-    return typeType;
+    return GsonSerializationHelper.serializeDynamicModelProperty(this.get("type"), typeType);
   }
 
   /**
@@ -65,7 +69,7 @@ public class SymptomDisease extends GenericModel {
    * @return the uid
    */
   public Long getUid() {
-    return uidType;
+    return GsonSerializationHelper.serializeDynamicModelProperty(this.get("uid"), uidType);
   }
 
   /**
@@ -74,7 +78,7 @@ public class SymptomDisease extends GenericModel {
    * @return the begin
    */
   public Long getBegin() {
-    return beginType;
+    return GsonSerializationHelper.serializeDynamicModelProperty(this.get("begin"), beginType);
   }
 
   /**
@@ -83,7 +87,7 @@ public class SymptomDisease extends GenericModel {
    * @return the end
    */
   public Long getEnd() {
-    return endType;
+    return GsonSerializationHelper.serializeDynamicModelProperty(this.get("end"), endType);
   }
 
   /**
@@ -92,7 +96,7 @@ public class SymptomDisease extends GenericModel {
    * @return the coveredText
    */
   public String getCoveredText() {
-    return coveredTextType;
+    return GsonSerializationHelper.serializeDynamicModelProperty(this.get("coveredText"), coveredTextType);
   }
 
   /**
@@ -101,7 +105,11 @@ public class SymptomDisease extends GenericModel {
    * @return the negated
    */
   public Boolean isNegated() {
-    return negatedType;
+    Boolean negated = GsonSerializationHelper.serializeDynamicModelProperty(this.get("negated"), negatedType);
+    if (negated == null) {
+      negated = false;
+    }
+    return negated;
   }
 
   /**
@@ -110,7 +118,11 @@ public class SymptomDisease extends GenericModel {
    * @return the hypothetical
    */
   public Boolean isHypothetical() {
-    return hypotheticalType;
+    Boolean hypothetical = GsonSerializationHelper.serializeDynamicModelProperty(this.get("hypothetical"), hypotheticalType);
+    if (hypothetical == null) {
+      hypothetical = false;
+    }
+    return hypothetical;
   }
 
   /**
@@ -119,7 +131,7 @@ public class SymptomDisease extends GenericModel {
    * @return the cui
    */
   public String getCui() {
-    return cuiType;
+    return GsonSerializationHelper.serializeDynamicModelProperty(this.get("cui"), cuiType);
   }
 
   /**
@@ -128,7 +140,7 @@ public class SymptomDisease extends GenericModel {
    * @return the icd10Code
    */
   public String getIcd10Code() {
-    return icd10CodeType;
+    return GsonSerializationHelper.serializeDynamicModelProperty(this.get("icd10Code"), icd10CodeType);
   }
 
   /**
@@ -137,7 +149,7 @@ public class SymptomDisease extends GenericModel {
    * @return the sectionNormalizedName
    */
   public String getSectionNormalizedName() {
-    return sectionNormalizedNameType;
+    return GsonSerializationHelper.serializeDynamicModelProperty(this.get("sectionNormalizedName"), sectionNormalizedNameType);
   }
 
   /**
@@ -146,7 +158,7 @@ public class SymptomDisease extends GenericModel {
    * @return the modality
    */
   public String getModality() {
-    return modalityType;
+    return GsonSerializationHelper.serializeDynamicModelProperty(this.get("modality"), modalityType);
   }
 
   /**
@@ -155,7 +167,7 @@ public class SymptomDisease extends GenericModel {
    * @return the symptomDiseaseSurfaceForm
    */
   public String getSymptomDiseaseSurfaceForm() {
-    return symptomDiseaseSurfaceFormType;
+    return GsonSerializationHelper.serializeDynamicModelProperty(this.get("symptomDiseaseSurfaceForm"), symptomDiseaseSurfaceFormType);
   }
 
   /**
@@ -164,7 +176,7 @@ public class SymptomDisease extends GenericModel {
    * @return the dateInMilliseconds
    */
   public String getDateInMilliseconds() {
-    return dateInMillisecondsType;
+    return GsonSerializationHelper.serializeDynamicModelProperty(this.get("dateInMilliseconds"), dateInMillisecondsType);
   }
 
   /**
@@ -173,7 +185,7 @@ public class SymptomDisease extends GenericModel {
    * @return the snomedConceptId
    */
   public String getSnomedConceptId() {
-    return snomedConceptIdType;
+    return GsonSerializationHelper.serializeDynamicModelProperty(this.get("snomedConceptId"), snomedConceptIdType);
   }
 
   /**
@@ -182,7 +194,7 @@ public class SymptomDisease extends GenericModel {
    * @return the ccsCode
    */
   public String getCcsCode() {
-    return ccsCodeType;
+    return GsonSerializationHelper.serializeDynamicModelProperty(this.get("ccsCode"), ccsCodeType);
   }
 
   /**
@@ -191,7 +203,7 @@ public class SymptomDisease extends GenericModel {
    * @return the symptomDiseaseNormalizedName
    */
   public String getSymptomDiseaseNormalizedName() {
-    return symptomDiseaseNormalizedNameType;
+    return GsonSerializationHelper.serializeDynamicModelProperty(this.get("symptomDiseaseNormalizedName"), symptomDiseaseNormalizedNameType);
   }
 
   /**
@@ -200,7 +212,7 @@ public class SymptomDisease extends GenericModel {
    * @return the sectionSurfaceForm
    */
   public String getSectionSurfaceForm() {
-    return sectionSurfaceFormType;
+    return GsonSerializationHelper.serializeDynamicModelProperty(this.get("sectionSurfaceForm"), sectionSurfaceFormType);
   }
 
   /**
@@ -209,7 +221,7 @@ public class SymptomDisease extends GenericModel {
    * @return the icd9Code
    */
   public String getIcd9Code() {
-    return icd9CodeType;
+    return GsonSerializationHelper.serializeDynamicModelProperty(this.get("icd9Code"), icd9CodeType);
   }
 
   /**
@@ -218,7 +230,7 @@ public class SymptomDisease extends GenericModel {
    * @return the hccCode
    */
   public String getHccCode() {
-    return hccCodeType;
+    return GsonSerializationHelper.serializeDynamicModelProperty(this.get("hccCode"), hccCodeType);
   }
 
   /**
@@ -227,7 +239,7 @@ public class SymptomDisease extends GenericModel {
    * @return the disambiguationData
    */
   public Disambiguation getDisambiguationData() {
-    return disambiguationDataType;
+    return GsonSerializationHelper.serializeDynamicModelProperty(this.get("disambiguationData"), disambiguationDataType);
   }
 
 //  /**

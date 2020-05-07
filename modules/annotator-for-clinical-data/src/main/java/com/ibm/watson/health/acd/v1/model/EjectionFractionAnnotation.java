@@ -12,32 +12,35 @@
  */
 package com.ibm.watson.health.acd.v1.model;
 
-import com.ibm.cloud.sdk.core.service.model.GenericModel;
+import java.lang.reflect.Type;
 
+import com.google.gson.reflect.TypeToken;
+import com.ibm.watson.developer_cloud.service.model.DynamicModel;
+import com.ibm.watson.developer_cloud.util.GsonSerializationHelper;
 
 /**
  * EjectionFractionAnnotation.
  */
-public class EjectionFractionAnnotation extends GenericModel {
-  private String idType;
-  private String typeType;
-  private Long uidType;
-  private Long beginType;
-  private Long endType;
-  private String coveredTextType;
-  private Boolean negatedType;
-  private Boolean hypotheticalType;
-  private String firstValueType;
-  private String efAlphabeticValueSurfaceFormType;
-  private String secondValueType;
-  private String efTermSurfaceFormType;
-  private String efSuffixSurfaceFormType;
-  private String efSuffixNormalizedNameType;
-  private String efAlphabeticValueNormalizedNameType;
-  private String efTermNormalizedNameType;
-  private String isRangeType;
-  private String sectionNormalizedNameType;
-  private String sectionSurfaceFormType;
+public class EjectionFractionAnnotation extends DynamicModel {
+  private Type idType = new TypeToken<String>() { } .getType();
+  private Type typeType = new TypeToken<String>() { } .getType();
+  private Type uidType = new TypeToken<Long>() { } .getType();
+  private Type beginType = new TypeToken<Long>() { } .getType();
+  private Type endType = new TypeToken<Long>() { } .getType();
+  private Type coveredTextType = new TypeToken<String>() { } .getType();
+  private Type negatedType = new TypeToken<Boolean>() { } .getType();
+  private Type hypotheticalType = new TypeToken<Boolean>() { } .getType();
+  private Type firstValueType = new TypeToken<String>() { } .getType();
+  private Type efAlphabeticValueSurfaceFormType = new TypeToken<String>() { } .getType();
+  private Type secondValueType = new TypeToken<String>() { } .getType();
+  private Type efTermSurfaceFormType = new TypeToken<String>() { } .getType();
+  private Type efSuffixSurfaceFormType = new TypeToken<String>() { } .getType();
+  private Type efSuffixNormalizedNameType = new TypeToken<String>() { } .getType();
+  private Type efAlphabeticValueNormalizedNameType = new TypeToken<String>() { } .getType();
+  private Type efTermNormalizedNameType = new TypeToken<String>() { } .getType();
+  private Type isRangeType = new TypeToken<String>() { } .getType();
+  private Type sectionNormalizedNameType = new TypeToken<String>() { } .getType();
+  private Type sectionSurfaceFormType = new TypeToken<String>() { } .getType();
 
 
   /**
@@ -46,7 +49,7 @@ public class EjectionFractionAnnotation extends GenericModel {
    * @return the id
    */
   public String getId() {
-    return idType;
+    return GsonSerializationHelper.serializeDynamicModelProperty(this.get("id"), idType);
   }
 
   /**
@@ -55,7 +58,7 @@ public class EjectionFractionAnnotation extends GenericModel {
    * @return the type
    */
   public String getType() {
-    return typeType;
+    return GsonSerializationHelper.serializeDynamicModelProperty(this.get("type"), typeType);
   }
 
   /**
@@ -64,7 +67,7 @@ public class EjectionFractionAnnotation extends GenericModel {
    * @return the uid
    */
   public Long getUid() {
-    return uidType;
+    return GsonSerializationHelper.serializeDynamicModelProperty(this.get("uid"), uidType);
   }
 
   /**
@@ -73,7 +76,7 @@ public class EjectionFractionAnnotation extends GenericModel {
    * @return the begin
    */
   public Long getBegin() {
-    return beginType;
+    return GsonSerializationHelper.serializeDynamicModelProperty(this.get("begin"), beginType);
   }
 
   /**
@@ -82,7 +85,7 @@ public class EjectionFractionAnnotation extends GenericModel {
    * @return the end
    */
   public Long getEnd() {
-    return endType;
+    return GsonSerializationHelper.serializeDynamicModelProperty(this.get("end"), endType);
   }
 
   /**
@@ -91,7 +94,7 @@ public class EjectionFractionAnnotation extends GenericModel {
    * @return the coveredText
    */
   public String getCoveredText() {
-    return coveredTextType;
+    return GsonSerializationHelper.serializeDynamicModelProperty(this.get("coveredText"), coveredTextType);
   }
 
   /**
@@ -100,7 +103,11 @@ public class EjectionFractionAnnotation extends GenericModel {
    * @return the negated
    */
   public Boolean isNegated() {
-    return negatedType;
+    Boolean negated = GsonSerializationHelper.serializeDynamicModelProperty(this.get("negated"), negatedType);
+    if (negated == null) {
+      negated = false;
+    }
+    return negated;
   }
 
   /**
@@ -109,7 +116,11 @@ public class EjectionFractionAnnotation extends GenericModel {
    * @return the hypothetical
    */
   public Boolean isHypothetical() {
-    return hypotheticalType;
+    Boolean hypothetical = GsonSerializationHelper.serializeDynamicModelProperty(this.get("hypothetical"), hypotheticalType);
+    if (hypothetical == null) {
+      hypothetical = false;
+    }
+    return hypothetical;
   }
 
   /**
@@ -118,7 +129,7 @@ public class EjectionFractionAnnotation extends GenericModel {
    * @return the firstValue
    */
   public String getFirstValue() {
-    return firstValueType;
+    return GsonSerializationHelper.serializeDynamicModelProperty(this.get("firstValue"), firstValueType);
   }
 
   /**
@@ -127,7 +138,7 @@ public class EjectionFractionAnnotation extends GenericModel {
    * @return the efAlphabeticValueSurfaceForm
    */
   public String getEfAlphabeticValueSurfaceForm() {
-    return efAlphabeticValueSurfaceFormType;
+    return GsonSerializationHelper.serializeDynamicModelProperty(this.get("efAlphabeticValueSurfaceForm"), efAlphabeticValueSurfaceFormType);
   }
 
   /**
@@ -136,7 +147,7 @@ public class EjectionFractionAnnotation extends GenericModel {
    * @return the secondValue
    */
   public String getSecondValue() {
-    return secondValueType;
+    return GsonSerializationHelper.serializeDynamicModelProperty(this.get("secondValue"), secondValueType);
   }
 
   /**
@@ -145,7 +156,7 @@ public class EjectionFractionAnnotation extends GenericModel {
    * @return the efTermSurfaceForm
    */
   public String getEfTermSurfaceForm() {
-    return efTermSurfaceFormType;
+    return GsonSerializationHelper.serializeDynamicModelProperty(this.get("efTermSurfaceForm"), efTermSurfaceFormType);
   }
 
   /**
@@ -154,7 +165,7 @@ public class EjectionFractionAnnotation extends GenericModel {
    * @return the efSuffixSurfaceForm
    */
   public String getEfSuffixSurfaceForm() {
-    return efSuffixSurfaceFormType;
+    return GsonSerializationHelper.serializeDynamicModelProperty(this.get("efSuffixSurfaceForm"), efSuffixSurfaceFormType);
   }
 
   /**
@@ -163,7 +174,7 @@ public class EjectionFractionAnnotation extends GenericModel {
    * @return the efSuffixNormalizedName
    */
   public String getEfSuffixNormalizedName() {
-    return efSuffixNormalizedNameType;
+    return GsonSerializationHelper.serializeDynamicModelProperty(this.get("efSuffixNormalizedName"), efSuffixNormalizedNameType);
   }
 
   /**
@@ -172,7 +183,7 @@ public class EjectionFractionAnnotation extends GenericModel {
    * @return the efAlphabeticValueNormalizedName
    */
   public String getEfAlphabeticValueNormalizedName() {
-    return efAlphabeticValueNormalizedNameType;
+    return GsonSerializationHelper.serializeDynamicModelProperty(this.get("efAlphabeticValueNormalizedName"), efAlphabeticValueNormalizedNameType);
   }
 
   /**
@@ -181,7 +192,7 @@ public class EjectionFractionAnnotation extends GenericModel {
    * @return the efTermNormalizedName
    */
   public String getEfTermNormalizedName() {
-    return efTermNormalizedNameType;
+    return GsonSerializationHelper.serializeDynamicModelProperty(this.get("efTermNormalizedName"), efTermNormalizedNameType);
   }
 
   /**
@@ -190,7 +201,7 @@ public class EjectionFractionAnnotation extends GenericModel {
    * @return the isRange
    */
   public String getIsRange() {
-    return isRangeType;
+    return GsonSerializationHelper.serializeDynamicModelProperty(this.get("isRange"), isRangeType);
   }
 
   /**
@@ -199,7 +210,7 @@ public class EjectionFractionAnnotation extends GenericModel {
    * @return the sectionNormalizedName
    */
   public String getSectionNormalizedName() {
-    return sectionNormalizedNameType;
+    return GsonSerializationHelper.serializeDynamicModelProperty(this.get("sectionNormalizedName"), sectionNormalizedNameType);
   }
 
   /**
@@ -208,7 +219,7 @@ public class EjectionFractionAnnotation extends GenericModel {
    * @return the sectionSurfaceForm
    */
   public String getSectionSurfaceForm() {
-    return sectionSurfaceFormType;
+    return GsonSerializationHelper.serializeDynamicModelProperty(this.get("sectionSurfaceForm"), sectionSurfaceFormType);
   }
 
 

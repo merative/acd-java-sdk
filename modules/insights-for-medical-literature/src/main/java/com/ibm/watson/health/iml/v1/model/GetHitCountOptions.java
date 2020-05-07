@@ -1,40 +1,44 @@
 /*
- * (C) Copyright IBM Corp. 2020.
+ * Copyright 2018 IBM Corp. All Rights Reserved.
  *
- * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with
  * the License. You may obtain a copy of the License at
  *
  * http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on
- * an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the
+ * Unless required by applicable law or agreed to in writing,
+ * software distributed under the License is distributed on
+ * an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND,
+ * either express or implied. See the License for the
  * specific language governing permissions and limitations under the License.
  */
 package com.ibm.watson.health.iml.v1.model;
 
 import com.ibm.cloud.sdk.core.service.model.GenericModel;
+import com.ibm.cloud.sdk.core.util.Validator;
 
 /**
  * The getHitCount options.
  */
 public class GetHitCountOptions extends GenericModel {
 
-  protected String corpus;
-  protected String nameOrId;
-  protected String ontology;
+  private String corpus;
+  private String cui;
+  private String ontology;
 
   /**
    * Builder.
    */
   public static class Builder {
     private String corpus;
-    private String nameOrId;
+    private String cui;
     private String ontology;
 
     private Builder(GetHitCountOptions getHitCountOptions) {
-      this.corpus = getHitCountOptions.corpus;
-      this.nameOrId = getHitCountOptions.nameOrId;
-      this.ontology = getHitCountOptions.ontology;
+      corpus = getHitCountOptions.corpus;
+      cui = getHitCountOptions.cui;
+      ontology = getHitCountOptions.ontology;
     }
 
     /**
@@ -47,17 +51,17 @@ public class GetHitCountOptions extends GenericModel {
      * Instantiates a new builder with required properties.
      *
      * @param corpus the corpus
-     * @param nameOrId the nameOrId
+     * @param cui the cui
      */
-    public Builder(String corpus, String nameOrId) {
+    public Builder(String corpus, String cui) {
       this.corpus = corpus;
-      this.nameOrId = nameOrId;
+      this.cui = cui;
     }
 
     /**
      * Builds a GetHitCountOptions.
      *
-     * @return the new GetHitCountOptions instance
+     * @return the getHitCountOptions
      */
     public GetHitCountOptions build() {
       return new GetHitCountOptions(this);
@@ -75,13 +79,13 @@ public class GetHitCountOptions extends GenericModel {
     }
 
     /**
-     * Set the nameOrId.
+     * Set the cui.
      *
-     * @param nameOrId the nameOrId
+     * @param cui the cui
      * @return the GetHitCountOptions builder
      */
-    public Builder nameOrId(String nameOrId) {
-      this.nameOrId = nameOrId;
+    public Builder cui(String cui) {
+      this.cui = cui;
       return this;
     }
 
@@ -97,13 +101,11 @@ public class GetHitCountOptions extends GenericModel {
     }
   }
 
-  protected GetHitCountOptions(Builder builder) {
-    com.ibm.cloud.sdk.core.util.Validator.notEmpty(builder.corpus,
-      "corpus cannot be empty");
-    com.ibm.cloud.sdk.core.util.Validator.notEmpty(builder.nameOrId,
-      "nameOrId cannot be empty");
+  private GetHitCountOptions(Builder builder) {
+    Validator.notEmpty(builder.corpus, "corpus cannot be empty");
+    Validator.notEmpty(builder.cui, "cui cannot be empty");
     corpus = builder.corpus;
-    nameOrId = builder.nameOrId;
+    cui = builder.cui;
     ontology = builder.ontology;
   }
 
@@ -128,14 +130,14 @@ public class GetHitCountOptions extends GenericModel {
   }
 
   /**
-   * Gets the nameOrId.
+   * Gets the cui.
    *
-   * Preferred name or concept ID.
+   * Concept unique identifier.
    *
-   * @return the nameOrId
+   * @return the cui
    */
-  public String nameOrId() {
-    return nameOrId;
+  public String cui() {
+    return cui;
   }
 
   /**

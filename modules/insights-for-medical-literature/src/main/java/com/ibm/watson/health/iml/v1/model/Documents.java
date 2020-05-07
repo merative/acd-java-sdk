@@ -53,7 +53,7 @@ public class Documents extends GenericModel {
   /**
    * Get the specified metadata options.
    *
-   * @return the metadata list
+   * @return
    */
   public List<String> getMetadata() {
 	  return metadata;
@@ -61,7 +61,7 @@ public class Documents extends GenericModel {
 
   /**
    * Get the sort directive.
-   * @return the sort directive
+   * @return
    */
   public SortEntry[] getSort() {
 	  return sort;
@@ -88,7 +88,7 @@ public class Documents extends GenericModel {
   /**
    * Set the names of the metadata field to be returned.
    *
-   * @param metadata field list
+   * @param metadata
    */
   public void setMetadata(List<String> metadata) {
 	  this.metadata = metadata;
@@ -96,7 +96,7 @@ public class Documents extends GenericModel {
 
   /**
    * Set the sort directive(s).
-   * @param sortEntries sort directives
+   * @param sortEntries
    */
   public void setSort(SortEntry[] sortEntries) {
 	  sort = sortEntries;

@@ -1,27 +1,32 @@
 /*
- * (C) Copyright IBM Corp. 2020.
+ * Copyright 2018 IBM Corp. All Rights Reserved.
  *
- * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with
  * the License. You may obtain a copy of the License at
  *
  * http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on
- * an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the
+ * Unless required by applicable law or agreed to in writing,
+ * software distributed under the License is distributed on
+ * an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND,
+ * either express or implied. See the License for the
  * specific language governing permissions and limitations under the License.
  */
 package com.ibm.watson.health.iml.v1.model;
 
 import com.ibm.cloud.sdk.core.service.model.GenericModel;
+import com.ibm.cloud.sdk.core.util.Validator;
 
 /**
  * The getDocumentInfo options.
  */
 public class GetDocumentInfoOptions extends GenericModel {
 
-  protected String corpus;
-  protected String documentId;
-  protected Boolean verbose;
+  private String corpus;
+  private String documentId;
+  private String fields;
+  private boolean verbose;
 
   /**
    * Builder.
@@ -29,12 +34,14 @@ public class GetDocumentInfoOptions extends GenericModel {
   public static class Builder {
     private String corpus;
     private String documentId;
-    private Boolean verbose;
+    private String fields;
+    private boolean verbose = true;
 
     private Builder(GetDocumentInfoOptions getDocumentInfoOptions) {
-      this.corpus = getDocumentInfoOptions.corpus;
-      this.documentId = getDocumentInfoOptions.documentId;
-      this.verbose = getDocumentInfoOptions.verbose;
+      corpus = getDocumentInfoOptions.corpus;
+      documentId = getDocumentInfoOptions.documentId;
+      fields = getDocumentInfoOptions.fields;
+      verbose = getDocumentInfoOptions.verbose;
     }
 
     /**
@@ -57,7 +64,7 @@ public class GetDocumentInfoOptions extends GenericModel {
     /**
      * Builds a GetDocumentInfoOptions.
      *
-     * @return the new GetDocumentInfoOptions instance
+     * @return the getDocumentInfoOptions
      */
     public GetDocumentInfoOptions build() {
       return new GetDocumentInfoOptions(this);
@@ -86,24 +93,34 @@ public class GetDocumentInfoOptions extends GenericModel {
     }
 
     /**
-     * Set the verbose.
+     * Set the fields.
      *
-     * @param verbose the verbose
+     * @param fields the fields
      * @return the GetDocumentInfoOptions builder
      */
-    public Builder verbose(Boolean verbose) {
-      this.verbose = verbose;
+    public Builder fields(String fields) {
+      this.fields = fields;
+      return this;
+    }
+
+    /**
+     * Set the fields.
+     *
+     * @param fields the fields
+     * @return the GetDocumentInfoOptions builder
+     */
+    public Builder verbose(boolean flag) {
+      this.verbose = flag;
       return this;
     }
   }
 
-  protected GetDocumentInfoOptions(Builder builder) {
-    com.ibm.cloud.sdk.core.util.Validator.notEmpty(builder.corpus,
-      "corpus cannot be empty");
-    com.ibm.cloud.sdk.core.util.Validator.notEmpty(builder.documentId,
-      "documentId cannot be empty");
+  private GetDocumentInfoOptions(Builder builder) {
+    Validator.notEmpty(builder.corpus, "corpus cannot be empty");
+    Validator.notEmpty(builder.documentId, "documentId cannot be empty");
     corpus = builder.corpus;
     documentId = builder.documentId;
+    fields = builder.fields;
     verbose = builder.verbose;
   }
 
@@ -139,13 +156,27 @@ public class GetDocumentInfoOptions extends GenericModel {
   }
 
   /**
-   * Gets the verbose.
+   * Gets the fields.
    *
-   * Verbose output. If true, text for all document sections is returned.
+   * Comma separated list of fields to return:  externalId, parentDocumentId,
+   *  title, abstract, body, pdfUrl,
+   * referenceUrl, metadata.
    *
-   * @return the verbose
+   * @return the fields
    */
-  public Boolean verbose() {
+  public String fields() {
+    return fields;
+  }
+
+  /**
+   * Gets the verbose setting (default true).
+   *
+   * True or False to indicate whether verbose mode is enabled.
+   * Verbose mode returns all text sections.
+   *
+   * @return the fields
+   */
+  public boolean verbose() {
     return verbose;
   }
 }

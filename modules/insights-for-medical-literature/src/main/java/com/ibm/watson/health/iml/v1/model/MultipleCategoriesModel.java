@@ -29,7 +29,7 @@ public class MultipleCategoriesModel {
 
 	/**
 	 * Retrieves category annotations.
-	 * @return annotations
+	 * @return
 	 */
 	public Map<String, AnnotationModel> getAnnotations() {
 		return annotations;
@@ -37,7 +37,7 @@ public class MultipleCategoriesModel {
 
 	/**
 	 * Retrieves category map.
-	 * @return category map
+	 * @return
 	 */
 	public Map<String, CategoriesModel> getCategoryMap() {
 		return categoryMap;

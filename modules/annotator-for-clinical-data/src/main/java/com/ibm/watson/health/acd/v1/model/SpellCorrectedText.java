@@ -15,15 +15,19 @@
  */
 package com.ibm.watson.health.acd.v1.model;
 
-import com.ibm.cloud.sdk.core.service.model.GenericModel;
+import java.lang.reflect.Type;
+
+import com.google.gson.reflect.TypeToken;
+import com.ibm.watson.developer_cloud.service.model.DynamicModel;
+import com.ibm.watson.developer_cloud.util.GsonSerializationHelper;
 
 /**
  * Spell corrected text.
  */
-public class SpellCorrectedText extends GenericModel {
+public class SpellCorrectedText extends DynamicModel {
 
-  private String correctedTextType;
-  private String debugTextType;
+  private Type correctedTextType = new TypeToken<String>() { } .getType();
+  private Type debugTextType = new TypeToken<String>() { } .getType();
 
   /**
    * Gets the correctedText.
@@ -31,7 +35,7 @@ public class SpellCorrectedText extends GenericModel {
    * @return the correctedText
    */
   public String getCorrectedText() {
-    return correctedTextType;
+    return GsonSerializationHelper.serializeDynamicModelProperty(this.get("correctedText"), correctedTextType);
   }
 
   /**
@@ -40,7 +44,7 @@ public class SpellCorrectedText extends GenericModel {
    * @return the debugText
    */
   public String getDebugText() {
-    return debugTextType;
+    return GsonSerializationHelper.serializeDynamicModelProperty(this.get("debugText"), debugTextType);
   }
 
 //  /**

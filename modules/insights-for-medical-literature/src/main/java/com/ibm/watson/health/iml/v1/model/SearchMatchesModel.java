@@ -1,13 +1,16 @@
 /*
- * (C) Copyright IBM Corp. 2020.
+ * Copyright 2018 IBM Corp. All Rights Reserved.
  *
- * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with
  * the License. You may obtain a copy of the License at
  *
  * http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on
- * an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the
+ * Unless required by applicable law or agreed to in writing,
+ * software distributed under the License is distributed on
+ * an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND,
+ * either express or implied. See the License for the
  * specific language governing permissions and limitations under the License.
  */
 package com.ibm.watson.health.iml.v1.model;
@@ -15,40 +18,33 @@ package com.ibm.watson.health.iml.v1.model;
 import java.util.List;
 import java.util.Map;
 
-import com.google.gson.annotations.SerializedName;
 import com.ibm.cloud.sdk.core.service.model.GenericModel;
 
 /**
- * Object representing a corpus search match.
+ * SearchMatchesModel.
  */
 public class SearchMatchesModel extends GenericModel {
 
-  protected String externalId;
-  protected String documentId;
-  protected String parentDocumentId;
-  protected String publicationName;
-  protected String publicationDate;
-  @SerializedName("publicationURL")
-  protected String publicationUrl;
-  protected List<String> authors;
-  protected String title;
-  protected String medlineLicense;
-  protected String hrefPubMed;
-  protected String hrefPmc;
-  protected String hrefDoi;
-  protected String pdfUrl;
-  protected String referenceUrl;
-  protected StringBuilder highlightedTitle;
-  protected StringBuilder highlightedAbstract;
-  protected StringBuilder highlightedBody;
-  protected Map<String, StringBuilder> highlightedSections;
-  protected Map<String, Map<String, MatchEntry>> passages;
-  protected Map<String, AnnotationModel> annotations;
+  private String externalId;
+  private String documentId;
+  private String parentDocumentId;
+  private String publicationName;
+  private String publicationDate;
+  private String publicationURL;
+  private List<String> authors;
+  private String title;
+  private String medlineLicense;
+  private String hrefPubMed;
+  private String pdfUrl;
+  private String referenceUrl;
+  private String highlightedTitle;
+  private String highlightedAbstract;
+  private String highlightedBody;
+  private Map<String, Map<String, Entry>> passages;
+  private Map<String, AnnotationModel> annotations;
 
   /**
    * Gets the externalId.
-   *
-   * Unique identifier for matched document in corpus.
    *
    * @return the externalId
    */
@@ -59,8 +55,6 @@ public class SearchMatchesModel extends GenericModel {
   /**
    * Gets the documentId.
    *
-   * Unique identifier for matched document in corpus.
-   *
    * @return the documentId
    */
   public String getDocumentId() {
@@ -69,8 +63,6 @@ public class SearchMatchesModel extends GenericModel {
 
   /**
    * Gets the parentDocumentId.
-   *
-   * Unique identifier for matched document parent in corpus.
    *
    * @return the parentDocumentId
    */
@@ -81,8 +73,6 @@ public class SearchMatchesModel extends GenericModel {
   /**
    * Gets the publicationName.
    *
-   * Publication name for matched document in corpus.
-   *
    * @return the publicationName
    */
   public String getPublicationName() {
@@ -92,8 +82,6 @@ public class SearchMatchesModel extends GenericModel {
   /**
    * Gets the publicationDate.
    *
-   * Publication date for matched document in corpus.
-   *
    * @return the publicationDate
    */
   public String getPublicationDate() {
@@ -101,20 +89,16 @@ public class SearchMatchesModel extends GenericModel {
   }
 
   /**
-   * Gets the publicationUrl.
+   * Gets the publicationURL.
    *
-   * Publication URL for matched document in corpus.
-   *
-   * @return the publicationUrl
+   * @return the publicationURL
    */
-  public String getPublicationUrl() {
-    return publicationUrl;
+  public String getPublicationURL() {
+    return publicationURL;
   }
 
   /**
    * Gets the authors.
-   *
-   * Authors of matched document in corpus.
    *
    * @return the authors
    */
@@ -125,8 +109,6 @@ public class SearchMatchesModel extends GenericModel {
   /**
    * Gets the title.
    *
-   * Title of matched document in corpus.
-   *
    * @return the title
    */
   public String getTitle() {
@@ -135,8 +117,6 @@ public class SearchMatchesModel extends GenericModel {
 
   /**
    * Gets the medlineLicense.
-   *
-   * Usage license for matched document in corpus.
    *
    * @return the medlineLicense
    */
@@ -147,8 +127,6 @@ public class SearchMatchesModel extends GenericModel {
   /**
    * Gets the hrefPubMed.
    *
-   * Pubmed link for matched document in corpus.
-   *
    * @return the hrefPubMed
    */
   public String getHrefPubMed() {
@@ -156,27 +134,7 @@ public class SearchMatchesModel extends GenericModel {
   }
 
   /**
-   * Gets the hrefPmc.
-   *
-   * @return the hrefPmc
-   */
-  public String getHrefPmc() {
-    return hrefPmc;
-  }
-
-  /**
-   * Gets the hrefDoi.
-   *
-   * @return the hrefDoi
-   */
-  public String getHrefDoi() {
-    return hrefDoi;
-  }
-
-  /**
    * Gets the pdfUrl.
-   *
-   * Link to PDF for matched document in corpus.
    *
    * @return the pdfUrl
    */
@@ -186,8 +144,6 @@ public class SearchMatchesModel extends GenericModel {
 
   /**
    * Gets the referenceUrl.
-   *
-   * Link to sourc origin for matched document in corpus.
    *
    * @return the referenceUrl
    */
@@ -200,7 +156,7 @@ public class SearchMatchesModel extends GenericModel {
    *
    * @return the highlightedTitle
    */
-  public StringBuilder getHighlightedTitle() {
+  public String getHighlightedTitle() {
     return highlightedTitle;
   }
 
@@ -209,7 +165,7 @@ public class SearchMatchesModel extends GenericModel {
    *
    * @return the highlightedAbstract
    */
-  public StringBuilder getHighlightedAbstract() {
+  public String getHighlightedAbstract() {
     return highlightedAbstract;
   }
 
@@ -218,36 +174,21 @@ public class SearchMatchesModel extends GenericModel {
    *
    * @return the highlightedBody
    */
-  public StringBuilder getHighlightedBody() {
+  public String getHighlightedBody() {
     return highlightedBody;
-  }
-
-  /**
-   * Gets the highlightedSections.
-   *
-   * Matched document sections with annotation tags.
-   *
-   * @return the highlightedSections
-   */
-  public Map<String, StringBuilder> getHighlightedSections() {
-    return highlightedSections;
   }
 
   /**
    * Gets the passages.
    *
-   * Matched document passages with annotation tags.
-   *
    * @return the passages
    */
-  public Map<String, Map<String, MatchEntry>> getPassages() {
+  public Map<String, Map<String, Entry>> getPassages() {
     return passages;
   }
 
   /**
    * Gets the annotations.
-   *
-   * Matched document annotations.
    *
    * @return the annotations
    */

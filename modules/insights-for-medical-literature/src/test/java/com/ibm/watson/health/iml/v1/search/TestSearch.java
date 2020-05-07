@@ -11,7 +11,7 @@
  * specific language governing permissions and limitations under the License.
  */
 package com.ibm.watson.health.iml.v1.search;
-import static com.ibm.watson.health.iml.v1.utils.ServiceUtilities.getProperty;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -24,6 +24,7 @@ import org.junit.Test;
 import com.ibm.cloud.sdk.core.http.Response;
 import com.ibm.cloud.sdk.core.http.ServiceCall;
 import com.ibm.watson.health.iml.v1.InsightsForMedicalLiteratureService;
+import com.ibm.watson.health.iml.v1.WatsonServiceTest;
 import com.ibm.watson.health.iml.v1.common.Constants;
 import com.ibm.watson.health.iml.v1.model.AggregationModel;
 import com.ibm.watson.health.iml.v1.model.Aggregations;
@@ -33,18 +34,15 @@ import com.ibm.watson.health.iml.v1.model.Concept;
 import com.ibm.watson.health.iml.v1.model.Concepts;
 import com.ibm.watson.health.iml.v1.model.DateHistograms;
 import com.ibm.watson.health.iml.v1.model.Documents;
-import com.ibm.watson.health.iml.v1.model.HistogramData;
 import com.ibm.watson.health.iml.v1.model.Passages;
 import com.ibm.watson.health.iml.v1.model.Query;
 import com.ibm.watson.health.iml.v1.model.QueryConcept;
 import com.ibm.watson.health.iml.v1.model.Range;
-import com.ibm.watson.health.iml.v1.model.RangeModel;
 import com.ibm.watson.health.iml.v1.model.Ranges;
 import com.ibm.watson.health.iml.v1.model.RankedDocConcept;
 import com.ibm.watson.health.iml.v1.model.RankedDocLinks;
 import com.ibm.watson.health.iml.v1.model.RankedDocument;
 import com.ibm.watson.health.iml.v1.model.ReturnsModel;
-import com.ibm.watson.health.iml.v1.model.SearchBody;
 import com.ibm.watson.health.iml.v1.model.SearchModel;
 import com.ibm.watson.health.iml.v1.model.SearchOptions;
 import com.ibm.watson.health.iml.v1.model.SearchOptions.Builder;
@@ -54,19 +52,21 @@ import com.ibm.watson.health.iml.v1.model.Title;
 import com.ibm.watson.health.iml.v1.model.Typeahead;
 import com.ibm.watson.health.iml.v1.model.Values;
 import com.ibm.watson.health.iml.v1.model.YearAndHits;
-import com.ibm.watson.health.iml.v1.utils.ServiceUtilities;
+
 
 /**
  *
  * Class to test /v1/corpora/{corpus}/search.
  *
  */
-public class TestSearch {
+public class TestSearch extends WatsonServiceTest {
 	private InsightsForMedicalLiteratureService imlService;
 
 	public TestSearch() {
+		super();
 		try {
-			imlService = ServiceUtilities.getServiceInstance();
+			this.setUp();
+			imlService = this.getServiceInstance();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -222,7 +222,7 @@ public class TestSearch {
 		Assert.assertTrue(sm.getPageNumber() > 0);
 		Assert.assertTrue(sm.getTotalDocumentCount() > 0);
 		Assert.assertNull(sm.getGetLimit());
-		List<Concept> conceptList = sm.getConcepts();
+		List<RankedDocConcept> conceptList = sm.getQueryConcepts();
 		Assert.assertNull(sm.getHref());
 		Assert.assertNull(sm.getCursorId());
 
@@ -388,9 +388,9 @@ public class TestSearch {
 
 		List<Concept> cooccurringConcepts = sm.getConcepts();
 		for (Concept cooccurringConcept : cooccurringConcepts) {
-			Assert.assertNotNull(cooccurringConcept.getCui());
+			Assert.assertNotNull(cooccurringConcept.getId());
 			Assert.assertNotNull(cooccurringConcept.getPreferredName());
-			Assert.assertTrue(typesList.contains(cooccurringConcept.getSemanticType()));
+			Assert.assertTrue(typesList.contains(cooccurringConcept.getType()));
 			Assert.assertEquals(cooccurringConcept.getOntology(), Constants.UMLS);
 			Assert.assertNull(cooccurringConcept.getAlternativeName());
 			Assert.assertNull(cooccurringConcept.getDataType());
@@ -451,12 +451,12 @@ public class TestSearch {
 		Response<SearchModel> response = sc.execute();
 		SearchModel sm = response.getResult();
 
-		Map<String, RangeModel> ranges = sm.getRanges();
+		Map<String, Range> ranges = sm.getRanges();
 		Set<String> rangeKeys = ranges.keySet();
 		for (String key : rangeKeys) {
-			RangeModel range = ranges.get(key);
-			Assert.assertNotNull(range.getMin());
-			Assert.assertNotNull(range.getMax());
+			Range range = ranges.get(key);
+			Assert.assertNotNull(range.getBegin());
+			Assert.assertNotNull(range.getEnd());
 		}
 	}
 
@@ -511,7 +511,7 @@ public class TestSearch {
 		List<Concept> values = sm.getTypeahead();
 		for (Concept value : values) {
 			Assert.assertNotNull(value.getPreferredName());
-			Assert.assertNotNull(value.getCui());
+			Assert.assertNotNull(value.getId());
 			Assert.assertNotNull(value.getCount());
 			Assert.assertNotNull(value.getHitCount());
 		}
@@ -539,11 +539,11 @@ public class TestSearch {
 		Response<SearchModel> response = sc.execute();
 		SearchModel sm = response.getResult();
 
-		Map<String, List<HistogramData>> resultMap = sm.getDateHistograms();
+		Map<String, List<YearAndHits>> resultMap = sm.getDateHistograms();
 		Set<String> keys = resultMap.keySet();
 		for (String key : keys) {
-			List<HistogramData> yandhList = resultMap.get(key);
-			for (HistogramData yandh : yandhList) {
+			List<YearAndHits> yandhList = resultMap.get(key);
+			for (YearAndHits yandh : yandhList) {
 				Assert.assertNotNull(yandh.getDate());
 				Assert.assertTrue(yandh.getHits() > 0);
 			}
@@ -620,8 +620,9 @@ public class TestSearch {
 		passages.setSearchTagEnd("</u>");
 		returns.setPassages(passages);
 
-		Builder builder = new SearchOptions.Builder(getProperty(Constants.CORPUS), returns);
+		Builder builder = new SearchOptions.Builder(getProperty(Constants.CORPUS));
 		builder.query(query);
+		builder.returns(returns);
 
 		ServiceCall<SearchModel> sc = imlService.search(builder.build());
 		Response<SearchModel> response = sc.execute();
@@ -664,8 +665,9 @@ public class TestSearch {
 		documents.setOffset(0);
 		returns.setDocuments(documents);
 
-		Builder builder = new SearchOptions.Builder(getProperty(Constants.CORPUS), returns);
+		Builder builder = new SearchOptions.Builder(getProperty(Constants.CORPUS));
 		builder.query(query);
+		builder.returns(returns);
 
 		ServiceCall<SearchModel> sc = imlService.search(builder.build());
 

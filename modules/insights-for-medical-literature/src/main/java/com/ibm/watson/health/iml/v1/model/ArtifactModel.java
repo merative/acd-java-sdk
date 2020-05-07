@@ -1,5 +1,5 @@
 /*
- * (C) Copyright IBM Corp. 2020.
+ * Copyright 2018, 2020 IBM Corp. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with
  * the License. You may obtain a copy of the License at
@@ -21,15 +21,15 @@ import com.ibm.cloud.sdk.core.service.model.GenericModel;
  */
 public class ArtifactModel extends GenericModel {
 
-  protected String cui;
-  protected String ontology;
-  protected String preferredName;
-  protected String alternativeName;
-  protected String semanticType;
-  protected Long rank;
-  protected Long hitCount;
-  protected Float score;
-  protected List<String> surfaceForms;
+  private String cui;
+  private String ontology;
+  private String preferredName;
+  private String alternativeName;
+  private String type;
+  private Long rank;
+  private Long hitCount;
+  private Float score;
+  private List<String> surfaceForms;
 
   /**
    * Gets the cui.
@@ -76,14 +76,14 @@ public class ArtifactModel extends GenericModel {
   }
 
   /**
-   * Gets the semanticType.
+   * Gets the type.
    *
    * Ontology semantic type for artifact.
    *
-   * @return the semanticType
+   * @return the type
    */
-  public String getSemanticType() {
-    return semanticType;
+  public String getType() {
+    return type;
   }
 
   /**

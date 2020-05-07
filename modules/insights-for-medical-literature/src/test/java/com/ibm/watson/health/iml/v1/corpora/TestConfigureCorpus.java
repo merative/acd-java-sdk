@@ -18,16 +18,18 @@ import org.junit.Test;
 import com.ibm.cloud.sdk.core.http.Response;
 import com.ibm.cloud.sdk.core.http.ServiceCall;
 import com.ibm.watson.health.iml.v1.InsightsForMedicalLiteratureService;
-import com.ibm.watson.health.iml.v1.model.CorporaConfig;
+import com.ibm.watson.health.iml.v1.WatsonServiceTest;
+import com.ibm.watson.health.iml.v1.model.CorporaConfigModel;
 import com.ibm.watson.health.iml.v1.model.SetCorpusConfigOptions;
-import com.ibm.watson.health.iml.v1.utils.ServiceUtilities;
 
-public class TestConfigureCorpus {
+public class TestConfigureCorpus extends WatsonServiceTest {
 	private InsightsForMedicalLiteratureService imlService;
 
 	public TestConfigureCorpus() {
+		super();
 		try {
-			imlService = ServiceUtilities.getServiceInstance();
+			this.setUp();
+			imlService = this.getServiceInstance();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -36,10 +38,10 @@ public class TestConfigureCorpus {
 	@Test
 	public void testConfigureCorpus() {
 		SetCorpusConfigOptions configOptions = new SetCorpusConfigOptions.Builder().userName("elastic").password("imliml")
-				.corpusUri("watsonvmwrk27.rch.stglabs.ibm.com:9200").build();
-		ServiceCall<CorporaConfig> sc = imlService.setCorpusConfig(configOptions);
+				.corpusURI("watsonvmwrk27.rch.stglabs.ibm.com:9200").build();
+		ServiceCall<CorporaConfigModel> sc = imlService.setCorpusConfig(configOptions);
 		try {
-		Response<CorporaConfig> response = sc.execute();
+		Response<CorporaConfigModel> response = sc.execute();
 		} catch (Exception mie) {
 			Assert.assertNotNull(mie.getMessage());
 		}

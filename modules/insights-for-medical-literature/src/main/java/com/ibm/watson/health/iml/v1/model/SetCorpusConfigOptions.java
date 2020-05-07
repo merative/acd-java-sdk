@@ -1,13 +1,16 @@
 /*
- * (C) Copyright IBM Corp. 2020.
+ * Copyright 2018 IBM Corp. All Rights Reserved.
  *
- * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with
  * the License. You may obtain a copy of the License at
  *
  * http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on
- * an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the
+ * Unless required by applicable law or agreed to in writing,
+ * software distributed under the License is distributed on
+ * an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND,
+ * either express or implied. See the License for the
  * specific language governing permissions and limitations under the License.
  */
 package com.ibm.watson.health.iml.v1.model;
@@ -19,9 +22,9 @@ import com.ibm.cloud.sdk.core.service.model.GenericModel;
  */
 public class SetCorpusConfigOptions extends GenericModel {
 
-  protected String userName;
-  protected String password;
-  protected String corpusUri;
+  private String userName;
+  private String password;
+  private String corpusURI;
 
   /**
    * Builder.
@@ -29,12 +32,12 @@ public class SetCorpusConfigOptions extends GenericModel {
   public static class Builder {
     private String userName;
     private String password;
-    private String corpusUri;
+    private String corpusURI;
 
     private Builder(SetCorpusConfigOptions setCorpusConfigOptions) {
       this.userName = setCorpusConfigOptions.userName;
       this.password = setCorpusConfigOptions.password;
-      this.corpusUri = setCorpusConfigOptions.corpusUri;
+      this.corpusURI = setCorpusConfigOptions.corpusURI;
     }
 
     /**
@@ -46,7 +49,7 @@ public class SetCorpusConfigOptions extends GenericModel {
     /**
      * Builds a SetCorpusConfigOptions.
      *
-     * @return the new SetCorpusConfigOptions instance
+     * @return the setCorpusConfigOptions
      */
     public SetCorpusConfigOptions build() {
       return new SetCorpusConfigOptions(this);
@@ -75,21 +78,21 @@ public class SetCorpusConfigOptions extends GenericModel {
     }
 
     /**
-     * Set the corpusUri.
+     * Set the corpusURI.
      *
-     * @param corpusUri the corpusUri
+     * @param corpusURI the corpusURI
      * @return the SetCorpusConfigOptions builder
      */
-    public Builder corpusUri(String corpusUri) {
-      this.corpusUri = corpusUri;
+    public Builder corpusURI(String corpusURI) {
+      this.corpusURI = corpusURI;
       return this;
     }
   }
 
-  protected SetCorpusConfigOptions(Builder builder) {
+  private SetCorpusConfigOptions(Builder builder) {
     userName = builder.userName;
     password = builder.password;
-    corpusUri = builder.corpusUri;
+    corpusURI = builder.corpusURI;
   }
 
   /**
@@ -124,14 +127,14 @@ public class SetCorpusConfigOptions extends GenericModel {
   }
 
   /**
-   * Gets the corpusUri.
+   * Gets the corpusURI.
    *
    * Repository connection URI.
    *
-   * @return the corpusUri
+   * @return the corpusURI
    */
-  public String corpusUri() {
-    return corpusUri;
+  public String corpusURI() {
+    return corpusURI;
   }
 }
 

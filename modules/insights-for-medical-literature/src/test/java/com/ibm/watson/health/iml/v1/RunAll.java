@@ -39,13 +39,13 @@ import com.ibm.watson.health.iml.v1.corpora.TestMonitorCorpus;
 import com.ibm.watson.health.iml.v1.search.TestSearch;
 import com.ibm.watson.health.iml.v1.search.TestGetSearchMetatdata;
 import com.ibm.watson.health.iml.v1.search.TestGetSearchTypeahead;
-import com.ibm.watson.health.iml.v1.unit.InsightsForMedicalLiteratureServiceTest;;
+import com.ibm.watson.health.iml.v1.unit.ImlJunitTest;
 
 
 
 @RunWith(Suite.class)
 @SuiteClasses({
-	InsightsForMedicalLiteratureServiceTest.class,
+	ImlJunitTest.class,
 	TestGetCorpora.class,
 	TestGetCorpusInfo.class,
 	TestGetConcepts.class,

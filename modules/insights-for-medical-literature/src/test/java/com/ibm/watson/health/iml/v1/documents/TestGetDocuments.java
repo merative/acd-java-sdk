@@ -20,23 +20,25 @@ import org.junit.Test;
 import com.ibm.cloud.sdk.core.http.Response;
 import com.ibm.cloud.sdk.core.http.ServiceCall;
 import com.ibm.watson.health.iml.v1.InsightsForMedicalLiteratureService;
+import com.ibm.watson.health.iml.v1.WatsonServiceTest;
 import com.ibm.watson.health.iml.v1.common.Constants;
 import com.ibm.watson.health.iml.v1.model.CorpusInfoModel;
 import com.ibm.watson.health.iml.v1.model.CorpusProvider;
 import com.ibm.watson.health.iml.v1.model.GetDocumentsOptions;
 import com.ibm.watson.health.iml.v1.model.GetDocumentsOptions.Builder;
-import com.ibm.watson.health.iml.v1.utils.ServiceUtilities;
 
 /**
  * Class for testing /v1/corpora/{corpus}/documents api.
  *
  */
-public class TestGetDocuments {
+public class TestGetDocuments extends WatsonServiceTest {
 	private InsightsForMedicalLiteratureService imlService;
 
 	public TestGetDocuments() {
+		super();
 		try {
-			imlService = ServiceUtilities.getServiceInstance();
+			this.setUp();
+			imlService = this.getServiceInstance();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -44,7 +46,7 @@ public class TestGetDocuments {
 
 	@Test
 	public void getDocuments() {
-		GetDocumentsOptions options = new GetDocumentsOptions.Builder().corpus(ServiceUtilities.getProperty(Constants.CORPUS)).build();
+		GetDocumentsOptions options = new GetDocumentsOptions.Builder().corpus(getProperty(Constants.CORPUS)).build();
 
 		ServiceCall<CorpusInfoModel> sc = imlService.getDocuments(options);
 		Response<CorpusInfoModel> response = sc.execute();
@@ -60,7 +62,7 @@ public class TestGetDocuments {
 
 	@Test
 	public void getDocumentsBuilder() {
-		Builder builder = new GetDocumentsOptions.Builder(ServiceUtilities.getProperty(Constants.CORPUS));
+		Builder builder = new GetDocumentsOptions.Builder(getProperty(Constants.CORPUS));
 
 		ServiceCall<CorpusInfoModel> sc = imlService.getDocuments(builder.build());
 		Response<CorpusInfoModel> response = sc.execute();

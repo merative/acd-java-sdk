@@ -18,16 +18,18 @@ import org.junit.Test;
 import com.ibm.cloud.sdk.core.http.Response;
 import com.ibm.cloud.sdk.core.http.ServiceCall;
 import com.ibm.watson.health.iml.v1.InsightsForMedicalLiteratureService;
-import com.ibm.watson.health.iml.v1.model.CorporaConfig;
+import com.ibm.watson.health.iml.v1.WatsonServiceTest;
+import com.ibm.watson.health.iml.v1.model.CorporaConfigModel;
 import com.ibm.watson.health.iml.v1.model.DeleteCorpusSchemaOptions;
-import com.ibm.watson.health.iml.v1.utils.ServiceUtilities;
 
-public class TestDeleteCorpus {
+public class TestDeleteCorpus extends WatsonServiceTest {
 	private InsightsForMedicalLiteratureService imlService;
 
 	public TestDeleteCorpus() {
+		super();
 		try {
-			imlService = ServiceUtilities.getServiceInstance();
+			this.setUp();
+			imlService = this.getServiceInstance();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -37,9 +39,9 @@ public class TestDeleteCorpus {
 	public void testDeleteCorpus() {
 		DeleteCorpusSchemaOptions deleteOptions = new DeleteCorpusSchemaOptions.Builder().instance("sdk_test").build();
 
-		ServiceCall<CorporaConfig> sc = imlService.deleteCorpusSchema(deleteOptions);
+		ServiceCall<CorporaConfigModel> sc = imlService.deleteCorpusSchema(deleteOptions);
 		try {
-			Response<CorporaConfig> response = sc.execute();
+			Response<CorporaConfigModel> response = sc.execute();
 		} catch (Exception mie) {
 			Assert.assertNotNull(mie.getMessage());
 		}

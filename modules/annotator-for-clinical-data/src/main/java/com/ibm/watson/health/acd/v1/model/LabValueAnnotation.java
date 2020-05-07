@@ -12,28 +12,32 @@
  */
 package com.ibm.watson.health.acd.v1.model;
 
-import com.ibm.cloud.sdk.core.service.model.GenericModel;
+import java.lang.reflect.Type;
+
+import com.google.gson.reflect.TypeToken;
+import com.ibm.watson.developer_cloud.service.model.DynamicModel;
+import com.ibm.watson.developer_cloud.util.GsonSerializationHelper;
 
 /**
  * LabValueAnnotation.
  */
-public class LabValueAnnotation extends GenericModel {
-  private String idType;
-  private String typeType;
-  private Long uidType;
-  private Long beginType;
-  private Long endType;
-  private String coveredTextType;
-  private Boolean negatedType;
-  private Boolean hypotheticalType;
-  private String loincIdType;
-  private String lowValueType;
-  private String dateInMillisecondsType;
-  private String labTypeSurfaceFormType;
-  private String labTypeNormalizedNameType;
-  private String labValueType;
-  private String sectionNormalizedNameType;
-  private String sectionSurfaceFormType;
+public class LabValueAnnotation extends DynamicModel {
+  private Type idType = new TypeToken<String>() { } .getType();
+  private Type typeType = new TypeToken<String>() { } .getType();
+  private Type uidType = new TypeToken<Long>() { } .getType();
+  private Type beginType = new TypeToken<Long>() { } .getType();
+  private Type endType = new TypeToken<Long>() { } .getType();
+  private Type coveredTextType = new TypeToken<String>() { } .getType();
+  private Type negatedType = new TypeToken<Boolean>() { } .getType();
+  private Type hypotheticalType = new TypeToken<Boolean>() { } .getType();
+  private Type loincIdType = new TypeToken<String>() { } .getType();
+  private Type lowValueType = new TypeToken<String>() { } .getType();
+  private Type dateInMillisecondsType = new TypeToken<String>() { } .getType();
+  private Type labTypeSurfaceFormType = new TypeToken<String>() { } .getType();
+  private Type labTypeNormalizedNameType = new TypeToken<String>() { } .getType();
+  private Type labValueType = new TypeToken<String>() { } .getType();
+  private Type sectionNormalizedNameType = new TypeToken<String>() { } .getType();
+  private Type sectionSurfaceFormType = new TypeToken<String>() { } .getType();
 
 
   /**
@@ -42,7 +46,7 @@ public class LabValueAnnotation extends GenericModel {
    * @return the id
    */
   public String getId() {
-    return idType;
+    return GsonSerializationHelper.serializeDynamicModelProperty(this.get("id"), idType);
   }
 
   /**
@@ -51,7 +55,7 @@ public class LabValueAnnotation extends GenericModel {
    * @return the type
    */
   public String getType() {
-    return typeType;
+    return GsonSerializationHelper.serializeDynamicModelProperty(this.get("type"), typeType);
   }
 
   /**
@@ -60,7 +64,7 @@ public class LabValueAnnotation extends GenericModel {
    * @return the uid
    */
   public Long getUid() {
-    return uidType;
+    return GsonSerializationHelper.serializeDynamicModelProperty(this.get("uid"), uidType);
   }
 
   /**
@@ -69,7 +73,7 @@ public class LabValueAnnotation extends GenericModel {
    * @return the begin
    */
   public Long getBegin() {
-    return beginType;
+    return GsonSerializationHelper.serializeDynamicModelProperty(this.get("begin"), beginType);
   }
 
   /**
@@ -78,7 +82,7 @@ public class LabValueAnnotation extends GenericModel {
    * @return the end
    */
   public Long getEnd() {
-    return endType;
+    return GsonSerializationHelper.serializeDynamicModelProperty(this.get("end"), endType);
   }
 
   /**
@@ -87,7 +91,7 @@ public class LabValueAnnotation extends GenericModel {
    * @return the coveredText
    */
   public String getCoveredText() {
-    return coveredTextType;
+    return GsonSerializationHelper.serializeDynamicModelProperty(this.get("coveredText"), coveredTextType);
   }
 
   /**
@@ -96,7 +100,11 @@ public class LabValueAnnotation extends GenericModel {
    * @return the negated
    */
   public Boolean isNegated() {
-    return negatedType;
+    Boolean negated = GsonSerializationHelper.serializeDynamicModelProperty(this.get("negated"), negatedType);
+    if (negated == null) {
+      negated = false;
+    }
+    return negated;
   }
 
   /**
@@ -105,7 +113,11 @@ public class LabValueAnnotation extends GenericModel {
    * @return the hypothetical
    */
   public Boolean isHypothetical() {
-    return hypotheticalType;
+    Boolean hypothetical = GsonSerializationHelper.serializeDynamicModelProperty(this.get("hypothetical"), hypotheticalType);
+    if (hypothetical == null) {
+      hypothetical = false;
+    }
+    return hypothetical;
   }
 
   /**
@@ -114,7 +126,7 @@ public class LabValueAnnotation extends GenericModel {
    * @return the loincId
    */
   public String getLoincId() {
-    return loincIdType;
+    return GsonSerializationHelper.serializeDynamicModelProperty(this.get("loincId"), loincIdType);
   }
 
   /**
@@ -123,7 +135,7 @@ public class LabValueAnnotation extends GenericModel {
    * @return the lowValue
    */
   public String getLowValue() {
-    return lowValueType;
+    return GsonSerializationHelper.serializeDynamicModelProperty(this.get("lowValue"), lowValueType);
   }
 
   /**
@@ -132,7 +144,7 @@ public class LabValueAnnotation extends GenericModel {
    * @return the dateInMilliseconds
    */
   public String getDateInMilliseconds() {
-    return dateInMillisecondsType;
+    return GsonSerializationHelper.serializeDynamicModelProperty(this.get("dateInMilliseconds"), dateInMillisecondsType);
   }
 
   /**
@@ -141,7 +153,7 @@ public class LabValueAnnotation extends GenericModel {
    * @return the labTypeSurfaceForm
    */
   public String getLabTypeSurfaceForm() {
-    return labTypeSurfaceFormType;
+    return GsonSerializationHelper.serializeDynamicModelProperty(this.get("labTypeSurfaceForm"), labTypeSurfaceFormType);
   }
 
   /**
@@ -150,7 +162,7 @@ public class LabValueAnnotation extends GenericModel {
    * @return the labTypeNormalizedName
    */
   public String getLabTypeNormalizedName() {
-    return labTypeNormalizedNameType;
+    return GsonSerializationHelper.serializeDynamicModelProperty(this.get("labTypeNormalizedName"), labTypeNormalizedNameType);
   }
 
   /**
@@ -159,7 +171,7 @@ public class LabValueAnnotation extends GenericModel {
    * @return the labValue
    */
   public String getLabValue() {
-    return labValueType;
+    return GsonSerializationHelper.serializeDynamicModelProperty(this.get("labValue"), labValueType);
   }
 
   /**
@@ -168,7 +180,7 @@ public class LabValueAnnotation extends GenericModel {
    * @return the sectionNormalizedName
    */
   public String getSectionNormalizedName() {
-    return sectionNormalizedNameType;
+    return GsonSerializationHelper.serializeDynamicModelProperty(this.get("sectionNormalizedName"), sectionNormalizedNameType);
   }
 
   /**
@@ -177,7 +189,7 @@ public class LabValueAnnotation extends GenericModel {
    * @return the sectionSurfaceForm
    */
   public String getSectionSurfaceForm() {
-    return sectionSurfaceFormType;
+    return GsonSerializationHelper.serializeDynamicModelProperty(this.get("sectionSurfaceForm"), sectionSurfaceFormType);
   }
 
 

@@ -103,7 +103,7 @@ public class Passages extends GenericModel {
   /**
    * Sets the concepts to highlight.
    *
-   * @param concepts the search criteria
+   * @param List<Concept> the concepts search criteria
    */
   public void setConceptsToHighlight(List<QueryConcept> concepts) {
     this.conceptsToHighlight = concepts;
@@ -163,3 +163,4 @@ public class Passages extends GenericModel {
     this.minScore = minScore;
   }
 }
+

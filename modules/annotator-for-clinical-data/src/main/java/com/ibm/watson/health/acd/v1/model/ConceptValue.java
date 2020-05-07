@@ -12,28 +12,32 @@
  */
 package com.ibm.watson.health.acd.v1.model;
 
-import com.ibm.cloud.sdk.core.service.model.GenericModel;
+import java.lang.reflect.Type;
+
+import com.google.gson.reflect.TypeToken;
+import com.ibm.watson.developer_cloud.service.model.DynamicModel;
+import com.ibm.watson.developer_cloud.util.GsonSerializationHelper;
 
 /**
  * ConceptValue.
  */
-public class ConceptValue extends GenericModel {
-  private String idType;
-  private String typeType;
-  private Long uidType;
-  private Long beginType;
-  private Long endType;
-  private String coveredTextType;
-  private Boolean negatedType;
-  private Boolean hypotheticalType;
-  private Long cuiType;
-  private String dimensionType;
-  private String preferredNameType;
-  private String triggerType;
-  private String sourceType;
-  private String valueType;
-  private String sectionNormalizedNameType;
-  private String sectionSurfaceFormType;
+public class ConceptValue extends DynamicModel {
+  private Type idType = new TypeToken<String>() { } .getType();
+  private Type typeType = new TypeToken<String>() { } .getType();
+  private Type uidType = new TypeToken<Long>() { } .getType();
+  private Type beginType = new TypeToken<Long>() { } .getType();
+  private Type endType = new TypeToken<Long>() { } .getType();
+  private Type coveredTextType = new TypeToken<String>() { } .getType();
+  private Type negatedType = new TypeToken<Boolean>() { } .getType();
+  private Type hypotheticalType = new TypeToken<Boolean>() { } .getType();
+  private Type cuiType = new TypeToken<Long>() { } .getType();
+  private Type dimensionType = new TypeToken<String>() { } .getType();
+  private Type preferredNameType = new TypeToken<String>() { } .getType();
+  private Type triggerType = new TypeToken<String>() { } .getType();
+  private Type sourceType = new TypeToken<String>() { } .getType();
+  private Type valueType = new TypeToken<String>() { } .getType();
+  private Type sectionNormalizedNameType = new TypeToken<String>() { } .getType();
+  private Type sectionSurfaceFormType = new TypeToken<String>() { } .getType();
 
 
 
@@ -43,7 +47,7 @@ public class ConceptValue extends GenericModel {
    * @return the id
    */
   public String getId() {
-    return idType;
+    return GsonSerializationHelper.serializeDynamicModelProperty(this.get("id"), idType);
   }
 
   /**
@@ -52,7 +56,7 @@ public class ConceptValue extends GenericModel {
    * @return the type
    */
   public String getType() {
-    return typeType;
+    return GsonSerializationHelper.serializeDynamicModelProperty(this.get("type"), typeType);
   }
 
   /**
@@ -61,7 +65,7 @@ public class ConceptValue extends GenericModel {
    * @return the uid
    */
   public Long getUid() {
-    return uidType;
+    return GsonSerializationHelper.serializeDynamicModelProperty(this.get("uid"), uidType);
   }
 
   /**
@@ -70,7 +74,7 @@ public class ConceptValue extends GenericModel {
    * @return the begin
    */
   public Long getBegin() {
-    return beginType;
+    return GsonSerializationHelper.serializeDynamicModelProperty(this.get("begin"), beginType);
   }
 
   /**
@@ -79,7 +83,7 @@ public class ConceptValue extends GenericModel {
    * @return the end
    */
   public Long getEnd() {
-    return endType;
+    return GsonSerializationHelper.serializeDynamicModelProperty(this.get("end"), endType);
   }
 
   /**
@@ -88,7 +92,7 @@ public class ConceptValue extends GenericModel {
    * @return the coveredText
    */
   public String getCoveredText() {
-    return coveredTextType;
+    return GsonSerializationHelper.serializeDynamicModelProperty(this.get("coveredText"), coveredTextType);
   }
 
   /**
@@ -97,7 +101,11 @@ public class ConceptValue extends GenericModel {
    * @return the negated
    */
   public Boolean isNegated() {
-    return negatedType;
+    Boolean negated = GsonSerializationHelper.serializeDynamicModelProperty(this.get("negated"), negatedType);
+    if (negated == null) {
+      negated = false;
+    }
+    return negated;
   }
 
   /**
@@ -106,7 +114,11 @@ public class ConceptValue extends GenericModel {
    * @return the hypothetical
    */
   public Boolean isHypothetical() {
-    return hypotheticalType;
+    Boolean hypothetical = GsonSerializationHelper.serializeDynamicModelProperty(this.get("hypothetical"), hypotheticalType);
+    if (hypothetical == null) {
+      hypothetical = false;
+    }
+    return hypothetical;
   }
 
   /**
@@ -115,7 +127,7 @@ public class ConceptValue extends GenericModel {
    * @return the cui
    */
   public Long getCui() {
-    return cuiType;
+    return GsonSerializationHelper.serializeDynamicModelProperty(this.get("cui"), cuiType);
   }
 
   /**
@@ -124,7 +136,7 @@ public class ConceptValue extends GenericModel {
    * @return the dimension
    */
   public String getDimension() {
-    return dimensionType;
+    return GsonSerializationHelper.serializeDynamicModelProperty(this.get("dimension"), dimensionType);
   }
 
   /**
@@ -133,7 +145,7 @@ public class ConceptValue extends GenericModel {
    * @return the preferredName
    */
   public String getPreferredName() {
-    return preferredNameType;
+    return GsonSerializationHelper.serializeDynamicModelProperty(this.get("preferredName"), preferredNameType);
   }
 
   /**
@@ -142,7 +154,7 @@ public class ConceptValue extends GenericModel {
    * @return the trigger
    */
   public String getTrigger() {
-    return triggerType;
+    return GsonSerializationHelper.serializeDynamicModelProperty(this.get("trigger"), triggerType);
   }
 
   /**
@@ -151,7 +163,7 @@ public class ConceptValue extends GenericModel {
    * @return the source
    */
   public String getSource() {
-    return sourceType;
+    return GsonSerializationHelper.serializeDynamicModelProperty(this.get("source"), sourceType);
   }
 
   /**
@@ -160,7 +172,7 @@ public class ConceptValue extends GenericModel {
    * @return the value
    */
   public String getValue() {
-    return valueType;
+    return GsonSerializationHelper.serializeDynamicModelProperty(this.get("value"), valueType);
   }
 
   /**
@@ -169,7 +181,7 @@ public class ConceptValue extends GenericModel {
    * @return the sectionNormalizedName
    */
   public String getSectionNormalizedName() {
-    return sectionNormalizedNameType;
+    return GsonSerializationHelper.serializeDynamicModelProperty(this.get("sectionNormalizedName"), sectionNormalizedNameType);
   }
 
   /**
@@ -178,7 +190,7 @@ public class ConceptValue extends GenericModel {
    * @return the sectionSurfaceForm
    */
   public String getSectionSurfaceForm() {
-    return sectionSurfaceFormType;
+    return GsonSerializationHelper.serializeDynamicModelProperty(this.get("sectionSurfaceForm"), sectionSurfaceFormType);
   }
 
 

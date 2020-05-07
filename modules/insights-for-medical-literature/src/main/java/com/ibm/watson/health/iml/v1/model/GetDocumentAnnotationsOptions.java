@@ -1,13 +1,16 @@
 /*
- * (C) Copyright IBM Corp. 2020.
+ * Copyright 2018 IBM Corp. All Rights Reserved.
  *
- * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with
  * the License. You may obtain a copy of the License at
  *
  * http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on
- * an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the
+ * Unless required by applicable law or agreed to in writing,
+ * software distributed under the License is distributed on
+ * an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND,
+ * either express or implied. See the License for the
  * specific language governing permissions and limitations under the License.
  */
 package com.ibm.watson.health.iml.v1.model;
@@ -16,17 +19,18 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.ibm.cloud.sdk.core.service.model.GenericModel;
+import com.ibm.cloud.sdk.core.util.Validator;
 
 /**
  * The getDocumentAnnotations options.
  */
 public class GetDocumentAnnotationsOptions extends GenericModel {
 
-  protected String corpus;
-  protected String documentId;
-  protected String documentSection;
-  protected List<String> cuis;
-  protected Boolean includeText;
+  private String corpus;
+  private String documentId;
+  private String documentSection;
+  private List<String> cuis;
+  private Boolean includeText;
 
   /**
    * Builder.
@@ -38,12 +42,13 @@ public class GetDocumentAnnotationsOptions extends GenericModel {
     private List<String> cuis;
     private Boolean includeText;
 
-    private Builder(GetDocumentAnnotationsOptions getDocumentAnnotationsOptions) {
-      this.corpus = getDocumentAnnotationsOptions.corpus;
-      this.documentId = getDocumentAnnotationsOptions.documentId;
-      this.documentSection = getDocumentAnnotationsOptions.documentSection;
-      this.cuis = getDocumentAnnotationsOptions.cuis;
-      this.includeText = getDocumentAnnotationsOptions.includeText;
+    private Builder(
+    		GetDocumentAnnotationsOptions getDocumentAnnotationsOptions) {
+      corpus = getDocumentAnnotationsOptions.corpus;
+      documentId = getDocumentAnnotationsOptions.documentId;
+      documentSection = getDocumentAnnotationsOptions.documentSection;
+      cuis = getDocumentAnnotationsOptions.cuis;
+      includeText = getDocumentAnnotationsOptions.includeText;
     }
 
     /**
@@ -68,7 +73,7 @@ public class GetDocumentAnnotationsOptions extends GenericModel {
     /**
      * Builds a GetDocumentAnnotationsOptions.
      *
-     * @return the new GetDocumentAnnotationsOptions instance
+     * @return the getDocumentAnnotationsOptions
      */
     public GetDocumentAnnotationsOptions build() {
       return new GetDocumentAnnotationsOptions(this);
@@ -81,8 +86,7 @@ public class GetDocumentAnnotationsOptions extends GenericModel {
      * @return the GetDocumentAnnotationsOptions builder
      */
     public Builder addCuis(String cuis) {
-      com.ibm.cloud.sdk.core.util.Validator.notNull(cuis,
-        "cuis cannot be null");
+      Validator.notNull(cuis, "cuis cannot be null");
       if (this.cuis == null) {
         this.cuis = new ArrayList<String>();
       }
@@ -147,13 +151,10 @@ public class GetDocumentAnnotationsOptions extends GenericModel {
     }
   }
 
-  protected GetDocumentAnnotationsOptions(Builder builder) {
-    com.ibm.cloud.sdk.core.util.Validator.notEmpty(builder.corpus,
-      "corpus cannot be empty");
-    com.ibm.cloud.sdk.core.util.Validator.notEmpty(builder.documentId,
-      "documentId cannot be empty");
-    com.ibm.cloud.sdk.core.util.Validator.notNull(builder.documentSection,
-      "documentSection cannot be null");
+  private GetDocumentAnnotationsOptions(Builder builder) {
+    Validator.notEmpty(builder.corpus, "corpus cannot be empty");
+    Validator.notEmpty(builder.documentId, "documentId cannot be empty");
+    Validator.notNull(builder.documentSection, "documentSection cannot be null");
     corpus = builder.corpus;
     documentId = builder.documentId;
     documentSection = builder.documentSection;
@@ -195,7 +196,7 @@ public class GetDocumentAnnotationsOptions extends GenericModel {
   /**
    * Gets the documentSection.
    *
-   * Document section to annotate. (e.g., title, abstract, body...
+   * Document section to annotate: title,abstract,body.
    *
    * @return the documentSection
    */

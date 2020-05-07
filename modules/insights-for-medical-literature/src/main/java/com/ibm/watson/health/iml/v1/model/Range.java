@@ -46,7 +46,7 @@ public class Range extends GenericModel {
   /**
    * Sets the beginning of the range.
    *
-   * @param rangeBegin the begin
+   * @return the begin
    */
   public void setBegin(String rangeBegin) {
 	  begin = rangeBegin;
@@ -54,8 +54,6 @@ public class Range extends GenericModel {
 
   /**
    * Sets the end of the range.
-   *
-   * @param rangeEnd the end
    */
   public void setEnd(String rangeEnd) {
 	  end = rangeEnd;
