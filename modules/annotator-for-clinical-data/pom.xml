@@ -65,35 +65,14 @@
       <version>6.14.2</version>
     </dependency>
     <dependency>
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
       <groupId>com.ibm.watson.health.cognitive-services</groupId>
-=======
-      <groupId>com.ibm.watson.health.cognitive_services</groupId>
->>>>>>> parent of 5898eab... new SDK generator version updates
-=======
-      <groupId>com.ibm.watson.health.cognitive_services</groupId>
->>>>>>> parent of 5898eab... new SDK generator version updates
-=======
-      <groupId>com.ibm.watson.health.cognitive_services</groupId>
->>>>>>> parent of 5898eab... new SDK generator version updates
-=======
-      <groupId>com.ibm.watson.health.cognitive_services</groupId>
->>>>>>> parent of 5898eab... new SDK generator version updates
       <artifactId>ibm-whcs-services-common</artifactId>
-			<version>${project.version}</version>
+			<version>0.0.10</version>
     </dependency>
     <dependency>
       <groupId>com.squareup.okhttp3</groupId>
       <artifactId>mockwebserver</artifactId>
       <version>3.12.1</version>
-    </dependency>
-    <dependency>
-      <groupId>ch.qos.logback</groupId>
-      <artifactId>ch.qos.logback.slf4j</artifactId>
-      <version>1.0.7-v20121108-1250</version>
     </dependency>
     <dependency>
       <groupId>org.slf4j</groupId>

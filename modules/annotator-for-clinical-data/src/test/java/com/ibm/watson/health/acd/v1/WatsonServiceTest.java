@@ -136,9 +136,6 @@ public abstract class WatsonServiceTest {
 	 * Setup logging.
 	 */
 	private void setupLogging() {
-		ch.qos.logback.classic.Logger root = (ch.qos.logback.classic.Logger) LoggerFactory
-				.getLogger(org.slf4j.Logger.ROOT_LOGGER_NAME);
-		root.setLevel(ch.qos.logback.classic.Level.OFF);
 		try {
 			ClassLoader classLoader = Thread.currentThread().getContextClassLoader();
 			InputStream configFile = classLoader.getResourceAsStream("logging.properties");

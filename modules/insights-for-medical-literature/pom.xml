@@ -55,29 +55,25 @@
       <scope>test</scope>
       <version>4.13</version>
     </dependency>
-<!--     <dependency>
+     <dependency>
       <groupId>com.ibm.watson.developer_cloud</groupId>
       <artifactId>core</artifactId>
-    </dependency> -->
+      <version>6.14.2</version>
+    </dependency>
      <dependency>
       <groupId>com.ibm.cloud</groupId>
       <artifactId>sdk-core</artifactId>
       <version>8.1.0</version>
     </dependency>
     <dependency>
-      <groupId>com.ibm.watson.health.cognitive_services</groupId>
+      <groupId>com.ibm.watson.health.cognitive-services</groupId>
       <artifactId>ibm-whcs-services-common</artifactId>
-			<version>${project.version}</version>
+			<version>0.0.10</version>
     </dependency>
     <dependency>
       <groupId>com.squareup.okhttp3</groupId>
       <artifactId>mockwebserver</artifactId>
       <version>3.12.1</version>
-    </dependency>
-    <dependency>
-      <groupId>ch.qos.logback</groupId>
-      <artifactId>ch.qos.logback.slf4j</artifactId>
-      <version>1.0.7-v20121108-1250</version>
     </dependency>
     <dependency>
       <groupId>org.slf4j</groupId>
