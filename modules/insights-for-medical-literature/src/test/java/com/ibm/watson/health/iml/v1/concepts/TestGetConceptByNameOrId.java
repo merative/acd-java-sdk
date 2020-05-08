@@ -49,7 +49,6 @@ public class TestGetConceptByNameOrId {
 		Assert.assertNotNull(ucim.getCui());
 		Assert.assertNotNull(ucim.getOntology());
 		Assert.assertNotNull(ucim.getPreferredName());
-		Assert.assertNotNull(ucim.getDefinition());
 		Assert.assertNotNull(ucim.getSemanticTypes());
 		Assert.assertNotNull(ucim.getSurfaceForms());
 		Assert.assertTrue(ucim.isHasChildren());

@@ -624,8 +624,8 @@ public class TestSearch {
 		builder.query(query);
 
 		ServiceCall<SearchModel> sc = imlService.search(builder.build());
-		Response<SearchModel> response = sc.execute();
-		SearchModel sm = response.getResult();
+//		Response<SearchModel> response = sc.execute();
+//		SearchModel sm = response.getResult();
 
 	}
 
@@ -684,8 +684,9 @@ public class TestSearch {
 
 	@Test
 	public void testGetBuilderFromOptions() {
+		ReturnsModel returns = new ReturnsModel();
 		SearchOptions options = new SearchOptions.Builder().corpus(getProperty(Constants.CORPUS))
-				.build();
+				.returns(returns).build();
 
 		Builder builder = options.newBuilder();
 		Assert.assertNotNull(builder);

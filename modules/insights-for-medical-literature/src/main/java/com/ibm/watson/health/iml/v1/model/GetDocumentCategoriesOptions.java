@@ -54,9 +54,9 @@ public class GetDocumentCategoriesOptions extends GenericModel {
     private String highlightTagEnd;
     private List<String> types;
     private String category;
-    private Boolean onlyNegatedConcepts;
+    private Boolean onlyNegatedConcepts = false;
     private String fields;
-    private Long limit;
+    private Long limit = 50L;
 
     private Builder(GetDocumentCategoriesOptions getDocumentCategoriesOptions) {
       this.corpus = getDocumentCategoriesOptions.corpus;
@@ -65,7 +65,9 @@ public class GetDocumentCategoriesOptions extends GenericModel {
       this.highlightTagEnd = getDocumentCategoriesOptions.highlightTagEnd;
       this.types = getDocumentCategoriesOptions.types;
       this.category = getDocumentCategoriesOptions.category;
-      this.onlyNegatedConcepts = getDocumentCategoriesOptions.onlyNegatedConcepts;
+      if (getDocumentCategoriesOptions.onlyNegatedConcepts() != null) {
+    	  this.onlyNegatedConcepts = getDocumentCategoriesOptions.onlyNegatedConcepts;
+      }
       this.fields = getDocumentCategoriesOptions.fields;
       this.limit = getDocumentCategoriesOptions.limit;
     }

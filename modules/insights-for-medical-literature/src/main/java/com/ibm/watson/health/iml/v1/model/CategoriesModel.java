@@ -22,11 +22,11 @@ import com.ibm.cloud.sdk.core.service.model.GenericModel;
 public class CategoriesModel extends GenericModel {
 
   protected String modelLicense;
-  protected StringBuilder highlightedTitle;
-  protected StringBuilder highlightedAbstract;
-  protected StringBuilder highlightedBody;
-  protected Map<String, StringBuilder> highlightedSections;
-  protected Map<String, Map<String, EntryModel>> passages;
+  protected String highlightedTitle;
+  protected String highlightedAbstract;
+  protected String highlightedBody;
+  protected Map<String, String> highlightedSections;
+  protected Map<String, PassagesModel> passages;
   protected Map<String, AnnotationModel> annotations;
 
   /**
@@ -34,11 +34,11 @@ public class CategoriesModel extends GenericModel {
    */
   public static class Builder {
     private String modelLicense;
-    private StringBuilder highlightedTitle;
-    private StringBuilder highlightedAbstract;
-    private StringBuilder highlightedBody;
-    private Map<String, StringBuilder> highlightedSections;
-    private Map<String, Map<String, EntryModel>> passages;
+    private String highlightedTitle;
+    private String highlightedAbstract;
+    private String highlightedBody;
+    private Map<String, String> highlightedSections;
+    private Map<String,PassagesModel> passages;
     private Map<String, AnnotationModel> annotations;
 
     private Builder(CategoriesModel categoriesModel) {
@@ -83,7 +83,7 @@ public class CategoriesModel extends GenericModel {
      * @param highlightedTitle the highlightedTitle
      * @return the CategoriesModel builder
      */
-    public Builder highlightedTitle(StringBuilder highlightedTitle) {
+    public Builder highlightedTitle(String highlightedTitle) {
       this.highlightedTitle = highlightedTitle;
       return this;
     }
@@ -94,7 +94,7 @@ public class CategoriesModel extends GenericModel {
      * @param highlightedAbstract the highlightedAbstract
      * @return the CategoriesModel builder
      */
-    public Builder highlightedAbstract(StringBuilder highlightedAbstract) {
+    public Builder highlightedAbstract(String highlightedAbstract) {
       this.highlightedAbstract = highlightedAbstract;
       return this;
     }
@@ -105,7 +105,7 @@ public class CategoriesModel extends GenericModel {
      * @param highlightedBody the highlightedBody
      * @return the CategoriesModel builder
      */
-    public Builder highlightedBody(StringBuilder highlightedBody) {
+    public Builder highlightedBody(String highlightedBody) {
       this.highlightedBody = highlightedBody;
       return this;
     }
@@ -116,7 +116,7 @@ public class CategoriesModel extends GenericModel {
      * @param highlightedSections the highlightedSections
      * @return the CategoriesModel builder
      */
-    public Builder highlightedSections(Map<String, StringBuilder> highlightedSections) {
+    public Builder highlightedSections(Map<String, String> highlightedSections) {
       this.highlightedSections = highlightedSections;
       return this;
     }
@@ -127,7 +127,7 @@ public class CategoriesModel extends GenericModel {
      * @param passages the passages
      * @return the CategoriesModel builder
      */
-    public Builder passages(Map<String, Map<String, EntryModel>> passages) {
+    public Builder passages(Map<String, PassagesModel> passages) {
       this.passages = passages;
       return this;
     }
@@ -179,7 +179,7 @@ public class CategoriesModel extends GenericModel {
    *
    * @return the highlightedTitle
    */
-  public StringBuilder highlightedTitle() {
+  public String highlightedTitle() {
     return highlightedTitle;
   }
 
@@ -188,7 +188,7 @@ public class CategoriesModel extends GenericModel {
    *
    * @return the highlightedAbstract
    */
-  public StringBuilder highlightedAbstract() {
+  public String highlightedAbstract() {
     return highlightedAbstract;
   }
 
@@ -197,7 +197,7 @@ public class CategoriesModel extends GenericModel {
    *
    * @return the highlightedBody
    */
-  public StringBuilder highlightedBody() {
+  public String highlightedBody() {
     return highlightedBody;
   }
 
@@ -208,7 +208,7 @@ public class CategoriesModel extends GenericModel {
    *
    * @return the highlightedSections
    */
-  public Map<String, StringBuilder> highlightedSections() {
+  public Map<String, String> highlightedSections() {
     return highlightedSections;
   }
 
@@ -219,7 +219,7 @@ public class CategoriesModel extends GenericModel {
    *
    * @return the passages
    */
-  public Map<String, Map<String, EntryModel>> passages() {
+  public Map<String, PassagesModel> passages() {
     return passages;
   }
 

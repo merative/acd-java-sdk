@@ -22,29 +22,33 @@ import com.ibm.cloud.sdk.core.service.model.GenericModel;
  */
 public class PassagesModel extends GenericModel {
 
-  protected List<Passage> allPassages;
-  protected Map<String, List<Passage>> searchTermToPassages;
-
-  /**
-   * Gets the allPassages.
-   *
-   * Document passages.
-   *
-   * @return the allPassages
-   */
-  public List<Passage> getAllPassages() {
-    return allPassages;
-  }
-
-  /**
-   * Gets the searchTermToPassages.
-   *
-   * Search term to passages.
-   *
-   * @return the searchTermToPassages
-   */
-  public Map<String, List<Passage>> getSearchTermToPassages() {
-    return searchTermToPassages;
+//  protected List<Passage> allPassages;
+//  protected Map<String, List<Passage>> searchTermToPassages;
+  protected Entry entry;
+//
+//  /**
+//   * Gets the allPassages.
+//   *
+//   * Document passages.
+//   *
+//   * @return the allPassages
+//   */
+//  public List<Passage> getAllPassages() {
+//    return allPassages;
+//  }
+//
+//  /**
+//   * Gets the searchTermToPassages.
+//   *
+//   * Search term to passages.
+//   *
+//   * @return the searchTermToPassages
+//   */
+//  public Map<String, List<Passage>> getSearchTermToPassages() {
+//    return searchTermToPassages;
+//  }
+  public Entry getEntry(){
+	  return entry;
   }
 }
 

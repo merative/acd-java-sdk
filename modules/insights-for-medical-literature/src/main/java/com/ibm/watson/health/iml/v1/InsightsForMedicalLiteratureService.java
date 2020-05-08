@@ -496,22 +496,22 @@ public class InsightsForMedicalLiteratureService extends BaseService {
     builder.query("version", this.version);
     builder.query("min_score", String.valueOf(getSearchMatchesOptions.minScore()));
     if (getSearchMatchesOptions.cuis() != null) {
-      builder.query("cuis", RequestUtils.join(getSearchMatchesOptions.cuis(), ","));
+      builder.query("cuis", getSearchMatchesOptions.cuis());
     }
     if (getSearchMatchesOptions.text() != null) {
-      builder.query("text", RequestUtils.join(getSearchMatchesOptions.text(), ","));
+      builder.query("text", getSearchMatchesOptions.text());
     }
     if (getSearchMatchesOptions.types() != null) {
-      builder.query("types", RequestUtils.join(getSearchMatchesOptions.types(), ","));
+      builder.query("types", getSearchMatchesOptions.types());
     }
     if (getSearchMatchesOptions.attributes() != null) {
-      builder.query("attributes", RequestUtils.join(getSearchMatchesOptions.attributes(), ","));
+      builder.query("attributes", getSearchMatchesOptions.attributes());
     }
     if (getSearchMatchesOptions.values() != null) {
-      builder.query("values", RequestUtils.join(getSearchMatchesOptions.values(), ","));
+      builder.query("values", getSearchMatchesOptions.values());
     }
     if (getSearchMatchesOptions.nluRelations() != null) {
-      builder.query("nlu_relations", RequestUtils.join(getSearchMatchesOptions.nluRelations(), ","));
+      builder.query("nlu_relations", getSearchMatchesOptions.nluRelations());
     }
     if (getSearchMatchesOptions.limit() != null) {
       builder.query("_limit", String.valueOf(getSearchMatchesOptions.limit()));
@@ -1270,7 +1270,7 @@ public class InsightsForMedicalLiteratureService extends BaseService {
     }
     builder.header("Accept", "application/json");
     builder.query("version", this.version);
-    builder.query("return_ontologies", RequestUtils.join(getSimilarConceptsOptions.returnOntologies(), ","));
+    builder.query("return_ontologies", getSimilarConceptsOptions.returnOntologies());
     if (getSimilarConceptsOptions.ontology() != null) {
       builder.query("ontology", getSimilarConceptsOptions.ontology());
     }

@@ -59,7 +59,7 @@ public class ServiceUtilities {
 	 *             the exception
 	 */
 	public static void setUp() throws Exception {
-		if (getProperty(Constants.APIKEY) == null){
+		if ((getProperty(Constants.APIKEY) == null) || getProperty(Constants.APIKEY).trim().length() == 0) {
 			imlService = new InsightsForMedicalLiteratureService(getProperty(Constants.VERSION),
 				"InsightsForMedicalLiterature", new NoAuthAuthenticator());
 			imlService.setServiceUrl(getProperty(Constants.URL));

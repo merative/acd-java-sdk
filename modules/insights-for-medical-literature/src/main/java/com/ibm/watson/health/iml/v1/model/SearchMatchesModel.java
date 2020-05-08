@@ -38,11 +38,11 @@ public class SearchMatchesModel extends GenericModel {
   protected String hrefDoi;
   protected String pdfUrl;
   protected String referenceUrl;
-  protected StringBuilder highlightedTitle;
-  protected StringBuilder highlightedAbstract;
-  protected StringBuilder highlightedBody;
-  protected Map<String, StringBuilder> highlightedSections;
-  protected Map<String, Map<String, MatchEntry>> passages;
+  protected String highlightedTitle;
+  protected String highlightedAbstract;
+  protected String highlightedBody;
+  protected Map<String, String> highlightedSections;
+  protected Map<String, PassagesModel> passages;
   protected Map<String, AnnotationModel> annotations;
 
   /**
@@ -200,7 +200,7 @@ public class SearchMatchesModel extends GenericModel {
    *
    * @return the highlightedTitle
    */
-  public StringBuilder getHighlightedTitle() {
+  public String getHighlightedTitle() {
     return highlightedTitle;
   }
 
@@ -209,7 +209,7 @@ public class SearchMatchesModel extends GenericModel {
    *
    * @return the highlightedAbstract
    */
-  public StringBuilder getHighlightedAbstract() {
+  public String getHighlightedAbstract() {
     return highlightedAbstract;
   }
 
@@ -218,7 +218,7 @@ public class SearchMatchesModel extends GenericModel {
    *
    * @return the highlightedBody
    */
-  public StringBuilder getHighlightedBody() {
+  public String getHighlightedBody() {
     return highlightedBody;
   }
 
@@ -229,7 +229,7 @@ public class SearchMatchesModel extends GenericModel {
    *
    * @return the highlightedSections
    */
-  public Map<String, StringBuilder> getHighlightedSections() {
+  public Map<String, String> getHighlightedSections() {
     return highlightedSections;
   }
 
@@ -240,7 +240,7 @@ public class SearchMatchesModel extends GenericModel {
    *
    * @return the passages
    */
-  public Map<String, Map<String, MatchEntry>> getPassages() {
+  public Map<String, PassagesModel> getPassages() {
     return passages;
   }
 

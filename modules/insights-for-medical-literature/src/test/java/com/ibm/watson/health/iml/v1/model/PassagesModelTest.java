@@ -13,19 +13,16 @@
 
 package com.ibm.watson.health.iml.v1.model;
 
-import com.ibm.cloud.sdk.core.service.model.FileWithMetadata;
-import com.ibm.watson.health.iml.v1.model.Passage;
-import com.ibm.watson.health.iml.v1.model.PassagesModel;
-import com.ibm.watson.health.iml.v1.model.StringBuilder;
-import com.ibm.watson.health.iml.v1.utils.TestUtilities;
+import static org.testng.Assert.assertNull;
 
 import java.io.InputStream;
-
 import java.util.HashMap;
 import java.util.List;
 
 import org.testng.annotations.Test;
-import static org.testng.Assert.*;
+
+import com.ibm.cloud.sdk.core.service.model.FileWithMetadata;
+import com.ibm.watson.health.iml.v1.utils.TestUtilities;
 
 /**
  * Unit test class for the PassagesModel model.
@@ -37,7 +34,6 @@ public class PassagesModelTest {
   @Test
   public void testPassagesModel() throws Throwable {
     PassagesModel passagesModelModel = new PassagesModel();
-    assertNull(passagesModelModel.getAllPassages());
-    assertNull(passagesModelModel.getSearchTermToPassages());
+    assertNull(passagesModelModel.getEntry());
   }
 }

@@ -42,7 +42,7 @@ public class TestGetConceptRelatedConcepts {
 	@Test
 	public void getRelatedConcepts() {
 		GetRelatedConceptsOptions options = new GetRelatedConceptsOptions.Builder().corpus(getProperty(CORPUS))
-				.nameOrId("C0243026").relationship("children").maxDepth(10000).build();
+				.nameOrId("C0243026").relationship("children").maxDepth(2).build();
 
 		ServiceCall<RelatedConceptsModel> sc = imlService.getRelatedConcepts(options);
 		Response<RelatedConceptsModel> response = sc.execute();

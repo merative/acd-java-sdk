@@ -103,11 +103,11 @@ public class CategoriesModelTest {
 
     CategoriesModel categoriesModelModel = new CategoriesModel.Builder()
       .modelLicense("testString")
-      .highlightedTitle(stringBuilderModel)
-      .highlightedAbstract(stringBuilderModel)
-      .highlightedBody(stringBuilderModel)
-      .highlightedSections(new java.util.HashMap<String,StringBuilder>(){{put("foo", stringBuilderModel); }})
-      .passages(new java.util.HashMap<String,Map<String, EntryModel>>(){{put("foo", new java.util.HashMap<String,EntryModel>(){{put("foo", new EntryModel.Builder().build()); }}); }})
+      .highlightedTitle("testString")
+      .highlightedAbstract("testString")
+      .highlightedBody("testString")
+      .highlightedSections(new java.util.HashMap<String,String>(){{put("foo", "testString"); }})
+      .passages(new java.util.HashMap<String, PassagesModel>(){{put("foo", new PassagesModel(){{put("foo", new PassagesModel()); }}); }})
       .annotations(new java.util.HashMap<String,AnnotationModel>(){{put("foo", annotationModelModel); }})
       .build();
     assertEquals(categoriesModelModel.modelLicense(), "testString");

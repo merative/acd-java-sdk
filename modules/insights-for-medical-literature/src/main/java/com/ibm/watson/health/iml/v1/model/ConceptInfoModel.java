@@ -23,7 +23,7 @@ public class ConceptInfoModel extends GenericModel {
 
   protected String cui;
   protected String ontology;
-  protected String preferredName;
+  protected Object preferredName;
   protected List<String> semanticTypes;
   protected List<String> surfaceForms;
   protected String definition;
@@ -60,7 +60,7 @@ public class ConceptInfoModel extends GenericModel {
    *
    * @return the preferredName
    */
-  public String getPreferredName() {
+  public Object getPreferredName() {
     return preferredName;
   }
 
