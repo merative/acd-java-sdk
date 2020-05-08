@@ -21,6 +21,8 @@ import com.ibm.watson.health.acd.v1.AnnotatorForClinicalData;
 import com.ibm.watson.health.acd.v1.WatsonServiceTest;
 import com.ibm.watson.health.acd.v1.model.GetHealthCheckOptions;
 import com.ibm.watson.health.acd.v1.model.GetHealthCheckOptions.Builder;
+import com.ibm.watson.health.acd.v1.model.GetHealthCheckStatusOptions;
+import com.ibm.watson.health.acd.v1.model.ServiceStatus;
 
 /**
  *
@@ -42,25 +44,17 @@ public class TestGetHealthCheckStatus extends WatsonServiceTest {
 
 	@Test
 	public void testGetHealthCheckStatus() {
-		Assert.assertNotNull(service.getHealthCheck());
+		Assert.assertNotNull(service.getHealthCheckStatus());
 	}
 
 	@Test
 	public void testGetHealthCheckStatusOptions() {
-		GetHealthCheckOptions options = new GetHealthCheckOptions.Builder().build();
+		GetHealthCheckStatusOptions options = new GetHealthCheckStatusOptions.Builder().build();
 
-		ServiceCall<String> sc = service.getHealthCheck(options);
-		Response<String> response = sc.execute();
+		ServiceCall<ServiceStatus> sc = service.getHealthCheckStatus(options);
+		Response<ServiceStatus> response = sc.execute();
 
-		Assert.assertEquals(response.getResult(), "{\"serviceState\":\"OK\"}");
-	}
-
-	@Test
-	public void testGetHealthCheckStatusInclResponseDetails() {
-
-		Response<String> response = service.getHealthCheckInclResponseDetails();
-
-		Assert.assertEquals(response.getResult(), "{\"serviceState\":\"OK\"}");
+		Assert.assertEquals(response.getResult().getServiceState(), "OK");
 	}
 
 	@Test

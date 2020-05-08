@@ -22,6 +22,7 @@ import com.ibm.watson.health.acd.v1.WatsonServiceTest;
 import com.ibm.watson.health.acd.v1.common.Constants;
 import com.ibm.watson.health.acd.v1.model.GetProfilesOptions;
 import com.ibm.watson.health.acd.v1.model.GetProfilesOptions.Builder;
+import com.ibm.watson.health.acd.v1.model.ListStringWrapper;
 
 /**
  *
@@ -45,21 +46,10 @@ public class TestGetProfiles extends WatsonServiceTest {
 	public void testGetProfiles() {
 		GetProfilesOptions options = new GetProfilesOptions.Builder().build();
 
-		ServiceCall<String> sc = service.getProfiles(options);
-		Response<String> response = sc.execute();
+		ServiceCall<ListStringWrapper> sc = service.getProfiles(options);
+		Response<ListStringWrapper> response = sc.execute();
 
 		Assert.assertNotNull(response.getResult());
-		Assert.assertTrue(response.getResult().contains(Constants.PROFILE_ID));
-		Assert.assertTrue(response.getResult().contains(Constants.PROFILE_ID));
-	}
-
-	@Test
-	public void testGetProfilesInclResponseDetails() {
-		Response<String> response = service.getProfilesInclResponseDetails();
-
-		Assert.assertNotNull(response.getResult());
-		Assert.assertTrue(response.getResult().contains(Constants.PROFILE_ID));
-		Assert.assertTrue(response.getResult().contains(Constants.PROFILE_ID));
 	}
 
 	@Test

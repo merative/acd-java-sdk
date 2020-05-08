@@ -15,9 +15,9 @@ package com.ibm.watson.health.acd.v1.model;
 import com.ibm.cloud.sdk.core.service.model.GenericModel;
 
 /**
- * The getProfile options.
+ * The deleteFlows options.
  */
-public class GetProfileOptions extends GenericModel {
+public class DeleteFlowsOptions extends GenericModel {
 
   protected String id;
 
@@ -27,8 +27,8 @@ public class GetProfileOptions extends GenericModel {
   public static class Builder {
     private String id;
 
-    private Builder(GetProfileOptions getProfileOptions) {
-      this.id = getProfileOptions.id;
+    private Builder(DeleteFlowsOptions deleteFlowsOptions) {
+      this.id = deleteFlowsOptions.id;
     }
 
     /**
@@ -47,19 +47,19 @@ public class GetProfileOptions extends GenericModel {
     }
 
     /**
-     * Builds a GetProfileOptions.
+     * Builds a DeleteFlowsOptions.
      *
-     * @return the new GetProfileOptions instance
+     * @return the new DeleteFlowsOptions instance
      */
-    public GetProfileOptions build() {
-      return new GetProfileOptions(this);
+    public DeleteFlowsOptions build() {
+      return new DeleteFlowsOptions(this);
     }
 
     /**
      * Set the id.
      *
      * @param id the id
-     * @return the GetProfileOptions builder
+     * @return the DeleteFlowsOptions builder
      */
     public Builder id(String id) {
       this.id = id;
@@ -67,7 +67,7 @@ public class GetProfileOptions extends GenericModel {
     }
   }
 
-  protected GetProfileOptions(Builder builder) {
+  protected DeleteFlowsOptions(Builder builder) {
     com.ibm.cloud.sdk.core.util.Validator.notEmpty(builder.id,
       "id cannot be empty");
     id = builder.id;
@@ -76,7 +76,7 @@ public class GetProfileOptions extends GenericModel {
   /**
    * New builder.
    *
-   * @return a GetProfileOptions builder
+   * @return a DeleteFlowsOptions builder
    */
   public Builder newBuilder() {
     return new Builder(this);
@@ -85,7 +85,7 @@ public class GetProfileOptions extends GenericModel {
   /**
    * Gets the id.
    *
-   * Profile ID.
+   * Flow ID.
    *
    * @return the id
    */

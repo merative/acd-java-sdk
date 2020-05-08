@@ -60,10 +60,11 @@ public class TestAnalyze extends WatsonServiceTest {
 
 	@Test
 	public void testAnalyzeSingleAnnotaor() {
-		ConfigurationEntity ce = new ConfigurationEntity();
-		ce.setId("t1");
-		ce.setType("customType");
-		ce.setUid(99);
+		ConfigurationEntity ce = new ConfigurationEntity.Builder()
+		.id("t1")
+		.type("customType")
+		.uid(99)
+		.build();
 		Map<String, String> params = new HashMap<String, String>();
 		params.put("include_optional_fields", "medical_codes");
 

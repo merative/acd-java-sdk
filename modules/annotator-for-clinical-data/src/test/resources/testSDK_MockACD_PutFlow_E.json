@@ -1,7 +1,0 @@
-{
-  "code": 400,
-  "message": "Bad Request",
-  "level": "ERROR",
-  "description": "Unknown annotator in flow definition",
-  "correlationId": "86713092-a204-4296-ab49-418213acbeff"
-}

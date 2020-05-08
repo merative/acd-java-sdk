@@ -18,9 +18,9 @@ import java.util.List;
 import com.ibm.cloud.sdk.core.service.model.GenericModel;
 
 /**
- * AcdProfile.
+ * The createProfile options.
  */
-public class AcdProfile extends GenericModel {
+public class CreateProfileOptions extends GenericModel {
 
   protected String id;
   protected String name;
@@ -44,15 +44,15 @@ public class AcdProfile extends GenericModel {
     private String cartridgeId;
     private List<Annotator> annotators;
 
-    private Builder(AcdProfile acdProfile) {
-      this.id = acdProfile.id;
-      this.name = acdProfile.name;
-      this.description = acdProfile.description;
-      this.publishedDate = acdProfile.publishedDate;
-      this.publish = acdProfile.publish;
-      this.version = acdProfile.version;
-      this.cartridgeId = acdProfile.cartridgeId;
-      this.annotators = acdProfile.annotators;
+    private Builder(CreateProfileOptions createProfileOptions) {
+      this.id = createProfileOptions.id;
+      this.name = createProfileOptions.name;
+      this.description = createProfileOptions.description;
+      this.publishedDate = createProfileOptions.publishedDate;
+      this.publish = createProfileOptions.publish;
+      this.version = createProfileOptions.version;
+      this.cartridgeId = createProfileOptions.cartridgeId;
+      this.annotators = createProfileOptions.annotators;
     }
 
     /**
@@ -62,19 +62,19 @@ public class AcdProfile extends GenericModel {
     }
 
     /**
-     * Builds a AcdProfile.
+     * Builds a CreateProfileOptions.
      *
-     * @return the new AcdProfile instance
+     * @return the new CreateProfileOptions instance
      */
-    public AcdProfile build() {
-      return new AcdProfile(this);
+    public CreateProfileOptions build() {
+      return new CreateProfileOptions(this);
     }
 
     /**
      * Adds an annotators to annotators.
      *
      * @param annotators the new annotators
-     * @return the AcdProfile builder
+     * @return the CreateProfileOptions builder
      */
     public Builder addAnnotators(Annotator annotators) {
       com.ibm.cloud.sdk.core.util.Validator.notNull(annotators,
@@ -90,7 +90,7 @@ public class AcdProfile extends GenericModel {
      * Set the id.
      *
      * @param id the id
-     * @return the AcdProfile builder
+     * @return the CreateProfileOptions builder
      */
     public Builder id(String id) {
       this.id = id;
@@ -101,7 +101,7 @@ public class AcdProfile extends GenericModel {
      * Set the name.
      *
      * @param name the name
-     * @return the AcdProfile builder
+     * @return the CreateProfileOptions builder
      */
     public Builder name(String name) {
       this.name = name;
@@ -112,7 +112,7 @@ public class AcdProfile extends GenericModel {
      * Set the description.
      *
      * @param description the description
-     * @return the AcdProfile builder
+     * @return the CreateProfileOptions builder
      */
     public Builder description(String description) {
       this.description = description;
@@ -123,7 +123,7 @@ public class AcdProfile extends GenericModel {
      * Set the publishedDate.
      *
      * @param publishedDate the publishedDate
-     * @return the AcdProfile builder
+     * @return the CreateProfileOptions builder
      */
     public Builder publishedDate(String publishedDate) {
       this.publishedDate = publishedDate;
@@ -134,7 +134,7 @@ public class AcdProfile extends GenericModel {
      * Set the publish.
      *
      * @param publish the publish
-     * @return the AcdProfile builder
+     * @return the CreateProfileOptions builder
      */
     public Builder publish(Boolean publish) {
       this.publish = publish;
@@ -145,7 +145,7 @@ public class AcdProfile extends GenericModel {
      * Set the version.
      *
      * @param version the version
-     * @return the AcdProfile builder
+     * @return the CreateProfileOptions builder
      */
     public Builder version(String version) {
       this.version = version;
@@ -156,7 +156,7 @@ public class AcdProfile extends GenericModel {
      * Set the cartridgeId.
      *
      * @param cartridgeId the cartridgeId
-     * @return the AcdProfile builder
+     * @return the CreateProfileOptions builder
      */
     public Builder cartridgeId(String cartridgeId) {
       this.cartridgeId = cartridgeId;
@@ -168,15 +168,33 @@ public class AcdProfile extends GenericModel {
      * Existing annotators will be replaced.
      *
      * @param annotators the annotators
-     * @return the AcdProfile builder
+     * @return the CreateProfileOptions builder
      */
     public Builder annotators(List<Annotator> annotators) {
       this.annotators = annotators;
       return this;
     }
+
+    /**
+     * Set the acdProfile.
+     *
+     * @param acdProfile the acdProfile
+     * @return the CreateProfileOptions builder
+     */
+    public Builder acdProfile(AcdProfile acdProfile) {
+      this.id = acdProfile.id();
+      this.name = acdProfile.name();
+      this.description = acdProfile.description();
+      this.publishedDate = acdProfile.publishedDate();
+      this.publish = acdProfile.publish();
+      this.version = acdProfile.version();
+      this.cartridgeId = acdProfile.cartridgeId();
+      this.annotators = acdProfile.annotators();
+      return this;
+    }
   }
 
-  protected AcdProfile(Builder builder) {
+  protected CreateProfileOptions(Builder builder) {
     id = builder.id;
     name = builder.name;
     description = builder.description;
@@ -190,7 +208,7 @@ public class AcdProfile extends GenericModel {
   /**
    * New builder.
    *
-   * @return a AcdProfile builder
+   * @return a CreateProfileOptions builder
    */
   public Builder newBuilder() {
     return new Builder(this);

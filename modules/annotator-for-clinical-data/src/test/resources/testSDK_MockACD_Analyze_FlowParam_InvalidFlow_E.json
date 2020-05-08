@@ -1,7 +1,0 @@
-{
-  "code": 400,
-  "message": "Bad Request",
-  "level": "ERROR",
-  "description": "Invalid annotator: Invalid",
-  "correlationId": "85d82236-0a35-409a-9f45-d497ea83151d"
-}

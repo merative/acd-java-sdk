@@ -25,13 +25,13 @@ import com.ibm.watson.health.acd.v1.flows.TestGetFlowsFlowId;
 import com.ibm.watson.health.acd.v1.profiles.TestGetProfiles;
 import com.ibm.watson.health.acd.v1.profiles.TestGetProfilesProfileId;
 import com.ibm.watson.health.acd.v1.status.TestGetHealthCheckStatus;
-import com.ibm.watson.health.acd.v1.unit.JavaSDKACDUnitTest;
+import com.ibm.watson.health.acd.v1.unit.AnnotatorForClinicalDataAcdTest;;
 
 
 
 @RunWith(Suite.class)
 @SuiteClasses({
-	JavaSDKACDUnitTest.class,
+	AnnotatorForClinicalDataAcdTest.class,
 	TestAnalyze.class,
 	TestAnalyzeFlowId.class,
 	TestGetAnnotators.class,

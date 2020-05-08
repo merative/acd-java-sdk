@@ -22,6 +22,7 @@ import com.ibm.watson.health.acd.v1.WatsonServiceTest;
 import com.ibm.watson.health.acd.v1.common.Constants;
 import com.ibm.watson.health.acd.v1.model.GetFlowsOptions;
 import com.ibm.watson.health.acd.v1.model.GetFlowsOptions.Builder;
+import com.ibm.watson.health.acd.v1.model.ListStringWrapper;
 
 /**
  *
@@ -50,18 +51,9 @@ public class TestGetFlows extends WatsonServiceTest {
 	public void testGetFlowsOptions() {
 		GetFlowsOptions options = new GetFlowsOptions.Builder().build();
 
-		ServiceCall<String> sc = service.getFlows(options);
-		Response<String> response = sc.execute();
+		ServiceCall<ListStringWrapper> sc = service.getFlows(options);
+		Response<ListStringWrapper> response = sc.execute();
 		Assert.assertNotNull(response.getResult());
-		Assert.assertTrue(response.getResult().contains(Constants.FLOW_ID));
-	}
-
-	@Test
-	public void testGetFlowsInclResponseDetails() {
-		Response<String> response = service.getFlowsInclResponseDetails();
-
-		Assert.assertNotNull(response.getResult());
-		Assert.assertTrue(response.getResult().contains(Constants.FLOW_ID));
 	}
 
 	@Test

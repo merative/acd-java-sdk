@@ -15,9 +15,9 @@ package com.ibm.watson.health.acd.v1.model;
 import com.ibm.cloud.sdk.core.service.model.GenericModel;
 
 /**
- * ConfigurationEntity.
+ * Entity.
  */
-public class ConfigurationEntity extends GenericModel {
+public class Entity extends GenericModel {
 
   protected String id;
   protected String type;
@@ -33,11 +33,11 @@ public class ConfigurationEntity extends GenericModel {
     private Long uid;
     private Long mergeid;
 
-    private Builder(ConfigurationEntity configurationEntity) {
-      this.id = configurationEntity.id;
-      this.type = configurationEntity.type;
-      this.uid = configurationEntity.uid;
-      this.mergeid = configurationEntity.mergeid;
+    private Builder(Entity entity) {
+      this.id = entity.id;
+      this.type = entity.type;
+      this.uid = entity.uid;
+      this.mergeid = entity.mergeid;
     }
 
     /**
@@ -47,19 +47,19 @@ public class ConfigurationEntity extends GenericModel {
     }
 
     /**
-     * Builds a ConfigurationEntity.
+     * Builds a Entity.
      *
-     * @return the new ConfigurationEntity instance
+     * @return the new Entity instance
      */
-    public ConfigurationEntity build() {
-      return new ConfigurationEntity(this);
+    public Entity build() {
+      return new Entity(this);
     }
 
     /**
      * Set the id.
      *
      * @param id the id
-     * @return the ConfigurationEntity builder
+     * @return the Entity builder
      */
     public Builder id(String id) {
       this.id = id;
@@ -70,7 +70,7 @@ public class ConfigurationEntity extends GenericModel {
      * Set the type.
      *
      * @param type the type
-     * @return the ConfigurationEntity builder
+     * @return the Entity builder
      */
     public Builder type(String type) {
       this.type = type;
@@ -81,7 +81,7 @@ public class ConfigurationEntity extends GenericModel {
      * Set the uid.
      *
      * @param uid the uid
-     * @return the ConfigurationEntity builder
+     * @return the Entity builder
      */
     public Builder uid(long uid) {
       this.uid = uid;
@@ -92,7 +92,7 @@ public class ConfigurationEntity extends GenericModel {
      * Set the mergeid.
      *
      * @param mergeid the mergeid
-     * @return the ConfigurationEntity builder
+     * @return the Entity builder
      */
     public Builder mergeid(long mergeid) {
       this.mergeid = mergeid;
@@ -100,7 +100,7 @@ public class ConfigurationEntity extends GenericModel {
     }
   }
 
-  protected ConfigurationEntity(Builder builder) {
+  protected Entity(Builder builder) {
     id = builder.id;
     type = builder.type;
     uid = builder.uid;
@@ -110,7 +110,7 @@ public class ConfigurationEntity extends GenericModel {
   /**
    * New builder.
    *
-   * @return a ConfigurationEntity builder
+   * @return a Entity builder
    */
   public Builder newBuilder() {
     return new Builder(this);

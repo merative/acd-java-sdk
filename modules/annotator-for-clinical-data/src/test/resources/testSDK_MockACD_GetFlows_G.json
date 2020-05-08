@@ -1,8 +1,0 @@
-{
-  "general_cancer_v1.0_flow": {
-    "description": "This flow uses the Concept and Attribute Detection annotators with common configuration as defined in the General Cancer V1.0 Profile."
-  },
-  "general_medical_v1.0_flow": {
-    "description": "This flow uses the Concept and Attribute Detection annotators with common configuration as defined in the General Medical V1.0 Profile."
-  }
-}

@@ -13,12 +13,11 @@ import java.util.logging.Level;
 import java.util.logging.LogManager;
 import java.util.logging.Logger;
 
-import org.slf4j.LoggerFactory;
-
 import com.ibm.cloud.sdk.core.http.HttpConfigOptions;
+import com.ibm.cloud.sdk.core.security.IamAuthenticator;
+import com.ibm.cloud.sdk.core.security.NoAuthAuthenticator;
 import com.ibm.watson.developer_cloud.http.HttpHeaders;
 import com.ibm.watson.developer_cloud.util.GsonSingleton;
-import com.ibm.watson.health.acd.v1.AnnotatorForClinicalData.Builder;
 import com.ibm.watson.health.acd.v1.common.Constants;
 
 /**
@@ -172,17 +171,30 @@ public abstract class WatsonServiceTest {
 	 *             the exception
 	 */
 	public void setUp() throws Exception {
-		HttpConfigOptions options = new HttpConfigOptions.Builder()
-				.disableSslVerification(Boolean.valueOf(getProperty(Constants.DISABLE_SSL))).build();
-		Builder builder = new AnnotatorForClinicalData.Builder()
-				.url(getProperty(Constants.URL)).versionDate(getProperty(Constants.VERSION));
-		if (getProperty(Constants.APIKEY) != null && getProperty(Constants.APIKEY).trim().length() > 0) {
-			builder.apikey(getProperty(Constants.APIKEY)).httpConfigOptions(options);
+//		HttpConfigOptions options = new HttpConfigOptions.Builder()
+//				.disableSslVerification(Boolean.valueOf(getProperty(Constants.DISABLE_SSL))).build();
+
+//		Builder builder = new AnnotatorForClinicalData.Builder()
+//				.url(getProperty(Constants.URL)).versionDate(getProperty(Constants.VERSION));
+//		if (getProperty(Constants.APIKEY) != null && getProperty(Constants.APIKEY).trim().length() > 0) {
+//			builder.apikey(getProperty(Constants.APIKEY)).httpConfigOptions(options);
+//		}
+//		if (getProperty(Constants.IAM_URL) != null && getProperty(Constants.IAM_URL).trim().length() > 0)	{
+//			builder.iamUrl(getProperty(Constants.IAM_URL)).httpConfigOptions(options);
+//		}
+//		service = builder.build();
+		if ((getProperty(Constants.APIKEY) == null) || getProperty(Constants.APIKEY).trim().length() == 0) {
+			service = new AnnotatorForClinicalData(getProperty(Constants.VERSION),
+				"InsightsForMedicalLiterature", new NoAuthAuthenticator());
+			service.setServiceUrl(getProperty(Constants.URL));
+			HttpConfigOptions options = new HttpConfigOptions.Builder().disableSslVerification(true).build();
+			service.configureClient(options);
+		} else {
+			service = new AnnotatorForClinicalData(getProperty(Constants.VERSION),
+			"InsightsForMedicalLiterature", new IamAuthenticator(getProperty(Constants.APIKEY),
+			getProperty(Constants.IAM_URL), null, null, Boolean.parseBoolean(Constants.DISABLE_SSL), null));
+			service.setServiceUrl(getProperty(Constants.URL));
 		}
-		if (getProperty(Constants.IAM_URL) != null && getProperty(Constants.IAM_URL).trim().length() > 0)	{
-			builder.iamUrl(getProperty(Constants.IAM_URL)).httpConfigOptions(options);
-		}
-		service = builder.build();
 	}
 
 	/**

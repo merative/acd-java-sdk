@@ -20,8 +20,10 @@ import com.ibm.cloud.sdk.core.http.ServiceCall;
 import com.ibm.watson.health.acd.v1.AnnotatorForClinicalData;
 import com.ibm.watson.health.acd.v1.WatsonServiceTest;
 import com.ibm.watson.health.acd.v1.common.Constants;
+import com.ibm.watson.health.acd.v1.model.GetAnnotatorsOptions;
 import com.ibm.watson.health.acd.v1.model.ListAnnotatorsOptions;
 import com.ibm.watson.health.acd.v1.model.ListAnnotatorsOptions.Builder;
+import com.ibm.watson.health.acd.v1.model.ListStringWrapper;
 
 /**
  *
@@ -43,23 +45,15 @@ public class TestGetAnnotators extends WatsonServiceTest {
 
 	@Test
 	public void testGetAnnotators() {
-		Assert.assertNotNull(service.listAnnotators());
+		Assert.assertNotNull(service.getAnnotators());
 	}
 
 	@Test
 	public void testGetAnnotatorsOptions() {
-		ListAnnotatorsOptions options = new ListAnnotatorsOptions.Builder().build();
-		ServiceCall<String> sc = service.listAnnotators(options);
-		Response<String> response = sc.execute();
+		GetAnnotatorsOptions options = new GetAnnotatorsOptions();
+		ServiceCall<ListStringWrapper> sc = service.getAnnotators(options);
+		Response<ListStringWrapper> response = sc.execute();
 		Assert.assertNotNull(response.getResult());
-		Assert.assertTrue(response.getResult().contains(Constants.CONCEPT_DETECTION_NAME));
-	}
-
-	@Test
-	public void testGetAnnotatorsIncResponseDetail() {
-		Response<String> response = service.listAnnotatorsInclResponseDetails();
-		Assert.assertNotNull(response.getResult());
-		Assert.assertTrue(response.getResult().contains(Constants.CONCEPT_DETECTION_NAME));
 	}
 
 	@Test

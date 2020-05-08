@@ -18,9 +18,9 @@ import java.util.List;
 import com.ibm.cloud.sdk.core.service.model.GenericModel;
 
 /**
- * AcdProfile.
+ * The createFlows options.
  */
-public class AcdProfile extends GenericModel {
+public class CreateFlowsOptions extends GenericModel {
 
   protected String id;
   protected String name;
@@ -29,7 +29,7 @@ public class AcdProfile extends GenericModel {
   protected Boolean publish;
   protected String version;
   protected String cartridgeId;
-  protected List<Annotator> annotators;
+  protected List<AnnotatorFlow> annotatorFlows;
 
   /**
    * Builder.
@@ -42,17 +42,17 @@ public class AcdProfile extends GenericModel {
     private Boolean publish;
     private String version;
     private String cartridgeId;
-    private List<Annotator> annotators;
+    private List<AnnotatorFlow> annotatorFlows;
 
-    private Builder(AcdProfile acdProfile) {
-      this.id = acdProfile.id;
-      this.name = acdProfile.name;
-      this.description = acdProfile.description;
-      this.publishedDate = acdProfile.publishedDate;
-      this.publish = acdProfile.publish;
-      this.version = acdProfile.version;
-      this.cartridgeId = acdProfile.cartridgeId;
-      this.annotators = acdProfile.annotators;
+    private Builder(CreateFlowsOptions createFlowsOptions) {
+      this.id = createFlowsOptions.id;
+      this.name = createFlowsOptions.name;
+      this.description = createFlowsOptions.description;
+      this.publishedDate = createFlowsOptions.publishedDate;
+      this.publish = createFlowsOptions.publish;
+      this.version = createFlowsOptions.version;
+      this.cartridgeId = createFlowsOptions.cartridgeId;
+      this.annotatorFlows = createFlowsOptions.annotatorFlows;
     }
 
     /**
@@ -62,27 +62,27 @@ public class AcdProfile extends GenericModel {
     }
 
     /**
-     * Builds a AcdProfile.
+     * Builds a CreateFlowsOptions.
      *
-     * @return the new AcdProfile instance
+     * @return the new CreateFlowsOptions instance
      */
-    public AcdProfile build() {
-      return new AcdProfile(this);
+    public CreateFlowsOptions build() {
+      return new CreateFlowsOptions(this);
     }
 
     /**
-     * Adds an annotators to annotators.
+     * Adds an annotatorFlows to annotatorFlows.
      *
-     * @param annotators the new annotators
-     * @return the AcdProfile builder
+     * @param annotatorFlows the new annotatorFlows
+     * @return the CreateFlowsOptions builder
      */
-    public Builder addAnnotators(Annotator annotators) {
-      com.ibm.cloud.sdk.core.util.Validator.notNull(annotators,
-        "annotators cannot be null");
-      if (this.annotators == null) {
-        this.annotators = new ArrayList<Annotator>();
+    public Builder addAnnotatorFlows(AnnotatorFlow annotatorFlows) {
+      com.ibm.cloud.sdk.core.util.Validator.notNull(annotatorFlows,
+        "annotatorFlows cannot be null");
+      if (this.annotatorFlows == null) {
+        this.annotatorFlows = new ArrayList<AnnotatorFlow>();
       }
-      this.annotators.add(annotators);
+      this.annotatorFlows.add(annotatorFlows);
       return this;
     }
 
@@ -90,7 +90,7 @@ public class AcdProfile extends GenericModel {
      * Set the id.
      *
      * @param id the id
-     * @return the AcdProfile builder
+     * @return the CreateFlowsOptions builder
      */
     public Builder id(String id) {
       this.id = id;
@@ -101,7 +101,7 @@ public class AcdProfile extends GenericModel {
      * Set the name.
      *
      * @param name the name
-     * @return the AcdProfile builder
+     * @return the CreateFlowsOptions builder
      */
     public Builder name(String name) {
       this.name = name;
@@ -112,7 +112,7 @@ public class AcdProfile extends GenericModel {
      * Set the description.
      *
      * @param description the description
-     * @return the AcdProfile builder
+     * @return the CreateFlowsOptions builder
      */
     public Builder description(String description) {
       this.description = description;
@@ -123,7 +123,7 @@ public class AcdProfile extends GenericModel {
      * Set the publishedDate.
      *
      * @param publishedDate the publishedDate
-     * @return the AcdProfile builder
+     * @return the CreateFlowsOptions builder
      */
     public Builder publishedDate(String publishedDate) {
       this.publishedDate = publishedDate;
@@ -134,7 +134,7 @@ public class AcdProfile extends GenericModel {
      * Set the publish.
      *
      * @param publish the publish
-     * @return the AcdProfile builder
+     * @return the CreateFlowsOptions builder
      */
     public Builder publish(Boolean publish) {
       this.publish = publish;
@@ -145,7 +145,7 @@ public class AcdProfile extends GenericModel {
      * Set the version.
      *
      * @param version the version
-     * @return the AcdProfile builder
+     * @return the CreateFlowsOptions builder
      */
     public Builder version(String version) {
       this.version = version;
@@ -156,7 +156,7 @@ public class AcdProfile extends GenericModel {
      * Set the cartridgeId.
      *
      * @param cartridgeId the cartridgeId
-     * @return the AcdProfile builder
+     * @return the CreateFlowsOptions builder
      */
     public Builder cartridgeId(String cartridgeId) {
       this.cartridgeId = cartridgeId;
@@ -164,19 +164,37 @@ public class AcdProfile extends GenericModel {
     }
 
     /**
-     * Set the annotators.
-     * Existing annotators will be replaced.
+     * Set the annotatorFlows.
+     * Existing annotatorFlows will be replaced.
      *
-     * @param annotators the annotators
-     * @return the AcdProfile builder
+     * @param annotatorFlows the annotatorFlows
+     * @return the CreateFlowsOptions builder
      */
-    public Builder annotators(List<Annotator> annotators) {
-      this.annotators = annotators;
+    public Builder annotatorFlows(List<AnnotatorFlow> annotatorFlows) {
+      this.annotatorFlows = annotatorFlows;
+      return this;
+    }
+
+    /**
+     * Set the acdFlow.
+     *
+     * @param acdFlow the acdFlow
+     * @return the CreateFlowsOptions builder
+     */
+    public Builder acdFlow(AcdFlow acdFlow) {
+      this.id = acdFlow.id();
+      this.name = acdFlow.name();
+      this.description = acdFlow.description();
+      this.publishedDate = acdFlow.publishedDate();
+      this.publish = acdFlow.publish();
+      this.version = acdFlow.version();
+      this.cartridgeId = acdFlow.cartridgeId();
+      this.annotatorFlows = acdFlow.annotatorFlows();
       return this;
     }
   }
 
-  protected AcdProfile(Builder builder) {
+  protected CreateFlowsOptions(Builder builder) {
     id = builder.id;
     name = builder.name;
     description = builder.description;
@@ -184,13 +202,13 @@ public class AcdProfile extends GenericModel {
     publish = builder.publish;
     version = builder.version;
     cartridgeId = builder.cartridgeId;
-    annotators = builder.annotators;
+    annotatorFlows = builder.annotatorFlows;
   }
 
   /**
    * New builder.
    *
-   * @return a AcdProfile builder
+   * @return a CreateFlowsOptions builder
    */
   public Builder newBuilder() {
     return new Builder(this);
@@ -260,12 +278,12 @@ public class AcdProfile extends GenericModel {
   }
 
   /**
-   * Gets the annotators.
+   * Gets the annotatorFlows.
    *
-   * @return the annotators
+   * @return the annotatorFlows
    */
-  public List<Annotator> annotators() {
-    return annotators;
+  public List<AnnotatorFlow> annotatorFlows() {
+    return annotatorFlows;
   }
 }
 
