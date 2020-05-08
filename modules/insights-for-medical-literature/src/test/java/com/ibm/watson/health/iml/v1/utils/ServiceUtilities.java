@@ -59,9 +59,6 @@ public class ServiceUtilities {
 	 *             the exception
 	 */
 	public static void setUp() throws Exception {
-//		imlService = new InsightsForMedicalLiteratureService(getProperty(Constants.VERSION),
-//			"InsightsForMedicalLiterature", new IamAuthenticator(getProperty(Constants.APIKEY), null, null, null,
-//					Boolean.valueOf(getProperty(Constants.DISABLE_SSL)), null));
 		if (getProperty(Constants.APIKEY) == null){
 			imlService = new InsightsForMedicalLiteratureService(getProperty(Constants.VERSION),
 				"InsightsForMedicalLiterature", new NoAuthAuthenticator());
