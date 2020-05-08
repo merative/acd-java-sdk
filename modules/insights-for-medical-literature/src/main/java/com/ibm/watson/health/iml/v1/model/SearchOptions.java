@@ -1,47 +1,46 @@
 /*
- * Copyright 2018 IBM Corp. All Rights Reserved.
+ * (C) Copyright IBM Corp. 2020.
  *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with
+ * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with
  * the License. You may obtain a copy of the License at
  *
  * http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing,
- * software distributed under the License is distributed on
- * an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND,
- * either express or implied. See the License for the
+ * Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on
+ * an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the
  * specific language governing permissions and limitations under the License.
  */
 package com.ibm.watson.health.iml.v1.model;
 
 import com.ibm.cloud.sdk.core.service.model.GenericModel;
-import com.ibm.cloud.sdk.core.util.Validator;
 
 /**
  * The search options.
  */
 public class SearchOptions extends GenericModel {
 
-  private String corpus;
-  private Boolean verbose;
-  private Query query;
-  private ReturnsModel returns;
+  protected String corpus;
+//  protected String body;
+  protected Query query;
+  protected ReturnsModel returns;
+  protected Boolean verbose;
 
   /**
    * Builder.
    */
   public static class Builder {
     private String corpus;
-    private Boolean verbose;
+//    private String body;
     private Query query;
     private ReturnsModel returns;
+    private Boolean verbose;
 
     private Builder(SearchOptions searchOptions) {
-      corpus = searchOptions.corpus;
-      verbose = searchOptions.verbose;
-      query = searchOptions.query;
-      returns = searchOptions.returns;
+      this.corpus = searchOptions.corpus;
+//      this.body = searchOptions.body;
+      this.query = searchOptions.query;
+      this.returns = searchOptions.returns;
+      this.verbose = searchOptions.verbose;
     }
 
     /**
@@ -54,18 +53,17 @@ public class SearchOptions extends GenericModel {
      * Instantiates a new builder with required properties.
      *
      * @param corpus the corpus
+     * @param returns the body
      */
-    public Builder(String corpus) {
+    public Builder(String corpus, ReturnsModel returns) {
       this.corpus = corpus;
-      this.corpus = corpus;
-      this.query = new Query();
-      this.returns = new ReturnsModel();
+      this.returns = returns;
     }
 
     /**
      * Builds a SearchOptions.
      *
-     * @return the searchOptions
+     * @return the new SearchOptions instance
      */
     public SearchOptions build() {
       return new SearchOptions(this);
@@ -79,8 +77,28 @@ public class SearchOptions extends GenericModel {
      */
     public Builder corpus(String corpus) {
       this.corpus = corpus;
-      this.query = new Query();
-      this.returns = new ReturnsModel();
+      return this;
+    }
+
+    /**
+     * Set the query model.
+     *
+     * @param query the query model
+     * @return the SearchOptions builder
+     */
+    public Builder query(Query query) {
+      this.query = query;
+      return this;
+    }
+
+    /**
+     * Set the Returns Model.
+     *
+     * @param returns the returns model
+     * @return the SearchOptions builder
+     */
+    public Builder returns(ReturnsModel returns) {
+      this.returns = returns;
       return this;
     }
 
@@ -94,36 +112,17 @@ public class SearchOptions extends GenericModel {
       this.verbose = verbose;
       return this;
     }
-
-    /**
-     * Set the query.
-     *
-     * @param query the query
-     * @return the SearchOptions builder
-     */
-    public Builder query(Query query) {
-      this.query = query;
-      return this;
-    }
-
-    /**
-     * Set the returns.
-     *
-     * @param returns the returns
-     * @return the SearchOptions builder
-     */
-    public Builder returns(ReturnsModel returns) {
-      this.returns = returns;
-      return this;
-    }
   }
 
-  private SearchOptions(Builder builder) {
-    Validator.notEmpty(builder.corpus, "corpus cannot be empty");
+  protected SearchOptions(Builder builder) {
+    com.ibm.cloud.sdk.core.util.Validator.notEmpty(builder.corpus,
+      "corpus cannot be empty");
+    com.ibm.cloud.sdk.core.util.Validator.notNull(builder.returns,
+      "returnns model cannot be null");
     corpus = builder.corpus;
-    verbose = builder.verbose;
     query = builder.query;
     returns = builder.returns;
+    verbose = builder.verbose;
   }
 
   /**
@@ -146,6 +145,24 @@ public class SearchOptions extends GenericModel {
     return corpus;
   }
 
+/**
+ * Gets the query criteria.
+ *
+ * @return the query
+ */
+  public Query query() {
+	return query;
+  }
+
+  /**
+   * Gets the returns model.
+   *
+   * @return the returns model.
+   */
+  public ReturnsModel returns() {
+	return returns;
+	}
+
   /**
    * Gets the verbose.
    *
@@ -155,24 +172,6 @@ public class SearchOptions extends GenericModel {
    */
   public Boolean verbose() {
     return verbose;
-  }
-
-  /**
-   * Gets the query.
-   *
-   * @return the query
-   */
-  public Query query() {
-    return query;
-  }
-
-  /**
-   * Gets the returns.
-   *
-   * @return the returns
-   */
-  public ReturnsModel returns() {
-    return returns;
   }
 }
 

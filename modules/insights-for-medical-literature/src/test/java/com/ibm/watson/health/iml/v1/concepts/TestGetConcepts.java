@@ -11,7 +11,7 @@
  * specific language governing permissions and limitations under the License.
  */
 package com.ibm.watson.health.iml.v1.concepts;
-
+import static com.ibm.watson.health.iml.v1.utils.ServiceUtilities.getProperty;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -21,21 +21,20 @@ import org.junit.Test;
 import com.ibm.cloud.sdk.core.http.Response;
 import com.ibm.cloud.sdk.core.http.ServiceCall;
 import com.ibm.watson.health.iml.v1.InsightsForMedicalLiteratureService;
-import com.ibm.watson.health.iml.v1.WatsonServiceTest;
+import com.ibm.watson.health.iml.v1.model.ArtifactModel;
 import com.ibm.watson.health.iml.v1.model.ConceptListModel;
 import com.ibm.watson.health.iml.v1.model.ConceptModel;
 import com.ibm.watson.health.iml.v1.model.GetConceptsOptions;
 import com.ibm.watson.health.iml.v1.model.GetConceptsOptions.Builder;
+import com.ibm.watson.health.iml.v1.utils.ServiceUtilities;
 
-public class TestGetConcepts extends WatsonServiceTest {
+public class TestGetConcepts {
 	static final String CORPUS = "CORPUS";
 	private InsightsForMedicalLiteratureService imlService;
 
 	public TestGetConcepts() {
-		super();
 		try {
-			this.setUp();
-			imlService = this.getServiceInstance();
+			imlService = ServiceUtilities.getServiceInstance();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -50,8 +49,8 @@ public class TestGetConcepts extends WatsonServiceTest {
 
 		Response<ConceptListModel> response = sc.execute();
 		ConceptListModel clm = response.getResult();
-		List<ConceptModel> cmList = clm.getConcepts();
-		for (ConceptModel concept : cmList) {
+		List<ArtifactModel> cmList = clm.getConcepts();
+		for (ArtifactModel concept : cmList) {
 			Assert.assertEquals(concept.getCui(), cuis);
 			Assert.assertNotNull(concept.getOntology());
 			Assert.assertNotNull(concept.getPreferredName());
@@ -68,8 +67,8 @@ public class TestGetConcepts extends WatsonServiceTest {
 
 		Response<ConceptListModel> response = sc.execute();
 		ConceptListModel clm = response.getResult();
-		List<ConceptModel> cmList = clm.getConcepts();
-		for (ConceptModel concept : cmList) {
+		List<ArtifactModel> cmList = clm.getConcepts();
+		for (ArtifactModel concept : cmList) {
 			Assert.assertEquals(concept.getCui(), cuis);
 			Assert.assertNotNull(concept.getOntology());
 			Assert.assertNotNull(concept.getPreferredName());
@@ -89,8 +88,8 @@ public class TestGetConcepts extends WatsonServiceTest {
 
 		Response<ConceptListModel> response = sc.execute();
 		ConceptListModel clm = response.getResult();
-		List<ConceptModel> cmList = clm.getConcepts();
-		for (ConceptModel concept : cmList) {
+		List<ArtifactModel> cmList = clm.getConcepts();
+		for (ArtifactModel concept : cmList) {
 			Assert.assertNotNull(concept.getCui());
 			Assert.assertNotNull(concept.getPreferredName());
 			Assert.assertNotNull(concept.getOntology());
@@ -107,8 +106,8 @@ public class TestGetConcepts extends WatsonServiceTest {
 
 		Response<ConceptListModel> response = sc.execute();
 		ConceptListModel clm = response.getResult();
-		List<ConceptModel> cmList = clm.getConcepts();
-		for (ConceptModel concept : cmList) {
+		List<ArtifactModel> cmList = clm.getConcepts();
+		for (ArtifactModel concept : cmList) {
 			Assert.assertNotNull(concept.getCui());
 			Assert.assertEquals(concept.getPreferredName(), preferredName);
 			Assert.assertNotNull(concept.getOntology());
@@ -129,8 +128,8 @@ public class TestGetConcepts extends WatsonServiceTest {
 
 		Response<ConceptListModel> response = sc.execute();
 		ConceptListModel clm = response.getResult();
-		List<ConceptModel> cmList = clm.getConcepts();
-		for (ConceptModel concept : cmList) {
+		List<ArtifactModel> cmList = clm.getConcepts();
+		for (ArtifactModel concept : cmList) {
 			Assert.assertNotNull(concept.getCui());
 			Assert.assertNotNull(concept.getPreferredName());
 			Assert.assertNotNull(concept.getOntology());
@@ -147,8 +146,8 @@ public class TestGetConcepts extends WatsonServiceTest {
 
 		Response<ConceptListModel> response = sc.execute();
 		ConceptListModel clm = response.getResult();
-		List<ConceptModel> cmList = clm.getConcepts();
-		for (ConceptModel concept : cmList) {
+		List<ArtifactModel> cmList = clm.getConcepts();
+		for (ArtifactModel concept : cmList) {
 			Assert.assertNotNull(concept.getCui());
 			Assert.assertNotNull(concept.getPreferredName());
 			Assert.assertNotNull(concept.getOntology());
@@ -169,8 +168,8 @@ public class TestGetConcepts extends WatsonServiceTest {
 
 		Response<ConceptListModel> response = sc.execute();
 		ConceptListModel clm = response.getResult();
-		List<ConceptModel> cmList = clm.getConcepts();
-		for (ConceptModel concept : cmList) {
+		List<ArtifactModel> cmList = clm.getConcepts();
+		for (ArtifactModel concept : cmList) {
 			Assert.assertNotNull(concept.getPreferredName());
 			Assert.assertNotNull(concept.getOntology());
 		}
@@ -190,8 +189,8 @@ public class TestGetConcepts extends WatsonServiceTest {
 
 		Response<ConceptListModel> response = sc.execute();
 		ConceptListModel clm = response.getResult();
-		List<ConceptModel> cmList = clm.getConcepts();
-		for (ConceptModel concept : cmList) {
+		List<ArtifactModel> cmList = clm.getConcepts();
+		for (ArtifactModel concept : cmList) {
 			Assert.assertNotNull(concept.getPreferredName());
 			Assert.assertNotNull(concept.getOntology());
 		}
@@ -211,8 +210,8 @@ public class TestGetConcepts extends WatsonServiceTest {
 
 		Response<ConceptListModel> response = sc.execute();
 		ConceptListModel clm = response.getResult();
-		List<ConceptModel> cmList = clm.getConcepts();
-		for (ConceptModel concept : cmList) {
+		List<ArtifactModel> cmList = clm.getConcepts();
+		for (ArtifactModel concept : cmList) {
 			Assert.assertNotNull(concept.getPreferredName());
 			Assert.assertNotNull(concept.getOntology());
 		}
@@ -230,8 +229,8 @@ public class TestGetConcepts extends WatsonServiceTest {
 
 		Response<ConceptListModel> response = sc.execute();
 		ConceptListModel clm = response.getResult();
-		List<ConceptModel> cmList = clm.getConcepts();
-		for (ConceptModel concept : cmList) {
+		List<ArtifactModel> cmList = clm.getConcepts();
+		for (ArtifactModel concept : cmList) {
 			Assert.assertNotNull(concept.getCui());
 			Assert.assertNotNull(concept.getPreferredName());
 			Assert.assertNotNull(concept.getOntology());
@@ -252,8 +251,8 @@ public class TestGetConcepts extends WatsonServiceTest {
 
 		Response<ConceptListModel> response = sc.execute();
 		ConceptListModel clm = response.getResult();
-		List<ConceptModel> cmList = clm.getConcepts();
-		for (ConceptModel concept : cmList) {
+		List<ArtifactModel> cmList = clm.getConcepts();
+		for (ArtifactModel concept : cmList) {
 			Assert.assertNotNull(concept.getPreferredName());
 			Assert.assertNotNull(concept.getOntology());
 		}

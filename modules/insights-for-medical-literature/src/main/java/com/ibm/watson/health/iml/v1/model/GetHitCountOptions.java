@@ -1,44 +1,40 @@
 /*
- * Copyright 2018 IBM Corp. All Rights Reserved.
+ * (C) Copyright IBM Corp. 2020.
  *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with
+ * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with
  * the License. You may obtain a copy of the License at
  *
  * http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing,
- * software distributed under the License is distributed on
- * an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND,
- * either express or implied. See the License for the
+ * Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on
+ * an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the
  * specific language governing permissions and limitations under the License.
  */
 package com.ibm.watson.health.iml.v1.model;
 
 import com.ibm.cloud.sdk.core.service.model.GenericModel;
-import com.ibm.cloud.sdk.core.util.Validator;
 
 /**
  * The getHitCount options.
  */
 public class GetHitCountOptions extends GenericModel {
 
-  private String corpus;
-  private String cui;
-  private String ontology;
+  protected String corpus;
+  protected String nameOrId;
+  protected String ontology;
 
   /**
    * Builder.
    */
   public static class Builder {
     private String corpus;
-    private String cui;
+    private String nameOrId;
     private String ontology;
 
     private Builder(GetHitCountOptions getHitCountOptions) {
-      corpus = getHitCountOptions.corpus;
-      cui = getHitCountOptions.cui;
-      ontology = getHitCountOptions.ontology;
+      this.corpus = getHitCountOptions.corpus;
+      this.nameOrId = getHitCountOptions.nameOrId;
+      this.ontology = getHitCountOptions.ontology;
     }
 
     /**
@@ -51,17 +47,17 @@ public class GetHitCountOptions extends GenericModel {
      * Instantiates a new builder with required properties.
      *
      * @param corpus the corpus
-     * @param cui the cui
+     * @param nameOrId the nameOrId
      */
-    public Builder(String corpus, String cui) {
+    public Builder(String corpus, String nameOrId) {
       this.corpus = corpus;
-      this.cui = cui;
+      this.nameOrId = nameOrId;
     }
 
     /**
      * Builds a GetHitCountOptions.
      *
-     * @return the getHitCountOptions
+     * @return the new GetHitCountOptions instance
      */
     public GetHitCountOptions build() {
       return new GetHitCountOptions(this);
@@ -79,13 +75,13 @@ public class GetHitCountOptions extends GenericModel {
     }
 
     /**
-     * Set the cui.
+     * Set the nameOrId.
      *
-     * @param cui the cui
+     * @param nameOrId the nameOrId
      * @return the GetHitCountOptions builder
      */
-    public Builder cui(String cui) {
-      this.cui = cui;
+    public Builder nameOrId(String nameOrId) {
+      this.nameOrId = nameOrId;
       return this;
     }
 
@@ -101,11 +97,13 @@ public class GetHitCountOptions extends GenericModel {
     }
   }
 
-  private GetHitCountOptions(Builder builder) {
-    Validator.notEmpty(builder.corpus, "corpus cannot be empty");
-    Validator.notEmpty(builder.cui, "cui cannot be empty");
+  protected GetHitCountOptions(Builder builder) {
+    com.ibm.cloud.sdk.core.util.Validator.notEmpty(builder.corpus,
+      "corpus cannot be empty");
+    com.ibm.cloud.sdk.core.util.Validator.notEmpty(builder.nameOrId,
+      "nameOrId cannot be empty");
     corpus = builder.corpus;
-    cui = builder.cui;
+    nameOrId = builder.nameOrId;
     ontology = builder.ontology;
   }
 
@@ -130,14 +128,14 @@ public class GetHitCountOptions extends GenericModel {
   }
 
   /**
-   * Gets the cui.
+   * Gets the nameOrId.
    *
-   * Concept unique identifier.
+   * Preferred name or concept ID.
    *
-   * @return the cui
+   * @return the nameOrId
    */
-  public String cui() {
-    return cui;
+  public String nameOrId() {
+    return nameOrId;
   }
 
   /**

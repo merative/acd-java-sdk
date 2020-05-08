@@ -37,7 +37,7 @@ public class QueryConcept {
 
 	/**
 	 * Get the search phrase.
-	 * @return
+	 * @return operand
 	 */
 	public String getBool() {
 		return boolOperand;
@@ -45,7 +45,7 @@ public class QueryConcept {
 
 	/**
 	 * Get the search criterion ontology.
-	 * @return
+	 * @return ontology
 	 */
 	public String getOntology() {
 		return ontology;
@@ -53,7 +53,7 @@ public class QueryConcept {
 
 	/**
 	 * Get the search criterion identifier.
-	 * @return
+	 * @return identifier
 	 */
 	public String getId() {
 		return cui;
@@ -61,7 +61,7 @@ public class QueryConcept {
 
 	/**
 	 * Get the search criterion rank.
-	 * @return
+	 * @return rank
 	 */
 	public String getRank() {
 		return rank;
@@ -69,7 +69,7 @@ public class QueryConcept {
 
 	/**
 	 * Get the search criterion target section.
-	 * @return
+	 * @return section names
 	 */
 	public List<String> getSections() {
 		return sections;
@@ -77,7 +77,7 @@ public class QueryConcept {
 
 	/**
 	 * Get the search text keyword or null.
-	 * @return
+	 * @return text
 	 */
 	public String getText() {
 		return text;
@@ -85,7 +85,7 @@ public class QueryConcept {
 
 	/**
 	 * Get the search criterion semantic type.
-	 * @return
+	 * @return semantic type
 	 */
 	public String getType() {
 		return semanticType;
@@ -93,7 +93,7 @@ public class QueryConcept {
 
 	/**
 	 * Get the related criteria.
-	 * @return
+	 * @return related criteria
 	 */
 	public List<String> getIncludeRelated() {
 		return includeRelated;
@@ -101,7 +101,7 @@ public class QueryConcept {
 
 	/**
 	 * Whether search criterion is negated.
-	 * @return
+	 * @return negated flag
 	 */
 	public boolean getNegated() {
 		return negated;
@@ -109,7 +109,7 @@ public class QueryConcept {
 
 	/**
 	 * Set the search phrase.
-	 * @param value
+	 * @param value search value
 	 */
 	public void setBool(String value) {
 		boolOperand = value;
@@ -117,7 +117,7 @@ public class QueryConcept {
 
 	/**
 	 * Set the search criterion ontology.
-	 * @param source
+	 * @param source ontology
 	 */
 	public void setOntology(String source) {
 		ontology = source;
@@ -125,7 +125,7 @@ public class QueryConcept {
 
 	/**
 	 * Set the search criterion identifier.
-	 * @param artifactId
+	 * @param artifactId identifier
 	 */
 	public void setId(String artifactId) {
 		cui = artifactId;
@@ -133,7 +133,7 @@ public class QueryConcept {
 
 	/**
 	 * Set the search criterion rank.
-	 * @param artifiactRank
+	 * @param artifiactRank ranking
 	 */
 	public void setRank(String artifiactRank) {
 		rank = artifiactRank;
@@ -141,7 +141,7 @@ public class QueryConcept {
 
 	/**
 	 * Set the search criterion target sections(s).
-	 * @param textFields
+	 * @param textFields section names
 	 */
 	public void setSections(List<String> textFields) {
 		sections = textFields;
@@ -149,7 +149,7 @@ public class QueryConcept {
 
 	/**
 	 * Set the search criterion text keyword.
-	 * @param token
+	 * @param token text token
 	 */
 	public void setText(String token) {
 		text = token;
@@ -157,7 +157,7 @@ public class QueryConcept {
 
 	/**
 	 * Set the search criterion semantic type.
-	 * @param artifactType
+	 * @param artifactType semantic type
 	 */
 	public void setType(String artifactType) {
 		semanticType = artifactType;
@@ -165,7 +165,7 @@ public class QueryConcept {
 
 	/**
 	 * Set the related search criterion.
-	 * @param artifactRelations
+	 * @param artifactRelations relation criteria
 	 */
 	public void setIncludeRelated(List<String> artifactRelations) {
 		includeRelated = artifactRelations;
@@ -173,7 +173,7 @@ public class QueryConcept {
 
 	/**
 	 * Set whether the search criterion is negated.
-	 * @param negateArtifact
+	 * @param negateArtifact negated flag
 	 */
 	public void setNegated(boolean negateArtifact) {
 		negated = negateArtifact;

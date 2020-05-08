@@ -18,25 +18,23 @@ import org.junit.Test;
 import com.ibm.cloud.sdk.core.http.Response;
 import com.ibm.cloud.sdk.core.http.ServiceCall;
 import com.ibm.watson.health.iml.v1.InsightsForMedicalLiteratureService;
-import com.ibm.watson.health.iml.v1.WatsonServiceTest;
 import com.ibm.watson.health.iml.v1.common.Constants;
 import com.ibm.watson.health.iml.v1.model.GetHealthCheckStatusOptions;
 import com.ibm.watson.health.iml.v1.model.GetHealthCheckStatusOptions.Builder;
 import com.ibm.watson.health.iml.v1.model.ServiceStatus;
+import com.ibm.watson.health.iml.v1.utils.ServiceUtilities;
 
 /**
  *
  * Class for testing /v1/status/health_check.
  *
  */
-public class TestGetStatusHealthCheck extends WatsonServiceTest {
+public class TestGetStatusHealthCheck {
 	private InsightsForMedicalLiteratureService imlService;
 
 	public TestGetStatusHealthCheck() {
-		super();
 		try {
-			this.setUp();
-			imlService = this.getServiceInstance();
+			imlService = ServiceUtilities.getServiceInstance();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

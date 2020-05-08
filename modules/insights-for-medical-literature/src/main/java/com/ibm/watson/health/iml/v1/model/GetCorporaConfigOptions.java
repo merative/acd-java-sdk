@@ -1,16 +1,13 @@
 /*
- * Copyright 2018 IBM Corp. All Rights Reserved.
+ * (C) Copyright IBM Corp. 2020.
  *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with
+ * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with
  * the License. You may obtain a copy of the License at
  *
  * http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing,
- * software distributed under the License is distributed on
- * an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND,
- * either express or implied. See the License for the
+ * Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on
+ * an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the
  * specific language governing permissions and limitations under the License.
  */
 package com.ibm.watson.health.iml.v1.model;
@@ -22,7 +19,7 @@ import com.ibm.cloud.sdk.core.service.model.GenericModel;
  */
 public class GetCorporaConfigOptions extends GenericModel {
 
-  private Boolean verbose;
+  protected Boolean verbose;
 
   /**
    * Builder.
@@ -31,7 +28,7 @@ public class GetCorporaConfigOptions extends GenericModel {
     private Boolean verbose;
 
     private Builder(GetCorporaConfigOptions getCorporaConfigOptions) {
-      verbose = getCorporaConfigOptions.verbose;
+      this.verbose = getCorporaConfigOptions.verbose;
     }
 
     /**
@@ -43,7 +40,7 @@ public class GetCorporaConfigOptions extends GenericModel {
     /**
      * Builds a GetCorporaConfigOptions.
      *
-     * @return the getCorporaConfigOptions
+     * @return the new GetCorporaConfigOptions instance
      */
     public GetCorporaConfigOptions build() {
       return new GetCorporaConfigOptions(this);
@@ -52,7 +49,7 @@ public class GetCorporaConfigOptions extends GenericModel {
     /**
      * Set the verbose.
      *
-     * @param verbose - verbose output setting
+     * @param verbose the verbose
      * @return the GetCorporaConfigOptions builder
      */
     public Builder verbose(Boolean verbose) {
@@ -61,7 +58,7 @@ public class GetCorporaConfigOptions extends GenericModel {
     }
   }
 
-  private GetCorporaConfigOptions(Builder builder) {
+  protected GetCorporaConfigOptions(Builder builder) {
     verbose = builder.verbose;
   }
 

@@ -34,8 +34,7 @@ public class Aggregations extends GenericModel {
 
   /**
    * Sets the limit.
-   *
-   * @return the limit
+   * @param maxSize the limit
    */
   public void setLimit(final long maxSize) {
     limit = maxSize;

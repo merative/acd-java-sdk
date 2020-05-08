@@ -1,5 +1,5 @@
 /*
- * Copyright 2018, 2020 IBM Corp. All Rights Reserved.
+ * (C) Copyright IBM Corp. 2020.
  *
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with
  * the License. You may obtain a copy of the License at
@@ -15,14 +15,16 @@ package com.ibm.watson.health.iml.v1.model;
 import com.ibm.cloud.sdk.core.service.model.GenericModel;
 
 /**
- * HitCount.
+ * Corpus frequency of artifact.
  */
 public class HitCount extends GenericModel {
 
-  private Long hitCount;
+  protected Long hitCount;
 
   /**
    * Gets the hitCount.
+   *
+   * Corpus frequency of artifact.
    *
    * @return the hitCount
    */

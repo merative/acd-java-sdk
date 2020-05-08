@@ -11,7 +11,7 @@
  * specific language governing permissions and limitations under the License.
  */
 package com.ibm.watson.health.iml.v1.documents;
-
+import static com.ibm.watson.health.iml.v1.utils.ServiceUtilities.getProperty;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -23,28 +23,27 @@ import org.junit.Test;
 import com.ibm.cloud.sdk.core.http.Response;
 import com.ibm.cloud.sdk.core.http.ServiceCall;
 import com.ibm.watson.health.iml.v1.InsightsForMedicalLiteratureService;
-import com.ibm.watson.health.iml.v1.WatsonServiceTest;
 import com.ibm.watson.health.iml.v1.common.Constants;
 import com.ibm.watson.health.iml.v1.model.AnnotationModel;
 import com.ibm.watson.health.iml.v1.model.Entry;
 import com.ibm.watson.health.iml.v1.model.GetSearchMatchesOptions;
 import com.ibm.watson.health.iml.v1.model.GetSearchMatchesOptions.Builder;
+import com.ibm.watson.health.iml.v1.model.MatchEntry;
 import com.ibm.watson.health.iml.v1.model.SearchMatchesModel;
 import com.ibm.watson.health.iml.v1.model.SentenceModel;
+import com.ibm.watson.health.iml.v1.utils.ServiceUtilities;
 
 /**
  *
  * Class for testing /v1/corpoora/{corpus}/documents/{document_id}/search_matches.
  *
  */
-public class TestGetDocumentSearchMatches extends WatsonServiceTest {
+public class TestGetDocumentSearchMatches {
 	private InsightsForMedicalLiteratureService imlService;
 
 	public TestGetDocumentSearchMatches() {
-		super();
 		try {
-			this.setUp();
-			imlService = this.getServiceInstance();
+			imlService = ServiceUtilities.getServiceInstance();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -93,28 +92,28 @@ public class TestGetDocumentSearchMatches extends WatsonServiceTest {
 			Set<String> keys = annotationModel.keySet();
 			for (String key : keys) {
 				AnnotationModel annotation = annotationModel.get(key);
-				Assert.assertNotNull(annotation.getPreferredName());
-				Assert.assertNotNull(annotation.getOntology());
-				Assert.assertNotNull(annotation.getType());
-				Assert.assertNotNull(annotation.getSection());
-				Assert.assertTrue(annotation.getBegin() < annotation.getEnd());
+				Assert.assertNotNull(annotation.preferredName());
+				Assert.assertNotNull(annotation.ontology());
+				Assert.assertNotNull(annotation.type());
+				Assert.assertNotNull(annotation.section());
+				Assert.assertTrue(annotation.begin() < annotation.end());
 			}
 		}
-		Map<String, Map<String, Entry>> passagesModel = matchesModel.getPassages();
+		Map<String, Map<String, MatchEntry>> passagesModel = matchesModel.getPassages();
 		if (passagesModel != null) {
 			Set<String> passageKeys = passagesModel.keySet();
 			for (String passageKey : passageKeys) {
-				Map<String, Entry> passageMap = passagesModel.get(passageKey);
+				Map<String, MatchEntry> passageMap = passagesModel.get(passageKey);
 				Set<String> keys = passageMap.keySet();
 				for (String key : keys) {
-					Entry entry = passageMap.get(key);
+					MatchEntry entry = passageMap.get(key);
 					List<SentenceModel> sentences = entry.getSentences();
 					for (SentenceModel sentence : sentences) {
-						Assert.assertTrue(sentence.getBegin() > -1);
-						Assert.assertTrue(sentence.getEnd() > sentence.getBegin());
-						Assert.assertNotNull(sentence.getText());
-						Assert.assertNotNull(sentence.getDocumentSection());
-						Assert.assertTrue(sentence.getTimestamp() == 0);
+						Assert.assertTrue(sentence.begin() > -1);
+						Assert.assertTrue(sentence.end() > sentence.begin());
+						Assert.assertNotNull(sentence.text());
+						Assert.assertNotNull(sentence.documentSection());
+						Assert.assertTrue(sentence.timestamp() == 0);
 					}
 				}
 			}
@@ -148,28 +147,28 @@ public class TestGetDocumentSearchMatches extends WatsonServiceTest {
 			Set<String> keys = annotationModel.keySet();
 			for (String key : keys) {
 				AnnotationModel annotation = annotationModel.get(key);
-				Assert.assertNotNull(annotation.getPreferredName());
-				Assert.assertNotNull(annotation.getOntology());
-				Assert.assertNotNull(annotation.getType());
-				Assert.assertNotNull(annotation.getSection());
-				Assert.assertTrue(annotation.getBegin() < annotation.getEnd());
+				Assert.assertNotNull(annotation.preferredName());
+				Assert.assertNotNull(annotation.ontology());
+				Assert.assertNotNull(annotation.type());
+				Assert.assertNotNull(annotation.section());
+				Assert.assertTrue(annotation.begin() < annotation.end());
 			}
 		}
-		Map<String, Map<String, Entry>> passagesModel = matchesModel.getPassages();
+		Map<String, Map<String, MatchEntry>> passagesModel = matchesModel.getPassages();
 		if (passagesModel != null) {
 			Set<String> passageKeys = passagesModel.keySet();
 			for (String passageKey : passageKeys) {
-				Map<String, Entry> passageMap = passagesModel.get(passageKey);
+				Map<String, MatchEntry> passageMap = passagesModel.get(passageKey);
 				Set<String> keys = passageMap.keySet();
 				for (String key : keys) {
-					Entry entry = passageMap.get(key);
+					MatchEntry entry = passageMap.get(key);
 					List<SentenceModel> sentences = entry.getSentences();
 					for (SentenceModel sentence : sentences) {
-						Assert.assertTrue(sentence.getBegin() > -1);
-						Assert.assertTrue(sentence.getEnd() > sentence.getBegin());
-						Assert.assertNotNull(sentence.getText());
-						Assert.assertNotNull(sentence.getDocumentSection());
-						Assert.assertTrue(sentence.getTimestamp() == 0);
+						Assert.assertTrue(sentence.begin() > -1);
+						Assert.assertTrue(sentence.end() > sentence.begin());
+						Assert.assertNotNull(sentence.text());
+						Assert.assertNotNull(sentence.documentSection());
+						Assert.assertTrue(sentence.timestamp() == 0);
 					}
 				}
 			}
@@ -200,28 +199,28 @@ public class TestGetDocumentSearchMatches extends WatsonServiceTest {
 			Set<String> keys = annotationModel.keySet();
 			for (String key : keys) {
 				AnnotationModel annotation = annotationModel.get(key);
-				Assert.assertNotNull(annotation.getPreferredName());
-				Assert.assertNotNull(annotation.getOntology());
-				Assert.assertNotNull(annotation.getType());
-				Assert.assertNotNull(annotation.getSection());
-				Assert.assertTrue(annotation.getBegin() < annotation.getEnd());
+				Assert.assertNotNull(annotation.preferredName());
+				Assert.assertNotNull(annotation.ontology());
+				Assert.assertNotNull(annotation.type());
+				Assert.assertNotNull(annotation.section());
+				Assert.assertTrue(annotation.begin() < annotation.end());
 			}
 		}
-		Map<String, Map<String, Entry>> passagesModel = matchesModel.getPassages();
+		Map<String, Map<String, MatchEntry>> passagesModel = matchesModel.getPassages();
 		if (passagesModel != null) {
 			Set<String> passageKeys = passagesModel.keySet();
 			for (String passageKey : passageKeys) {
-				Map<String, Entry> passageMap = passagesModel.get(passageKey);
+				Map<String, MatchEntry> passageMap = passagesModel.get(passageKey);
 				Set<String> keys = passageMap.keySet();
 				for (String key : keys) {
-					Entry entry = passageMap.get(key);
+					MatchEntry entry = passageMap.get(key);
 					List<SentenceModel> sentences = entry.getSentences();
 					for (SentenceModel sentence : sentences) {
-						Assert.assertTrue(sentence.getBegin() > -1);
-						Assert.assertTrue(sentence.getEnd() > sentence.getBegin());
-						Assert.assertNotNull(sentence.getText());
-						Assert.assertNotNull(sentence.getDocumentSection());
-						Assert.assertTrue(sentence.getTimestamp() == 0);
+						Assert.assertTrue(sentence.begin() > -1);
+						Assert.assertTrue(sentence.end() > sentence.begin());
+						Assert.assertNotNull(sentence.text());
+						Assert.assertNotNull(sentence.documentSection());
+						Assert.assertTrue(sentence.timestamp() == 0);
 					}
 				}
 			}
@@ -252,28 +251,28 @@ public class TestGetDocumentSearchMatches extends WatsonServiceTest {
 			Set<String> keys = annotationModel.keySet();
 			for (String key : keys) {
 				AnnotationModel annotation = annotationModel.get(key);
-				Assert.assertNotNull(annotation.getPreferredName());
-				Assert.assertNotNull(annotation.getOntology());
-				Assert.assertNotNull(annotation.getType());
-				Assert.assertNotNull(annotation.getSection());
-				Assert.assertTrue(annotation.getBegin() < annotation.getEnd());
+				Assert.assertNotNull(annotation.preferredName());
+				Assert.assertNotNull(annotation.ontology());
+				Assert.assertNotNull(annotation.type());
+				Assert.assertNotNull(annotation.section());
+				Assert.assertTrue(annotation.begin() < annotation.end());
 			}
 		}
-		Map<String, Map<String, Entry>> passagesModel = matchesModel.getPassages();
+		Map<String, Map<String, MatchEntry>> passagesModel = matchesModel.getPassages();
 		if (passagesModel != null) {
 			Set<String> passageKeys = passagesModel.keySet();
 			for (String passageKey : passageKeys) {
-				Map<String, Entry> passageMap = passagesModel.get(passageKey);
+				Map<String, MatchEntry> passageMap = passagesModel.get(passageKey);
 				Set<String> keys = passageMap.keySet();
 				for (String key : keys) {
-					Entry entry = passageMap.get(key);
+					MatchEntry entry = passageMap.get(key);
 					List<SentenceModel> sentences = entry.getSentences();
 					for (SentenceModel sentence : sentences) {
-						Assert.assertTrue(sentence.getBegin() > -1);
-						Assert.assertTrue(sentence.getEnd() > sentence.getBegin());
-						Assert.assertNotNull(sentence.getText());
-						Assert.assertNotNull(sentence.getDocumentSection());
-						Assert.assertTrue(sentence.getTimestamp() == 0);
+						Assert.assertTrue(sentence.begin() > -1);
+						Assert.assertTrue(sentence.end() > sentence.begin());
+						Assert.assertNotNull(sentence.text());
+						Assert.assertNotNull(sentence.documentSection());
+						Assert.assertTrue(sentence.timestamp() == 0);
 					}
 				}
 			}
@@ -304,28 +303,28 @@ public class TestGetDocumentSearchMatches extends WatsonServiceTest {
 			Set<String> keys = annotationModel.keySet();
 			for (String key : keys) {
 				AnnotationModel annotation = annotationModel.get(key);
-				Assert.assertNotNull(annotation.getPreferredName());
-				Assert.assertNotNull(annotation.getOntology());
-				Assert.assertNotNull(annotation.getType());
-				Assert.assertNotNull(annotation.getSection());
-				Assert.assertTrue(annotation.getBegin() < annotation.getEnd());
+				Assert.assertNotNull(annotation.preferredName());
+				Assert.assertNotNull(annotation.ontology());
+				Assert.assertNotNull(annotation.type());
+				Assert.assertNotNull(annotation.section());
+				Assert.assertTrue(annotation.begin() < annotation.end());
 			}
 		}
-		Map<String, Map<String, Entry>> passagesModel = matchesModel.getPassages();
+		Map<String, Map<String, MatchEntry>> passagesModel = matchesModel.getPassages();
 		if (passagesModel != null) {
 			Set<String> passageKeys = passagesModel.keySet();
 			for (String passageKey : passageKeys) {
-				Map<String, Entry> passageMap = passagesModel.get(passageKey);
+				Map<String, MatchEntry> passageMap = passagesModel.get(passageKey);
 				Set<String> keys = passageMap.keySet();
 				for (String key : keys) {
-					Entry entry = passageMap.get(key);
+					MatchEntry entry = passageMap.get(key);
 					List<SentenceModel> sentences = entry.getSentences();
 					for (SentenceModel sentence : sentences) {
-						Assert.assertTrue(sentence.getBegin() > -1);
-						Assert.assertTrue(sentence.getEnd() > sentence.getBegin());
-						Assert.assertNotNull(sentence.getText());
-						Assert.assertNotNull(sentence.getDocumentSection());
-						Assert.assertTrue(sentence.getTimestamp() == 0);
+						Assert.assertTrue(sentence.begin() > -1);
+						Assert.assertTrue(sentence.end() > sentence.begin());
+						Assert.assertNotNull(sentence.text());
+						Assert.assertNotNull(sentence.documentSection());
+						Assert.assertTrue(sentence.timestamp() == 0);
 					}
 				}
 			}
@@ -351,21 +350,21 @@ public class TestGetDocumentSearchMatches extends WatsonServiceTest {
 		Assert.assertNull(matchesModel.getHighlightedTitle());
 		Assert.assertNotNull(matchesModel.getHighlightedAbstract());
 		Assert.assertNotNull(matchesModel.getTitle());
-		Map<String, Map<String, Entry>> passagesModel = matchesModel.getPassages();
+		Map<String, Map<String, MatchEntry>> passagesModel = matchesModel.getPassages();
 		if (passagesModel != null) {
 			Set<String> passageKeys = passagesModel.keySet();
 			for (String passageKey : passageKeys) {
-				Map<String, Entry> passageMap = passagesModel.get(passageKey);
+				Map<String, MatchEntry> passageMap = passagesModel.get(passageKey);
 				Set<String> keys = passageMap.keySet();
 				for (String key : keys) {
-					Entry entry = passageMap.get(key);
+					MatchEntry entry = passageMap.get(key);
 					List<SentenceModel> sentences = entry.getSentences();
 					for (SentenceModel sentence : sentences) {
-						Assert.assertTrue(sentence.getBegin() > -1);
-						Assert.assertTrue(sentence.getEnd() > sentence.getBegin());
-						Assert.assertNotNull(sentence.getText());
-						Assert.assertNotNull(sentence.getDocumentSection());
-						Assert.assertTrue(sentence.getTimestamp() == 0);
+						Assert.assertTrue(sentence.begin() > -1);
+						Assert.assertTrue(sentence.end() > sentence.begin());
+						Assert.assertNotNull(sentence.text());
+						Assert.assertNotNull(sentence.documentSection());
+						Assert.assertTrue(sentence.timestamp() == 0);
 					}
 				}
 			}
@@ -450,27 +449,27 @@ public class TestGetDocumentSearchMatches extends WatsonServiceTest {
 			Set<String> keys = annotationModel.keySet();
 			for (String key : keys) {
 				AnnotationModel annotation = annotationModel.get(key);
-				Assert.assertNotNull(annotation.getPreferredName());
-				Assert.assertNotNull(annotation.getOntology());
-				Assert.assertNotNull(annotation.getSection());
-				Assert.assertTrue(annotation.getBegin() < annotation.getEnd());
+				Assert.assertNotNull(annotation.preferredName());
+				Assert.assertNotNull(annotation.ontology());
+				Assert.assertNotNull(annotation.section());
+				Assert.assertTrue(annotation.begin() < annotation.end());
 			}
 		}
-		Map<String, Map<String, Entry>> passagesModel = matchesModel.getPassages();
+		Map<String, Map<String, MatchEntry>> passagesModel = matchesModel.getPassages();
 		if (passagesModel != null) {
 			Set<String> passageKeys = passagesModel.keySet();
 			for (String passageKey : passageKeys) {
-				Map<String, Entry> passageMap = passagesModel.get(passageKey);
+				Map<String, MatchEntry> passageMap = passagesModel.get(passageKey);
 				Set<String> keys = passageMap.keySet();
 				for (String key : keys) {
-					Entry entry = passageMap.get(key);
+					MatchEntry entry = passageMap.get(key);
 					List<SentenceModel> sentences = entry.getSentences();
 					for (SentenceModel sentence : sentences) {
-						Assert.assertTrue(sentence.getBegin() > -1);
-						Assert.assertTrue(sentence.getEnd() > sentence.getBegin());
-						Assert.assertNotNull(sentence.getText());
-						Assert.assertNotNull(sentence.getDocumentSection());
-						Assert.assertTrue(sentence.getTimestamp() == 0);
+						Assert.assertTrue(sentence.begin() > -1);
+						Assert.assertTrue(sentence.end() > sentence.begin());
+						Assert.assertNotNull(sentence.text());
+						Assert.assertNotNull(sentence.documentSection());
+						Assert.assertTrue(sentence.timestamp() == 0);
 					}
 				}
 			}
@@ -503,27 +502,27 @@ public class TestGetDocumentSearchMatches extends WatsonServiceTest {
 			Set<String> keys = annotationModel.keySet();
 			for (String key : keys) {
 				AnnotationModel annotation = annotationModel.get(key);
-				Assert.assertNotNull(annotation.getPreferredName());
-				Assert.assertNotNull(annotation.getOntology());
-				Assert.assertNotNull(annotation.getSection());
-				Assert.assertTrue(annotation.getBegin() < annotation.getEnd());
+				Assert.assertNotNull(annotation.preferredName());
+				Assert.assertNotNull(annotation.ontology());
+				Assert.assertNotNull(annotation.section());
+				Assert.assertTrue(annotation.begin() < annotation.end());
 			}
 		}
-		Map<String, Map<String, Entry>> passagesModel = matchesModel.getPassages();
+		Map<String, Map<String, MatchEntry>> passagesModel = matchesModel.getPassages();
 		if (passagesModel != null) {
 			Set<String> passageKeys = passagesModel.keySet();
 			for (String passageKey : passageKeys) {
-				Map<String, Entry> passageMap = passagesModel.get(passageKey);
+				Map<String, MatchEntry> passageMap = passagesModel.get(passageKey);
 				Set<String> keys = passageMap.keySet();
 				for (String key : keys) {
-					Entry entry = passageMap.get(key);
+					MatchEntry entry = passageMap.get(key);
 					List<SentenceModel> sentences = entry.getSentences();
 					for (SentenceModel sentence : sentences) {
-						Assert.assertTrue(sentence.getBegin() > -1);
-						Assert.assertTrue(sentence.getEnd() > sentence.getBegin());
-						Assert.assertNotNull(sentence.getText());
-						Assert.assertNotNull(sentence.getDocumentSection());
-						Assert.assertTrue(sentence.getTimestamp() == 0);
+						Assert.assertTrue(sentence.begin() > -1);
+						Assert.assertTrue(sentence.end() > sentence.begin());
+						Assert.assertNotNull(sentence.text());
+						Assert.assertNotNull(sentence.documentSection());
+						Assert.assertTrue(sentence.timestamp() == 0);
 					}
 				}
 			}
@@ -554,28 +553,28 @@ public class TestGetDocumentSearchMatches extends WatsonServiceTest {
 			Set<String> keys = annotationModel.keySet();
 			for (String key : keys) {
 				AnnotationModel annotation = annotationModel.get(key);
-				Assert.assertNotNull(annotation.getPreferredName());
-				Assert.assertNotNull(annotation.getOntology());
-				Assert.assertNotNull(annotation.getType());
-				Assert.assertNotNull(annotation.getSection());
-				Assert.assertTrue(annotation.getBegin() < annotation.getEnd());
+				Assert.assertNotNull(annotation.preferredName());
+				Assert.assertNotNull(annotation.ontology());
+				Assert.assertNotNull(annotation.type());
+				Assert.assertNotNull(annotation.section());
+				Assert.assertTrue(annotation.begin() < annotation.end());
 			}
 		}
-		Map<String, Map<String, Entry>> passagesModel = matchesModel.getPassages();
+		Map<String, Map<String, MatchEntry>> passagesModel = matchesModel.getPassages();
 		if (passagesModel != null) {
 			Set<String> passageKeys = passagesModel.keySet();
 			for (String passageKey : passageKeys) {
-				Map<String, Entry> passageMap = passagesModel.get(passageKey);
+				Map<String, MatchEntry> passageMap = passagesModel.get(passageKey);
 				Set<String> keys = passageMap.keySet();
 				for (String key : keys) {
-					Entry entry = passageMap.get(key);
+					MatchEntry entry = passageMap.get(key);
 					List<SentenceModel> sentences = entry.getSentences();
 					for (SentenceModel sentence : sentences) {
-						Assert.assertTrue(sentence.getBegin() > -1);
-						Assert.assertTrue(sentence.getEnd() > sentence.getBegin());
-						Assert.assertNotNull(sentence.getText());
-						Assert.assertNotNull(sentence.getDocumentSection());
-						Assert.assertTrue(sentence.getTimestamp() == 0);
+						Assert.assertTrue(sentence.begin() > -1);
+						Assert.assertTrue(sentence.end() > sentence.begin());
+						Assert.assertNotNull(sentence.text());
+						Assert.assertNotNull(sentence.documentSection());
+						Assert.assertTrue(sentence.timestamp() == 0);
 					}
 				}
 			}
@@ -607,28 +606,28 @@ public class TestGetDocumentSearchMatches extends WatsonServiceTest {
 			Set<String> keys = annotationModel.keySet();
 			for (String key : keys) {
 				AnnotationModel annotation = annotationModel.get(key);
-				Assert.assertNotNull(annotation.getPreferredName());
-				Assert.assertNotNull(annotation.getOntology());
-				Assert.assertNotNull(annotation.getType());
-				Assert.assertNotNull(annotation.getSection());
-				Assert.assertTrue(annotation.getBegin() < annotation.getEnd());
+				Assert.assertNotNull(annotation.preferredName());
+				Assert.assertNotNull(annotation.ontology());
+				Assert.assertNotNull(annotation.type());
+				Assert.assertNotNull(annotation.section());
+				Assert.assertTrue(annotation.begin() < annotation.end());
 			}
 		}
-		Map<String, Map<String, Entry>> passagesModel = matchesModel.getPassages();
+		Map<String, Map<String, MatchEntry>> passagesModel = matchesModel.getPassages();
 		if (passagesModel != null) {
 			Set<String> passageKeys = passagesModel.keySet();
 			for (String passageKey : passageKeys) {
-				Map<String, Entry> passageMap = passagesModel.get(passageKey);
+				Map<String, MatchEntry> passageMap = passagesModel.get(passageKey);
 				Set<String> keys = passageMap.keySet();
 				for (String key : keys) {
-					Entry entry = passageMap.get(key);
+					MatchEntry entry = passageMap.get(key);
 					List<SentenceModel> sentences = entry.getSentences();
 					for (SentenceModel sentence : sentences) {
-						Assert.assertTrue(sentence.getBegin() > -1);
-						Assert.assertTrue(sentence.getEnd() > sentence.getBegin());
-						Assert.assertNotNull(sentence.getText());
-						Assert.assertNotNull(sentence.getDocumentSection());
-						Assert.assertTrue(sentence.getTimestamp() == 0);
+						Assert.assertTrue(sentence.begin() > -1);
+						Assert.assertTrue(sentence.end() > sentence.begin());
+						Assert.assertNotNull(sentence.text());
+						Assert.assertNotNull(sentence.documentSection());
+						Assert.assertTrue(sentence.timestamp() == 0);
 					}
 				}
 			}
@@ -657,28 +656,28 @@ public class TestGetDocumentSearchMatches extends WatsonServiceTest {
 			Set<String> keys = annotationModel.keySet();
 			for (String key : keys) {
 				AnnotationModel annotation = annotationModel.get(key);
-				Assert.assertNotNull(annotation.getPreferredName());
-				Assert.assertNotNull(annotation.getOntology());
-				Assert.assertNotNull(annotation.getType());
-				Assert.assertNotNull(annotation.getSection());
-				Assert.assertTrue(annotation.getBegin() < annotation.getEnd());
+				Assert.assertNotNull(annotation.preferredName());
+				Assert.assertNotNull(annotation.ontology());
+				Assert.assertNotNull(annotation.type());
+				Assert.assertNotNull(annotation.section());
+				Assert.assertTrue(annotation.begin() < annotation.end());
 			}
 		}
-		Map<String, Map<String, Entry>> passagesModel = matchesModel.getPassages();
+		Map<String, Map<String, MatchEntry>> passagesModel = matchesModel.getPassages();
 		if (passagesModel != null) {
 			Set<String> passageKeys = passagesModel.keySet();
 			for (String passageKey : passageKeys) {
-				Map<String, Entry> passageMap = passagesModel.get(passageKey);
+				Map<String, MatchEntry> passageMap = passagesModel.get(passageKey);
 				Set<String> keys = passageMap.keySet();
 				for (String key : keys) {
-					Entry entry = passageMap.get(key);
+					MatchEntry entry = passageMap.get(key);
 					List<SentenceModel> sentences = entry.getSentences();
 					for (SentenceModel sentence : sentences) {
-						Assert.assertTrue(sentence.getBegin() > -1);
-						Assert.assertTrue(sentence.getEnd() > sentence.getBegin());
-						Assert.assertNotNull(sentence.getText());
-						Assert.assertNotNull(sentence.getDocumentSection());
-						Assert.assertTrue(sentence.getTimestamp() == 0);
+						Assert.assertTrue(sentence.begin() > -1);
+						Assert.assertTrue(sentence.end() > sentence.begin());
+						Assert.assertNotNull(sentence.text());
+						Assert.assertNotNull(sentence.documentSection());
+						Assert.assertTrue(sentence.timestamp() == 0);
 					}
 				}
 			}
@@ -710,28 +709,28 @@ public class TestGetDocumentSearchMatches extends WatsonServiceTest {
 			Set<String> keys = annotationModel.keySet();
 			for (String key : keys) {
 				AnnotationModel annotation = annotationModel.get(key);
-				Assert.assertNotNull(annotation.getPreferredName());
-				Assert.assertNotNull(annotation.getOntology());
-				Assert.assertNotNull(annotation.getType());
-				Assert.assertNotNull(annotation.getSection());
-				Assert.assertTrue(annotation.getBegin() < annotation.getEnd());
+				Assert.assertNotNull(annotation.preferredName());
+				Assert.assertNotNull(annotation.ontology());
+				Assert.assertNotNull(annotation.type());
+				Assert.assertNotNull(annotation.section());
+				Assert.assertTrue(annotation.begin() < annotation.end());
 			}
 		}
-		Map<String, Map<String, Entry>> passagesModel = matchesModel.getPassages();
+		Map<String, Map<String, MatchEntry>> passagesModel = matchesModel.getPassages();
 		if (passagesModel != null) {
 			Set<String> passageKeys = passagesModel.keySet();
 			for (String passageKey : passageKeys) {
-				Map<String, Entry> passageMap = passagesModel.get(passageKey);
+				Map<String, MatchEntry> passageMap = passagesModel.get(passageKey);
 				Set<String> keys = passageMap.keySet();
 				for (String key : keys) {
-					Entry entry = passageMap.get(key);
+					MatchEntry entry = passageMap.get(key);
 					List<SentenceModel> sentences = entry.getSentences();
 					for (SentenceModel sentence : sentences) {
-						Assert.assertTrue(sentence.getBegin() > -1);
-						Assert.assertTrue(sentence.getEnd() > sentence.getBegin());
-						Assert.assertNotNull(sentence.getText());
-						Assert.assertNotNull(sentence.getDocumentSection());
-						Assert.assertTrue(sentence.getTimestamp() == 0);
+						Assert.assertTrue(sentence.begin() > -1);
+						Assert.assertTrue(sentence.end() > sentence.begin());
+						Assert.assertNotNull(sentence.text());
+						Assert.assertNotNull(sentence.documentSection());
+						Assert.assertTrue(sentence.timestamp() == 0);
 					}
 				}
 			}
