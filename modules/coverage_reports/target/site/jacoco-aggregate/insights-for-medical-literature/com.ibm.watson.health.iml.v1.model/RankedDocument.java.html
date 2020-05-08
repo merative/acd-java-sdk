@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../jacoco-resources/report.gif" type="image/gif"/><title>RankedDocument.java</title><link rel="stylesheet" href="../../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../../index.html" class="el_report">IBM Watson Health Cognitive Services Coverage Reports</a> &gt; <a href="../index.html" class="el_bundle">insights-for-medical-literature</a> &gt; <a href="index.source.html" class="el_package">com.ibm.watson.health.iml.v1.model</a> &gt; <span class="el_source">RankedDocument.java</span></div><h1>RankedDocument.java</h1><pre class="source lang-java linenums">/*
+ * (C) Copyright IBM Corp. 2020.
+ *
+ * Licensed under the Apache License, Version 2.0 (the &quot;License&quot;); you may not use this file except in compliance with
+ * the License. You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on
+ * an &quot;AS IS&quot; BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the
+ * specific language governing permissions and limitations under the License.
+ */
+package com.ibm.watson.health.iml.v1.model;
+
+import java.util.List;
+import java.util.Map;
+
+import com.ibm.cloud.sdk.core.service.model.GenericModel;
+
+/**
+ * Object representing a document search result.
+ */
+<span class="fc" id="L23">public class RankedDocument extends GenericModel {</span>
+
+  protected String documentId;
+  protected String title;
+  protected Map&lt;String, List&lt;String&gt;&gt; metadata;
+  protected String sectionName;
+  protected String sectionId;
+  protected String corpus;
+  protected RankedDocLinks links;
+  protected PassagesModel passages;
+  protected Map&lt;String, AnnotationModel&gt; annotations;
+
+  /**
+   * Gets the documentId.
+   *
+   * Document identifier.
+   *
+   * @return the documentId
+   */
+  public String getDocumentId() {
+<span class="fc" id="L43">    return documentId;</span>
+  }
+
+  /**
+   * Gets the title.
+   *
+   * Document title.
+   *
+   * @return the title
+   */
+  public String getTitle() {
+<span class="fc" id="L54">    return title;</span>
+  }
+
+  /**
+   * Gets the metadata.
+   *
+   * Additional document fields.
+   *
+   * @return the metadata
+   */
+  public Map&lt;String, List&lt;String&gt;&gt; getMetadata() {
+<span class="fc" id="L65">    return metadata;</span>
+  }
+
+  /**
+   * Gets the sectionName.
+   *
+   * Document section.
+   *
+   * @return the sectionName
+   */
+  public String getSectionName() {
+<span class="fc" id="L76">    return sectionName;</span>
+  }
+
+  /**
+   * Gets the sectionId.
+   *
+   * Document section identifier.
+   *
+   * @return the sectionId
+   */
+  public String getSectionId() {
+<span class="fc" id="L87">    return sectionId;</span>
+  }
+
+  /**
+   * Gets the corpus.
+   *
+   * Document corpus.
+   *
+   * @return the corpus
+   */
+  public String getCorpus() {
+<span class="fc" id="L98">    return corpus;</span>
+  }
+
+  /**
+   * Gets the links.
+   *
+   * @return the links
+   */
+  public RankedDocLinks getLinks() {
+<span class="fc" id="L107">    return links;</span>
+  }
+
+  /**
+   * Gets the passages.
+   *
+   * @return the passages
+   */
+  public PassagesModel getPassages() {
+<span class="fc" id="L116">    return passages;</span>
+  }
+
+  /**
+   * Gets the annotations.
+   *
+   * Document annotations.
+   *
+   * @return the annotations
+   */
+  public Map&lt;String, AnnotationModel&gt; getAnnotations() {
+<span class="fc" id="L127">    return annotations;</span>
+  }
+}
+
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>

@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../jacoco-resources/report.gif" type="image/gif"/><title>CategoriesModel.java</title><link rel="stylesheet" href="../../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../../index.html" class="el_report">IBM Watson Health Cognitive Services Coverage Reports</a> &gt; <a href="../index.html" class="el_bundle">insights-for-medical-literature</a> &gt; <a href="index.source.html" class="el_package">com.ibm.watson.health.iml.v1.model</a> &gt; <span class="el_source">CategoriesModel.java</span></div><h1>CategoriesModel.java</h1><pre class="source lang-java linenums">/*
+ * (C) Copyright IBM Corp. 2020.
+ *
+ * Licensed under the Apache License, Version 2.0 (the &quot;License&quot;); you may not use this file except in compliance with
+ * the License. You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on
+ * an &quot;AS IS&quot; BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the
+ * specific language governing permissions and limitations under the License.
+ */
+package com.ibm.watson.health.iml.v1.model;
+
+import java.util.Map;
+
+import com.ibm.cloud.sdk.core.service.model.GenericModel;
+
+/**
+ * Model representing ontology categories.
+ */
+public class CategoriesModel extends GenericModel {
+
+  protected String modelLicense;
+  protected StringBuilder highlightedTitle;
+  protected StringBuilder highlightedAbstract;
+  protected StringBuilder highlightedBody;
+  protected Map&lt;String, StringBuilder&gt; highlightedSections;
+  protected Map&lt;String, Map&lt;String, EntryModel&gt;&gt; passages;
+  protected Map&lt;String, AnnotationModel&gt; annotations;
+
+  /**
+   * Builder.
+   */
+  public static class Builder {
+    private String modelLicense;
+    private StringBuilder highlightedTitle;
+    private StringBuilder highlightedAbstract;
+    private StringBuilder highlightedBody;
+    private Map&lt;String, StringBuilder&gt; highlightedSections;
+    private Map&lt;String, Map&lt;String, EntryModel&gt;&gt; passages;
+    private Map&lt;String, AnnotationModel&gt; annotations;
+
+<span class="nc" id="L44">    private Builder(CategoriesModel categoriesModel) {</span>
+<span class="nc" id="L45">      this.modelLicense = categoriesModel.modelLicense;</span>
+<span class="nc" id="L46">      this.highlightedTitle = categoriesModel.highlightedTitle;</span>
+<span class="nc" id="L47">      this.highlightedAbstract = categoriesModel.highlightedAbstract;</span>
+<span class="nc" id="L48">      this.highlightedBody = categoriesModel.highlightedBody;</span>
+<span class="nc" id="L49">      this.highlightedSections = categoriesModel.highlightedSections;</span>
+<span class="nc" id="L50">      this.passages = categoriesModel.passages;</span>
+<span class="nc" id="L51">      this.annotations = categoriesModel.annotations;</span>
+<span class="nc" id="L52">    }</span>
+
+    /**
+     * Instantiates a new builder.
+     */
+<span class="fc" id="L57">    public Builder() {</span>
+<span class="fc" id="L58">    }</span>
+
+    /**
+     * Builds a CategoriesModel.
+     *
+     * @return the new CategoriesModel instance
+     */
+    public CategoriesModel build() {
+<span class="fc" id="L66">      return new CategoriesModel(this);</span>
+    }
+
+    /**
+     * Set the modelLicense.
+     *
+     * @param modelLicense the modelLicense
+     * @return the CategoriesModel builder
+     */
+    public Builder modelLicense(String modelLicense) {
+<span class="fc" id="L76">      this.modelLicense = modelLicense;</span>
+<span class="fc" id="L77">      return this;</span>
+    }
+
+    /**
+     * Set the highlightedTitle.
+     *
+     * @param highlightedTitle the highlightedTitle
+     * @return the CategoriesModel builder
+     */
+    public Builder highlightedTitle(StringBuilder highlightedTitle) {
+<span class="fc" id="L87">      this.highlightedTitle = highlightedTitle;</span>
+<span class="fc" id="L88">      return this;</span>
+    }
+
+    /**
+     * Set the highlightedAbstract.
+     *
+     * @param highlightedAbstract the highlightedAbstract
+     * @return the CategoriesModel builder
+     */
+    public Builder highlightedAbstract(StringBuilder highlightedAbstract) {
+<span class="fc" id="L98">      this.highlightedAbstract = highlightedAbstract;</span>
+<span class="fc" id="L99">      return this;</span>
+    }
+
+    /**
+     * Set the highlightedBody.
+     *
+     * @param highlightedBody the highlightedBody
+     * @return the CategoriesModel builder
+     */
+    public Builder highlightedBody(StringBuilder highlightedBody) {
+<span class="fc" id="L109">      this.highlightedBody = highlightedBody;</span>
+<span class="fc" id="L110">      return this;</span>
+    }
+
+    /**
+     * Set the highlightedSections.
+     *
+     * @param highlightedSections the highlightedSections
+     * @return the CategoriesModel builder
+     */
+    public Builder highlightedSections(Map&lt;String, StringBuilder&gt; highlightedSections) {
+<span class="fc" id="L120">      this.highlightedSections = highlightedSections;</span>
+<span class="fc" id="L121">      return this;</span>
+    }
+
+    /**
+     * Set the passages.
+     *
+     * @param passages the passages
+     * @return the CategoriesModel builder
+     */
+    public Builder passages(Map&lt;String, Map&lt;String, EntryModel&gt;&gt; passages) {
+<span class="fc" id="L131">      this.passages = passages;</span>
+<span class="fc" id="L132">      return this;</span>
+    }
+
+    /**
+     * Set the annotations.
+     *
+     * @param annotations the annotations
+     * @return the CategoriesModel builder
+     */
+    public Builder annotations(Map&lt;String, AnnotationModel&gt; annotations) {
+<span class="fc" id="L142">      this.annotations = annotations;</span>
+<span class="fc" id="L143">      return this;</span>
+    }
+  }
+
+<span class="fc" id="L147">  protected CategoriesModel(Builder builder) {</span>
+<span class="fc" id="L148">    modelLicense = builder.modelLicense;</span>
+<span class="fc" id="L149">    highlightedTitle = builder.highlightedTitle;</span>
+<span class="fc" id="L150">    highlightedAbstract = builder.highlightedAbstract;</span>
+<span class="fc" id="L151">    highlightedBody = builder.highlightedBody;</span>
+<span class="fc" id="L152">    highlightedSections = builder.highlightedSections;</span>
+<span class="fc" id="L153">    passages = builder.passages;</span>
+<span class="fc" id="L154">    annotations = builder.annotations;</span>
+<span class="fc" id="L155">  }</span>
+
+  /**
+   * New builder.
+   *
+   * @return a CategoriesModel builder
+   */
+  public Builder newBuilder() {
+<span class="nc" id="L163">    return new Builder(this);</span>
+  }
+
+  /**
+   * Gets the modelLicense.
+   *
+   * License for corpus.
+   *
+   * @return the modelLicense
+   */
+  public String modelLicense() {
+<span class="fc" id="L174">    return modelLicense;</span>
+  }
+
+  /**
+   * Gets the highlightedTitle.
+   *
+   * @return the highlightedTitle
+   */
+  public StringBuilder highlightedTitle() {
+<span class="fc" id="L183">    return highlightedTitle;</span>
+  }
+
+  /**
+   * Gets the highlightedAbstract.
+   *
+   * @return the highlightedAbstract
+   */
+  public StringBuilder highlightedAbstract() {
+<span class="fc" id="L192">    return highlightedAbstract;</span>
+  }
+
+  /**
+   * Gets the highlightedBody.
+   *
+   * @return the highlightedBody
+   */
+  public StringBuilder highlightedBody() {
+<span class="fc" id="L201">    return highlightedBody;</span>
+  }
+
+  /**
+   * Gets the highlightedSections.
+   *
+   * Document sections with annotation tags.
+   *
+   * @return the highlightedSections
+   */
+  public Map&lt;String, StringBuilder&gt; highlightedSections() {
+<span class="fc" id="L212">    return highlightedSections;</span>
+  }
+
+  /**
+   * Gets the passages.
+   *
+   * Document passages with annotation tags.
+   *
+   * @return the passages
+   */
+  public Map&lt;String, Map&lt;String, EntryModel&gt;&gt; passages() {
+<span class="fc" id="L223">    return passages;</span>
+  }
+
+  /**
+   * Gets the annotations.
+   *
+   * List of document annotations.
+   *
+   * @return the annotations
+   */
+  public Map&lt;String, AnnotationModel&gt; annotations() {
+<span class="fc" id="L234">    return annotations;</span>
+  }
+}
+
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>

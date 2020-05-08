@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../jacoco-resources/report.gif" type="image/gif"/><title>RelationNode.java</title><link rel="stylesheet" href="../../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../../index.html" class="el_report">IBM Watson Health Cognitive Services Coverage Reports</a> &gt; <a href="../index.html" class="el_bundle">annotator-for-clinical-data</a> &gt; <a href="index.source.html" class="el_package">com.ibm.watson.health.acd.v1.model</a> &gt; <span class="el_source">RelationNode.java</span></div><h1>RelationNode.java</h1><pre class="source lang-java linenums">package com.ibm.watson.health.acd.v1.model;
+
+import java.lang.reflect.Type;
+
+import com.google.gson.reflect.TypeToken;
+import com.ibm.watson.developer_cloud.service.model.DynamicModel;
+import com.ibm.watson.developer_cloud.util.GsonSerializationHelper;
+
+<span class="fc" id="L9">public class RelationNode extends DynamicModel {</span>
+
+<span class="fc" id="L11">  private Type entityType = new TypeToken&lt;Reference&gt;() { } .getType();</span>
+
+  /**
+   * Gets the entity.
+   *
+   * @return the begin
+   */
+  public Reference getEntity() {
+<span class="fc" id="L19">    return GsonSerializationHelper.serializeDynamicModelProperty(this.get(&quot;entity&quot;), entityType);</span>
+  }
+
+//  /**
+//   * Sets the entity.
+//   * @param begin the new begin
+//   */
+//  public void setEntity(final Reference begin) {
+//    this.put(&quot;entity&quot;, begin);
+//  }
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>

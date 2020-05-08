@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../jacoco-resources/report.gif" type="image/gif"/><title>ServiceStatus.java</title><link rel="stylesheet" href="../../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../../index.html" class="el_report">IBM Watson Health Cognitive Services Coverage Reports</a> &gt; <a href="../index.html" class="el_bundle">insights-for-medical-literature</a> &gt; <a href="index.source.html" class="el_package">com.ibm.watson.health.iml.v1.model</a> &gt; <span class="el_source">ServiceStatus.java</span></div><h1>ServiceStatus.java</h1><pre class="source lang-java linenums">/*
+ * (C) Copyright IBM Corp. 2020.
+ *
+ * Licensed under the Apache License, Version 2.0 (the &quot;License&quot;); you may not use this file except in compliance with
+ * the License. You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on
+ * an &quot;AS IS&quot; BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the
+ * specific language governing permissions and limitations under the License.
+ */
+package com.ibm.watson.health.iml.v1.model;
+
+import com.ibm.cloud.sdk.core.service.model.GenericModel;
+
+/**
+ * Object representing service runtime status.
+ */
+<span class="fc" id="L20">public class ServiceStatus extends GenericModel {</span>
+
+  /**
+   * scurrent service state.
+   */
+  public interface ServiceState {
+    /** OK. */
+    String OK = &quot;OK&quot;;
+    /** WARNING. */
+    String WARNING = &quot;WARNING&quot;;
+    /** ERROR. */
+    String ERROR = &quot;ERROR&quot;;
+  }
+
+  protected String version;
+  protected String upTime;
+  protected String serviceState;
+  protected String stateDetails;
+  protected String hostName;
+  protected Long requestCount;
+  protected Long maxMemoryMb;
+  protected Long commitedMemoryMb;
+  protected Long inUseMemoryMb;
+  protected Long availableProcessors;
+  protected Long concurrentRequests;
+  protected Long maxConcurrentRequests;
+  protected Long totalRejectedRequests;
+  protected Long totalBlockedRequests;
+
+  /**
+   * Gets the version.
+   *
+   * version of the service.
+   *
+   * @return the version
+   */
+  public String getVersion() {
+<span class="fc" id="L57">    return version;</span>
+  }
+
+  /**
+   * Gets the upTime.
+   *
+   * service uptime since last restart.
+   *
+   * @return the upTime
+   */
+  public String getUpTime() {
+<span class="fc" id="L68">    return upTime;</span>
+  }
+
+  /**
+   * Gets the serviceState.
+   *
+   * scurrent service state.
+   *
+   * @return the serviceState
+   */
+  public String getServiceState() {
+<span class="fc" id="L79">    return serviceState;</span>
+  }
+
+  /**
+   * Gets the stateDetails.
+   *
+   * service state details.
+   *
+   * @return the stateDetails
+   */
+  public String getStateDetails() {
+<span class="fc" id="L90">    return stateDetails;</span>
+  }
+
+  /**
+   * Gets the hostName.
+   *
+   * service uptime since last restart.
+   *
+   * @return the hostName
+   */
+  public String getHostName() {
+<span class="fc" id="L101">    return hostName;</span>
+  }
+
+  /**
+   * Gets the requestCount.
+   *
+   * total number of requests during uptime.
+   *
+   * @return the requestCount
+   */
+  public Long getRequestCount() {
+<span class="fc" id="L112">    return requestCount;</span>
+  }
+
+  /**
+   * Gets the maxMemoryMb.
+   *
+   * Maximum memory used during uptime.
+   *
+   * @return the maxMemoryMb
+   */
+  public Long getMaxMemoryMb() {
+<span class="fc" id="L123">    return maxMemoryMb;</span>
+  }
+
+  /**
+   * Gets the commitedMemoryMb.
+   *
+   * Megabytes of committed memory.
+   *
+   * @return the commitedMemoryMb
+   */
+  public Long getCommitedMemoryMb() {
+<span class="fc" id="L134">    return commitedMemoryMb;</span>
+  }
+
+  /**
+   * Gets the inUseMemoryMb.
+   *
+   * Megabytes of memory used.
+   *
+   * @return the inUseMemoryMb
+   */
+  public Long getInUseMemoryMb() {
+<span class="fc" id="L145">    return inUseMemoryMb;</span>
+  }
+
+  /**
+   * Gets the availableProcessors.
+   *
+   * number of available processors.
+   *
+   * @return the availableProcessors
+   */
+  public Long getAvailableProcessors() {
+<span class="fc" id="L156">    return availableProcessors;</span>
+  }
+
+  /**
+   * Gets the concurrentRequests.
+   *
+   * number of concurrent requests.
+   *
+   * @return the concurrentRequests
+   */
+  public Long getConcurrentRequests() {
+<span class="fc" id="L167">    return concurrentRequests;</span>
+  }
+
+  /**
+   * Gets the maxConcurrentRequests.
+   *
+   * configured maximum concurrent request limit.
+   *
+   * @return the maxConcurrentRequests
+   */
+  public Long getMaxConcurrentRequests() {
+<span class="fc" id="L178">    return maxConcurrentRequests;</span>
+  }
+
+  /**
+   * Gets the totalRejectedRequests.
+   *
+   * number of rejected requests.
+   *
+   * @return the totalRejectedRequests
+   */
+  public Long getTotalRejectedRequests() {
+<span class="fc" id="L189">    return totalRejectedRequests;</span>
+  }
+
+  /**
+   * Gets the totalBlockedRequests.
+   *
+   * number of blocked requests.
+   *
+   * @return the totalBlockedRequests
+   */
+  public Long getTotalBlockedRequests() {
+<span class="fc" id="L200">    return totalBlockedRequests;</span>
+  }
+}
+
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>
