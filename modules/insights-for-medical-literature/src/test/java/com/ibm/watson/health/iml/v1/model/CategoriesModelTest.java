@@ -111,11 +111,11 @@ public class CategoriesModelTest {
       .annotations(new java.util.HashMap<String,AnnotationModel>(){{put("foo", annotationModelModel); }})
       .build();
     assertEquals(categoriesModelModel.modelLicense(), "testString");
-    assertEquals(categoriesModelModel.highlightedTitle(), stringBuilderModel);
-    assertEquals(categoriesModelModel.highlightedAbstract(), stringBuilderModel);
-    assertEquals(categoriesModelModel.highlightedBody(), stringBuilderModel);
-    assertEquals(categoriesModelModel.highlightedSections(), new java.util.HashMap<String,StringBuilder>(){{put("foo", stringBuilderModel); }});
-    assertEquals(categoriesModelModel.passages(), new java.util.HashMap<String,Map<String, EntryModel>>(){{put("foo", new java.util.HashMap<String,EntryModel>(){{put("foo", new EntryModel.Builder().build()); }}); }});
+    assertEquals(categoriesModelModel.highlightedTitle(), "testString");
+    assertEquals(categoriesModelModel.highlightedAbstract(), "testString");
+    assertEquals(categoriesModelModel.highlightedBody(), "testString");
+    assertEquals(categoriesModelModel.highlightedSections(), new java.util.HashMap<String,StringBuilder>(){{put("foo", "testString"); }});
+    assertEquals(categoriesModelModel.passages(), (new java.util.HashMap<String, PassagesModel>(){{put("foo", new PassagesModel(){{put("foo", new PassagesModel()); }}); }});
     assertEquals(categoriesModelModel.annotations(), new java.util.HashMap<String,AnnotationModel>(){{put("foo", annotationModelModel); }});
 
     String json = TestUtilities.serialize(categoriesModelModel);
