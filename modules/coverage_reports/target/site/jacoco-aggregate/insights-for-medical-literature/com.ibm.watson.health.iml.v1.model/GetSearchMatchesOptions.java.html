@@ -1,0 +1,583 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../jacoco-resources/report.gif" type="image/gif"/><title>GetSearchMatchesOptions.java</title><link rel="stylesheet" href="../../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../../index.html" class="el_report">IBM Watson Health Cognitive Services Coverage Reports</a> &gt; <a href="../index.html" class="el_bundle">insights-for-medical-literature</a> &gt; <a href="index.source.html" class="el_package">com.ibm.watson.health.iml.v1.model</a> &gt; <span class="el_source">GetSearchMatchesOptions.java</span></div><h1>GetSearchMatchesOptions.java</h1><pre class="source lang-java linenums">/*
+ * (C) Copyright IBM Corp. 2020.
+ *
+ * Licensed under the Apache License, Version 2.0 (the &quot;License&quot;); you may not use this file except in compliance with
+ * the License. You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on
+ * an &quot;AS IS&quot; BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the
+ * specific language governing permissions and limitations under the License.
+ */
+package com.ibm.watson.health.iml.v1.model;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import com.ibm.cloud.sdk.core.service.model.GenericModel;
+
+/**
+ * The getSearchMatches options.
+ */
+public class GetSearchMatchesOptions extends GenericModel {
+
+  protected String corpus;
+  protected String documentId;
+  protected Float minScore;
+  protected List&lt;String&gt; cuis;
+  protected List&lt;String&gt; text;
+  protected List&lt;String&gt; types;
+  protected List&lt;String&gt; attributes;
+  protected List&lt;String&gt; values;
+  protected List&lt;String&gt; nluRelations;
+  protected Long limit;
+  protected String searchTagBegin;
+  protected String searchTagEnd;
+  protected String relatedTagBegin;
+  protected String relatedTagEnd;
+  protected String fields;
+
+  /**
+   * Builder.
+   */
+  public static class Builder {
+    private String corpus;
+    private String documentId;
+    private Float minScore;
+    private List&lt;String&gt; cuis;
+    private List&lt;String&gt; text;
+    private List&lt;String&gt; types;
+    private List&lt;String&gt; attributes;
+    private List&lt;String&gt; values;
+    private List&lt;String&gt; nluRelations;
+    private Long limit;
+    private String searchTagBegin;
+    private String searchTagEnd;
+    private String relatedTagBegin;
+    private String relatedTagEnd;
+    private String fields;
+
+<span class="nc" id="L61">    private Builder(GetSearchMatchesOptions getSearchMatchesOptions) {</span>
+<span class="nc" id="L62">      this.corpus = getSearchMatchesOptions.corpus;</span>
+<span class="nc" id="L63">      this.documentId = getSearchMatchesOptions.documentId;</span>
+<span class="nc" id="L64">      this.minScore = getSearchMatchesOptions.minScore;</span>
+<span class="nc" id="L65">      this.cuis = getSearchMatchesOptions.cuis;</span>
+<span class="nc" id="L66">      this.text = getSearchMatchesOptions.text;</span>
+<span class="nc" id="L67">      this.types = getSearchMatchesOptions.types;</span>
+<span class="nc" id="L68">      this.attributes = getSearchMatchesOptions.attributes;</span>
+<span class="nc" id="L69">      this.values = getSearchMatchesOptions.values;</span>
+<span class="nc" id="L70">      this.nluRelations = getSearchMatchesOptions.nluRelations;</span>
+<span class="nc" id="L71">      this.limit = getSearchMatchesOptions.limit;</span>
+<span class="nc" id="L72">      this.searchTagBegin = getSearchMatchesOptions.searchTagBegin;</span>
+<span class="nc" id="L73">      this.searchTagEnd = getSearchMatchesOptions.searchTagEnd;</span>
+<span class="nc" id="L74">      this.relatedTagBegin = getSearchMatchesOptions.relatedTagBegin;</span>
+<span class="nc" id="L75">      this.relatedTagEnd = getSearchMatchesOptions.relatedTagEnd;</span>
+<span class="nc" id="L76">      this.fields = getSearchMatchesOptions.fields;</span>
+<span class="nc" id="L77">    }</span>
+
+    /**
+     * Instantiates a new builder.
+     */
+<span class="fc" id="L82">    public Builder() {</span>
+<span class="fc" id="L83">    }</span>
+
+    /**
+     * Instantiates a new builder with required properties.
+     *
+     * @param corpus the corpus
+     * @param documentId the documentId
+     * @param minScore the minScore
+     */
+<span class="nc" id="L92">    public Builder(String corpus, String documentId, Float minScore) {</span>
+<span class="nc" id="L93">      this.corpus = corpus;</span>
+<span class="nc" id="L94">      this.documentId = documentId;</span>
+<span class="nc" id="L95">      this.minScore = minScore;</span>
+<span class="nc" id="L96">    }</span>
+
+    /**
+     * Builds a GetSearchMatchesOptions.
+     *
+     * @return the new GetSearchMatchesOptions instance
+     */
+    public GetSearchMatchesOptions build() {
+<span class="fc" id="L104">      return new GetSearchMatchesOptions(this);</span>
+    }
+
+    /**
+     * Adds an cuis to cuis.
+     *
+     * @param cuis the new cuis
+     * @return the GetSearchMatchesOptions builder
+     */
+    public Builder addCuis(String cuis) {
+<span class="nc" id="L114">      com.ibm.cloud.sdk.core.util.Validator.notNull(cuis,</span>
+        &quot;cuis cannot be null&quot;);
+<span class="nc bnc" id="L116" title="All 2 branches missed.">      if (this.cuis == null) {</span>
+<span class="nc" id="L117">        this.cuis = new ArrayList&lt;String&gt;();</span>
+      }
+<span class="nc" id="L119">      this.cuis.add(cuis);</span>
+<span class="nc" id="L120">      return this;</span>
+    }
+
+    /**
+     * Adds an text to text.
+     *
+     * @param text the new text
+     * @return the GetSearchMatchesOptions builder
+     */
+    public Builder addText(String text) {
+<span class="nc" id="L130">      com.ibm.cloud.sdk.core.util.Validator.notNull(text,</span>
+        &quot;text cannot be null&quot;);
+<span class="nc bnc" id="L132" title="All 2 branches missed.">      if (this.text == null) {</span>
+<span class="nc" id="L133">        this.text = new ArrayList&lt;String&gt;();</span>
+      }
+<span class="nc" id="L135">      this.text.add(text);</span>
+<span class="nc" id="L136">      return this;</span>
+    }
+
+    /**
+     * Adds an types to types.
+     *
+     * @param types the new types
+     * @return the GetSearchMatchesOptions builder
+     */
+    public Builder addTypes(String types) {
+<span class="nc" id="L146">      com.ibm.cloud.sdk.core.util.Validator.notNull(types,</span>
+        &quot;types cannot be null&quot;);
+<span class="nc bnc" id="L148" title="All 2 branches missed.">      if (this.types == null) {</span>
+<span class="nc" id="L149">        this.types = new ArrayList&lt;String&gt;();</span>
+      }
+<span class="nc" id="L151">      this.types.add(types);</span>
+<span class="nc" id="L152">      return this;</span>
+    }
+
+    /**
+     * Adds an attributes to attributes.
+     *
+     * @param attributes the new attributes
+     * @return the GetSearchMatchesOptions builder
+     */
+    public Builder addAttributes(String attributes) {
+<span class="nc" id="L162">      com.ibm.cloud.sdk.core.util.Validator.notNull(attributes,</span>
+        &quot;attributes cannot be null&quot;);
+<span class="nc bnc" id="L164" title="All 2 branches missed.">      if (this.attributes == null) {</span>
+<span class="nc" id="L165">        this.attributes = new ArrayList&lt;String&gt;();</span>
+      }
+<span class="nc" id="L167">      this.attributes.add(attributes);</span>
+<span class="nc" id="L168">      return this;</span>
+    }
+
+    /**
+     * Adds an values to values.
+     *
+     * @param values the new values
+     * @return the GetSearchMatchesOptions builder
+     */
+    public Builder addValues(String values) {
+<span class="nc" id="L178">      com.ibm.cloud.sdk.core.util.Validator.notNull(values,</span>
+        &quot;values cannot be null&quot;);
+<span class="nc bnc" id="L180" title="All 2 branches missed.">      if (this.values == null) {</span>
+<span class="nc" id="L181">        this.values = new ArrayList&lt;String&gt;();</span>
+      }
+<span class="nc" id="L183">      this.values.add(values);</span>
+<span class="nc" id="L184">      return this;</span>
+    }
+
+    /**
+     * Adds an nluRelations to nluRelations.
+     *
+     * @param nluRelations the new nluRelations
+     * @return the GetSearchMatchesOptions builder
+     */
+    public Builder addNluRelations(String nluRelations) {
+<span class="nc" id="L194">      com.ibm.cloud.sdk.core.util.Validator.notNull(nluRelations,</span>
+        &quot;nluRelations cannot be null&quot;);
+<span class="nc bnc" id="L196" title="All 2 branches missed.">      if (this.nluRelations == null) {</span>
+<span class="nc" id="L197">        this.nluRelations = new ArrayList&lt;String&gt;();</span>
+      }
+<span class="nc" id="L199">      this.nluRelations.add(nluRelations);</span>
+<span class="nc" id="L200">      return this;</span>
+    }
+
+    /**
+     * Set the corpus.
+     *
+     * @param corpus the corpus
+     * @return the GetSearchMatchesOptions builder
+     */
+    public Builder corpus(String corpus) {
+<span class="fc" id="L210">      this.corpus = corpus;</span>
+<span class="fc" id="L211">      return this;</span>
+    }
+
+    /**
+     * Set the documentId.
+     *
+     * @param documentId the documentId
+     * @return the GetSearchMatchesOptions builder
+     */
+    public Builder documentId(String documentId) {
+<span class="fc" id="L221">      this.documentId = documentId;</span>
+<span class="fc" id="L222">      return this;</span>
+    }
+
+    /**
+     * Set the minScore.
+     *
+     * @param minScore the minScore
+     * @return the GetSearchMatchesOptions builder
+     */
+    public Builder minScore(Float minScore) {
+<span class="fc" id="L232">      this.minScore = minScore;</span>
+<span class="fc" id="L233">      return this;</span>
+    }
+
+    /**
+     * Set the cuis.
+     * Existing cuis will be replaced.
+     *
+     * @param cuis the cuis
+     * @return the GetSearchMatchesOptions builder
+     */
+    public Builder cuis(List&lt;String&gt; cuis) {
+<span class="fc" id="L244">      this.cuis = cuis;</span>
+<span class="fc" id="L245">      return this;</span>
+    }
+
+    /**
+     * Set the text.
+     * Existing text will be replaced.
+     *
+     * @param text the text
+     * @return the GetSearchMatchesOptions builder
+     */
+    public Builder text(List&lt;String&gt; text) {
+<span class="fc" id="L256">      this.text = text;</span>
+<span class="fc" id="L257">      return this;</span>
+    }
+
+    /**
+     * Set the types.
+     * Existing types will be replaced.
+     *
+     * @param types the types
+     * @return the GetSearchMatchesOptions builder
+     */
+    public Builder types(List&lt;String&gt; types) {
+<span class="fc" id="L268">      this.types = types;</span>
+<span class="fc" id="L269">      return this;</span>
+    }
+
+    /**
+     * Set the attributes.
+     * Existing attributes will be replaced.
+     *
+     * @param attributes the attributes
+     * @return the GetSearchMatchesOptions builder
+     */
+    public Builder attributes(List&lt;String&gt; attributes) {
+<span class="fc" id="L280">      this.attributes = attributes;</span>
+<span class="fc" id="L281">      return this;</span>
+    }
+
+    /**
+     * Set the values.
+     * Existing values will be replaced.
+     *
+     * @param values the values
+     * @return the GetSearchMatchesOptions builder
+     */
+    public Builder values(List&lt;String&gt; values) {
+<span class="fc" id="L292">      this.values = values;</span>
+<span class="fc" id="L293">      return this;</span>
+    }
+
+    /**
+     * Set the nluRelations.
+     * Existing nluRelations will be replaced.
+     *
+     * @param nluRelations the nluRelations
+     * @return the GetSearchMatchesOptions builder
+     */
+    public Builder nluRelations(List&lt;String&gt; nluRelations) {
+<span class="fc" id="L304">      this.nluRelations = nluRelations;</span>
+<span class="fc" id="L305">      return this;</span>
+    }
+
+    /**
+     * Set the limit.
+     *
+     * @param limit the limit
+     * @return the GetSearchMatchesOptions builder
+     */
+    public Builder limit(long limit) {
+<span class="fc" id="L315">      this.limit = limit;</span>
+<span class="fc" id="L316">      return this;</span>
+    }
+
+    /**
+     * Set the searchTagBegin.
+     *
+     * @param searchTagBegin the searchTagBegin
+     * @return the GetSearchMatchesOptions builder
+     */
+    public Builder searchTagBegin(String searchTagBegin) {
+<span class="fc" id="L326">      this.searchTagBegin = searchTagBegin;</span>
+<span class="fc" id="L327">      return this;</span>
+    }
+
+    /**
+     * Set the searchTagEnd.
+     *
+     * @param searchTagEnd the searchTagEnd
+     * @return the GetSearchMatchesOptions builder
+     */
+    public Builder searchTagEnd(String searchTagEnd) {
+<span class="fc" id="L337">      this.searchTagEnd = searchTagEnd;</span>
+<span class="fc" id="L338">      return this;</span>
+    }
+
+    /**
+     * Set the relatedTagBegin.
+     *
+     * @param relatedTagBegin the relatedTagBegin
+     * @return the GetSearchMatchesOptions builder
+     */
+    public Builder relatedTagBegin(String relatedTagBegin) {
+<span class="fc" id="L348">      this.relatedTagBegin = relatedTagBegin;</span>
+<span class="fc" id="L349">      return this;</span>
+    }
+
+    /**
+     * Set the relatedTagEnd.
+     *
+     * @param relatedTagEnd the relatedTagEnd
+     * @return the GetSearchMatchesOptions builder
+     */
+    public Builder relatedTagEnd(String relatedTagEnd) {
+<span class="fc" id="L359">      this.relatedTagEnd = relatedTagEnd;</span>
+<span class="fc" id="L360">      return this;</span>
+    }
+
+    /**
+     * Set the fields.
+     *
+     * @param fields the fields
+     * @return the GetSearchMatchesOptions builder
+     */
+    public Builder fields(String fields) {
+<span class="fc" id="L370">      this.fields = fields;</span>
+<span class="fc" id="L371">      return this;</span>
+    }
+  }
+
+<span class="fc" id="L375">  protected GetSearchMatchesOptions(Builder builder) {</span>
+<span class="fc" id="L376">    com.ibm.cloud.sdk.core.util.Validator.notEmpty(builder.corpus,</span>
+      &quot;corpus cannot be empty&quot;);
+<span class="fc" id="L378">    com.ibm.cloud.sdk.core.util.Validator.notEmpty(builder.documentId,</span>
+      &quot;documentId cannot be empty&quot;);
+<span class="fc" id="L380">    com.ibm.cloud.sdk.core.util.Validator.notNull(builder.minScore,</span>
+      &quot;minScore cannot be null&quot;);
+<span class="fc" id="L382">    corpus = builder.corpus;</span>
+<span class="fc" id="L383">    documentId = builder.documentId;</span>
+<span class="fc" id="L384">    minScore = builder.minScore;</span>
+<span class="fc" id="L385">    cuis = builder.cuis;</span>
+<span class="fc" id="L386">    text = builder.text;</span>
+<span class="fc" id="L387">    types = builder.types;</span>
+<span class="fc" id="L388">    attributes = builder.attributes;</span>
+<span class="fc" id="L389">    values = builder.values;</span>
+<span class="fc" id="L390">    nluRelations = builder.nluRelations;</span>
+<span class="fc" id="L391">    limit = builder.limit;</span>
+<span class="fc" id="L392">    searchTagBegin = builder.searchTagBegin;</span>
+<span class="fc" id="L393">    searchTagEnd = builder.searchTagEnd;</span>
+<span class="fc" id="L394">    relatedTagBegin = builder.relatedTagBegin;</span>
+<span class="fc" id="L395">    relatedTagEnd = builder.relatedTagEnd;</span>
+<span class="fc" id="L396">    fields = builder.fields;</span>
+<span class="fc" id="L397">  }</span>
+
+  /**
+   * New builder.
+   *
+   * @return a GetSearchMatchesOptions builder
+   */
+  public Builder newBuilder() {
+<span class="nc" id="L405">    return new Builder(this);</span>
+  }
+
+  /**
+   * Gets the corpus.
+   *
+   * Corpus name.
+   *
+   * @return the corpus
+   */
+  public String corpus() {
+<span class="fc" id="L416">    return corpus;</span>
+  }
+
+  /**
+   * Gets the documentId.
+   *
+   * Document ID (e.g, 7014026).
+   *
+   * @return the documentId
+   */
+  public String documentId() {
+<span class="fc" id="L427">    return documentId;</span>
+  }
+
+  /**
+   * Gets the minScore.
+   *
+   * Minimum score .0 to 1.0.
+   *
+   * @return the minScore
+   */
+  public Float minScore() {
+<span class="fc" id="L438">    return minScore;</span>
+  }
+
+  /**
+   * Gets the cuis.
+   *
+   * cui[,rank,[type]] - Example: &quot;C0030567,10&quot;. The rank is an optional value from 0 to 10 (defalut is 10). Special
+   * rank values: 0=omit, 10=require. Related concepts can also be included by appending, '-PAR' (parents), '-CHD'
+   * (children), or '-SIB' (siblings) to the CUI (eg., to include all children of C0030567: 'C0030567-CHD')).  The type
+   * may explicitly select a semanic type for a concept.  If no type is specified, a default type is selected.
+   *
+   * @return the cuis
+   */
+  public List&lt;String&gt; cuis() {
+<span class="fc" id="L452">    return cuis;</span>
+  }
+
+  /**
+   * Gets the text.
+   *
+   * Case insensitive text searches.
+   *
+   * @return the text
+   */
+  public List&lt;String&gt; text() {
+<span class="fc" id="L463">    return text;</span>
+  }
+
+  /**
+   * Gets the types.
+   *
+   * Highlight all text spans matching these semantic types.  Semantic types for the corpus can be found using the
+   * /v1/corpora/{corpus}/types method.
+   *
+   * @return the types
+   */
+  public List&lt;String&gt; types() {
+<span class="fc" id="L475">    return types;</span>
+  }
+
+  /**
+   * Gets the attributes.
+   *
+   * Highlight all text spans matching these attributes.  An attribute may also specify a range value (e.g.,
+   * age:years:65-100) or  a string value (e.g., gender:female).  The attribute may be qualified with one or more
+   * qualifiers (e.g., Treated,Severe&amp;gt;&amp;gt;diabetes)  An attribute may target a specific CUI.  (e.g.,
+   * C0003864::disease).
+   *
+   * @return the attributes
+   */
+  public List&lt;String&gt; attributes() {
+<span class="fc" id="L489">    return attributes;</span>
+  }
+
+  /**
+   * Gets the values.
+   *
+   * Highlight all text spans matching these values.  e.g., age:years:within:65-100 or gender:female  a string value
+   * (e.g., gender:female).
+   *
+   * @return the values
+   */
+  public List&lt;String&gt; values() {
+<span class="fc" id="L501">    return values;</span>
+  }
+
+  /**
+   * Gets the nluRelations.
+   *
+   * Highlight all text spans matching these NLU relations.  e.g., druggroup,treat,indication.
+   *
+   * @return the nluRelations
+   */
+  public List&lt;String&gt; nluRelations() {
+<span class="fc" id="L512">    return nluRelations;</span>
+  }
+
+  /**
+   * Gets the limit.
+   *
+   * Limit the number of matching passages per search concept/search term (1 to 250).  Default is 50.
+   *
+   * @return the limit
+   */
+  public Long limit() {
+<span class="fc" id="L523">    return limit;</span>
+  }
+
+  /**
+   * Gets the searchTagBegin.
+   *
+   * HTML tag used to highlight search concepts found in the text.  Default is '&amp;amp;ltb&amp;amp;gt'.
+   *
+   * @return the searchTagBegin
+   */
+  public String searchTagBegin() {
+<span class="fc" id="L534">    return searchTagBegin;</span>
+  }
+
+  /**
+   * Gets the searchTagEnd.
+   *
+   * HTML tag used to highlight search concepts found in the text.  Default is '&amp;amp;lt/b&amp;amp;gt'.
+   *
+   * @return the searchTagEnd
+   */
+  public String searchTagEnd() {
+<span class="fc" id="L545">    return searchTagEnd;</span>
+  }
+
+  /**
+   * Gets the relatedTagBegin.
+   *
+   * HTML tag used to highlight related concepts found in the text.
+   *
+   * @return the relatedTagBegin
+   */
+  public String relatedTagBegin() {
+<span class="fc" id="L556">    return relatedTagBegin;</span>
+  }
+
+  /**
+   * Gets the relatedTagEnd.
+   *
+   * HTML tag used to highlight related concepts found in the text.
+   *
+   * @return the relatedTagEnd
+   */
+  public String relatedTagEnd() {
+<span class="fc" id="L567">    return relatedTagEnd;</span>
+  }
+
+  /**
+   * Gets the fields.
+   *
+   * Comma separated list of fields to return:  passages, annotations, highlightedTitle, highlightedAbstract,
+   * highlightedBody, highlightedSections.
+   *
+   * @return the fields
+   */
+  public String fields() {
+<span class="fc" id="L579">    return fields;</span>
+  }
+}
+
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>

@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../jacoco-resources/report.gif" type="image/gif"/><title>SearchMatchesModel.java</title><link rel="stylesheet" href="../../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../../index.html" class="el_report">IBM Watson Health Cognitive Services Coverage Reports</a> &gt; <a href="../index.html" class="el_bundle">insights-for-medical-literature</a> &gt; <a href="index.source.html" class="el_package">com.ibm.watson.health.iml.v1.model</a> &gt; <span class="el_source">SearchMatchesModel.java</span></div><h1>SearchMatchesModel.java</h1><pre class="source lang-java linenums">/*
+ * (C) Copyright IBM Corp. 2020.
+ *
+ * Licensed under the Apache License, Version 2.0 (the &quot;License&quot;); you may not use this file except in compliance with
+ * the License. You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on
+ * an &quot;AS IS&quot; BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the
+ * specific language governing permissions and limitations under the License.
+ */
+package com.ibm.watson.health.iml.v1.model;
+
+import java.util.List;
+import java.util.Map;
+
+import com.google.gson.annotations.SerializedName;
+import com.ibm.cloud.sdk.core.service.model.GenericModel;
+
+/**
+ * Object representing a corpus search match.
+ */
+<span class="fc" id="L24">public class SearchMatchesModel extends GenericModel {</span>
+
+  protected String externalId;
+  protected String documentId;
+  protected String parentDocumentId;
+  protected String publicationName;
+  protected String publicationDate;
+  @SerializedName(&quot;publicationURL&quot;)
+  protected String publicationUrl;
+  protected List&lt;String&gt; authors;
+  protected String title;
+  protected String medlineLicense;
+  protected String hrefPubMed;
+  protected String hrefPmc;
+  protected String hrefDoi;
+  protected String pdfUrl;
+  protected String referenceUrl;
+  protected StringBuilder highlightedTitle;
+  protected StringBuilder highlightedAbstract;
+  protected StringBuilder highlightedBody;
+  protected Map&lt;String, StringBuilder&gt; highlightedSections;
+  protected Map&lt;String, Map&lt;String, MatchEntry&gt;&gt; passages;
+  protected Map&lt;String, AnnotationModel&gt; annotations;
+
+  /**
+   * Gets the externalId.
+   *
+   * Unique identifier for matched document in corpus.
+   *
+   * @return the externalId
+   */
+  public String getExternalId() {
+<span class="fc" id="L56">    return externalId;</span>
+  }
+
+  /**
+   * Gets the documentId.
+   *
+   * Unique identifier for matched document in corpus.
+   *
+   * @return the documentId
+   */
+  public String getDocumentId() {
+<span class="fc" id="L67">    return documentId;</span>
+  }
+
+  /**
+   * Gets the parentDocumentId.
+   *
+   * Unique identifier for matched document parent in corpus.
+   *
+   * @return the parentDocumentId
+   */
+  public String getParentDocumentId() {
+<span class="fc" id="L78">    return parentDocumentId;</span>
+  }
+
+  /**
+   * Gets the publicationName.
+   *
+   * Publication name for matched document in corpus.
+   *
+   * @return the publicationName
+   */
+  public String getPublicationName() {
+<span class="fc" id="L89">    return publicationName;</span>
+  }
+
+  /**
+   * Gets the publicationDate.
+   *
+   * Publication date for matched document in corpus.
+   *
+   * @return the publicationDate
+   */
+  public String getPublicationDate() {
+<span class="fc" id="L100">    return publicationDate;</span>
+  }
+
+  /**
+   * Gets the publicationUrl.
+   *
+   * Publication URL for matched document in corpus.
+   *
+   * @return the publicationUrl
+   */
+  public String getPublicationUrl() {
+<span class="fc" id="L111">    return publicationUrl;</span>
+  }
+
+  /**
+   * Gets the authors.
+   *
+   * Authors of matched document in corpus.
+   *
+   * @return the authors
+   */
+  public List&lt;String&gt; getAuthors() {
+<span class="fc" id="L122">    return authors;</span>
+  }
+
+  /**
+   * Gets the title.
+   *
+   * Title of matched document in corpus.
+   *
+   * @return the title
+   */
+  public String getTitle() {
+<span class="fc" id="L133">    return title;</span>
+  }
+
+  /**
+   * Gets the medlineLicense.
+   *
+   * Usage license for matched document in corpus.
+   *
+   * @return the medlineLicense
+   */
+  public String getMedlineLicense() {
+<span class="fc" id="L144">    return medlineLicense;</span>
+  }
+
+  /**
+   * Gets the hrefPubMed.
+   *
+   * Pubmed link for matched document in corpus.
+   *
+   * @return the hrefPubMed
+   */
+  public String getHrefPubMed() {
+<span class="fc" id="L155">    return hrefPubMed;</span>
+  }
+
+  /**
+   * Gets the hrefPmc.
+   *
+   * @return the hrefPmc
+   */
+  public String getHrefPmc() {
+<span class="fc" id="L164">    return hrefPmc;</span>
+  }
+
+  /**
+   * Gets the hrefDoi.
+   *
+   * @return the hrefDoi
+   */
+  public String getHrefDoi() {
+<span class="fc" id="L173">    return hrefDoi;</span>
+  }
+
+  /**
+   * Gets the pdfUrl.
+   *
+   * Link to PDF for matched document in corpus.
+   *
+   * @return the pdfUrl
+   */
+  public String getPdfUrl() {
+<span class="fc" id="L184">    return pdfUrl;</span>
+  }
+
+  /**
+   * Gets the referenceUrl.
+   *
+   * Link to sourc origin for matched document in corpus.
+   *
+   * @return the referenceUrl
+   */
+  public String getReferenceUrl() {
+<span class="fc" id="L195">    return referenceUrl;</span>
+  }
+
+  /**
+   * Gets the highlightedTitle.
+   *
+   * @return the highlightedTitle
+   */
+  public StringBuilder getHighlightedTitle() {
+<span class="fc" id="L204">    return highlightedTitle;</span>
+  }
+
+  /**
+   * Gets the highlightedAbstract.
+   *
+   * @return the highlightedAbstract
+   */
+  public StringBuilder getHighlightedAbstract() {
+<span class="fc" id="L213">    return highlightedAbstract;</span>
+  }
+
+  /**
+   * Gets the highlightedBody.
+   *
+   * @return the highlightedBody
+   */
+  public StringBuilder getHighlightedBody() {
+<span class="fc" id="L222">    return highlightedBody;</span>
+  }
+
+  /**
+   * Gets the highlightedSections.
+   *
+   * Matched document sections with annotation tags.
+   *
+   * @return the highlightedSections
+   */
+  public Map&lt;String, StringBuilder&gt; getHighlightedSections() {
+<span class="fc" id="L233">    return highlightedSections;</span>
+  }
+
+  /**
+   * Gets the passages.
+   *
+   * Matched document passages with annotation tags.
+   *
+   * @return the passages
+   */
+  public Map&lt;String, Map&lt;String, MatchEntry&gt;&gt; getPassages() {
+<span class="fc" id="L244">    return passages;</span>
+  }
+
+  /**
+   * Gets the annotations.
+   *
+   * Matched document annotations.
+   *
+   * @return the annotations
+   */
+  public Map&lt;String, AnnotationModel&gt; getAnnotations() {
+<span class="fc" id="L255">    return annotations;</span>
+  }
+}
+
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>

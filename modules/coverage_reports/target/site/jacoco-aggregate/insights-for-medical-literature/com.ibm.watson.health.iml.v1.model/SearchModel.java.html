@@ -1,0 +1,297 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../jacoco-resources/report.gif" type="image/gif"/><title>SearchModel.java</title><link rel="stylesheet" href="../../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../../index.html" class="el_report">IBM Watson Health Cognitive Services Coverage Reports</a> &gt; <a href="../index.html" class="el_bundle">insights-for-medical-literature</a> &gt; <a href="index.source.html" class="el_package">com.ibm.watson.health.iml.v1.model</a> &gt; <span class="el_source">SearchModel.java</span></div><h1>SearchModel.java</h1><pre class="source lang-java linenums">/*
+ * (C) Copyright IBM Corp. 2020.
+ *
+ * Licensed under the Apache License, Version 2.0 (the &quot;License&quot;); you may not use this file except in compliance with
+ * the License. You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on
+ * an &quot;AS IS&quot; BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the
+ * specific language governing permissions and limitations under the License.
+ */
+package com.ibm.watson.health.iml.v1.model;
+
+import java.util.List;
+import java.util.Map;
+
+import com.google.gson.annotations.SerializedName;
+import com.ibm.cloud.sdk.core.service.model.GenericModel;
+
+/**
+ * Model for search criteria.
+ */
+<span class="fc" id="L24">public class SearchModel extends GenericModel {</span>
+
+  protected String href;
+  protected Long pageNumber;
+  @SerializedName(&quot;get_limit&quot;)
+  protected Long getLimit;
+  protected Long totalDocumentCount;
+  protected List&lt;Concept&gt; concepts;
+  protected List&lt;String&gt; types;
+  protected List&lt;Attribute&gt; attributes;
+  protected List&lt;Concept&gt; values;
+  protected Map&lt;String, RangeModel&gt; ranges;
+  protected List&lt;Concept&gt; typeahead;
+  protected Map&lt;String, List&lt;AggregationModel&gt;&gt; aggregations;
+  protected Map&lt;String, List&lt;HistogramData&gt;&gt; dateHistograms;
+  protected List&lt;Qualifer&gt; qualifiers;
+  protected Backend backend;
+  protected Map&lt;String, Object&gt; expandedQuery;
+  protected BooleanOperands parsedBoolExpression;
+  protected Map&lt;String, Long&gt; conceptsExist;
+  protected String cursorId;
+  protected List&lt;String&gt; vocabs;
+  protected Map&lt;String, CommonDataModel&gt; annotations;
+  protected MetadataFields metadata;
+  protected List&lt;RankedDocument&gt; documents;
+  protected List&lt;SearchModel&gt; subQueries;
+
+  /**
+   * Gets the href.
+   *
+   * Link.
+   *
+   * @return the href
+   */
+  public String getHref() {
+<span class="fc" id="L59">    return href;</span>
+  }
+
+  /**
+   * Gets the pageNumber.
+   *
+   * Page number.
+   *
+   * @return the pageNumber
+   */
+  public Long getPageNumber() {
+<span class="fc" id="L70">    return pageNumber;</span>
+  }
+
+  /**
+   * Gets the getLimit.
+   *
+   * Search result limit.
+   *
+   * @return the getLimit
+   */
+  public Long getGetLimit() {
+<span class="fc" id="L81">    return getLimit;</span>
+  }
+
+  /**
+   * Gets the totalDocumentCount.
+   *
+   * Total number of search matches in the corpus.
+   *
+   * @return the totalDocumentCount
+   */
+  public Long getTotalDocumentCount() {
+<span class="fc" id="L92">    return totalDocumentCount;</span>
+  }
+
+  /**
+   * Gets the concepts.
+   *
+   * Ontology artifact results from search.
+   *
+   * @return the concepts
+   */
+  public List&lt;Concept&gt; getConcepts() {
+<span class="fc" id="L103">    return concepts;</span>
+  }
+
+  /**
+   * Gets the types.
+   *
+   * Ontology semantic types.
+   *
+   * @return the types
+   */
+  public List&lt;String&gt; getTypes() {
+<span class="fc" id="L114">    return types;</span>
+  }
+
+  /**
+   * Gets the attributes.
+   *
+   * Attribute artifact results from search.
+   *
+   * @return the attributes
+   */
+  public List&lt;Attribute&gt; getAttributes() {
+<span class="fc" id="L125">    return attributes;</span>
+  }
+
+  /**
+   * Gets the values.
+   *
+   * Attribute artifact value results from search.
+   *
+   * @return the values
+   */
+  public List&lt;Concept&gt; getValues() {
+<span class="fc" id="L136">    return values;</span>
+  }
+
+  /**
+   * Gets the ranges.
+   *
+   * Attribute value range results from search.
+   *
+   * @return the ranges
+   */
+  public Map&lt;String, RangeModel&gt; getRanges() {
+<span class="fc" id="L147">    return ranges;</span>
+  }
+
+  /**
+   * Gets the typeahead.
+   *
+   * Type-ahead suggestion results in search.
+   *
+   * @return the typeahead
+   */
+  public List&lt;Concept&gt; getTypeahead() {
+<span class="fc" id="L158">    return typeahead;</span>
+  }
+
+  /**
+   * Gets the aggregations.
+   *
+   * Aggregate result targets in search.
+   *
+   * @return the aggregations
+   */
+  public Map&lt;String, List&lt;AggregationModel&gt;&gt; getAggregations() {
+<span class="fc" id="L169">    return aggregations;</span>
+  }
+
+  /**
+   * Gets the dateHistograms.
+   *
+   * Date range of results from search.
+   *
+   * @return the dateHistograms
+   */
+  public Map&lt;String, List&lt;HistogramData&gt;&gt; getDateHistograms() {
+<span class="fc" id="L180">    return dateHistograms;</span>
+  }
+
+  /**
+   * Gets the qualifiers.
+   *
+   * Attribute qualifier results from search.
+   *
+   * @return the qualifiers
+   */
+  public List&lt;Qualifer&gt; getQualifiers() {
+<span class="fc" id="L191">    return qualifiers;</span>
+  }
+
+  /**
+   * Gets the backend.
+   *
+   * Object representing repository response.
+   *
+   * @return the backend
+   */
+  public Backend getBackend() {
+<span class="fc" id="L202">    return backend;</span>
+  }
+
+  /**
+   * Gets the expandedQuery.
+   *
+   * Search expression that includes all levels of criteria expression.
+   *
+   * @return the expandedQuery
+   */
+  public Map&lt;String, Object&gt; getExpandedQuery() {
+<span class="fc" id="L213">    return expandedQuery;</span>
+  }
+
+  /**
+   * Gets the parsedBoolExpression.
+   *
+   * Object representingn boolean operands search criteria.
+   *
+   * @return the parsedBoolExpression
+   */
+  public BooleanOperands getParsedBoolExpression() {
+<span class="fc" id="L224">    return parsedBoolExpression;</span>
+  }
+
+  /**
+   * Gets the conceptsExist.
+   *
+   * Whether ontolgoy artifacts were provided in search conditions.
+   *
+   * @return the conceptsExist
+   */
+  public Map&lt;String, Long&gt; getConceptsExist() {
+<span class="fc" id="L235">    return conceptsExist;</span>
+  }
+
+  /**
+   * Gets the cursorId.
+   *
+   * @return the cursorId
+   */
+  public String getCursorId() {
+<span class="fc" id="L244">    return cursorId;</span>
+  }
+
+  /**
+   * Gets the vocabs.
+   *
+   * @return the vocabs
+   */
+  public List&lt;String&gt; getVocabs() {
+<span class="fc" id="L253">    return vocabs;</span>
+  }
+
+  /**
+   * Gets the annotations.
+   *
+   * Annotations returned for the document.
+   *
+   * @return the annotations
+   */
+  public Map&lt;String, CommonDataModel&gt; getAnnotations() {
+<span class="fc" id="L264">    return annotations;</span>
+  }
+
+  /**
+   * Gets the metadata.
+   *
+   * @return the metadata
+   */
+  public MetadataFields getMetadata() {
+<span class="fc" id="L273">    return metadata;</span>
+  }
+
+  /**
+   * Gets the documents.
+   *
+   * Documents returned from search.
+   *
+   * @return the documents
+   */
+  public List&lt;RankedDocument&gt; getDocuments() {
+<span class="fc" id="L284">    return documents;</span>
+  }
+
+  /**
+   * Gets the subQueries.
+   *
+   * @return the subQueries
+   */
+  public List&lt;SearchModel&gt; getSubQueries() {
+<span class="nc" id="L293">    return subQueries;</span>
+  }
+}
+
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>

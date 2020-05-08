@@ -1,0 +1,367 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../jacoco-resources/report.gif" type="image/gif"/><title>TypeaheadOptions.java</title><link rel="stylesheet" href="../../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../../index.html" class="el_report">IBM Watson Health Cognitive Services Coverage Reports</a> &gt; <a href="../index.html" class="el_bundle">insights-for-medical-literature</a> &gt; <a href="index.source.html" class="el_package">com.ibm.watson.health.iml.v1.model</a> &gt; <span class="el_source">TypeaheadOptions.java</span></div><h1>TypeaheadOptions.java</h1><pre class="source lang-java linenums">/*
+ * (C) Copyright IBM Corp. 2020.
+ *
+ * Licensed under the Apache License, Version 2.0 (the &quot;License&quot;); you may not use this file except in compliance with
+ * the License. You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on
+ * an &quot;AS IS&quot; BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the
+ * specific language governing permissions and limitations under the License.
+ */
+package com.ibm.watson.health.iml.v1.model;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import com.ibm.cloud.sdk.core.service.model.GenericModel;
+
+/**
+ * The typeahead options.
+ */
+public class TypeaheadOptions extends GenericModel {
+
+  public interface Ontologies {
+    /** concepts. */
+    String CONCEPTS = &quot;concepts&quot;;
+    /** mesh. */
+    String MESH = &quot;mesh&quot;;
+  }
+
+  /**
+   * Select concepts belonging to disorders, drugs or genes.
+   */
+  public interface Category {
+    /** disorders. */
+    String DISORDERS = &quot;disorders&quot;;
+    /** drugs. */
+    String DRUGS = &quot;drugs&quot;;
+    /** genes. */
+    String GENES = &quot;genes&quot;;
+  }
+
+  protected String corpus;
+  protected String query;
+  protected List&lt;String&gt; ontologies;
+  protected List&lt;String&gt; types;
+  protected String category;
+  protected Boolean verbose;
+  protected Long limit;
+  protected Long maxHitCount;
+  protected Boolean noDuplicates;
+
+  /**
+   * Builder.
+   */
+  public static class Builder {
+    private String corpus;
+    private String query;
+    private List&lt;String&gt; ontologies;
+    private List&lt;String&gt; types;
+    private String category;
+    private Boolean verbose;
+    private Long limit;
+    private Long maxHitCount;
+    private Boolean noDuplicates;
+
+<span class="nc" id="L68">    private Builder(TypeaheadOptions typeaheadOptions) {</span>
+<span class="nc" id="L69">      this.corpus = typeaheadOptions.corpus;</span>
+<span class="nc" id="L70">      this.query = typeaheadOptions.query;</span>
+<span class="nc" id="L71">      this.ontologies = typeaheadOptions.ontologies;</span>
+<span class="nc" id="L72">      this.types = typeaheadOptions.types;</span>
+<span class="nc" id="L73">      this.category = typeaheadOptions.category;</span>
+<span class="nc" id="L74">      this.verbose = typeaheadOptions.verbose;</span>
+<span class="nc" id="L75">      this.limit = typeaheadOptions.limit;</span>
+<span class="nc" id="L76">      this.maxHitCount = typeaheadOptions.maxHitCount;</span>
+<span class="nc" id="L77">      this.noDuplicates = typeaheadOptions.noDuplicates;</span>
+<span class="nc" id="L78">    }</span>
+
+    /**
+     * Instantiates a new builder.
+     */
+<span class="fc" id="L83">    public Builder() {</span>
+<span class="fc" id="L84">    }</span>
+
+    /**
+     * Instantiates a new builder with required properties.
+     *
+     * @param corpus the corpus
+     * @param query the query
+     */
+<span class="nc" id="L92">    public Builder(String corpus, String query) {</span>
+<span class="nc" id="L93">      this.corpus = corpus;</span>
+<span class="nc" id="L94">      this.query = query;</span>
+<span class="nc" id="L95">    }</span>
+
+    /**
+     * Builds a TypeaheadOptions.
+     *
+     * @return the new TypeaheadOptions instance
+     */
+    public TypeaheadOptions build() {
+<span class="fc" id="L103">      return new TypeaheadOptions(this);</span>
+    }
+
+    /**
+     * Adds an ontologies to ontologies.
+     *
+     * @param ontologies the new ontologies
+     * @return the TypeaheadOptions builder
+     */
+    public Builder addOntologies(String ontologies) {
+<span class="nc" id="L113">      com.ibm.cloud.sdk.core.util.Validator.notNull(ontologies,</span>
+        &quot;ontologies cannot be null&quot;);
+<span class="nc bnc" id="L115" title="All 2 branches missed.">      if (this.ontologies == null) {</span>
+<span class="nc" id="L116">        this.ontologies = new ArrayList&lt;String&gt;();</span>
+      }
+<span class="nc" id="L118">      this.ontologies.add(ontologies);</span>
+<span class="nc" id="L119">      return this;</span>
+    }
+
+    /**
+     * Adds an types to types.
+     *
+     * @param types the new types
+     * @return the TypeaheadOptions builder
+     */
+    public Builder addTypes(String types) {
+<span class="nc" id="L129">      com.ibm.cloud.sdk.core.util.Validator.notNull(types,</span>
+        &quot;types cannot be null&quot;);
+<span class="nc bnc" id="L131" title="All 2 branches missed.">      if (this.types == null) {</span>
+<span class="nc" id="L132">        this.types = new ArrayList&lt;String&gt;();</span>
+      }
+<span class="nc" id="L134">      this.types.add(types);</span>
+<span class="nc" id="L135">      return this;</span>
+    }
+
+    /**
+     * Set the corpus.
+     *
+     * @param corpus the corpus
+     * @return the TypeaheadOptions builder
+     */
+    public Builder corpus(String corpus) {
+<span class="fc" id="L145">      this.corpus = corpus;</span>
+<span class="fc" id="L146">      return this;</span>
+    }
+
+    /**
+     * Set the query.
+     *
+     * @param query the query
+     * @return the TypeaheadOptions builder
+     */
+    public Builder query(String query) {
+<span class="fc" id="L156">      this.query = query;</span>
+<span class="fc" id="L157">      return this;</span>
+    }
+
+    /**
+     * Set the ontologies.
+     * Existing ontologies will be replaced.
+     *
+     * @param ontologies the ontologies
+     * @return the TypeaheadOptions builder
+     */
+    public Builder ontologies(List&lt;String&gt; ontologies) {
+<span class="fc" id="L168">      this.ontologies = ontologies;</span>
+<span class="fc" id="L169">      return this;</span>
+    }
+
+    /**
+     * Set the types.
+     * Existing types will be replaced.
+     *
+     * @param types the types
+     * @return the TypeaheadOptions builder
+     */
+    public Builder types(List&lt;String&gt; types) {
+<span class="fc" id="L180">      this.types = types;</span>
+<span class="fc" id="L181">      return this;</span>
+    }
+
+    /**
+     * Set the category.
+     *
+     * @param category the category
+     * @return the TypeaheadOptions builder
+     */
+    public Builder category(String category) {
+<span class="fc" id="L191">      this.category = category;</span>
+<span class="fc" id="L192">      return this;</span>
+    }
+
+    /**
+     * Set the verbose.
+     *
+     * @param verbose the verbose
+     * @return the TypeaheadOptions builder
+     */
+    public Builder verbose(Boolean verbose) {
+<span class="fc" id="L202">      this.verbose = verbose;</span>
+<span class="fc" id="L203">      return this;</span>
+    }
+
+    /**
+     * Set the limit.
+     *
+     * @param limit the limit
+     * @return the TypeaheadOptions builder
+     */
+    public Builder limit(long limit) {
+<span class="fc" id="L213">      this.limit = limit;</span>
+<span class="fc" id="L214">      return this;</span>
+    }
+
+    /**
+     * Set the maxHitCount.
+     *
+     * @param maxHitCount the maxHitCount
+     * @return the TypeaheadOptions builder
+     */
+    public Builder maxHitCount(long maxHitCount) {
+<span class="fc" id="L224">      this.maxHitCount = maxHitCount;</span>
+<span class="fc" id="L225">      return this;</span>
+    }
+
+    /**
+     * Set the noDuplicates.
+     *
+     * @param noDuplicates the noDuplicates
+     * @return the TypeaheadOptions builder
+     */
+    public Builder noDuplicates(Boolean noDuplicates) {
+<span class="fc" id="L235">      this.noDuplicates = noDuplicates;</span>
+<span class="fc" id="L236">      return this;</span>
+    }
+  }
+
+<span class="fc" id="L240">  protected TypeaheadOptions(Builder builder) {</span>
+<span class="fc" id="L241">    com.ibm.cloud.sdk.core.util.Validator.notEmpty(builder.corpus,</span>
+      &quot;corpus cannot be empty&quot;);
+<span class="fc" id="L243">    com.ibm.cloud.sdk.core.util.Validator.notNull(builder.query,</span>
+      &quot;query cannot be null&quot;);
+<span class="fc" id="L245">    corpus = builder.corpus;</span>
+<span class="fc" id="L246">    query = builder.query;</span>
+<span class="fc" id="L247">    ontologies = builder.ontologies;</span>
+<span class="fc" id="L248">    types = builder.types;</span>
+<span class="fc" id="L249">    category = builder.category;</span>
+<span class="fc" id="L250">    verbose = builder.verbose;</span>
+<span class="fc" id="L251">    limit = builder.limit;</span>
+<span class="fc" id="L252">    maxHitCount = builder.maxHitCount;</span>
+<span class="fc" id="L253">    noDuplicates = builder.noDuplicates;</span>
+<span class="fc" id="L254">  }</span>
+
+  /**
+   * New builder.
+   *
+   * @return a TypeaheadOptions builder
+   */
+  public Builder newBuilder() {
+<span class="nc" id="L262">    return new Builder(this);</span>
+  }
+
+  /**
+   * Gets the corpus.
+   *
+   * Comma-separated corpora names.
+   *
+   * @return the corpus
+   */
+  public String corpus() {
+<span class="fc" id="L273">    return corpus;</span>
+  }
+
+  /**
+   * Gets the query.
+   *
+   * Query string.
+   *
+   * @return the query
+   */
+  public String query() {
+<span class="fc" id="L284">    return query;</span>
+  }
+
+  /**
+   * Gets the ontologies.
+   *
+   * Include suggestions belonging to the selected ontology(ies).
+   *
+   * @return the ontologies
+   */
+  public List&lt;String&gt; ontologies() {
+<span class="fc" id="L295">    return ontologies;</span>
+  }
+
+  /**
+   * Gets the types.
+   *
+   * Include or exclude suggestions belonging to one of these types.  Types can be found using
+   * /v1/corpora/{corpus}/types method.  Defaults to all.
+   *
+   * @return the types
+   */
+  public List&lt;String&gt; types() {
+<span class="fc" id="L307">    return types;</span>
+  }
+
+  /**
+   * Gets the category.
+   *
+   * Select concepts belonging to disorders, drugs or genes.
+   *
+   * @return the category
+   */
+  public String category() {
+<span class="fc" id="L318">    return category;</span>
+  }
+
+  /**
+   * Gets the verbose.
+   *
+   * Verbose output.  Include hit counts and relationship counts for each concept.
+   *
+   * @return the verbose
+   */
+  public Boolean verbose() {
+<span class="fc" id="L329">    return verbose;</span>
+  }
+
+  /**
+   * Gets the limit.
+   *
+   * Maximum number of suggestions to return.
+   *
+   * @return the limit
+   */
+  public Long limit() {
+<span class="fc" id="L340">    return limit;</span>
+  }
+
+  /**
+   * Gets the maxHitCount.
+   *
+   * Maximum hit (document) count for suggested concepts. Default is 500000.  High hit count concepts tend to be very
+   * broad (e.g, Disease) and result in longer search times.
+   *
+   * @return the maxHitCount
+   */
+  public Long maxHitCount() {
+<span class="fc" id="L352">    return maxHitCount;</span>
+  }
+
+  /**
+   * Gets the noDuplicates.
+   *
+   * Remove duplicate concepts.
+   *
+   * @return the noDuplicates
+   */
+  public Boolean noDuplicates() {
+<span class="fc" id="L363">    return noDuplicates;</span>
+  }
+}
+
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>

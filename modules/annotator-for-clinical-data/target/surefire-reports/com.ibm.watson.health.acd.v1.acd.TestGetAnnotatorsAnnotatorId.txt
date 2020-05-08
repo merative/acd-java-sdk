@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: com.ibm.watson.health.acd.v1.acd.TestGetAnnotatorsAnnotatorId
+-------------------------------------------------------------------------------
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 5.129 sec
