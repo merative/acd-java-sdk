@@ -86,9 +86,4 @@ public class AnnotatorFlowTest {
 //    assertEquals(annotatorFlowModelNew.uid(), Long.valueOf("26"));
   }
 
-  @Test(expectedExceptions = IllegalArgumentException.class)
-  public void testAnnotatorFlowError() throws Throwable {
-    new AnnotatorFlow.Builder().build();
-  }
-
 }
