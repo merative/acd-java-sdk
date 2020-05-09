@@ -1,0 +1,544 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../jacoco-resources/report.gif" type="image/gif"/><title>AttributeValueAnnotation.java</title><link rel="stylesheet" href="../../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../../index.html" class="el_report">IBM Watson Health Cognitive Services Coverage Reports</a> &gt; <a href="../index.html" class="el_bundle">annotator-for-clinical-data</a> &gt; <a href="index.source.html" class="el_package">com.ibm.watson.health.acd.v1.model</a> &gt; <span class="el_source">AttributeValueAnnotation.java</span></div><h1>AttributeValueAnnotation.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2018 IBM Corp. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the &quot;License&quot;); you may not use this file except in compliance with
+ * the License. You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on
+ * an &quot;AS IS&quot; BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the
+ * specific language governing permissions and limitations under the License.
+ */
+package com.ibm.watson.health.acd.v1.model;
+
+import java.lang.reflect.Type;
+import java.util.List;
+import java.util.Map;
+
+import com.google.gson.reflect.TypeToken;
+import com.ibm.watson.developer_cloud.service.model.DynamicModel;
+import com.ibm.watson.developer_cloud.util.GsonSerializationHelper;
+import com.ibm.watson.health.acd.v1.util.CustomCollection;
+
+/**
+ * AttributeValueAnnotation.
+ */
+<span class="nc" id="L27">public class AttributeValueAnnotation extends DynamicModel {</span>
+
+<span class="nc" id="L29">  private Type idType = new TypeToken&lt;String&gt;() { } .getType();</span>
+<span class="nc" id="L30">  private Type typeType = new TypeToken&lt;String&gt;() { } .getType();</span>
+<span class="nc" id="L31">  private Type uidType = new TypeToken&lt;Long&gt;() { } .getType();</span>
+<span class="nc" id="L32">  private Type beginType = new TypeToken&lt;Long&gt;() { } .getType();</span>
+<span class="nc" id="L33">  private Type endType = new TypeToken&lt;Long&gt;() { } .getType();</span>
+<span class="nc" id="L34">  private Type coveredTextType = new TypeToken&lt;String&gt;() { } .getType();</span>
+<span class="nc" id="L35">  private Type negatedType = new TypeToken&lt;Boolean&gt;() { } .getType();</span>
+<span class="nc" id="L36">  private Type hypotheticalType = new TypeToken&lt;Boolean&gt;() { } .getType();</span>
+<span class="nc" id="L37">  private Type preferredNameType = new TypeToken&lt;String&gt;() { } .getType();</span>
+<span class="nc" id="L38">  private Type valuesType = new TypeToken&lt;List&lt;Map&gt;&gt;() { } .getType();</span>
+<span class="nc" id="L39">  private Type sourceType = new TypeToken&lt;String&gt;() { } .getType();</span>
+<span class="nc" id="L40">  private Type sourceVersionType = new TypeToken&lt;String&gt;() { } .getType();</span>
+<span class="nc" id="L41">  private Type conceptType = new TypeToken&lt;Concept&gt;() { } .getType();</span>
+<span class="nc" id="L42">  private Type nameType = new TypeToken&lt;String&gt;() { } .getType();</span>
+<span class="nc" id="L43">  private Type sectionNormalizedNameType = new TypeToken&lt;String&gt;() { } .getType();</span>
+<span class="nc" id="L44">  private Type sectionSurfaceFormType = new TypeToken&lt;String&gt;() { } .getType();</span>
+
+<span class="nc" id="L46">  private Type icd9CodeType = new TypeToken&lt;String&gt;() { } .getType();</span>
+<span class="nc" id="L47">  private Type icd10CodeType = new TypeToken&lt;String&gt;() { } .getType();</span>
+<span class="nc" id="L48">  private Type snomedConceptIdType = new TypeToken&lt;String&gt;() { } .getType();</span>
+<span class="nc" id="L49">  private Type nciCodeType = new TypeToken&lt;String&gt;() { } .getType();</span>
+<span class="nc" id="L50">  private Type meshIdType = new TypeToken&lt;String&gt;() { } .getType();</span>
+<span class="nc" id="L51">  private Type rxNormIdType = new TypeToken&lt;String&gt;() { } .getType();</span>
+<span class="nc" id="L52">  private Type loincIdType = new TypeToken&lt;String&gt;() { } .getType();</span>
+<span class="nc" id="L53">  private Type vocabsType = new TypeToken&lt;String&gt;() { } .getType();</span>
+<span class="nc" id="L54">  private Type cptCodeType = new TypeToken&lt;String&gt;() { } .getType();</span>
+<span class="nc" id="L55">  private Type disambiguationDataType = new TypeToken&lt;Disambiguation&gt;() { } .getType();</span>
+
+
+  /**
+   * Gets the id.
+   *
+   * @return the id
+   */
+  public String getId() {
+<span class="nc" id="L64">    return GsonSerializationHelper.serializeDynamicModelProperty(this.get(&quot;id&quot;), idType);</span>
+  }
+
+  /**
+   * Gets the type.
+   *
+   * @return the type
+   */
+  public String getType() {
+<span class="nc" id="L73">    return GsonSerializationHelper.serializeDynamicModelProperty(this.get(&quot;type&quot;), typeType);</span>
+  }
+
+  /**
+   * Gets the uid.
+   *
+   * @return the uid
+   */
+  public Long getUid() {
+<span class="nc" id="L82">    return GsonSerializationHelper.serializeDynamicModelProperty(this.get(&quot;uid&quot;), uidType);</span>
+  }
+
+  /**
+   * Gets the begin.
+   *
+   * @return the begin
+   */
+  public Long getBegin() {
+<span class="nc" id="L91">    return GsonSerializationHelper.serializeDynamicModelProperty(this.get(&quot;begin&quot;), beginType);</span>
+  }
+
+  /**
+   * Gets the end.
+   *
+   * @return the end
+   */
+  public Long getEnd() {
+<span class="nc" id="L100">    return GsonSerializationHelper.serializeDynamicModelProperty(this.get(&quot;end&quot;), endType);</span>
+  }
+
+  /**
+   * Gets the coveredText.
+   *
+   * @return the coveredText
+   */
+  public String getCoveredText() {
+<span class="nc" id="L109">    return GsonSerializationHelper.serializeDynamicModelProperty(this.get(&quot;coveredText&quot;), coveredTextType);</span>
+  }
+
+  /**
+   * Gets the negated.
+   *
+   * @return the negated
+   */
+    public Boolean isNegated() {
+<span class="nc" id="L118">      Boolean negated = GsonSerializationHelper.serializeDynamicModelProperty(this.get(&quot;negated&quot;), negatedType);</span>
+<span class="nc bnc" id="L119" title="All 2 branches missed.">      if (negated == null) {</span>
+<span class="nc" id="L120">        negated = false;</span>
+      }
+<span class="nc" id="L122">      return negated;</span>
+    }
+
+    /**
+     * Gets the hypothetical.
+     *
+     * @return the hypothetical
+     */
+    public Boolean isHypothetical() {
+<span class="nc" id="L131">      Boolean hypothetical = GsonSerializationHelper.serializeDynamicModelProperty(this.get(&quot;hypothetical&quot;), hypotheticalType);</span>
+<span class="nc bnc" id="L132" title="All 2 branches missed.">      if (hypothetical == null) {</span>
+<span class="nc" id="L133">        hypothetical = false;</span>
+      }
+<span class="nc" id="L135">      return hypothetical;</span>
+    }
+
+  /**
+   * Gets the preferredName.
+   *
+   * @return the preferredName
+   */
+  public String getPreferredName() {
+<span class="nc" id="L144">    return GsonSerializationHelper.serializeDynamicModelProperty(this.get(&quot;preferredName&quot;), preferredNameType);</span>
+  }
+
+  /**
+   * Gets the values.
+   *
+   * @return the values
+   */
+  public List&lt;CustomCollection&gt; getValues() {
+<span class="nc" id="L153">    List&lt;Object&gt; listObjects = GsonSerializationHelper.serializeDynamicModelProperty(this.get(&quot;values&quot;), valuesType);</span>
+<span class="nc" id="L154">    CustomCollection customCollection = new CustomCollection();</span>
+<span class="nc" id="L155">    List&lt;CustomCollection&gt; listValues = customCollection.convertToCustomCollectionList(listObjects);</span>
+<span class="nc" id="L156">    return listValues;</span>
+  }
+
+  /**
+   * Gets the source.
+   *
+   * @return the source
+   */
+  public String getSource() {
+<span class="nc" id="L165">    return GsonSerializationHelper.serializeDynamicModelProperty(this.get(&quot;source&quot;), sourceType);</span>
+  }
+
+  /**
+   * Gets the sourceVersion.
+   *
+   * @return the sourceVersion
+   */
+  public String getSourceVersion() {
+<span class="nc" id="L174">    return GsonSerializationHelper.serializeDynamicModelProperty(this.get(&quot;sourceVersion&quot;), sourceVersionType);</span>
+  }
+
+  /**
+   * Gets the concept.
+   *
+   * @return the concept
+   */
+  public Concept getConcept() {
+<span class="nc" id="L183">      return GsonSerializationHelper.serializeDynamicModelProperty(this.get(&quot;concept&quot;), conceptType);</span>
+    }
+
+  /**
+   * Gets the name.
+   *
+   * @return the name
+   */
+  public String getName() {
+<span class="nc" id="L192">    return GsonSerializationHelper.serializeDynamicModelProperty(this.get(&quot;name&quot;), nameType);</span>
+  }
+
+  /**
+   * Gets the sectionNormalizedName.
+   *
+   * @return the sectionNormalizedName
+   */
+  public String getSectionNormalizedName() {
+<span class="nc" id="L201">    return GsonSerializationHelper.serializeDynamicModelProperty(this.get(&quot;sectionNormalizedName&quot;), sectionNormalizedNameType);</span>
+  }
+
+  /**
+   * Gets the sectionSurfaceForm.
+   *
+   * @return the sectionSurfaceForm
+   */
+  public String getSectionSurfaceForm() {
+<span class="nc" id="L210">    return GsonSerializationHelper.serializeDynamicModelProperty(this.get(&quot;sectionSurfaceForm&quot;), sectionSurfaceFormType);</span>
+  }
+
+  /**
+   * Get icd9 code or null.
+   * @return the icd9 code
+   */
+  public String getIcd9Code() {
+<span class="nc" id="L218">    return GsonSerializationHelper.serializeDynamicModelProperty(this.get(&quot;icd9Code&quot;), icd9CodeType);</span>
+  }
+
+  /**
+   * Get icd10 code or null.
+   * @return t he icd10 code
+   */
+  public String getIcd10Code() {
+<span class="nc" id="L226">    return GsonSerializationHelper.serializeDynamicModelProperty(this.get(&quot;icd10Code&quot;), icd10CodeType);</span>
+  }
+
+  /**
+   * Get snomed code or null.
+   * @return the snomed identifier
+   */
+  public String getSnomedConceptId() {
+<span class="nc" id="L234">    return GsonSerializationHelper.serializeDynamicModelProperty(this.get(&quot;snomedConceptId&quot;), snomedConceptIdType);</span>
+  }
+
+  /**
+   * Get snomed nci code or null.
+   * @return the nci code
+   */
+  public String getNciCode() {
+<span class="nc" id="L242">    return GsonSerializationHelper.serializeDynamicModelProperty(this.get(&quot;nciCode&quot;), nciCodeType);</span>
+  }
+
+  /**
+   * Get Medical Subject Heading id or null.
+   * @return
+   */
+  public String getMeshId() {
+<span class="nc" id="L250">    return GsonSerializationHelper.serializeDynamicModelProperty(this.get(&quot;meshId&quot;), meshIdType);</span>
+  }
+
+  /**
+   * Get Rx norm id or null.
+   * @return
+   */
+  public String getRxNormId() {
+<span class="nc" id="L258">    return GsonSerializationHelper.serializeDynamicModelProperty(this.get(&quot;rxNormId&quot;), rxNormIdType);</span>
+  }
+
+  /**
+   * Get Loinc id or null.
+   * @return the loinc identifier
+   */
+  public String getLoincId() {
+<span class="nc" id="L266">    return GsonSerializationHelper.serializeDynamicModelProperty(this.get(&quot;loincId&quot;), loincIdType);</span>
+  }
+
+  /**
+   * Get vocabularies or null.
+   * @return artifact vocabs
+   */
+  public String getVocabs() {
+<span class="nc" id="L274">    return GsonSerializationHelper.serializeDynamicModelProperty(this.get(&quot;vocabs&quot;), vocabsType);</span>
+  }
+
+  /**
+   * Gets the getCptCode.
+   * @return the getCptCode
+   */
+  public String getCptCode() {
+<span class="nc" id="L282">    return GsonSerializationHelper.serializeDynamicModelProperty(this.get(&quot;cptCode&quot;), cptCodeType);</span>
+  }
+
+  /**
+   * Gets the getdisambiguationData.
+   * @return the getDisambiguationData
+   */
+  public Disambiguation getDisambiguationData() {
+<span class="nc" id="L290">    return GsonSerializationHelper.serializeDynamicModelProperty(this.get(&quot;disambiguationData&quot;), disambiguationDataType);</span>
+  }
+
+  /**
+   * Sets the id.
+   *
+   * @param id the new id
+   */
+  public void setId(final String id) {
+<span class="nc" id="L299">    this.put(&quot;id&quot;, id);</span>
+<span class="nc" id="L300">  }</span>
+
+  /**
+   * Sets the type.
+   *
+   * @param type the new type
+   */
+  public void setType(final String type) {
+<span class="nc" id="L308">    this.put(&quot;type&quot;, type);</span>
+<span class="nc" id="L309">  }</span>
+
+  /**
+   * Sets the uid.
+   *
+   * @param uid the new uid
+   */
+  public void setUid(final Long uid) {
+<span class="nc" id="L317">    this.put(&quot;uid&quot;, uid);</span>
+<span class="nc" id="L318">  }</span>
+
+  /**
+   * Sets the begin.
+   *
+   * @param begin the new begin
+   */
+  public void setBegin(final Long begin) {
+<span class="nc" id="L326">    this.put(&quot;begin&quot;, begin);</span>
+<span class="nc" id="L327">  }</span>
+
+  /**
+   * Sets the end.
+   *
+   * @param end the new end
+   */
+  public void setEnd(final Long end) {
+<span class="nc" id="L335">    this.put(&quot;end&quot;, end);</span>
+<span class="nc" id="L336">  }</span>
+
+  /**
+   * Sets the coveredText.
+   *
+   * @param coveredText the new coveredText
+   */
+  public void setCoveredText(final String coveredText) {
+<span class="nc" id="L344">    this.put(&quot;coveredText&quot;, coveredText);</span>
+<span class="nc" id="L345">  }</span>
+
+  /**
+   * Sets the negated.
+   *
+   * @param negated the new negated
+   */
+  public void setNegated(final Boolean negated) {
+<span class="nc" id="L353">    this.put(&quot;negated&quot;, negated);</span>
+<span class="nc" id="L354">  }</span>
+
+  /**
+   * Sets the hypothetical.
+   *
+   * @param hypothetical the new hypothetical
+   */
+  public void setHypothetical(final Boolean hypothetical) {
+<span class="nc" id="L362">    this.put(&quot;hypothetical&quot;, hypothetical);</span>
+<span class="nc" id="L363">  }</span>
+
+  /**
+   * Sets the preferredName.
+   *
+   * @param preferredName the new preferredName
+   */
+  public void setPreferredName(final String preferredName) {
+<span class="nc" id="L371">    this.put(&quot;preferredName&quot;, preferredName);</span>
+<span class="nc" id="L372">  }</span>
+
+  /**
+   * Sets the values.
+   *
+   * @param values the new values
+   */
+  public void setValues(final List&lt;Map&gt; values) {
+<span class="nc" id="L380">    this.put(&quot;values&quot;, values);</span>
+<span class="nc" id="L381">  }</span>
+
+  /**
+   * Sets the source.
+   *
+   * @param source the new source
+   */
+  public void setSource(final String source) {
+<span class="nc" id="L389">    this.put(&quot;source&quot;, source);</span>
+<span class="nc" id="L390">  }</span>
+
+  /**
+   * Sets the sourceVersion.
+   *
+   * @param sourceVersion the new sourceVersion
+   */
+  public void setSourceVersion(final String sourceVersion) {
+<span class="nc" id="L398">    this.put(&quot;sourceVersion&quot;, sourceVersion);</span>
+<span class="nc" id="L399">  }</span>
+
+  /**
+   * Sets the concept.
+   *
+   * @param concept the new concept
+   */
+  public void setConcept(final Concept concept) {
+<span class="nc" id="L407">      this.put(&quot;concept&quot;, concept);</span>
+<span class="nc" id="L408">    }</span>
+
+  /**
+   * Sets the name.
+   *
+   * @param name the new name
+   */
+  public void setName(final String name) {
+<span class="nc" id="L416">    this.put(&quot;name&quot;, name);</span>
+<span class="nc" id="L417">  }</span>
+
+
+  /*
+   *
+   * Manually Added code
+   *
+   * */
+  public CustomCollection getValues(int index) {
+<span class="nc" id="L426">    List&lt;Object&gt; listObjects = GsonSerializationHelper.serializeDynamicModelProperty(this.get(&quot;values&quot;), valuesType);</span>
+<span class="nc" id="L427">    CustomCollection customCollection = new CustomCollection();</span>
+<span class="nc" id="L428">    CustomCollection values = customCollection.convertToCustomCollection(listObjects.get(index));</span>
+<span class="nc" id="L429">    return values;</span>
+  }
+
+
+  /**
+   * Sets the sectionSurfaceForm.
+   *
+   * @param sectionSurfaceForm the new sectionSurfaceForm
+   */
+  public void setSectionSurfaceForm(final String sectionSurfaceForm) {
+<span class="nc" id="L439">    this.put(&quot;sectionSurfaceForm&quot;, sectionSurfaceForm);</span>
+<span class="nc" id="L440">  }</span>
+
+
+  /**
+   * Sets the sectionNormalizedName.
+   *
+   * @param sectionNormalizedName the new sectionNormalizedName
+   */
+  public void setSectionNormalizedName(final String sectionNormalizedName) {
+<span class="nc" id="L449">    this.put(&quot;sectionNormalizedName&quot;, sectionNormalizedName);</span>
+<span class="nc" id="L450">  }</span>
+
+
+  /**
+   * Sets the icd 9 code.
+   *
+   * @param icd9Code the new icd 9 Code
+   */
+  public void setIcd9Code(final String icd9Code) {
+<span class="nc" id="L459">  this.put(&quot;icd9Code&quot;, icd9Code);</span>
+<span class="nc" id="L460">  }</span>
+
+  /**
+   * Sets the icd 10 code.
+   *
+   * @param icd10Code the new icd 10 code
+   */
+  public void setIcd10Code(final String icd10Code) {
+<span class="nc" id="L468">    this.put(&quot;icd10Code&quot;, icd10Code);</span>
+<span class="nc" id="L469">  }</span>
+
+  /**
+   * Sets the snomed concept id.
+   *
+   * @param snomedConceptId the new snomed concept id
+   */
+  public void setSnomedConceptId(final String snomedConceptId) {
+<span class="nc" id="L477">    this.put(&quot;snomedConceptId&quot;, snomedConceptId);</span>
+<span class="nc" id="L478">  }</span>
+
+  /**
+   * Sets the nci code.
+   *
+   * @param nciCode the new nci code
+   */
+  public void setNciCode(final String nciCode) {
+<span class="nc" id="L486">    this.put(&quot;nciCode&quot;, nciCode);</span>
+<span class="nc" id="L487">  }</span>
+
+  /**
+   * Sets the mesh id.
+   *
+   * @param meshId the new mesh id
+   */
+  public void setMeshId(final String meshId) {
+<span class="nc" id="L495">    this.put(&quot;meshId&quot;, meshId);</span>
+<span class="nc" id="L496">  }</span>
+
+  /**
+   * Sets the rx norm id.
+   *
+   * @param rxNormId the new rx norm id
+   */
+  public void setRxNormId(final String rxNormId) {
+<span class="nc" id="L504">    this.put(&quot;rxNormId&quot;, rxNormId);</span>
+<span class="nc" id="L505">  }</span>
+
+  /**
+   * Sets the loinc id.
+   *
+   * @param loincId the new loinc id
+   */
+  public void setLoincId(final String loincId) {
+<span class="nc" id="L513">    this.put(&quot;loincId&quot;, loincId);</span>
+<span class="nc" id="L514">  }</span>
+
+  /**
+   * Sets the vocabs.
+   *
+   * @param vocabs the new vocabs id
+   */
+  public void setVocabs(final String vocabs) {
+<span class="nc" id="L522">    this.put(&quot;vocabs&quot;, vocabs);</span>
+<span class="nc" id="L523">  }</span>
+
+  /**
+   * Sets the cpt code.
+   *
+   * @param cptCode the new cpt code
+   */
+  public void setCptCode(final String cptCode) {
+<span class="nc" id="L531">    this.put(&quot;cptCode&quot;, cptCode);</span>
+<span class="nc" id="L532">  }</span>
+
+  /**
+   * Sets the disambiguation data.
+   *
+   * @param disambiguationData the new disambiguation data
+   */
+  public void setDisambiguationData(final Disambiguation disambiguationData) {
+<span class="nc" id="L540">      this.put(&quot;disambiguationData&quot;, disambiguationData);</span>
+<span class="nc" id="L541">  }</span>
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>

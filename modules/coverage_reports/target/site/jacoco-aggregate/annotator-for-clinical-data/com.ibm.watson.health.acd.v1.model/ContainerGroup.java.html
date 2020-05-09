@@ -1,0 +1,919 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../jacoco-resources/report.gif" type="image/gif"/><title>ContainerGroup.java</title><link rel="stylesheet" href="../../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../../index.html" class="el_report">IBM Watson Health Cognitive Services Coverage Reports</a> &gt; <a href="../index.html" class="el_bundle">annotator-for-clinical-data</a> &gt; <a href="index.source.html" class="el_package">com.ibm.watson.health.acd.v1.model</a> &gt; <span class="el_source">ContainerGroup.java</span></div><h1>ContainerGroup.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2018 IBM Corp. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the &quot;License&quot;); you may not use this file except in compliance with
+ * the License. You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on
+ * an &quot;AS IS&quot; BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the
+ * specific language governing permissions and limitations under the License.
+ */
+package com.ibm.watson.health.acd.v1.model;
+
+import java.util.List;
+
+import com.ibm.watson.developer_cloud.service.model.GenericModel;
+import com.ibm.watson.developer_cloud.util.Validator;
+
+/**
+ * ContainerGroup.
+ */
+<span class="nc" id="L23">public class ContainerGroup extends GenericModel {</span>
+
+  private List&lt;UnstructuredContainer&gt; unstructured;
+  private List&lt;AnnotatorFlow&gt; annotatorFlows;
+
+  /**
+   * Gets the unstructured.
+   *
+   * @return the unstructured
+   */
+  public List&lt;UnstructuredContainer&gt; getUnstructured() {
+<span class="nc" id="L34">    return unstructured;</span>
+  }
+
+  /**
+   * Gets the annotatorFlows.
+   *
+   * @return the annotatorFlows
+   */
+  public List&lt;AnnotatorFlow&gt; getAnnotatorFlows() {
+<span class="nc" id="L43">    return annotatorFlows;</span>
+  }
+
+  /**
+   * Sets the unstructured.
+   *
+   * @param unstructured
+   *            the new unstructured
+   */
+  public void setUnstructured(final List&lt;UnstructuredContainer&gt; unstructured) {
+<span class="nc" id="L53">    this.unstructured = unstructured;</span>
+<span class="nc" id="L54">  }</span>
+
+  /**
+   * Sets the annotatorFlows.
+   *
+   * @param annotatorFlows
+   *            the new annotatorFlows
+   */
+  public void setAnnotatorFlows(final List&lt;AnnotatorFlow&gt; annotatorFlows) {
+<span class="nc" id="L63">    this.annotatorFlows = annotatorFlows;</span>
+<span class="nc" id="L64">  }</span>
+
+  /*
+   *
+   * Manually added code
+   *
+   */
+
+  public UnstructuredContainer getUnstructured(int index) {
+<span class="nc" id="L73">    Validator.notNull(this.getUnstructured(), &quot;Unstructured List is Null&quot;);</span>
+<span class="nc" id="L74">    UnstructuredContainer unstructuredContainer = this.getUnstructured().get(index);</span>
+
+<span class="nc" id="L76">    return unstructuredContainer;</span>
+  }
+
+  /*
+   * Manually added method
+   */
+
+  public List&lt;Concept&gt; getConcepts() {
+<span class="nc" id="L84">    validateUnstructuredElementData(&quot;Concepts&quot;);</span>
+<span class="nc" id="L85">    return this.getUnstructured().get(0).data().getConcepts();</span>
+  }
+
+  /*
+   * Manually added method
+   */
+
+  /**
+   * Gets the symptomDiseaseInd.
+   *
+   * @return the symptomDiseaseInd
+   */
+
+  public List&lt;SymptomDisease&gt; getSymptomDisease() {
+<span class="nc" id="L99">    validateUnstructuredElementData(&quot;SymptomDisease&quot;);</span>
+<span class="nc" id="L100">    return this.getUnstructured().get(0).data().getSymptomDiseaseInd();</span>
+  }
+
+  /*
+   * Manually added method
+   */
+
+  /**
+   * Gets the bathingAssistanceInd.
+   *
+   * @return the bathingAssistanceInd
+   */
+  public List&lt;AssistanceAnnotation&gt; getBathingAssistance() {
+<span class="nc" id="L113">    validateUnstructuredElementData(&quot;BathingAssistance&quot;);</span>
+<span class="nc" id="L114">    return this.getUnstructured().get(0).data().getBathingAssistanceInd();</span>
+  }
+
+  /*
+   * Manually added method
+   */
+
+  /**
+   * Gets the dressingAssistanceInd.
+   *
+   * @return the dressingAssistanceInd
+   */
+  public List&lt;AssistanceAnnotation&gt; getDressingAssistance() {
+<span class="nc" id="L127">    validateUnstructuredElementData(&quot;DressingAssistance&quot;);</span>
+<span class="nc" id="L128">    return this.getUnstructured().get(0).data().getDressingAssistanceInd();</span>
+  }
+
+  /*
+   * Manually added method
+   */
+
+  /**
+   * Gets the eatingAssistanceInd.
+   *
+   * @return the eatingAssistanceInd
+   */
+  public List&lt;AssistanceAnnotation&gt; getEatingAssistance() {
+<span class="nc" id="L141">    validateUnstructuredElementData(&quot;EatingAssistance&quot;);</span>
+<span class="nc" id="L142">    return this.getUnstructured().get(0).data().getEatingAssistanceInd();</span>
+  }
+
+  /*
+   * Manually added method
+   */
+
+  /**
+   * Gets the walkingAssistanceInd.
+   *
+   * @return the walkingAssistanceInd
+   */
+  public List&lt;AssistanceAnnotation&gt; getWalkingAssistance() {
+<span class="nc" id="L155">    validateUnstructuredElementData(&quot;WalkingAssistance&quot;);</span>
+<span class="nc" id="L156">    return this.getUnstructured().get(0).data().getWalkingAssistanceInd();</span>
+  }
+
+  /*
+   * Manually added method
+   */
+
+  /**
+   * Gets the toiletingAssistanceInd.
+   *
+   * @return the toiletingAssistanceInd
+   */
+  public List&lt;AssistanceAnnotation&gt; getToiletingAssistance() {
+<span class="nc" id="L169">    validateUnstructuredElementData(&quot;ToiletingAssistance&quot;);</span>
+<span class="nc" id="L170">    return this.getUnstructured().get(0).data().getToiletingAssistanceInd();</span>
+  }
+
+  /*
+   * Manually added method
+   */
+
+  /**
+   * Gets the icaCancerDiagnosisInd.
+   *
+   * @return the icaCancerDiagnosisInd
+   */
+  public List&lt;CancerDiagnosis&gt; getCancerDiagnosis() {
+<span class="nc" id="L183">    validateUnstructuredElementData(&quot;CancerDiagnosis&quot;);</span>
+<span class="nc" id="L184">    return this.getUnstructured().get(0).data().getIcaCancerDiagnosisInd();</span>
+  }
+
+  /*
+   * Manually added method
+   */
+
+  /**
+   * Gets the hypotheticalSpans.
+   *
+   * @return the hypotheticalSpans
+   */
+  public List&lt;Annotation&gt; getHypotheticalSpans() {
+<span class="nc" id="L197">    validateUnstructuredElementData(&quot;HypotheticalSpans&quot;);</span>
+<span class="nc" id="L198">    return this.getUnstructured().get(0).data().getHypotheticalSpans();</span>
+  }
+
+  /*
+   * Manually added method
+   */
+
+  /**
+   * Gets the allergyInd.
+   *
+   * @return the allergyInd
+   */
+  public List&lt;Annotation&gt; getAllergy() {
+<span class="nc" id="L211">    validateUnstructuredElementData(&quot;Allergy&quot;);</span>
+<span class="nc" id="L212">    return this.getUnstructured().get(0).data().getAllergyInd();</span>
+  }
+
+  /*
+   * Manually added method
+   */
+
+  /**
+   * Gets the negatedSpans.
+   *
+   * @return the negatedSpans
+   */
+  public List&lt;NegatedSpan&gt; getNegatedSpans() {
+<span class="nc" id="L225">    validateUnstructuredElementData(&quot;NegatedSpans&quot;);</span>
+<span class="nc" id="L226">    return this.getUnstructured().get(0).data().getNegatedSpans();</span>
+  }
+
+  /*
+   * Manually added method
+   */
+
+  /**
+   * Gets the conceptValues.
+   *
+   * @return the conceptValues
+   */
+  public List&lt;ConceptValue&gt; getConceptValues() {
+<span class="nc" id="L239">    validateUnstructuredElementData(&quot;ConceptValues&quot;);</span>
+<span class="nc" id="L240">    return this.getUnstructured().get(0).data().getConceptValues();</span>
+  }
+
+  /*
+   * Manually added method
+   */
+
+  /**
+   * Gets the procedureInd.
+   *
+   * @return the procedureInd
+   */
+  public List&lt;Procedure&gt; getProcedure() {
+<span class="nc" id="L253">    validateUnstructuredElementData(&quot;Procedure&quot;);</span>
+<span class="nc" id="L254">    return this.getUnstructured().get(0).data().getProcedureInd();</span>
+  }
+
+  /*
+   * Manually added method
+   */
+
+  /**
+   * Gets the smokingInd.
+   *
+   * @return the smokingInd
+   */
+  public List&lt;Smoking&gt; getSmoking() {
+<span class="nc" id="L267">    validateUnstructuredElementData(&quot;Smoking&quot;);</span>
+<span class="nc" id="L268">    return this.getUnstructured().get(0).data().getSmokingInd();</span>
+  }
+
+  /*
+   * Manually added method
+   */
+
+  /**
+   * Gets the organizationInd.
+   *
+   * @return the organizationInd
+   */
+  public List&lt;Annotation&gt; getOrganization() {
+<span class="nc" id="L281">    validateUnstructuredElementData(&quot;Organization&quot;);</span>
+<span class="nc" id="L282">    return this.getUnstructured().get(0).data().getOrganizationInd();</span>
+  }
+
+  /*
+   * Manually added method
+   */
+
+  /**
+   * Gets the personInd.
+   *
+   * @return the personInd
+   */
+  public List&lt;Annotation&gt; getPerson() {
+<span class="nc" id="L295">    validateUnstructuredElementData(&quot;Person&quot;);</span>
+<span class="nc" id="L296">    return this.getUnstructured().get(0).data().getPersonInd();</span>
+  }
+
+  /*
+   * Manually added method
+   */
+
+  /**
+   * Gets the medicalInstitutionInd.
+   *
+   * @return the medicalInstitutionInd
+   */
+  public List&lt;Annotation&gt; getMedicalInstitution() {
+<span class="nc" id="L309">    validateUnstructuredElementData(&quot;MedicalInstitution&quot;);</span>
+<span class="nc" id="L310">    return this.getUnstructured().get(0).data().getMedicalInstitutionInd();</span>
+
+  }
+
+  /*
+   * Manually added method
+   */
+
+  /**
+   * Gets the attributeValues.
+   *
+   * @return the attributeValues
+   */
+  public List&lt;AttributeValueAnnotation&gt; getAttributeValues() {
+<span class="nc" id="L324">    validateUnstructuredElementData(&quot;AttributeValues&quot;);</span>
+<span class="nc" id="L325">    return this.getUnstructured().get(0).data().getAttributeValues();</span>
+  }
+
+  /*
+   * Manually added method
+   */
+
+  /**
+   * Gets the ejectionFractionInd.
+   *
+   * @return the ejectionFractionInd
+   */
+  public List&lt;EjectionFractionAnnotation&gt; getEjectionFractionInd() {
+<span class="nc" id="L338">    validateUnstructuredElementData(&quot;EjectionFractionInd&quot;);</span>
+<span class="nc" id="L339">    return this.getUnstructured().get(0).data().getEjectionFractionInd();</span>
+  }
+
+  /*
+   * Manually added method
+   */
+
+  /**
+   * Gets the labValueInd.
+   *
+   * @return the labValueInd
+   */
+  public List&lt;LabValueAnnotation&gt; getLabValueInd() {
+<span class="nc" id="L352">    validateUnstructuredElementData(&quot;LabValueInd&quot;);</span>
+<span class="nc" id="L353">    return this.getUnstructured().get(0).data().getLabValueInd();</span>
+  }
+
+  /*
+   * Manually added method
+   */
+
+  /**
+   * Gets the medicationInd.
+   *
+   * @return the medicationInd
+   */
+  public List&lt;MedicationAnnotation&gt; getMedicationInd() {
+<span class="nc" id="L366">    validateUnstructuredElementData(&quot;MedicationInd&quot;);</span>
+<span class="nc" id="L367">    return this.getUnstructured().get(0).data().getMedicationInd();</span>
+  }
+
+  /*
+   * Manually added method
+   */
+
+  /**
+   * Gets the emailAddressInd.
+   *
+   * @return the emailAddressInd
+   */
+  public List&lt;Annotation&gt; getEmailAddressInd() {
+<span class="nc" id="L380">    validateUnstructuredElementData(&quot;EmailAddressInd&quot;);</span>
+<span class="nc" id="L381">    return this.getUnstructured().get(0).data().getEmailAddressInd();</span>
+  }
+
+  /*
+   * Manually added method
+   */
+
+  /**
+   * Gets the locationInd.
+   *
+   * @return the locationInd
+   */
+  public List&lt;Annotation&gt; getLocationInd() {
+<span class="nc" id="L394">    validateUnstructuredElementData(&quot;LocationInd&quot;);</span>
+<span class="nc" id="L395">    return this.getUnstructured().get(0).data().getLocationInd();</span>
+  }
+
+  /*
+   * Manually added method
+   */
+
+  /**
+   * Gets the uSPhoneNumberInd.
+   *
+   * @return the uSPhoneNumberInd
+   */
+  public List&lt;Annotation&gt; getUSPhoneNumberInd() {
+<span class="nc" id="L408">    validateUnstructuredElementData(&quot;USPhoneNumberInd&quot;);</span>
+<span class="nc" id="L409">    return this.getUnstructured().get(0).data().getUSPhoneNumberInd();</span>
+  }
+
+  /*
+   * Manually added method
+   */
+
+  /**
+   * Gets the seeingAssistanceInd.
+   *
+   * @return the seeingAssistanceInd
+   */
+  public List&lt;AssistanceAnnotation&gt; getSeeingAssistanceInd() {
+<span class="nc" id="L422">    validateUnstructuredElementData(&quot;SeeingAssistanceInd&quot;);</span>
+<span class="nc" id="L423">    return this.getUnstructured().get(0).data().getSeeingAssistanceInd();</span>
+  }
+
+  /*
+   * Manually added method
+   */
+
+  /**
+   * Gets the SectionAnnotations.
+   *
+   * @return the SectionAnnotations
+   */
+  public List&lt;SectionAnnotation&gt; getSectionAnnotations() {
+<span class="nc" id="L436">    validateUnstructuredElementData(&quot;SectionAnnotations&quot;);</span>
+<span class="nc" id="L437">    return this.getUnstructured().get(0).data().getSectionAnnotations();</span>
+  }
+
+
+  /*
+   * Manually added method
+   */
+
+  /**
+   * Gets the NluEntities.
+   *
+   * @return the NluEntities
+   */
+  public List&lt;NluEntity&gt; getNluEntities() {
+<span class="nc" id="L451">    validateUnstructuredElementData(&quot;nluEntities&quot;);</span>
+<span class="nc" id="L452">    return this.getUnstructured().get(0).data().getNluEntities();</span>
+  }
+
+  /*
+   * Manually added method
+   */
+
+  /**
+   * Gets the Relations.
+   *
+   * @return the Relations
+   */
+  public List&lt;Relation&gt; getRelations() {
+<span class="nc" id="L465">    validateUnstructuredElementData(&quot;relations&quot;);</span>
+<span class="nc" id="L466">    return this.getUnstructured().get(0).data().getRelations();</span>
+  }
+
+  /**
+   * Gets all of the SpellCorrectedText objects in the container.
+   *
+   * @return the SpellCorrectedText objects
+   */
+  public List&lt;SpellCorrectedText&gt; getSpellCorrectedText() {
+<span class="nc" id="L475">    validateUnstructuredElementData(&quot;spellCorrrectedText&quot;);</span>
+<span class="nc" id="L476">    return this.getUnstructured().get(0).data().getSpellCorrectedText();</span>
+  }
+
+  /**
+   * Gets all of the SpellingCorrections in the container.
+   *
+   * @return the SpellingCorrections objects
+   */
+  public List&lt;SpellingCorrection&gt; getSpellingCorrections() {
+<span class="nc" id="L485">    validateUnstructuredElementData(&quot;spellingCorrections&quot;);</span>
+<span class="nc" id="L486">    return this.getUnstructured().get(0).data().getSpellingCorrections();</span>
+  }
+
+
+  /*
+   * Manually added method
+   */
+
+  public Concept getConcepts(int index) {
+<span class="nc" id="L495">    validateUnstructuredElementData(&quot;Concepts&quot;);</span>
+<span class="nc" id="L496">    return this.getUnstructured().get(0).data().getConcepts().get(index);</span>
+  }
+
+  /*
+   * Manually added method
+   */
+
+  /**
+   * Gets the symptomDiseaseInd.
+   *
+   * @return the symptomDiseaseInd
+   */
+
+  public SymptomDisease getSymptomDisease(int index) {
+<span class="nc" id="L510">    validateUnstructuredElementData(&quot;SymptomDisease&quot;);</span>
+<span class="nc" id="L511">    return this.getUnstructured().get(0).data().getSymptomDiseaseInd().get(index);</span>
+  }
+
+  /*
+   * Manually added method
+   */
+
+  /**
+   * Gets the bathingAssistanceInd.
+   *
+   * @return the bathingAssistanceInd
+   */
+  public AssistanceAnnotation getBathingAssistance(int index) {
+<span class="nc" id="L524">    validateUnstructuredElementData(&quot;BathingAssistance&quot;);</span>
+<span class="nc" id="L525">    return this.getUnstructured().get(0).data().getBathingAssistanceInd().get(index);</span>
+  }
+
+  /*
+   * Manually added method
+   */
+
+  /**
+   * Gets the dressingAssistanceInd.
+   *
+   * @return the dressingAssistanceInd
+   */
+  public AssistanceAnnotation getDressingAssistance(int index) {
+<span class="nc" id="L538">    validateUnstructuredElementData(&quot;DressingAssistance&quot;);</span>
+<span class="nc" id="L539">    return this.getUnstructured().get(0).data().getDressingAssistanceInd().get(index);</span>
+  }
+
+  /*
+   * Manually added method
+   */
+
+  /**
+   * Gets the eatingAssistanceInd.
+   *
+   * @return the eatingAssistanceInd
+   */
+  public AssistanceAnnotation getEatingAssistance(int index) {
+<span class="nc" id="L552">    validateUnstructuredElementData(&quot;EatingAssistance&quot;);</span>
+<span class="nc" id="L553">    return this.getUnstructured().get(0).data().getEatingAssistanceInd().get(index);</span>
+  }
+
+  /*
+   * Manually added method
+   */
+
+  /**
+   * Gets the walkingAssistanceInd.
+   *
+   * @return the walkingAssistanceInd
+   */
+  public AssistanceAnnotation getWalkingAssistance(int index) {
+<span class="nc" id="L566">    validateUnstructuredElementData(&quot;WalkingAssistance&quot;);</span>
+<span class="nc" id="L567">    return this.getUnstructured().get(0).data().getWalkingAssistanceInd().get(index);</span>
+  }
+
+  /*
+   * Manually added method
+   */
+
+  /**
+   * Gets the toiletingAssistanceInd.
+   *
+   * @return the toiletingAssistanceInd
+   */
+  public AssistanceAnnotation getToiletingAssistance(int index) {
+<span class="nc" id="L580">    validateUnstructuredElementData(&quot;ToiletingAssistance&quot;);</span>
+<span class="nc" id="L581">    return this.getUnstructured().get(0).data().getToiletingAssistanceInd().get(index);</span>
+  }
+
+  /*
+   * Manually added method
+   */
+
+  /**
+   * Gets the icaCancerDiagnosisInd.
+   *
+   * @return the icaCancerDiagnosisInd
+   */
+  public CancerDiagnosis getCancerDiagnosis(int index) {
+<span class="nc" id="L594">    validateUnstructuredElementData(&quot;CancerDiagnosis&quot;);</span>
+<span class="nc" id="L595">    return this.getUnstructured().get(0).data().getIcaCancerDiagnosisInd().get(index);</span>
+  }
+
+  /*
+   * Manually added method
+   */
+
+  /**
+   * Gets the hypotheticalSpans.
+   *
+   * @return the hypotheticalSpans
+   */
+  public Annotation getHypotheticalSpans(int index) {
+<span class="nc" id="L608">    validateUnstructuredElementData(&quot;HypotheticalSpans&quot;);</span>
+<span class="nc" id="L609">    return this.getUnstructured().get(0).data().getHypotheticalSpans().get(index);</span>
+  }
+
+  /*
+   * Manually added method
+   */
+
+  /**
+   * Gets the allergyInd.
+   *
+   * @return the allergyInd
+   */
+  public Annotation getAllergy(int index) {
+<span class="nc" id="L622">    validateUnstructuredElementData(&quot;Allergy&quot;);</span>
+<span class="nc" id="L623">    return this.getUnstructured().get(0).data().getAllergyInd().get(index);</span>
+  }
+
+  /*
+   * Manually added method
+   */
+
+  /**
+   * Gets the negatedSpans.
+   *
+   * @return the negatedSpans
+   */
+  public NegatedSpan getNegatedSpans(int index) {
+<span class="nc" id="L636">    validateUnstructuredElementData(&quot;NegatedSpans&quot;);</span>
+<span class="nc" id="L637">    return this.getUnstructured().get(0).data().getNegatedSpans().get(index);</span>
+  }
+
+  /*
+   * Manually added method
+   */
+
+  /**
+   * Gets the conceptValues.
+   *
+   * @return the conceptValues
+   */
+  public ConceptValue getConceptValues(int index) {
+<span class="nc" id="L650">    validateUnstructuredElementData(&quot;ConceptValues&quot;);</span>
+<span class="nc" id="L651">    return this.getUnstructured().get(0).data().getConceptValues().get(index);</span>
+  }
+
+  /*
+   * Manually added method
+   */
+
+  /**
+   * Gets the procedureInd.
+   *
+   * @return the procedureInd
+   */
+  public Procedure getProcedure(int index) {
+<span class="nc" id="L664">    validateUnstructuredElementData(&quot;Procedure&quot;);</span>
+<span class="nc" id="L665">    return this.getUnstructured().get(0).data().getProcedureInd().get(index);</span>
+  }
+
+  /*
+   * Manually added method
+   */
+
+  /**
+   * Gets the smokingInd.
+   *
+   * @return the smokingInd
+   */
+  public Smoking getSmoking(int index) {
+<span class="nc" id="L678">    validateUnstructuredElementData(&quot;Smoking&quot;);</span>
+<span class="nc" id="L679">    return this.getUnstructured().get(0).data().getSmokingInd().get(index);</span>
+  }
+
+  /*
+   * Manually added method
+   */
+
+  /**
+   * Gets the organizationInd.
+   *
+   * @return the organizationInd
+   */
+  public Annotation getOrganization(int index) {
+<span class="nc" id="L692">    validateUnstructuredElementData(&quot;Organization&quot;);</span>
+<span class="nc" id="L693">    return this.getUnstructured().get(0).data().getOrganizationInd().get(index);</span>
+  }
+
+  /*
+   * Manually added method
+   */
+
+  /**
+   * Gets the personInd.
+   *
+   * @return the personInd
+   */
+  public Annotation getPerson(int index) {
+<span class="nc" id="L706">    validateUnstructuredElementData(&quot;Person&quot;);</span>
+<span class="nc" id="L707">    return this.getUnstructured().get(0).data().getPersonInd().get(index);</span>
+  }
+
+  /*
+   * Manually added method
+   */
+
+  /**
+   * Gets the medicalInstitutionInd.
+   *
+   * @return the medicalInstitutionInd
+   */
+  public Annotation getMedicalInstitution(int index) {
+<span class="nc" id="L720">    validateUnstructuredElementData(&quot;MedicalInstitution&quot;);</span>
+<span class="nc" id="L721">    return this.getUnstructured().get(0).data().getMedicalInstitutionInd().get(index);</span>
+
+  }
+
+  /*
+   * Manually added method
+   */
+
+  /**
+   * Gets the attributeValues.
+   *
+   * @return the attributeValues
+   */
+  public AttributeValueAnnotation getAttributeValues(int index) {
+<span class="nc" id="L735">    validateUnstructuredElementData(&quot;AttributeValues&quot;);</span>
+<span class="nc" id="L736">    return this.getUnstructured().get(0).data().getAttributeValues().get(index);</span>
+  }
+
+  /*
+   * Manually added method
+   */
+
+  /**
+   * Gets the ejectionFractionInd.
+   *
+   * @return the ejectionFractionInd
+   */
+  public EjectionFractionAnnotation getEjectionFractionInd(int index) {
+<span class="nc" id="L749">    validateUnstructuredElementData(&quot;EjectionFractionInd&quot;);</span>
+<span class="nc" id="L750">    return this.getUnstructured().get(0).data().getEjectionFractionInd().get(index);</span>
+  }
+
+  /*
+   * Manually added method
+   */
+
+  /**
+   * Gets the labValueInd.
+   *
+   * @return the labValueInd
+   */
+  public LabValueAnnotation getLabValueInd(int index) {
+<span class="nc" id="L763">    validateUnstructuredElementData(&quot;LabValueInd&quot;);</span>
+<span class="nc" id="L764">    return this.getUnstructured().get(0).data().getLabValueInd().get(index);</span>
+  }
+
+  /*
+   * Manually added method
+   */
+
+  /**
+   * Gets the medicationInd.
+   *
+   * @return the medicationInd
+   */
+  public MedicationAnnotation getMedicationInd(int index) {
+<span class="nc" id="L777">    validateUnstructuredElementData(&quot;MedicationInd&quot;);</span>
+<span class="nc" id="L778">    return this.getUnstructured().get(0).data().getMedicationInd().get(index);</span>
+  }
+
+  /*
+   * Manually added method
+   */
+
+  /**
+   * Gets the emailAddressInd.
+   *
+   * @return the emailAddressInd
+   */
+  public Annotation getEmailAddressInd(int index) {
+<span class="nc" id="L791">    validateUnstructuredElementData(&quot;EmailAddressInd&quot;);</span>
+<span class="nc" id="L792">    return this.getUnstructured().get(0).data().getEmailAddressInd().get(index);</span>
+  }
+
+  /*
+   * Manually added method
+   */
+
+  /**
+   * Gets the locationInd.
+   *
+   * @return the locationInd
+   */
+  public Annotation getLocationInd(int index) {
+<span class="nc" id="L805">    validateUnstructuredElementData(&quot;LocationInd&quot;);</span>
+<span class="nc" id="L806">    return this.getUnstructured().get(0).data().getLocationInd().get(index);</span>
+  }
+
+  /*
+   * Manually added method
+   */
+
+  /**
+   * Gets the uSPhoneNumberInd.
+   *
+   * @return the uSPhoneNumberInd
+   */
+  public Annotation getUSPhoneNumberInd(int index) {
+<span class="nc" id="L819">    validateUnstructuredElementData(&quot;USPhoneNumberInd&quot;);</span>
+<span class="nc" id="L820">    return this.getUnstructured().get(0).data().getUSPhoneNumberInd().get(index);</span>
+  }
+
+  /*
+   * Manually added method
+   */
+
+  /**
+   * Gets the seeingAssistanceInd.
+   *
+   * @return the seeingAssistanceInd
+   */
+  public AssistanceAnnotation getSeeingAssistanceInd(int index) {
+<span class="nc" id="L833">    validateUnstructuredElementData(&quot;SeeingAssistanceInd&quot;);</span>
+<span class="nc" id="L834">    return this.getUnstructured().get(0).data().getSeeingAssistanceInd().get(index);</span>
+  }
+
+
+  /*
+   * Manually added method
+   */
+
+  /**
+   * Gets the sectionAnnotations.
+   *
+   * @return the sectionAnnotations
+   */
+  public SectionAnnotation getSectionAnnotations(int index) {
+<span class="nc" id="L848">    validateUnstructuredElementData(&quot;SectionAnnotations&quot;);</span>
+<span class="nc" id="L849">    return this.getUnstructured().get(0).data().getSectionAnnotations().get(index);</span>
+  }
+
+  /*
+   * Manually added method
+   */
+
+  /**
+   * Gets the NluEntity.
+   *
+   * @return the NluEntity
+   */
+  public NluEntity getNluEntity(int index) {
+<span class="nc" id="L862">    validateUnstructuredElementData(&quot;nluEntities&quot;);</span>
+<span class="nc" id="L863">    return this.getUnstructured().get(0).data().getNluEntities().get(index);</span>
+  }
+
+  /*
+   * Manually added method
+   */
+
+  /**
+   * Gets the Relation.
+   *
+   * @return the Relation
+   */
+  public Relation getRelation(int index) {
+<span class="nc" id="L876">    validateUnstructuredElementData(&quot;relations&quot;);</span>
+<span class="nc" id="L877">    return this.getUnstructured().get(0).data().getRelations().get(index);</span>
+  }
+
+  /**
+   * Gets the SpellCorrectedText.
+   *
+   * @return the SpellCorrectedText
+   */
+  public SpellCorrectedText getSpellCorrectedText(int index) {
+<span class="nc" id="L886">    validateUnstructuredElementData(&quot;spellCorrrectedText&quot;);</span>
+<span class="nc" id="L887">    return this.getUnstructured().get(0).data().getSpellCorrectedText().get(index);</span>
+  }
+
+  /**
+   * Gets SpellingCorrections at the given index.
+   *
+   * @return the SpellingCorrection
+   */
+  public SpellingCorrection getSpellingCorrections(int index) {
+<span class="nc" id="L896">    validateUnstructuredElementData(&quot;spellingCorrections&quot;);</span>
+<span class="nc" id="L897">    return this.getUnstructured().get(0).data().getSpellingCorrections().get(index);</span>
+  }
+
+  /*
+   * Manually added method
+   */
+
+  /**
+   * Validator to prevent possible NullPointerException.  Validator
+   * will generate IllegalArgumentException if 'notNull' check is true.
+   */
+  private void validateUnstructuredElementData(String annoType) {
+<span class="nc" id="L909">    String errorMsg = &quot;No &quot; + annoType + &quot; Annotations - Unstructured List is Null&quot;;</span>
+<span class="nc" id="L910">    Validator.notNull(this.getUnstructured(), errorMsg);</span>
+
+<span class="nc" id="L912">    errorMsg = &quot;No &quot; + annoType + &quot; Annotations - Unstructured List Element is Null&quot;;</span>
+<span class="nc" id="L913">    Validator.notNull(this.getUnstructured().get(0), errorMsg);</span>
+
+<span class="nc" id="L915">    errorMsg = &quot;No &quot; + annoType + &quot; Annotations - Unstructured List Element Data is Null&quot;;</span>
+<span class="nc" id="L916">    Validator.notNull(this.getUnstructured().get(0).data(), errorMsg);</span>
+<span class="nc" id="L917">  }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>

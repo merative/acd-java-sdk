@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../jacoco-resources/report.gif" type="image/gif"/><title>GetSimilarConceptsOptions.java</title><link rel="stylesheet" href="../../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../../index.html" class="el_report">IBM Watson Health Cognitive Services Coverage Reports</a> &gt; <a href="../index.html" class="el_bundle">insights-for-medical-literature</a> &gt; <a href="index.source.html" class="el_package">com.ibm.watson.health.iml.v1.model</a> &gt; <span class="el_source">GetSimilarConceptsOptions.java</span></div><h1>GetSimilarConceptsOptions.java</h1><pre class="source lang-java linenums">/*
+ * (C) Copyright IBM Corp. 2020.
+ *
+ * Licensed under the Apache License, Version 2.0 (the &quot;License&quot;); you may not use this file except in compliance with
+ * the License. You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on
+ * an &quot;AS IS&quot; BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the
+ * specific language governing permissions and limitations under the License.
+ */
+package com.ibm.watson.health.iml.v1.model;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import com.ibm.cloud.sdk.core.service.model.GenericModel;
+
+/**
+ * The getSimilarConcepts options.
+ */
+public class GetSimilarConceptsOptions extends GenericModel {
+
+  protected String corpus;
+  protected String nameOrId;
+  protected List&lt;String&gt; returnOntologies;
+  protected String ontology;
+  protected Long limit;
+
+  /**
+   * Builder.
+   */
+  public static class Builder {
+    private String corpus;
+    private String nameOrId;
+    private List&lt;String&gt; returnOntologies;
+    private String ontology;
+    private Long limit;
+
+<span class="nc" id="L41">    private Builder(GetSimilarConceptsOptions getSimilarConceptsOptions) {</span>
+<span class="nc" id="L42">      this.corpus = getSimilarConceptsOptions.corpus;</span>
+<span class="nc" id="L43">      this.nameOrId = getSimilarConceptsOptions.nameOrId;</span>
+<span class="nc" id="L44">      this.returnOntologies = getSimilarConceptsOptions.returnOntologies;</span>
+<span class="nc" id="L45">      this.ontology = getSimilarConceptsOptions.ontology;</span>
+<span class="nc" id="L46">      this.limit = getSimilarConceptsOptions.limit;</span>
+<span class="nc" id="L47">    }</span>
+
+    /**
+     * Instantiates a new builder.
+     */
+<span class="fc" id="L52">    public Builder() {</span>
+<span class="fc" id="L53">    }</span>
+
+    /**
+     * Instantiates a new builder with required properties.
+     *
+     * @param corpus the corpus
+     * @param nameOrId the nameOrId
+     * @param returnOntologies the returnOntologies
+     */
+<span class="nc" id="L62">    public Builder(String corpus, String nameOrId, List&lt;String&gt; returnOntologies) {</span>
+<span class="nc" id="L63">      this.corpus = corpus;</span>
+<span class="nc" id="L64">      this.nameOrId = nameOrId;</span>
+<span class="nc" id="L65">      this.returnOntologies = returnOntologies;</span>
+<span class="nc" id="L66">    }</span>
+
+    /**
+     * Builds a GetSimilarConceptsOptions.
+     *
+     * @return the new GetSimilarConceptsOptions instance
+     */
+    public GetSimilarConceptsOptions build() {
+<span class="fc" id="L74">      return new GetSimilarConceptsOptions(this);</span>
+    }
+
+    /**
+     * Adds an returnOntologies to returnOntologies.
+     *
+     * @param returnOntologies the new returnOntologies
+     * @return the GetSimilarConceptsOptions builder
+     */
+    public Builder addReturnOntologies(String returnOntologies) {
+<span class="nc" id="L84">      com.ibm.cloud.sdk.core.util.Validator.notNull(returnOntologies,</span>
+        &quot;returnOntologies cannot be null&quot;);
+<span class="nc bnc" id="L86" title="All 2 branches missed.">      if (this.returnOntologies == null) {</span>
+<span class="nc" id="L87">        this.returnOntologies = new ArrayList&lt;String&gt;();</span>
+      }
+<span class="nc" id="L89">      this.returnOntologies.add(returnOntologies);</span>
+<span class="nc" id="L90">      return this;</span>
+    }
+
+    /**
+     * Set the corpus.
+     *
+     * @param corpus the corpus
+     * @return the GetSimilarConceptsOptions builder
+     */
+    public Builder corpus(String corpus) {
+<span class="fc" id="L100">      this.corpus = corpus;</span>
+<span class="fc" id="L101">      return this;</span>
+    }
+
+    /**
+     * Set the nameOrId.
+     *
+     * @param nameOrId the nameOrId
+     * @return the GetSimilarConceptsOptions builder
+     */
+    public Builder nameOrId(String nameOrId) {
+<span class="fc" id="L111">      this.nameOrId = nameOrId;</span>
+<span class="fc" id="L112">      return this;</span>
+    }
+
+    /**
+     * Set the returnOntologies.
+     * Existing returnOntologies will be replaced.
+     *
+     * @param returnOntologies the returnOntologies
+     * @return the GetSimilarConceptsOptions builder
+     */
+    public Builder returnOntologies(List&lt;String&gt; returnOntologies) {
+<span class="fc" id="L123">      this.returnOntologies = returnOntologies;</span>
+<span class="fc" id="L124">      return this;</span>
+    }
+
+    /**
+     * Set the ontology.
+     *
+     * @param ontology the ontology
+     * @return the GetSimilarConceptsOptions builder
+     */
+    public Builder ontology(String ontology) {
+<span class="fc" id="L134">      this.ontology = ontology;</span>
+<span class="fc" id="L135">      return this;</span>
+    }
+
+    /**
+     * Set the limit.
+     *
+     * @param limit the limit
+     * @return the GetSimilarConceptsOptions builder
+     */
+    public Builder limit(long limit) {
+<span class="fc" id="L145">      this.limit = limit;</span>
+<span class="fc" id="L146">      return this;</span>
+    }
+  }
+
+<span class="fc" id="L150">  protected GetSimilarConceptsOptions(Builder builder) {</span>
+<span class="fc" id="L151">    com.ibm.cloud.sdk.core.util.Validator.notEmpty(builder.corpus,</span>
+      &quot;corpus cannot be empty&quot;);
+<span class="fc" id="L153">    com.ibm.cloud.sdk.core.util.Validator.notEmpty(builder.nameOrId,</span>
+      &quot;nameOrId cannot be empty&quot;);
+<span class="fc" id="L155">    com.ibm.cloud.sdk.core.util.Validator.notNull(builder.returnOntologies,</span>
+      &quot;returnOntologies cannot be null&quot;);
+<span class="fc" id="L157">    corpus = builder.corpus;</span>
+<span class="fc" id="L158">    nameOrId = builder.nameOrId;</span>
+<span class="fc" id="L159">    returnOntologies = builder.returnOntologies;</span>
+<span class="fc" id="L160">    ontology = builder.ontology;</span>
+<span class="fc" id="L161">    limit = builder.limit;</span>
+<span class="fc" id="L162">  }</span>
+
+  /**
+   * New builder.
+   *
+   * @return a GetSimilarConceptsOptions builder
+   */
+  public Builder newBuilder() {
+<span class="nc" id="L170">    return new Builder(this);</span>
+  }
+
+  /**
+   * Gets the corpus.
+   *
+   * Corpus name.
+   *
+   * @return the corpus
+   */
+  public String corpus() {
+<span class="fc" id="L181">    return corpus;</span>
+  }
+
+  /**
+   * Gets the nameOrId.
+   *
+   * Preferred name or concept ID.
+   *
+   * @return the nameOrId
+   */
+  public String nameOrId() {
+<span class="fc" id="L192">    return nameOrId;</span>
+  }
+
+  /**
+   * Gets the returnOntologies.
+   *
+   * Return similar concepts from any of these ontologites.
+   *
+   * @return the returnOntologies
+   */
+  public List&lt;String&gt; returnOntologies() {
+<span class="fc" id="L203">    return returnOntologies;</span>
+  }
+
+  /**
+   * Gets the ontology.
+   *
+   * The ontology that defines the cui.
+   *
+   * @return the ontology
+   */
+  public String ontology() {
+<span class="fc" id="L214">    return ontology;</span>
+  }
+
+  /**
+   * Gets the limit.
+   *
+   * Number of possible concepts to return. Default is 250.
+   *
+   * @return the limit
+   */
+  public Long limit() {
+<span class="fc" id="L225">    return limit;</span>
+  }
+}
+
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>

@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../jacoco-resources/report.gif" type="image/gif"/><title>RequestContainer.java</title><link rel="stylesheet" href="../../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../../index.html" class="el_report">IBM Watson Health Cognitive Services Coverage Reports</a> &gt; <a href="../index.html" class="el_bundle">annotator-for-clinical-data</a> &gt; <a href="index.source.html" class="el_package">com.ibm.watson.health.acd.v1.model</a> &gt; <span class="el_source">RequestContainer.java</span></div><h1>RequestContainer.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2018 IBM Corp. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the &quot;License&quot;); you may not use this file except in compliance with
+ * the License. You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on
+ * an &quot;AS IS&quot; BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the
+ * specific language governing permissions and limitations under the License.
+ */
+package com.ibm.watson.health.acd.v1.model;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import com.ibm.watson.developer_cloud.service.model.GenericModel;
+import com.ibm.watson.developer_cloud.util.Validator;
+
+/**
+ * RequestContainer.
+ */
+public class RequestContainer extends GenericModel {
+
+  private List&lt;UnstructuredContainer&gt; unstructured;
+  private List&lt;AnnotatorFlow&gt; annotatorFlows;
+
+  /**
+   * Builder.
+   */
+  public static class Builder {
+    private List&lt;UnstructuredContainer&gt; unstructured;
+    private List&lt;AnnotatorFlow&gt; annotatorFlows;
+
+<span class="nc" id="L36">    private Builder(RequestContainer requestContainer) {</span>
+<span class="nc" id="L37">      unstructured = requestContainer.unstructured;</span>
+<span class="nc" id="L38">      annotatorFlows = requestContainer.annotatorFlows;</span>
+<span class="nc" id="L39">    }</span>
+
+    /**
+     * Instantiates a new builder.
+     */
+<span class="nc" id="L44">    public Builder() {</span>
+<span class="nc" id="L45">    }</span>
+
+    /**
+     * Builds a RequestContainer.
+     *
+     * @return the requestContainer
+     */
+    public RequestContainer build() {
+<span class="nc" id="L53">      return new RequestContainer(this);</span>
+    }
+
+    /**
+     * Adds an unstructured to unstructured.
+     *
+     * @param unstructured the new unstructured
+     * @return the RequestContainer builder
+     */
+    public Builder addUnstructured(UnstructuredContainer unstructured) {
+<span class="nc" id="L63">      Validator.notNull(unstructured, &quot;unstructured cannot be null&quot;);</span>
+<span class="nc bnc" id="L64" title="All 2 branches missed.">      if (this.unstructured == null) {</span>
+<span class="nc" id="L65">        this.unstructured = new ArrayList&lt;UnstructuredContainer&gt;();</span>
+      }
+<span class="nc" id="L67">      this.unstructured.add(unstructured);</span>
+<span class="nc" id="L68">      return this;</span>
+    }
+
+    /**
+     * Adds an annotatorFlows to annotatorFlows.
+     *
+     * @param annotatorFlows the new annotatorFlows
+     * @return the RequestContainer builder
+     */
+    public Builder addAnnotatorFlows(AnnotatorFlow annotatorFlows) {
+<span class="nc" id="L78">      Validator.notNull(annotatorFlows, &quot;annotatorFlows cannot be null&quot;);</span>
+<span class="nc bnc" id="L79" title="All 2 branches missed.">      if (this.annotatorFlows == null) {</span>
+<span class="nc" id="L80">        this.annotatorFlows = new ArrayList&lt;AnnotatorFlow&gt;();</span>
+      }
+<span class="nc" id="L82">      this.annotatorFlows.add(annotatorFlows);</span>
+<span class="nc" id="L83">      return this;</span>
+    }
+
+    /**
+     * Set the unstructured.
+     * Existing unstructured will be replaced.
+     *
+     * @param unstructured the unstructured
+     * @return the RequestContainer builder
+     */
+    public Builder unstructured(List&lt;UnstructuredContainer&gt; unstructured) {
+<span class="nc" id="L94">      this.unstructured = unstructured;</span>
+<span class="nc" id="L95">      return this;</span>
+    }
+
+    /**
+     * Set the annotatorFlows.
+     * Existing annotatorFlows will be replaced.
+     *
+     * @param annotatorFlows the annotatorFlows
+     * @return the RequestContainer builder
+     */
+    public Builder annotatorFlows(List&lt;AnnotatorFlow&gt; annotatorFlows) {
+<span class="nc" id="L106">      this.annotatorFlows = annotatorFlows;</span>
+<span class="nc" id="L107">      return this;</span>
+    }
+  }
+
+<span class="nc" id="L111">  private RequestContainer(Builder builder) {</span>
+<span class="nc" id="L112">    unstructured = builder.unstructured;</span>
+<span class="nc" id="L113">    annotatorFlows = builder.annotatorFlows;</span>
+<span class="nc" id="L114">  }</span>
+
+  /**
+   * New builder.
+   *
+   * @return a RequestContainer builder
+   */
+  public Builder newBuilder() {
+<span class="nc" id="L122">    return new Builder(this);</span>
+  }
+
+  /**
+   * Gets the unstructured.
+   *
+   * @return the unstructured
+   */
+  public List&lt;UnstructuredContainer&gt; unstructured() {
+<span class="nc" id="L131">    return unstructured;</span>
+  }
+
+  /**
+   * Gets the annotatorFlows.
+   *
+   * @return the annotatorFlows
+   */
+  public List&lt;AnnotatorFlow&gt; annotatorFlows() {
+<span class="nc" id="L140">    return annotatorFlows;</span>
+  }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>
