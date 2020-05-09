@@ -123,8 +123,8 @@ public class CategoriesModelTest {
     CategoriesModel categoriesModelModelNew = TestUtilities.deserialize(json, CategoriesModel.class);
     assertTrue(categoriesModelModelNew instanceof CategoriesModel);
     assertEquals(categoriesModelModelNew.modelLicense(), "testString");
-    assertEquals(categoriesModelModelNew.highlightedTitle().toString(), stringBuilderModel.toString());
-    assertEquals(categoriesModelModelNew.highlightedAbstract().toString(), stringBuilderModel.toString());
-    assertEquals(categoriesModelModelNew.highlightedBody().toString(), stringBuilderModel.toString());
+    assertEquals(categoriesModelModelNew.highlightedTitle().toString(), "testString");
+    assertEquals(categoriesModelModelNew.highlightedAbstract().toString(), "testString");
+    assertEquals(categoriesModelModelNew.highlightedBody().toString(), "testString");
   }
 }

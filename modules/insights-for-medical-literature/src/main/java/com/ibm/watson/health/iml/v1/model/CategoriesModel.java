@@ -38,7 +38,7 @@ public class CategoriesModel extends GenericModel {
     private String highlightedAbstract;
     private String highlightedBody;
     private Map<String, String> highlightedSections;
-    private Map<String,PassagesModel> passages;
+    private Map<String, PassagesModel> passages;
     private Map<String, AnnotationModel> annotations;
 
     private Builder(CategoriesModel categoriesModel) {

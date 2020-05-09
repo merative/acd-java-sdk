@@ -12,9 +12,6 @@
  */
 package com.ibm.watson.health.iml.v1.model;
 
-import java.util.List;
-import java.util.Map;
-
 import com.ibm.cloud.sdk.core.service.model.GenericModel;
 
 /**
@@ -47,7 +44,7 @@ public class PassagesModel extends GenericModel {
 //  public Map<String, List<Passage>> getSearchTermToPassages() {
 //    return searchTermToPassages;
 //  }
-  public Entry getEntry(){
+  public Entry getEntry() {
 	  return entry;
   }
 }
