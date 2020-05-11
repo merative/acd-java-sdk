@@ -31,19 +31,19 @@ package com.ibm.watson.health.acd.v1.util;
  * required to provide a keystore.  The keystore will need to contain your client certificate and private key.  For reference, a
  * PKCS12 keystore can be created using the 'openssl' utility:
  *
- * openssl pkcs12 -export -in <file_containing_your_client_certificate> -inkey <file_containing_your_private_key>
- *     -out <desired_keystore_filename.p12>
+ * openssl pkcs12 -export -in (file_containing_your_client_certificate) -inkey (file_containing_your_private_key)
+ *     -out (desired_keystore_filename.p12)
  *
  * The keystore file, keystore password, and keystore type can be configured one of two ways:
  * 1. System properties
- *       -Djavax.net.ssl.keyStore=<your_keystore_filename>
- *       -Djavax.net.ssl.keyStorePassword=<your_keystore_password>
- *       -Djavax.net.ssl.keyStoreType=<your_keystore_type>
+ *       -Djavax.net.ssl.keyStore=$your_keystore_filename
+ *       -Djavax.net.ssl.keyStorePassword=$your_keystore_password
+ *       -Djavax.net.ssl.keyStoreType=$your_keystore_type
  * 2. HttpClientOptions.Builder keyStoreFile(), keyStorePassword(), and keyStoreType() methods
  * NOTE:  When customizing your HttpClient with a keystore, the Builder keyStoreProvided() method must be set to 'true'.
  *
  * Usage Example: HttpClientOptions httpOptions = new HttpClientOptions.Builder().keyStoreProvided(true).build()
- * => In this example, keyStoreProvided() is 'true', and since the Builder's keyStoreFile(),  keyStorePassword(), and
+ * -- In this example, keyStoreProvided() is 'true', and since the Builder's keyStoreFile(),  keyStorePassword(), and
  * keyStoreType()  were not included, the code will look in the system properties for the keyStoreFile, keyStorePassword,
  * and keyStoreType.
  *

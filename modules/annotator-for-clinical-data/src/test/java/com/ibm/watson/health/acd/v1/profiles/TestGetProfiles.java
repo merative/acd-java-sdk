@@ -15,6 +15,9 @@ package com.ibm.watson.health.acd.v1.profiles;
 import org.junit.Assert;
 import org.junit.Test;
 
+import java.util.Map;
+import java.util.Set;
+
 import com.ibm.cloud.sdk.core.http.Response;
 import com.ibm.cloud.sdk.core.http.ServiceCall;
 import com.ibm.watson.health.acd.v1.AnnotatorForClinicalData;
@@ -22,7 +25,7 @@ import com.ibm.watson.health.acd.v1.WatsonServiceTest;
 import com.ibm.watson.health.acd.v1.common.Constants;
 import com.ibm.watson.health.acd.v1.model.GetProfilesOptions;
 import com.ibm.watson.health.acd.v1.model.GetProfilesOptions.Builder;
-import com.ibm.watson.health.acd.v1.model.ListStringWrapper;
+import com.ibm.watson.health.acd.v1.model.AcdProfile;
 
 /**
  *
@@ -46,10 +49,15 @@ public class TestGetProfiles extends WatsonServiceTest {
 	public void testGetProfiles() {
 		GetProfilesOptions options = new GetProfilesOptions.Builder().build();
 
-		ServiceCall<ListStringWrapper> sc = service.getProfiles(options);
-		Response<ListStringWrapper> response = sc.execute();
+		ServiceCall<Map<String, AcdProfile>> sc = service.getProfiles(options);
+		Response<Map<String, AcdProfile>> response = sc.execute();
 
 		Assert.assertNotNull(response.getResult());
+		Map<String, AcdProfile> profileMap = response.getResult();
+		Set<String> keys = profileMap.keySet();
+		for (String key : keys) {
+			Assert.assertNotNull(profileMap.get(key));
+		}
 	}
 
 	@Test

@@ -244,7 +244,7 @@ public class AttributeValueAnnotation extends DynamicModel {
 
   /**
    * Get Medical Subject Heading id or null.
-   * @return
+   * @return the mesh identifier
    */
   public String getMeshId() {
     return GsonSerializationHelper.serializeDynamicModelProperty(this.get("meshId"), meshIdType);
@@ -252,7 +252,7 @@ public class AttributeValueAnnotation extends DynamicModel {
 
   /**
    * Get Rx norm id or null.
-   * @return
+   * @return the rx norm identifier
    */
   public String getRxNormId() {
     return GsonSerializationHelper.serializeDynamicModelProperty(this.get("rxNormId"), rxNormIdType);

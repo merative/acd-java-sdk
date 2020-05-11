@@ -15,6 +15,9 @@ package com.ibm.watson.health.acd.v1.flows;
 import org.junit.Assert;
 import org.junit.Test;
 
+import java.util.Map;
+import java.util.Set;
+
 import com.ibm.cloud.sdk.core.http.Response;
 import com.ibm.cloud.sdk.core.http.ServiceCall;
 import com.ibm.watson.health.acd.v1.AnnotatorForClinicalData;
@@ -22,7 +25,7 @@ import com.ibm.watson.health.acd.v1.WatsonServiceTest;
 import com.ibm.watson.health.acd.v1.common.Constants;
 import com.ibm.watson.health.acd.v1.model.GetFlowsOptions;
 import com.ibm.watson.health.acd.v1.model.GetFlowsOptions.Builder;
-import com.ibm.watson.health.acd.v1.model.ListStringWrapper;
+import com.ibm.watson.health.acd.v1.model.AcdFlow;
 
 /**
  *
@@ -51,9 +54,14 @@ public class TestGetFlows extends WatsonServiceTest {
 	public void testGetFlowsOptions() {
 		GetFlowsOptions options = new GetFlowsOptions.Builder().build();
 
-		ServiceCall<ListStringWrapper> sc = service.getFlows(options);
-		Response<ListStringWrapper> response = sc.execute();
+		ServiceCall<Map<String, AcdFlow>> sc = service.getFlows(options);
+		Response<Map<String, AcdFlow>> response = sc.execute();
 		Assert.assertNotNull(response.getResult());
+		Map<String, AcdFlow> flowMap = response.getResult();
+		Set<String> keys = flowMap.keySet();
+		for (String key: keys) {
+			Assert.assertNotNull(flowMap.get(key));
+		}
 	}
 
 	@Test

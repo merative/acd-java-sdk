@@ -491,6 +491,11 @@ public class ContainerGroup extends GenericModel {
    * Manually added method
    */
 
+   /**
+    * Gets the concept.
+    * @param index position to retrieve
+    * @return the concept
+    */
   public Concept getConcepts(int index) {
     validateUnstructuredElementData("Concepts");
     return this.getUnstructured().get(0).data().getConcepts().get(index);
@@ -502,6 +507,8 @@ public class ContainerGroup extends GenericModel {
 
   /**
    * Gets the symptomDiseaseInd.
+   *
+   * @param index postion to retrieve
    *
    * @return the symptomDiseaseInd
    */
@@ -518,6 +525,8 @@ public class ContainerGroup extends GenericModel {
   /**
    * Gets the bathingAssistanceInd.
    *
+   * @param index postion to retrieve
+   *
    * @return the bathingAssistanceInd
    */
   public AssistanceAnnotation getBathingAssistance(int index) {
@@ -531,6 +540,8 @@ public class ContainerGroup extends GenericModel {
 
   /**
    * Gets the dressingAssistanceInd.
+   *
+   * @param index postion to retrieve
    *
    * @return the dressingAssistanceInd
    */
@@ -546,6 +557,8 @@ public class ContainerGroup extends GenericModel {
   /**
    * Gets the eatingAssistanceInd.
    *
+   * @param index postion to retrieve
+   *
    * @return the eatingAssistanceInd
    */
   public AssistanceAnnotation getEatingAssistance(int index) {
@@ -559,6 +572,8 @@ public class ContainerGroup extends GenericModel {
 
   /**
    * Gets the walkingAssistanceInd.
+   *
+   * @param index postion to retrieve
    *
    * @return the walkingAssistanceInd
    */
@@ -574,6 +589,8 @@ public class ContainerGroup extends GenericModel {
   /**
    * Gets the toiletingAssistanceInd.
    *
+   * @param index postion to retrieve
+   *
    * @return the toiletingAssistanceInd
    */
   public AssistanceAnnotation getToiletingAssistance(int index) {
@@ -587,6 +604,8 @@ public class ContainerGroup extends GenericModel {
 
   /**
    * Gets the icaCancerDiagnosisInd.
+   *
+   * @param index postion to retrieve
    *
    * @return the icaCancerDiagnosisInd
    */
@@ -602,6 +621,8 @@ public class ContainerGroup extends GenericModel {
   /**
    * Gets the hypotheticalSpans.
    *
+   * @param index postion to retrieve
+   *
    * @return the hypotheticalSpans
    */
   public Annotation getHypotheticalSpans(int index) {
@@ -615,6 +636,8 @@ public class ContainerGroup extends GenericModel {
 
   /**
    * Gets the allergyInd.
+   *
+   * @param index postion to retrieve
    *
    * @return the allergyInd
    */
@@ -630,6 +653,8 @@ public class ContainerGroup extends GenericModel {
   /**
    * Gets the negatedSpans.
    *
+   * @param index postion to retrieve
+   *
    * @return the negatedSpans
    */
   public NegatedSpan getNegatedSpans(int index) {
@@ -643,6 +668,8 @@ public class ContainerGroup extends GenericModel {
 
   /**
    * Gets the conceptValues.
+   *
+   * @param index postion to retrieve
    *
    * @return the conceptValues
    */
@@ -658,6 +685,8 @@ public class ContainerGroup extends GenericModel {
   /**
    * Gets the procedureInd.
    *
+   * @param index postion to retrieve
+   *
    * @return the procedureInd
    */
   public Procedure getProcedure(int index) {
@@ -671,6 +700,8 @@ public class ContainerGroup extends GenericModel {
 
   /**
    * Gets the smokingInd.
+   *
+   * @param index postion to retrieve
    *
    * @return the smokingInd
    */
@@ -686,6 +717,8 @@ public class ContainerGroup extends GenericModel {
   /**
    * Gets the organizationInd.
    *
+   * @param index postion to retrieve
+   *
    * @return the organizationInd
    */
   public Annotation getOrganization(int index) {
@@ -700,6 +733,8 @@ public class ContainerGroup extends GenericModel {
   /**
    * Gets the personInd.
    *
+   * @param index postion to retrieve
+   *
    * @return the personInd
    */
   public Annotation getPerson(int index) {
@@ -713,6 +748,8 @@ public class ContainerGroup extends GenericModel {
 
   /**
    * Gets the medicalInstitutionInd.
+   *
+   * @param index postion to retrieve
    *
    * @return the medicalInstitutionInd
    */
@@ -729,6 +766,8 @@ public class ContainerGroup extends GenericModel {
   /**
    * Gets the attributeValues.
    *
+   * @param index postion to retrieve
+   *
    * @return the attributeValues
    */
   public AttributeValueAnnotation getAttributeValues(int index) {
@@ -742,6 +781,8 @@ public class ContainerGroup extends GenericModel {
 
   /**
    * Gets the ejectionFractionInd.
+   *
+   * @param index postion to retrieve
    *
    * @return the ejectionFractionInd
    */
@@ -757,6 +798,8 @@ public class ContainerGroup extends GenericModel {
   /**
    * Gets the labValueInd.
    *
+   * @param index postion to retrieve
+   *
    * @return the labValueInd
    */
   public LabValueAnnotation getLabValueInd(int index) {
@@ -770,6 +813,8 @@ public class ContainerGroup extends GenericModel {
 
   /**
    * Gets the medicationInd.
+   *
+   * @param index postion to retrieve
    *
    * @return the medicationInd
    */
@@ -785,6 +830,8 @@ public class ContainerGroup extends GenericModel {
   /**
    * Gets the emailAddressInd.
    *
+   * @param index postion to retrieve
+   *
    * @return the emailAddressInd
    */
   public Annotation getEmailAddressInd(int index) {
@@ -798,6 +845,8 @@ public class ContainerGroup extends GenericModel {
 
   /**
    * Gets the locationInd.
+   *
+   * @param index postion to retrieve
    *
    * @return the locationInd
    */
@@ -813,6 +862,8 @@ public class ContainerGroup extends GenericModel {
   /**
    * Gets the uSPhoneNumberInd.
    *
+   * @param index postion to retrieve
+   *
    * @return the uSPhoneNumberInd
    */
   public Annotation getUSPhoneNumberInd(int index) {
@@ -826,6 +877,8 @@ public class ContainerGroup extends GenericModel {
 
   /**
    * Gets the seeingAssistanceInd.
+   *
+   * @param index postion to retrieve
    *
    * @return the seeingAssistanceInd
    */
@@ -842,6 +895,8 @@ public class ContainerGroup extends GenericModel {
   /**
    * Gets the sectionAnnotations.
    *
+   * @param index postion to retrieve
+   *
    * @return the sectionAnnotations
    */
   public SectionAnnotation getSectionAnnotations(int index) {
@@ -855,6 +910,7 @@ public class ContainerGroup extends GenericModel {
 
   /**
    * Gets the NluEntity.
+   * @param index postion to retrieve
    *
    * @return the NluEntity
    */
@@ -870,6 +926,8 @@ public class ContainerGroup extends GenericModel {
   /**
    * Gets the Relation.
    *
+   * @param index postion to retrieve
+   *
    * @return the Relation
    */
   public Relation getRelation(int index) {
@@ -880,6 +938,8 @@ public class ContainerGroup extends GenericModel {
   /**
    * Gets the SpellCorrectedText.
    *
+   * @param index postion to retrieve
+   *
    * @return the SpellCorrectedText
    */
   public SpellCorrectedText getSpellCorrectedText(int index) {
@@ -889,6 +949,8 @@ public class ContainerGroup extends GenericModel {
 
   /**
    * Gets SpellingCorrections at the given index.
+   *
+   * @param index postion to retrieve
    *
    * @return the SpellingCorrection
    */

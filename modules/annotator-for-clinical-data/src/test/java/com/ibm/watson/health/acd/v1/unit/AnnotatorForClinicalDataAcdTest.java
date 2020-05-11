@@ -69,6 +69,7 @@ import com.ibm.watson.health.acd.v1.model.GetProfilesOptions;
 import com.ibm.watson.health.acd.v1.model.ListStringWrapper;
 import com.ibm.watson.health.acd.v1.model.RunPipelineOptions;
 import com.ibm.watson.health.acd.v1.model.RunPipelineWithFlowOptions;
+import com.ibm.watson.health.acd.v1.model.ServiceApiBean;
 import com.ibm.watson.health.acd.v1.model.ServiceStatus;
 import com.ibm.watson.health.acd.v1.model.UnstructuredContainer;
 import com.ibm.watson.health.acd.v1.model.UpdateFlowsOptions;
@@ -133,7 +134,7 @@ public class AnnotatorForClinicalDataAcdTest extends PowerMockTestCase {
   @Test
   public void testGetProfilesWOptions() throws Throwable {
     // Schedule some responses.
-    String mockResponseBody = "{\"data\": [\"data\"]}";
+    String mockResponseBody = "{\"data\": {\"data\": \"data\"}}";
     String getProfilesPath = "/v1/profiles";
 
     server.enqueue(new MockResponse()
@@ -147,9 +148,9 @@ public class AnnotatorForClinicalDataAcdTest extends PowerMockTestCase {
     GetProfilesOptions getProfilesOptionsModel = new GetProfilesOptions.Builder().build();
 
     // Invoke operation with valid options model (positive test)
-    Response<ListStringWrapper> response = testService.getProfiles(getProfilesOptionsModel).execute();
+    Response<Map<String, AcdProfile>> response = testService.getProfiles(getProfilesOptionsModel).execute();
     assertNotNull(response);
-    ListStringWrapper responseObj = response.getResult();
+    Map<String, AcdProfile> responseObj = response.getResult();
     assertNotNull(responseObj);
 
     // Verify the contents of the request
@@ -406,7 +407,7 @@ public class AnnotatorForClinicalDataAcdTest extends PowerMockTestCase {
   @Test
   public void testGetFlowsWOptions() throws Throwable {
     // Schedule some responses.
-    String mockResponseBody = "{\"data\": [\"data\"]}";
+    String mockResponseBody = "{\"data\": {\"data\": \"data\"}}";
     String getFlowsPath = "/v1/flows";
 
     server.enqueue(new MockResponse()
@@ -420,9 +421,9 @@ public class AnnotatorForClinicalDataAcdTest extends PowerMockTestCase {
     GetFlowsOptions getFlowsOptionsModel = new GetFlowsOptions.Builder().build();
 
     // Invoke operation with valid options model (positive test)
-    Response<ListStringWrapper> response = testService.getFlows(getFlowsOptionsModel).execute();
+    Response<Map<String, AcdFlow>> response = testService.getFlows(getFlowsOptionsModel).execute();
     assertNotNull(response);
-    ListStringWrapper responseObj = response.getResult();
+    Map<String, AcdFlow> responseObj = response.getResult();
     assertNotNull(responseObj);
 
     // Verify the contents of the request
@@ -905,9 +906,9 @@ public class AnnotatorForClinicalDataAcdTest extends PowerMockTestCase {
     GetAnnotatorsOptions getAnnotatorsOptionsModel = new GetAnnotatorsOptions();
 
     // Invoke operation with valid options model (positive test)
-    Response<ListStringWrapper> response = testService.getAnnotators(getAnnotatorsOptionsModel).execute();
+    Response<Map<String, ServiceApiBean>> response = testService.getAnnotators(getAnnotatorsOptionsModel).execute();
     assertNotNull(response);
-    ListStringWrapper responseObj = response.getResult();
+    Map<String, ServiceApiBean> responseObj = response.getResult();
     // Response does not have a return type. Check that the result is null.
     assertNull(responseObj);
 

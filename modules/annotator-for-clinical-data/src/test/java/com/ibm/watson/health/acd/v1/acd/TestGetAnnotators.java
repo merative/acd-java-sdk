@@ -15,6 +15,9 @@ package com.ibm.watson.health.acd.v1.acd;
 import org.junit.Assert;
 import org.junit.Test;
 
+import java.util.Map;
+import java.util.Set;
+
 import com.ibm.cloud.sdk.core.http.Response;
 import com.ibm.cloud.sdk.core.http.ServiceCall;
 import com.ibm.watson.health.acd.v1.AnnotatorForClinicalData;
@@ -23,7 +26,7 @@ import com.ibm.watson.health.acd.v1.common.Constants;
 import com.ibm.watson.health.acd.v1.model.GetAnnotatorsOptions;
 import com.ibm.watson.health.acd.v1.model.ListAnnotatorsOptions;
 import com.ibm.watson.health.acd.v1.model.ListAnnotatorsOptions.Builder;
-import com.ibm.watson.health.acd.v1.model.ListStringWrapper;
+import com.ibm.watson.health.acd.v1.model.ServiceApiBean;
 
 /**
  *
@@ -51,9 +54,14 @@ public class TestGetAnnotators extends WatsonServiceTest {
 	@Test
 	public void testGetAnnotatorsOptions() {
 		GetAnnotatorsOptions options = new GetAnnotatorsOptions();
-		ServiceCall<ListStringWrapper> sc = service.getAnnotators(options);
-		Response<ListStringWrapper> response = sc.execute();
+		ServiceCall<Map<String, ServiceApiBean>> sc = service.getAnnotators(options);
+		Response<Map<String, ServiceApiBean>> response = sc.execute();
 		Assert.assertNotNull(response.getResult());
+		Map<String, ServiceApiBean> annotatorMap = response.getResult();
+		Set<String> keys = annotatorMap.keySet();
+		for (String key : keys) {
+			Assert.assertNotNull(annotatorMap.get(key));
+		}
 	}
 
 	@Test

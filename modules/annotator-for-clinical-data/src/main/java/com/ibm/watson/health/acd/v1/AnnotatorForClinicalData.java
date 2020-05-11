@@ -59,6 +59,7 @@ import com.ibm.watson.health.acd.v1.model.ListStringWrapper;
 import com.ibm.watson.health.acd.v1.model.RequestContainer;
 import com.ibm.watson.health.acd.v1.model.RunPipelineOptions;
 import com.ibm.watson.health.acd.v1.model.RunPipelineWithFlowOptions;
+import com.ibm.watson.health.acd.v1.model.ServiceApiBean;
 import com.ibm.watson.health.acd.v1.model.ServiceStatus;
 import com.ibm.watson.health.acd.v1.model.UnstructuredContainer;
 import com.ibm.watson.health.acd.v1.model.UpdateFlowsOptions;
@@ -153,7 +154,7 @@ public class AnnotatorForClinicalData extends BaseService {
    * @param getProfilesOptions the {@link GetProfilesOptions} containing the options for the call
    * @return a {@link ServiceCall} with a result of type {@link ListStringWrapper}
    */
-  public ServiceCall<ListStringWrapper> getProfiles(GetProfilesOptions getProfilesOptions) {
+  public ServiceCall<Map<String, AcdProfile>> getProfiles(GetProfilesOptions getProfilesOptions) {
     String[] pathSegments = { "v1/profiles" };
     RequestBuilder builder = RequestBuilder.get(RequestBuilder.constructHttpUrl(getServiceUrl(), pathSegments));
     Map<String, String> sdkHeaders = SdkCommon.getSdkHeaders("annotator_for_clinical_data_acd", "v1", "getProfiles");
@@ -164,8 +165,8 @@ public class AnnotatorForClinicalData extends BaseService {
     if (getProfilesOptions != null) {
       builder.query("version", this.version);
     }
-    ResponseConverter<ListStringWrapper> responseConverter =
-      ResponseConverterUtils.getValue(new com.google.gson.reflect.TypeToken<ListStringWrapper>() { }.getType());
+    ResponseConverter<Map<String, AcdProfile>> responseConverter =
+      ResponseConverterUtils.getValue(new com.google.gson.reflect.TypeToken<Map<String, AcdProfile>>() { }.getType());
     return createServiceCall(builder.build(), responseConverter);
   }
 
@@ -176,7 +177,7 @@ public class AnnotatorForClinicalData extends BaseService {
    *
    * @return a {@link ServiceCall} with a result of type {@link ListStringWrapper}
    */
-  public ServiceCall<ListStringWrapper> getProfiles() {
+  public ServiceCall<Map<String, AcdProfile>> getProfiles() {
     return getProfiles(null);
   }
 
@@ -387,7 +388,7 @@ public class AnnotatorForClinicalData extends BaseService {
    * @param getFlowsOptions the {@link GetFlowsOptions} containing the options for the call
    * @return a {@link ServiceCall} with a result of type {@link ListStringWrapper}
    */
-  public ServiceCall<ListStringWrapper> getFlows(GetFlowsOptions getFlowsOptions) {
+  public ServiceCall<Map<String, AcdFlow>> getFlows(GetFlowsOptions getFlowsOptions) {
     String[] pathSegments = { "v1/flows" };
     RequestBuilder builder = RequestBuilder.get(RequestBuilder.constructHttpUrl(getServiceUrl(), pathSegments));
     Map<String, String> sdkHeaders = SdkCommon.getSdkHeaders("annotator_for_clinical_data_acd", "v1", "getFlows");
@@ -398,8 +399,8 @@ public class AnnotatorForClinicalData extends BaseService {
     if (getFlowsOptions != null) {
       builder.query("version", this.version);
     }
-    ResponseConverter<ListStringWrapper> responseConverter =
-      ResponseConverterUtils.getValue(new com.google.gson.reflect.TypeToken<ListStringWrapper>() { }.getType());
+    ResponseConverter<Map<String, AcdFlow>> responseConverter =
+      ResponseConverterUtils.getValue(new com.google.gson.reflect.TypeToken<Map<String, AcdFlow>>() { }.getType());
     return createServiceCall(builder.build(), responseConverter);
   }
 
@@ -410,7 +411,7 @@ public class AnnotatorForClinicalData extends BaseService {
    *
    * @return a {@link ServiceCall} with a result of type {@link ListStringWrapper}
    */
-  public ServiceCall<ListStringWrapper> getFlows() {
+  public ServiceCall<Map<String, AcdFlow>> getFlows() {
     return getFlows(null);
   }
 
@@ -713,7 +714,7 @@ public class AnnotatorForClinicalData extends BaseService {
   }
 
   /**
-   * Detect entities & relations from unstructured data.
+   * Detect entities and relations from unstructured data.
    *
    * &lt;p&gt;This API accepts a JSON request model featuring both the unstructured data to be analyzed as well as the
    * desired annotator flow.&lt;p/&gt;&lt;p&gt;&lt;b&gt;Annotator Chaining&lt;/b&gt;&lt;br/&gt;Sample request invoking
@@ -1163,7 +1164,7 @@ public class AnnotatorForClinicalData extends BaseService {
    * @param getAnnotatorsOptions the {@link GetAnnotatorsOptions} containing the options for the call
    * @return a {@link ServiceCall} with a void result
    */
-  public ServiceCall<ListStringWrapper> getAnnotators(GetAnnotatorsOptions getAnnotatorsOptions) {
+  public ServiceCall<Map<String, ServiceApiBean>> getAnnotators(GetAnnotatorsOptions getAnnotatorsOptions) {
     String[] pathSegments = { "v1/annotators" };
     RequestBuilder builder = RequestBuilder.get(RequestBuilder.constructHttpUrl(getServiceUrl(), pathSegments));
     Map<String, String> sdkHeaders = SdkCommon.getSdkHeaders("annotator_for_clinical_data_acd", "v1", "getAnnotators");
@@ -1173,8 +1174,8 @@ public class AnnotatorForClinicalData extends BaseService {
     if (getAnnotatorsOptions != null) {
       builder.query("version", this.version);
     }
-    ResponseConverter<ListStringWrapper> responseConverter =
-    		ResponseConverterUtils.getValue(new com.google.gson.reflect.TypeToken<ListStringWrapper>() { }.getType());
+    ResponseConverter<Map<String, ServiceApiBean>> responseConverter =
+    		ResponseConverterUtils.getValue(new com.google.gson.reflect.TypeToken<Map<String, ServiceApiBean>>() { }.getType());
     return createServiceCall(builder.build(), responseConverter);
   }
 
@@ -1186,7 +1187,7 @@ public class AnnotatorForClinicalData extends BaseService {
    *
    * @return a {@link ServiceCall} with a void result
    */
-  public ServiceCall<ListStringWrapper> getAnnotators() {
+  public ServiceCall<Map<String, ServiceApiBean>> getAnnotators() {
     return getAnnotators(null);
   }
 
