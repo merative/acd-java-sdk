@@ -1,0 +1,513 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../jacoco-resources/report.gif" type="image/gif"/><title>DictonaryEntry.java</title><link rel="stylesheet" href="../../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../../index.html" class="el_report">IBM Watson Health Cognitive Services Coverage Reports</a> &gt; <a href="../index.html" class="el_bundle">insights-for-medical-literature</a> &gt; <a href="index.source.html" class="el_package">com.ibm.watson.health.iml.v1.model</a> &gt; <span class="el_source">DictonaryEntry.java</span></div><h1>DictonaryEntry.java</h1><pre class="source lang-java linenums">/*
+ * (C) Copyright IBM Corp. 2020.
+ *
+ * Licensed under the Apache License, Version 2.0 (the &quot;License&quot;); you may not use this file except in compliance with
+ * the License. You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on
+ * an &quot;AS IS&quot; BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the
+ * specific language governing permissions and limitations under the License.
+ */
+package com.ibm.watson.health.iml.v1.model;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import com.google.gson.annotations.SerializedName;
+import com.ibm.cloud.sdk.core.service.model.GenericModel;
+
+/**
+ * DictonaryEntry.
+ */
+public class DictonaryEntry extends GenericModel {
+
+  protected List&lt;String&gt; children;
+  protected String cui;
+  protected List&lt;String&gt; definition;
+  protected List&lt;String&gt; parents;
+  protected String preferredName;
+  protected List&lt;String&gt; semtypes;
+  protected List&lt;String&gt; siblings;
+  protected List&lt;String&gt; surfaceForms;
+  protected List&lt;String&gt; variants;
+  protected String vocab;
+  protected List&lt;String&gt; related;
+  protected String source;
+  @SerializedName(&quot;source_version&quot;)
+  protected String sourceVersion;
+
+  /**
+   * Builder.
+   */
+  public static class Builder {
+    private List&lt;String&gt; children;
+    private String cui;
+    private List&lt;String&gt; definition;
+    private List&lt;String&gt; parents;
+    private String preferredName;
+    private List&lt;String&gt; semtypes;
+    private List&lt;String&gt; siblings;
+    private List&lt;String&gt; surfaceForms;
+    private List&lt;String&gt; variants;
+    private String vocab;
+    private List&lt;String&gt; related;
+    private String source;
+    private String sourceVersion;
+
+<span class="nc" id="L59">    private Builder(DictonaryEntry dictonaryEntry) {</span>
+<span class="nc" id="L60">      this.children = dictonaryEntry.children;</span>
+<span class="nc" id="L61">      this.cui = dictonaryEntry.cui;</span>
+<span class="nc" id="L62">      this.definition = dictonaryEntry.definition;</span>
+<span class="nc" id="L63">      this.parents = dictonaryEntry.parents;</span>
+<span class="nc" id="L64">      this.preferredName = dictonaryEntry.preferredName;</span>
+<span class="nc" id="L65">      this.semtypes = dictonaryEntry.semtypes;</span>
+<span class="nc" id="L66">      this.siblings = dictonaryEntry.siblings;</span>
+<span class="nc" id="L67">      this.surfaceForms = dictonaryEntry.surfaceForms;</span>
+<span class="nc" id="L68">      this.variants = dictonaryEntry.variants;</span>
+<span class="nc" id="L69">      this.vocab = dictonaryEntry.vocab;</span>
+<span class="nc" id="L70">      this.related = dictonaryEntry.related;</span>
+<span class="nc" id="L71">      this.source = dictonaryEntry.source;</span>
+<span class="nc" id="L72">      this.sourceVersion = dictonaryEntry.sourceVersion;</span>
+<span class="nc" id="L73">    }</span>
+
+    /**
+     * Instantiates a new builder.
+     */
+<span class="fc" id="L78">    public Builder() {</span>
+<span class="fc" id="L79">    }</span>
+
+    /**
+     * Builds a DictonaryEntry.
+     *
+     * @return the new DictonaryEntry instance
+     */
+    public DictonaryEntry build() {
+<span class="fc" id="L87">      return new DictonaryEntry(this);</span>
+    }
+
+    /**
+     * Adds an children to children.
+     *
+     * @param children the new children
+     * @return the DictonaryEntry builder
+     */
+    public Builder addChildren(String children) {
+<span class="nc" id="L97">      com.ibm.cloud.sdk.core.util.Validator.notNull(children,</span>
+        &quot;children cannot be null&quot;);
+<span class="nc bnc" id="L99" title="All 2 branches missed.">      if (this.children == null) {</span>
+<span class="nc" id="L100">        this.children = new ArrayList&lt;String&gt;();</span>
+      }
+<span class="nc" id="L102">      this.children.add(children);</span>
+<span class="nc" id="L103">      return this;</span>
+    }
+
+    /**
+     * Adds an definition to definition.
+     *
+     * @param definition the new definition
+     * @return the DictonaryEntry builder
+     */
+    public Builder addDefinition(String definition) {
+<span class="nc" id="L113">      com.ibm.cloud.sdk.core.util.Validator.notNull(definition,</span>
+        &quot;definition cannot be null&quot;);
+<span class="nc bnc" id="L115" title="All 2 branches missed.">      if (this.definition == null) {</span>
+<span class="nc" id="L116">        this.definition = new ArrayList&lt;String&gt;();</span>
+      }
+<span class="nc" id="L118">      this.definition.add(definition);</span>
+<span class="nc" id="L119">      return this;</span>
+    }
+
+    /**
+     * Adds an parents to parents.
+     *
+     * @param parents the new parents
+     * @return the DictonaryEntry builder
+     */
+    public Builder addParents(String parents) {
+<span class="nc" id="L129">      com.ibm.cloud.sdk.core.util.Validator.notNull(parents,</span>
+        &quot;parents cannot be null&quot;);
+<span class="nc bnc" id="L131" title="All 2 branches missed.">      if (this.parents == null) {</span>
+<span class="nc" id="L132">        this.parents = new ArrayList&lt;String&gt;();</span>
+      }
+<span class="nc" id="L134">      this.parents.add(parents);</span>
+<span class="nc" id="L135">      return this;</span>
+    }
+
+    /**
+     * Adds an semtypes to semtypes.
+     *
+     * @param semtypes the new semtypes
+     * @return the DictonaryEntry builder
+     */
+    public Builder addSemtypes(String semtypes) {
+<span class="nc" id="L145">      com.ibm.cloud.sdk.core.util.Validator.notNull(semtypes,</span>
+        &quot;semtypes cannot be null&quot;);
+<span class="nc bnc" id="L147" title="All 2 branches missed.">      if (this.semtypes == null) {</span>
+<span class="nc" id="L148">        this.semtypes = new ArrayList&lt;String&gt;();</span>
+      }
+<span class="nc" id="L150">      this.semtypes.add(semtypes);</span>
+<span class="nc" id="L151">      return this;</span>
+    }
+
+    /**
+     * Adds an siblings to siblings.
+     *
+     * @param siblings the new siblings
+     * @return the DictonaryEntry builder
+     */
+    public Builder addSiblings(String siblings) {
+<span class="nc" id="L161">      com.ibm.cloud.sdk.core.util.Validator.notNull(siblings,</span>
+        &quot;siblings cannot be null&quot;);
+<span class="nc bnc" id="L163" title="All 2 branches missed.">      if (this.siblings == null) {</span>
+<span class="nc" id="L164">        this.siblings = new ArrayList&lt;String&gt;();</span>
+      }
+<span class="nc" id="L166">      this.siblings.add(siblings);</span>
+<span class="nc" id="L167">      return this;</span>
+    }
+
+    /**
+     * Adds an surfaceForms to surfaceForms.
+     *
+     * @param surfaceForms the new surfaceForms
+     * @return the DictonaryEntry builder
+     */
+    public Builder addSurfaceForms(String surfaceForms) {
+<span class="nc" id="L177">      com.ibm.cloud.sdk.core.util.Validator.notNull(surfaceForms,</span>
+        &quot;surfaceForms cannot be null&quot;);
+<span class="nc bnc" id="L179" title="All 2 branches missed.">      if (this.surfaceForms == null) {</span>
+<span class="nc" id="L180">        this.surfaceForms = new ArrayList&lt;String&gt;();</span>
+      }
+<span class="nc" id="L182">      this.surfaceForms.add(surfaceForms);</span>
+<span class="nc" id="L183">      return this;</span>
+    }
+
+    /**
+     * Adds an variants to variants.
+     *
+     * @param variants the new variants
+     * @return the DictonaryEntry builder
+     */
+    public Builder addVariants(String variants) {
+<span class="nc" id="L193">      com.ibm.cloud.sdk.core.util.Validator.notNull(variants,</span>
+        &quot;variants cannot be null&quot;);
+<span class="nc bnc" id="L195" title="All 2 branches missed.">      if (this.variants == null) {</span>
+<span class="nc" id="L196">        this.variants = new ArrayList&lt;String&gt;();</span>
+      }
+<span class="nc" id="L198">      this.variants.add(variants);</span>
+<span class="nc" id="L199">      return this;</span>
+    }
+
+    /**
+     * Adds an related to related.
+     *
+     * @param related the new related
+     * @return the DictonaryEntry builder
+     */
+    public Builder addRelated(String related) {
+<span class="nc" id="L209">      com.ibm.cloud.sdk.core.util.Validator.notNull(related,</span>
+        &quot;related cannot be null&quot;);
+<span class="nc bnc" id="L211" title="All 2 branches missed.">      if (this.related == null) {</span>
+<span class="nc" id="L212">        this.related = new ArrayList&lt;String&gt;();</span>
+      }
+<span class="nc" id="L214">      this.related.add(related);</span>
+<span class="nc" id="L215">      return this;</span>
+    }
+
+    /**
+     * Set the children.
+     * Existing children will be replaced.
+     *
+     * @param children the children
+     * @return the DictonaryEntry builder
+     */
+    public Builder children(List&lt;String&gt; children) {
+<span class="fc" id="L226">      this.children = children;</span>
+<span class="fc" id="L227">      return this;</span>
+    }
+
+    /**
+     * Set the cui.
+     *
+     * @param cui the cui
+     * @return the DictonaryEntry builder
+     */
+    public Builder cui(String cui) {
+<span class="fc" id="L237">      this.cui = cui;</span>
+<span class="fc" id="L238">      return this;</span>
+    }
+
+    /**
+     * Set the definition.
+     * Existing definition will be replaced.
+     *
+     * @param definition the definition
+     * @return the DictonaryEntry builder
+     */
+    public Builder definition(List&lt;String&gt; definition) {
+<span class="fc" id="L249">      this.definition = definition;</span>
+<span class="fc" id="L250">      return this;</span>
+    }
+
+    /**
+     * Set the parents.
+     * Existing parents will be replaced.
+     *
+     * @param parents the parents
+     * @return the DictonaryEntry builder
+     */
+    public Builder parents(List&lt;String&gt; parents) {
+<span class="fc" id="L261">      this.parents = parents;</span>
+<span class="fc" id="L262">      return this;</span>
+    }
+
+    /**
+     * Set the preferredName.
+     *
+     * @param preferredName the preferredName
+     * @return the DictonaryEntry builder
+     */
+    public Builder preferredName(String preferredName) {
+<span class="fc" id="L272">      this.preferredName = preferredName;</span>
+<span class="fc" id="L273">      return this;</span>
+    }
+
+    /**
+     * Set the semtypes.
+     * Existing semtypes will be replaced.
+     *
+     * @param semtypes the semtypes
+     * @return the DictonaryEntry builder
+     */
+    public Builder semtypes(List&lt;String&gt; semtypes) {
+<span class="fc" id="L284">      this.semtypes = semtypes;</span>
+<span class="fc" id="L285">      return this;</span>
+    }
+
+    /**
+     * Set the siblings.
+     * Existing siblings will be replaced.
+     *
+     * @param siblings the siblings
+     * @return the DictonaryEntry builder
+     */
+    public Builder siblings(List&lt;String&gt; siblings) {
+<span class="fc" id="L296">      this.siblings = siblings;</span>
+<span class="fc" id="L297">      return this;</span>
+    }
+
+    /**
+     * Set the surfaceForms.
+     * Existing surfaceForms will be replaced.
+     *
+     * @param surfaceForms the surfaceForms
+     * @return the DictonaryEntry builder
+     */
+    public Builder surfaceForms(List&lt;String&gt; surfaceForms) {
+<span class="fc" id="L308">      this.surfaceForms = surfaceForms;</span>
+<span class="fc" id="L309">      return this;</span>
+    }
+
+    /**
+     * Set the variants.
+     * Existing variants will be replaced.
+     *
+     * @param variants the variants
+     * @return the DictonaryEntry builder
+     */
+    public Builder variants(List&lt;String&gt; variants) {
+<span class="fc" id="L320">      this.variants = variants;</span>
+<span class="fc" id="L321">      return this;</span>
+    }
+
+    /**
+     * Set the vocab.
+     *
+     * @param vocab the vocab
+     * @return the DictonaryEntry builder
+     */
+    public Builder vocab(String vocab) {
+<span class="fc" id="L331">      this.vocab = vocab;</span>
+<span class="fc" id="L332">      return this;</span>
+    }
+
+    /**
+     * Set the related.
+     * Existing related will be replaced.
+     *
+     * @param related the related
+     * @return the DictonaryEntry builder
+     */
+    public Builder related(List&lt;String&gt; related) {
+<span class="fc" id="L343">      this.related = related;</span>
+<span class="fc" id="L344">      return this;</span>
+    }
+
+    /**
+     * Set the source.
+     *
+     * @param source the source
+     * @return the DictonaryEntry builder
+     */
+    public Builder source(String source) {
+<span class="fc" id="L354">      this.source = source;</span>
+<span class="fc" id="L355">      return this;</span>
+    }
+
+    /**
+     * Set the sourceVersion.
+     *
+     * @param sourceVersion the sourceVersion
+     * @return the DictonaryEntry builder
+     */
+    public Builder sourceVersion(String sourceVersion) {
+<span class="fc" id="L365">      this.sourceVersion = sourceVersion;</span>
+<span class="fc" id="L366">      return this;</span>
+    }
+  }
+
+<span class="fc" id="L370">  protected DictonaryEntry(Builder builder) {</span>
+<span class="fc" id="L371">    children = builder.children;</span>
+<span class="fc" id="L372">    cui = builder.cui;</span>
+<span class="fc" id="L373">    definition = builder.definition;</span>
+<span class="fc" id="L374">    parents = builder.parents;</span>
+<span class="fc" id="L375">    preferredName = builder.preferredName;</span>
+<span class="fc" id="L376">    semtypes = builder.semtypes;</span>
+<span class="fc" id="L377">    siblings = builder.siblings;</span>
+<span class="fc" id="L378">    surfaceForms = builder.surfaceForms;</span>
+<span class="fc" id="L379">    variants = builder.variants;</span>
+<span class="fc" id="L380">    vocab = builder.vocab;</span>
+<span class="fc" id="L381">    related = builder.related;</span>
+<span class="fc" id="L382">    source = builder.source;</span>
+<span class="fc" id="L383">    sourceVersion = builder.sourceVersion;</span>
+<span class="fc" id="L384">  }</span>
+
+  /**
+   * New builder.
+   *
+   * @return a DictonaryEntry builder
+   */
+  public Builder newBuilder() {
+<span class="nc" id="L392">    return new Builder(this);</span>
+  }
+
+  /**
+   * Gets the children.
+   *
+   * @return the children
+   */
+  public List&lt;String&gt; children() {
+<span class="fc" id="L401">    return children;</span>
+  }
+
+  /**
+   * Gets the cui.
+   *
+   * @return the cui
+   */
+  public String cui() {
+<span class="fc" id="L410">    return cui;</span>
+  }
+
+  /**
+   * Gets the definition.
+   *
+   * @return the definition
+   */
+  public List&lt;String&gt; definition() {
+<span class="fc" id="L419">    return definition;</span>
+  }
+
+  /**
+   * Gets the parents.
+   *
+   * @return the parents
+   */
+  public List&lt;String&gt; parents() {
+<span class="fc" id="L428">    return parents;</span>
+  }
+
+  /**
+   * Gets the preferredName.
+   *
+   * @return the preferredName
+   */
+  public String preferredName() {
+<span class="fc" id="L437">    return preferredName;</span>
+  }
+
+  /**
+   * Gets the semtypes.
+   *
+   * @return the semtypes
+   */
+  public List&lt;String&gt; semtypes() {
+<span class="fc" id="L446">    return semtypes;</span>
+  }
+
+  /**
+   * Gets the siblings.
+   *
+   * @return the siblings
+   */
+  public List&lt;String&gt; siblings() {
+<span class="fc" id="L455">    return siblings;</span>
+  }
+
+  /**
+   * Gets the surfaceForms.
+   *
+   * @return the surfaceForms
+   */
+  public List&lt;String&gt; surfaceForms() {
+<span class="fc" id="L464">    return surfaceForms;</span>
+  }
+
+  /**
+   * Gets the variants.
+   *
+   * @return the variants
+   */
+  public List&lt;String&gt; variants() {
+<span class="fc" id="L473">    return variants;</span>
+  }
+
+  /**
+   * Gets the vocab.
+   *
+   * @return the vocab
+   */
+  public String vocab() {
+<span class="fc" id="L482">    return vocab;</span>
+  }
+
+  /**
+   * Gets the related.
+   *
+   * @return the related
+   */
+  public List&lt;String&gt; related() {
+<span class="fc" id="L491">    return related;</span>
+  }
+
+  /**
+   * Gets the source.
+   *
+   * @return the source
+   */
+  public String source() {
+<span class="fc" id="L500">    return source;</span>
+  }
+
+  /**
+   * Gets the sourceVersion.
+   *
+   * @return the sourceVersion
+   */
+  public String sourceVersion() {
+<span class="fc" id="L509">    return sourceVersion;</span>
+  }
+}
+
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>

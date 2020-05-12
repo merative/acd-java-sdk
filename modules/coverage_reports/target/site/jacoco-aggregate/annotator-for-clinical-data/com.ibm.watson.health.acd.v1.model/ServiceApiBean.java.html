@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../jacoco-resources/report.gif" type="image/gif"/><title>ServiceApiBean.java</title><link rel="stylesheet" href="../../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../../index.html" class="el_report">IBM Watson Health Cognitive Services Coverage Reports</a> &gt; <a href="../index.html" class="el_bundle">annotator-for-clinical-data</a> &gt; <a href="index.source.html" class="el_package">com.ibm.watson.health.acd.v1.model</a> &gt; <span class="el_source">ServiceApiBean.java</span></div><h1>ServiceApiBean.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2018, 2020 IBM Corp. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the &quot;License&quot;); you may not use this file except in compliance with
+ * the License. You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on
+ * an &quot;AS IS&quot; BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the
+ * specific language governing permissions and limitations under the License.
+ */
+package com.ibm.watson.health.acd.v1.model;
+
+import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
+
+<span class="nc" id="L19">public class ServiceApiBean {</span>
+
+	private String id;
+	private URL url;
+<span class="nc" id="L23">	private List&lt;URL&gt; urls = new ArrayList&lt;URL&gt;();</span>
+<span class="nc" id="L24">	private Boolean publish = false;</span>
+	Integer receiveTimeout;
+	Integer connectTimeout;
+
+	/**
+	 * Gets the identifier.
+	 *
+	 * @return identifier
+	 */
+	public String getId() {
+<span class="nc" id="L34">		return id;</span>
+	}
+
+	/**
+	 * Gets the URL.
+	 *
+	 * @return url
+	 */
+	public URL getUrl() {
+<span class="nc" id="L43">		return url;</span>
+	}
+
+	/**
+	 * Gets the urls.
+	 *
+	 * @return the urls
+	 */
+	public List&lt;URL&gt; getUrls() {
+<span class="nc" id="L52">		return urls;</span>
+	}
+
+	/**
+	 * Gets the publish status.
+	 *
+	 * @return publish status
+	 */
+	public Boolean getPublish() {
+<span class="nc" id="L61">		return publish;</span>
+	}
+
+	/**
+	 * Gets receive timeout.
+	 *
+	 * @return the receive timeout
+	 */
+	public Integer getReceiveTimeout() {
+<span class="nc" id="L70">		return receiveTimeout;</span>
+	}
+
+	/**
+	 * Gets connect timeout.
+	 *
+	 * @return the connect timeout
+	 */
+	public Integer getConnectTimeout() {
+<span class="nc" id="L79">		return connectTimeout;</span>
+	}
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>

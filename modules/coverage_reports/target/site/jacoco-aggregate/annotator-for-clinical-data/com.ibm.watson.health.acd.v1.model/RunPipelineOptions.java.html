@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../jacoco-resources/report.gif" type="image/gif"/><title>RunPipelineOptions.java</title><link rel="stylesheet" href="../../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../../index.html" class="el_report">IBM Watson Health Cognitive Services Coverage Reports</a> &gt; <a href="../index.html" class="el_bundle">annotator-for-clinical-data</a> &gt; <a href="index.source.html" class="el_package">com.ibm.watson.health.acd.v1.model</a> &gt; <span class="el_source">RunPipelineOptions.java</span></div><h1>RunPipelineOptions.java</h1><pre class="source lang-java linenums">/*
+ * (C) Copyright IBM Corp. 2020.
+ *
+ * Licensed under the Apache License, Version 2.0 (the &quot;License&quot;); you may not use this file except in compliance with
+ * the License. You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on
+ * an &quot;AS IS&quot; BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the
+ * specific language governing permissions and limitations under the License.
+ */
+package com.ibm.watson.health.acd.v1.model;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import com.ibm.cloud.sdk.core.service.model.GenericModel;
+
+/**
+ * The runPipeline options.
+ */
+public class RunPipelineOptions extends GenericModel {
+
+  protected List&lt;UnstructuredContainer&gt; unstructured;
+  protected List&lt;AnnotatorFlow&gt; annotatorFlows;
+  protected Boolean debugTextRestore;
+  protected Boolean returnAnalyzedText;
+
+  /**
+   * Builder.
+   */
+  public static class Builder {
+    private List&lt;UnstructuredContainer&gt; unstructured;
+    private List&lt;AnnotatorFlow&gt; annotatorFlows;
+    private Boolean debugTextRestore;
+    private Boolean returnAnalyzedText;
+
+<span class="nc" id="L39">    private Builder(RunPipelineOptions runPipelineOptions) {</span>
+<span class="nc" id="L40">      this.unstructured = runPipelineOptions.unstructured;</span>
+<span class="nc" id="L41">      this.annotatorFlows = runPipelineOptions.annotatorFlows;</span>
+<span class="nc" id="L42">      this.debugTextRestore = runPipelineOptions.debugTextRestore;</span>
+<span class="nc" id="L43">      this.returnAnalyzedText = runPipelineOptions.returnAnalyzedText;</span>
+<span class="nc" id="L44">    }</span>
+
+    /**
+     * Instantiates a new builder.
+     */
+<span class="fc" id="L49">    public Builder() {</span>
+<span class="fc" id="L50">    }</span>
+
+    /**
+     * Builds a RunPipelineOptions.
+     *
+     * @return the new RunPipelineOptions instance
+     */
+    public RunPipelineOptions build() {
+<span class="fc" id="L58">      return new RunPipelineOptions(this);</span>
+    }
+
+    /**
+     * Adds an unstructured to unstructured.
+     *
+     * @param unstructured the new unstructured
+     * @return the RunPipelineOptions builder
+     */
+    public Builder addUnstructured(UnstructuredContainer unstructured) {
+<span class="nc" id="L68">      com.ibm.cloud.sdk.core.util.Validator.notNull(unstructured,</span>
+        &quot;unstructured cannot be null&quot;);
+<span class="nc bnc" id="L70" title="All 2 branches missed.">      if (this.unstructured == null) {</span>
+<span class="nc" id="L71">        this.unstructured = new ArrayList&lt;UnstructuredContainer&gt;();</span>
+      }
+<span class="nc" id="L73">      this.unstructured.add(unstructured);</span>
+<span class="nc" id="L74">      return this;</span>
+    }
+
+    /**
+     * Adds an annotatorFlows to annotatorFlows.
+     *
+     * @param annotatorFlows the new annotatorFlows
+     * @return the RunPipelineOptions builder
+     */
+    public Builder addAnnotatorFlows(AnnotatorFlow annotatorFlows) {
+<span class="nc" id="L84">      com.ibm.cloud.sdk.core.util.Validator.notNull(annotatorFlows,</span>
+        &quot;annotatorFlows cannot be null&quot;);
+<span class="nc bnc" id="L86" title="All 2 branches missed.">      if (this.annotatorFlows == null) {</span>
+<span class="nc" id="L87">        this.annotatorFlows = new ArrayList&lt;AnnotatorFlow&gt;();</span>
+      }
+<span class="nc" id="L89">      this.annotatorFlows.add(annotatorFlows);</span>
+<span class="nc" id="L90">      return this;</span>
+    }
+
+    /**
+     * Set the unstructured.
+     * Existing unstructured will be replaced.
+     *
+     * @param unstructured the unstructured
+     * @return the RunPipelineOptions builder
+     */
+    public Builder unstructured(List&lt;UnstructuredContainer&gt; unstructured) {
+<span class="fc" id="L101">      this.unstructured = unstructured;</span>
+<span class="fc" id="L102">      return this;</span>
+    }
+
+    /**
+     * Set the annotatorFlows.
+     * Existing annotatorFlows will be replaced.
+     *
+     * @param annotatorFlows the annotatorFlows
+     * @return the RunPipelineOptions builder
+     */
+    public Builder annotatorFlows(List&lt;AnnotatorFlow&gt; annotatorFlows) {
+<span class="fc" id="L113">      this.annotatorFlows = annotatorFlows;</span>
+<span class="fc" id="L114">      return this;</span>
+    }
+
+    /**
+     * Set the debugTextRestore.
+     *
+     * @param debugTextRestore the debugTextRestore
+     * @return the RunPipelineOptions builder
+     */
+    public Builder debugTextRestore(Boolean debugTextRestore) {
+<span class="fc" id="L124">      this.debugTextRestore = debugTextRestore;</span>
+<span class="fc" id="L125">      return this;</span>
+    }
+
+    /**
+     * Set the returnAnalyzedText.
+     *
+     * @param returnAnalyzedText the returnAnalyzedText
+     * @return the RunPipelineOptions builder
+     */
+    public Builder returnAnalyzedText(Boolean returnAnalyzedText) {
+<span class="fc" id="L135">      this.returnAnalyzedText = returnAnalyzedText;</span>
+<span class="fc" id="L136">      return this;</span>
+    }
+  }
+
+<span class="fc" id="L140">  protected RunPipelineOptions(Builder builder) {</span>
+<span class="fc" id="L141">    unstructured = builder.unstructured;</span>
+<span class="fc" id="L142">    annotatorFlows = builder.annotatorFlows;</span>
+<span class="fc" id="L143">    debugTextRestore = builder.debugTextRestore;</span>
+<span class="fc" id="L144">    returnAnalyzedText = builder.returnAnalyzedText;</span>
+<span class="fc" id="L145">  }</span>
+
+  /**
+   * New builder.
+   *
+   * @return a RunPipelineOptions builder
+   */
+  public Builder newBuilder() {
+<span class="nc" id="L153">    return new Builder(this);</span>
+  }
+
+  /**
+   * Gets the unstructured.
+   *
+   * @return the unstructured
+   */
+  public List&lt;UnstructuredContainer&gt; unstructured() {
+<span class="fc" id="L162">    return unstructured;</span>
+  }
+
+  /**
+   * Gets the annotatorFlows.
+   *
+   * @return the annotatorFlows
+   */
+  public List&lt;AnnotatorFlow&gt; annotatorFlows() {
+<span class="fc" id="L171">    return annotatorFlows;</span>
+  }
+
+  /**
+   * Gets the debugTextRestore.
+   *
+   * If true, any ReplaceTextChange annotations will be left in the container and the modified text before restoring to
+   * original form will stored in the metadata that is returned.  Otherwise, these annotations and modified text will be
+   * removed from the container.
+   *
+   * @return the debugTextRestore
+   */
+  public Boolean debugTextRestore() {
+<span class="fc" id="L184">    return debugTextRestore;</span>
+  }
+
+  /**
+   * Gets the returnAnalyzedText.
+   *
+   * Set this to true to show the analyzed text in the response.
+   *
+   * @return the returnAnalyzedText
+   */
+  public Boolean returnAnalyzedText() {
+<span class="fc" id="L195">    return returnAnalyzedText;</span>
+  }
+}
+
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>

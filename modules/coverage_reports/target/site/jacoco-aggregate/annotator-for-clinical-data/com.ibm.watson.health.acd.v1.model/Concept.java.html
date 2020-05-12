@@ -1,0 +1,490 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../jacoco-resources/report.gif" type="image/gif"/><title>Concept.java</title><link rel="stylesheet" href="../../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../../index.html" class="el_report">IBM Watson Health Cognitive Services Coverage Reports</a> &gt; <a href="../index.html" class="el_bundle">annotator-for-clinical-data</a> &gt; <a href="index.source.html" class="el_package">com.ibm.watson.health.acd.v1.model</a> &gt; <span class="el_source">Concept.java</span></div><h1>Concept.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2018 IBM Corp. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the &quot;License&quot;); you may not use this file except in compliance with
+ * the License. You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on
+ * an &quot;AS IS&quot; BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the
+ * specific language governing permissions and limitations under the License.
+ */
+package com.ibm.watson.health.acd.v1.model;
+
+import java.lang.reflect.Type;
+
+import com.google.gson.reflect.TypeToken;
+import com.ibm.watson.developer_cloud.service.model.DynamicModel;
+import com.ibm.watson.developer_cloud.util.GsonSerializationHelper;
+
+/**
+ * Concept.
+ */
+<span class="nc" id="L24">public class Concept extends DynamicModel {</span>
+<span class="nc" id="L25">  private Type idType = new TypeToken&lt;String&gt;() { } .getType();</span>
+<span class="nc" id="L26">  private Type typeType = new TypeToken&lt;String&gt;() { } .getType();</span>
+<span class="nc" id="L27">  private Type uidType = new TypeToken&lt;Long&gt;() { } .getType();</span>
+<span class="nc" id="L28">  private Type beginType = new TypeToken&lt;Long&gt;() { } .getType();</span>
+<span class="nc" id="L29">  private Type endType = new TypeToken&lt;Long&gt;() { } .getType();</span>
+<span class="nc" id="L30">  private Type coveredTextType = new TypeToken&lt;String&gt;() { } .getType();</span>
+<span class="nc" id="L31">  private Type negatedType = new TypeToken&lt;Boolean&gt;() { } .getType();</span>
+<span class="nc" id="L32">  private Type hypotheticalType = new TypeToken&lt;Boolean&gt;() { } .getType();</span>
+<span class="nc" id="L33">  private Type cuiType = new TypeToken&lt;String&gt;() { } .getType();</span>
+<span class="nc" id="L34">  private Type preferredNameType = new TypeToken&lt;String&gt;() { } .getType();</span>
+<span class="nc" id="L35">  private Type semanticTypeType = new TypeToken&lt;String&gt;() { } .getType();</span>
+<span class="nc" id="L36">  private Type sourceType = new TypeToken&lt;String&gt;() { } .getType();</span>
+<span class="nc" id="L37">  private Type sourceVersionType = new TypeToken&lt;String&gt;() { } .getType();</span>
+<span class="nc" id="L38">  private Type disambiguationDataType = new TypeToken&lt;Disambiguation&gt;() { } .getType();</span>
+<span class="nc" id="L39">  private Type sectionNormalizedNameType = new TypeToken&lt;String&gt;() { } .getType();</span>
+<span class="nc" id="L40">  private Type sectionSurfaceFormType = new TypeToken&lt;String&gt;() { } .getType();</span>
+
+<span class="nc" id="L42">  private Type icd9CodeType = new TypeToken&lt;String&gt;() { } .getType();</span>
+<span class="nc" id="L43">  private Type icd10CodeType = new TypeToken&lt;String&gt;() { } .getType();</span>
+<span class="nc" id="L44">  private Type snomedConceptIdType = new TypeToken&lt;String&gt;() { } .getType();</span>
+<span class="nc" id="L45">  private Type nciCodeType = new TypeToken&lt;String&gt;() { } .getType();</span>
+<span class="nc" id="L46">  private Type meshIdType = new TypeToken&lt;String&gt;() { } .getType();</span>
+<span class="nc" id="L47">  private Type rxNormIdType = new TypeToken&lt;String&gt;() { } .getType();</span>
+<span class="nc" id="L48">  private Type loincIdType = new TypeToken&lt;String&gt;() { } .getType();</span>
+<span class="nc" id="L49">  private Type vocabsType = new TypeToken&lt;String&gt;() { } .getType();</span>
+<span class="nc" id="L50">  private Type cptCodeType = new TypeToken&lt;String&gt;() { } .getType();</span>
+
+
+
+
+  /**
+   * Gets the id.
+   *
+   * @return the id
+   */
+  public String getId() {
+<span class="nc" id="L61">    return GsonSerializationHelper.serializeDynamicModelProperty(this.get(&quot;id&quot;), idType);</span>
+  }
+
+  /**
+   * Gets the type.
+   *
+   * @return the type
+   */
+  public String getType() {
+<span class="nc" id="L70">    return GsonSerializationHelper.serializeDynamicModelProperty(this.get(&quot;type&quot;), typeType);</span>
+  }
+
+  /**
+   * Gets the uid.
+   *
+   * @return the uid
+   */
+  public Long getUid() {
+<span class="nc" id="L79">    return GsonSerializationHelper.serializeDynamicModelProperty(this.get(&quot;uid&quot;), uidType);</span>
+  }
+
+  /**
+   * Gets the begin.
+   *
+   * @return the begin
+   */
+  public Long getBegin() {
+<span class="nc" id="L88">    return GsonSerializationHelper.serializeDynamicModelProperty(this.get(&quot;begin&quot;), beginType);</span>
+  }
+
+  /**
+   * Gets the end.
+   *
+   * @return the end
+   */
+  public Long getEnd() {
+<span class="nc" id="L97">    return GsonSerializationHelper.serializeDynamicModelProperty(this.get(&quot;end&quot;), endType);</span>
+  }
+
+  /**
+   * Gets the coveredText.
+   *
+   * @return the coveredText
+   */
+  public String getCoveredText() {
+<span class="nc" id="L106">    return GsonSerializationHelper.serializeDynamicModelProperty(this.get(&quot;coveredText&quot;), coveredTextType);</span>
+  }
+
+  /**
+   * Gets the negated.
+   *
+   * @return the negated
+   */
+  public Boolean isNegated() {
+<span class="nc" id="L115">    Boolean negated = GsonSerializationHelper.serializeDynamicModelProperty(this.get(&quot;negated&quot;), negatedType);</span>
+<span class="nc bnc" id="L116" title="All 2 branches missed.">    if (negated == null) {</span>
+<span class="nc" id="L117">      negated = false;</span>
+    }
+<span class="nc" id="L119">    return negated;</span>
+  }
+
+  /**
+   * Gets the hypothetical.
+   *
+   * @return the hypothetical
+   */
+  public Boolean isHypothetical() {
+<span class="nc" id="L128">    Boolean hypothetical = GsonSerializationHelper.serializeDynamicModelProperty(this.get(&quot;hypothetical&quot;), hypotheticalType);</span>
+<span class="nc bnc" id="L129" title="All 2 branches missed.">    if (hypothetical == null) {</span>
+<span class="nc" id="L130">      hypothetical = false;</span>
+    }
+<span class="nc" id="L132">    return hypothetical;</span>
+  }
+
+  /**
+   * Gets the cui.
+   *
+   * @return the cui
+   */
+  public String getCui() {
+<span class="nc" id="L141">    return GsonSerializationHelper.serializeDynamicModelProperty(this.get(&quot;cui&quot;), cuiType);</span>
+  }
+
+  /**
+   * Gets the preferredName.
+   *
+   * @return the preferredName
+   */
+  public String getPreferredName() {
+<span class="nc" id="L150">    return GsonSerializationHelper.serializeDynamicModelProperty(this.get(&quot;preferredName&quot;), preferredNameType);</span>
+  }
+
+  /**
+   * Gets the semanticType.
+   *
+   * @return the semanticType
+   */
+  public String getSemanticType() {
+<span class="nc" id="L159">    return GsonSerializationHelper.serializeDynamicModelProperty(this.get(&quot;semanticType&quot;), semanticTypeType);</span>
+  }
+
+  /**
+   * Gets the source.
+   *
+   * @return the source
+   */
+  public String getSource() {
+<span class="nc" id="L168">    return GsonSerializationHelper.serializeDynamicModelProperty(this.get(&quot;source&quot;), sourceType);</span>
+  }
+
+  /**
+   * Gets the sourceVersion.
+   *
+   * @return the sourceVersion
+   */
+  public String getSourceVersion() {
+<span class="nc" id="L177">    return GsonSerializationHelper.serializeDynamicModelProperty(this.get(&quot;sourceVersion&quot;), sourceVersionType);</span>
+  }
+
+  /**
+   * Gets the disambiguationData.
+   *
+   * @return the disambiguationData
+   */
+  public Disambiguation getDisambiguationData() {
+<span class="nc" id="L186">    return GsonSerializationHelper.serializeDynamicModelProperty(this.get(&quot;disambiguationData&quot;), disambiguationDataType);</span>
+  }
+
+  /**
+   * Gets the sectionNormalizedName.
+   *
+   * @return the sectionNormalizedName
+   */
+  public String getSectionNormalizedName() {
+<span class="nc" id="L195">    return GsonSerializationHelper.serializeDynamicModelProperty(this.get(&quot;sectionNormalizedName&quot;), sectionNormalizedNameType);</span>
+  }
+
+  /**
+   * Gets the sectionSurfaceForm.
+   *
+   * @return the sectionSurfaceForm
+   */
+  public String getSectionSurfaceForm() {
+<span class="nc" id="L204">    return GsonSerializationHelper.serializeDynamicModelProperty(this.get(&quot;sectionSurfaceForm&quot;), sectionSurfaceFormType);</span>
+  }
+
+
+  /**
+   * Gets the getIcd9Code.
+   * @return the getIcd9Code
+   */
+  public String getIcd9Code() {
+<span class="nc" id="L213">    return GsonSerializationHelper.serializeDynamicModelProperty(this.get(&quot;icd9Code&quot;), icd9CodeType);</span>
+  }
+
+  /**
+   * Gets the getIcd10CodeForm.
+   * @return the getIcd10CodeForm
+   */
+  public String getIcd10Code() {
+<span class="nc" id="L221">    return GsonSerializationHelper.serializeDynamicModelProperty(this.get(&quot;icd10Code&quot;), icd10CodeType);</span>
+  }
+
+  /**
+   * Gets the getSnomedConceptId.
+   * @return the getSnomedConceptId
+   */
+  public String getSnomedConceptId() {
+<span class="nc" id="L229">    return GsonSerializationHelper.serializeDynamicModelProperty(this.get(&quot;snomedConceptId&quot;), snomedConceptIdType);</span>
+  }
+
+  /**
+   * Gets the getNciCode.
+   * @return the getNciCode
+   */
+  public String getNciCode() {
+<span class="nc" id="L237">    return GsonSerializationHelper.serializeDynamicModelProperty(this.get(&quot;nciCode&quot;), nciCodeType);</span>
+  }
+
+  /**
+   * Gets the getCptCode.
+   * @return the getCptCode
+   */
+  public String getCptCode() {
+<span class="nc" id="L245">    return GsonSerializationHelper.serializeDynamicModelProperty(this.get(&quot;cptCode&quot;), cptCodeType);</span>
+  }
+
+  /**
+   * Gets the getMeshId.
+   * @return the getMeshId
+   */
+  public String getMeshId() {
+<span class="nc" id="L253">    return GsonSerializationHelper.serializeDynamicModelProperty(this.get(&quot;meshId&quot;), meshIdType);</span>
+  }
+
+  /**
+   * Gets the getRxNormId.
+   * @return the getRxNormId
+   */
+  public String getRxNormId() {
+<span class="nc" id="L261">   return GsonSerializationHelper.serializeDynamicModelProperty(this.get(&quot;rxNormId&quot;), rxNormIdType);</span>
+  }
+
+  /**
+   * Gets the getLoincId.
+   * @return the getLoincId
+   */
+  public String getLoincId() {
+<span class="nc" id="L269">    return GsonSerializationHelper.serializeDynamicModelProperty(this.get(&quot;loincId&quot;), loincIdType);</span>
+  }
+
+  /**
+   * Gets the getVocabs.
+   * @return the getVocabs
+   */
+  public String getVocabs() {
+<span class="nc" id="L277">   return GsonSerializationHelper.serializeDynamicModelProperty(this.get(&quot;vocabs&quot;), vocabsType);</span>
+  }
+
+
+
+  /**
+   * Sets the id.
+   *
+   * @param id the new id
+   */
+  public void setId(final String id) {
+<span class="nc" id="L288">    this.put(&quot;id&quot;, id);</span>
+<span class="nc" id="L289">  }</span>
+
+  /**
+   * Sets the type.
+   *
+   * @param type the new type
+   */
+  public void setType(final String type) {
+<span class="nc" id="L297">    this.put(&quot;type&quot;, type);</span>
+<span class="nc" id="L298">  }</span>
+
+  /**
+   * Sets the uid.
+   *
+   * @param uid the new uid
+   */
+  public void setUid(final Long uid) {
+<span class="nc" id="L306">    this.put(&quot;uid&quot;, uid);</span>
+<span class="nc" id="L307">  }</span>
+
+  /**
+   * Sets the begin.
+   *
+   * @param begin the new begin
+   */
+  public void setBegin(final Long begin) {
+<span class="nc" id="L315">    this.put(&quot;begin&quot;, begin);</span>
+<span class="nc" id="L316">  }</span>
+
+  /**
+   * Sets the end.
+   *
+   * @param end the new end
+   */
+  public void setEnd(final Long end) {
+<span class="nc" id="L324">    this.put(&quot;end&quot;, end);</span>
+<span class="nc" id="L325">  }</span>
+
+  /**
+   * Sets the coveredText.
+   *
+   * @param coveredText the new coveredText
+   */
+  public void setCoveredText(final String coveredText) {
+<span class="nc" id="L333">    this.put(&quot;coveredText&quot;, coveredText);</span>
+<span class="nc" id="L334">  }</span>
+
+  /**
+   * Sets the negated.
+   *
+   * @param negated the new negated
+   */
+  public void setNegated(final Boolean negated) {
+<span class="nc" id="L342">    this.put(&quot;negated&quot;, negated);</span>
+<span class="nc" id="L343">  }</span>
+
+  /**
+   * Sets the hypothetical.
+   *
+   * @param hypothetical the new hypothetical
+   */
+  public void setHypothetical(final Boolean hypothetical) {
+<span class="nc" id="L351">    this.put(&quot;hypothetical&quot;, hypothetical);</span>
+<span class="nc" id="L352">  }</span>
+
+  /**
+   * Sets the cui.
+   *
+   * @param cui the new cui
+   */
+  public void setCui(final Long cui) {
+<span class="nc" id="L360">    this.put(&quot;cui&quot;, cui);</span>
+<span class="nc" id="L361">  }</span>
+
+  /**
+   * Sets the preferredName.
+   *
+   * @param preferredName the new preferredName
+   */
+  public void setPreferredName(final String preferredName) {
+<span class="nc" id="L369">    this.put(&quot;preferredName&quot;, preferredName);</span>
+<span class="nc" id="L370">  }</span>
+
+  /**
+   * Sets the semanticType.
+   *
+   * @param semanticType the new semanticType
+   */
+  public void setSemanticType(final String semanticType) {
+<span class="nc" id="L378">    this.put(&quot;semanticType&quot;, semanticType);</span>
+<span class="nc" id="L379">  }</span>
+
+  /**
+   * Sets the source.
+   *
+   * @param source the new source
+   */
+  public void setSource(final String source) {
+<span class="nc" id="L387">    this.put(&quot;source&quot;, source);</span>
+<span class="nc" id="L388">  }</span>
+
+  /**
+   * Sets the sourceVersion.
+   *
+   * @param sourceVersion the new sourceVersion
+   */
+  public void setSourceVersion(final String sourceVersion) {
+<span class="nc" id="L396">    this.put(&quot;sourceVersion&quot;, sourceVersion);</span>
+<span class="nc" id="L397">  }</span>
+
+  /**
+   * Sets the disambiguationData.
+   *
+   * @param disambiguationData the new disambiguationData
+   */
+  public void setDisambiguationData(final Disambiguation disambiguationData) {
+<span class="nc" id="L405">    this.put(&quot;disambiguationData&quot;, disambiguationData);</span>
+<span class="nc" id="L406">  }</span>
+
+  /**
+   * Sets the icd 9 code.
+   *
+   * @param icd9Code the new icd 9 Code
+   */
+  public void setIcd9Code(final String icd9Code) {
+<span class="nc" id="L414">  this.put(&quot;icd9Code&quot;, icd9Code);</span>
+<span class="nc" id="L415">  }</span>
+
+  /**
+   * Sets the icd 10 code.
+   *
+   * @param icd10Code the new icd 10 code
+   */
+  public void setIcd10Code(final String icd10Code) {
+<span class="nc" id="L423">    this.put(&quot;icd10Code&quot;, icd10Code);</span>
+<span class="nc" id="L424">  }</span>
+
+  /**
+   * Sets the snomed concept id.
+   *
+   * @param snomedConceptId the new snomed concept id
+   */
+  public void setSnomedConceptId(final String snomedConceptId) {
+<span class="nc" id="L432">    this.put(&quot;snomedConceptId&quot;, snomedConceptId);</span>
+<span class="nc" id="L433">  }</span>
+
+  /**
+   * Sets the nci code.
+   *
+   * @param nciCode the new nci code
+   */
+  public void setNciCode(final String nciCode) {
+<span class="nc" id="L441">    this.put(&quot;nciCode&quot;, nciCode);</span>
+<span class="nc" id="L442">  }</span>
+
+  /**
+   * Sets the cpt code.
+   *
+   * @param cptCode the new cpt code
+   */
+  public void setCptCode(final String cptCode) {
+<span class="nc" id="L450">    this.put(&quot;cptCode&quot;, cptCode);</span>
+<span class="nc" id="L451">  }</span>
+
+  /**
+   * Sets the mesh id.
+   *
+   * @param meshId the new mesh id
+   */
+  public void setMeshId(final String meshId) {
+<span class="nc" id="L459">    this.put(&quot;meshId&quot;, meshId);</span>
+<span class="nc" id="L460">  }</span>
+
+  /**
+   * Sets the rx norm id.
+   *
+   * @param rxNormId the new rx norm id
+   */
+  public void setRxNormId(final String rxNormId) {
+<span class="nc" id="L468">    this.put(&quot;rxNormId&quot;, rxNormId);</span>
+<span class="nc" id="L469">  }</span>
+
+  /**
+   * Sets the loinc id.
+   *
+   * @param loincId the new loinc id
+   */
+  public void setLoincId(final String loincId) {
+<span class="nc" id="L477">    this.put(&quot;loincId&quot;, loincId);</span>
+<span class="nc" id="L478">  }</span>
+
+  /**
+   * Sets the vocabs.
+   *
+   * @param vocabs the new vocabs id
+   */
+  public void setVocabs(final String vocabs) {
+<span class="nc" id="L486">    this.put(&quot;vocabs&quot;, vocabs);</span>
+<span class="nc" id="L487">  }</span>
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>

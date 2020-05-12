@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../jacoco-resources/report.gif" type="image/gif"/><title>Category.java</title><link rel="stylesheet" href="../../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../../index.html" class="el_report">IBM Watson Health Cognitive Services Coverage Reports</a> &gt; <a href="../index.html" class="el_bundle">insights-for-medical-literature</a> &gt; <a href="index.source.html" class="el_package">com.ibm.watson.health.iml.v1.model</a> &gt; <span class="el_source">Category.java</span></div><h1>Category.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2018 IBM Corp. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
+ * you may not use this file except in compliance with
+ * the License. You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing,
+ * software distributed under the License is distributed on
+ * an &quot;AS IS&quot; BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND,
+ * either express or implied. See the License for the
+ * specific language governing permissions and limitations under the License.
+ */
+package com.ibm.watson.health.iml.v1.model;
+
+import java.util.List;
+
+import com.ibm.cloud.sdk.core.service.model.GenericModel;
+
+/**
+ * Category.
+ */
+<span class="nc" id="L25">public class Category extends GenericModel {</span>
+
+  private String name;
+  private List&lt;String&gt; types;
+  private String category;
+  private Boolean onlyNegatedConcepts;
+
+  /**
+   * Gets the name.
+   *
+   * @return the name
+   */
+  public String getName() {
+<span class="nc" id="L38">    return name;</span>
+  }
+
+  /**
+   * Gets the types.
+   *
+   * @return the types
+   */
+  public List&lt;String&gt; getTypes() {
+<span class="nc" id="L47">    return types;</span>
+  }
+
+  /**
+   * Gets the category.
+   *
+   * @return the category
+   */
+  public String getCategory() {
+<span class="nc" id="L56">    return category;</span>
+  }
+
+  /**
+   * Gets the onlyNegatedConcepts.
+   *
+   * @return the onlyNegatedConcepts
+   */
+  public Boolean isOnlyNegatedConcepts() {
+<span class="nc" id="L65">    return onlyNegatedConcepts;</span>
+  }
+
+  /**
+   * Sets the name.
+   *
+   * @param name the new name
+   */
+  public void setName(final String name) {
+<span class="nc" id="L74">    this.name = name;</span>
+<span class="nc" id="L75">  }</span>
+
+  /**
+   * Sets the types.
+   *
+   * @param types the new types
+   */
+  public void setTypes(final List&lt;String&gt; types) {
+<span class="nc" id="L83">    this.types = types;</span>
+<span class="nc" id="L84">  }</span>
+
+  /**
+   * Sets the category.
+   *
+   * @param category the new category
+   */
+  public void setCategory(final String category) {
+<span class="nc" id="L92">    this.category = category;</span>
+<span class="nc" id="L93">  }</span>
+
+  /**
+   * Sets the onlyNegatedConcepts.
+   *
+   * @param onlyNegatedConcepts the new onlyNegatedConcepts
+   */
+  public void setOnlyNegatedConcepts(final Boolean onlyNegatedConcepts) {
+<span class="nc" id="L101">    this.onlyNegatedConcepts = onlyNegatedConcepts;</span>
+<span class="nc" id="L102">  }</span>
+}
+
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>

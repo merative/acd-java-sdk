@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../jacoco-resources/report.gif" type="image/gif"/><title>NegatedSpan.java</title><link rel="stylesheet" href="../../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../../index.html" class="el_report">IBM Watson Health Cognitive Services Coverage Reports</a> &gt; <a href="../index.html" class="el_bundle">annotator-for-clinical-data</a> &gt; <a href="index.source.html" class="el_package">com.ibm.watson.health.acd.v1.model</a> &gt; <span class="el_source">NegatedSpan.java</span></div><h1>NegatedSpan.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2018 IBM Corp. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the &quot;License&quot;); you may not use this file except in compliance with
+ * the License. You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on
+ * an &quot;AS IS&quot; BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the
+ * specific language governing permissions and limitations under the License.
+ */
+package com.ibm.watson.health.acd.v1.model;
+
+import java.lang.reflect.Type;
+import java.util.Map;
+
+import com.google.gson.reflect.TypeToken;
+import com.ibm.watson.developer_cloud.service.model.DynamicModel;
+import com.ibm.watson.developer_cloud.util.GsonSerializationHelper;
+import com.ibm.watson.health.acd.v1.util.CustomCollection;
+
+/**
+ * NegatedSpan.
+ */
+<span class="nc" id="L26">public class NegatedSpan extends DynamicModel {</span>
+<span class="nc" id="L27">  private Type idType = new TypeToken&lt;String&gt;() { } .getType();</span>
+<span class="nc" id="L28">  private Type typeType = new TypeToken&lt;String&gt;() { } .getType();</span>
+<span class="nc" id="L29">  private Type uidType = new TypeToken&lt;Long&gt;() { } .getType();</span>
+<span class="nc" id="L30">  private Type beginType = new TypeToken&lt;Long&gt;() { } .getType();</span>
+<span class="nc" id="L31">  private Type endType = new TypeToken&lt;Long&gt;() { } .getType();</span>
+<span class="nc" id="L32">  private Type coveredTextType = new TypeToken&lt;String&gt;() { } .getType();</span>
+<span class="nc" id="L33">  private Type negatedType = new TypeToken&lt;Boolean&gt;() { } .getType();</span>
+<span class="nc" id="L34">  private Type hypotheticalType = new TypeToken&lt;Boolean&gt;() { } .getType();</span>
+<span class="nc" id="L35">  private Type triggerType = new TypeToken&lt;Map&gt;() { } .getType();</span>
+
+
+  /**
+   * Gets the id.
+   *
+   * @return the id
+   */
+  public String getId() {
+<span class="nc" id="L44">    return GsonSerializationHelper.serializeDynamicModelProperty(this.get(&quot;id&quot;), idType);</span>
+  }
+
+  /**
+   * Gets the type.
+   *
+   * @return the type
+   */
+  public String getType() {
+<span class="nc" id="L53">    return GsonSerializationHelper.serializeDynamicModelProperty(this.get(&quot;type&quot;), typeType);</span>
+  }
+
+  /**
+   * Gets the uid.
+   *
+   * @return the uid
+   */
+  public Long getUid() {
+<span class="nc" id="L62">    return GsonSerializationHelper.serializeDynamicModelProperty(this.get(&quot;uid&quot;), uidType);</span>
+  }
+
+  /**
+   * Gets the begin.
+   *
+   * @return the begin
+   */
+  public Long getBegin() {
+<span class="nc" id="L71">    return GsonSerializationHelper.serializeDynamicModelProperty(this.get(&quot;begin&quot;), beginType);</span>
+  }
+
+  /**
+   * Gets the end.
+   *
+   * @return the end
+   */
+  public Long getEnd() {
+<span class="nc" id="L80">    return GsonSerializationHelper.serializeDynamicModelProperty(this.get(&quot;end&quot;), endType);</span>
+  }
+
+  /**
+   * Gets the coveredText.
+   *
+   * @return the coveredText
+   */
+  public String getCoveredText() {
+<span class="nc" id="L89">    return GsonSerializationHelper.serializeDynamicModelProperty(this.get(&quot;coveredText&quot;), coveredTextType);</span>
+  }
+
+  /**
+   * Gets the negated.
+   *
+   * @return the negated
+   */
+  public Boolean isNegated() {
+<span class="nc" id="L98">    Boolean negated = GsonSerializationHelper.serializeDynamicModelProperty(this.get(&quot;negated&quot;), negatedType);</span>
+<span class="nc bnc" id="L99" title="All 2 branches missed.">    if (negated == null) {</span>
+<span class="nc" id="L100">      negated = false;</span>
+    }
+<span class="nc" id="L102">    return negated;</span>
+  }
+
+  /**
+   * Gets the hypothetical.
+   *
+   * @return the hypothetical
+   */
+  public Boolean isHypothetical() {
+<span class="nc" id="L111">    Boolean hypothetical = GsonSerializationHelper.serializeDynamicModelProperty(this.get(&quot;hypothetical&quot;), hypotheticalType);</span>
+<span class="nc bnc" id="L112" title="All 2 branches missed.">    if (hypothetical == null) {</span>
+<span class="nc" id="L113">      hypothetical = false;</span>
+    }
+<span class="nc" id="L115">    return hypothetical;</span>
+  }
+
+  /**
+   * Gets the trigger.
+   *
+   * @return the trigger
+   */
+  public CustomCollection getTrigger() {
+<span class="nc" id="L124">    Object triggerObject = GsonSerializationHelper.serializeDynamicModelProperty(this.get(&quot;trigger&quot;), triggerType);</span>
+<span class="nc" id="L125">    CustomCollection customCollection = new CustomCollection();</span>
+<span class="nc" id="L126">    return customCollection.convertToCustomCollection(triggerObject);</span>
+  }
+
+//  /**
+//   * Sets the id.
+//   *
+//   * @param id the new id
+//   */
+//  public void setId(final String id) {
+//    this.put(&quot;id&quot;, id);
+//  }
+//
+//  /**
+//   * Sets the type.
+//   *
+//   * @param type the new type
+//   */
+//  public void setType(final String type) {
+//    this.put(&quot;type&quot;, type);
+//  }
+//
+//  /**
+//   * Sets the uid.
+//   *
+//   * @param uid the new uid
+//   */
+//  public void setUid(final Long uid) {
+//    this.put(&quot;uid&quot;, uid);
+//  }
+//
+//  /**
+//   * Sets the begin.
+//   *
+//   * @param begin the new begin
+//   */
+//  public void setBegin(final Long begin) {
+//    this.put(&quot;begin&quot;, begin);
+//  }
+//
+//  /**
+//   * Sets the end.
+//   *
+//   * @param end the new end
+//   */
+//  public void setEnd(final Long end) {
+//    this.put(&quot;end&quot;, end);
+//  }
+//
+//  /**
+//   * Sets the coveredText.
+//   *
+//   * @param coveredText the new coveredText
+//   */
+//  public void setCoveredText(final String coveredText) {
+//    this.put(&quot;coveredText&quot;, coveredText);
+//  }
+//
+//  /**
+//   * Sets the negated.
+//   *
+//   * @param negated the new negated
+//   */
+//  public void setNegated(final Boolean negated) {
+//    this.put(&quot;negated&quot;, negated);
+//  }
+//
+//  /**
+//   * Sets the hypothetical.
+//   *
+//   * @param hypothetical the new hypothetical
+//   */
+//  public void setHypothetical(final Boolean hypothetical) {
+//    this.put(&quot;hypothetical&quot;, hypothetical);
+//  }
+//
+//  /**
+//   * Sets the trigger.
+//   *
+//   * @param trigger the new trigger
+//   */
+//  public void setTrigger(final Map trigger) {
+//    this.put(&quot;trigger&quot;, trigger);
+//  }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>
