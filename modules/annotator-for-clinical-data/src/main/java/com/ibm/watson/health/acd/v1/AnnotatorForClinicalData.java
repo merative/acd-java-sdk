@@ -29,6 +29,7 @@ import com.ibm.cloud.sdk.core.util.ResponseConverterUtils;
 import com.ibm.cloud.sdk.core.util.Validator;
 import com.ibm.cloud.whcs.common.SdkCommon;
 import com.ibm.watson.health.acd.v1.model.AcdCartridges;
+import com.ibm.watson.health.acd.v1.model.AcdCartridgesList;
 import com.ibm.watson.health.acd.v1.model.AcdFlow;
 import com.ibm.watson.health.acd.v1.model.AcdProfile;
 import com.ibm.watson.health.acd.v1.model.AnalyzeOptions;
@@ -1255,7 +1256,7 @@ public class AnnotatorForClinicalData extends BaseService {
    * @param cartridgesGetOptions the {@link CartridgesGetOptions} containing the options for the call
    * @return a {@link ServiceCall} with a result of type {@link ListStringWrapper}
    */
-  public ServiceCall<ListStringWrapper> cartridgesGet(CartridgesGetOptions cartridgesGetOptions) {
+  public ServiceCall<AcdCartridgesList> cartridgesGet(CartridgesGetOptions cartridgesGetOptions) {
     String[] pathSegments = { "v1/cartridges" };
     RequestBuilder builder = RequestBuilder.get(RequestBuilder.constructHttpUrl(getServiceUrl(), pathSegments));
     Map<String, String> sdkHeaders = SdkCommon.getSdkHeaders("annotator_for_clinical_data_acd", "v1", "cartridgesGet");
@@ -1266,8 +1267,8 @@ public class AnnotatorForClinicalData extends BaseService {
     if (cartridgesGetOptions != null) {
       builder.query("version", this.version);
     }
-    ResponseConverter<ListStringWrapper> responseConverter =
-      ResponseConverterUtils.getValue(new com.google.gson.reflect.TypeToken<ListStringWrapper>() { }.getType());
+    ResponseConverter<AcdCartridgesList> responseConverter =
+      ResponseConverterUtils.getValue(new com.google.gson.reflect.TypeToken<AcdCartridgesList>() { }.getType());
     return createServiceCall(builder.build(), responseConverter);
   }
 
@@ -1278,7 +1279,7 @@ public class AnnotatorForClinicalData extends BaseService {
    *
    * @return a {@link ServiceCall} with a result of type {@link ListStringWrapper}
    */
-  public ServiceCall<ListStringWrapper> cartridgesGet() {
+  public ServiceCall<AcdCartridgesList> cartridgesGet() {
     return cartridgesGet(null);
   }
 
