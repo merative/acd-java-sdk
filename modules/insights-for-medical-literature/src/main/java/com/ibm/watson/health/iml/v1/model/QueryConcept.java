@@ -18,7 +18,7 @@ package com.ibm.watson.health.iml.v1.model;
 import java.util.List;
 
 public class QueryConcept {
-	private String boolOperand;
+	private String operandName;
 	private String ontology;
 	private String cui;
 	private String rank;
@@ -40,7 +40,7 @@ public class QueryConcept {
 	 * @return operand
 	 */
 	public String getBool() {
-		return boolOperand;
+		return operandName;
 	}
 
 	/**
@@ -112,7 +112,7 @@ public class QueryConcept {
 	 * @param value search value
 	 */
 	public void setBool(String value) {
-		boolOperand = value;
+		operandName = value;
 	}
 
 	/**

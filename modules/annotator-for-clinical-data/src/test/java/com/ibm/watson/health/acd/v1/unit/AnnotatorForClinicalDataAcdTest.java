@@ -38,6 +38,7 @@ import com.ibm.cloud.sdk.core.service.model.FileWithMetadata;
 import com.ibm.cloud.sdk.core.util.EnvironmentUtils;
 import com.ibm.watson.health.acd.v1.AnnotatorForClinicalData;
 import com.ibm.watson.health.acd.v1.model.AcdCartridges;
+import com.ibm.watson.health.acd.v1.model.AcdCartridgesList;
 import com.ibm.watson.health.acd.v1.model.AcdFlow;
 import com.ibm.watson.health.acd.v1.model.AcdProfile;
 import com.ibm.watson.health.acd.v1.model.AnalyticFlowBeanInput;
@@ -1032,9 +1033,9 @@ public class AnnotatorForClinicalDataAcdTest extends PowerMockTestCase {
     CartridgesGetOptions cartridgesGetOptionsModel = new CartridgesGetOptions();
 
     // Invoke operation with valid options model (positive test)
-    Response<ListStringWrapper> response = testService.cartridgesGet(cartridgesGetOptionsModel).execute();
+    Response<AcdCartridgesList> response = testService.cartridgesGet(cartridgesGetOptionsModel).execute();
     assertNotNull(response);
-    ListStringWrapper responseObj = response.getResult();
+    AcdCartridgesList responseObj = response.getResult();
     assertNotNull(responseObj);
 
     // Verify the contents of the request
