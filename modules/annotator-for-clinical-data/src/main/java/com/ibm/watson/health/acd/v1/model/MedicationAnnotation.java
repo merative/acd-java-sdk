@@ -37,6 +37,7 @@ public class MedicationAnnotation extends DynamicModel {
   private Type cuiType = new TypeToken<String>() { } .getType();
   private Type drugType = new TypeToken<List<Map>>() { } .getType();
   private Type sectionSurfaceFormType = new TypeToken<String>() { } .getType();
+  private Type insightModelDataType = new TypeToken<InsightModelData>() { } .getType();
 
 
   /**
@@ -151,6 +152,14 @@ public class MedicationAnnotation extends DynamicModel {
   }
 
   /**
+   * Gets the insightModelData.
+   * @return the insightModelData
+   */
+  public InsightModelData getInsightModelData() {
+    return GsonSerializationHelper.serializeDynamicModelProperty(this.get("insightModelData"), insightModelDataType);
+  }
+
+  /**
    * Sets the id.
    *
    * @param id the new id
@@ -256,6 +265,15 @@ public class MedicationAnnotation extends DynamicModel {
    */
   public void setSectionSurfaceForm(final String sectionSurfaceForm) {
     this.put("sectionSurfaceForm", sectionSurfaceForm);
+  }
+
+  /**
+   * Sets the insightModelData.
+   *
+   * @param insightModelData the new insightModelData
+   */
+  public void setInsightModelData(final InsightModelData insightModelData) {
+      this.put("insightModelData", insightModelData);
   }
 
 /*

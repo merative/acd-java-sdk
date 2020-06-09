@@ -38,7 +38,7 @@ public class Procedure extends DynamicModel {
   private Type procedureNormalizedNameType = new TypeToken<String>() { } .getType();
   private Type sectionSurfaceFormType = new TypeToken<String>() { } .getType();
   private Type disambiguationDataType = new TypeToken<Disambiguation>() { } .getType();
-
+  private Type insightModelDataType = new TypeToken<InsightModelData>() { } .getType();
 
   /**
    * Gets the id.
@@ -192,6 +192,14 @@ public class Procedure extends DynamicModel {
     return GsonSerializationHelper.serializeDynamicModelProperty(this.get("disambiguationData"), disambiguationDataType);
   }
 
+  /**
+   * Gets the insightModelData.
+   * @return the insightModelData
+   */
+  public InsightModelData getInsightModelData() {
+    return GsonSerializationHelper.serializeDynamicModelProperty(this.get("insightModelData"), insightModelDataType);
+  }
+
 //  /**
 //   * Sets the id.
 //   *
@@ -335,4 +343,14 @@ public class Procedure extends DynamicModel {
 //  public void setDisambiguationData(final Disambiguation disambiguationData) {
 //    this.put("disambiguationData", disambiguationData);
 //  }
+
+  /**
+   * Sets the insightModelData.
+   *
+   * @param insightModelData the new insightModelData
+   */
+  public void setInsightModelData(final InsightModelData insightModelData) {
+      this.put("insightModelData", insightModelData);
+  }
+
 }

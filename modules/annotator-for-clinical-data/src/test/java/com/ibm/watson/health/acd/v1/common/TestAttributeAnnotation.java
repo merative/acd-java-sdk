@@ -17,6 +17,7 @@ import org.junit.Assert;
 import com.ibm.watson.health.acd.v1.model.AttributeValueAnnotation;
 import com.ibm.watson.health.acd.v1.model.Concept;
 import com.ibm.watson.health.acd.v1.model.Disambiguation;
+import com.ibm.watson.health.acd.v1.model.InsightModelData;
 
 public class TestAttributeAnnotation {
 
@@ -79,6 +80,19 @@ public class TestAttributeAnnotation {
 		Long uid = annotation.getUid();
 		if (uid != null) {
 			Assert.assertTrue(uid > 0);
+		}
+		if (annotation.getInsightModelData() != null) {
+			Assert.assertTrue(!annotation.getInsightModelData().isEmpty());
+			InsightModelData imd = annotation.getInsightModelData();
+			if (imd.getMedication() != null) {
+				Assert.assertTrue(!imd.getMedication().isEmpty());
+			}
+			if (imd.getProcedure() != null) {
+				Assert.assertTrue(!imd.getProcedure().isEmpty());
+			}
+			if (imd.getDiagnosis() != null) {
+				Assert.assertTrue(!imd.getDiagnosis().isEmpty());
+			}
 		}
 	}
 }
