@@ -38,7 +38,7 @@ public class AttributeValueAnnotation extends DynamicModel {
   private Type valuesType = new TypeToken<List<Map>>() { } .getType();
   private Type sourceType = new TypeToken<String>() { } .getType();
   private Type sourceVersionType = new TypeToken<String>() { } .getType();
-  private Type conceptType = new TypeToken<Concept>() { } .getType();
+  private Type conceptType = new TypeToken<ConceptUid>() { } .getType();
   private Type nameType = new TypeToken<String>() { } .getType();
   private Type sectionNormalizedNameType = new TypeToken<String>() { } .getType();
   private Type sectionSurfaceFormType = new TypeToken<String>() { } .getType();
@@ -52,8 +52,12 @@ public class AttributeValueAnnotation extends DynamicModel {
   private Type loincIdType = new TypeToken<String>() { } .getType();
   private Type vocabsType = new TypeToken<String>() { } .getType();
   private Type cptCodeType = new TypeToken<String>() { } .getType();
+  private Type ccsCodeType = new TypeToken<String>() { } .getType();
+  private Type hccCodeType = new TypeToken<String>() { } .getType();
   private Type disambiguationDataType = new TypeToken<Disambiguation>() { } .getType();
   private Type insightModelDataType = new TypeToken<InsightModelData>() { } .getType();
+  private Type ruleIdType = new TypeToken<String>() { } .getType();
+  private Type derivedFromType = new TypeToken<List<ConceptUid>>() { } .getType();
 
 
   /**
@@ -180,7 +184,7 @@ public class AttributeValueAnnotation extends DynamicModel {
    *
    * @return the concept
    */
-  public Concept getConcept() {
+  public ConceptUid getConcept() {
       return GsonSerializationHelper.serializeDynamicModelProperty(this.get("concept"), conceptType);
     }
 
@@ -284,6 +288,22 @@ public class AttributeValueAnnotation extends DynamicModel {
   }
 
   /**
+   * Gets the getCcsCode.
+   * @return the getCcsCode
+   */
+  public String getCcsCode() {
+    return GsonSerializationHelper.serializeDynamicModelProperty(this.get("ccsCode"), ccsCodeType);
+  }
+
+  /**
+   * Gets the getHccCode.
+   * @return the getHccCode
+   */
+  public String getHccCode() {
+    return GsonSerializationHelper.serializeDynamicModelProperty(this.get("hccCode"), hccCodeType);
+  }
+
+  /**
    * Gets the getdisambiguationData.
    * @return the getDisambiguationData
    */
@@ -297,6 +317,23 @@ public class AttributeValueAnnotation extends DynamicModel {
    */
   public InsightModelData getInsightModelData() {
     return GsonSerializationHelper.serializeDynamicModelProperty(this.get("insightModelData"), insightModelDataType);
+  }
+
+  /**
+   * Gets the ruleId.
+   * @return the ruleId
+   */
+  public String getRuleId() {
+    return GsonSerializationHelper.serializeDynamicModelProperty(this.get("ruleId"), ruleIdType);
+  }
+
+  /**
+   * Gets the derivedFrom.
+   *
+   * @return the derivedFrom
+   */
+  public List<ConceptUid> getDerivedFrom() {
+	  return GsonSerializationHelper.serializeDynamicModelProperty(this.get("derivedFrom"), derivedFromType);
   }
 
   /**
@@ -412,7 +449,7 @@ public class AttributeValueAnnotation extends DynamicModel {
    *
    * @param concept the new concept
    */
-  public void setConcept(final Concept concept) {
+  public void setConcept(final ConceptUid concept) {
       this.put("concept", concept);
     }
 
@@ -541,6 +578,24 @@ public class AttributeValueAnnotation extends DynamicModel {
   }
 
   /**
+   * Sets the ccs code.
+   *
+   * @param ccsCode the new ccs code
+   */
+  public void setCcsCode(final String ccsCode) {
+    this.put("ccsCode", ccsCode);
+  }
+
+  /**
+   * Sets the hcc code.
+   *
+   * @param hccCode the new hcc code
+   */
+  public void setHccCode(final String hccCode) {
+    this.put("hccCode", hccCode);
+  }
+
+  /**
    * Sets the disambiguation data.
    *
    * @param disambiguationData the new disambiguation data
@@ -556,6 +611,24 @@ public class AttributeValueAnnotation extends DynamicModel {
    */
   public void setInsightModelData(final InsightModelData insightModelData) {
       this.put("insightModelData", insightModelData);
+  }
+
+  /**
+   * Sets the ruleId.
+   *
+   * @param ruleId the new rule Id
+   */
+  public void setRuleId(final String ruleId) {
+    this.put("ruleId", ruleId);
+  }
+
+  /**
+   * Sets the derivedFrom.
+   *
+   * @param derivedFrom the new derivedFrom
+   */
+  public void setDerivedFrom(final List<ConceptUid> derivedFrom) {
+    this.put("derivedFrom", derivedFrom);
   }
 
 }

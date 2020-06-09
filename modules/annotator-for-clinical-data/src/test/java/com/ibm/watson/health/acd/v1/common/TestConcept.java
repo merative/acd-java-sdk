@@ -98,5 +98,11 @@ public class TestConcept {
 				Assert.assertTrue(!imd.getDiagnosis().isEmpty());
 			}
 		}
+		if (concept.getRuleId() != null) {
+			Assert.assertTrue(concept.getRuleId().length() > 0);
+		}
+		if (concept.getDerivedFrom() != null) {
+			Assert.assertTrue(concept.getDerivedFrom().size() > 0);
+		}
 	}
 }

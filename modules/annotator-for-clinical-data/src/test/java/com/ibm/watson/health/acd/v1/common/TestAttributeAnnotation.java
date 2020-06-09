@@ -16,6 +16,7 @@ import org.junit.Assert;
 
 import com.ibm.watson.health.acd.v1.model.AttributeValueAnnotation;
 import com.ibm.watson.health.acd.v1.model.Concept;
+import com.ibm.watson.health.acd.v1.model.ConceptUid;
 import com.ibm.watson.health.acd.v1.model.Disambiguation;
 import com.ibm.watson.health.acd.v1.model.InsightModelData;
 
@@ -23,7 +24,7 @@ public class TestAttributeAnnotation {
 
 	public static void testAttributeValue(AttributeValueAnnotation annotation) {
 		Assert.assertTrue(annotation.getBegin() > -1);
-		Concept concept = annotation.getConcept();
+		ConceptUid concept = annotation.getConcept();
 		if (concept != null) {
 			Assert.assertNotNull(concept.getUid());
 		}
@@ -93,6 +94,21 @@ public class TestAttributeAnnotation {
 			if (imd.getDiagnosis() != null) {
 				Assert.assertTrue(!imd.getDiagnosis().isEmpty());
 			}
+		}
+		if (annotation.getCcsCode() != null) {
+			Assert.assertTrue(annotation.getCcsCode().length() > 0);
+		}
+		if (annotation.getHccCode() != null) {
+			Assert.assertTrue(annotation.getHccCode().length() > 0);
+		}
+		if (annotation.getRuleId() != null) {
+			Assert.assertTrue(annotation.getRuleId().length() > 0);
+		}
+		if (annotation.getDerivedFrom() != null) {
+			Assert.assertTrue(annotation.getDerivedFrom().size() > 0);
+		}
+		if (annotation.getValues() != null) {
+			Assert.assertTrue(annotation.getValues().size() > 0);
 		}
 	}
 }
