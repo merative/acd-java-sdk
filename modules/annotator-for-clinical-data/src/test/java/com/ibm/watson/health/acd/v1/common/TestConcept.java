@@ -16,6 +16,7 @@ import org.junit.Assert;
 
 import com.ibm.watson.health.acd.v1.model.Concept;
 import com.ibm.watson.health.acd.v1.model.Disambiguation;
+import com.ibm.watson.health.acd.v1.model.InsightModelData;
 
 public class TestConcept {
 
@@ -83,6 +84,19 @@ public class TestConcept {
 		Assert.assertNotNull(concept.isNegated());
 		if (concept.getSemanticType() != null) {
 			Assert.assertTrue(concept.getSemanticType().length() > 0);
+		}
+		if (concept.getInsightModelData() != null) {
+			Assert.assertTrue(!concept.getInsightModelData().isEmpty());
+			InsightModelData imd = concept.getInsightModelData();
+			if (imd.getMedication() != null) {
+				Assert.assertTrue(!imd.getMedication().isEmpty());
+			}
+			if (imd.getProcedure() != null) {
+				Assert.assertTrue(!imd.getProcedure().isEmpty());
+			}
+			if (imd.getDiagnosis() != null) {
+				Assert.assertTrue(!imd.getDiagnosis().isEmpty());
+			}
 		}
 	}
 }

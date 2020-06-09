@@ -53,6 +53,7 @@ public class AttributeValueAnnotation extends DynamicModel {
   private Type vocabsType = new TypeToken<String>() { } .getType();
   private Type cptCodeType = new TypeToken<String>() { } .getType();
   private Type disambiguationDataType = new TypeToken<Disambiguation>() { } .getType();
+  private Type insightModelDataType = new TypeToken<InsightModelData>() { } .getType();
 
 
   /**
@@ -288,6 +289,14 @@ public class AttributeValueAnnotation extends DynamicModel {
    */
   public Disambiguation getDisambiguationData() {
     return GsonSerializationHelper.serializeDynamicModelProperty(this.get("disambiguationData"), disambiguationDataType);
+  }
+
+  /**
+   * Gets the insightModelData.
+   * @return the insightModelData
+   */
+  public InsightModelData getInsightModelData() {
+    return GsonSerializationHelper.serializeDynamicModelProperty(this.get("insightModelData"), insightModelDataType);
   }
 
   /**
@@ -538,6 +547,15 @@ public class AttributeValueAnnotation extends DynamicModel {
    */
   public void setDisambiguationData(final Disambiguation disambiguationData) {
       this.put("disambiguationData", disambiguationData);
+  }
+
+  /**
+   * Sets the insightModelData.
+   *
+   * @param insightModelData the new insightModelData
+   */
+  public void setInsightModelData(final InsightModelData insightModelData) {
+      this.put("insightModelData", insightModelData);
   }
 
 }

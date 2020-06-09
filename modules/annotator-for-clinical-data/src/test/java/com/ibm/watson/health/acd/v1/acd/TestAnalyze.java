@@ -59,7 +59,7 @@ public class TestAnalyze extends WatsonServiceTest {
 	}
 
 	@Test
-	public void testAnalyzeSingleAnnotaor() {
+	public void testAnalyzeSingleAnnotator() {
 		ConfigurationEntity ce = new ConfigurationEntity.Builder()
 		.id("t1")
 		.type("customType")

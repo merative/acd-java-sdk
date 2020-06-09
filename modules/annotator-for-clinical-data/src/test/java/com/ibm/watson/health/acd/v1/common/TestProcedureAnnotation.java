@@ -16,6 +16,7 @@ package com.ibm.watson.health.acd.v1.common;
 import org.junit.Assert;
 
 import com.ibm.watson.health.acd.v1.model.Disambiguation;
+import com.ibm.watson.health.acd.v1.model.InsightModelData;
 import com.ibm.watson.health.acd.v1.model.Procedure;
 
 public class TestProcedureAnnotation {
@@ -52,5 +53,12 @@ public class TestProcedureAnnotation {
 		}
 		Assert.assertNotNull(annotation.isHypothetical());
 		Assert.assertNotNull(annotation.isNegated());
+		if (annotation.getInsightModelData() != null) {
+			Assert.assertTrue(!annotation.getInsightModelData().isEmpty());
+			InsightModelData imd = annotation.getInsightModelData();
+			if (imd.getProcedure() != null) {
+				Assert.assertTrue(!imd.getProcedure().isEmpty());
+			}
+		}
 	}
 }

@@ -16,6 +16,7 @@ import java.util.List;
 
 import org.junit.Assert;
 
+import com.ibm.watson.health.acd.v1.model.InsightModelData;
 import com.ibm.watson.health.acd.v1.model.MedicationAnnotation;
 import com.ibm.watson.health.acd.v1.util.CustomCollection;
 
@@ -40,6 +41,13 @@ public class TestMedicationAnnotation {
 		Assert.assertNotNull(annotation.getType());
 		if (annotation.getUid() != null) {
 			Assert.assertTrue(annotation.getUid() > 0);
+		}
+		if (annotation.getInsightModelData() != null) {
+			Assert.assertTrue(!annotation.getInsightModelData().isEmpty());
+			InsightModelData imd = annotation.getInsightModelData();
+			if (imd.getMedication() != null) {
+				Assert.assertTrue(!imd.getMedication().isEmpty());
+			}
 		}
 	}
 }

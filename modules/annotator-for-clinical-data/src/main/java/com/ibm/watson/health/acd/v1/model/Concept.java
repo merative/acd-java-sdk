@@ -48,7 +48,7 @@ public class Concept extends DynamicModel {
   private Type loincIdType = new TypeToken<String>() { } .getType();
   private Type vocabsType = new TypeToken<String>() { } .getType();
   private Type cptCodeType = new TypeToken<String>() { } .getType();
-
+  private Type insightModelDataType = new TypeToken<InsightModelData>() { } .getType();
 
 
 
@@ -277,7 +277,13 @@ public class Concept extends DynamicModel {
    return GsonSerializationHelper.serializeDynamicModelProperty(this.get("vocabs"), vocabsType);
   }
 
-
+  /**
+   * Gets the insightModelData.
+   * @return the insightModelData
+   */
+  public InsightModelData getInsightModelData() {
+    return GsonSerializationHelper.serializeDynamicModelProperty(this.get("insightModelData"), insightModelDataType);
+  }
 
   /**
    * Sets the id.
@@ -484,6 +490,15 @@ public class Concept extends DynamicModel {
    */
   public void setVocabs(final String vocabs) {
     this.put("vocabs", vocabs);
+  }
+
+  /**
+   * Sets the insightModelData.
+   *
+   * @param insightModelData the new insightModelData
+   */
+  public void setInsightModelData(final InsightModelData insightModelData) {
+      this.put("insightModelData", insightModelData);
   }
 
 }
