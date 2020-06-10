@@ -16,7 +16,6 @@ import org.junit.Assert;
 
 import com.ibm.watson.health.acd.v1.model.AttributeValueAnnotation;
 import com.ibm.watson.health.acd.v1.model.Concept;
-import com.ibm.watson.health.acd.v1.model.ConceptUid;
 import com.ibm.watson.health.acd.v1.model.Disambiguation;
 import com.ibm.watson.health.acd.v1.model.InsightModelData;
 
@@ -24,7 +23,7 @@ public class TestAttributeAnnotation {
 
 	public static void testAttributeValue(AttributeValueAnnotation annotation) {
 		Assert.assertTrue(annotation.getBegin() > -1);
-		ConceptUid concept = annotation.getConcept();
+		Concept concept = annotation.getConcept();
 		if (concept != null) {
 			Assert.assertNotNull(concept.getUid());
 		}

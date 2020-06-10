@@ -51,7 +51,7 @@ public class Concept extends DynamicModel {
   private Type cptCodeType = new TypeToken<String>() { } .getType();
   private Type insightModelDataType = new TypeToken<InsightModelData>() { } .getType();
   private Type ruleIdType = new TypeToken<String>() { } .getType();
-  private Type derivedFromType = new TypeToken<List<ConceptUid>>() { } .getType();
+  private Type derivedFromType = new TypeToken<List<Concept>>() { } .getType();
 
 
 
@@ -301,7 +301,7 @@ public class Concept extends DynamicModel {
    *
    * @return the derivedFrom
    */
-  public List<ConceptUid> getDerivedFrom() {
+  public List<Concept> getDerivedFrom() {
 	  return GsonSerializationHelper.serializeDynamicModelProperty(this.get("derivedFrom"), derivedFromType);
   }
 
@@ -535,7 +535,7 @@ public class Concept extends DynamicModel {
    *
    * @param derivedFrom the new derivedFrom
    */
-  public void setDerivedFrom(final List<ConceptUid> derivedFrom) {
+  public void setDerivedFrom(final List<Concept> derivedFrom) {
     this.put("derivedFrom", derivedFrom);
   }
 

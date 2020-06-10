@@ -38,7 +38,7 @@ public class AttributeValueAnnotation extends DynamicModel {
   private Type valuesType = new TypeToken<List<Map>>() { } .getType();
   private Type sourceType = new TypeToken<String>() { } .getType();
   private Type sourceVersionType = new TypeToken<String>() { } .getType();
-  private Type conceptType = new TypeToken<ConceptUid>() { } .getType();
+  private Type conceptType = new TypeToken<Concept>() { } .getType();
   private Type nameType = new TypeToken<String>() { } .getType();
   private Type sectionNormalizedNameType = new TypeToken<String>() { } .getType();
   private Type sectionSurfaceFormType = new TypeToken<String>() { } .getType();
@@ -57,7 +57,7 @@ public class AttributeValueAnnotation extends DynamicModel {
   private Type disambiguationDataType = new TypeToken<Disambiguation>() { } .getType();
   private Type insightModelDataType = new TypeToken<InsightModelData>() { } .getType();
   private Type ruleIdType = new TypeToken<String>() { } .getType();
-  private Type derivedFromType = new TypeToken<List<ConceptUid>>() { } .getType();
+  private Type derivedFromType = new TypeToken<List<Concept>>() { } .getType();
 
 
   /**
@@ -184,7 +184,7 @@ public class AttributeValueAnnotation extends DynamicModel {
    *
    * @return the concept
    */
-  public ConceptUid getConcept() {
+  public Concept getConcept() {
       return GsonSerializationHelper.serializeDynamicModelProperty(this.get("concept"), conceptType);
     }
 
@@ -332,7 +332,7 @@ public class AttributeValueAnnotation extends DynamicModel {
    *
    * @return the derivedFrom
    */
-  public List<ConceptUid> getDerivedFrom() {
+  public List<Concept> getDerivedFrom() {
 	  return GsonSerializationHelper.serializeDynamicModelProperty(this.get("derivedFrom"), derivedFromType);
   }
 
@@ -449,7 +449,7 @@ public class AttributeValueAnnotation extends DynamicModel {
    *
    * @param concept the new concept
    */
-  public void setConcept(final ConceptUid concept) {
+  public void setConcept(final Concept concept) {
       this.put("concept", concept);
     }
 
@@ -627,7 +627,7 @@ public class AttributeValueAnnotation extends DynamicModel {
    *
    * @param derivedFrom the new derivedFrom
    */
-  public void setDerivedFrom(final List<ConceptUid> derivedFrom) {
+  public void setDerivedFrom(final List<Concept> derivedFrom) {
     this.put("derivedFrom", derivedFrom);
   }
 
