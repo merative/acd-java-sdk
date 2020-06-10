@@ -94,5 +94,20 @@ public class TestAttributeAnnotation {
 				Assert.assertTrue(!imd.getDiagnosis().isEmpty());
 			}
 		}
+		if (annotation.getCcsCode() != null) {
+			Assert.assertTrue(annotation.getCcsCode().length() > 0);
+		}
+		if (annotation.getHccCode() != null) {
+			Assert.assertTrue(annotation.getHccCode().length() > 0);
+		}
+		if (annotation.getRuleId() != null) {
+			Assert.assertTrue(annotation.getRuleId().length() > 0);
+		}
+		if (annotation.getDerivedFrom() != null) {
+			Assert.assertTrue(annotation.getDerivedFrom().size() > 0);
+		}
+		if (annotation.getValues() != null) {
+			Assert.assertTrue(annotation.getValues().size() > 0);
+		}
 	}
 }
