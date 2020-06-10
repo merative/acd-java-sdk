@@ -20,8 +20,8 @@ import com.ibm.watson.developer_cloud.service.model.GenericModel;
 public class SectionTrigger extends GenericModel {
 
   private String type;
-  private String begin;
-  private String end;
+  private Long begin;
+  private Long end;
   private String coveredText;
   private String source;
   private String sectionNormalizedName;
@@ -41,10 +41,10 @@ public class SectionTrigger extends GenericModel {
    * Get the trigger beginning offset.
    * @return beginning offset
    */
-  public String getBegin() {
+  public Long getBegin() {
     return begin;
   }
-//  public void setBegin(String begin) {
+//  public void setBegin(Long begin) {
 //    this.begin = begin;
 //  }
 
@@ -52,10 +52,10 @@ public class SectionTrigger extends GenericModel {
    * Get the trigger ending offset.
    * @return ending offset
    */
-  public String getEnd() {
+  public Long getEnd() {
     return end;
   }
-//  public void setEnd(String end) {
+//  public void setEnd(Long end) {
 //    this.end = end;
 //  }
 
