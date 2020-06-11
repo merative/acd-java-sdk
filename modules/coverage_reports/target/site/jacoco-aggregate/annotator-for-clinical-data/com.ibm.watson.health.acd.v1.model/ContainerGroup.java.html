@@ -1,0 +1,1345 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../jacoco-resources/report.gif" type="image/gif"/><title>ContainerGroup.java</title><link rel="stylesheet" href="../../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../../index.html" class="el_report">IBM Watson Health Cognitive Services Coverage Reports</a> &gt; <a href="../index.html" class="el_bundle">annotator-for-clinical-data</a> &gt; <a href="index.source.html" class="el_package">com.ibm.watson.health.acd.v1.model</a> &gt; <span class="el_source">ContainerGroup.java</span></div><h1>ContainerGroup.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2018 IBM Corp. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the &quot;License&quot;); you may not use this file except in compliance with
+ * the License. You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on
+ * an &quot;AS IS&quot; BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the
+ * specific language governing permissions and limitations under the License.
+ */
+package com.ibm.watson.health.acd.v1.model;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import com.ibm.watson.developer_cloud.service.model.GenericModel;
+import com.ibm.watson.developer_cloud.util.Validator;
+
+/**
+ * ContainerGroup.
+ */
+<span class="nc" id="L24">public class ContainerGroup extends GenericModel {</span>
+
+  private List&lt;UnstructuredContainer&gt; unstructured;
+  private List&lt;AnnotatorFlow&gt; annotatorFlows;
+
+  /**
+   * Gets the unstructured.
+   *
+   * @return the unstructured
+   */
+  public List&lt;UnstructuredContainer&gt; getUnstructured() {
+<span class="nc" id="L35">    return unstructured;</span>
+  }
+
+  /**
+   * Gets the annotatorFlows.
+   *
+   * @return the annotatorFlows
+   */
+  public List&lt;AnnotatorFlow&gt; getAnnotatorFlows() {
+<span class="nc" id="L44">    return annotatorFlows;</span>
+  }
+
+  /**
+   * Sets the unstructured.
+   *
+   * @param unstructured
+   *            the new unstructured
+   */
+  public void setUnstructured(final List&lt;UnstructuredContainer&gt; unstructured) {
+<span class="nc" id="L54">    this.unstructured = unstructured;</span>
+<span class="nc" id="L55">  }</span>
+
+  /**
+   * Sets the annotatorFlows.
+   *
+   * @param annotatorFlows
+   *            the new annotatorFlows
+   */
+  public void setAnnotatorFlows(final List&lt;AnnotatorFlow&gt; annotatorFlows) {
+<span class="nc" id="L64">    this.annotatorFlows = annotatorFlows;</span>
+<span class="nc" id="L65">  }</span>
+
+  /*
+   *
+   * Manually added code
+   *
+   */
+
+  public UnstructuredContainer getUnstructured(int index) {
+<span class="nc" id="L74">	  UnstructuredContainer container = new UnstructuredContainer.Builder().build();</span>
+	  try {
+<span class="nc" id="L76">      Validator.notNull(this.getUnstructured(), &quot;Unstructured List is Null&quot;);</span>
+<span class="nc" id="L77">      container = this.getUnstructured().get(index);</span>
+<span class="nc" id="L78">	  } catch (IllegalArgumentException iae) {</span>
+	  //ACD didn't return any annotations
+<span class="nc" id="L80">     }</span>
+
+<span class="nc" id="L82">    return container;</span>
+  }
+
+  /*
+   * Manually added method
+   */
+
+  public List&lt;Concept&gt; getConcepts() {
+<span class="nc" id="L90">	  List&lt;Concept&gt; concepts = new ArrayList&lt;Concept&gt;();</span>
+	  try {
+<span class="nc" id="L92">	    validateUnstructuredElementData(&quot;Concepts&quot;);</span>
+<span class="nc" id="L93">	   concepts = this.getUnstructured().get(0).data().getConcepts();</span>
+<span class="nc" id="L94">	  } catch (IllegalArgumentException iae) {</span>
+	  	//ACD didn't return any concepts
+<span class="nc" id="L96">	  }</span>
+<span class="nc" id="L97">    return concepts;</span>
+  }
+
+  /*
+   * Manually added method
+   */
+
+  /**
+   * Gets the symptomDiseaseInd.
+   *
+   * @return the symptomDiseaseInd
+   */
+
+  public List&lt;SymptomDisease&gt; getSymptomDisease() {
+<span class="nc" id="L111">	  List&lt;SymptomDisease&gt; concepts = new ArrayList&lt;SymptomDisease&gt;();</span>
+	  try {
+<span class="nc" id="L113">      validateUnstructuredElementData(&quot;SymptomDisease&quot;);</span>
+<span class="nc" id="L114">      concepts = this.getUnstructured().get(0).data().getSymptomDiseaseInd();</span>
+<span class="nc" id="L115">	  } catch (IllegalArgumentException iae) {</span>
+	  	//ACD didn't return any annotations
+<span class="nc" id="L117">	  }</span>
+<span class="nc" id="L118">	  return concepts;</span>
+  }
+
+  /*
+   * Manually added method
+   */
+
+  /**
+   * Gets the bathingAssistanceInd.
+   *
+   * @return the bathingAssistanceInd
+   */
+  public List&lt;AssistanceAnnotation&gt; getBathingAssistance() {
+<span class="nc" id="L131">	  List&lt;AssistanceAnnotation&gt; annotations = new ArrayList&lt;AssistanceAnnotation&gt;();</span>
+	  try {
+<span class="nc" id="L133">      validateUnstructuredElementData(&quot;BathingAssistance&quot;);</span>
+<span class="nc" id="L134">      annotations = this.getUnstructured().get(0).data().getBathingAssistanceInd();</span>
+<span class="nc" id="L135">  	} catch (IllegalArgumentException iae) {</span>
+	  	//ACD didn't return any annotations
+<span class="nc" id="L137">	  }</span>
+<span class="nc" id="L138">	  return annotations;</span>
+  }
+
+  /*
+   * Manually added method
+   */
+
+  /**
+   * Gets the dressingAssistanceInd.
+   *
+   * @return the dressingAssistanceInd
+   */
+  public List&lt;AssistanceAnnotation&gt; getDressingAssistance() {
+<span class="nc" id="L151">  	List&lt;AssistanceAnnotation&gt; annotations = new ArrayList&lt;AssistanceAnnotation&gt;();</span>
+	  try {
+<span class="nc" id="L153">      validateUnstructuredElementData(&quot;DressingAssistance&quot;);</span>
+<span class="nc" id="L154">      annotations = this.getUnstructured().get(0).data().getDressingAssistanceInd();</span>
+<span class="nc" id="L155">	  } catch (IllegalArgumentException iae) {</span>
+	  	//ACD didn't return any annotations
+<span class="nc" id="L157">	  }</span>
+<span class="nc" id="L158">	  return annotations;</span>
+  }
+
+  /*
+   * Manually added method
+   */
+
+  /**
+   * Gets the eatingAssistanceInd.
+   *
+   * @return the eatingAssistanceInd
+   */
+  public List&lt;AssistanceAnnotation&gt; getEatingAssistance() {
+<span class="nc" id="L171">  	List&lt;AssistanceAnnotation&gt; annotations = new ArrayList&lt;AssistanceAnnotation&gt;();</span>
+  	try {
+<span class="nc" id="L173">      validateUnstructuredElementData(&quot;EatingAssistance&quot;);</span>
+<span class="nc" id="L174">      annotations = this.getUnstructured().get(0).data().getEatingAssistanceInd();</span>
+<span class="nc" id="L175">	  } catch (IllegalArgumentException iae) {</span>
+	  	//ACD didn't return any annotations
+<span class="nc" id="L177">	  }</span>
+<span class="nc" id="L178">  	return annotations;</span>
+  }
+
+  /*
+   * Manually added method
+   */
+
+  /**
+   * Gets the walkingAssistanceInd.
+   *
+   * @return the walkingAssistanceInd
+   */
+  public List&lt;AssistanceAnnotation&gt; getWalkingAssistance() {
+<span class="nc" id="L191">  	List&lt;AssistanceAnnotation&gt; annotations = new ArrayList&lt;AssistanceAnnotation&gt;();</span>
+	  try {
+<span class="nc" id="L193">      validateUnstructuredElementData(&quot;WalkingAssistance&quot;);</span>
+<span class="nc" id="L194">      annotations = this.getUnstructured().get(0).data().getWalkingAssistanceInd();</span>
+<span class="nc" id="L195">  	} catch (IllegalArgumentException iae) {</span>
+	  	//ACD didn't return any annotations
+<span class="nc" id="L197">	  }</span>
+<span class="nc" id="L198">	  return annotations;</span>
+  }
+
+  /*
+   * Manually added method
+   */
+
+  /**
+   * Gets the toiletingAssistanceInd.
+   *
+   * @return the toiletingAssistanceInd
+   */
+  public List&lt;AssistanceAnnotation&gt; getToiletingAssistance() {
+<span class="nc" id="L211">  	List&lt;AssistanceAnnotation&gt; annotations = new ArrayList&lt;AssistanceAnnotation&gt;();</span>
+  	try {
+<span class="nc" id="L213">      validateUnstructuredElementData(&quot;ToiletingAssistance&quot;);</span>
+<span class="nc" id="L214">      annotations = this.getUnstructured().get(0).data().getToiletingAssistanceInd();</span>
+<span class="nc" id="L215">	  } catch (IllegalArgumentException iae) {</span>
+	  	//ACD didn't return any annotations
+<span class="nc" id="L217">  	}</span>
+<span class="nc" id="L218">	  return annotations;</span>
+  }
+
+  /*
+   * Manually added method
+   */
+
+  /**
+   * Gets the icaCancerDiagnosisInd.
+   *
+   * @return the icaCancerDiagnosisInd
+   */
+  public List&lt;CancerDiagnosis&gt; getCancerDiagnosis() {
+<span class="nc" id="L231">  	List&lt;CancerDiagnosis&gt; concepts = new ArrayList&lt;CancerDiagnosis&gt;();</span>
+	  try {
+<span class="nc" id="L233">      validateUnstructuredElementData(&quot;CancerDiagnosis&quot;);</span>
+<span class="nc" id="L234">      return this.getUnstructured().get(0).data().getIcaCancerDiagnosisInd();</span>
+<span class="nc" id="L235">	  } catch (IllegalArgumentException iae) {</span>
+	  	//ACD didn't return any annotations
+	  }
+<span class="nc" id="L238">	  return concepts;</span>
+  }
+
+  /*
+   * Manually added method
+   */
+
+  /**
+   * Gets the hypotheticalSpans.
+   *
+   * @return the hypotheticalSpans
+   */
+  public List&lt;Annotation&gt; getHypotheticalSpans() {
+<span class="nc" id="L251">  	List&lt;Annotation&gt; annotations = new ArrayList&lt;Annotation&gt;();</span>
+	  try {
+<span class="nc" id="L253">      validateUnstructuredElementData(&quot;HypotheticalSpans&quot;);</span>
+<span class="nc" id="L254">      annotations = this.getUnstructured().get(0).data().getHypotheticalSpans();</span>
+<span class="nc" id="L255">	  } catch (IllegalArgumentException iae) {</span>
+	  	//ACD didn't return any annotations
+<span class="nc" id="L257">  	}</span>
+<span class="nc" id="L258">  	return annotations;</span>
+  }
+
+  /*
+   * Manually added method
+   */
+
+  /**
+   * Gets the allergyInd.
+   *
+   * @return the allergyInd
+   */
+  public List&lt;Annotation&gt; getAllergy() {
+<span class="nc" id="L271">  	List&lt;Annotation&gt; annotations = new ArrayList&lt;Annotation&gt;();</span>
+  	try {
+<span class="nc" id="L273">      validateUnstructuredElementData(&quot;Allergy&quot;);</span>
+<span class="nc" id="L274">      annotations = this.getUnstructured().get(0).data().getAllergyInd();</span>
+<span class="nc" id="L275">  	} catch (IllegalArgumentException iae) {</span>
+  		//ACD didn't return any annotations
+<span class="nc" id="L277">  	}</span>
+<span class="nc" id="L278">  	return annotations;</span>
+  }
+
+  /*
+   * Manually added method
+   */
+
+  /**
+   * Gets the negatedSpans.
+   *
+   * @return the negatedSpans
+   */
+  public List&lt;NegatedSpan&gt; getNegatedSpans() {
+<span class="nc" id="L291">  	List&lt;NegatedSpan&gt; negattions = new ArrayList&lt;NegatedSpan&gt;();</span>
+  	try {
+<span class="nc" id="L293">      validateUnstructuredElementData(&quot;NegatedSpans&quot;);</span>
+<span class="nc" id="L294">      negattions = this.getUnstructured().get(0).data().getNegatedSpans();</span>
+<span class="nc" id="L295">  	} catch (IllegalArgumentException iae) {</span>
+  		//ACD didn't return any annotations
+<span class="nc" id="L297">  	}</span>
+<span class="nc" id="L298">  	return negattions;</span>
+  }
+
+  /*
+   * Manually added method
+   */
+
+  /**
+   * Gets the conceptValues.
+   *
+   * @return the conceptValues
+   */
+  public List&lt;ConceptValue&gt; getConceptValues() {
+<span class="nc" id="L311">  	List&lt;ConceptValue&gt; values = new ArrayList&lt;ConceptValue&gt;();</span>
+	  try {
+<span class="nc" id="L313">      validateUnstructuredElementData(&quot;ConceptValues&quot;);</span>
+<span class="nc" id="L314">      values = this.getUnstructured().get(0).data().getConceptValues();</span>
+<span class="nc" id="L315">	  } catch (IllegalArgumentException iae) {</span>
+	  	//ACD didn't return any annotations
+<span class="nc" id="L317">	  }</span>
+<span class="nc" id="L318">	  return values;</span>
+  }
+
+  /*
+   * Manually added method
+   */
+
+  /**
+   * Gets the procedureInd.
+   *
+   * @return the procedureInd
+   */
+  public List&lt;Procedure&gt; getProcedure() {
+<span class="nc" id="L331">  	List&lt;Procedure&gt; procedures = new ArrayList&lt;Procedure&gt;();</span>
+	  try {
+<span class="nc" id="L333">      validateUnstructuredElementData(&quot;Procedure&quot;);</span>
+<span class="nc" id="L334">      procedures = this.getUnstructured().get(0).data().getProcedureInd();</span>
+<span class="nc" id="L335">  	} catch (IllegalArgumentException iae) {</span>
+  		//ACD didn't return any annotations
+<span class="nc" id="L337">	  }</span>
+<span class="nc" id="L338">  	return procedures;</span>
+  }
+
+  /*
+   * Manually added method
+   */
+
+  /**
+   * Gets the smokingInd.
+   *
+   * @return the smokingInd
+   */
+  public List&lt;Smoking&gt; getSmoking() {
+<span class="nc" id="L351">	List&lt;Smoking&gt; annotations = new ArrayList&lt;Smoking&gt;();</span>
+  	try {
+<span class="nc" id="L353">      validateUnstructuredElementData(&quot;Smoking&quot;);</span>
+<span class="nc" id="L354">      annotations = this.getUnstructured().get(0).data().getSmokingInd();</span>
+<span class="nc" id="L355">	  } catch (IllegalArgumentException iae) {</span>
+	  	//ACD didn't return any annotations
+<span class="nc" id="L357">	  }</span>
+<span class="nc" id="L358">	  return annotations;</span>
+  }
+
+  /*
+   * Manually added method
+   */
+
+  /**
+   * Gets the organizationInd.
+   *
+   * @return the organizationInd
+   */
+  public List&lt;Annotation&gt; getOrganization() {
+<span class="nc" id="L371">  	List&lt;Annotation&gt; annotations = new ArrayList&lt;Annotation&gt;();</span>
+	  try {
+<span class="nc" id="L373">      validateUnstructuredElementData(&quot;Organization&quot;);</span>
+<span class="nc" id="L374">      annotations = this.getUnstructured().get(0).data().getOrganizationInd();</span>
+<span class="nc" id="L375">	  } catch (IllegalArgumentException iae) {</span>
+	  	//ACD didn't return any annotations
+<span class="nc" id="L377">	  }</span>
+<span class="nc" id="L378">	  return annotations;</span>
+  }
+
+  /*
+   * Manually added method
+   */
+
+  /**
+   * Gets the personInd.
+   *
+   * @return the personInd
+   */
+  public List&lt;Annotation&gt; getPerson() {
+<span class="nc" id="L391">    List&lt;Annotation&gt; annotations = new ArrayList&lt;Annotation&gt;();</span>
+	  try {
+<span class="nc" id="L393">      validateUnstructuredElementData(&quot;Person&quot;);</span>
+<span class="nc" id="L394">      annotations = this.getUnstructured().get(0).data().getPersonInd();</span>
+<span class="nc" id="L395">  	} catch (IllegalArgumentException iae) {</span>
+  		//ACD didn't return any annotations
+<span class="nc" id="L397">  	}</span>
+<span class="nc" id="L398">  	return annotations;</span>
+  }
+
+  /*
+   * Manually added method
+   */
+
+  /**
+   * Gets the medicalInstitutionInd.
+   *
+   * @return the medicalInstitutionInd
+   */
+  public List&lt;Annotation&gt; getMedicalInstitution() {
+<span class="nc" id="L411">  	List&lt;Annotation&gt; annotations = new ArrayList&lt;Annotation&gt;();</span>
+	  try {
+<span class="nc" id="L413">      validateUnstructuredElementData(&quot;MedicalInstitution&quot;);</span>
+<span class="nc" id="L414">      annotations = this.getUnstructured().get(0).data().getMedicalInstitutionInd();</span>
+<span class="nc" id="L415">	  } catch (IllegalArgumentException iae) {</span>
+	  	//ACD didn't return any annotations
+<span class="nc" id="L417">	  }</span>
+<span class="nc" id="L418">	  return annotations;</span>
+  }
+
+  /*
+   * Manually added method
+   */
+
+  /**
+   * Gets the attributeValues.
+   *
+   * @return the attributeValues
+   */
+  public List&lt;AttributeValueAnnotation&gt; getAttributeValues() {
+<span class="nc" id="L431">  	List&lt;AttributeValueAnnotation&gt; annotations = new ArrayList&lt;AttributeValueAnnotation&gt;();</span>
+  	try {
+<span class="nc" id="L433">      validateUnstructuredElementData(&quot;AttributeValues&quot;);</span>
+<span class="nc" id="L434">      annotations = this.getUnstructured().get(0).data().getAttributeValues();</span>
+<span class="nc" id="L435">  	} catch (IllegalArgumentException iae) {</span>
+  		//ACD didn't return any annotations
+<span class="nc" id="L437">	  }</span>
+<span class="nc" id="L438">	  return annotations;</span>
+  }
+
+  /*
+   * Manually added method
+   */
+
+  /**
+   * Gets the ejectionFractionInd.
+   *
+   * @return the ejectionFractionInd
+   */
+  public List&lt;EjectionFractionAnnotation&gt; getEjectionFractionInd() {
+<span class="nc" id="L451">  	List&lt;EjectionFractionAnnotation&gt; annotations = new ArrayList&lt;EjectionFractionAnnotation&gt;();</span>
+	  try {
+<span class="nc" id="L453">      validateUnstructuredElementData(&quot;EjectionFractionInd&quot;);</span>
+<span class="nc" id="L454">      annotations = this.getUnstructured().get(0).data().getEjectionFractionInd();</span>
+<span class="nc" id="L455">	  } catch (IllegalArgumentException iae) {</span>
+	  	//ACD didn't return any annotations
+<span class="nc" id="L457">  	}</span>
+<span class="nc" id="L458">  	return annotations;</span>
+  }
+
+  /*
+   * Manually added method
+   */
+
+  /**
+   * Gets the labValueInd.
+   *
+   * @return the labValueInd
+   */
+  public List&lt;LabValueAnnotation&gt; getLabValueInd() {
+<span class="nc" id="L471">  	List&lt;LabValueAnnotation&gt; annotations = new ArrayList&lt;LabValueAnnotation&gt;();</span>
+	  try {
+<span class="nc" id="L473">      validateUnstructuredElementData(&quot;LabValueInd&quot;);</span>
+<span class="nc" id="L474">      annotations = this.getUnstructured().get(0).data().getLabValueInd();</span>
+<span class="nc" id="L475">	  } catch (IllegalArgumentException iae) {</span>
+	  	//ACD didn't return any annotations
+<span class="nc" id="L477">  	}</span>
+<span class="nc" id="L478">	  return annotations;</span>
+  }
+
+  /*
+   * Manually added method
+   */
+
+  /**
+   * Gets the medicationInd.
+   *
+   * @return the medicationInd
+   */
+  public List&lt;MedicationAnnotation&gt; getMedicationInd() {
+<span class="nc" id="L491">  	List&lt;MedicationAnnotation&gt; annotations = new ArrayList&lt;MedicationAnnotation&gt;();</span>
+	  try {
+<span class="nc" id="L493">      validateUnstructuredElementData(&quot;MedicationInd&quot;);</span>
+<span class="nc" id="L494">      annotations = this.getUnstructured().get(0).data().getMedicationInd();</span>
+<span class="nc" id="L495">  	} catch (IllegalArgumentException iae) {</span>
+	  	//ACD didn't return any annotations
+<span class="nc" id="L497">	  }</span>
+<span class="nc" id="L498">	  return annotations;</span>
+  }
+
+  /*
+   * Manually added method
+   */
+
+  /**
+   * Gets the emailAddressInd.
+   *
+   * @return the emailAddressInd
+   */
+  public List&lt;Annotation&gt; getEmailAddressInd() {
+<span class="nc" id="L511">	  List&lt;Annotation&gt; annotations = new ArrayList&lt;Annotation&gt;();</span>
+	  try {
+<span class="nc" id="L513">      validateUnstructuredElementData(&quot;EmailAddressInd&quot;);</span>
+<span class="nc" id="L514">      annotations = this.getUnstructured().get(0).data().getEmailAddressInd();</span>
+<span class="nc" id="L515">  	} catch (IllegalArgumentException iae) {</span>
+	  	//ACD didn't return any annotations
+<span class="nc" id="L517">	  }</span>
+<span class="nc" id="L518">	  return annotations;</span>
+  }
+
+  /*
+   * Manually added method
+   */
+
+  /**
+   * Gets the locationInd.
+   *
+   * @return the locationInd
+   */
+  public List&lt;Annotation&gt; getLocationInd() {
+<span class="nc" id="L531">	  List&lt;Annotation&gt; annotations = new ArrayList&lt;Annotation&gt;();</span>
+	  try {
+<span class="nc" id="L533">      validateUnstructuredElementData(&quot;LocationInd&quot;);</span>
+<span class="nc" id="L534">      annotations = this.getUnstructured().get(0).data().getLocationInd();</span>
+<span class="nc" id="L535">  	} catch (IllegalArgumentException iae) {</span>
+	  	//ACD didn't return any annotations
+<span class="nc" id="L537">  	}</span>
+<span class="nc" id="L538">	  return annotations;</span>
+  }
+
+  /*
+   * Manually added method
+   */
+
+  /**
+   * Gets the uSPhoneNumberInd.
+   *
+   * @return the uSPhoneNumberInd
+   */
+  public List&lt;Annotation&gt; getUSPhoneNumberInd() {
+<span class="nc" id="L551">	  List&lt;Annotation&gt; annotations = new ArrayList&lt;Annotation&gt;();</span>
+	  try {
+<span class="nc" id="L553">      validateUnstructuredElementData(&quot;USPhoneNumberInd&quot;);</span>
+<span class="nc" id="L554">      annotations = this.getUnstructured().get(0).data().getUSPhoneNumberInd();</span>
+<span class="nc" id="L555">   } catch (IllegalArgumentException iae) {</span>
+  		//ACD didn't return any annotations
+<span class="nc" id="L557">  	}</span>
+<span class="nc" id="L558">  	return annotations;</span>
+  }
+
+  /*
+   * Manually added method
+   */
+
+  /**
+   * Gets the seeingAssistanceInd.
+   *
+   * @return the seeingAssistanceInd
+   */
+  public List&lt;AssistanceAnnotation&gt; getSeeingAssistanceInd() {
+<span class="nc" id="L571">	  List&lt;AssistanceAnnotation&gt; annotations = new ArrayList&lt;AssistanceAnnotation&gt;();</span>
+  	try {
+<span class="nc" id="L573">      validateUnstructuredElementData(&quot;SeeingAssistanceInd&quot;);</span>
+<span class="nc" id="L574">      annotations = this.getUnstructured().get(0).data().getSeeingAssistanceInd();</span>
+<span class="nc" id="L575">  	} catch (IllegalArgumentException iae) {</span>
+	  	//ACD didn't return any annotations
+<span class="nc" id="L577">  	}</span>
+<span class="nc" id="L578">  	return annotations;</span>
+  }
+
+  /*
+   * Manually added method
+   */
+
+  /**
+   * Gets the SectionAnnotations.
+   *
+   * @return the SectionAnnotations
+   */
+  public List&lt;SectionAnnotation&gt; getSectionAnnotations() {
+<span class="nc" id="L591">	  List&lt;SectionAnnotation&gt; annotations = new ArrayList&lt;SectionAnnotation&gt;();</span>
+  	try {
+<span class="nc" id="L593">      validateUnstructuredElementData(&quot;SectionAnnotations&quot;);</span>
+<span class="nc" id="L594">      annotations = this.getUnstructured().get(0).data().getSectionAnnotations();</span>
+<span class="nc" id="L595">  	} catch (IllegalArgumentException iae) {</span>
+  		//ACD didn't return any annotations
+<span class="nc" id="L597">  	}</span>
+<span class="nc" id="L598">  	return annotations;</span>
+  }
+
+
+  /*
+   * Manually added method
+   */
+
+  /**
+   * Gets the NluEntities.
+   *
+   * @return the NluEntities
+   */
+  public List&lt;NluEntity&gt; getNluEntities() {
+<span class="nc" id="L612">	  List&lt;NluEntity&gt; annotations = new ArrayList&lt;NluEntity&gt;();</span>
+	  try {
+<span class="nc" id="L614">      validateUnstructuredElementData(&quot;nluEntities&quot;);</span>
+<span class="nc" id="L615">      annotations = this.getUnstructured().get(0).data().getNluEntities();</span>
+<span class="nc" id="L616">  	} catch (IllegalArgumentException iae) {</span>
+  		//ACD didn't return any annotations
+<span class="nc" id="L618">  	}</span>
+<span class="nc" id="L619">  	return annotations;</span>
+  }
+
+  /*
+   * Manually added method
+   */
+
+  /**
+   * Gets the Relations.
+   *
+   * @return the Relations
+   */
+  public List&lt;Relation&gt; getRelations() {
+<span class="nc" id="L632">	  List&lt;Relation&gt; relations = new ArrayList&lt;Relation&gt;();</span>
+  	try {
+<span class="nc" id="L634">      validateUnstructuredElementData(&quot;relations&quot;);</span>
+<span class="nc" id="L635">      relations = this.getUnstructured().get(0).data().getRelations();</span>
+<span class="nc" id="L636">  	} catch (IllegalArgumentException iae) {</span>
+  		//ACD didn't return any annotations
+<span class="nc" id="L638">  	}</span>
+<span class="nc" id="L639">  	return relations;</span>
+  }
+
+  /**
+   * Gets all of the SpellCorrectedText objects in the container.
+   *
+   * @return the SpellCorrectedText objects
+   */
+  public List&lt;SpellCorrectedText&gt; getSpellCorrectedText() {
+<span class="nc" id="L648">	  List&lt;SpellCorrectedText&gt; corrections = new ArrayList&lt;SpellCorrectedText&gt;();</span>
+  	try {
+<span class="nc" id="L650">      validateUnstructuredElementData(&quot;spellCorrrectedText&quot;);</span>
+<span class="nc" id="L651">      corrections = this.getUnstructured().get(0).data().getSpellCorrectedText();</span>
+<span class="nc" id="L652">  	} catch (IllegalArgumentException iae) {</span>
+  		//ACD didn't return any annotations
+<span class="nc" id="L654">  	}</span>
+<span class="nc" id="L655">  	return corrections;</span>
+  }
+
+  /**
+   * Gets all of the SpellingCorrections in the container.
+   *
+   * @return the SpellingCorrections objects
+   */
+  public List&lt;SpellingCorrection&gt; getSpellingCorrections() {
+<span class="nc" id="L664">	  List&lt;SpellingCorrection&gt; corrections = new ArrayList&lt;SpellingCorrection&gt;();</span>
+  	try {
+<span class="nc" id="L666">      validateUnstructuredElementData(&quot;spellingCorrections&quot;);</span>
+<span class="nc" id="L667">      corrections = this.getUnstructured().get(0).data().getSpellingCorrections();</span>
+<span class="nc" id="L668">  	} catch (IllegalArgumentException iae) {</span>
+  		//ACD didn't return any annotations
+<span class="nc" id="L670">  	}</span>
+<span class="nc" id="L671">  	return corrections;</span>
+  }
+
+
+  /*
+   * Manually added method
+   */
+
+   /**
+    * Gets the concept.
+    * @param index position to retrieve
+    * @return the concept or null if invalid index
+    */
+  public Concept getConcepts(int index) {
+<span class="nc" id="L685">	  Concept concept = null;</span>
+	  try {
+<span class="nc" id="L687">      validateUnstructuredElementData(&quot;Concepts&quot;);</span>
+<span class="nc" id="L688">      concept = this.getUnstructured().get(0).data().getConcepts().get(index);</span>
+<span class="nc" id="L689">	  } catch (IllegalArgumentException iae) {</span>
+	  	//ACD didn't return any annotations
+<span class="nc" id="L691">	  }</span>
+<span class="nc" id="L692">	  return concept;</span>
+  }
+
+  /*
+   * Manually added method
+   */
+
+  /**
+   * Gets the symptomDiseaseInd.
+   *
+   * @param index position to retrieve
+   *
+   * @return the symptomDiseaseInd or null if invalid index
+   */
+
+  public SymptomDisease getSymptomDisease(int index) {
+<span class="nc" id="L708">	  SymptomDisease annotation = null;</span>
+	  try {
+<span class="nc" id="L710">      validateUnstructuredElementData(&quot;SymptomDisease&quot;);</span>
+<span class="nc" id="L711">      annotation = this.getUnstructured().get(0).data().getSymptomDiseaseInd().get(index);</span>
+<span class="nc" id="L712">	  } catch (IllegalArgumentException iae) {</span>
+		//ACD didn't return any annotations
+<span class="nc" id="L714">	  }</span>
+<span class="nc" id="L715">  	return annotation;</span>
+  }
+
+  /*
+   * Manually added method
+   */
+
+  /**
+   * Gets the bathingAssistanceInd.
+   *
+   * @param index position to retrieve
+   *
+   * @return the bathingAssistanceInd or null if invalid index
+   */
+  public AssistanceAnnotation getBathingAssistance(int index) {
+<span class="nc" id="L730">	  AssistanceAnnotation annotation = null;</span>
+	  try {
+<span class="nc" id="L732">      validateUnstructuredElementData(&quot;BathingAssistance&quot;);</span>
+<span class="nc" id="L733">      annotation = this.getUnstructured().get(0).data().getBathingAssistanceInd().get(index);</span>
+<span class="nc" id="L734">  	} catch (IllegalArgumentException iae) {</span>
+	  	//ACD didn't return any annotations
+<span class="nc" id="L736">	  }</span>
+<span class="nc" id="L737">	  return annotation;</span>
+  }
+
+  /*
+   * Manually added method
+   */
+
+  /**
+   * Gets the dressingAssistanceInd.
+   *
+   * @param index position to retrieve
+   *
+   * @return the dressingAssistanceInd or null if index invalid
+   */
+  public AssistanceAnnotation getDressingAssistance(int index) {
+<span class="nc" id="L752">	  AssistanceAnnotation annotation = null;</span>
+  	try {
+<span class="nc" id="L754">      validateUnstructuredElementData(&quot;DressingAssistance&quot;);</span>
+<span class="nc" id="L755">      annotation = this.getUnstructured().get(0).data().getDressingAssistanceInd().get(index);</span>
+<span class="nc" id="L756">  	} catch (IllegalArgumentException iae) {</span>
+	  	//ACD didn't return any annotations
+<span class="nc" id="L758">  	}</span>
+<span class="nc" id="L759">  	return annotation;</span>
+  }
+
+  /*
+   * Manually added method
+   */
+
+  /**
+   * Gets the eatingAssistanceInd.
+   *
+   * @param index position to retrieve
+   *
+   * @return the eatingAssistanceInd or null if invalid index
+   */
+  public AssistanceAnnotation getEatingAssistance(int index) {
+<span class="nc" id="L774">	  AssistanceAnnotation annotation = null;</span>
+    try {
+<span class="nc" id="L776">      validateUnstructuredElementData(&quot;EatingAssistance&quot;);</span>
+<span class="nc" id="L777">      annotation = this.getUnstructured().get(0).data().getEatingAssistanceInd().get(index);</span>
+<span class="nc" id="L778">  	} catch (IllegalArgumentException iae) {</span>
+  		//ACD didn't return any annotations
+<span class="nc" id="L780">  	}</span>
+<span class="nc" id="L781">  	return annotation;</span>
+  }
+
+  /*
+   * Manually added method
+   */
+
+  /**
+   * Gets the walkingAssistanceInd.
+   *
+   * @param index position to retrieve
+   *
+   * @return the walkingAssistanceInd or null if invalid index
+   */
+  public AssistanceAnnotation getWalkingAssistance(int index) {
+<span class="nc" id="L796">	  AssistanceAnnotation annotation = null;</span>
+	  try {
+<span class="nc" id="L798">      validateUnstructuredElementData(&quot;WalkingAssistance&quot;);</span>
+<span class="nc" id="L799">      annotation = this.getUnstructured().get(0).data().getWalkingAssistanceInd().get(index);</span>
+<span class="nc" id="L800">	  } catch (IllegalArgumentException iae) {</span>
+	  	//ACD didn't return any annotations
+<span class="nc" id="L802">  	}</span>
+<span class="nc" id="L803">	  return annotation;</span>
+  }
+
+  /*
+   * Manually added method
+   */
+
+  /**
+   * Gets the toiletingAssistanceInd.
+   *
+   * @param index position to retrieve
+   *
+   * @return the toiletingAssistanceInd or null if invalid index
+   */
+  public AssistanceAnnotation getToiletingAssistance(int index) {
+<span class="nc" id="L818">	  AssistanceAnnotation annotation = null;</span>
+	  try {
+<span class="nc" id="L820">      validateUnstructuredElementData(&quot;ToiletingAssistance&quot;);</span>
+<span class="nc" id="L821">      annotation = this.getUnstructured().get(0).data().getToiletingAssistanceInd().get(index);</span>
+<span class="nc" id="L822">	  } catch (IllegalArgumentException iae) {</span>
+	  	//ACD didn't return any annotations
+<span class="nc" id="L824">	  }</span>
+<span class="nc" id="L825">  	return annotation;</span>
+  }
+
+  /*
+   * Manually added method
+   */
+
+  /**
+   * Gets the icaCancerDiagnosisInd.
+   *
+   * @param index position to retrieve
+   *
+   * @return the icaCancerDiagnosisInd or null if invalid index
+   */
+  public CancerDiagnosis getCancerDiagnosis(int index) {
+<span class="nc" id="L840">	  CancerDiagnosis annotation = null;</span>
+	  try {
+<span class="nc" id="L842">      validateUnstructuredElementData(&quot;CancerDiagnosis&quot;);</span>
+<span class="nc" id="L843">      annotation = this.getUnstructured().get(0).data().getIcaCancerDiagnosisInd().get(index);</span>
+<span class="nc" id="L844">  	} catch (IllegalArgumentException iae) {</span>
+  		//ACD didn't return any annotations
+<span class="nc" id="L846">	  }</span>
+<span class="nc" id="L847">	  return annotation;</span>
+  }
+
+  /*
+   * Manually added method
+   */
+
+  /**
+   * Gets the hypotheticalSpans.
+   *
+   * @param index position to retrieve
+   *
+   * @return the hypotheticalSpan or null if invalid index
+   */
+  public Annotation getHypotheticalSpans(int index) {
+<span class="nc" id="L862">	  Annotation annotation = null;</span>
+	  try {
+<span class="nc" id="L864">      validateUnstructuredElementData(&quot;HypotheticalSpans&quot;);</span>
+<span class="nc" id="L865">      annotation = this.getUnstructured().get(0).data().getHypotheticalSpans().get(index);</span>
+<span class="nc" id="L866">	  } catch (IllegalArgumentException iae) {</span>
+	  	//ACD didn't return any annotations
+<span class="nc" id="L868">	  }</span>
+<span class="nc" id="L869">	  return annotation;</span>
+  }
+
+  /*
+   * Manually added method
+   */
+
+  /**
+   * Gets the allergyInd.
+   *
+   * @param index position to retrieve
+   *
+   * @return the allergyInd or null if invalid index
+   */
+  public Annotation getAllergy(int index) {
+<span class="nc" id="L884">	  Annotation annotation = null;</span>
+  	try {
+<span class="nc" id="L886">      validateUnstructuredElementData(&quot;Allergy&quot;);</span>
+<span class="nc" id="L887">      annotation = this.getUnstructured().get(0).data().getAllergyInd().get(index);</span>
+<span class="nc" id="L888">	  } catch (IllegalArgumentException iae) {</span>
+	  	//ACD didn't return any annotations
+<span class="nc" id="L890">	  }</span>
+<span class="nc" id="L891">  	return annotation;</span>
+  }
+
+  /*
+   * Manually added method
+   */
+
+  /**
+   * Gets the negatedSpans.
+   *
+   * @param index position to retrieve
+   *
+   * @return the negatedSpans or null in invalid index
+   */
+  public NegatedSpan getNegatedSpans(int index) {
+<span class="nc" id="L906">	  NegatedSpan negation = null;</span>
+  	try {
+<span class="nc" id="L908">      validateUnstructuredElementData(&quot;NegatedSpans&quot;);</span>
+<span class="nc" id="L909">      negation = this.getUnstructured().get(0).data().getNegatedSpans().get(index);</span>
+<span class="nc" id="L910">  	} catch (IllegalArgumentException iae) {</span>
+  		//ACD didn't return any annotations
+<span class="nc" id="L912">  	}</span>
+<span class="nc" id="L913">  	return negation;</span>
+  }
+
+  /*
+   * Manually added method
+   */
+
+  /**
+   * Gets the conceptValues.
+   *
+   * @param index position to retrieve
+   *
+   * @return the conceptValues or null if invalid index
+   */
+  public ConceptValue getConceptValues(int index) {
+<span class="nc" id="L928">	  ConceptValue value = null;</span>
+  	try {
+<span class="nc" id="L930">      validateUnstructuredElementData(&quot;ConceptValues&quot;);</span>
+<span class="nc" id="L931">      value = this.getUnstructured().get(0).data().getConceptValues().get(index);</span>
+<span class="nc" id="L932">  	} catch (IllegalArgumentException iae) {</span>
+  		//ACD didn't return any annotations
+<span class="nc" id="L934">  	}</span>
+<span class="nc" id="L935">  	return value;</span>
+  }
+
+  /*
+   * Manually added method
+   */
+
+  /**
+   * Gets the procedureInd.
+   *
+   * @param index position to retrieve
+   *
+   * @return the procedureInd or null if invalid index
+   */
+  public Procedure getProcedure(int index) {
+<span class="nc" id="L950">	  Procedure procedure = null;</span>
+  	try {
+<span class="nc" id="L952">      validateUnstructuredElementData(&quot;Procedure&quot;);</span>
+<span class="nc" id="L953">      procedure = this.getUnstructured().get(0).data().getProcedureInd().get(index);</span>
+<span class="nc" id="L954">  	} catch (IllegalArgumentException iae) {</span>
+  		//ACD didn't return any annotations
+<span class="nc" id="L956">  	}</span>
+<span class="nc" id="L957">  	return procedure;</span>
+  }
+
+  /*
+   * Manually added method
+   */
+
+  /**
+   * Gets the smokingInd.
+   *
+   * @param index position to retrieve
+   *
+   * @return the smokingInd or null if invalid index
+   */
+  public Smoking getSmoking(int index) {
+<span class="nc" id="L972">	  Smoking annotation = null;</span>
+  	try {
+<span class="nc" id="L974">      validateUnstructuredElementData(&quot;Smoking&quot;);</span>
+<span class="nc" id="L975">      annotation = this.getUnstructured().get(0).data().getSmokingInd().get(index);</span>
+<span class="nc" id="L976">  	} catch (IllegalArgumentException iae) {</span>
+  		//ACD didn't return any annotations
+<span class="nc" id="L978">  	}</span>
+<span class="nc" id="L979">  	return annotation;</span>
+  }
+
+  /*
+   * Manually added method
+   */
+
+  /**
+   * Gets the organizationInd.
+   *
+   * @param index position to retrieve
+   *
+   * @return the organizationInd or null if invalid index
+   */
+  public Annotation getOrganization(int index) {
+<span class="nc" id="L994">	  Annotation annotation = null;</span>
+	  try {
+<span class="nc" id="L996">      validateUnstructuredElementData(&quot;Organization&quot;);</span>
+<span class="nc" id="L997">      annotation = this.getUnstructured().get(0).data().getOrganizationInd().get(index);</span>
+<span class="nc" id="L998">	  } catch (IllegalArgumentException iae) {</span>
+  		//ACD didn't return any annotations
+<span class="nc" id="L1000">  	}</span>
+<span class="nc" id="L1001">  	return annotation;</span>
+  }
+
+  /*
+   * Manually added method
+   */
+
+  /**
+   * Gets the personInd.
+   *
+   * @param index position to retrieve
+   *
+   * @return the personInd or null if invalid index
+   */
+  public Annotation getPerson(int index) {
+<span class="nc" id="L1016">	  Annotation annotation = null;</span>
+  	try {
+<span class="nc" id="L1018">      validateUnstructuredElementData(&quot;Person&quot;);</span>
+<span class="nc" id="L1019">      annotation = this.getUnstructured().get(0).data().getPersonInd().get(index);</span>
+<span class="nc" id="L1020">  	} catch (IllegalArgumentException iae) {</span>
+  		//ACD didn't return any annotations
+<span class="nc" id="L1022">  	}</span>
+<span class="nc" id="L1023">  	return annotation;</span>
+  }
+
+  /*
+   * Manually added method
+   */
+
+  /**
+   * Gets the medicalInstitutionInd.
+   *
+   * @param index position to retrieve
+   *
+   * @return the medicalInstitutionInd or null if invalid index
+   */
+  public Annotation getMedicalInstitution(int index) {
+<span class="nc" id="L1038">	  Annotation annotation = null;</span>
+  	try {
+<span class="nc" id="L1040">      validateUnstructuredElementData(&quot;MedicalInstitution&quot;);</span>
+<span class="nc" id="L1041">      annotation = this.getUnstructured().get(0).data().getMedicalInstitutionInd().get(index);</span>
+<span class="nc" id="L1042">	  } catch (IllegalArgumentException iae) {</span>
+  		//ACD didn't return any annotations
+<span class="nc" id="L1044">  	}</span>
+<span class="nc" id="L1045">  	return annotation;</span>
+  }
+
+  /*
+   * Manually added method
+   */
+
+  /**
+   * Gets the attributeValues.
+   *
+   * @param index position to retrieve
+   *
+   * @return the attributeValues or null if invalid index
+   */
+  public AttributeValueAnnotation getAttributeValues(int index) {
+<span class="nc" id="L1060">	  AttributeValueAnnotation annotation = null;</span>
+	  try {
+<span class="nc" id="L1062">      validateUnstructuredElementData(&quot;AttributeValues&quot;);</span>
+<span class="nc" id="L1063">      annotation = this.getUnstructured().get(0).data().getAttributeValues().get(index);</span>
+<span class="nc" id="L1064">	  } catch (IllegalArgumentException iae) {</span>
+  		//ACD didn't return any annotations
+<span class="nc" id="L1066">	  }</span>
+<span class="nc" id="L1067">	  return annotation;</span>
+  }
+
+  /*
+   * Manually added method
+   */
+
+  /**
+   * Gets the ejectionFractionInd.
+   *
+   * @param index position to retrieve
+   *
+   * @return the ejectionFractionInd or null if invalid index
+   */
+  public EjectionFractionAnnotation getEjectionFractionInd(int index) {
+<span class="nc" id="L1082">	  EjectionFractionAnnotation annotation = null;</span>
+  	try {
+<span class="nc" id="L1084">      validateUnstructuredElementData(&quot;EjectionFractionInd&quot;);</span>
+<span class="nc" id="L1085">      annotation = this.getUnstructured().get(0).data().getEjectionFractionInd().get(index);</span>
+<span class="nc" id="L1086">  	} catch (IllegalArgumentException iae) {</span>
+  		//ACD didn't return any annotations
+<span class="nc" id="L1088">  	}</span>
+<span class="nc" id="L1089">  	return annotation;</span>
+  }
+
+  /*
+   * Manually added method
+   */
+
+  /**
+   * Gets the labValueInd.
+   *
+   * @param index position to retrieve
+   *
+   * @return the labValueInd or null if invalid index
+   */
+  public LabValueAnnotation getLabValueInd(int index) {
+<span class="nc" id="L1104">	  LabValueAnnotation annotation = null;</span>
+	  try {
+<span class="nc" id="L1106">      validateUnstructuredElementData(&quot;LabValueInd&quot;);</span>
+<span class="nc" id="L1107">      annotation = this.getUnstructured().get(0).data().getLabValueInd().get(index);</span>
+<span class="nc" id="L1108">  	} catch (IllegalArgumentException iae) {</span>
+	  	//ACD didn't return any annotations
+<span class="nc" id="L1110">	  }</span>
+<span class="nc" id="L1111">	  return annotation;</span>
+  }
+
+  /*
+   * Manually added method
+   */
+
+  /**
+   * Gets the medicationInd.
+   *
+   * @param index position to retrieve
+   *
+   * @return the medicationInd or null if invalid index
+   */
+  public MedicationAnnotation getMedicationInd(int index) {
+<span class="nc" id="L1126">	  MedicationAnnotation annotation = null;</span>
+  	try {
+<span class="nc" id="L1128">      validateUnstructuredElementData(&quot;MedicationInd&quot;);</span>
+<span class="nc" id="L1129">      annotation = this.getUnstructured().get(0).data().getMedicationInd().get(index);</span>
+<span class="nc" id="L1130">	  } catch (IllegalArgumentException iae) {</span>
+	  	//ACD didn't return any annotations
+<span class="nc" id="L1132">	  }</span>
+<span class="nc" id="L1133">	  return annotation;</span>
+  }
+
+  /*
+   * Manually added method
+   */
+
+  /**
+   * Gets the emailAddressInd.
+   *
+   * @param index position to retrieve
+   *
+   * @return the emailAddressInd or null if invalid index
+   */
+  public Annotation getEmailAddressInd(int index) {
+<span class="nc" id="L1148">	  Annotation annotation = null;</span>
+  	try {
+<span class="nc" id="L1150">      validateUnstructuredElementData(&quot;EmailAddressInd&quot;);</span>
+<span class="nc" id="L1151">      annotation = this.getUnstructured().get(0).data().getEmailAddressInd().get(index);</span>
+<span class="nc" id="L1152">  	} catch (IllegalArgumentException iae) {</span>
+  		//ACD didn't return any annotations
+<span class="nc" id="L1154">  	}</span>
+<span class="nc" id="L1155">	  return annotation;</span>
+  }
+
+  /*
+   * Manually added method
+   */
+
+  /**
+   * Gets the locationInd.
+   *
+   * @param index position to retrieve
+   *
+   * @return the locationInd or null if invalid index
+   */
+  public Annotation getLocationInd(int index) {
+<span class="nc" id="L1170">	  Annotation annotation = null;</span>
+	  try {
+<span class="nc" id="L1172">      validateUnstructuredElementData(&quot;LocationInd&quot;);</span>
+<span class="nc" id="L1173">      annotation = this.getUnstructured().get(0).data().getLocationInd().get(index);</span>
+<span class="nc" id="L1174">	  } catch (IllegalArgumentException iae) {</span>
+	  	//ACD didn't return any annotations
+<span class="nc" id="L1176">  	}</span>
+<span class="nc" id="L1177">	  return annotation;</span>
+  }
+
+  /*
+   * Manually added method
+   */
+
+  /**
+   * Gets the uSPhoneNumberInd.
+   *
+   * @param index position to retrieve
+   *
+   * @return the uSPhoneNumberInd or null if invalid index
+   */
+  public Annotation getUSPhoneNumberInd(int index) {
+<span class="nc" id="L1192">	  Annotation annotation = null;</span>
+	  try {
+<span class="nc" id="L1194">      validateUnstructuredElementData(&quot;USPhoneNumberInd&quot;);</span>
+<span class="nc" id="L1195">       annotation = this.getUnstructured().get(0).data().getUSPhoneNumberInd().get(index);</span>
+<span class="nc" id="L1196">	  } catch (IllegalArgumentException iae) {</span>
+		  //ACD didn't return any annotations
+<span class="nc" id="L1198">	  }</span>
+<span class="nc" id="L1199">  	return annotation;</span>
+  }
+
+  /*
+   * Manually added method
+   */
+
+  /**
+   * Gets the seeingAssistanceInd.
+   *
+   * @param index position to retrieve
+   *
+   * @return the seeingAssistanceInd or null if invalid index
+   */
+  public AssistanceAnnotation getSeeingAssistanceInd(int index) {
+<span class="nc" id="L1214">	  AssistanceAnnotation annotation = null;</span>
+	  try {
+<span class="nc" id="L1216">      validateUnstructuredElementData(&quot;SeeingAssistanceInd&quot;);</span>
+<span class="nc" id="L1217">      annotation = this.getUnstructured().get(0).data().getSeeingAssistanceInd().get(index);</span>
+<span class="nc" id="L1218">    } catch (IllegalArgumentException iae) {</span>
+	  	//ACD didn't return any annotations
+<span class="nc" id="L1220">	  }</span>
+<span class="nc" id="L1221">	  return annotation;</span>
+  }
+
+
+  /*
+   * Manually added method
+   */
+
+  /**
+   * Gets the sectionAnnotations.
+   *
+   * @param index position to retrieve
+   *
+   * @return the sectionAnnotations or null if invalid index
+   */
+  public SectionAnnotation getSectionAnnotations(int index) {
+<span class="nc" id="L1237">	  SectionAnnotation annotation = null;</span>
+    try {
+<span class="nc" id="L1239">      validateUnstructuredElementData(&quot;SectionAnnotations&quot;);</span>
+<span class="nc" id="L1240">      annotation = this.getUnstructured().get(0).data().getSectionAnnotations().get(index);</span>
+<span class="nc" id="L1241">	  } catch (IllegalArgumentException iae) {</span>
+	  	//ACD didn't return any annotations
+<span class="nc" id="L1243">	  }</span>
+<span class="nc" id="L1244">	  return annotation;</span>
+  }
+
+  /*
+   * Manually added method
+   */
+
+  /**
+   * Gets the NluEntity.
+   * @param index position to retrieve
+   *
+   * @return the NluEntity or null if invalid index
+   */
+  public NluEntity getNluEntity(int index) {
+<span class="nc" id="L1258">	  NluEntity annotation = null;</span>
+	  try {
+<span class="nc" id="L1260">      validateUnstructuredElementData(&quot;nluEntities&quot;);</span>
+<span class="nc" id="L1261">      annotation = this.getUnstructured().get(0).data().getNluEntities().get(index);</span>
+<span class="nc" id="L1262">	  } catch (IllegalArgumentException iae) {</span>
+	  	//ACD didn't return any annotations
+<span class="nc" id="L1264">	  }</span>
+<span class="nc" id="L1265">	  return annotation;</span>
+  }
+
+  /*
+   * Manually added method
+   */
+
+  /**
+   * Gets the Relation.
+   *
+   * @param index position to retrieve
+   *
+   * @return the Relation or null if invalid index
+   */
+  public Relation getRelation(int index) {
+<span class="nc" id="L1280">	  Relation annotation = null;</span>
+	  try {
+<span class="nc" id="L1282">      validateUnstructuredElementData(&quot;relations&quot;);</span>
+<span class="nc" id="L1283">      annotation = this.getUnstructured().get(0).data().getRelations().get(index);</span>
+<span class="nc" id="L1284">	  } catch (IllegalArgumentException iae) {</span>
+  		//ACD didn't return any annotations
+<span class="nc" id="L1286">  	}</span>
+<span class="nc" id="L1287">  	return annotation;</span>
+  }
+
+  /**
+   * Gets the SpellCorrectedText.
+   *
+   * @param index position to retrieve
+   *
+   * @return the SpellCorrectedText or null if invalid index
+   */
+  public SpellCorrectedText getSpellCorrectedText(int index) {
+<span class="nc" id="L1298">	  SpellCorrectedText annotation = null;</span>
+	  try {
+<span class="nc" id="L1300">      validateUnstructuredElementData(&quot;spellCorrrectedText&quot;);</span>
+<span class="nc" id="L1301">      annotation = this.getUnstructured().get(0).data().getSpellCorrectedText().get(index);</span>
+<span class="nc" id="L1302">	  } catch (IllegalArgumentException iae) {</span>
+	  	//ACD didn't return any annotations
+<span class="nc" id="L1304">	  }</span>
+<span class="nc" id="L1305">  	return annotation;</span>
+  }
+
+  /**
+   * Gets SpellingCorrections at the given index.
+   *
+   * @param index position to retrieve
+   *
+   * @return the SpellingCorrection or null if invalid index
+   */
+  public SpellingCorrection getSpellingCorrections(int index) {
+<span class="nc" id="L1316">	  SpellingCorrection annotation = null;</span>
+	  try {
+<span class="nc" id="L1318">      validateUnstructuredElementData(&quot;spellingCorrections&quot;);</span>
+<span class="nc" id="L1319">      annotation = this.getUnstructured().get(0).data().getSpellingCorrections().get(index);</span>
+<span class="nc" id="L1320">	  } catch (IllegalArgumentException iae) {</span>
+	  	//ACD didn't return any annotations
+<span class="nc" id="L1322">  	}</span>
+<span class="nc" id="L1323">  	return annotation;</span>
+  }
+
+  /*
+   * Manually added method
+   */
+
+  /**
+   * Validator to prevent possible NullPointerException.  Validator
+   * will generate IllegalArgumentException if 'notNull' check is true.
+   */
+  private void validateUnstructuredElementData(String annoType) {
+<span class="nc" id="L1335">    String errorMsg = &quot;No &quot; + annoType + &quot; Annotations - Unstructured List is Null&quot;;</span>
+<span class="nc" id="L1336">    Validator.notNull(this.getUnstructured(), errorMsg);</span>
+
+<span class="nc" id="L1338">    errorMsg = &quot;No &quot; + annoType + &quot; Annotations - Unstructured List Element is Null&quot;;</span>
+<span class="nc" id="L1339">    Validator.notNull(this.getUnstructured().get(0), errorMsg);</span>
+
+<span class="nc" id="L1341">    errorMsg = &quot;No &quot; + annoType + &quot; Annotations - Unstructured List Element Data is Null&quot;;</span>
+<span class="nc" id="L1342">    Validator.notNull(this.getUnstructured().get(0).data(), errorMsg);</span>
+<span class="nc" id="L1343">  }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>

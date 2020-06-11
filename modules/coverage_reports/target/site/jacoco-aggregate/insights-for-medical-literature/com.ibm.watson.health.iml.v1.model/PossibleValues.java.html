@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../jacoco-resources/report.gif" type="image/gif"/><title>PossibleValues.java</title><link rel="stylesheet" href="../../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../../index.html" class="el_report">IBM Watson Health Cognitive Services Coverage Reports</a> &gt; <a href="../index.html" class="el_bundle">insights-for-medical-literature</a> &gt; <a href="index.source.html" class="el_package">com.ibm.watson.health.iml.v1.model</a> &gt; <span class="el_source">PossibleValues.java</span></div><h1>PossibleValues.java</h1><pre class="source lang-java linenums">/*
+ * (C) Copyright IBM Corp. 2020.
+ *
+ * Licensed under the Apache License, Version 2.0 (the &quot;License&quot;); you may not use this file except in compliance with
+ * the License. You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on
+ * an &quot;AS IS&quot; BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the
+ * specific language governing permissions and limitations under the License.
+ */
+package com.ibm.watson.health.iml.v1.model;
+
+import com.ibm.cloud.sdk.core.service.model.GenericModel;
+
+/**
+ * PossbileValues.
+ */
+public class PossibleValues extends GenericModel {
+
+  protected String displayValue;
+  protected String value;
+
+  /**
+   * Builder.
+   */
+  public static class Builder {
+    private String displayValue;
+    private String value;
+
+<span class="nc" id="L32">    private Builder(PossibleValues possbileValues) {</span>
+<span class="nc" id="L33">      this.displayValue = possbileValues.displayValue;</span>
+<span class="nc" id="L34">      this.value = possbileValues.value;</span>
+<span class="nc" id="L35">    }</span>
+
+    /**
+     * Instantiates a new builder.
+     */
+<span class="fc" id="L40">    public Builder() {</span>
+<span class="fc" id="L41">    }</span>
+
+    /**
+     * Builds a PossbileValues.
+     *
+     * @return the new PossbileValues instance
+     */
+    public PossibleValues build() {
+<span class="fc" id="L49">      return new PossibleValues(this);</span>
+    }
+
+    /**
+     * Set the displayValue.
+     *
+     * @param displayValue the displayValue
+     * @return the PossbileValues builder
+     */
+    public Builder displayValue(String displayValue) {
+<span class="fc" id="L59">      this.displayValue = displayValue;</span>
+<span class="fc" id="L60">      return this;</span>
+    }
+
+    /**
+     * Set the value.
+     *
+     * @param value the value
+     * @return the PossbileValues builder
+     */
+    public Builder value(String value) {
+<span class="fc" id="L70">      this.value = value;</span>
+<span class="fc" id="L71">      return this;</span>
+    }
+  }
+
+<span class="fc" id="L75">  protected PossibleValues(Builder builder) {</span>
+<span class="fc" id="L76">    displayValue = builder.displayValue;</span>
+<span class="fc" id="L77">    value = builder.value;</span>
+<span class="fc" id="L78">  }</span>
+
+  /**
+   * New builder.
+   *
+   * @return a PossbileValues builder
+   */
+  public Builder newBuilder() {
+<span class="nc" id="L86">    return new Builder(this);</span>
+  }
+
+  /**
+   * Gets the displayValue.
+   *
+   * @return the displayValue
+   */
+  public String displayValue() {
+<span class="fc" id="L95">    return displayValue;</span>
+  }
+
+  /**
+   * Gets the value.
+   *
+   * @return the value
+   */
+  public String value() {
+<span class="fc" id="L104">    return value;</span>
+  }
+}
+
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>

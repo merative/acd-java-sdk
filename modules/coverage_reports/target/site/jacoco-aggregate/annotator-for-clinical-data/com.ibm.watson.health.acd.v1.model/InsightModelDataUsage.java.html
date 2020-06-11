@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../jacoco-resources/report.gif" type="image/gif"/><title>InsightModelDataUsage.java</title><link rel="stylesheet" href="../../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../../index.html" class="el_report">IBM Watson Health Cognitive Services Coverage Reports</a> &gt; <a href="../index.html" class="el_bundle">annotator-for-clinical-data</a> &gt; <a href="index.source.html" class="el_package">com.ibm.watson.health.acd.v1.model</a> &gt; <span class="el_source">InsightModelDataUsage.java</span></div><h1>InsightModelDataUsage.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2018 IBM Corp. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the &quot;License&quot;); you may not use this file except in compliance with
+ * the License. You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on
+ * an &quot;AS IS&quot; BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the
+ * specific language governing permissions and limitations under the License.
+ */
+
+package com.ibm.watson.health.acd.v1.model;
+
+import java.lang.reflect.Type;
+
+import com.google.gson.reflect.TypeToken;
+import com.ibm.watson.developer_cloud.service.model.DynamicModel;
+import com.ibm.watson.developer_cloud.util.GsonSerializationHelper;
+
+/**
+ * InsightModelData Usage.
+ */
+<span class="nc" id="L25">public class InsightModelDataUsage extends DynamicModel {</span>
+
+<span class="nc" id="L27">  private Type takenScoreType = new TypeToken&lt;Float&gt;() { } .getType();</span>
+<span class="nc" id="L28">  private Type explicitScoreType = new TypeToken&lt;Float&gt;() { } .getType();</span>
+<span class="nc" id="L29">  private Type implicitScoreType = new TypeToken&lt;Float&gt;() { } .getType();</span>
+<span class="nc" id="L30">  private Type consideringScoreType = new TypeToken&lt;Float&gt;() { } .getType();</span>
+<span class="nc" id="L31">  private Type patientReportedScoreType = new TypeToken&lt;Float&gt;() { } .getType();</span>
+<span class="nc" id="L32">  private Type discussedScoreType = new TypeToken&lt;Float&gt;() { } .getType();</span>
+<span class="nc" id="L33">  private Type labMeasurementScoreType = new TypeToken&lt;Float&gt;() { } .getType();</span>
+
+  /**
+   * Gets the takenScore.
+   *
+   * @return the takenScore
+   */
+  public Float getTakenScore() {
+<span class="nc" id="L41">	  return GsonSerializationHelper.serializeDynamicModelProperty(this.get(&quot;takenScore&quot;), takenScoreType);</span>
+  }
+
+  /**
+   * Gets the explicitScore.
+   *
+   * @return the explicitScore
+   */
+  public Float getExplicitScore() {
+<span class="nc" id="L50">	  return GsonSerializationHelper.serializeDynamicModelProperty(this.get(&quot;explicitScore&quot;), explicitScoreType);</span>
+  }
+
+  /**
+   * Gets the implicitScore.
+   *
+   * @return the implicitScore
+   */
+  public Float getImplicitScore() {
+<span class="nc" id="L59">	  return GsonSerializationHelper.serializeDynamicModelProperty(this.get(&quot;implicitScore&quot;), implicitScoreType);</span>
+  }
+
+  /**
+   * Gets the consideringScore.
+   *
+   * @return the consideringScore
+   */
+  public Float getConsideringScore() {
+<span class="nc" id="L68">	  return GsonSerializationHelper.serializeDynamicModelProperty(this.get(&quot;consideringScore&quot;), consideringScoreType);</span>
+  }
+
+  /**
+   * Gets the patientReportedScore.
+   *
+   * @return the patientReportedScore
+   */
+  public Float getPatientReportedScore() {
+<span class="nc" id="L77">	  return GsonSerializationHelper.serializeDynamicModelProperty(this.get(&quot;patientReportedScore&quot;), patientReportedScoreType);</span>
+  }
+
+  /**
+   * Gets the discussedScore.
+   *
+   * @return the discussedScore
+   */
+  public Float getDiscussedScore() {
+<span class="nc" id="L86">	  return GsonSerializationHelper.serializeDynamicModelProperty(this.get(&quot;discussedScore&quot;), discussedScoreType);</span>
+  }
+
+  /**
+   * Gets the labMeasurementScore.
+   *
+   * @return the labMeasurementScore
+   */
+  public Float getLabMeasurementScore() {
+<span class="nc" id="L95">	  return GsonSerializationHelper.serializeDynamicModelProperty(this.get(&quot;labMeasurementScore&quot;), labMeasurementScoreType);</span>
+  }
+
+  /**
+   * Sets the takenScore.
+   *
+   * @param takenScore the new takenScore
+   */
+  public void setTakenScore(final Float takenScore) {
+<span class="nc" id="L104">    this.put(&quot;takenScore&quot;, takenScore);</span>
+<span class="nc" id="L105">  }</span>
+
+  /**
+   * Sets the explicitScore.
+   *
+   * @param explicitScore the new explicitScore
+   */
+  public void setExplicitScore(final Float explicitScore) {
+<span class="nc" id="L113">    this.put(&quot;explicitScore&quot;, explicitScore);</span>
+<span class="nc" id="L114">  }</span>
+
+  /**
+   * Sets the implicitScore.
+   *
+   * @param implicitScore the new implicitScore
+   */
+  public void setImplicitScore(final Float implicitScore) {
+<span class="nc" id="L122">    this.put(&quot;implicitScore&quot;, implicitScore);</span>
+<span class="nc" id="L123">  }</span>
+
+  /**
+   * Sets the consideringScore.
+   *
+   * @param consideringScore the new consideringScore
+   */
+  public void setConsideringScore(final Float consideringScore) {
+<span class="nc" id="L131">    this.put(&quot;consideringScore&quot;, consideringScore);</span>
+<span class="nc" id="L132">  }</span>
+
+  /**
+   * Sets the patientReportedScore.
+   *
+   * @param patientReportedScore the new patientReportedScore
+   */
+  public void setPatientReportedScore(final Float patientReportedScore) {
+<span class="nc" id="L140">    this.put(&quot;patientReportedScore&quot;, patientReportedScore);</span>
+<span class="nc" id="L141">  }</span>
+
+  /**
+   * Sets the discussedScore.
+   *
+   * @param discussedScore the new discussedScore
+   */
+  public void setDiscussedScore(final Float discussedScore) {
+<span class="nc" id="L149">    this.put(&quot;discussedScore&quot;, discussedScore);</span>
+<span class="nc" id="L150">  }</span>
+
+  /**
+   * Sets the labMeasurementScore.
+   *
+   * @param labMeasurementScore the new labMeasurementScore
+   */
+  public void setLabMeasurementScore(final Float labMeasurementScore) {
+<span class="nc" id="L158">    this.put(&quot;labMeasurementScore&quot;, labMeasurementScore);</span>
+<span class="nc" id="L159">  }</span>
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>
