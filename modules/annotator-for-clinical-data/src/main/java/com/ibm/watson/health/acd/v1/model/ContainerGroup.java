@@ -12,6 +12,7 @@
  */
 package com.ibm.watson.health.acd.v1.model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import com.ibm.watson.developer_cloud.service.model.GenericModel;
@@ -70,10 +71,15 @@ public class ContainerGroup extends GenericModel {
    */
 
   public UnstructuredContainer getUnstructured(int index) {
-    Validator.notNull(this.getUnstructured(), "Unstructured List is Null");
-    UnstructuredContainer unstructuredContainer = this.getUnstructured().get(index);
+	  UnstructuredContainer container = new UnstructuredContainer.Builder().build();
+	  try {
+      Validator.notNull(this.getUnstructured(), "Unstructured List is Null");
+      container = this.getUnstructured().get(index);
+	  } catch (IllegalArgumentException iae) {
+	  //ACD didn't return any annotations
+     }
 
-    return unstructuredContainer;
+    return container;
   }
 
   /*
@@ -81,8 +87,14 @@ public class ContainerGroup extends GenericModel {
    */
 
   public List<Concept> getConcepts() {
-    validateUnstructuredElementData("Concepts");
-    return this.getUnstructured().get(0).data().getConcepts();
+	  List<Concept> concepts = new ArrayList<Concept>();
+	  try {
+	    validateUnstructuredElementData("Concepts");
+	   concepts = this.getUnstructured().get(0).data().getConcepts();
+	  } catch (IllegalArgumentException iae) {
+	  	//ACD didn't return any concepts
+	  }
+    return concepts;
   }
 
   /*
@@ -96,8 +108,14 @@ public class ContainerGroup extends GenericModel {
    */
 
   public List<SymptomDisease> getSymptomDisease() {
-    validateUnstructuredElementData("SymptomDisease");
-    return this.getUnstructured().get(0).data().getSymptomDiseaseInd();
+	  List<SymptomDisease> concepts = new ArrayList<SymptomDisease>();
+	  try {
+      validateUnstructuredElementData("SymptomDisease");
+      concepts = this.getUnstructured().get(0).data().getSymptomDiseaseInd();
+	  } catch (IllegalArgumentException iae) {
+	  	//ACD didn't return any annotations
+	  }
+	  return concepts;
   }
 
   /*
@@ -110,8 +128,14 @@ public class ContainerGroup extends GenericModel {
    * @return the bathingAssistanceInd
    */
   public List<AssistanceAnnotation> getBathingAssistance() {
-    validateUnstructuredElementData("BathingAssistance");
-    return this.getUnstructured().get(0).data().getBathingAssistanceInd();
+	  List<AssistanceAnnotation> annotations = new ArrayList<AssistanceAnnotation>();
+	  try {
+      validateUnstructuredElementData("BathingAssistance");
+      annotations = this.getUnstructured().get(0).data().getBathingAssistanceInd();
+  	} catch (IllegalArgumentException iae) {
+	  	//ACD didn't return any annotations
+	  }
+	  return annotations;
   }
 
   /*
@@ -124,8 +148,14 @@ public class ContainerGroup extends GenericModel {
    * @return the dressingAssistanceInd
    */
   public List<AssistanceAnnotation> getDressingAssistance() {
-    validateUnstructuredElementData("DressingAssistance");
-    return this.getUnstructured().get(0).data().getDressingAssistanceInd();
+  	List<AssistanceAnnotation> annotations = new ArrayList<AssistanceAnnotation>();
+	  try {
+      validateUnstructuredElementData("DressingAssistance");
+      annotations = this.getUnstructured().get(0).data().getDressingAssistanceInd();
+	  } catch (IllegalArgumentException iae) {
+	  	//ACD didn't return any annotations
+	  }
+	  return annotations;
   }
 
   /*
@@ -138,8 +168,14 @@ public class ContainerGroup extends GenericModel {
    * @return the eatingAssistanceInd
    */
   public List<AssistanceAnnotation> getEatingAssistance() {
-    validateUnstructuredElementData("EatingAssistance");
-    return this.getUnstructured().get(0).data().getEatingAssistanceInd();
+  	List<AssistanceAnnotation> annotations = new ArrayList<AssistanceAnnotation>();
+  	try {
+      validateUnstructuredElementData("EatingAssistance");
+      annotations = this.getUnstructured().get(0).data().getEatingAssistanceInd();
+	  } catch (IllegalArgumentException iae) {
+	  	//ACD didn't return any annotations
+	  }
+  	return annotations;
   }
 
   /*
@@ -152,8 +188,14 @@ public class ContainerGroup extends GenericModel {
    * @return the walkingAssistanceInd
    */
   public List<AssistanceAnnotation> getWalkingAssistance() {
-    validateUnstructuredElementData("WalkingAssistance");
-    return this.getUnstructured().get(0).data().getWalkingAssistanceInd();
+  	List<AssistanceAnnotation> annotations = new ArrayList<AssistanceAnnotation>();
+	  try {
+      validateUnstructuredElementData("WalkingAssistance");
+      annotations = this.getUnstructured().get(0).data().getWalkingAssistanceInd();
+  	} catch (IllegalArgumentException iae) {
+	  	//ACD didn't return any annotations
+	  }
+	  return annotations;
   }
 
   /*
@@ -166,8 +208,14 @@ public class ContainerGroup extends GenericModel {
    * @return the toiletingAssistanceInd
    */
   public List<AssistanceAnnotation> getToiletingAssistance() {
-    validateUnstructuredElementData("ToiletingAssistance");
-    return this.getUnstructured().get(0).data().getToiletingAssistanceInd();
+  	List<AssistanceAnnotation> annotations = new ArrayList<AssistanceAnnotation>();
+  	try {
+      validateUnstructuredElementData("ToiletingAssistance");
+      annotations = this.getUnstructured().get(0).data().getToiletingAssistanceInd();
+	  } catch (IllegalArgumentException iae) {
+	  	//ACD didn't return any annotations
+  	}
+	  return annotations;
   }
 
   /*
@@ -180,8 +228,14 @@ public class ContainerGroup extends GenericModel {
    * @return the icaCancerDiagnosisInd
    */
   public List<CancerDiagnosis> getCancerDiagnosis() {
-    validateUnstructuredElementData("CancerDiagnosis");
-    return this.getUnstructured().get(0).data().getIcaCancerDiagnosisInd();
+  	List<CancerDiagnosis> concepts = new ArrayList<CancerDiagnosis>();
+	  try {
+      validateUnstructuredElementData("CancerDiagnosis");
+      return this.getUnstructured().get(0).data().getIcaCancerDiagnosisInd();
+	  } catch (IllegalArgumentException iae) {
+	  	//ACD didn't return any annotations
+	  }
+	  return concepts;
   }
 
   /*
@@ -194,8 +248,14 @@ public class ContainerGroup extends GenericModel {
    * @return the hypotheticalSpans
    */
   public List<Annotation> getHypotheticalSpans() {
-    validateUnstructuredElementData("HypotheticalSpans");
-    return this.getUnstructured().get(0).data().getHypotheticalSpans();
+  	List<Annotation> annotations = new ArrayList<Annotation>();
+	  try {
+      validateUnstructuredElementData("HypotheticalSpans");
+      annotations = this.getUnstructured().get(0).data().getHypotheticalSpans();
+	  } catch (IllegalArgumentException iae) {
+	  	//ACD didn't return any annotations
+  	}
+  	return annotations;
   }
 
   /*
@@ -208,8 +268,14 @@ public class ContainerGroup extends GenericModel {
    * @return the allergyInd
    */
   public List<Annotation> getAllergy() {
-    validateUnstructuredElementData("Allergy");
-    return this.getUnstructured().get(0).data().getAllergyInd();
+  	List<Annotation> annotations = new ArrayList<Annotation>();
+  	try {
+      validateUnstructuredElementData("Allergy");
+      annotations = this.getUnstructured().get(0).data().getAllergyInd();
+  	} catch (IllegalArgumentException iae) {
+  		//ACD didn't return any annotations
+  	}
+  	return annotations;
   }
 
   /*
@@ -222,8 +288,14 @@ public class ContainerGroup extends GenericModel {
    * @return the negatedSpans
    */
   public List<NegatedSpan> getNegatedSpans() {
-    validateUnstructuredElementData("NegatedSpans");
-    return this.getUnstructured().get(0).data().getNegatedSpans();
+  	List<NegatedSpan> negattions = new ArrayList<NegatedSpan>();
+  	try {
+      validateUnstructuredElementData("NegatedSpans");
+      negattions = this.getUnstructured().get(0).data().getNegatedSpans();
+  	} catch (IllegalArgumentException iae) {
+  		//ACD didn't return any annotations
+  	}
+  	return negattions;
   }
 
   /*
@@ -236,8 +308,14 @@ public class ContainerGroup extends GenericModel {
    * @return the conceptValues
    */
   public List<ConceptValue> getConceptValues() {
-    validateUnstructuredElementData("ConceptValues");
-    return this.getUnstructured().get(0).data().getConceptValues();
+  	List<ConceptValue> values = new ArrayList<ConceptValue>();
+	  try {
+      validateUnstructuredElementData("ConceptValues");
+      values = this.getUnstructured().get(0).data().getConceptValues();
+	  } catch (IllegalArgumentException iae) {
+	  	//ACD didn't return any annotations
+	  }
+	  return values;
   }
 
   /*
@@ -250,8 +328,14 @@ public class ContainerGroup extends GenericModel {
    * @return the procedureInd
    */
   public List<Procedure> getProcedure() {
-    validateUnstructuredElementData("Procedure");
-    return this.getUnstructured().get(0).data().getProcedureInd();
+  	List<Procedure> procedures = new ArrayList<Procedure>();
+	  try {
+      validateUnstructuredElementData("Procedure");
+      procedures = this.getUnstructured().get(0).data().getProcedureInd();
+  	} catch (IllegalArgumentException iae) {
+  		//ACD didn't return any annotations
+	  }
+  	return procedures;
   }
 
   /*
@@ -264,8 +348,14 @@ public class ContainerGroup extends GenericModel {
    * @return the smokingInd
    */
   public List<Smoking> getSmoking() {
-    validateUnstructuredElementData("Smoking");
-    return this.getUnstructured().get(0).data().getSmokingInd();
+	List<Smoking> annotations = new ArrayList<Smoking>();
+  	try {
+      validateUnstructuredElementData("Smoking");
+      annotations = this.getUnstructured().get(0).data().getSmokingInd();
+	  } catch (IllegalArgumentException iae) {
+	  	//ACD didn't return any annotations
+	  }
+	  return annotations;
   }
 
   /*
@@ -278,8 +368,14 @@ public class ContainerGroup extends GenericModel {
    * @return the organizationInd
    */
   public List<Annotation> getOrganization() {
-    validateUnstructuredElementData("Organization");
-    return this.getUnstructured().get(0).data().getOrganizationInd();
+  	List<Annotation> annotations = new ArrayList<Annotation>();
+	  try {
+      validateUnstructuredElementData("Organization");
+      annotations = this.getUnstructured().get(0).data().getOrganizationInd();
+	  } catch (IllegalArgumentException iae) {
+	  	//ACD didn't return any annotations
+	  }
+	  return annotations;
   }
 
   /*
@@ -292,8 +388,14 @@ public class ContainerGroup extends GenericModel {
    * @return the personInd
    */
   public List<Annotation> getPerson() {
-    validateUnstructuredElementData("Person");
-    return this.getUnstructured().get(0).data().getPersonInd();
+    List<Annotation> annotations = new ArrayList<Annotation>();
+	  try {
+      validateUnstructuredElementData("Person");
+      annotations = this.getUnstructured().get(0).data().getPersonInd();
+  	} catch (IllegalArgumentException iae) {
+  		//ACD didn't return any annotations
+  	}
+  	return annotations;
   }
 
   /*
@@ -306,9 +408,14 @@ public class ContainerGroup extends GenericModel {
    * @return the medicalInstitutionInd
    */
   public List<Annotation> getMedicalInstitution() {
-    validateUnstructuredElementData("MedicalInstitution");
-    return this.getUnstructured().get(0).data().getMedicalInstitutionInd();
-
+  	List<Annotation> annotations = new ArrayList<Annotation>();
+	  try {
+      validateUnstructuredElementData("MedicalInstitution");
+      annotations = this.getUnstructured().get(0).data().getMedicalInstitutionInd();
+	  } catch (IllegalArgumentException iae) {
+	  	//ACD didn't return any annotations
+	  }
+	  return annotations;
   }
 
   /*
@@ -321,8 +428,14 @@ public class ContainerGroup extends GenericModel {
    * @return the attributeValues
    */
   public List<AttributeValueAnnotation> getAttributeValues() {
-    validateUnstructuredElementData("AttributeValues");
-    return this.getUnstructured().get(0).data().getAttributeValues();
+  	List<AttributeValueAnnotation> annotations = new ArrayList<AttributeValueAnnotation>();
+  	try {
+      validateUnstructuredElementData("AttributeValues");
+      annotations = this.getUnstructured().get(0).data().getAttributeValues();
+  	} catch (IllegalArgumentException iae) {
+  		//ACD didn't return any annotations
+	  }
+	  return annotations;
   }
 
   /*
@@ -335,8 +448,14 @@ public class ContainerGroup extends GenericModel {
    * @return the ejectionFractionInd
    */
   public List<EjectionFractionAnnotation> getEjectionFractionInd() {
-    validateUnstructuredElementData("EjectionFractionInd");
-    return this.getUnstructured().get(0).data().getEjectionFractionInd();
+  	List<EjectionFractionAnnotation> annotations = new ArrayList<EjectionFractionAnnotation>();
+	  try {
+      validateUnstructuredElementData("EjectionFractionInd");
+      annotations = this.getUnstructured().get(0).data().getEjectionFractionInd();
+	  } catch (IllegalArgumentException iae) {
+	  	//ACD didn't return any annotations
+  	}
+  	return annotations;
   }
 
   /*
@@ -349,8 +468,14 @@ public class ContainerGroup extends GenericModel {
    * @return the labValueInd
    */
   public List<LabValueAnnotation> getLabValueInd() {
-    validateUnstructuredElementData("LabValueInd");
-    return this.getUnstructured().get(0).data().getLabValueInd();
+  	List<LabValueAnnotation> annotations = new ArrayList<LabValueAnnotation>();
+	  try {
+      validateUnstructuredElementData("LabValueInd");
+      annotations = this.getUnstructured().get(0).data().getLabValueInd();
+	  } catch (IllegalArgumentException iae) {
+	  	//ACD didn't return any annotations
+  	}
+	  return annotations;
   }
 
   /*
@@ -363,8 +488,14 @@ public class ContainerGroup extends GenericModel {
    * @return the medicationInd
    */
   public List<MedicationAnnotation> getMedicationInd() {
-    validateUnstructuredElementData("MedicationInd");
-    return this.getUnstructured().get(0).data().getMedicationInd();
+  	List<MedicationAnnotation> annotations = new ArrayList<MedicationAnnotation>();
+	  try {
+      validateUnstructuredElementData("MedicationInd");
+      annotations = this.getUnstructured().get(0).data().getMedicationInd();
+  	} catch (IllegalArgumentException iae) {
+	  	//ACD didn't return any annotations
+	  }
+	  return annotations;
   }
 
   /*
@@ -377,8 +508,14 @@ public class ContainerGroup extends GenericModel {
    * @return the emailAddressInd
    */
   public List<Annotation> getEmailAddressInd() {
-    validateUnstructuredElementData("EmailAddressInd");
-    return this.getUnstructured().get(0).data().getEmailAddressInd();
+	  List<Annotation> annotations = new ArrayList<Annotation>();
+	  try {
+      validateUnstructuredElementData("EmailAddressInd");
+      annotations = this.getUnstructured().get(0).data().getEmailAddressInd();
+  	} catch (IllegalArgumentException iae) {
+	  	//ACD didn't return any annotations
+	  }
+	  return annotations;
   }
 
   /*
@@ -391,8 +528,14 @@ public class ContainerGroup extends GenericModel {
    * @return the locationInd
    */
   public List<Annotation> getLocationInd() {
-    validateUnstructuredElementData("LocationInd");
-    return this.getUnstructured().get(0).data().getLocationInd();
+	  List<Annotation> annotations = new ArrayList<Annotation>();
+	  try {
+      validateUnstructuredElementData("LocationInd");
+      annotations = this.getUnstructured().get(0).data().getLocationInd();
+  	} catch (IllegalArgumentException iae) {
+	  	//ACD didn't return any annotations
+  	}
+	  return annotations;
   }
 
   /*
@@ -405,8 +548,14 @@ public class ContainerGroup extends GenericModel {
    * @return the uSPhoneNumberInd
    */
   public List<Annotation> getUSPhoneNumberInd() {
-    validateUnstructuredElementData("USPhoneNumberInd");
-    return this.getUnstructured().get(0).data().getUSPhoneNumberInd();
+	  List<Annotation> annotations = new ArrayList<Annotation>();
+	  try {
+      validateUnstructuredElementData("USPhoneNumberInd");
+      annotations = this.getUnstructured().get(0).data().getUSPhoneNumberInd();
+   } catch (IllegalArgumentException iae) {
+  		//ACD didn't return any annotations
+  	}
+  	return annotations;
   }
 
   /*
@@ -419,8 +568,14 @@ public class ContainerGroup extends GenericModel {
    * @return the seeingAssistanceInd
    */
   public List<AssistanceAnnotation> getSeeingAssistanceInd() {
-    validateUnstructuredElementData("SeeingAssistanceInd");
-    return this.getUnstructured().get(0).data().getSeeingAssistanceInd();
+	  List<AssistanceAnnotation> annotations = new ArrayList<AssistanceAnnotation>();
+  	try {
+      validateUnstructuredElementData("SeeingAssistanceInd");
+      annotations = this.getUnstructured().get(0).data().getSeeingAssistanceInd();
+  	} catch (IllegalArgumentException iae) {
+	  	//ACD didn't return any annotations
+  	}
+  	return annotations;
   }
 
   /*
@@ -433,8 +588,14 @@ public class ContainerGroup extends GenericModel {
    * @return the SectionAnnotations
    */
   public List<SectionAnnotation> getSectionAnnotations() {
-    validateUnstructuredElementData("SectionAnnotations");
-    return this.getUnstructured().get(0).data().getSectionAnnotations();
+	  List<SectionAnnotation> annotations = new ArrayList<SectionAnnotation>();
+  	try {
+      validateUnstructuredElementData("SectionAnnotations");
+      annotations = this.getUnstructured().get(0).data().getSectionAnnotations();
+  	} catch (IllegalArgumentException iae) {
+  		//ACD didn't return any annotations
+  	}
+  	return annotations;
   }
 
 
@@ -448,8 +609,14 @@ public class ContainerGroup extends GenericModel {
    * @return the NluEntities
    */
   public List<NluEntity> getNluEntities() {
-    validateUnstructuredElementData("nluEntities");
-    return this.getUnstructured().get(0).data().getNluEntities();
+	  List<NluEntity> annotations = new ArrayList<NluEntity>();
+	  try {
+      validateUnstructuredElementData("nluEntities");
+      annotations = this.getUnstructured().get(0).data().getNluEntities();
+  	} catch (IllegalArgumentException iae) {
+  		//ACD didn't return any annotations
+  	}
+  	return annotations;
   }
 
   /*
@@ -462,8 +629,14 @@ public class ContainerGroup extends GenericModel {
    * @return the Relations
    */
   public List<Relation> getRelations() {
-    validateUnstructuredElementData("relations");
-    return this.getUnstructured().get(0).data().getRelations();
+	  List<Relation> relations = new ArrayList<Relation>();
+  	try {
+      validateUnstructuredElementData("relations");
+      relations = this.getUnstructured().get(0).data().getRelations();
+  	} catch (IllegalArgumentException iae) {
+  		//ACD didn't return any annotations
+  	}
+  	return relations;
   }
 
   /**
@@ -472,8 +645,14 @@ public class ContainerGroup extends GenericModel {
    * @return the SpellCorrectedText objects
    */
   public List<SpellCorrectedText> getSpellCorrectedText() {
-    validateUnstructuredElementData("spellCorrrectedText");
-    return this.getUnstructured().get(0).data().getSpellCorrectedText();
+	  List<SpellCorrectedText> corrections = new ArrayList<SpellCorrectedText>();
+  	try {
+      validateUnstructuredElementData("spellCorrrectedText");
+      corrections = this.getUnstructured().get(0).data().getSpellCorrectedText();
+  	} catch (IllegalArgumentException iae) {
+  		//ACD didn't return any annotations
+  	}
+  	return corrections;
   }
 
   /**
@@ -482,8 +661,14 @@ public class ContainerGroup extends GenericModel {
    * @return the SpellingCorrections objects
    */
   public List<SpellingCorrection> getSpellingCorrections() {
-    validateUnstructuredElementData("spellingCorrections");
-    return this.getUnstructured().get(0).data().getSpellingCorrections();
+	  List<SpellingCorrection> corrections = new ArrayList<SpellingCorrection>();
+  	try {
+      validateUnstructuredElementData("spellingCorrections");
+      corrections = this.getUnstructured().get(0).data().getSpellingCorrections();
+  	} catch (IllegalArgumentException iae) {
+  		//ACD didn't return any annotations
+  	}
+  	return corrections;
   }
 
 
@@ -494,11 +679,17 @@ public class ContainerGroup extends GenericModel {
    /**
     * Gets the concept.
     * @param index position to retrieve
-    * @return the concept
+    * @return the concept or null if invalid index
     */
   public Concept getConcepts(int index) {
-    validateUnstructuredElementData("Concepts");
-    return this.getUnstructured().get(0).data().getConcepts().get(index);
+	  Concept concept = null;
+	  try {
+      validateUnstructuredElementData("Concepts");
+      concept = this.getUnstructured().get(0).data().getConcepts().get(index);
+	  } catch (IllegalArgumentException iae) {
+	  	//ACD didn't return any annotations
+	  }
+	  return concept;
   }
 
   /*
@@ -508,14 +699,20 @@ public class ContainerGroup extends GenericModel {
   /**
    * Gets the symptomDiseaseInd.
    *
-   * @param index postion to retrieve
+   * @param index position to retrieve
    *
-   * @return the symptomDiseaseInd
+   * @return the symptomDiseaseInd or null if invalid index
    */
 
   public SymptomDisease getSymptomDisease(int index) {
-    validateUnstructuredElementData("SymptomDisease");
-    return this.getUnstructured().get(0).data().getSymptomDiseaseInd().get(index);
+	  SymptomDisease annotation = null;
+	  try {
+      validateUnstructuredElementData("SymptomDisease");
+      annotation = this.getUnstructured().get(0).data().getSymptomDiseaseInd().get(index);
+	  } catch (IllegalArgumentException iae) {
+		//ACD didn't return any annotations
+	  }
+  	return annotation;
   }
 
   /*
@@ -525,13 +722,19 @@ public class ContainerGroup extends GenericModel {
   /**
    * Gets the bathingAssistanceInd.
    *
-   * @param index postion to retrieve
+   * @param index position to retrieve
    *
-   * @return the bathingAssistanceInd
+   * @return the bathingAssistanceInd or null if invalid index
    */
   public AssistanceAnnotation getBathingAssistance(int index) {
-    validateUnstructuredElementData("BathingAssistance");
-    return this.getUnstructured().get(0).data().getBathingAssistanceInd().get(index);
+	  AssistanceAnnotation annotation = null;
+	  try {
+      validateUnstructuredElementData("BathingAssistance");
+      annotation = this.getUnstructured().get(0).data().getBathingAssistanceInd().get(index);
+  	} catch (IllegalArgumentException iae) {
+	  	//ACD didn't return any annotations
+	  }
+	  return annotation;
   }
 
   /*
@@ -541,13 +744,19 @@ public class ContainerGroup extends GenericModel {
   /**
    * Gets the dressingAssistanceInd.
    *
-   * @param index postion to retrieve
+   * @param index position to retrieve
    *
-   * @return the dressingAssistanceInd
+   * @return the dressingAssistanceInd or null if index invalid
    */
   public AssistanceAnnotation getDressingAssistance(int index) {
-    validateUnstructuredElementData("DressingAssistance");
-    return this.getUnstructured().get(0).data().getDressingAssistanceInd().get(index);
+	  AssistanceAnnotation annotation = null;
+  	try {
+      validateUnstructuredElementData("DressingAssistance");
+      annotation = this.getUnstructured().get(0).data().getDressingAssistanceInd().get(index);
+  	} catch (IllegalArgumentException iae) {
+	  	//ACD didn't return any annotations
+  	}
+  	return annotation;
   }
 
   /*
@@ -557,13 +766,19 @@ public class ContainerGroup extends GenericModel {
   /**
    * Gets the eatingAssistanceInd.
    *
-   * @param index postion to retrieve
+   * @param index position to retrieve
    *
-   * @return the eatingAssistanceInd
+   * @return the eatingAssistanceInd or null if invalid index
    */
   public AssistanceAnnotation getEatingAssistance(int index) {
-    validateUnstructuredElementData("EatingAssistance");
-    return this.getUnstructured().get(0).data().getEatingAssistanceInd().get(index);
+	  AssistanceAnnotation annotation = null;
+    try {
+      validateUnstructuredElementData("EatingAssistance");
+      annotation = this.getUnstructured().get(0).data().getEatingAssistanceInd().get(index);
+  	} catch (IllegalArgumentException iae) {
+  		//ACD didn't return any annotations
+  	}
+  	return annotation;
   }
 
   /*
@@ -573,13 +788,19 @@ public class ContainerGroup extends GenericModel {
   /**
    * Gets the walkingAssistanceInd.
    *
-   * @param index postion to retrieve
+   * @param index position to retrieve
    *
-   * @return the walkingAssistanceInd
+   * @return the walkingAssistanceInd or null if invalid index
    */
   public AssistanceAnnotation getWalkingAssistance(int index) {
-    validateUnstructuredElementData("WalkingAssistance");
-    return this.getUnstructured().get(0).data().getWalkingAssistanceInd().get(index);
+	  AssistanceAnnotation annotation = null;
+	  try {
+      validateUnstructuredElementData("WalkingAssistance");
+      annotation = this.getUnstructured().get(0).data().getWalkingAssistanceInd().get(index);
+	  } catch (IllegalArgumentException iae) {
+	  	//ACD didn't return any annotations
+  	}
+	  return annotation;
   }
 
   /*
@@ -589,13 +810,19 @@ public class ContainerGroup extends GenericModel {
   /**
    * Gets the toiletingAssistanceInd.
    *
-   * @param index postion to retrieve
+   * @param index position to retrieve
    *
-   * @return the toiletingAssistanceInd
+   * @return the toiletingAssistanceInd or null if invalid index
    */
   public AssistanceAnnotation getToiletingAssistance(int index) {
-    validateUnstructuredElementData("ToiletingAssistance");
-    return this.getUnstructured().get(0).data().getToiletingAssistanceInd().get(index);
+	  AssistanceAnnotation annotation = null;
+	  try {
+      validateUnstructuredElementData("ToiletingAssistance");
+      annotation = this.getUnstructured().get(0).data().getToiletingAssistanceInd().get(index);
+	  } catch (IllegalArgumentException iae) {
+	  	//ACD didn't return any annotations
+	  }
+  	return annotation;
   }
 
   /*
@@ -605,13 +832,19 @@ public class ContainerGroup extends GenericModel {
   /**
    * Gets the icaCancerDiagnosisInd.
    *
-   * @param index postion to retrieve
+   * @param index position to retrieve
    *
-   * @return the icaCancerDiagnosisInd
+   * @return the icaCancerDiagnosisInd or null if invalid index
    */
   public CancerDiagnosis getCancerDiagnosis(int index) {
-    validateUnstructuredElementData("CancerDiagnosis");
-    return this.getUnstructured().get(0).data().getIcaCancerDiagnosisInd().get(index);
+	  CancerDiagnosis annotation = null;
+	  try {
+      validateUnstructuredElementData("CancerDiagnosis");
+      annotation = this.getUnstructured().get(0).data().getIcaCancerDiagnosisInd().get(index);
+  	} catch (IllegalArgumentException iae) {
+  		//ACD didn't return any annotations
+	  }
+	  return annotation;
   }
 
   /*
@@ -621,13 +854,19 @@ public class ContainerGroup extends GenericModel {
   /**
    * Gets the hypotheticalSpans.
    *
-   * @param index postion to retrieve
+   * @param index position to retrieve
    *
-   * @return the hypotheticalSpans
+   * @return the hypotheticalSpan or null if invalid index
    */
   public Annotation getHypotheticalSpans(int index) {
-    validateUnstructuredElementData("HypotheticalSpans");
-    return this.getUnstructured().get(0).data().getHypotheticalSpans().get(index);
+	  Annotation annotation = null;
+	  try {
+      validateUnstructuredElementData("HypotheticalSpans");
+      annotation = this.getUnstructured().get(0).data().getHypotheticalSpans().get(index);
+	  } catch (IllegalArgumentException iae) {
+	  	//ACD didn't return any annotations
+	  }
+	  return annotation;
   }
 
   /*
@@ -637,13 +876,19 @@ public class ContainerGroup extends GenericModel {
   /**
    * Gets the allergyInd.
    *
-   * @param index postion to retrieve
+   * @param index position to retrieve
    *
-   * @return the allergyInd
+   * @return the allergyInd or null if invalid index
    */
   public Annotation getAllergy(int index) {
-    validateUnstructuredElementData("Allergy");
-    return this.getUnstructured().get(0).data().getAllergyInd().get(index);
+	  Annotation annotation = null;
+  	try {
+      validateUnstructuredElementData("Allergy");
+      annotation = this.getUnstructured().get(0).data().getAllergyInd().get(index);
+	  } catch (IllegalArgumentException iae) {
+	  	//ACD didn't return any annotations
+	  }
+  	return annotation;
   }
 
   /*
@@ -653,13 +898,19 @@ public class ContainerGroup extends GenericModel {
   /**
    * Gets the negatedSpans.
    *
-   * @param index postion to retrieve
+   * @param index position to retrieve
    *
-   * @return the negatedSpans
+   * @return the negatedSpans or null in invalid index
    */
   public NegatedSpan getNegatedSpans(int index) {
-    validateUnstructuredElementData("NegatedSpans");
-    return this.getUnstructured().get(0).data().getNegatedSpans().get(index);
+	  NegatedSpan negation = null;
+  	try {
+      validateUnstructuredElementData("NegatedSpans");
+      negation = this.getUnstructured().get(0).data().getNegatedSpans().get(index);
+  	} catch (IllegalArgumentException iae) {
+  		//ACD didn't return any annotations
+  	}
+  	return negation;
   }
 
   /*
@@ -669,13 +920,19 @@ public class ContainerGroup extends GenericModel {
   /**
    * Gets the conceptValues.
    *
-   * @param index postion to retrieve
+   * @param index position to retrieve
    *
-   * @return the conceptValues
+   * @return the conceptValues or null if invalid index
    */
   public ConceptValue getConceptValues(int index) {
-    validateUnstructuredElementData("ConceptValues");
-    return this.getUnstructured().get(0).data().getConceptValues().get(index);
+	  ConceptValue value = null;
+  	try {
+      validateUnstructuredElementData("ConceptValues");
+      value = this.getUnstructured().get(0).data().getConceptValues().get(index);
+  	} catch (IllegalArgumentException iae) {
+  		//ACD didn't return any annotations
+  	}
+  	return value;
   }
 
   /*
@@ -685,13 +942,19 @@ public class ContainerGroup extends GenericModel {
   /**
    * Gets the procedureInd.
    *
-   * @param index postion to retrieve
+   * @param index position to retrieve
    *
-   * @return the procedureInd
+   * @return the procedureInd or null if invalid index
    */
   public Procedure getProcedure(int index) {
-    validateUnstructuredElementData("Procedure");
-    return this.getUnstructured().get(0).data().getProcedureInd().get(index);
+	  Procedure procedure = null;
+  	try {
+      validateUnstructuredElementData("Procedure");
+      procedure = this.getUnstructured().get(0).data().getProcedureInd().get(index);
+  	} catch (IllegalArgumentException iae) {
+  		//ACD didn't return any annotations
+  	}
+  	return procedure;
   }
 
   /*
@@ -701,13 +964,19 @@ public class ContainerGroup extends GenericModel {
   /**
    * Gets the smokingInd.
    *
-   * @param index postion to retrieve
+   * @param index position to retrieve
    *
-   * @return the smokingInd
+   * @return the smokingInd or null if invalid index
    */
   public Smoking getSmoking(int index) {
-    validateUnstructuredElementData("Smoking");
-    return this.getUnstructured().get(0).data().getSmokingInd().get(index);
+	  Smoking annotation = null;
+  	try {
+      validateUnstructuredElementData("Smoking");
+      annotation = this.getUnstructured().get(0).data().getSmokingInd().get(index);
+  	} catch (IllegalArgumentException iae) {
+  		//ACD didn't return any annotations
+  	}
+  	return annotation;
   }
 
   /*
@@ -717,13 +986,19 @@ public class ContainerGroup extends GenericModel {
   /**
    * Gets the organizationInd.
    *
-   * @param index postion to retrieve
+   * @param index position to retrieve
    *
-   * @return the organizationInd
+   * @return the organizationInd or null if invalid index
    */
   public Annotation getOrganization(int index) {
-    validateUnstructuredElementData("Organization");
-    return this.getUnstructured().get(0).data().getOrganizationInd().get(index);
+	  Annotation annotation = null;
+	  try {
+      validateUnstructuredElementData("Organization");
+      annotation = this.getUnstructured().get(0).data().getOrganizationInd().get(index);
+	  } catch (IllegalArgumentException iae) {
+  		//ACD didn't return any annotations
+  	}
+  	return annotation;
   }
 
   /*
@@ -733,13 +1008,19 @@ public class ContainerGroup extends GenericModel {
   /**
    * Gets the personInd.
    *
-   * @param index postion to retrieve
+   * @param index position to retrieve
    *
-   * @return the personInd
+   * @return the personInd or null if invalid index
    */
   public Annotation getPerson(int index) {
-    validateUnstructuredElementData("Person");
-    return this.getUnstructured().get(0).data().getPersonInd().get(index);
+	  Annotation annotation = null;
+  	try {
+      validateUnstructuredElementData("Person");
+      annotation = this.getUnstructured().get(0).data().getPersonInd().get(index);
+  	} catch (IllegalArgumentException iae) {
+  		//ACD didn't return any annotations
+  	}
+  	return annotation;
   }
 
   /*
@@ -749,14 +1030,19 @@ public class ContainerGroup extends GenericModel {
   /**
    * Gets the medicalInstitutionInd.
    *
-   * @param index postion to retrieve
+   * @param index position to retrieve
    *
-   * @return the medicalInstitutionInd
+   * @return the medicalInstitutionInd or null if invalid index
    */
   public Annotation getMedicalInstitution(int index) {
-    validateUnstructuredElementData("MedicalInstitution");
-    return this.getUnstructured().get(0).data().getMedicalInstitutionInd().get(index);
-
+	  Annotation annotation = null;
+  	try {
+      validateUnstructuredElementData("MedicalInstitution");
+      annotation = this.getUnstructured().get(0).data().getMedicalInstitutionInd().get(index);
+	  } catch (IllegalArgumentException iae) {
+  		//ACD didn't return any annotations
+  	}
+  	return annotation;
   }
 
   /*
@@ -766,13 +1052,19 @@ public class ContainerGroup extends GenericModel {
   /**
    * Gets the attributeValues.
    *
-   * @param index postion to retrieve
+   * @param index position to retrieve
    *
-   * @return the attributeValues
+   * @return the attributeValues or null if invalid index
    */
   public AttributeValueAnnotation getAttributeValues(int index) {
-    validateUnstructuredElementData("AttributeValues");
-    return this.getUnstructured().get(0).data().getAttributeValues().get(index);
+	  AttributeValueAnnotation annotation = null;
+	  try {
+      validateUnstructuredElementData("AttributeValues");
+      annotation = this.getUnstructured().get(0).data().getAttributeValues().get(index);
+	  } catch (IllegalArgumentException iae) {
+  		//ACD didn't return any annotations
+	  }
+	  return annotation;
   }
 
   /*
@@ -782,13 +1074,19 @@ public class ContainerGroup extends GenericModel {
   /**
    * Gets the ejectionFractionInd.
    *
-   * @param index postion to retrieve
+   * @param index position to retrieve
    *
-   * @return the ejectionFractionInd
+   * @return the ejectionFractionInd or null if invalid index
    */
   public EjectionFractionAnnotation getEjectionFractionInd(int index) {
-    validateUnstructuredElementData("EjectionFractionInd");
-    return this.getUnstructured().get(0).data().getEjectionFractionInd().get(index);
+	  EjectionFractionAnnotation annotation = null;
+  	try {
+      validateUnstructuredElementData("EjectionFractionInd");
+      annotation = this.getUnstructured().get(0).data().getEjectionFractionInd().get(index);
+  	} catch (IllegalArgumentException iae) {
+  		//ACD didn't return any annotations
+  	}
+  	return annotation;
   }
 
   /*
@@ -798,13 +1096,19 @@ public class ContainerGroup extends GenericModel {
   /**
    * Gets the labValueInd.
    *
-   * @param index postion to retrieve
+   * @param index position to retrieve
    *
-   * @return the labValueInd
+   * @return the labValueInd or null if invalid index
    */
   public LabValueAnnotation getLabValueInd(int index) {
-    validateUnstructuredElementData("LabValueInd");
-    return this.getUnstructured().get(0).data().getLabValueInd().get(index);
+	  LabValueAnnotation annotation = null;
+	  try {
+      validateUnstructuredElementData("LabValueInd");
+      annotation = this.getUnstructured().get(0).data().getLabValueInd().get(index);
+  	} catch (IllegalArgumentException iae) {
+	  	//ACD didn't return any annotations
+	  }
+	  return annotation;
   }
 
   /*
@@ -814,13 +1118,19 @@ public class ContainerGroup extends GenericModel {
   /**
    * Gets the medicationInd.
    *
-   * @param index postion to retrieve
+   * @param index position to retrieve
    *
-   * @return the medicationInd
+   * @return the medicationInd or null if invalid index
    */
   public MedicationAnnotation getMedicationInd(int index) {
-    validateUnstructuredElementData("MedicationInd");
-    return this.getUnstructured().get(0).data().getMedicationInd().get(index);
+	  MedicationAnnotation annotation = null;
+  	try {
+      validateUnstructuredElementData("MedicationInd");
+      annotation = this.getUnstructured().get(0).data().getMedicationInd().get(index);
+	  } catch (IllegalArgumentException iae) {
+	  	//ACD didn't return any annotations
+	  }
+	  return annotation;
   }
 
   /*
@@ -830,13 +1140,19 @@ public class ContainerGroup extends GenericModel {
   /**
    * Gets the emailAddressInd.
    *
-   * @param index postion to retrieve
+   * @param index position to retrieve
    *
-   * @return the emailAddressInd
+   * @return the emailAddressInd or null if invalid index
    */
   public Annotation getEmailAddressInd(int index) {
-    validateUnstructuredElementData("EmailAddressInd");
-    return this.getUnstructured().get(0).data().getEmailAddressInd().get(index);
+	  Annotation annotation = null;
+  	try {
+      validateUnstructuredElementData("EmailAddressInd");
+      annotation = this.getUnstructured().get(0).data().getEmailAddressInd().get(index);
+  	} catch (IllegalArgumentException iae) {
+  		//ACD didn't return any annotations
+  	}
+	  return annotation;
   }
 
   /*
@@ -846,13 +1162,19 @@ public class ContainerGroup extends GenericModel {
   /**
    * Gets the locationInd.
    *
-   * @param index postion to retrieve
+   * @param index position to retrieve
    *
-   * @return the locationInd
+   * @return the locationInd or null if invalid index
    */
   public Annotation getLocationInd(int index) {
-    validateUnstructuredElementData("LocationInd");
-    return this.getUnstructured().get(0).data().getLocationInd().get(index);
+	  Annotation annotation = null;
+	  try {
+      validateUnstructuredElementData("LocationInd");
+      annotation = this.getUnstructured().get(0).data().getLocationInd().get(index);
+	  } catch (IllegalArgumentException iae) {
+	  	//ACD didn't return any annotations
+  	}
+	  return annotation;
   }
 
   /*
@@ -862,13 +1184,19 @@ public class ContainerGroup extends GenericModel {
   /**
    * Gets the uSPhoneNumberInd.
    *
-   * @param index postion to retrieve
+   * @param index position to retrieve
    *
-   * @return the uSPhoneNumberInd
+   * @return the uSPhoneNumberInd or null if invalid index
    */
   public Annotation getUSPhoneNumberInd(int index) {
-    validateUnstructuredElementData("USPhoneNumberInd");
-    return this.getUnstructured().get(0).data().getUSPhoneNumberInd().get(index);
+	  Annotation annotation = null;
+	  try {
+      validateUnstructuredElementData("USPhoneNumberInd");
+       annotation = this.getUnstructured().get(0).data().getUSPhoneNumberInd().get(index);
+	  } catch (IllegalArgumentException iae) {
+		  //ACD didn't return any annotations
+	  }
+  	return annotation;
   }
 
   /*
@@ -878,13 +1206,19 @@ public class ContainerGroup extends GenericModel {
   /**
    * Gets the seeingAssistanceInd.
    *
-   * @param index postion to retrieve
+   * @param index position to retrieve
    *
-   * @return the seeingAssistanceInd
+   * @return the seeingAssistanceInd or null if invalid index
    */
   public AssistanceAnnotation getSeeingAssistanceInd(int index) {
-    validateUnstructuredElementData("SeeingAssistanceInd");
-    return this.getUnstructured().get(0).data().getSeeingAssistanceInd().get(index);
+	  AssistanceAnnotation annotation = null;
+	  try {
+      validateUnstructuredElementData("SeeingAssistanceInd");
+      annotation = this.getUnstructured().get(0).data().getSeeingAssistanceInd().get(index);
+    } catch (IllegalArgumentException iae) {
+	  	//ACD didn't return any annotations
+	  }
+	  return annotation;
   }
 
 
@@ -895,13 +1229,19 @@ public class ContainerGroup extends GenericModel {
   /**
    * Gets the sectionAnnotations.
    *
-   * @param index postion to retrieve
+   * @param index position to retrieve
    *
-   * @return the sectionAnnotations
+   * @return the sectionAnnotations or null if invalid index
    */
   public SectionAnnotation getSectionAnnotations(int index) {
-    validateUnstructuredElementData("SectionAnnotations");
-    return this.getUnstructured().get(0).data().getSectionAnnotations().get(index);
+	  SectionAnnotation annotation = null;
+    try {
+      validateUnstructuredElementData("SectionAnnotations");
+      annotation = this.getUnstructured().get(0).data().getSectionAnnotations().get(index);
+	  } catch (IllegalArgumentException iae) {
+	  	//ACD didn't return any annotations
+	  }
+	  return annotation;
   }
 
   /*
@@ -910,13 +1250,19 @@ public class ContainerGroup extends GenericModel {
 
   /**
    * Gets the NluEntity.
-   * @param index postion to retrieve
+   * @param index position to retrieve
    *
-   * @return the NluEntity
+   * @return the NluEntity or null if invalid index
    */
   public NluEntity getNluEntity(int index) {
-    validateUnstructuredElementData("nluEntities");
-    return this.getUnstructured().get(0).data().getNluEntities().get(index);
+	  NluEntity annotation = null;
+	  try {
+      validateUnstructuredElementData("nluEntities");
+      annotation = this.getUnstructured().get(0).data().getNluEntities().get(index);
+	  } catch (IllegalArgumentException iae) {
+	  	//ACD didn't return any annotations
+	  }
+	  return annotation;
   }
 
   /*
@@ -926,37 +1272,55 @@ public class ContainerGroup extends GenericModel {
   /**
    * Gets the Relation.
    *
-   * @param index postion to retrieve
+   * @param index position to retrieve
    *
-   * @return the Relation
+   * @return the Relation or null if invalid index
    */
   public Relation getRelation(int index) {
-    validateUnstructuredElementData("relations");
-    return this.getUnstructured().get(0).data().getRelations().get(index);
+	  Relation annotation = null;
+	  try {
+      validateUnstructuredElementData("relations");
+      annotation = this.getUnstructured().get(0).data().getRelations().get(index);
+	  } catch (IllegalArgumentException iae) {
+  		//ACD didn't return any annotations
+  	}
+  	return annotation;
   }
 
   /**
    * Gets the SpellCorrectedText.
    *
-   * @param index postion to retrieve
+   * @param index position to retrieve
    *
-   * @return the SpellCorrectedText
+   * @return the SpellCorrectedText or null if invalid index
    */
   public SpellCorrectedText getSpellCorrectedText(int index) {
-    validateUnstructuredElementData("spellCorrrectedText");
-    return this.getUnstructured().get(0).data().getSpellCorrectedText().get(index);
+	  SpellCorrectedText annotation = null;
+	  try {
+      validateUnstructuredElementData("spellCorrrectedText");
+      annotation = this.getUnstructured().get(0).data().getSpellCorrectedText().get(index);
+	  } catch (IllegalArgumentException iae) {
+	  	//ACD didn't return any annotations
+	  }
+  	return annotation;
   }
 
   /**
    * Gets SpellingCorrections at the given index.
    *
-   * @param index postion to retrieve
+   * @param index position to retrieve
    *
-   * @return the SpellingCorrection
+   * @return the SpellingCorrection or null if invalid index
    */
   public SpellingCorrection getSpellingCorrections(int index) {
-    validateUnstructuredElementData("spellingCorrections");
-    return this.getUnstructured().get(0).data().getSpellingCorrections().get(index);
+	  SpellingCorrection annotation = null;
+	  try {
+      validateUnstructuredElementData("spellingCorrections");
+      annotation = this.getUnstructured().get(0).data().getSpellingCorrections().get(index);
+	  } catch (IllegalArgumentException iae) {
+	  	//ACD didn't return any annotations
+  	}
+  	return annotation;
   }
 
   /*
