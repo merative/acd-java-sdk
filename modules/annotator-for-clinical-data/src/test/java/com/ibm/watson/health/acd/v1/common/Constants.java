@@ -53,6 +53,7 @@ public class Constants {
 			+ "but has not died yet.  Patient smoked for 20 years.  Patient can not clean up after defacating in toilet."
 			+ "John Doe was seen at Baylor Hospital in Austin, TX."
 			+ "noone@testaddress.com"
-			+ "(555) 555-5555";
+			+ "(555) 555-5555"
+			+ "The patient started on metformin because his blood sugar was too high.";
 	public static final String CONTENT_TYPE = "application/json";
 }
