@@ -45,7 +45,7 @@ public class InsightModelDataMedication extends DynamicModel {
    * @return the started
    */
   public InsightModelDataEvent getStarted() {
-    return GsonSerializationHelper.serializeDynamicModelProperty(this.get("started"), startedType);
+    return GsonSerializationHelper.serializeDynamicModelProperty(this.get("startedEvent"), startedType);
   }
 
   /**
@@ -54,7 +54,7 @@ public class InsightModelDataMedication extends DynamicModel {
    * @return the stopped
    */
   public InsightModelDataEvent getStopped() {
-    return GsonSerializationHelper.serializeDynamicModelProperty(this.get("stopped"), stoppedType);
+    return GsonSerializationHelper.serializeDynamicModelProperty(this.get("stoppedEvent"), stoppedType);
   }
 
   /**
@@ -63,7 +63,7 @@ public class InsightModelDataMedication extends DynamicModel {
    * @return the doseChanged
    */
   public InsightModelDataEvent getDoseChanged() {
-    return GsonSerializationHelper.serializeDynamicModelProperty(this.get("doseChanged"), doseChangedType);
+    return GsonSerializationHelper.serializeDynamicModelProperty(this.get("doseChangedEvent"), doseChangedType);
   }
 
   /**
@@ -72,7 +72,7 @@ public class InsightModelDataMedication extends DynamicModel {
    * @return the adverse
    */
   public InsightModelDataEvent getAdverse() {
-    return GsonSerializationHelper.serializeDynamicModelProperty(this.get("adverse"), adverseType);
+    return GsonSerializationHelper.serializeDynamicModelProperty(this.get("adverseEvent"), adverseType);
   }
 
   /**
@@ -90,7 +90,7 @@ public class InsightModelDataMedication extends DynamicModel {
    * @param started the new started
    */
   public void setStarted(final InsightModelDataEvent started) {
-    this.put("started", started);
+    this.put("startedEvent", started);
   }
 
   /**
@@ -99,7 +99,7 @@ public class InsightModelDataMedication extends DynamicModel {
    * @param stopped the new stopped
    */
   public void setStopped(final InsightModelDataEvent stopped) {
-    this.put("stopped", stopped);
+    this.put("stoppedEvent", stopped);
   }
 
   /**
@@ -108,7 +108,7 @@ public class InsightModelDataMedication extends DynamicModel {
    * @param doseChanged the new doseChanged
    */
   public void setDoseChanged(final InsightModelDataEvent doseChanged) {
-    this.put("doseChanged", doseChanged);
+    this.put("doseChangedEvent", doseChanged);
   }
 
   /**
@@ -117,7 +117,7 @@ public class InsightModelDataMedication extends DynamicModel {
    * @param adverse the new adverse
    */
   public void setAdverse(final InsightModelDataEvent adverse) {
-    this.put("adverse", adverse);
+    this.put("adverseEvent", adverse);
   }
 
 }

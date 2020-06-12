@@ -17,6 +17,9 @@ import java.util.List;
 import org.junit.Assert;
 
 import com.ibm.watson.health.acd.v1.model.InsightModelData;
+import com.ibm.watson.health.acd.v1.model.InsightModelDataEvent;
+import com.ibm.watson.health.acd.v1.model.InsightModelDataMedication;
+import com.ibm.watson.health.acd.v1.model.InsightModelDataUsage;
 import com.ibm.watson.health.acd.v1.model.MedicationAnnotation;
 import com.ibm.watson.health.acd.v1.util.CustomCollection;
 
@@ -47,6 +50,31 @@ public class TestMedicationAnnotation {
 			InsightModelData imd = annotation.getInsightModelData();
 			if (imd.getMedication() != null) {
 				Assert.assertTrue(!imd.getMedication().isEmpty());
+				InsightModelDataMedication imdMed = imd.getMedication();
+				if (imdMed.getUsage() != null) {
+					Assert.assertTrue(!imdMed.getUsage().isEmpty());
+					InsightModelDataUsage imdMedUsage = imdMed.getUsage();
+					Float explicitScore = imdMedUsage.getExplicitScore();
+					if (explicitScore != null) {
+						Assert.assertTrue(explicitScore >= 0);
+					}
+				}
+				if (imdMed.getStarted() != null) {
+					Assert.assertTrue(!imdMed.getStarted().isEmpty());
+					InsightModelDataEvent imdMedStarted = imdMed.getStarted();
+					Float startedScore = imdMedStarted.getScore();
+					if (startedScore != null) {
+						Assert.assertTrue(startedScore >= 0);
+					}
+					if (imdMedStarted.getUsage() != null) {
+						Assert.assertTrue(!imdMedStarted.getUsage().isEmpty());
+						InsightModelDataUsage imdMedStartedUsage = imdMedStarted.getUsage();
+						Float explicitScore = imdMedStartedUsage.getExplicitScore();
+						if (explicitScore != null) {
+							Assert.assertTrue(explicitScore >= 0);
+						}
+					}
+				}
 			}
 		}
 	}
