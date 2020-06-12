@@ -18,6 +18,11 @@ import com.ibm.watson.health.acd.v1.model.AttributeValueAnnotation;
 import com.ibm.watson.health.acd.v1.model.Concept;
 import com.ibm.watson.health.acd.v1.model.Disambiguation;
 import com.ibm.watson.health.acd.v1.model.InsightModelData;
+import com.ibm.watson.health.acd.v1.model.InsightModelDataDiagnosis;
+import com.ibm.watson.health.acd.v1.model.InsightModelDataMedication;
+import com.ibm.watson.health.acd.v1.model.InsightModelDataProcedure;
+import com.ibm.watson.health.acd.v1.model.InsightModelDataTask;
+import com.ibm.watson.health.acd.v1.model.InsightModelDataUsage;
 
 public class TestAttributeAnnotation {
 
@@ -86,12 +91,39 @@ public class TestAttributeAnnotation {
 			InsightModelData imd = annotation.getInsightModelData();
 			if (imd.getMedication() != null) {
 				Assert.assertTrue(!imd.getMedication().isEmpty());
+				InsightModelDataMedication imdMed = imd.getMedication();
+				if (imdMed.getUsage() != null) {
+					Assert.assertTrue(!imdMed.getUsage().isEmpty());
+					InsightModelDataUsage imdMedUsage = imdMed.getUsage();
+					Float explicitScore = imdMedUsage.getExplicitScore();
+					if (explicitScore != null) {
+						Assert.assertTrue(explicitScore >= 0);
+					}
+				}
 			}
 			if (imd.getProcedure() != null) {
 				Assert.assertTrue(!imd.getProcedure().isEmpty());
+				InsightModelDataProcedure imdProc = imd.getProcedure();
+				if (imdProc.getTask() != null) {
+					Assert.assertTrue(!imdProc.getTask().isEmpty());
+					InsightModelDataTask imdProcTask = imdProc.getTask();
+					Float clinicalAssessScore = imdProcTask.getClinicalAssessmentScore();
+					if (clinicalAssessScore != null) {
+						Assert.assertTrue(clinicalAssessScore >= 0);
+					}
+				}
 			}
 			if (imd.getDiagnosis() != null) {
 				Assert.assertTrue(!imd.getDiagnosis().isEmpty());
+				InsightModelDataDiagnosis imdDiag = imd.getDiagnosis();
+				if (imdDiag.getUsage() != null) {
+					Assert.assertTrue(!imdDiag.getUsage().isEmpty());
+					InsightModelDataUsage imdDiagUsage = imdDiag.getUsage();
+					Float explicitScore = imdDiagUsage.getExplicitScore();
+					if (explicitScore != null) {
+						Assert.assertTrue(explicitScore >= 0);
+					}
+				}
 			}
 		}
 		if (annotation.getCcsCode() != null) {

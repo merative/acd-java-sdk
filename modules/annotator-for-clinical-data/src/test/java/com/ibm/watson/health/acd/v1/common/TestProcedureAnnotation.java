@@ -17,6 +17,8 @@ import org.junit.Assert;
 
 import com.ibm.watson.health.acd.v1.model.Disambiguation;
 import com.ibm.watson.health.acd.v1.model.InsightModelData;
+import com.ibm.watson.health.acd.v1.model.InsightModelDataProcedure;
+import com.ibm.watson.health.acd.v1.model.InsightModelDataTask;
 import com.ibm.watson.health.acd.v1.model.Procedure;
 
 public class TestProcedureAnnotation {
@@ -58,6 +60,15 @@ public class TestProcedureAnnotation {
 			InsightModelData imd = annotation.getInsightModelData();
 			if (imd.getProcedure() != null) {
 				Assert.assertTrue(!imd.getProcedure().isEmpty());
+				InsightModelDataProcedure imdProc = imd.getProcedure();
+				if (imdProc.getTask() != null) {
+					Assert.assertTrue(!imdProc.getTask().isEmpty());
+					InsightModelDataTask imdProcTask = imdProc.getTask();
+					Float clinicalAssessScore = imdProcTask.getClinicalAssessmentScore();
+					if (clinicalAssessScore != null) {
+						Assert.assertTrue(clinicalAssessScore >= 0);
+					}
+				}
 			}
 		}
 	}

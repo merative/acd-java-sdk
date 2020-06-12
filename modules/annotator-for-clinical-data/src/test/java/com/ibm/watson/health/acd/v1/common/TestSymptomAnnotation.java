@@ -16,6 +16,8 @@ import org.junit.Assert;
 
 import com.ibm.watson.health.acd.v1.model.Disambiguation;
 import com.ibm.watson.health.acd.v1.model.InsightModelData;
+import com.ibm.watson.health.acd.v1.model.InsightModelDataDiagnosis;
+import com.ibm.watson.health.acd.v1.model.InsightModelDataUsage;
 import com.ibm.watson.health.acd.v1.model.SymptomDisease;
 
 public class TestSymptomAnnotation {
@@ -72,6 +74,15 @@ public class TestSymptomAnnotation {
 			InsightModelData imd = annotation.getInsightModelData();
 			if (imd.getDiagnosis() != null) {
 				Assert.assertTrue(!imd.getDiagnosis().isEmpty());
+				InsightModelDataDiagnosis imdDiag = imd.getDiagnosis();
+				if (imdDiag.getUsage() != null) {
+					Assert.assertTrue(!imdDiag.getUsage().isEmpty());
+					InsightModelDataUsage imdDiagUsage = imdDiag.getUsage();
+					Float explicitScore = imdDiagUsage.getExplicitScore();
+					if (explicitScore != null) {
+						Assert.assertTrue(explicitScore >= 0);
+					}
+				}
 			}
 		}
 	}
