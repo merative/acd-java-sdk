@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuite tests="145" failures="0" name="TestSuite" time="3.512" errors="0" skipped="0">
+  <properties>
+    <property name="java.runtime.name" value="OpenJDK Runtime Environment"/>
+    <property name="sun.boot.library.path" value="/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/amd64"/>
+    <property name="java.vm.version" value="25.252-b09"/>
+    <property name="java.vm.vendor" value="Private Build"/>
+    <property name="maven.multiModuleProjectDirectory" value="/home/jenkins/workspace/Build_Sdk/Publish_whcs-java-sdk"/>
+    <property name="java.vendor.url" value="http://java.oracle.com/"/>
+    <property name="path.separator" value=":"/>
+    <property name="guice.disable.misplaced.annotation.check" value="true"/>
+    <property name="java.vm.name" value="OpenJDK 64-Bit Server VM"/>
+    <property name="file.encoding.pkg" value="sun.io"/>
+    <property name="user.country" value="US"/>
+    <property name="sun.java.launcher" value="SUN_STANDARD"/>
+    <property name="sun.os.patch.level" value="unknown"/>
+    <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
+    <property name="user.dir" value="/home/jenkins/workspace/Build_Sdk/Publish_whcs-java-sdk"/>
+    <property name="java.runtime.version" value="1.8.0_252-8u252-b09-1~18.04-b09"/>
+    <property name="java.awt.graphicsenv" value="sun.awt.X11GraphicsEnvironment"/>
+    <property name="java.endorsed.dirs" value="/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/endorsed"/>
+    <property name="os.arch" value="amd64"/>
+    <property name="java.io.tmpdir" value="/tmp"/>
+    <property name="line.separator" value="
+"/>
+    <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
+    <property name="os.name" value="Linux"/>
+    <property name="classworlds.conf" value="/home/jenkins/tools/hudson.tasks.Maven_MavenInstallation/Maven_3.3.3/bin/m2.conf"/>
+    <property name="sun.jnu.encoding" value="UTF-8"/>
+    <property name="java.library.path" value="/usr/java/packages/lib/amd64:/usr/lib/x86_64-linux-gnu/jni:/lib/x86_64-linux-gnu:/usr/lib/x86_64-linux-gnu:/usr/lib/jni:/lib:/usr/lib"/>
+    <property name="java.specification.name" value="Java Platform API Specification"/>
+    <property name="java.class.version" value="52.0"/>
+    <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
+    <property name="os.version" value="4.4.0-169-generic"/>
+    <property name="user.home" value="/home/jenkins"/>
+    <property name="user.timezone" value="GMT"/>
+    <property name="java.awt.printerjob" value="sun.print.PSPrinterJob"/>
+    <property name="file.encoding" value="UTF-8"/>
+    <property name="java.specification.version" value="1.8"/>
+    <property name="user.name" value="jenkins"/>
+    <property name="java.class.path" value="/home/jenkins/tools/hudson.tasks.Maven_MavenInstallation/Maven_3.3.3/boot/plexus-classworlds-2.5.2.jar"/>
+    <property name="java.vm.specification.version" value="1.8"/>
+    <property name="sun.arch.data.model" value="64"/>
+    <property name="java.home" value="/usr/lib/jvm/java-8-openjdk-amd64/jre"/>
+    <property name="sun.java.command" value="org.codehaus.plexus.classworlds.launcher.Launcher -f pom.xml -gs /tmp/global-settings4688371956811175033.xml clean install --batch-mode"/>
+    <property name="java.specification.vendor" value="Oracle Corporation"/>
+    <property name="user.language" value="en"/>
+    <property name="awt.toolkit" value="sun.awt.X11.XToolkit"/>
+    <property name="java.vm.info" value="mixed mode"/>
+    <property name="java.version" value="1.8.0_252"/>
+    <property name="java.ext.dirs" value="/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/ext:/usr/java/packages/lib/ext"/>
+    <property name="securerandom.source" value="file:/dev/./urandom"/>
+    <property name="sun.boot.class.path" value="/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/resources.jar:/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/rt.jar:/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/sunrsasign.jar:/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/jsse.jar:/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/jce.jar:/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/charsets.jar:/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/jfr.jar:/usr/lib/jvm/java-8-openjdk-amd64/jre/classes"/>
+    <property name="java.vendor" value="Private Build"/>
+    <property name="maven.home" value="/home/jenkins/tools/hudson.tasks.Maven_MavenInstallation/Maven_3.3.3"/>
+    <property name="file.separator" value="/"/>
+    <property name="java.vendor.url.bug" value="http://bugreport.sun.com/bugreport/"/>
+    <property name="sun.cpu.endian" value="little"/>
+    <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
+    <property name="sun.cpu.isalist" value=""/>
+  </properties>
+  <testcase classname="com.ibm.watson.health.iml.v1.unit.InsightsForMedicalLiteratureServiceTest" name="testAddArtifactNoOptions" time="1.655"/>
+  <testcase classname="com.ibm.watson.health.iml.v1.unit.InsightsForMedicalLiteratureServiceTest" name="testAddArtifactWOptions" time="0.622"/>
+  <testcase classname="com.ibm.watson.health.iml.v1.unit.InsightsForMedicalLiteratureServiceTest" name="testAddCorpusDocumentNoOptions" time="0.007"/>
+  <testcase classname="com.ibm.watson.health.iml.v1.unit.InsightsForMedicalLiteratureServiceTest" name="testAddCorpusDocumentWOptions" time="0.025"/>
+  <testcase classname="com.ibm.watson.health.iml.v1.unit.InsightsForMedicalLiteratureServiceTest" name="testConstructorWithNullAuthenticator" time="0.053"/>
+  <testcase classname="com.ibm.watson.health.iml.v1.unit.InsightsForMedicalLiteratureServiceTest" name="testDeleteCorpusSchemaNoOptions" time="0.009"/>
+  <testcase classname="com.ibm.watson.health.iml.v1.unit.InsightsForMedicalLiteratureServiceTest" name="testDeleteCorpusSchemaWOptions" time="0.038"/>
+  <testcase classname="com.ibm.watson.health.iml.v1.unit.InsightsForMedicalLiteratureServiceTest" name="testEnableCorpusSearchTrackingWOptions" time="0.018"/>
+  <testcase classname="com.ibm.watson.health.iml.v1.unit.InsightsForMedicalLiteratureServiceTest" name="testGetConceptsNoOptions" time="0.007"/>
+  <testcase classname="com.ibm.watson.health.iml.v1.unit.InsightsForMedicalLiteratureServiceTest" name="testGetConceptsWOptions" time="0.179"/>
+  <testcase classname="com.ibm.watson.health.iml.v1.unit.InsightsForMedicalLiteratureServiceTest" name="testGetCorporaConfigWOptions" time="0.015"/>
+  <testcase classname="com.ibm.watson.health.iml.v1.unit.InsightsForMedicalLiteratureServiceTest" name="testGetCorpusConfigNoOptions" time="0.007"/>
+  <testcase classname="com.ibm.watson.health.iml.v1.unit.InsightsForMedicalLiteratureServiceTest" name="testGetCorpusConfigWOptions" time="0.02"/>
+  <testcase classname="com.ibm.watson.health.iml.v1.unit.InsightsForMedicalLiteratureServiceTest" name="testGetCuiInfoNoOptions" time="0.005"/>
+  <testcase classname="com.ibm.watson.health.iml.v1.unit.InsightsForMedicalLiteratureServiceTest" name="testGetCuiInfoWOptions" time="0.044"/>
+  <testcase classname="com.ibm.watson.health.iml.v1.unit.InsightsForMedicalLiteratureServiceTest" name="testGetDocumentAnnotationsNoOptions" time="0.006"/>
+  <testcase classname="com.ibm.watson.health.iml.v1.unit.InsightsForMedicalLiteratureServiceTest" name="testGetDocumentAnnotationsWOptions" time="0.024"/>
+  <testcase classname="com.ibm.watson.health.iml.v1.unit.InsightsForMedicalLiteratureServiceTest" name="testGetDocumentCategoriesNoOptions" time="0.007"/>
+  <testcase classname="com.ibm.watson.health.iml.v1.unit.InsightsForMedicalLiteratureServiceTest" name="testGetDocumentCategoriesWOptions" time="0.065"/>
+  <testcase classname="com.ibm.watson.health.iml.v1.unit.InsightsForMedicalLiteratureServiceTest" name="testGetDocumentInfoNoOptions" time="0.007"/>
+  <testcase classname="com.ibm.watson.health.iml.v1.unit.InsightsForMedicalLiteratureServiceTest" name="testGetDocumentInfoWOptions" time="0.028"/>
+  <testcase classname="com.ibm.watson.health.iml.v1.unit.InsightsForMedicalLiteratureServiceTest" name="testGetDocumentMultipleCategoriesNoOptions" time="0.007"/>
+  <testcase classname="com.ibm.watson.health.iml.v1.unit.InsightsForMedicalLiteratureServiceTest" name="testGetDocumentMultipleCategoriesWOptions" time="0.034"/>
+  <testcase classname="com.ibm.watson.health.iml.v1.unit.InsightsForMedicalLiteratureServiceTest" name="testGetDocumentsNoOptions" time="0.005"/>
+  <testcase classname="com.ibm.watson.health.iml.v1.unit.InsightsForMedicalLiteratureServiceTest" name="testGetDocumentsWOptions" time="0.024"/>
+  <testcase classname="com.ibm.watson.health.iml.v1.unit.InsightsForMedicalLiteratureServiceTest" name="testGetFieldsNoOptions" time="0.006"/>
+  <testcase classname="com.ibm.watson.health.iml.v1.unit.InsightsForMedicalLiteratureServiceTest" name="testGetFieldsWOptions" time="0.028"/>
+  <testcase classname="com.ibm.watson.health.iml.v1.unit.InsightsForMedicalLiteratureServiceTest" name="testGetHealthCheckStatusWOptions" time="0.029"/>
+  <testcase classname="com.ibm.watson.health.iml.v1.unit.InsightsForMedicalLiteratureServiceTest" name="testGetHitCountNoOptions" time="0.007"/>
+  <testcase classname="com.ibm.watson.health.iml.v1.unit.InsightsForMedicalLiteratureServiceTest" name="testGetHitCountWOptions" time="0.022"/>
+  <testcase classname="com.ibm.watson.health.iml.v1.unit.InsightsForMedicalLiteratureServiceTest" name="testGetRelatedConceptsNoOptions" time="0.005"/>
+  <testcase classname="com.ibm.watson.health.iml.v1.unit.InsightsForMedicalLiteratureServiceTest" name="testGetRelatedConceptsWOptions" time="0.03"/>
+  <testcase classname="com.ibm.watson.health.iml.v1.unit.InsightsForMedicalLiteratureServiceTest" name="testGetSearchMatchesNoOptions" time="0.005"/>
+  <testcase classname="com.ibm.watson.health.iml.v1.unit.InsightsForMedicalLiteratureServiceTest" name="testGetSearchMatchesWOptions" time="0.039"/>
+  <testcase classname="com.ibm.watson.health.iml.v1.unit.InsightsForMedicalLiteratureServiceTest" name="testGetServiceStatusWOptions" time="0.022"/>
+  <testcase classname="com.ibm.watson.health.iml.v1.unit.InsightsForMedicalLiteratureServiceTest" name="testGetSimilarConceptsNoOptions" time="0.004"/>
+  <testcase classname="com.ibm.watson.health.iml.v1.unit.InsightsForMedicalLiteratureServiceTest" name="testGetSimilarConceptsWOptions" time="0.021"/>
+  <testcase classname="com.ibm.watson.health.iml.v1.unit.InsightsForMedicalLiteratureServiceTest" name="testGetStatisticsNoOptions" time="0.004"/>
+  <testcase classname="com.ibm.watson.health.iml.v1.unit.InsightsForMedicalLiteratureServiceTest" name="testGetStatisticsWOptions" time="0.02"/>
+  <testcase classname="com.ibm.watson.health.iml.v1.unit.InsightsForMedicalLiteratureServiceTest" name="testGetVersion" time="0.003"/>
+  <testcase classname="com.ibm.watson.health.iml.v1.unit.InsightsForMedicalLiteratureServiceTest" name="testMonitorCorpusNoOptions" time="0.007"/>
+  <testcase classname="com.ibm.watson.health.iml.v1.unit.InsightsForMedicalLiteratureServiceTest" name="testMonitorCorpusWOptions" time="0.015"/>
+  <testcase classname="com.ibm.watson.health.iml.v1.unit.InsightsForMedicalLiteratureServiceTest" name="testSearchNoOptions" time="0.003"/>
+  <testcase classname="com.ibm.watson.health.iml.v1.unit.InsightsForMedicalLiteratureServiceTest" name="testSearchWOptions" time="0.123"/>
+  <testcase classname="com.ibm.watson.health.iml.v1.unit.InsightsForMedicalLiteratureServiceTest" name="testSetCorpusConfigWOptions" time="0.014"/>
+  <testcase classname="com.ibm.watson.health.iml.v1.unit.InsightsForMedicalLiteratureServiceTest" name="testSetCorpusSchemaWOptions" time="0.016"/>
+  <testcase classname="com.ibm.watson.health.iml.v1.unit.InsightsForMedicalLiteratureServiceTest" name="testTokenizeNoOptions" time="0.003"/>
+  <testcase classname="com.ibm.watson.health.iml.v1.unit.InsightsForMedicalLiteratureServiceTest" name="testTokenizeWOptions" time="0.018"/>
+  <testcase classname="com.ibm.watson.health.iml.v1.unit.InsightsForMedicalLiteratureServiceTest" name="testTypeaheadNoOptions" time="0.005"/>
+  <testcase classname="com.ibm.watson.health.iml.v1.unit.InsightsForMedicalLiteratureServiceTest" name="testTypeaheadWOptions" time="0.02"/>
+  <testcase classname="com.ibm.watson.health.iml.v1.model.StatModelTest" name="testStatModel" time="0"/>
+  <testcase classname="com.ibm.watson.health.iml.v1.model.RelationModelTest" name="testRelationModel" time="0.001"/>
+  <testcase classname="com.ibm.watson.health.iml.v1.model.GetDocumentInfoOptionsTest" name="testGetDocumentInfoOptions" time="0.001"/>
+  <testcase classname="com.ibm.watson.health.iml.v1.model.GetDocumentInfoOptionsTest" name="testGetDocumentInfoOptionsError" time="0"/>
+  <testcase classname="com.ibm.watson.health.iml.v1.model.MessageTest" name="testMessage" time="0"/>
+  <testcase classname="com.ibm.watson.health.iml.v1.model.GetServiceStatusOptionsTest" name="testGetServiceStatusOptions" time="0.001"/>
+  <testcase classname="com.ibm.watson.health.iml.v1.model.RankedDocLinksTest" name="testRankedDocLinks" time="0"/>
+  <testcase classname="com.ibm.watson.health.iml.v1.model.AddCorpusDocumentOptionsTest" name="testAddCorpusDocumentOptions" time="0.003"/>
+  <testcase classname="com.ibm.watson.health.iml.v1.model.AddCorpusDocumentOptionsTest" name="testAddCorpusDocumentOptionsError" time="0.001"/>
+  <testcase classname="com.ibm.watson.health.iml.v1.model.GetStatisticsOptionsTest" name="testGetStatisticsOptions" time="0"/>
+  <testcase classname="com.ibm.watson.health.iml.v1.model.GetStatisticsOptionsTest" name="testGetStatisticsOptionsError" time="0"/>
+  <testcase classname="com.ibm.watson.health.iml.v1.model.StatisticsModelTest" name="testStatisticsModel" time="0"/>
+  <testcase classname="com.ibm.watson.health.iml.v1.model.TextSpanTest" name="testTextSpan" time="0.001"/>
+  <testcase classname="com.ibm.watson.health.iml.v1.model.PossbileValuesTest" name="testPossbileValues" time="0.026"/>
+  <testcase classname="com.ibm.watson.health.iml.v1.model.GetCuiInfoOptionsTest" name="testGetCuiInfoOptions" time="0"/>
+  <testcase classname="com.ibm.watson.health.iml.v1.model.GetCuiInfoOptionsTest" name="testGetCuiInfoOptionsError" time="0.002"/>
+  <testcase classname="com.ibm.watson.health.iml.v1.model.BooleanOperandsTest" name="testBooleanOperands" time="0.001"/>
+  <testcase classname="com.ibm.watson.health.iml.v1.model.SearchMatchesModelTest" name="testSearchMatchesModel" time="0.001"/>
+  <testcase classname="com.ibm.watson.health.iml.v1.model.EntryModelTest" name="testEntryModel" time="0.008"/>
+  <testcase classname="com.ibm.watson.health.iml.v1.model.AggregationModelTest" name="testAggregationModel" time="0"/>
+  <testcase classname="com.ibm.watson.health.iml.v1.model.PassageTest" name="testPassage" time="0.001"/>
+  <testcase classname="com.ibm.watson.health.iml.v1.model.MonitorCorpusOptionsTest" name="testMonitorCorpusOptions" time="0.001"/>
+  <testcase classname="com.ibm.watson.health.iml.v1.model.MonitorCorpusOptionsTest" name="testMonitorCorpusOptionsError" time="0.001"/>
+  <testcase classname="com.ibm.watson.health.iml.v1.model.GetCorporaConfigOptionsTest" name="testGetCorporaConfigOptions" time="0.001"/>
+  <testcase classname="com.ibm.watson.health.iml.v1.model.ConceptInfoModelTest" name="testConceptInfoModel" time="0.001"/>
+  <testcase classname="com.ibm.watson.health.iml.v1.model.RankedDocumentTest" name="testRankedDocument" time="0.001"/>
+  <testcase classname="com.ibm.watson.health.iml.v1.model.RelatedConceptModelTest" name="testRelatedConceptModel" time="0.001"/>
+  <testcase classname="com.ibm.watson.health.iml.v1.model.ArtifactModelTest" name="testArtifactModel" time="0.001"/>
+  <testcase classname="com.ibm.watson.health.iml.v1.model.GetHitCountOptionsTest" name="testGetHitCountOptions" time="0"/>
+  <testcase classname="com.ibm.watson.health.iml.v1.model.GetHitCountOptionsTest" name="testGetHitCountOptionsError" time="0"/>
+  <testcase classname="com.ibm.watson.health.iml.v1.model.GetDocumentsOptionsTest" name="testGetDocumentsOptions" time="0"/>
+  <testcase classname="com.ibm.watson.health.iml.v1.model.GetDocumentsOptionsTest" name="testGetDocumentsOptionsError" time="0"/>
+  <testcase classname="com.ibm.watson.health.iml.v1.model.GetDocumentInfoResponseTest" name="testGetDocumentInfoResponse" time="0.004"/>
+  <testcase classname="com.ibm.watson.health.iml.v1.model.RangeModelTest" name="testRangeModel" time="0"/>
+  <testcase classname="com.ibm.watson.health.iml.v1.model.GetFieldsOptionsTest" name="testGetFieldsOptions" time="0"/>
+  <testcase classname="com.ibm.watson.health.iml.v1.model.GetFieldsOptionsTest" name="testGetFieldsOptionsError" time="0.001"/>
+  <testcase classname="com.ibm.watson.health.iml.v1.model.UnstructuredModelTest" name="testUnstructuredModel" time="0.001"/>
+  <testcase classname="com.ibm.watson.health.iml.v1.model.ConceptModelTest" name="testConceptModel" time="0.001"/>
+  <testcase classname="com.ibm.watson.health.iml.v1.model.GetConceptsOptionsTest" name="testGetConceptsOptions" time="0"/>
+  <testcase classname="com.ibm.watson.health.iml.v1.model.GetConceptsOptionsTest" name="testGetConceptsOptionsError" time="0"/>
+  <testcase classname="com.ibm.watson.health.iml.v1.model.CorpusModelTest" name="testCorpusModel" time="0"/>
+  <testcase classname="com.ibm.watson.health.iml.v1.model.GetDocumentCategoriesOptionsTest" name="testGetDocumentCategoriesOptions" time="0.001"/>
+  <testcase classname="com.ibm.watson.health.iml.v1.model.GetDocumentCategoriesOptionsTest" name="testGetDocumentCategoriesOptionsError" time="0.002"/>
+  <testcase classname="com.ibm.watson.health.iml.v1.model.SearchOptionsTest" name="testSearchOptions" time="0"/>
+  <testcase classname="com.ibm.watson.health.iml.v1.model.SearchOptionsTest" name="testSearchOptionsError" time="0"/>
+  <testcase classname="com.ibm.watson.health.iml.v1.model.CategoriesModelTest" name="testCategoriesModel" time="0.019"/>
+  <testcase classname="com.ibm.watson.health.iml.v1.model.GetHealthCheckStatusOptionsTest" name="testGetHealthCheckStatusOptions" time="0.001"/>
+  <testcase classname="com.ibm.watson.health.iml.v1.model.AttributeEntryTest" name="testAttributeEntry" time="0.008"/>
+  <testcase classname="com.ibm.watson.health.iml.v1.model.AnnotationModelTest" name="testAnnotationModel" time="0.005"/>
+  <testcase classname="com.ibm.watson.health.iml.v1.model.GetDocumentAnnotationsOptionsTest" name="testGetDocumentAnnotationsOptions" time="0.001"/>
+  <testcase classname="com.ibm.watson.health.iml.v1.model.GetDocumentAnnotationsOptionsTest" name="testGetDocumentAnnotationsOptionsError" time="0"/>
+  <testcase classname="com.ibm.watson.health.iml.v1.model.CountTest" name="testCount" time="0.001"/>
+  <testcase classname="com.ibm.watson.health.iml.v1.model.ConceptTest" name="testConcept" time="0"/>
+  <testcase classname="com.ibm.watson.health.iml.v1.model.MetadataModelTest" name="testMetadataModel" time="0.001"/>
+  <testcase classname="com.ibm.watson.health.iml.v1.model.TypeaheadOptionsTest" name="testTypeaheadOptions" time="0.002"/>
+  <testcase classname="com.ibm.watson.health.iml.v1.model.TypeaheadOptionsTest" name="testTypeaheadOptionsError" time="0.001"/>
+  <testcase classname="com.ibm.watson.health.iml.v1.model.SetCorpusSchemaOptionsTest" name="testSetCorpusSchemaOptions" time="0.004"/>
+  <testcase classname="com.ibm.watson.health.iml.v1.model.CorporaConfigTest" name="testCorporaConfig" time="0"/>
+  <testcase classname="com.ibm.watson.health.iml.v1.model.BoolOperandTest" name="testBoolOperand" time="0"/>
+  <testcase classname="com.ibm.watson.health.iml.v1.model.MetadataFieldsTest" name="testMetadataFields" time="0"/>
+  <testcase classname="com.ibm.watson.health.iml.v1.model.AddArtifactOptionsTest" name="testAddArtifactOptions" time="0.001"/>
+  <testcase classname="com.ibm.watson.health.iml.v1.model.AddArtifactOptionsTest" name="testAddArtifactOptionsError" time="0.001"/>
+  <testcase classname="com.ibm.watson.health.iml.v1.model.ConceptListModelTest" name="testConceptListModel" time="0"/>
+  <testcase classname="com.ibm.watson.health.iml.v1.model.HitCountTest" name="testHitCount" time="0"/>
+  <testcase classname="com.ibm.watson.health.iml.v1.model.HistogramDataTest" name="testHistogramData" time="0"/>
+  <testcase classname="com.ibm.watson.health.iml.v1.model.SearchModelTest" name="testSearchModel" time="0"/>
+  <testcase classname="com.ibm.watson.health.iml.v1.model.RelatedConceptsModelTest" name="testRelatedConceptsModel" time="0"/>
+  <testcase classname="com.ibm.watson.health.iml.v1.model.GetSimilarConceptsOptionsTest" name="testGetSimilarConceptsOptions" time="0.001"/>
+  <testcase classname="com.ibm.watson.health.iml.v1.model.GetSimilarConceptsOptionsTest" name="testGetSimilarConceptsOptionsError" time="0"/>
+  <testcase classname="com.ibm.watson.health.iml.v1.model.TokenizeOptionsTest" name="testTokenizeOptions" time="0"/>
+  <testcase classname="com.ibm.watson.health.iml.v1.model.TokenizeOptionsTest" name="testTokenizeOptionsError" time="0"/>
+  <testcase classname="com.ibm.watson.health.iml.v1.model.GetSearchMatchesOptionsTest" name="testGetSearchMatchesOptions" time="0.002"/>
+  <testcase classname="com.ibm.watson.health.iml.v1.model.GetSearchMatchesOptionsTest" name="testGetSearchMatchesOptionsError" time="0.001"/>
+  <testcase classname="com.ibm.watson.health.iml.v1.model.DictonaryEntryTest" name="testDictonaryEntry" time="0.004"/>
+  <testcase classname="com.ibm.watson.health.iml.v1.model.GetDocumentMultipleCategoriesOptionsTest" name="testGetDocumentMultipleCategoriesOptions" time="0.004"/>
+  <testcase classname="com.ibm.watson.health.iml.v1.model.GetDocumentMultipleCategoriesOptionsTest" name="testGetDocumentMultipleCategoriesOptionsError" time="0.001"/>
+  <testcase classname="com.ibm.watson.health.iml.v1.model.GetCorpusConfigOptionsTest" name="testGetCorpusConfigOptions" time="0"/>
+  <testcase classname="com.ibm.watson.health.iml.v1.model.GetCorpusConfigOptionsTest" name="testGetCorpusConfigOptionsError" time="0"/>
+  <testcase classname="com.ibm.watson.health.iml.v1.model.GetRelatedConceptsOptionsTest" name="testGetRelatedConceptsOptions" time="0.001"/>
+  <testcase classname="com.ibm.watson.health.iml.v1.model.GetRelatedConceptsOptionsTest" name="testGetRelatedConceptsOptionsError" time="0"/>
+  <testcase classname="com.ibm.watson.health.iml.v1.model.BackendTest" name="testBackend" time="0"/>
+  <testcase classname="com.ibm.watson.health.iml.v1.model.AttributeTest" name="testAttribute" time="0"/>
+  <testcase classname="com.ibm.watson.health.iml.v1.model.EnableCorpusSearchTrackingOptionsTest" name="testEnableCorpusSearchTrackingOptions" time="0.001"/>
+  <testcase classname="com.ibm.watson.health.iml.v1.model.DataModelTest" name="testDataModel" time="0.001"/>
+  <testcase classname="com.ibm.watson.health.iml.v1.model.StringBuilderTest" name="testStringBuilder" time="0"/>
+  <testcase classname="com.ibm.watson.health.iml.v1.model.SentenceModelTest" name="testSentenceModel" time="0.001"/>
+  <testcase classname="com.ibm.watson.health.iml.v1.model.FieldOptionsTest" name="testFieldOptions" time="0.004"/>
+  <testcase classname="com.ibm.watson.health.iml.v1.model.DeleteCorpusSchemaOptionsTest" name="testDeleteCorpusSchemaOptions" time="0"/>
+  <testcase classname="com.ibm.watson.health.iml.v1.model.DeleteCorpusSchemaOptionsTest" name="testDeleteCorpusSchemaOptionsError" time="0"/>
+  <testcase classname="com.ibm.watson.health.iml.v1.model.ServiceStatusTest" name="testServiceStatus" time="0"/>
+  <testcase classname="com.ibm.watson.health.iml.v1.model.PassagesModelTest" name="testPassagesModel" time="0"/>
+  <testcase classname="com.ibm.watson.health.iml.v1.model.QualiferTest" name="testQualifer" time="0"/>
+  <testcase classname="com.ibm.watson.health.iml.v1.model.CommonDataModelTest" name="testCommonDataModel" time="0"/>
+  <testcase classname="com.ibm.watson.health.iml.v1.model.MatchEntryTest" name="testMatchEntry" time="0.001"/>
+  <testcase classname="com.ibm.watson.health.iml.v1.model.SetCorpusConfigOptionsTest" name="testSetCorpusConfigOptions" time="0.001"/>
+</testsuite>

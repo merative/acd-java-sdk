@@ -1,0 +1,327 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../jacoco-resources/report.gif" type="image/gif"/><title>UpdateProfileOptions.java</title><link rel="stylesheet" href="../../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../../index.html" class="el_report">IBM Watson Health Cognitive Services Coverage Reports</a> &gt; <a href="../index.html" class="el_bundle">annotator-for-clinical-data</a> &gt; <a href="index.source.html" class="el_package">com.ibm.watson.health.acd.v1.model</a> &gt; <span class="el_source">UpdateProfileOptions.java</span></div><h1>UpdateProfileOptions.java</h1><pre class="source lang-java linenums">/*
+ * (C) Copyright IBM Corp. 2020.
+ *
+ * Licensed under the Apache License, Version 2.0 (the &quot;License&quot;); you may not use this file except in compliance with
+ * the License. You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on
+ * an &quot;AS IS&quot; BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the
+ * specific language governing permissions and limitations under the License.
+ */
+package com.ibm.watson.health.acd.v1.model;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import com.ibm.cloud.sdk.core.service.model.GenericModel;
+
+/**
+ * The updateProfile options.
+ */
+public class UpdateProfileOptions extends GenericModel {
+
+  protected String id;
+  protected String newId;
+  protected String newName;
+  protected String newDescription;
+  protected String newPublishedDate;
+  protected Boolean newPublish;
+  protected String newVersion;
+  protected String newCartridgeId;
+  protected List&lt;Annotator&gt; newAnnotators;
+
+  /**
+   * Builder.
+   */
+  public static class Builder {
+    private String id;
+    private String newId;
+    private String newName;
+    private String newDescription;
+    private String newPublishedDate;
+    private Boolean newPublish;
+    private String newVersion;
+    private String newCartridgeId;
+    private List&lt;Annotator&gt; newAnnotators;
+
+<span class="nc" id="L49">    private Builder(UpdateProfileOptions updateProfileOptions) {</span>
+<span class="nc" id="L50">      this.id = updateProfileOptions.id;</span>
+<span class="nc" id="L51">      this.newId = updateProfileOptions.newId;</span>
+<span class="nc" id="L52">      this.newName = updateProfileOptions.newName;</span>
+<span class="nc" id="L53">      this.newDescription = updateProfileOptions.newDescription;</span>
+<span class="nc" id="L54">      this.newPublishedDate = updateProfileOptions.newPublishedDate;</span>
+<span class="nc" id="L55">      this.newPublish = updateProfileOptions.newPublish;</span>
+<span class="nc" id="L56">      this.newVersion = updateProfileOptions.newVersion;</span>
+<span class="nc" id="L57">      this.newCartridgeId = updateProfileOptions.newCartridgeId;</span>
+<span class="nc" id="L58">      this.newAnnotators = updateProfileOptions.newAnnotators;</span>
+<span class="nc" id="L59">    }</span>
+
+    /**
+     * Instantiates a new builder.
+     */
+<span class="fc" id="L64">    public Builder() {</span>
+<span class="fc" id="L65">    }</span>
+
+    /**
+     * Instantiates a new builder with required properties.
+     *
+     * @param id the id
+     */
+<span class="nc" id="L72">    public Builder(String id) {</span>
+<span class="nc" id="L73">      this.id = id;</span>
+<span class="nc" id="L74">    }</span>
+
+    /**
+     * Builds a UpdateProfileOptions.
+     *
+     * @return the new UpdateProfileOptions instance
+     */
+    public UpdateProfileOptions build() {
+<span class="fc" id="L82">      return new UpdateProfileOptions(this);</span>
+    }
+
+    /**
+     * Adds an newAnnotators to newAnnotators.
+     *
+     * @param newAnnotators the new newAnnotators
+     * @return the UpdateProfileOptions builder
+     */
+    public Builder addNewAnnotators(Annotator newAnnotators) {
+<span class="nc" id="L92">      com.ibm.cloud.sdk.core.util.Validator.notNull(newAnnotators,</span>
+        &quot;newAnnotators cannot be null&quot;);
+<span class="nc bnc" id="L94" title="All 2 branches missed.">      if (this.newAnnotators == null) {</span>
+<span class="nc" id="L95">        this.newAnnotators = new ArrayList&lt;Annotator&gt;();</span>
+      }
+<span class="nc" id="L97">      this.newAnnotators.add(newAnnotators);</span>
+<span class="nc" id="L98">      return this;</span>
+    }
+
+    /**
+     * Set the id.
+     *
+     * @param id the id
+     * @return the UpdateProfileOptions builder
+     */
+    public Builder id(String id) {
+<span class="fc" id="L108">      this.id = id;</span>
+<span class="fc" id="L109">      return this;</span>
+    }
+
+    /**
+     * Set the newId.
+     *
+     * @param newId the newId
+     * @return the UpdateProfileOptions builder
+     */
+    public Builder newId(String newId) {
+<span class="fc" id="L119">      this.newId = newId;</span>
+<span class="fc" id="L120">      return this;</span>
+    }
+
+    /**
+     * Set the newName.
+     *
+     * @param newName the newName
+     * @return the UpdateProfileOptions builder
+     */
+    public Builder newName(String newName) {
+<span class="fc" id="L130">      this.newName = newName;</span>
+<span class="fc" id="L131">      return this;</span>
+    }
+
+    /**
+     * Set the newDescription.
+     *
+     * @param newDescription the newDescription
+     * @return the UpdateProfileOptions builder
+     */
+    public Builder newDescription(String newDescription) {
+<span class="fc" id="L141">      this.newDescription = newDescription;</span>
+<span class="fc" id="L142">      return this;</span>
+    }
+
+    /**
+     * Set the newPublishedDate.
+     *
+     * @param newPublishedDate the newPublishedDate
+     * @return the UpdateProfileOptions builder
+     */
+    public Builder newPublishedDate(String newPublishedDate) {
+<span class="fc" id="L152">      this.newPublishedDate = newPublishedDate;</span>
+<span class="fc" id="L153">      return this;</span>
+    }
+
+    /**
+     * Set the newPublish.
+     *
+     * @param newPublish the newPublish
+     * @return the UpdateProfileOptions builder
+     */
+    public Builder newPublish(Boolean newPublish) {
+<span class="fc" id="L163">      this.newPublish = newPublish;</span>
+<span class="fc" id="L164">      return this;</span>
+    }
+
+    /**
+     * Set the newVersion.
+     *
+     * @param newVersion the newVersion
+     * @return the UpdateProfileOptions builder
+     */
+    public Builder newVersion(String newVersion) {
+<span class="fc" id="L174">      this.newVersion = newVersion;</span>
+<span class="fc" id="L175">      return this;</span>
+    }
+
+    /**
+     * Set the newCartridgeId.
+     *
+     * @param newCartridgeId the newCartridgeId
+     * @return the UpdateProfileOptions builder
+     */
+    public Builder newCartridgeId(String newCartridgeId) {
+<span class="fc" id="L185">      this.newCartridgeId = newCartridgeId;</span>
+<span class="fc" id="L186">      return this;</span>
+    }
+
+    /**
+     * Set the newAnnotators.
+     * Existing newAnnotators will be replaced.
+     *
+     * @param newAnnotators the newAnnotators
+     * @return the UpdateProfileOptions builder
+     */
+    public Builder newAnnotators(List&lt;Annotator&gt; newAnnotators) {
+<span class="fc" id="L197">      this.newAnnotators = newAnnotators;</span>
+<span class="fc" id="L198">      return this;</span>
+    }
+
+    /**
+     * Set the acdProfile.
+     *
+     * @param acdProfile the acdProfile
+     * @return the UpdateProfileOptions builder
+     */
+    public Builder acdProfile(AcdProfile acdProfile) {
+<span class="nc" id="L208">      this.newId = acdProfile.id();</span>
+<span class="nc" id="L209">      this.newName = acdProfile.name();</span>
+<span class="nc" id="L210">      this.newDescription = acdProfile.description();</span>
+<span class="nc" id="L211">      this.newPublishedDate = acdProfile.publishedDate();</span>
+<span class="nc" id="L212">      this.newPublish = acdProfile.publish();</span>
+<span class="nc" id="L213">      this.newVersion = acdProfile.version();</span>
+<span class="nc" id="L214">      this.newCartridgeId = acdProfile.cartridgeId();</span>
+<span class="nc" id="L215">      this.newAnnotators = acdProfile.annotators();</span>
+<span class="nc" id="L216">      return this;</span>
+    }
+  }
+
+<span class="fc" id="L220">  protected UpdateProfileOptions(Builder builder) {</span>
+<span class="fc" id="L221">    com.ibm.cloud.sdk.core.util.Validator.notEmpty(builder.id,</span>
+      &quot;id cannot be empty&quot;);
+<span class="fc" id="L223">    id = builder.id;</span>
+<span class="fc" id="L224">    newId = builder.newId;</span>
+<span class="fc" id="L225">    newName = builder.newName;</span>
+<span class="fc" id="L226">    newDescription = builder.newDescription;</span>
+<span class="fc" id="L227">    newPublishedDate = builder.newPublishedDate;</span>
+<span class="fc" id="L228">    newPublish = builder.newPublish;</span>
+<span class="fc" id="L229">    newVersion = builder.newVersion;</span>
+<span class="fc" id="L230">    newCartridgeId = builder.newCartridgeId;</span>
+<span class="fc" id="L231">    newAnnotators = builder.newAnnotators;</span>
+<span class="fc" id="L232">  }</span>
+
+  /**
+   * New builder.
+   *
+   * @return a UpdateProfileOptions builder
+   */
+  public Builder newBuilder() {
+<span class="nc" id="L240">    return new Builder(this);</span>
+  }
+
+  /**
+   * Gets the id.
+   *
+   * Profile ID.
+   *
+   * @return the id
+   */
+  public String id() {
+<span class="fc" id="L251">    return id;</span>
+  }
+
+  /**
+   * Gets the newId.
+   *
+   * @return the newId
+   */
+  public String newId() {
+<span class="fc" id="L260">    return newId;</span>
+  }
+
+  /**
+   * Gets the newName.
+   *
+   * @return the newName
+   */
+  public String newName() {
+<span class="fc" id="L269">    return newName;</span>
+  }
+
+  /**
+   * Gets the newDescription.
+   *
+   * @return the newDescription
+   */
+  public String newDescription() {
+<span class="fc" id="L278">    return newDescription;</span>
+  }
+
+  /**
+   * Gets the newPublishedDate.
+   *
+   * @return the newPublishedDate
+   */
+  public String newPublishedDate() {
+<span class="fc" id="L287">    return newPublishedDate;</span>
+  }
+
+  /**
+   * Gets the newPublish.
+   *
+   * @return the newPublish
+   */
+  public Boolean newPublish() {
+<span class="fc" id="L296">    return newPublish;</span>
+  }
+
+  /**
+   * Gets the newVersion.
+   *
+   * @return the newVersion
+   */
+  public String newVersion() {
+<span class="fc" id="L305">    return newVersion;</span>
+  }
+
+  /**
+   * Gets the newCartridgeId.
+   *
+   * @return the newCartridgeId
+   */
+  public String newCartridgeId() {
+<span class="fc" id="L314">    return newCartridgeId;</span>
+  }
+
+  /**
+   * Gets the newAnnotators.
+   *
+   * @return the newAnnotators
+   */
+  public List&lt;Annotator&gt; newAnnotators() {
+<span class="fc" id="L323">    return newAnnotators;</span>
+  }
+}
+
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>

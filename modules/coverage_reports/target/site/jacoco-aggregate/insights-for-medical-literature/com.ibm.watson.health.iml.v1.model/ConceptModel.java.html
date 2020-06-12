@@ -1,0 +1,363 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../jacoco-resources/report.gif" type="image/gif"/><title>ConceptModel.java</title><link rel="stylesheet" href="../../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../../index.html" class="el_report">IBM Watson Health Cognitive Services Coverage Reports</a> &gt; <a href="../index.html" class="el_bundle">insights-for-medical-literature</a> &gt; <a href="index.source.html" class="el_package">com.ibm.watson.health.iml.v1.model</a> &gt; <span class="el_source">ConceptModel.java</span></div><h1>ConceptModel.java</h1><pre class="source lang-java linenums">/*
+ * (C) Copyright IBM Corp. 2020.
+ *
+ * Licensed under the Apache License, Version 2.0 (the &quot;License&quot;); you may not use this file except in compliance with
+ * the License. You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on
+ * an &quot;AS IS&quot; BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the
+ * specific language governing permissions and limitations under the License.
+ */
+package com.ibm.watson.health.iml.v1.model;
+
+import java.util.List;
+import java.util.Map;
+
+import com.ibm.cloud.sdk.core.service.model.GenericModel;
+
+/**
+ * Model representing an ontology annotation.
+ */
+<span class="fc" id="L23">public class ConceptModel extends GenericModel {</span>
+
+  protected Long uniqueId;
+  protected List&lt;Long&gt; stickyIds;
+  protected String section;
+  protected String type;
+  protected Long begin;
+  protected Long end;
+  protected String coveredText;
+  protected String cui;
+  protected String preferredName;
+  protected String source;
+  protected Boolean negated;
+  protected Boolean hypothetical;
+  protected Long timestamp;
+  protected String attributeId;
+  protected List&lt;String&gt; qualifiers;
+  protected String unit;
+  protected String minValue;
+  protected String maxValue;
+  protected String operator;
+  protected Map&lt;String, String&gt; features;
+  protected String nluEntityIndex;
+  protected String nluMentionIndex;
+  protected String nluRelationId;
+  protected String nluSide;
+  protected String nluSourceType;
+  protected String nluRelation;
+  protected String nluTargetType;
+  protected Long hits;
+
+  /**
+   * Gets the uniqueId.
+   *
+   * Service generated unique identifier of ontology artifact.
+   *
+   * @return the uniqueId
+   */
+  public Long getUniqueId() {
+<span class="fc" id="L62">    return uniqueId;</span>
+  }
+
+  /**
+   * Gets the stickyIds.
+   *
+   * Identifiers associated with artifact unique identifier.
+   *
+   * @return the stickyIds
+   */
+  public List&lt;Long&gt; getStickyIds() {
+<span class="fc" id="L73">    return stickyIds;</span>
+  }
+
+  /**
+   * Gets the section.
+   *
+   * Document section where artifact was found.
+   *
+   * @return the section
+   */
+  public String getSection() {
+<span class="fc" id="L84">    return section;</span>
+  }
+
+  /**
+   * Gets the type.
+   *
+   * Ontology semantic type for artifact (if applicable).
+   *
+   * @return the type
+   */
+  public String getType() {
+<span class="fc" id="L95">    return type;</span>
+  }
+
+  /**
+   * Gets the begin.
+   *
+   * Staring offset of artifact in document section.
+   *
+   * @return the begin
+   */
+  public Long getBegin() {
+<span class="fc" id="L106">    return begin;</span>
+  }
+
+  /**
+   * Gets the end.
+   *
+   * Ending offset of artifact in document section.
+   *
+   * @return the end
+   */
+  public Long getEnd() {
+<span class="fc" id="L117">    return end;</span>
+  }
+
+  /**
+   * Gets the coveredText.
+   *
+   * Actual document section text artifact represents.
+   *
+   * @return the coveredText
+   */
+  public String getCoveredText() {
+<span class="fc" id="L128">    return coveredText;</span>
+  }
+
+  /**
+   * Gets the cui.
+   *
+   * Ontology defined unique identifier of artifact.
+   *
+   * @return the cui
+   */
+  public String getCui() {
+<span class="fc" id="L139">    return cui;</span>
+  }
+
+  /**
+   * Gets the preferredName.
+   *
+   * Ontology defined normalized name of artifact.
+   *
+   * @return the preferredName
+   */
+  public String getPreferredName() {
+<span class="fc" id="L150">    return preferredName;</span>
+  }
+
+  /**
+   * Gets the source.
+   *
+   * Ontology providing the artifact.
+   *
+   * @return the source
+   */
+  public String getSource() {
+<span class="fc" id="L161">    return source;</span>
+  }
+
+  /**
+   * Gets the negated.
+   *
+   * Whether span represented by artifact is negated.
+   *
+   * @return the negated
+   */
+  public Boolean isNegated() {
+<span class="fc" id="L172">    return negated;</span>
+  }
+
+  /**
+   * Gets the hypothetical.
+   *
+   * Whether span represented by artifact is hypothetical.
+   *
+   * @return the hypothetical
+   */
+  public Boolean isHypothetical() {
+<span class="fc" id="L183">    return hypothetical;</span>
+  }
+
+  /**
+   * Gets the timestamp.
+   *
+   * Time based offset of artifact in a video transcript (if applicable).
+   *
+   * @return the timestamp
+   */
+  public Long getTimestamp() {
+<span class="fc" id="L194">    return timestamp;</span>
+  }
+
+  /**
+   * Gets the attributeId.
+   *
+   * Identifier of attribute where artifact is defined (if applicable).
+   *
+   * @return the attributeId
+   */
+  public String getAttributeId() {
+<span class="fc" id="L205">    return attributeId;</span>
+  }
+
+  /**
+   * Gets the qualifiers.
+   *
+   * List of qualifers defined for an attribute artifact.
+   *
+   * @return the qualifiers
+   */
+  public List&lt;String&gt; getQualifiers() {
+<span class="fc" id="L216">    return qualifiers;</span>
+  }
+
+  /**
+   * Gets the unit.
+   *
+   * Unit of measure for attribute defined artifact (if applicable).
+   *
+   * @return the unit
+   */
+  public String getUnit() {
+<span class="fc" id="L227">    return unit;</span>
+  }
+
+  /**
+   * Gets the minValue.
+   *
+   * Starting range value for attribute artifact (if applicable).
+   *
+   * @return the minValue
+   */
+  public String getMinValue() {
+<span class="fc" id="L238">    return minValue;</span>
+  }
+
+  /**
+   * Gets the maxValue.
+   *
+   * Ending range value for attribute artifact (if applicable).
+   *
+   * @return the maxValue
+   */
+  public String getMaxValue() {
+<span class="fc" id="L249">    return maxValue;</span>
+  }
+
+  /**
+   * Gets the operator.
+   *
+   * Mathmatical operator for attribute artifact (if applicable).
+   *
+   * @return the operator
+   */
+  public String getOperator() {
+<span class="fc" id="L260">    return operator;</span>
+  }
+
+  /**
+   * Gets the features.
+   *
+   * List of additional artifact features.
+   *
+   * @return the features
+   */
+  public Map&lt;String, String&gt; getFeatures() {
+<span class="fc" id="L271">    return features;</span>
+  }
+
+  /**
+   * Gets the nluEntityIndex.
+   *
+   * Model coreference chain to which artifact belongs.
+   *
+   * @return the nluEntityIndex
+   */
+  public String getNluEntityIndex() {
+<span class="fc" id="L282">    return nluEntityIndex;</span>
+  }
+
+  /**
+   * Gets the nluMentionIndex.
+   *
+   * Artifact position in Model coreference chain.
+   *
+   * @return the nluMentionIndex
+   */
+  public String getNluMentionIndex() {
+<span class="fc" id="L293">    return nluMentionIndex;</span>
+  }
+
+  /**
+   * Gets the nluRelationId.
+   *
+   * Relation unique identifier artifact is associated with.
+   *
+   * @return the nluRelationId
+   */
+  public String getNluRelationId() {
+<span class="fc" id="L304">    return nluRelationId;</span>
+  }
+
+  /**
+   * Gets the nluSide.
+   *
+   * Whether artifact is a source or target of a relationship.
+   *
+   * @return the nluSide
+   */
+  public String getNluSide() {
+<span class="fc" id="L315">    return nluSide;</span>
+  }
+
+  /**
+   * Gets the nluSourceType.
+   *
+   * Model type for artifact when the source of a relationship.
+   *
+   * @return the nluSourceType
+   */
+  public String getNluSourceType() {
+<span class="fc" id="L326">    return nluSourceType;</span>
+  }
+
+  /**
+   * Gets the nluRelation.
+   *
+   * Name of the realtion an artifact is associated with.
+   *
+   * @return the nluRelation
+   */
+  public String getNluRelation() {
+<span class="fc" id="L337">    return nluRelation;</span>
+  }
+
+  /**
+   * Gets the nluTargetType.
+   *
+   * Model type for artifact when the target of a relationship.
+   *
+   * @return the nluTargetType
+   */
+  public String getNluTargetType() {
+<span class="fc" id="L348">    return nluTargetType;</span>
+  }
+
+  /**
+   * Gets the hits.
+   *
+   * Number of times artifact is mentioned in the corpus.
+   *
+   * @return the hits
+   */
+  public Long getHits() {
+<span class="fc" id="L359">    return hits;</span>
+  }
+}
+
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>

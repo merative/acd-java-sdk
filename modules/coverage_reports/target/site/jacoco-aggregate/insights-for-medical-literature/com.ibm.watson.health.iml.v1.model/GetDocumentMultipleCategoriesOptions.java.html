@@ -1,0 +1,261 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../jacoco-resources/report.gif" type="image/gif"/><title>GetDocumentMultipleCategoriesOptions.java</title><link rel="stylesheet" href="../../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../../index.html" class="el_report">IBM Watson Health Cognitive Services Coverage Reports</a> &gt; <a href="../index.html" class="el_bundle">insights-for-medical-literature</a> &gt; <a href="index.source.html" class="el_package">com.ibm.watson.health.iml.v1.model</a> &gt; <span class="el_source">GetDocumentMultipleCategoriesOptions.java</span></div><h1>GetDocumentMultipleCategoriesOptions.java</h1><pre class="source lang-java linenums">/*
+ * (C) Copyright IBM Corp. 2020.
+ *
+ * Licensed under the Apache License, Version 2.0 (the &quot;License&quot;); you may not use this file except in compliance with
+ * the License. You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on
+ * an &quot;AS IS&quot; BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the
+ * specific language governing permissions and limitations under the License.
+ */
+package com.ibm.watson.health.iml.v1.model;
+
+import java.util.List;
+
+import com.ibm.cloud.sdk.core.service.model.GenericModel;
+
+/**
+ * The getDocumentMultipleCategories options.
+ */
+public class GetDocumentMultipleCategoriesOptions extends GenericModel {
+
+  protected String corpus;
+  protected String documentId;
+  protected List&lt;Category&gt; categories;
+  protected String highlightTagBegin;
+  protected String highlightTagEnd;
+  protected String fields;
+  protected Long limit;
+
+  /**
+   * Builder.
+   */
+  public static class Builder {
+    private String corpus;
+    private String documentId;
+    private List&lt;Category&gt; categories;
+    private String highlightTagBegin;
+    private String highlightTagEnd;
+    private String fields;
+    private Long limit;
+
+<span class="nc" id="L44">    private Builder(GetDocumentMultipleCategoriesOptions getDocumentMultipleCategoriesOptions) {</span>
+<span class="nc" id="L45">      this.corpus = getDocumentMultipleCategoriesOptions.corpus;</span>
+<span class="nc" id="L46">      this.documentId = getDocumentMultipleCategoriesOptions.documentId;</span>
+<span class="nc" id="L47">      this.categories = getDocumentMultipleCategoriesOptions.categories;</span>
+<span class="nc" id="L48">      this.highlightTagBegin = getDocumentMultipleCategoriesOptions.highlightTagBegin;</span>
+<span class="nc" id="L49">      this.highlightTagEnd = getDocumentMultipleCategoriesOptions.highlightTagEnd;</span>
+<span class="nc" id="L50">      this.fields = getDocumentMultipleCategoriesOptions.fields;</span>
+<span class="nc" id="L51">      this.limit = getDocumentMultipleCategoriesOptions.limit;</span>
+<span class="nc" id="L52">    }</span>
+
+    /**
+     * Instantiates a new builder.
+     */
+<span class="fc" id="L57">    public Builder() {</span>
+<span class="fc" id="L58">    }</span>
+
+    /**
+     * Instantiates a new builder with required properties.
+     *
+     * @param corpus the corpus
+     * @param documentId the documentId
+     */
+<span class="nc" id="L66">    public Builder(String corpus, String documentId) {</span>
+<span class="nc" id="L67">      this.corpus = corpus;</span>
+<span class="nc" id="L68">      this.documentId = documentId;</span>
+<span class="nc" id="L69">    }</span>
+
+    /**
+     * Builds a GetDocumentMultipleCategoriesOptions.
+     *
+     * @return the new GetDocumentMultipleCategoriesOptions instance
+     */
+    public GetDocumentMultipleCategoriesOptions build() {
+<span class="fc" id="L77">      return new GetDocumentMultipleCategoriesOptions(this);</span>
+    }
+
+    /**
+     * Set the corpus.
+     *
+     * @param corpus the corpus
+     * @return the GetDocumentMultipleCategoriesOptions builder
+     */
+    public Builder corpus(String corpus) {
+<span class="fc" id="L87">      this.corpus = corpus;</span>
+<span class="fc" id="L88">      return this;</span>
+    }
+
+    /**
+     * Set the documentId.
+     *
+     * @param documentId the documentId
+     * @return the GetDocumentMultipleCategoriesOptions builder
+     */
+    public Builder documentId(String documentId) {
+<span class="fc" id="L98">      this.documentId = documentId;</span>
+<span class="fc" id="L99">      return this;</span>
+    }
+
+    /**
+     * Set the categories.
+     *
+     * @param categories the annotation categories
+     * @return the GetDocumentMultipleCategoriesOptions builder
+     */
+    public Builder categories(List&lt;Category&gt; categories) {
+<span class="nc" id="L109">      this.categories = categories;</span>
+<span class="nc" id="L110">      return this;</span>
+    }
+
+    /**
+     * Set the highlightTagBegin.
+     *
+     * @param highlightTagBegin the highlightTagBegin
+     * @return the GetDocumentMultipleCategoriesOptions builder
+     */
+    public Builder highlightTagBegin(String highlightTagBegin) {
+<span class="fc" id="L120">      this.highlightTagBegin = highlightTagBegin;</span>
+<span class="fc" id="L121">      return this;</span>
+    }
+
+    /**
+     * Set the highlightTagEnd.
+     *
+     * @param highlightTagEnd the highlightTagEnd
+     * @return the GetDocumentMultipleCategoriesOptions builder
+     */
+    public Builder highlightTagEnd(String highlightTagEnd) {
+<span class="fc" id="L131">      this.highlightTagEnd = highlightTagEnd;</span>
+<span class="fc" id="L132">      return this;</span>
+    }
+
+    /**
+     * Set the fields.
+     *
+     * @param fields the fields
+     * @return the GetDocumentMultipleCategoriesOptions builder
+     */
+    public Builder fields(String fields) {
+<span class="fc" id="L142">      this.fields = fields;</span>
+<span class="fc" id="L143">      return this;</span>
+    }
+
+    /**
+     * Set the limit.
+     *
+     * @param limit the limit
+     * @return the GetDocumentMultipleCategoriesOptions builder
+     */
+    public Builder limit(long limit) {
+<span class="fc" id="L153">      this.limit = limit;</span>
+<span class="fc" id="L154">      return this;</span>
+    }
+
+  }
+
+<span class="fc" id="L159">  protected GetDocumentMultipleCategoriesOptions(Builder builder) {</span>
+<span class="fc" id="L160">    com.ibm.cloud.sdk.core.util.Validator.notEmpty(builder.corpus,</span>
+      &quot;corpus cannot be empty&quot;);
+<span class="fc" id="L162">    com.ibm.cloud.sdk.core.util.Validator.notEmpty(builder.documentId,</span>
+      &quot;documentId cannot be empty&quot;);
+<span class="fc" id="L164">    corpus = builder.corpus;</span>
+<span class="fc" id="L165">    documentId = builder.documentId;</span>
+<span class="fc" id="L166">    categories = builder.categories;</span>
+<span class="fc" id="L167">    highlightTagBegin = builder.highlightTagBegin;</span>
+<span class="fc" id="L168">    highlightTagEnd = builder.highlightTagEnd;</span>
+<span class="fc" id="L169">    fields = builder.fields;</span>
+<span class="fc" id="L170">    limit = builder.limit;</span>
+<span class="fc" id="L171">  }</span>
+
+  /**
+   * New builder.
+   *
+   * @return a GetDocumentMultipleCategoriesOptions builder
+   */
+  public Builder newBuilder() {
+<span class="nc" id="L179">    return new Builder(this);</span>
+  }
+
+  /**
+   * Gets the corpus.
+   *
+   * Corpus name.
+   *
+   * @return the corpus
+   */
+  public String corpus() {
+<span class="fc" id="L190">    return corpus;</span>
+  }
+
+  /**
+   * Gets the documentId.
+   *
+   * Document ID.
+   *
+   * @return the documentId
+   */
+  public String documentId() {
+<span class="fc" id="L201">    return documentId;</span>
+  }
+
+  /**
+   * Gets the categories.
+   *
+   * Annotation categories.
+   *
+   * @return the categories
+   */
+  public List&lt;Category&gt; categories() {
+<span class="fc" id="L212">    return categories;</span>
+  }
+
+  /**
+   * Gets the highlightTagBegin.
+   *
+   * HTML tag used to highlight concepts found in the text.  Default is '&amp;amp;ltb&amp;amp;gt'.
+   *
+   * @return the highlightTagBegin
+   */
+  public String highlightTagBegin() {
+<span class="fc" id="L223">    return highlightTagBegin;</span>
+  }
+
+  /**
+   * Gets the highlightTagEnd.
+   *
+   * HTML tag used to highlight concepts found in the text.  Default is '&amp;amp;lt/b&amp;amp;gt'.
+   *
+   * @return the highlightTagEnd
+   */
+  public String highlightTagEnd() {
+<span class="fc" id="L234">    return highlightTagEnd;</span>
+  }
+
+  /**
+   * Gets the fields.
+   *
+   * Comma separated list of fields to return:  passages, annotations, highlightedTitle, highlightedAbstract,
+   * highlightedBody, highlightedSections.
+   *
+   * @return the fields
+   */
+  public String fields() {
+<span class="fc" id="L246">    return fields;</span>
+  }
+
+  /**
+   * Gets the limit.
+   *
+   * Limit the number of passages per search concept (1 to 250).  Default is 50.
+   *
+   * @return the limit
+   */
+  public Long limit() {
+<span class="fc" id="L257">    return limit;</span>
+  }
+}
+
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>
