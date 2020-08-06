@@ -19,6 +19,8 @@ import com.ibm.watson.health.acd.v1.model.Disambiguation;
 import com.ibm.watson.health.acd.v1.model.InsightModelData;
 import com.ibm.watson.health.acd.v1.model.InsightModelDataDiagnosis;
 import com.ibm.watson.health.acd.v1.model.InsightModelDataMedication;
+import com.ibm.watson.health.acd.v1.model.InsightModelDataNormality;
+import com.ibm.watson.health.acd.v1.model.InsightModelDataNormalityUsage;
 import com.ibm.watson.health.acd.v1.model.InsightModelDataProcedure;
 import com.ibm.watson.health.acd.v1.model.InsightModelDataTask;
 import com.ibm.watson.health.acd.v1.model.InsightModelDataUsage;
@@ -126,6 +128,18 @@ public class TestConcept {
 					Float explicitScore = imdDiagUsage.getExplicitScore();
 					if (explicitScore != null) {
 						Assert.assertTrue(explicitScore >= 0);
+					}
+				}
+			}
+			if (imd.getNormality() != null) {
+				Assert.assertTrue(!imd.getNormality().isEmpty());
+				InsightModelDataNormality imdNorm = imd.getNormality();
+				if (imdNorm.getUsage() != null) {
+					Assert.assertTrue(!imdNorm.getUsage().isEmpty());
+					InsightModelDataNormalityUsage imdNormUsage = imdNorm.getUsage();
+					Float normalScore = imdNormUsage.getNormalScore();
+					if (normalScore != null) {
+						Assert.assertTrue(normalScore >= 0);
 					}
 				}
 			}

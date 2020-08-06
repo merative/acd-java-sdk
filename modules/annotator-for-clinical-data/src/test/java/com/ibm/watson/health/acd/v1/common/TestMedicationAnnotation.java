@@ -19,6 +19,8 @@ import org.junit.Assert;
 import com.ibm.watson.health.acd.v1.model.InsightModelData;
 import com.ibm.watson.health.acd.v1.model.InsightModelDataEvent;
 import com.ibm.watson.health.acd.v1.model.InsightModelDataMedication;
+import com.ibm.watson.health.acd.v1.model.InsightModelDataNormality;
+import com.ibm.watson.health.acd.v1.model.InsightModelDataNormalityUsage;
 import com.ibm.watson.health.acd.v1.model.InsightModelDataUsage;
 import com.ibm.watson.health.acd.v1.model.MedicationAnnotation;
 import com.ibm.watson.health.acd.v1.util.CustomCollection;
@@ -73,6 +75,18 @@ public class TestMedicationAnnotation {
 						if (explicitScore != null) {
 							Assert.assertTrue(explicitScore >= 0);
 						}
+					}
+				}
+			}
+			if (imd.getNormality() != null) {
+				Assert.assertTrue(!imd.getNormality().isEmpty());
+				InsightModelDataNormality imdNorm = imd.getNormality();
+				if (imdNorm.getUsage() != null) {
+					Assert.assertTrue(!imdNorm.getUsage().isEmpty());
+					InsightModelDataNormalityUsage imdNormUsage = imdNorm.getUsage();
+					Float normalScore = imdNormUsage.getNormalScore();
+					if (normalScore != null) {
+						Assert.assertTrue(normalScore >= 0);
 					}
 				}
 			}

@@ -31,6 +31,7 @@ public class InsightModelDataUsage extends DynamicModel {
   private Type patientReportedScoreType = new TypeToken<Float>() { } .getType();
   private Type discussedScoreType = new TypeToken<Float>() { } .getType();
   private Type labMeasurementScoreType = new TypeToken<Float>() { } .getType();
+  private Type pendingScoreType = new TypeToken<Float>() { } .getType();
 
   /**
    * Gets the takenScore.
@@ -96,6 +97,15 @@ public class InsightModelDataUsage extends DynamicModel {
   }
 
   /**
+   * Gets the pendingScore.
+   *
+   * @return the pendingScore
+   */
+  public Float getPendingScore() {
+	  return GsonSerializationHelper.serializeDynamicModelProperty(this.get("pendingScore"), pendingScoreType);
+  }
+
+  /**
    * Sets the takenScore.
    *
    * @param takenScore the new takenScore
@@ -156,6 +166,15 @@ public class InsightModelDataUsage extends DynamicModel {
    */
   public void setLabMeasurementScore(final Float labMeasurementScore) {
     this.put("labMeasurementScore", labMeasurementScore);
+  }
+
+  /**
+   * Sets the pendingScore.
+   *
+   * @param pendingScore the new pendingScore
+   */
+  public void setPendingScore(final Float pendingScore) {
+    this.put("pendingScore", pendingScore);
   }
 
 }

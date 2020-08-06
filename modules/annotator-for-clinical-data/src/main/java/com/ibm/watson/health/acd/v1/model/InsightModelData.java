@@ -27,6 +27,7 @@ public class InsightModelData extends DynamicModel {
   private Type medicationType = new TypeToken<InsightModelDataMedication>() { } .getType();
   private Type procedureType = new TypeToken<InsightModelDataProcedure>() { } .getType();
   private Type diagnosisType = new TypeToken<InsightModelDataDiagnosis>() { } .getType();
+  private Type normalityType = new TypeToken<InsightModelDataNormality>() { } .getType();
 
   /**
    * Gets the medication.
@@ -56,6 +57,15 @@ public class InsightModelData extends DynamicModel {
   }
 
   /**
+   * Gets the normality.
+   *
+   * @return the normality
+   */
+  public InsightModelDataNormality getNormality() {
+    return GsonSerializationHelper.serializeDynamicModelProperty(this.get("normality"), normalityType);
+  }
+
+  /**
    * Sets the medication.
    *
    * @param medication the new medication
@@ -80,6 +90,15 @@ public class InsightModelData extends DynamicModel {
    */
   public void setDiagnosis(final InsightModelDataDiagnosis diagnosis) {
     this.put("diagnosis", diagnosis);
+  }
+
+  /**
+   * Sets the normality.
+   *
+   * @param normality the new normality
+   */
+  public void setNormality(final InsightModelDataNormality normality) {
+    this.put("normality", normality);
   }
 
 }
