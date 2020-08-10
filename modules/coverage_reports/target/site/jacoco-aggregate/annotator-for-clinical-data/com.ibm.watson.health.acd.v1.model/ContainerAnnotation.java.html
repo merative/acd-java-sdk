@@ -1,0 +1,620 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../jacoco-resources/report.gif" type="image/gif"/><title>ContainerAnnotation.java</title><link rel="stylesheet" href="../../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../../index.html" class="el_report">IBM Watson Health Cognitive Services Coverage Reports</a> &gt; <a href="../index.html" class="el_bundle">annotator-for-clinical-data</a> &gt; <a href="index.source.html" class="el_package">com.ibm.watson.health.acd.v1.model</a> &gt; <span class="el_source">ContainerAnnotation.java</span></div><h1>ContainerAnnotation.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2018 IBM Corp. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the &quot;License&quot;); you may not use this file except in compliance with
+ * the License. You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on
+ * an &quot;AS IS&quot; BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the
+ * specific language governing permissions and limitations under the License.
+ */
+package com.ibm.watson.health.acd.v1.model;
+
+import java.util.List;
+
+import com.google.gson.annotations.SerializedName;
+import com.ibm.watson.developer_cloud.service.model.GenericModel;
+
+/**
+ * ContainerAnnotation.
+ */
+<span class="fc" id="L23">public class ContainerAnnotation extends GenericModel {</span>
+
+  @SerializedName(&quot;AllergyInd&quot;)
+  private List&lt;Annotation&gt; allergyInd;
+  private List&lt;AttributeValueAnnotation&gt; attributeValues;
+  @SerializedName(&quot;BathingAssistanceInd&quot;)
+  private List&lt;AssistanceAnnotation&gt; bathingAssistanceInd;
+  @SerializedName(&quot;IcaCancerDiagnosisInd&quot;)
+  private List&lt;CancerDiagnosis&gt; icaCancerDiagnosisInd;
+  private List&lt;Concept&gt; concepts;
+  private List&lt;ConceptValue&gt; conceptValues;
+  @SerializedName(&quot;DressingAssistanceInd&quot;)
+  private List&lt;AssistanceAnnotation&gt; dressingAssistanceInd;
+  @SerializedName(&quot;EatingAssistanceInd&quot;)
+  private List&lt;AssistanceAnnotation&gt; eatingAssistanceInd;
+  @SerializedName(&quot;EjectionFractionInd&quot;)
+  private List&lt;EjectionFractionAnnotation&gt; ejectionFractionInd;
+  private List&lt;Annotation&gt; hypotheticalSpans;
+  @SerializedName(&quot;LabValueInd&quot;)
+  private List&lt;LabValueAnnotation&gt; labValueInd;
+  @SerializedName(&quot;MedicationInd&quot;)
+  private List&lt;MedicationAnnotation&gt; medicationInd;
+  @SerializedName(&quot;EmailAddressInd&quot;)
+  private List&lt;Annotation&gt; emailAddressInd;
+  @SerializedName(&quot;LocationInd&quot;)
+  private List&lt;Annotation&gt; locationInd;
+  @SerializedName(&quot;PersonInd&quot;)
+  private List&lt;Annotation&gt; personInd;
+  @SerializedName(&quot;US_PhoneNumberInd&quot;)
+  private List&lt;Annotation&gt; uSPhoneNumberInd;
+  @SerializedName(&quot;MedicalInstitutionInd&quot;)
+  private List&lt;Annotation&gt; medicalInstitutionInd;
+  private List&lt;NluEntity&gt; nluEntities;
+  @SerializedName(&quot;OrganizationInd&quot;)
+  private List&lt;Annotation&gt; organizationInd;
+  private List&lt;NegatedSpan&gt; negatedSpans;
+  @SerializedName(&quot;ProcedureInd&quot;)
+  private List&lt;Procedure&gt; procedureInd;
+  private List&lt;Relation&gt; relations;
+  @SerializedName(&quot;sections&quot;)
+  private List&lt;SectionAnnotation&gt; sections;
+  @SerializedName(&quot;SeeingAssistanceInd&quot;)
+  private List&lt;AssistanceAnnotation&gt; seeingAssistanceInd;
+  @SerializedName(&quot;SmokingInd&quot;)
+  private List&lt;Smoking&gt; smokingInd;
+  @SerializedName(&quot;SymptomDiseaseInd&quot;)
+  private List&lt;SymptomDisease&gt; symptomDiseaseInd;
+  @SerializedName(&quot;ToiletingAssistanceInd&quot;)
+  private List&lt;AssistanceAnnotation&gt; toiletingAssistanceInd;
+  @SerializedName(&quot;WalkingAssistanceInd&quot;)
+  private List&lt;AssistanceAnnotation&gt; walkingAssistanceInd;
+  @SerializedName(&quot;spellCorrectedText&quot;)
+  private List&lt;SpellCorrectedText&gt; spellCorrectedText;
+  @SerializedName(&quot;spellingCorrections&quot;)
+  private List&lt;SpellingCorrection&gt; spellingCorrections;
+
+    /**
+     * Gets the allergyInd.
+     *
+     * @return the allergyInd
+     */
+    public List&lt;Annotation&gt; getAllergyInd() {
+<span class="nc" id="L85">      return allergyInd;</span>
+    }
+
+    /**
+     * Gets the attributeValues.
+     *
+     * @return the attributeValues
+     */
+    public List&lt;AttributeValueAnnotation&gt; getAttributeValues() {
+<span class="nc" id="L94">      return attributeValues;</span>
+    }
+
+    /**
+     * Gets the bathingAssistanceInd.
+     *
+     * @return the bathingAssistanceInd
+     */
+    public List&lt;AssistanceAnnotation&gt; getBathingAssistanceInd() {
+<span class="nc" id="L103">      return bathingAssistanceInd;</span>
+    }
+
+    /**
+     * Gets the icaCancerDiagnosisInd.
+     *
+     * @return the icaCancerDiagnosisInd
+     */
+    public List&lt;CancerDiagnosis&gt; getIcaCancerDiagnosisInd() {
+<span class="nc" id="L112">      return icaCancerDiagnosisInd;</span>
+    }
+
+    /**
+     * Gets the concepts.
+     *
+     * @return the concepts
+     */
+    public List&lt;Concept&gt; getConcepts() {
+<span class="nc" id="L121">      return concepts;</span>
+    }
+
+    /**
+     * Gets the conceptValues.
+     *
+     * @return the conceptValues
+     */
+    public List&lt;ConceptValue&gt; getConceptValues() {
+<span class="nc" id="L130">      return conceptValues;</span>
+    }
+
+    /**
+     * Gets the dressingAssistanceInd.
+     *
+     * @return the dressingAssistanceInd
+     */
+    public List&lt;AssistanceAnnotation&gt; getDressingAssistanceInd() {
+<span class="nc" id="L139">      return dressingAssistanceInd;</span>
+    }
+
+    /**
+     * Gets the eatingAssistanceInd.
+     *
+     * @return the eatingAssistanceInd
+     */
+    public List&lt;AssistanceAnnotation&gt; getEatingAssistanceInd() {
+<span class="nc" id="L148">      return eatingAssistanceInd;</span>
+    }
+
+    /**
+     * Gets the ejectionFractionInd.
+     *
+     * @return the ejectionFractionInd
+     */
+    public List&lt;EjectionFractionAnnotation&gt; getEjectionFractionInd() {
+<span class="nc" id="L157">      return ejectionFractionInd;</span>
+    }
+
+    /**
+     * Gets the hypotheticalSpans.
+     *
+     * @return the hypotheticalSpans
+     */
+    public List&lt;Annotation&gt; getHypotheticalSpans() {
+<span class="nc" id="L166">      return hypotheticalSpans;</span>
+    }
+
+    /**
+     * Gets the labValueInd.
+     *
+     * @return the labValueInd
+     */
+    public List&lt;LabValueAnnotation&gt; getLabValueInd() {
+<span class="nc" id="L175">      return labValueInd;</span>
+    }
+
+    /**
+     * Gets the medicationInd.
+     *
+     * @return the medicationInd
+     */
+    public List&lt;MedicationAnnotation&gt; getMedicationInd() {
+<span class="nc" id="L184">      return medicationInd;</span>
+    }
+
+    /**
+     * Gets the NluEntity.
+     *
+     * @return the NluEntity
+     */
+    public List&lt;NluEntity&gt; getNluEntities() {
+<span class="nc" id="L193">      return nluEntities;</span>
+    }
+
+    /**
+     * Gets the emailAddressInd.
+     *
+     * @return the emailAddressInd
+     */
+    public List&lt;Annotation&gt; getEmailAddressInd() {
+<span class="nc" id="L202">      return emailAddressInd;</span>
+    }
+
+    /**
+     * Gets the locationInd.
+     *
+     * @return the locationInd
+     */
+    public List&lt;Annotation&gt; getLocationInd() {
+<span class="nc" id="L211">      return locationInd;</span>
+    }
+
+    /**
+     * Gets the personInd.
+     *
+     * @return the personInd
+     */
+    public List&lt;Annotation&gt; getPersonInd() {
+<span class="nc" id="L220">      return personInd;</span>
+    }
+
+    /**
+     * Gets the uSPhoneNumberInd.
+     *
+     * @return the uSPhoneNumberInd
+     */
+    public List&lt;Annotation&gt; getUSPhoneNumberInd() {
+<span class="nc" id="L229">      return uSPhoneNumberInd;</span>
+    }
+
+    /**
+     * Gets the medicalInstitutionInd.
+     *
+     * @return the medicalInstitutionInd
+     */
+    public List&lt;Annotation&gt; getMedicalInstitutionInd() {
+<span class="nc" id="L238">      return medicalInstitutionInd;</span>
+    }
+
+    /**
+     * Gets the organizationInd.
+     *
+     * @return the organizationInd
+     */
+    public List&lt;Annotation&gt; getOrganizationInd() {
+<span class="nc" id="L247">      return organizationInd;</span>
+    }
+
+    /**
+     * Gets the negatedSpans.
+     *
+     * @return the negatedSpans
+     */
+    public List&lt;NegatedSpan&gt; getNegatedSpans() {
+<span class="nc" id="L256">      return negatedSpans;</span>
+    }
+
+    /**
+     * Gets the procedureInd.
+     *
+     * @return the procedureInd
+     */
+    public List&lt;Procedure&gt; getProcedureInd() {
+<span class="nc" id="L265">      return procedureInd;</span>
+    }
+
+    /**
+     * Gets the Relation.
+     *
+     * @return the Relation
+     */
+    public List&lt;Relation&gt; getRelations() {
+<span class="nc" id="L274">      return relations;</span>
+    }
+
+    /**
+     * Gets the section.
+     *
+     * @return the section
+     */
+    public List&lt;SectionAnnotation&gt; getSectionAnnotations() {
+<span class="nc" id="L283">      return sections;</span>
+    }
+
+
+    /**
+     * Gets the seeingAssistanceInd.
+     *
+     * @return the seeingAssistanceInd
+     */
+    public List&lt;AssistanceAnnotation&gt; getSeeingAssistanceInd() {
+<span class="nc" id="L293">      return seeingAssistanceInd;</span>
+    }
+
+    /**
+     * Gets the smokingInd.
+     *
+     * @return the smokingInd
+     */
+    public List&lt;Smoking&gt; getSmokingInd() {
+<span class="nc" id="L302">      return smokingInd;</span>
+    }
+
+    /**
+     * Gets the symptomDiseaseInd.
+     *
+     * @return the symptomDiseaseInd
+     */
+    public List&lt;SymptomDisease&gt; getSymptomDiseaseInd() {
+<span class="nc" id="L311">      return symptomDiseaseInd;</span>
+    }
+
+    /**
+     * Gets the toiletingAssistanceInd.
+     *
+     * @return the toiletingAssistanceInd
+     */
+    public List&lt;AssistanceAnnotation&gt; getToiletingAssistanceInd() {
+<span class="nc" id="L320">      return toiletingAssistanceInd;</span>
+    }
+
+    /**
+     * Gets the spellCorrectedText.
+     *
+     * @return the spellCorrectedText
+     */
+    public List&lt;SpellCorrectedText&gt; getSpellCorrectedText() {
+<span class="nc" id="L329">      return spellCorrectedText;</span>
+    }
+
+    /**
+     * Returns the spelling corrections.
+     * @return list of spelling corrections
+     */
+    public List&lt;SpellingCorrection&gt; getSpellingCorrections() {
+<span class="nc" id="L337">      return spellingCorrections;</span>
+    }
+
+    /**
+     * Gets the walkingAssistanceInd.
+     *
+     * @return the walkingAssistanceInd
+     */
+    public List&lt;AssistanceAnnotation&gt; getWalkingAssistanceInd() {
+<span class="nc" id="L346">      return walkingAssistanceInd;</span>
+    }
+
+//    /**
+//     * Sets the allergyInd.
+//     *
+//     * @param allergyInd the new allergyInd
+//     */
+//    public void setAllergyInd(final List&lt;Annotation&gt; allergyInd) {
+//      this.allergyInd = allergyInd;
+//    }
+//
+//    /**
+//     * Sets the attributeValues.
+//     *
+//     * @param attributeValues the new attributeValues
+//     */
+//    public void setAttributeValues(final List&lt;AttributeValueAnnotation&gt; attributeValues) {
+//      this.attributeValues = attributeValues;
+//    }
+//
+//    /**
+//     * Sets the bathingAssistanceInd.
+//     *
+//     * @param bathingAssistanceInd the new bathingAssistanceInd
+//     */
+//    public void setBathingAssistanceInd(final List&lt;AssistanceAnnotation&gt; bathingAssistanceInd) {
+//      this.bathingAssistanceInd = bathingAssistanceInd;
+//    }
+//
+//    /**
+//     * Sets the icaCancerDiagnosisInd.
+//     *
+//     * @param icaCancerDiagnosisInd the new icaCancerDiagnosisInd
+//     */
+//    public void setIcaCancerDiagnosisInd(final List&lt;CancerDiagnosis&gt; icaCancerDiagnosisInd) {
+//      this.icaCancerDiagnosisInd = icaCancerDiagnosisInd;
+//    }
+//
+//    /**
+//     * Sets the concepts.
+//     *
+//     * @param concepts the new concepts
+//     */
+//    public void setConcepts(final List&lt;Concept&gt; concepts) {
+//      this.concepts = concepts;
+//    }
+//
+//    /**
+//     * Sets the conceptValues.
+//     *
+//     * @param conceptValues the new conceptValues
+//     */
+//    public void setConceptValues(final List&lt;ConceptValue&gt; conceptValues) {
+//      this.conceptValues = conceptValues;
+//    }
+//
+//    /**
+//     * Sets the dressingAssistanceInd.
+//     *
+//     * @param dressingAssistanceInd the new dressingAssistanceInd
+//     */
+//    public void setDressingAssistanceInd(final List&lt;AssistanceAnnotation&gt; dressingAssistanceInd) {
+//      this.dressingAssistanceInd = dressingAssistanceInd;
+//    }
+//
+//    /**
+//     * Sets the eatingAssistanceInd.
+//     *
+//     * @param eatingAssistanceInd the new eatingAssistanceInd
+//     */
+//    public void setEatingAssistanceInd(final List&lt;AssistanceAnnotation&gt; eatingAssistanceInd) {
+//      this.eatingAssistanceInd = eatingAssistanceInd;
+//    }
+//
+//    /**
+//     * Sets the ejectionFractionInd.
+//     *
+//     * @param ejectionFractionInd the new ejectionFractionInd
+//     */
+//    public void setEjectionFractionInd(final List&lt;EjectionFractionAnnotation&gt; ejectionFractionInd) {
+//      this.ejectionFractionInd = ejectionFractionInd;
+//    }
+//
+//    /**
+//     * Sets the hypotheticalSpans.
+//     *
+//     * @param hypotheticalSpans the new hypotheticalSpans
+//     */
+//    public void setHypotheticalSpans(final List&lt;Annotation&gt; hypotheticalSpans) {
+//      this.hypotheticalSpans = hypotheticalSpans;
+//    }
+//
+//    /**
+//     * Sets the labValueInd.
+//     *
+//     * @param labValueInd the new labValueInd
+//     */
+//    public void setLabValueInd(final List&lt;LabValueAnnotation&gt; labValueInd) {
+//      this.labValueInd = labValueInd;
+//    }
+//
+//    /**
+//     * Sets the medicationInd.
+//     *
+//     * @param medicationInd the new medicationInd
+//     */
+//    public void setMedicationInd(final List&lt;MedicationAnnotation&gt; medicationInd) {
+//      this.medicationInd = medicationInd;
+//    }
+//
+//    /**
+//     * Sets the NluEntity.
+//     *
+//     * @param NluEntity the new NluEntity
+//     */
+//    public void setNluEntities(final List&lt;NluEntity&gt; nluEntities) {
+//      this.nluEntities = nluEntities;
+//    }
+//
+//    /**
+//     * Sets the emailAddressInd.
+//     *
+//     * @param emailAddressInd the new emailAddressInd
+//     */
+//    public void setEmailAddressInd(final List&lt;Annotation&gt; emailAddressInd) {
+//      this.emailAddressInd = emailAddressInd;
+//    }
+//
+//    /**
+//     * Sets the locationInd.
+//     *
+//     * @param locationInd the new locationInd
+//     */
+//    public void setLocationInd(final List&lt;Annotation&gt; locationInd) {
+//      this.locationInd = locationInd;
+//    }
+//
+//    /**
+//     * Sets the personInd.
+//     *
+//     * @param personInd the new personInd
+//     */
+//    public void setPersonInd(final List&lt;Annotation&gt; personInd) {
+//      this.personInd = personInd;
+//    }
+//
+//    /**
+//     * Sets the uSPhoneNumberInd.
+//     *
+//     * @param uSPhoneNumberInd the new uSPhoneNumberInd
+//     */
+//    public void setUSPhoneNumberInd(final List&lt;Annotation&gt; uSPhoneNumberInd) {
+//      this.uSPhoneNumberInd = uSPhoneNumberInd;
+//    }
+//
+//    /**
+//     * Sets the medicalInstitutionInd.
+//     *
+//     * @param medicalInstitutionInd the new medicalInstitutionInd
+//     */
+//    public void setMedicalInstitutionInd(final List&lt;Annotation&gt; medicalInstitutionInd) {
+//      this.medicalInstitutionInd = medicalInstitutionInd;
+//    }
+//
+//    /**
+//     * Sets the organizationInd.
+//     *
+//     * @param organizationInd the new organizationInd
+//     */
+//    public void setOrganizationInd(final List&lt;Annotation&gt; organizationInd) {
+//      this.organizationInd = organizationInd;
+//    }
+//
+//    /**
+//     * Sets the negatedSpans.
+//     *
+//     * @param negatedSpans the new negatedSpans
+//     */
+//    public void setNegatedSpans(final List&lt;NegatedSpan&gt; negatedSpans) {
+//      this.negatedSpans = negatedSpans;
+//    }
+//
+//    /**
+//     * Sets the procedureInd.
+//     *
+//     * @param procedureInd the new procedureInd
+//     */
+//    public void setProcedureInd(final List&lt;Procedure&gt; procedureInd) {
+//      this.procedureInd = procedureInd;
+//    }
+//
+//    /**
+//     * Sets the Relation
+//     *
+//     * @param Relation the new Relation
+//     */
+//    public void setRelations(final List&lt;Relation&gt; relations) {
+//      this.relations = relations;
+//    }
+//
+//    /**
+//     * Sets the section
+//     *
+//     * @param sectionAnnoationLst the new list of sectionAnnotation
+//     */
+//    public void setSections(final List&lt;SectionAnnotation&gt; sectionAnnotationLst) {
+//      this.sections = sectionAnnotationLst;
+//    }
+//
+//
+//    /**
+//     * Sets the seeingAssistanceInd.
+//     *
+//     * @param seeingAssistanceInd the new seeingAssistanceInd
+//     */
+//    public void setSeeingAssistanceInd(final List&lt;AssistanceAnnotation&gt; seeingAssistanceInd) {
+//      this.seeingAssistanceInd = seeingAssistanceInd;
+//    }
+//
+//    /**
+//     * Sets the smokingInd.
+//     *
+//     * @param smokingInd the new smokingInd
+//     */
+//    public void setSmokingInd(final List&lt;Smoking&gt; smokingInd) {
+//      this.smokingInd = smokingInd;
+//    }
+//
+//    /**
+//     * Sets the symptomDiseaseInd.
+//     *
+//     * @param symptomDiseaseInd the new symptomDiseaseInd
+//     */
+//    public void setSymptomDiseaseInd(final List&lt;SymptomDisease&gt; symptomDiseaseInd) {
+//      this.symptomDiseaseInd = symptomDiseaseInd;
+//    }
+//
+//    /**
+//     * Sets the toiletingAssistanceInd.
+//     *
+//     * @param toiletingAssistanceInd the new toiletingAssistanceInd
+//     */
+//    public void setToiletingAssistanceInd(final List&lt;AssistanceAnnotation&gt; toiletingAssistanceInd) {
+//      this.toiletingAssistanceInd = toiletingAssistanceInd;
+//    }
+//
+//    /**
+//     * Sets the walkingAssistanceInd.
+//     *
+//     * @param walkingAssistanceInd the new walkingAssistanceInd
+//     */
+//    public void setWalkingAssistanceInd(final List&lt;AssistanceAnnotation&gt; walkingAssistanceInd) {
+//      this.walkingAssistanceInd = walkingAssistanceInd;
+//    }
+//
+//    /**
+//     * Sets the spellCorrectedText.
+//     *
+//     * @param spellCorrectedText the new spellCorrectedText
+//     */
+//    public void setSpellCorrectedText(final List&lt;SpellCorrectedText&gt; spellCorrectedTexts) {
+//      this.spellCorrectedText = spellCorrectedTexts;
+//    }
+//
+//    /**
+//     * Sets the spelling corrections
+//     *
+//     * @param spellingCorrections the new spelling corrections
+//     */
+//    public void setSpellingCorrections(final List&lt;SpellingCorrection&gt; spellingCorrections) {
+//      this.spellingCorrections = spellingCorrections;
+//    }
+  }
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>

@@ -1,0 +1,355 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../jacoco-resources/report.gif" type="image/gif"/><title>GetConceptsOptions.java</title><link rel="stylesheet" href="../../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../../index.html" class="el_report">IBM Watson Health Cognitive Services Coverage Reports</a> &gt; <a href="../index.html" class="el_bundle">insights-for-medical-literature</a> &gt; <a href="index.source.html" class="el_package">com.ibm.watson.health.iml.v1.model</a> &gt; <span class="el_source">GetConceptsOptions.java</span></div><h1>GetConceptsOptions.java</h1><pre class="source lang-java linenums">/*
+ * (C) Copyright IBM Corp. 2020.
+ *
+ * Licensed under the Apache License, Version 2.0 (the &quot;License&quot;); you may not use this file except in compliance with
+ * the License. You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on
+ * an &quot;AS IS&quot; BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the
+ * specific language governing permissions and limitations under the License.
+ */
+package com.ibm.watson.health.iml.v1.model;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import com.ibm.cloud.sdk.core.service.model.GenericModel;
+
+/**
+ * The getConcepts options.
+ */
+public class GetConceptsOptions extends GenericModel {
+
+  protected String corpus;
+  protected List&lt;String&gt; cuis;
+  protected List&lt;String&gt; preferredNames;
+  protected List&lt;String&gt; surfaceForms;
+  protected List&lt;String&gt; attributes;
+  protected Boolean verbose;
+  protected String sort;
+  protected Long limit;
+
+  /**
+   * Builder.
+   */
+  public static class Builder {
+    private String corpus;
+    private List&lt;String&gt; cuis;
+    private List&lt;String&gt; preferredNames;
+    private List&lt;String&gt; surfaceForms;
+    private List&lt;String&gt; attributes;
+    private Boolean verbose;
+    private String sort;
+    private Long limit;
+
+<span class="nc" id="L47">    private Builder(GetConceptsOptions getConceptsOptions) {</span>
+<span class="nc" id="L48">      this.corpus = getConceptsOptions.corpus;</span>
+<span class="nc" id="L49">      this.cuis = getConceptsOptions.cuis;</span>
+<span class="nc" id="L50">      this.preferredNames = getConceptsOptions.preferredNames;</span>
+<span class="nc" id="L51">      this.surfaceForms = getConceptsOptions.surfaceForms;</span>
+<span class="nc" id="L52">      this.attributes = getConceptsOptions.attributes;</span>
+<span class="nc" id="L53">      this.verbose = getConceptsOptions.verbose;</span>
+<span class="nc" id="L54">      this.sort = getConceptsOptions.sort;</span>
+<span class="nc" id="L55">      this.limit = getConceptsOptions.limit;</span>
+<span class="nc" id="L56">    }</span>
+
+    /**
+     * Instantiates a new builder.
+     */
+<span class="fc" id="L61">    public Builder() {</span>
+<span class="fc" id="L62">    }</span>
+
+    /**
+     * Instantiates a new builder with required properties.
+     *
+     * @param corpus the corpus
+     */
+<span class="nc" id="L69">    public Builder(String corpus) {</span>
+<span class="nc" id="L70">      this.corpus = corpus;</span>
+<span class="nc" id="L71">    }</span>
+
+    /**
+     * Builds a GetConceptsOptions.
+     *
+     * @return the new GetConceptsOptions instance
+     */
+    public GetConceptsOptions build() {
+<span class="fc" id="L79">      return new GetConceptsOptions(this);</span>
+    }
+
+    /**
+     * Adds an cuis to cuis.
+     *
+     * @param cuis the new cuis
+     * @return the GetConceptsOptions builder
+     */
+    public Builder addCuis(String cuis) {
+<span class="nc" id="L89">      com.ibm.cloud.sdk.core.util.Validator.notNull(cuis,</span>
+        &quot;cuis cannot be null&quot;);
+<span class="nc bnc" id="L91" title="All 2 branches missed.">      if (this.cuis == null) {</span>
+<span class="nc" id="L92">        this.cuis = new ArrayList&lt;String&gt;();</span>
+      }
+<span class="nc" id="L94">      this.cuis.add(cuis);</span>
+<span class="nc" id="L95">      return this;</span>
+    }
+
+    /**
+     * Adds an preferredNames to preferredNames.
+     *
+     * @param preferredNames the new preferredNames
+     * @return the GetConceptsOptions builder
+     */
+    public Builder addPreferredNames(String preferredNames) {
+<span class="nc" id="L105">      com.ibm.cloud.sdk.core.util.Validator.notNull(preferredNames,</span>
+        &quot;preferredNames cannot be null&quot;);
+<span class="nc bnc" id="L107" title="All 2 branches missed.">      if (this.preferredNames == null) {</span>
+<span class="nc" id="L108">        this.preferredNames = new ArrayList&lt;String&gt;();</span>
+      }
+<span class="nc" id="L110">      this.preferredNames.add(preferredNames);</span>
+<span class="nc" id="L111">      return this;</span>
+    }
+
+    /**
+     * Adds an surfaceForms to surfaceForms.
+     *
+     * @param surfaceForms the new surfaceForms
+     * @return the GetConceptsOptions builder
+     */
+    public Builder addSurfaceForms(String surfaceForms) {
+<span class="nc" id="L121">      com.ibm.cloud.sdk.core.util.Validator.notNull(surfaceForms,</span>
+        &quot;surfaceForms cannot be null&quot;);
+<span class="nc bnc" id="L123" title="All 2 branches missed.">      if (this.surfaceForms == null) {</span>
+<span class="nc" id="L124">        this.surfaceForms = new ArrayList&lt;String&gt;();</span>
+      }
+<span class="nc" id="L126">      this.surfaceForms.add(surfaceForms);</span>
+<span class="nc" id="L127">      return this;</span>
+    }
+
+    /**
+     * Adds an attributes to attributes.
+     *
+     * @param attributes the new attributes
+     * @return the GetConceptsOptions builder
+     */
+    public Builder addAttributes(String attributes) {
+<span class="nc" id="L137">      com.ibm.cloud.sdk.core.util.Validator.notNull(attributes,</span>
+        &quot;attributes cannot be null&quot;);
+<span class="nc bnc" id="L139" title="All 2 branches missed.">      if (this.attributes == null) {</span>
+<span class="nc" id="L140">        this.attributes = new ArrayList&lt;String&gt;();</span>
+      }
+<span class="nc" id="L142">      this.attributes.add(attributes);</span>
+<span class="nc" id="L143">      return this;</span>
+    }
+
+    /**
+     * Set the corpus.
+     *
+     * @param corpus the corpus
+     * @return the GetConceptsOptions builder
+     */
+    public Builder corpus(String corpus) {
+<span class="fc" id="L153">      this.corpus = corpus;</span>
+<span class="fc" id="L154">      return this;</span>
+    }
+
+    /**
+     * Set the cuis.
+     * Existing cuis will be replaced.
+     *
+     * @param cuis the cuis
+     * @return the GetConceptsOptions builder
+     */
+    public Builder cuis(List&lt;String&gt; cuis) {
+<span class="fc" id="L165">      this.cuis = cuis;</span>
+<span class="fc" id="L166">      return this;</span>
+    }
+
+    /**
+     * Set the preferredNames.
+     * Existing preferredNames will be replaced.
+     *
+     * @param preferredNames the preferredNames
+     * @return the GetConceptsOptions builder
+     */
+    public Builder preferredNames(List&lt;String&gt; preferredNames) {
+<span class="fc" id="L177">      this.preferredNames = preferredNames;</span>
+<span class="fc" id="L178">      return this;</span>
+    }
+
+    /**
+     * Set the surfaceForms.
+     * Existing surfaceForms will be replaced.
+     *
+     * @param surfaceForms the surfaceForms
+     * @return the GetConceptsOptions builder
+     */
+    public Builder surfaceForms(List&lt;String&gt; surfaceForms) {
+<span class="fc" id="L189">      this.surfaceForms = surfaceForms;</span>
+<span class="fc" id="L190">      return this;</span>
+    }
+
+    /**
+     * Set the attributes.
+     * Existing attributes will be replaced.
+     *
+     * @param attributes the attributes
+     * @return the GetConceptsOptions builder
+     */
+    public Builder attributes(List&lt;String&gt; attributes) {
+<span class="fc" id="L201">      this.attributes = attributes;</span>
+<span class="fc" id="L202">      return this;</span>
+    }
+
+    /**
+     * Set the verbose.
+     *
+     * @param verbose the verbose
+     * @return the GetConceptsOptions builder
+     */
+    public Builder verbose(Boolean verbose) {
+<span class="fc" id="L212">      this.verbose = verbose;</span>
+<span class="fc" id="L213">      return this;</span>
+    }
+
+    /**
+     * Set the sort.
+     *
+     * @param sort the sort
+     * @return the GetConceptsOptions builder
+     */
+    public Builder sort(String sort) {
+<span class="fc" id="L223">      this.sort = sort;</span>
+<span class="fc" id="L224">      return this;</span>
+    }
+
+    /**
+     * Set the limit.
+     *
+     * @param limit the limit
+     * @return the GetConceptsOptions builder
+     */
+    public Builder limit(long limit) {
+<span class="fc" id="L234">      this.limit = limit;</span>
+<span class="fc" id="L235">      return this;</span>
+    }
+  }
+
+<span class="fc" id="L239">  protected GetConceptsOptions(Builder builder) {</span>
+<span class="fc" id="L240">    com.ibm.cloud.sdk.core.util.Validator.notEmpty(builder.corpus,</span>
+      &quot;corpus cannot be empty&quot;);
+<span class="fc" id="L242">    corpus = builder.corpus;</span>
+<span class="fc" id="L243">    cuis = builder.cuis;</span>
+<span class="fc" id="L244">    preferredNames = builder.preferredNames;</span>
+<span class="fc" id="L245">    surfaceForms = builder.surfaceForms;</span>
+<span class="fc" id="L246">    attributes = builder.attributes;</span>
+<span class="fc" id="L247">    verbose = builder.verbose;</span>
+<span class="fc" id="L248">    sort = builder.sort;</span>
+<span class="fc" id="L249">    limit = builder.limit;</span>
+<span class="fc" id="L250">  }</span>
+
+  /**
+   * New builder.
+   *
+   * @return a GetConceptsOptions builder
+   */
+  public Builder newBuilder() {
+<span class="nc" id="L258">    return new Builder(this);</span>
+  }
+
+  /**
+   * Gets the corpus.
+   *
+   * Corpus name.
+   *
+   * @return the corpus
+   */
+  public String corpus() {
+<span class="fc" id="L269">    return corpus;</span>
+  }
+
+  /**
+   * Gets the cuis.
+   *
+   * Select concepts with the specified CUIs. Each cui is assumed to be from UMLS unless an ontology is explicitly
+   * specified using the syntax [ontology:]cui, e.g., 'concepts:C0018787'.
+   *
+   * @return the cuis
+   */
+  public List&lt;String&gt; cuis() {
+<span class="fc" id="L281">    return cuis;</span>
+  }
+
+  /**
+   * Gets the preferredNames.
+   *
+   * Select concepts with the specified preferred names. Each preferred name is assumed to be from UMLS unless an
+   * ontology is explicitly specified using the syntax [ontology:::]preferred_name, e.g., 'concepts:::HEART'.
+   *
+   * @return the preferredNames
+   */
+  public List&lt;String&gt; preferredNames() {
+<span class="fc" id="L293">    return preferredNames;</span>
+  }
+
+  /**
+   * Gets the surfaceForms.
+   *
+   * Select all concepts having these surface forms. The match is case insensitive. Each surface form is matched against
+   * UMLS unless an ontology is explicitly specified using the syntax [ontology:::]surface_form, e.g., 'concepts:::heart
+   * attack'.
+   *
+   * @return the surfaceForms
+   */
+  public List&lt;String&gt; surfaceForms() {
+<span class="fc" id="L306">    return surfaceForms;</span>
+  }
+
+  /**
+   * Gets the attributes.
+   *
+   * Select all concepts having these attributes. The match is case insensitive.
+   *
+   * @return the attributes
+   */
+  public List&lt;String&gt; attributes() {
+<span class="fc" id="L317">    return attributes;</span>
+  }
+
+  /**
+   * Gets the verbose.
+   *
+   * Verbose output.  Default is false.
+   *
+   * @return the verbose
+   */
+  public Boolean verbose() {
+<span class="fc" id="L328">    return verbose;</span>
+  }
+
+  /**
+   * Gets the sort.
+   *
+   * Sort by hitCount (in document count).  Set to ascending order (_sort=+hitCount) or descending order
+   * (_sort=-hitCount).
+   *
+   * @return the sort
+   */
+  public String sort() {
+<span class="fc" id="L340">    return sort;</span>
+  }
+
+  /**
+   * Gets the limit.
+   *
+   * Number of possible concepts to return. Default is 250.
+   *
+   * @return the limit
+   */
+  public Long limit() {
+<span class="fc" id="L351">    return limit;</span>
+  }
+}
+
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>

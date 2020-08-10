@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../jacoco-resources/report.gif" type="image/gif"/><title>Suggestion.java</title><link rel="stylesheet" href="../../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../../index.html" class="el_report">IBM Watson Health Cognitive Services Coverage Reports</a> &gt; <a href="../index.html" class="el_bundle">annotator-for-clinical-data</a> &gt; <a href="index.source.html" class="el_package">com.ibm.watson.health.acd.v1.model</a> &gt; <span class="el_source">Suggestion.java</span></div><h1>Suggestion.java</h1><pre class="source lang-java linenums">package com.ibm.watson.health.acd.v1.model;
+
+import java.lang.reflect.Type;
+import java.util.List;
+
+import com.google.gson.reflect.TypeToken;
+import com.ibm.watson.developer_cloud.service.model.DynamicModel;
+import com.ibm.watson.developer_cloud.util.GsonSerializationHelper;
+
+<span class="nc" id="L10">public class Suggestion extends DynamicModel {</span>
+
+<span class="nc" id="L12">  private Type appliedType = new TypeToken&lt;Boolean&gt;() { } .getType();</span>
+<span class="nc" id="L13">  private Type confidenceType = new TypeToken&lt;Double&gt;() { } .getType();</span>
+<span class="nc" id="L14">  private Type semtypesType = new TypeToken&lt;List&lt;String&gt;&gt;() { } .getType();</span>
+<span class="nc" id="L15">  private Type textType = new TypeToken&lt;String&gt;() { } .getType();</span>
+
+  /**
+   * Gets the applied field.
+   *
+   * @return the applied field
+   */
+  public Boolean getApplied() {
+<span class="nc" id="L23">    return GsonSerializationHelper.serializeDynamicModelProperty(this.get(&quot;applied&quot;), appliedType);</span>
+  }
+
+  /**
+   * Gets the confidence field.
+   *
+   * @return the confidence field
+   */
+  public Double getConfidence() {
+<span class="nc" id="L32">    return GsonSerializationHelper.serializeDynamicModelProperty(this.get(&quot;confidence&quot;), confidenceType);</span>
+  }
+
+  /**
+   * Gets the semtypes field.
+   *
+   * @return the semtypes field
+   */
+  public List&lt;String&gt; getSemtypes() {
+<span class="nc" id="L41">    return GsonSerializationHelper.serializeDynamicModelProperty(this.get(&quot;semtypes&quot;), semtypesType);</span>
+  }
+
+  /**
+   * Gets the text field.
+   *
+   * @return the text field
+   */
+  public String getText() {
+<span class="nc" id="L50">    return GsonSerializationHelper.serializeDynamicModelProperty(this.get(&quot;text&quot;), textType);</span>
+  }
+
+//  /**
+//   * Sets the applied field.
+//   *
+//   * @param applied the new applied field
+//   */
+//  public void setApplied(final Boolean applied) {
+//    this.put(&quot;applied&quot;, applied);
+//  }
+//
+//  /**
+//   * Sets the confidence field.
+//   *
+//   * @param confidence the new confidence field
+//   */
+//  public void setConfidence(final Double confidence) {
+//    this.put(&quot;confidence&quot;, confidence);
+//  }
+//
+//  /**
+//   * Sets the semtypes field.
+//   *
+//   * @param semtypes the new semtypes field
+//   */
+//  public void setSemtypes(final List&lt;String&gt; semtypes) {
+//    this.put(&quot;semtypes&quot;, semtypes);
+//  }
+//
+//  /**
+//   * Sets the text field.
+//   *
+//   * @param text the new text field
+//   */
+//  public void setText(final String text) {
+//    this.put(&quot;text&quot;, text);
+//  }
+
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>

@@ -1,0 +1,2758 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+  <meta charset='utf-8'>
+  <title>TestNG reports</title>
+
+    <link type="text/css" href="testng-reports.css" rel="stylesheet" />
+    <script type="text/javascript" src="jquery-3.4.1.min.js"></script>
+    <script type="text/javascript" src="testng-reports.js"></script>
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type='text/javascript'>
+      google.load('visualization', '1', {packages:['table']});
+      google.setOnLoadCallback(drawTable);
+      var suiteTableInitFunctions = new Array();
+      var suiteTableData = new Array();
+    </script>
+    <!--
+      <script type="text/javascript" src="jquery-ui/js/jquery-ui-1.8.16.custom.min.js"></script>
+     -->
+  </head>
+
+  <body>
+    <div class="top-banner-root">
+      <span class="top-banner-title-font">Test results</span>
+      <br/>
+      <span class="top-banner-font-1">1 suite</span>
+    </div> <!-- top-banner-root -->
+    <div class="navigator-root">
+      <div class="navigator-suite-header">
+        <span>All suites</span>
+        <a href="#" class="collapse-all-link" title="Collapse/expand all the suites">
+          <img class="collapse-all-icon" src="collapseall.gif">
+          </img> <!-- collapse-all-icon -->
+        </a> <!-- collapse-all-link -->
+      </div> <!-- navigator-suite-header -->
+      <div class="suite">
+        <div class="rounded-window">
+          <div class="suite-header light-rounded-window-top">
+            <a href="#" class="navigator-link" panel-name="suite-Command_line_suite">
+              <span class="suite-name border-passed">Command line suite</span>
+            </a> <!-- navigator-link -->
+          </div> <!-- suite-header light-rounded-window-top -->
+          <div class="navigator-suite-content">
+            <div class="suite-section-title">
+              <span>Info</span>
+            </div> <!-- suite-section-title -->
+            <div class="suite-section-content">
+              <ul>
+                <li>
+                  <a href="#" class="navigator-link " panel-name="test-xml-Command_line_suite">
+                    <span>[unset file name]</span>
+                  </a> <!-- navigator-link  -->
+                </li>
+                <li>
+                  <a href="#" class="navigator-link " panel-name="testlist-Command_line_suite">
+                    <span class="test-stats">1 test</span>
+                  </a> <!-- navigator-link  -->
+                </li>
+                <li>
+                  <a href="#" class="navigator-link " panel-name="group-Command_line_suite">
+                    <span>0 groups</span>
+                  </a> <!-- navigator-link  -->
+                </li>
+                <li>
+                  <a href="#" class="navigator-link " panel-name="times-Command_line_suite">
+                    <span>Times</span>
+                  </a> <!-- navigator-link  -->
+                </li>
+                <li>
+                  <a href="#" class="navigator-link " panel-name="reporter-Command_line_suite">
+                    <span>Reporter output</span>
+                  </a> <!-- navigator-link  -->
+                </li>
+                <li>
+                  <a href="#" class="navigator-link " panel-name="ignored-methods-Command_line_suite">
+                    <span>Ignored methods</span>
+                  </a> <!-- navigator-link  -->
+                </li>
+                <li>
+                  <a href="#" class="navigator-link " panel-name="chronological-Command_line_suite">
+                    <span>Chronological view</span>
+                  </a> <!-- navigator-link  -->
+                </li>
+              </ul>
+            </div> <!-- suite-section-content -->
+            <div class="result-section">
+              <div class="suite-section-title">
+                <span>Results</span>
+              </div> <!-- suite-section-title -->
+              <div class="suite-section-content">
+                <ul>
+                  <li>
+                    <span class="method-stats">78 methods,   78 passed</span>
+                  </li>
+                  <li>
+                    <span class="method-list-title passed">Passed methods</span>
+                    <span class="show-or-hide-methods passed">
+                      <a href="#" panel-name="suite-Command_line_suite" class="hide-methods passed suite-Command_line_suite"> (hide)</a> <!-- hide-methods passed suite-Command_line_suite -->
+                      <a href="#" panel-name="suite-Command_line_suite" class="show-methods passed suite-Command_line_suite"> (show)</a> <!-- show-methods passed suite-Command_line_suite -->
+                    </span>
+                    <div class="method-list-content passed suite-Command_line_suite">
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Command_line_suite" title="com.ibm.watson.health.acd.v1.model.AcdCartridgesTest" hash-for-method="testAcdCartridges">testAcdCartridges</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Command_line_suite" title="com.ibm.watson.health.acd.v1.model.AcdFlowTest" hash-for-method="testAcdFlow">testAcdFlow</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Command_line_suite" title="com.ibm.watson.health.acd.v1.model.AcdProfileTest" hash-for-method="testAcdProfile">testAcdProfile</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Command_line_suite" title="com.ibm.watson.health.acd.v1.model.AnalyticFlowBeanInputTest" hash-for-method="testAnalyticFlowBeanInput">testAnalyticFlowBeanInput</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Command_line_suite" title="com.ibm.watson.health.acd.v1.model.AnnotatorTest" hash-for-method="testAnnotator">testAnnotator</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Command_line_suite" title="com.ibm.watson.health.acd.v1.model.AnnotatorTest" hash-for-method="testAnnotatorError">testAnnotatorError</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Command_line_suite" title="com.ibm.watson.health.acd.v1.model.AnnotatorFlowTest" hash-for-method="testAnnotatorFlow">testAnnotatorFlow</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Command_line_suite" title="com.ibm.watson.health.acd.v1.unit.AnnotatorForClinicalDataAcdTest" hash-for-method="testCartridgesGetIdNoOptions">testCartridgesGetIdNoOptions</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Command_line_suite" title="com.ibm.watson.health.acd.v1.model.CartridgesGetIdOptionsTest" hash-for-method="testCartridgesGetIdOptions">testCartridgesGetIdOptions</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Command_line_suite" title="com.ibm.watson.health.acd.v1.model.CartridgesGetIdOptionsTest" hash-for-method="testCartridgesGetIdOptionsError">testCartridgesGetIdOptionsError</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Command_line_suite" title="com.ibm.watson.health.acd.v1.unit.AnnotatorForClinicalDataAcdTest" hash-for-method="testCartridgesGetIdWOptions">testCartridgesGetIdWOptions</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Command_line_suite" title="com.ibm.watson.health.acd.v1.model.CartridgesGetOptionsTest" hash-for-method="testCartridgesGetOptions">testCartridgesGetOptions</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Command_line_suite" title="com.ibm.watson.health.acd.v1.unit.AnnotatorForClinicalDataAcdTest" hash-for-method="testCartridgesGetWOptions">testCartridgesGetWOptions</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Command_line_suite" title="com.ibm.watson.health.acd.v1.model.CartridgesPostMultipartOptionsTest" hash-for-method="testCartridgesPostMultipartOptions">testCartridgesPostMultipartOptions</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Command_line_suite" title="com.ibm.watson.health.acd.v1.unit.AnnotatorForClinicalDataAcdTest" hash-for-method="testCartridgesPostMultipartWOptions">testCartridgesPostMultipartWOptions</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Command_line_suite" title="com.ibm.watson.health.acd.v1.model.CartridgesPutMultipartOptionsTest" hash-for-method="testCartridgesPutMultipartOptions">testCartridgesPutMultipartOptions</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Command_line_suite" title="com.ibm.watson.health.acd.v1.unit.AnnotatorForClinicalDataAcdTest" hash-for-method="testCartridgesPutMultipartWOptions">testCartridgesPutMultipartWOptions</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Command_line_suite" title="com.ibm.watson.health.acd.v1.model.ConfigurationEntityTest" hash-for-method="testConfigurationEntity">testConfigurationEntity</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Command_line_suite" title="com.ibm.watson.health.acd.v1.unit.AnnotatorForClinicalDataAcdTest" hash-for-method="testConstructorWithNullAuthenticator">testConstructorWithNullAuthenticator</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Command_line_suite" title="com.ibm.watson.health.acd.v1.model.CreateFlowsOptionsTest" hash-for-method="testCreateFlowsOptions">testCreateFlowsOptions</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Command_line_suite" title="com.ibm.watson.health.acd.v1.unit.AnnotatorForClinicalDataAcdTest" hash-for-method="testCreateFlowsWOptions">testCreateFlowsWOptions</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Command_line_suite" title="com.ibm.watson.health.acd.v1.model.CreateProfileOptionsTest" hash-for-method="testCreateProfileOptions">testCreateProfileOptions</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Command_line_suite" title="com.ibm.watson.health.acd.v1.unit.AnnotatorForClinicalDataAcdTest" hash-for-method="testCreateProfileWOptions">testCreateProfileWOptions</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Command_line_suite" title="com.ibm.watson.health.acd.v1.unit.AnnotatorForClinicalDataAcdTest" hash-for-method="testDeleteFlowsNoOptions">testDeleteFlowsNoOptions</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Command_line_suite" title="com.ibm.watson.health.acd.v1.model.DeleteFlowsOptionsTest" hash-for-method="testDeleteFlowsOptions">testDeleteFlowsOptions</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Command_line_suite" title="com.ibm.watson.health.acd.v1.model.DeleteFlowsOptionsTest" hash-for-method="testDeleteFlowsOptionsError">testDeleteFlowsOptionsError</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Command_line_suite" title="com.ibm.watson.health.acd.v1.unit.AnnotatorForClinicalDataAcdTest" hash-for-method="testDeleteFlowsWOptions">testDeleteFlowsWOptions</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Command_line_suite" title="com.ibm.watson.health.acd.v1.unit.AnnotatorForClinicalDataAcdTest" hash-for-method="testDeleteProfileNoOptions">testDeleteProfileNoOptions</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Command_line_suite" title="com.ibm.watson.health.acd.v1.model.DeleteProfileOptionsTest" hash-for-method="testDeleteProfileOptions">testDeleteProfileOptions</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Command_line_suite" title="com.ibm.watson.health.acd.v1.model.DeleteProfileOptionsTest" hash-for-method="testDeleteProfileOptionsError">testDeleteProfileOptionsError</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Command_line_suite" title="com.ibm.watson.health.acd.v1.unit.AnnotatorForClinicalDataAcdTest" hash-for-method="testDeleteProfileWOptions">testDeleteProfileWOptions</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Command_line_suite" title="com.ibm.watson.health.acd.v1.model.DeleteUserSpecificArtifactsOptionsTest" hash-for-method="testDeleteUserSpecificArtifactsOptions">testDeleteUserSpecificArtifactsOptions</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Command_line_suite" title="com.ibm.watson.health.acd.v1.unit.AnnotatorForClinicalDataAcdTest" hash-for-method="testDeleteUserSpecificArtifactsWOptions">testDeleteUserSpecificArtifactsWOptions</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Command_line_suite" title="com.ibm.watson.health.acd.v1.model.DeployCartridgeOptionsTest" hash-for-method="testDeployCartridgeOptions">testDeployCartridgeOptions</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Command_line_suite" title="com.ibm.watson.health.acd.v1.model.DeployCartridgeResponseTest" hash-for-method="testDeployCartridgeResponse">testDeployCartridgeResponse</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Command_line_suite" title="com.ibm.watson.health.acd.v1.unit.AnnotatorForClinicalDataAcdTest" hash-for-method="testDeployCartridgeWOptions">testDeployCartridgeWOptions</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Command_line_suite" title="com.ibm.watson.health.acd.v1.model.EntityTest" hash-for-method="testEntity">testEntity</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Command_line_suite" title="com.ibm.watson.health.acd.v1.model.FlowTest" hash-for-method="testFlow">testFlow</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Command_line_suite" title="com.ibm.watson.health.acd.v1.model.FlowEntryTest" hash-for-method="testFlowEntry">testFlowEntry</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Command_line_suite" title="com.ibm.watson.health.acd.v1.unit.AnnotatorForClinicalDataAcdTest" hash-for-method="testGetAnnotatorsByIdNoOptions">testGetAnnotatorsByIdNoOptions</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Command_line_suite" title="com.ibm.watson.health.acd.v1.model.GetAnnotatorsByIdOptionsTest" hash-for-method="testGetAnnotatorsByIdOptions">testGetAnnotatorsByIdOptions</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Command_line_suite" title="com.ibm.watson.health.acd.v1.model.GetAnnotatorsByIdOptionsTest" hash-for-method="testGetAnnotatorsByIdOptionsError">testGetAnnotatorsByIdOptionsError</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Command_line_suite" title="com.ibm.watson.health.acd.v1.unit.AnnotatorForClinicalDataAcdTest" hash-for-method="testGetAnnotatorsByIdWOptions">testGetAnnotatorsByIdWOptions</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Command_line_suite" title="com.ibm.watson.health.acd.v1.model.GetAnnotatorsOptionsTest" hash-for-method="testGetAnnotatorsOptions">testGetAnnotatorsOptions</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Command_line_suite" title="com.ibm.watson.health.acd.v1.unit.AnnotatorForClinicalDataAcdTest" hash-for-method="testGetAnnotatorsWOptions">testGetAnnotatorsWOptions</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Command_line_suite" title="com.ibm.watson.health.acd.v1.unit.AnnotatorForClinicalDataAcdTest" hash-for-method="testGetFlowsByIdNoOptions">testGetFlowsByIdNoOptions</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Command_line_suite" title="com.ibm.watson.health.acd.v1.model.GetFlowsByIdOptionsTest" hash-for-method="testGetFlowsByIdOptions">testGetFlowsByIdOptions</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Command_line_suite" title="com.ibm.watson.health.acd.v1.model.GetFlowsByIdOptionsTest" hash-for-method="testGetFlowsByIdOptionsError">testGetFlowsByIdOptionsError</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Command_line_suite" title="com.ibm.watson.health.acd.v1.unit.AnnotatorForClinicalDataAcdTest" hash-for-method="testGetFlowsByIdWOptions">testGetFlowsByIdWOptions</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Command_line_suite" title="com.ibm.watson.health.acd.v1.model.GetFlowsOptionsTest" hash-for-method="testGetFlowsOptions">testGetFlowsOptions</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Command_line_suite" title="com.ibm.watson.health.acd.v1.unit.AnnotatorForClinicalDataAcdTest" hash-for-method="testGetFlowsWOptions">testGetFlowsWOptions</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Command_line_suite" title="com.ibm.watson.health.acd.v1.model.GetHealthCheckStatusOptionsTest" hash-for-method="testGetHealthCheckStatusOptions">testGetHealthCheckStatusOptions</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Command_line_suite" title="com.ibm.watson.health.acd.v1.unit.AnnotatorForClinicalDataAcdTest" hash-for-method="testGetHealthCheckStatusWOptions">testGetHealthCheckStatusWOptions</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Command_line_suite" title="com.ibm.watson.health.acd.v1.unit.AnnotatorForClinicalDataAcdTest" hash-for-method="testGetProfileNoOptions">testGetProfileNoOptions</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Command_line_suite" title="com.ibm.watson.health.acd.v1.model.GetProfileOptionsTest" hash-for-method="testGetProfileOptions">testGetProfileOptions</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Command_line_suite" title="com.ibm.watson.health.acd.v1.model.GetProfileOptionsTest" hash-for-method="testGetProfileOptionsError">testGetProfileOptionsError</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Command_line_suite" title="com.ibm.watson.health.acd.v1.unit.AnnotatorForClinicalDataAcdTest" hash-for-method="testGetProfileWOptions">testGetProfileWOptions</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Command_line_suite" title="com.ibm.watson.health.acd.v1.model.GetProfilesOptionsTest" hash-for-method="testGetProfilesOptions">testGetProfilesOptions</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Command_line_suite" title="com.ibm.watson.health.acd.v1.unit.AnnotatorForClinicalDataAcdTest" hash-for-method="testGetProfilesWOptions">testGetProfilesWOptions</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Command_line_suite" title="com.ibm.watson.health.acd.v1.unit.AnnotatorForClinicalDataAcdTest" hash-for-method="testGetVersion">testGetVersion</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Command_line_suite" title="com.ibm.watson.health.acd.v1.model.ListStringWrapperTest" hash-for-method="testListStringWrapper">testListStringWrapper</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Command_line_suite" title="com.ibm.watson.health.acd.v1.model.RunPipelineOptionsTest" hash-for-method="testRunPipelineOptions">testRunPipelineOptions</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Command_line_suite" title="com.ibm.watson.health.acd.v1.unit.AnnotatorForClinicalDataAcdTest" hash-for-method="testRunPipelineWOptions">testRunPipelineWOptions</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Command_line_suite" title="com.ibm.watson.health.acd.v1.unit.AnnotatorForClinicalDataAcdTest" hash-for-method="testRunPipelineWithFlowNoOptions">testRunPipelineWithFlowNoOptions</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Command_line_suite" title="com.ibm.watson.health.acd.v1.model.RunPipelineWithFlowOptionsTest" hash-for-method="testRunPipelineWithFlowOptions">testRunPipelineWithFlowOptions</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Command_line_suite" title="com.ibm.watson.health.acd.v1.model.RunPipelineWithFlowOptionsTest" hash-for-method="testRunPipelineWithFlowOptionsError">testRunPipelineWithFlowOptionsError</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Command_line_suite" title="com.ibm.watson.health.acd.v1.unit.AnnotatorForClinicalDataAcdTest" hash-for-method="testRunPipelineWithFlowWOptions">testRunPipelineWithFlowWOptions</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Command_line_suite" title="com.ibm.watson.health.acd.v1.model.ServiceErrorTest" hash-for-method="testServiceError">testServiceError</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Command_line_suite" title="com.ibm.watson.health.acd.v1.model.ServiceStatusTest" hash-for-method="testServiceStatus">testServiceStatus</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Command_line_suite" title="com.ibm.watson.health.acd.v1.model.UnstructuredContainerTest" hash-for-method="testUnstructuredContainer">testUnstructuredContainer</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Command_line_suite" title="com.ibm.watson.health.acd.v1.unit.AnnotatorForClinicalDataAcdTest" hash-for-method="testUpdateFlowsNoOptions">testUpdateFlowsNoOptions</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Command_line_suite" title="com.ibm.watson.health.acd.v1.model.UpdateFlowsOptionsTest" hash-for-method="testUpdateFlowsOptions">testUpdateFlowsOptions</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Command_line_suite" title="com.ibm.watson.health.acd.v1.model.UpdateFlowsOptionsTest" hash-for-method="testUpdateFlowsOptionsError">testUpdateFlowsOptionsError</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Command_line_suite" title="com.ibm.watson.health.acd.v1.unit.AnnotatorForClinicalDataAcdTest" hash-for-method="testUpdateFlowsWOptions">testUpdateFlowsWOptions</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Command_line_suite" title="com.ibm.watson.health.acd.v1.unit.AnnotatorForClinicalDataAcdTest" hash-for-method="testUpdateProfileNoOptions">testUpdateProfileNoOptions</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Command_line_suite" title="com.ibm.watson.health.acd.v1.model.UpdateProfileOptionsTest" hash-for-method="testUpdateProfileOptions">testUpdateProfileOptions</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Command_line_suite" title="com.ibm.watson.health.acd.v1.model.UpdateProfileOptionsTest" hash-for-method="testUpdateProfileOptionsError">testUpdateProfileOptionsError</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Command_line_suite" title="com.ibm.watson.health.acd.v1.unit.AnnotatorForClinicalDataAcdTest" hash-for-method="testUpdateProfileWOptions">testUpdateProfileWOptions</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                    </div> <!-- method-list-content passed suite-Command_line_suite -->
+                  </li>
+                </ul>
+              </div> <!-- suite-section-content -->
+            </div> <!-- result-section -->
+          </div> <!-- navigator-suite-content -->
+        </div> <!-- rounded-window -->
+      </div> <!-- suite -->
+    </div> <!-- navigator-root -->
+    <div class="wrapper">
+      <div class="main-panel-root">
+        <div panel-name="suite-Command_line_suite" class="panel Command_line_suite">
+          <div class="suite-Command_line_suite-class-passed">
+            <div class="main-panel-header rounded-window-top">
+              <img src="passed.png"/>
+              <span class="class-name">com.ibm.watson.health.acd.v1.model.ServiceStatusTest</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="testServiceStatus">
+                  </a> <!-- testServiceStatus -->
+                  <span class="method-name">testServiceStatus</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-Command_line_suite-class-passed -->
+          <div class="suite-Command_line_suite-class-passed">
+            <div class="main-panel-header rounded-window-top">
+              <img src="passed.png"/>
+              <span class="class-name">com.ibm.watson.health.acd.v1.model.GetAnnotatorsByIdOptionsTest</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="testGetAnnotatorsByIdOptions">
+                  </a> <!-- testGetAnnotatorsByIdOptions -->
+                  <span class="method-name">testGetAnnotatorsByIdOptions</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="testGetAnnotatorsByIdOptionsError">
+                  </a> <!-- testGetAnnotatorsByIdOptionsError -->
+                  <span class="method-name">testGetAnnotatorsByIdOptionsError</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-Command_line_suite-class-passed -->
+          <div class="suite-Command_line_suite-class-passed">
+            <div class="main-panel-header rounded-window-top">
+              <img src="passed.png"/>
+              <span class="class-name">com.ibm.watson.health.acd.v1.model.UnstructuredContainerTest</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="testUnstructuredContainer">
+                  </a> <!-- testUnstructuredContainer -->
+                  <span class="method-name">testUnstructuredContainer</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-Command_line_suite-class-passed -->
+          <div class="suite-Command_line_suite-class-passed">
+            <div class="main-panel-header rounded-window-top">
+              <img src="passed.png"/>
+              <span class="class-name">com.ibm.watson.health.acd.v1.model.GetAnnotatorsOptionsTest</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="testGetAnnotatorsOptions">
+                  </a> <!-- testGetAnnotatorsOptions -->
+                  <span class="method-name">testGetAnnotatorsOptions</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-Command_line_suite-class-passed -->
+          <div class="suite-Command_line_suite-class-passed">
+            <div class="main-panel-header rounded-window-top">
+              <img src="passed.png"/>
+              <span class="class-name">com.ibm.watson.health.acd.v1.model.GetProfilesOptionsTest</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="testGetProfilesOptions">
+                  </a> <!-- testGetProfilesOptions -->
+                  <span class="method-name">testGetProfilesOptions</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-Command_line_suite-class-passed -->
+          <div class="suite-Command_line_suite-class-passed">
+            <div class="main-panel-header rounded-window-top">
+              <img src="passed.png"/>
+              <span class="class-name">com.ibm.watson.health.acd.v1.model.ConfigurationEntityTest</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="testConfigurationEntity">
+                  </a> <!-- testConfigurationEntity -->
+                  <span class="method-name">testConfigurationEntity</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-Command_line_suite-class-passed -->
+          <div class="suite-Command_line_suite-class-passed">
+            <div class="main-panel-header rounded-window-top">
+              <img src="passed.png"/>
+              <span class="class-name">com.ibm.watson.health.acd.v1.model.AnnotatorFlowTest</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="testAnnotatorFlow">
+                  </a> <!-- testAnnotatorFlow -->
+                  <span class="method-name">testAnnotatorFlow</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-Command_line_suite-class-passed -->
+          <div class="suite-Command_line_suite-class-passed">
+            <div class="main-panel-header rounded-window-top">
+              <img src="passed.png"/>
+              <span class="class-name">com.ibm.watson.health.acd.v1.model.CreateProfileOptionsTest</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="testCreateProfileOptions">
+                  </a> <!-- testCreateProfileOptions -->
+                  <span class="method-name">testCreateProfileOptions</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-Command_line_suite-class-passed -->
+          <div class="suite-Command_line_suite-class-passed">
+            <div class="main-panel-header rounded-window-top">
+              <img src="passed.png"/>
+              <span class="class-name">com.ibm.watson.health.acd.v1.model.ServiceErrorTest</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="testServiceError">
+                  </a> <!-- testServiceError -->
+                  <span class="method-name">testServiceError</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-Command_line_suite-class-passed -->
+          <div class="suite-Command_line_suite-class-passed">
+            <div class="main-panel-header rounded-window-top">
+              <img src="passed.png"/>
+              <span class="class-name">com.ibm.watson.health.acd.v1.model.GetFlowsOptionsTest</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="testGetFlowsOptions">
+                  </a> <!-- testGetFlowsOptions -->
+                  <span class="method-name">testGetFlowsOptions</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-Command_line_suite-class-passed -->
+          <div class="suite-Command_line_suite-class-passed">
+            <div class="main-panel-header rounded-window-top">
+              <img src="passed.png"/>
+              <span class="class-name">com.ibm.watson.health.acd.v1.model.RunPipelineOptionsTest</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="testRunPipelineOptions">
+                  </a> <!-- testRunPipelineOptions -->
+                  <span class="method-name">testRunPipelineOptions</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-Command_line_suite-class-passed -->
+          <div class="suite-Command_line_suite-class-passed">
+            <div class="main-panel-header rounded-window-top">
+              <img src="passed.png"/>
+              <span class="class-name">com.ibm.watson.health.acd.v1.model.AcdProfileTest</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="testAcdProfile">
+                  </a> <!-- testAcdProfile -->
+                  <span class="method-name">testAcdProfile</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-Command_line_suite-class-passed -->
+          <div class="suite-Command_line_suite-class-passed">
+            <div class="main-panel-header rounded-window-top">
+              <img src="passed.png"/>
+              <span class="class-name">com.ibm.watson.health.acd.v1.model.DeleteUserSpecificArtifactsOptionsTest</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="testDeleteUserSpecificArtifactsOptions">
+                  </a> <!-- testDeleteUserSpecificArtifactsOptions -->
+                  <span class="method-name">testDeleteUserSpecificArtifactsOptions</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-Command_line_suite-class-passed -->
+          <div class="suite-Command_line_suite-class-passed">
+            <div class="main-panel-header rounded-window-top">
+              <img src="passed.png"/>
+              <span class="class-name">com.ibm.watson.health.acd.v1.model.CreateFlowsOptionsTest</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="testCreateFlowsOptions">
+                  </a> <!-- testCreateFlowsOptions -->
+                  <span class="method-name">testCreateFlowsOptions</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-Command_line_suite-class-passed -->
+          <div class="suite-Command_line_suite-class-passed">
+            <div class="main-panel-header rounded-window-top">
+              <img src="passed.png"/>
+              <span class="class-name">com.ibm.watson.health.acd.v1.model.AnnotatorTest</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="testAnnotator">
+                  </a> <!-- testAnnotator -->
+                  <span class="method-name">testAnnotator</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="testAnnotatorError">
+                  </a> <!-- testAnnotatorError -->
+                  <span class="method-name">testAnnotatorError</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-Command_line_suite-class-passed -->
+          <div class="suite-Command_line_suite-class-passed">
+            <div class="main-panel-header rounded-window-top">
+              <img src="passed.png"/>
+              <span class="class-name">com.ibm.watson.health.acd.v1.unit.AnnotatorForClinicalDataAcdTest</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="testCartridgesGetIdNoOptions">
+                  </a> <!-- testCartridgesGetIdNoOptions -->
+                  <span class="method-name">testCartridgesGetIdNoOptions</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="testCartridgesGetIdWOptions">
+                  </a> <!-- testCartridgesGetIdWOptions -->
+                  <span class="method-name">testCartridgesGetIdWOptions</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="testCartridgesGetWOptions">
+                  </a> <!-- testCartridgesGetWOptions -->
+                  <span class="method-name">testCartridgesGetWOptions</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="testCartridgesPostMultipartWOptions">
+                  </a> <!-- testCartridgesPostMultipartWOptions -->
+                  <span class="method-name">testCartridgesPostMultipartWOptions</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="testCartridgesPutMultipartWOptions">
+                  </a> <!-- testCartridgesPutMultipartWOptions -->
+                  <span class="method-name">testCartridgesPutMultipartWOptions</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="testConstructorWithNullAuthenticator">
+                  </a> <!-- testConstructorWithNullAuthenticator -->
+                  <span class="method-name">testConstructorWithNullAuthenticator</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="testCreateFlowsWOptions">
+                  </a> <!-- testCreateFlowsWOptions -->
+                  <span class="method-name">testCreateFlowsWOptions</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="testCreateProfileWOptions">
+                  </a> <!-- testCreateProfileWOptions -->
+                  <span class="method-name">testCreateProfileWOptions</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="testDeleteFlowsNoOptions">
+                  </a> <!-- testDeleteFlowsNoOptions -->
+                  <span class="method-name">testDeleteFlowsNoOptions</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="testDeleteFlowsWOptions">
+                  </a> <!-- testDeleteFlowsWOptions -->
+                  <span class="method-name">testDeleteFlowsWOptions</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="testDeleteProfileNoOptions">
+                  </a> <!-- testDeleteProfileNoOptions -->
+                  <span class="method-name">testDeleteProfileNoOptions</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="testDeleteProfileWOptions">
+                  </a> <!-- testDeleteProfileWOptions -->
+                  <span class="method-name">testDeleteProfileWOptions</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="testDeleteUserSpecificArtifactsWOptions">
+                  </a> <!-- testDeleteUserSpecificArtifactsWOptions -->
+                  <span class="method-name">testDeleteUserSpecificArtifactsWOptions</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="testDeployCartridgeWOptions">
+                  </a> <!-- testDeployCartridgeWOptions -->
+                  <span class="method-name">testDeployCartridgeWOptions</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="testGetAnnotatorsByIdNoOptions">
+                  </a> <!-- testGetAnnotatorsByIdNoOptions -->
+                  <span class="method-name">testGetAnnotatorsByIdNoOptions</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="testGetAnnotatorsByIdWOptions">
+                  </a> <!-- testGetAnnotatorsByIdWOptions -->
+                  <span class="method-name">testGetAnnotatorsByIdWOptions</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="testGetAnnotatorsWOptions">
+                  </a> <!-- testGetAnnotatorsWOptions -->
+                  <span class="method-name">testGetAnnotatorsWOptions</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="testGetFlowsByIdNoOptions">
+                  </a> <!-- testGetFlowsByIdNoOptions -->
+                  <span class="method-name">testGetFlowsByIdNoOptions</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="testGetFlowsByIdWOptions">
+                  </a> <!-- testGetFlowsByIdWOptions -->
+                  <span class="method-name">testGetFlowsByIdWOptions</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="testGetFlowsWOptions">
+                  </a> <!-- testGetFlowsWOptions -->
+                  <span class="method-name">testGetFlowsWOptions</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="testGetHealthCheckStatusWOptions">
+                  </a> <!-- testGetHealthCheckStatusWOptions -->
+                  <span class="method-name">testGetHealthCheckStatusWOptions</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="testGetProfileNoOptions">
+                  </a> <!-- testGetProfileNoOptions -->
+                  <span class="method-name">testGetProfileNoOptions</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="testGetProfileWOptions">
+                  </a> <!-- testGetProfileWOptions -->
+                  <span class="method-name">testGetProfileWOptions</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="testGetProfilesWOptions">
+                  </a> <!-- testGetProfilesWOptions -->
+                  <span class="method-name">testGetProfilesWOptions</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="testGetVersion">
+                  </a> <!-- testGetVersion -->
+                  <span class="method-name">testGetVersion</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="testRunPipelineWOptions">
+                  </a> <!-- testRunPipelineWOptions -->
+                  <span class="method-name">testRunPipelineWOptions</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="testRunPipelineWithFlowNoOptions">
+                  </a> <!-- testRunPipelineWithFlowNoOptions -->
+                  <span class="method-name">testRunPipelineWithFlowNoOptions</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="testRunPipelineWithFlowWOptions">
+                  </a> <!-- testRunPipelineWithFlowWOptions -->
+                  <span class="method-name">testRunPipelineWithFlowWOptions</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="testUpdateFlowsNoOptions">
+                  </a> <!-- testUpdateFlowsNoOptions -->
+                  <span class="method-name">testUpdateFlowsNoOptions</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="testUpdateFlowsWOptions">
+                  </a> <!-- testUpdateFlowsWOptions -->
+                  <span class="method-name">testUpdateFlowsWOptions</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="testUpdateProfileNoOptions">
+                  </a> <!-- testUpdateProfileNoOptions -->
+                  <span class="method-name">testUpdateProfileNoOptions</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="testUpdateProfileWOptions">
+                  </a> <!-- testUpdateProfileWOptions -->
+                  <span class="method-name">testUpdateProfileWOptions</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-Command_line_suite-class-passed -->
+          <div class="suite-Command_line_suite-class-passed">
+            <div class="main-panel-header rounded-window-top">
+              <img src="passed.png"/>
+              <span class="class-name">com.ibm.watson.health.acd.v1.model.GetProfileOptionsTest</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="testGetProfileOptions">
+                  </a> <!-- testGetProfileOptions -->
+                  <span class="method-name">testGetProfileOptions</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="testGetProfileOptionsError">
+                  </a> <!-- testGetProfileOptionsError -->
+                  <span class="method-name">testGetProfileOptionsError</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-Command_line_suite-class-passed -->
+          <div class="suite-Command_line_suite-class-passed">
+            <div class="main-panel-header rounded-window-top">
+              <img src="passed.png"/>
+              <span class="class-name">com.ibm.watson.health.acd.v1.model.CartridgesPostMultipartOptionsTest</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="testCartridgesPostMultipartOptions">
+                  </a> <!-- testCartridgesPostMultipartOptions -->
+                  <span class="method-name">testCartridgesPostMultipartOptions</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-Command_line_suite-class-passed -->
+          <div class="suite-Command_line_suite-class-passed">
+            <div class="main-panel-header rounded-window-top">
+              <img src="passed.png"/>
+              <span class="class-name">com.ibm.watson.health.acd.v1.model.CartridgesGetIdOptionsTest</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="testCartridgesGetIdOptions">
+                  </a> <!-- testCartridgesGetIdOptions -->
+                  <span class="method-name">testCartridgesGetIdOptions</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="testCartridgesGetIdOptionsError">
+                  </a> <!-- testCartridgesGetIdOptionsError -->
+                  <span class="method-name">testCartridgesGetIdOptionsError</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-Command_line_suite-class-passed -->
+          <div class="suite-Command_line_suite-class-passed">
+            <div class="main-panel-header rounded-window-top">
+              <img src="passed.png"/>
+              <span class="class-name">com.ibm.watson.health.acd.v1.model.GetHealthCheckStatusOptionsTest</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="testGetHealthCheckStatusOptions">
+                  </a> <!-- testGetHealthCheckStatusOptions -->
+                  <span class="method-name">testGetHealthCheckStatusOptions</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-Command_line_suite-class-passed -->
+          <div class="suite-Command_line_suite-class-passed">
+            <div class="main-panel-header rounded-window-top">
+              <img src="passed.png"/>
+              <span class="class-name">com.ibm.watson.health.acd.v1.model.CartridgesGetOptionsTest</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="testCartridgesGetOptions">
+                  </a> <!-- testCartridgesGetOptions -->
+                  <span class="method-name">testCartridgesGetOptions</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-Command_line_suite-class-passed -->
+          <div class="suite-Command_line_suite-class-passed">
+            <div class="main-panel-header rounded-window-top">
+              <img src="passed.png"/>
+              <span class="class-name">com.ibm.watson.health.acd.v1.model.FlowEntryTest</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="testFlowEntry">
+                  </a> <!-- testFlowEntry -->
+                  <span class="method-name">testFlowEntry</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-Command_line_suite-class-passed -->
+          <div class="suite-Command_line_suite-class-passed">
+            <div class="main-panel-header rounded-window-top">
+              <img src="passed.png"/>
+              <span class="class-name">com.ibm.watson.health.acd.v1.model.AcdFlowTest</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="testAcdFlow">
+                  </a> <!-- testAcdFlow -->
+                  <span class="method-name">testAcdFlow</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-Command_line_suite-class-passed -->
+          <div class="suite-Command_line_suite-class-passed">
+            <div class="main-panel-header rounded-window-top">
+              <img src="passed.png"/>
+              <span class="class-name">com.ibm.watson.health.acd.v1.model.EntityTest</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="testEntity">
+                  </a> <!-- testEntity -->
+                  <span class="method-name">testEntity</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-Command_line_suite-class-passed -->
+          <div class="suite-Command_line_suite-class-passed">
+            <div class="main-panel-header rounded-window-top">
+              <img src="passed.png"/>
+              <span class="class-name">com.ibm.watson.health.acd.v1.model.AnalyticFlowBeanInputTest</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="testAnalyticFlowBeanInput">
+                  </a> <!-- testAnalyticFlowBeanInput -->
+                  <span class="method-name">testAnalyticFlowBeanInput</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-Command_line_suite-class-passed -->
+          <div class="suite-Command_line_suite-class-passed">
+            <div class="main-panel-header rounded-window-top">
+              <img src="passed.png"/>
+              <span class="class-name">com.ibm.watson.health.acd.v1.model.RunPipelineWithFlowOptionsTest</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="testRunPipelineWithFlowOptions">
+                  </a> <!-- testRunPipelineWithFlowOptions -->
+                  <span class="method-name">testRunPipelineWithFlowOptions</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="testRunPipelineWithFlowOptionsError">
+                  </a> <!-- testRunPipelineWithFlowOptionsError -->
+                  <span class="method-name">testRunPipelineWithFlowOptionsError</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-Command_line_suite-class-passed -->
+          <div class="suite-Command_line_suite-class-passed">
+            <div class="main-panel-header rounded-window-top">
+              <img src="passed.png"/>
+              <span class="class-name">com.ibm.watson.health.acd.v1.model.GetFlowsByIdOptionsTest</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="testGetFlowsByIdOptions">
+                  </a> <!-- testGetFlowsByIdOptions -->
+                  <span class="method-name">testGetFlowsByIdOptions</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="testGetFlowsByIdOptionsError">
+                  </a> <!-- testGetFlowsByIdOptionsError -->
+                  <span class="method-name">testGetFlowsByIdOptionsError</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-Command_line_suite-class-passed -->
+          <div class="suite-Command_line_suite-class-passed">
+            <div class="main-panel-header rounded-window-top">
+              <img src="passed.png"/>
+              <span class="class-name">com.ibm.watson.health.acd.v1.model.UpdateProfileOptionsTest</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="testUpdateProfileOptions">
+                  </a> <!-- testUpdateProfileOptions -->
+                  <span class="method-name">testUpdateProfileOptions</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="testUpdateProfileOptionsError">
+                  </a> <!-- testUpdateProfileOptionsError -->
+                  <span class="method-name">testUpdateProfileOptionsError</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-Command_line_suite-class-passed -->
+          <div class="suite-Command_line_suite-class-passed">
+            <div class="main-panel-header rounded-window-top">
+              <img src="passed.png"/>
+              <span class="class-name">com.ibm.watson.health.acd.v1.model.UpdateFlowsOptionsTest</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="testUpdateFlowsOptions">
+                  </a> <!-- testUpdateFlowsOptions -->
+                  <span class="method-name">testUpdateFlowsOptions</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="testUpdateFlowsOptionsError">
+                  </a> <!-- testUpdateFlowsOptionsError -->
+                  <span class="method-name">testUpdateFlowsOptionsError</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-Command_line_suite-class-passed -->
+          <div class="suite-Command_line_suite-class-passed">
+            <div class="main-panel-header rounded-window-top">
+              <img src="passed.png"/>
+              <span class="class-name">com.ibm.watson.health.acd.v1.model.DeleteProfileOptionsTest</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="testDeleteProfileOptions">
+                  </a> <!-- testDeleteProfileOptions -->
+                  <span class="method-name">testDeleteProfileOptions</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="testDeleteProfileOptionsError">
+                  </a> <!-- testDeleteProfileOptionsError -->
+                  <span class="method-name">testDeleteProfileOptionsError</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-Command_line_suite-class-passed -->
+          <div class="suite-Command_line_suite-class-passed">
+            <div class="main-panel-header rounded-window-top">
+              <img src="passed.png"/>
+              <span class="class-name">com.ibm.watson.health.acd.v1.model.CartridgesPutMultipartOptionsTest</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="testCartridgesPutMultipartOptions">
+                  </a> <!-- testCartridgesPutMultipartOptions -->
+                  <span class="method-name">testCartridgesPutMultipartOptions</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-Command_line_suite-class-passed -->
+          <div class="suite-Command_line_suite-class-passed">
+            <div class="main-panel-header rounded-window-top">
+              <img src="passed.png"/>
+              <span class="class-name">com.ibm.watson.health.acd.v1.model.AcdCartridgesTest</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="testAcdCartridges">
+                  </a> <!-- testAcdCartridges -->
+                  <span class="method-name">testAcdCartridges</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-Command_line_suite-class-passed -->
+          <div class="suite-Command_line_suite-class-passed">
+            <div class="main-panel-header rounded-window-top">
+              <img src="passed.png"/>
+              <span class="class-name">com.ibm.watson.health.acd.v1.model.DeployCartridgeOptionsTest</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="testDeployCartridgeOptions">
+                  </a> <!-- testDeployCartridgeOptions -->
+                  <span class="method-name">testDeployCartridgeOptions</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-Command_line_suite-class-passed -->
+          <div class="suite-Command_line_suite-class-passed">
+            <div class="main-panel-header rounded-window-top">
+              <img src="passed.png"/>
+              <span class="class-name">com.ibm.watson.health.acd.v1.model.DeployCartridgeResponseTest</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="testDeployCartridgeResponse">
+                  </a> <!-- testDeployCartridgeResponse -->
+                  <span class="method-name">testDeployCartridgeResponse</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-Command_line_suite-class-passed -->
+          <div class="suite-Command_line_suite-class-passed">
+            <div class="main-panel-header rounded-window-top">
+              <img src="passed.png"/>
+              <span class="class-name">com.ibm.watson.health.acd.v1.model.ListStringWrapperTest</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="testListStringWrapper">
+                  </a> <!-- testListStringWrapper -->
+                  <span class="method-name">testListStringWrapper</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-Command_line_suite-class-passed -->
+          <div class="suite-Command_line_suite-class-passed">
+            <div class="main-panel-header rounded-window-top">
+              <img src="passed.png"/>
+              <span class="class-name">com.ibm.watson.health.acd.v1.model.DeleteFlowsOptionsTest</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="testDeleteFlowsOptions">
+                  </a> <!-- testDeleteFlowsOptions -->
+                  <span class="method-name">testDeleteFlowsOptions</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="testDeleteFlowsOptionsError">
+                  </a> <!-- testDeleteFlowsOptionsError -->
+                  <span class="method-name">testDeleteFlowsOptionsError</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-Command_line_suite-class-passed -->
+          <div class="suite-Command_line_suite-class-passed">
+            <div class="main-panel-header rounded-window-top">
+              <img src="passed.png"/>
+              <span class="class-name">com.ibm.watson.health.acd.v1.model.FlowTest</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="testFlow">
+                  </a> <!-- testFlow -->
+                  <span class="method-name">testFlow</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-Command_line_suite-class-passed -->
+        </div> <!-- panel Command_line_suite -->
+        <div panel-name="test-xml-Command_line_suite" class="panel">
+          <div class="main-panel-header rounded-window-top">
+          </div> <!-- main-panel-header rounded-window-top -->
+          <div class="main-panel-content rounded-window-bottom">
+            <pre>
+&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;!DOCTYPE suite SYSTEM &quot;https://testng.org/testng-1.0.dtd&quot;&gt;
+&lt;suite verbose=&quot;0&quot; name=&quot;Command line suite&quot;&gt;
+  &lt;test thread-count=&quot;5&quot; verbose=&quot;0&quot; name=&quot;Command line test&quot;&gt;
+    &lt;classes&gt;
+      &lt;class name=&quot;com.ibm.watson.health.acd.v1.model.DeleteFlowsOptionsTest&quot;/&gt;
+      &lt;class name=&quot;com.ibm.watson.health.acd.v1.model.GetHealthCheckStatusOptionsTest&quot;/&gt;
+      &lt;class name=&quot;com.ibm.watson.health.acd.v1.model.AnnotatorTest&quot;/&gt;
+      &lt;class name=&quot;com.ibm.watson.health.acd.v1.model.GetAnnotatorsOptionsTest&quot;/&gt;
+      &lt;class name=&quot;com.ibm.watson.health.acd.v1.model.GetFlowsOptionsTest&quot;/&gt;
+      &lt;class name=&quot;com.ibm.watson.health.acd.v1.model.ListStringWrapperTest&quot;/&gt;
+      &lt;class name=&quot;com.ibm.watson.health.acd.v1.model.AnnotatorFlowTest&quot;/&gt;
+      &lt;class name=&quot;com.ibm.watson.health.acd.v1.model.GetAnnotatorsByIdOptionsTest&quot;/&gt;
+      &lt;class name=&quot;com.ibm.watson.health.acd.v1.model.AcdProfileTest&quot;/&gt;
+      &lt;class name=&quot;com.ibm.watson.health.acd.v1.model.FlowEntryTest&quot;/&gt;
+      &lt;class name=&quot;com.ibm.watson.health.acd.v1.model.EntityTest&quot;/&gt;
+      &lt;class name=&quot;com.ibm.watson.health.acd.v1.model.RunPipelineWithFlowOptionsTest&quot;/&gt;
+      &lt;class name=&quot;com.ibm.watson.health.acd.v1.model.GetProfileOptionsTest&quot;/&gt;
+      &lt;class name=&quot;com.ibm.watson.health.acd.v1.model.CartridgesPostMultipartOptionsTest&quot;/&gt;
+      &lt;class name=&quot;com.ibm.watson.health.acd.v1.model.GetFlowsByIdOptionsTest&quot;/&gt;
+      &lt;class name=&quot;com.ibm.watson.health.acd.v1.model.UnstructuredContainerTest&quot;/&gt;
+      &lt;class name=&quot;com.ibm.watson.health.acd.v1.model.ConfigurationEntityTest&quot;/&gt;
+      &lt;class name=&quot;com.ibm.watson.health.acd.v1.model.FlowTest&quot;/&gt;
+      &lt;class name=&quot;com.ibm.watson.health.acd.v1.model.CartridgesPutMultipartOptionsTest&quot;/&gt;
+      &lt;class name=&quot;com.ibm.watson.health.acd.v1.model.AnalyticFlowBeanInputTest&quot;/&gt;
+      &lt;class name=&quot;com.ibm.watson.health.acd.v1.model.CartridgesGetIdOptionsTest&quot;/&gt;
+      &lt;class name=&quot;com.ibm.watson.health.acd.v1.model.UpdateProfileOptionsTest&quot;/&gt;
+      &lt;class name=&quot;com.ibm.watson.health.acd.v1.model.AcdCartridgesTest&quot;/&gt;
+      &lt;class name=&quot;com.ibm.watson.health.acd.v1.model.DeleteUserSpecificArtifactsOptionsTest&quot;/&gt;
+      &lt;class name=&quot;com.ibm.watson.health.acd.v1.model.DeployCartridgeResponseTest&quot;/&gt;
+      &lt;class name=&quot;com.ibm.watson.health.acd.v1.model.DeleteProfileOptionsTest&quot;/&gt;
+      &lt;class name=&quot;com.ibm.watson.health.acd.v1.model.GetProfilesOptionsTest&quot;/&gt;
+      &lt;class name=&quot;com.ibm.watson.health.acd.v1.model.ServiceStatusTest&quot;/&gt;
+      &lt;class name=&quot;com.ibm.watson.health.acd.v1.model.CartridgesGetOptionsTest&quot;/&gt;
+      &lt;class name=&quot;com.ibm.watson.health.acd.v1.model.AcdFlowTest&quot;/&gt;
+      &lt;class name=&quot;com.ibm.watson.health.acd.v1.model.ServiceErrorTest&quot;/&gt;
+      &lt;class name=&quot;com.ibm.watson.health.acd.v1.model.CreateFlowsOptionsTest&quot;/&gt;
+      &lt;class name=&quot;com.ibm.watson.health.acd.v1.model.DeployCartridgeOptionsTest&quot;/&gt;
+      &lt;class name=&quot;com.ibm.watson.health.acd.v1.model.RunPipelineOptionsTest&quot;/&gt;
+      &lt;class name=&quot;com.ibm.watson.health.acd.v1.model.CreateProfileOptionsTest&quot;/&gt;
+      &lt;class name=&quot;com.ibm.watson.health.acd.v1.model.UpdateFlowsOptionsTest&quot;/&gt;
+      &lt;class name=&quot;com.ibm.watson.health.acd.v1.cartridges.TestGetCartridges&quot;/&gt;
+      &lt;class name=&quot;com.ibm.watson.health.acd.v1.WatsonServiceTest&quot;/&gt;
+      &lt;class name=&quot;com.ibm.watson.health.acd.v1.common.TestSpellCorrectionAnnotation&quot;/&gt;
+      &lt;class name=&quot;com.ibm.watson.health.acd.v1.common.TestProcedureAnnotation&quot;/&gt;
+      &lt;class name=&quot;com.ibm.watson.health.acd.v1.common.TestEjectionFractionAnnotation&quot;/&gt;
+      &lt;class name=&quot;com.ibm.watson.health.acd.v1.common.TestAnnotation&quot;/&gt;
+      &lt;class name=&quot;com.ibm.watson.health.acd.v1.common.TestNluEntityAnnotation&quot;/&gt;
+      &lt;class name=&quot;com.ibm.watson.health.acd.v1.common.TestSymptomAnnotation&quot;/&gt;
+      &lt;class name=&quot;com.ibm.watson.health.acd.v1.common.TestAttributeAnnotation&quot;/&gt;
+      &lt;class name=&quot;com.ibm.watson.health.acd.v1.common.TestCustomCollection&quot;/&gt;
+      &lt;class name=&quot;com.ibm.watson.health.acd.v1.common.TestAssistanceAnnotation&quot;/&gt;
+      &lt;class name=&quot;com.ibm.watson.health.acd.v1.common.TestConceptValue&quot;/&gt;
+      &lt;class name=&quot;com.ibm.watson.health.acd.v1.common.TestCancerAnnotation&quot;/&gt;
+      &lt;class name=&quot;com.ibm.watson.health.acd.v1.common.TestContainerGroup&quot;/&gt;
+      &lt;class name=&quot;com.ibm.watson.health.acd.v1.common.TestSectionAnnotation&quot;/&gt;
+      &lt;class name=&quot;com.ibm.watson.health.acd.v1.common.TestNegatedSpan&quot;/&gt;
+      &lt;class name=&quot;com.ibm.watson.health.acd.v1.common.TestUnstructuredContainer&quot;/&gt;
+      &lt;class name=&quot;com.ibm.watson.health.acd.v1.common.TestLabValueAnnotation&quot;/&gt;
+      &lt;class name=&quot;com.ibm.watson.health.acd.v1.common.TestSmokingAnnotation&quot;/&gt;
+      &lt;class name=&quot;com.ibm.watson.health.acd.v1.common.TestTextCorrection&quot;/&gt;
+      &lt;class name=&quot;com.ibm.watson.health.acd.v1.common.TestConcept&quot;/&gt;
+      &lt;class name=&quot;com.ibm.watson.health.acd.v1.common.TestMedicationAnnotation&quot;/&gt;
+      &lt;class name=&quot;com.ibm.watson.health.acd.v1.common.TestRelationAnnotation&quot;/&gt;
+      &lt;class name=&quot;com.ibm.watson.health.acd.v1.profiles.TestGetProfiles&quot;/&gt;
+      &lt;class name=&quot;com.ibm.watson.health.acd.v1.profiles.TestGetProfilesProfileId&quot;/&gt;
+      &lt;class name=&quot;com.ibm.watson.health.acd.v1.unit.AnnotatorForClinicalDataAcdTest&quot;/&gt;
+      &lt;class name=&quot;com.ibm.watson.health.acd.v1.utils.TestUtilities&quot;/&gt;
+      &lt;class name=&quot;com.ibm.watson.health.acd.v1.status.TestGetHealthCheckStatus&quot;/&gt;
+      &lt;class name=&quot;com.ibm.watson.health.acd.v1.flows.TestGetFlows&quot;/&gt;
+      &lt;class name=&quot;com.ibm.watson.health.acd.v1.flows.TestGetFlowsFlowId&quot;/&gt;
+      &lt;class name=&quot;com.ibm.watson.health.acd.v1.acd.TestGetAnnotatorsAnnotatorId&quot;/&gt;
+      &lt;class name=&quot;com.ibm.watson.health.acd.v1.acd.TestAnalyzeFlowId&quot;/&gt;
+      &lt;class name=&quot;com.ibm.watson.health.acd.v1.acd.TestAnalyze&quot;/&gt;
+      &lt;class name=&quot;com.ibm.watson.health.acd.v1.acd.TestGetAnnotators&quot;/&gt;
+      &lt;class name=&quot;com.ibm.watson.health.acd.v1.TestHttpClientOptions&quot;/&gt;
+      &lt;class name=&quot;com.ibm.watson.health.acd.v1.WatsonServiceUnitTest&quot;/&gt;
+    &lt;/classes&gt;
+  &lt;/test&gt; &lt;!-- Command line test --&gt;
+&lt;/suite&gt; &lt;!-- Command line suite --&gt;
+            </pre>
+          </div> <!-- main-panel-content rounded-window-bottom -->
+        </div> <!-- panel -->
+        <div panel-name="testlist-Command_line_suite" class="panel">
+          <div class="main-panel-header rounded-window-top">
+            <span class="header-content">Tests for Command line suite</span>
+          </div> <!-- main-panel-header rounded-window-top -->
+          <div class="main-panel-content rounded-window-bottom">
+            <ul>
+              <li>
+                <span class="test-name">Command line test (72 classes)</span>
+              </li>
+            </ul>
+          </div> <!-- main-panel-content rounded-window-bottom -->
+        </div> <!-- panel -->
+        <div panel-name="group-Command_line_suite" class="panel">
+          <div class="main-panel-header rounded-window-top">
+            <span class="header-content">Groups for Command line suite</span>
+          </div> <!-- main-panel-header rounded-window-top -->
+          <div class="main-panel-content rounded-window-bottom">
+          </div> <!-- main-panel-content rounded-window-bottom -->
+        </div> <!-- panel -->
+        <div panel-name="times-Command_line_suite" class="panel">
+          <div class="main-panel-header rounded-window-top">
+            <span class="header-content">Times for Command line suite</span>
+          </div> <!-- main-panel-header rounded-window-top -->
+          <div class="main-panel-content rounded-window-bottom">
+            <div class="times-div">
+              <script type="text/javascript">
+suiteTableInitFunctions.push('tableData_Command_line_suite');
+function tableData_Command_line_suite() {
+var data = new google.visualization.DataTable();
+data.addColumn('number', 'Number');
+data.addColumn('string', 'Method');
+data.addColumn('string', 'Class');
+data.addColumn('number', 'Time (ms)');
+data.addRows(78);
+data.setCell(0, 0, 0)
+data.setCell(0, 1, 'testCartridgesGetIdNoOptions')
+data.setCell(0, 2, 'com.ibm.watson.health.acd.v1.unit.AnnotatorForClinicalDataAcdTest')
+data.setCell(0, 3, 1437);
+data.setCell(1, 0, 1)
+data.setCell(1, 1, 'testCartridgesGetIdWOptions')
+data.setCell(1, 2, 'com.ibm.watson.health.acd.v1.unit.AnnotatorForClinicalDataAcdTest')
+data.setCell(1, 3, 481);
+data.setCell(2, 0, 2)
+data.setCell(2, 1, 'testCreateFlowsWOptions')
+data.setCell(2, 2, 'com.ibm.watson.health.acd.v1.unit.AnnotatorForClinicalDataAcdTest')
+data.setCell(2, 3, 84);
+data.setCell(3, 0, 3)
+data.setCell(3, 1, 'testRunPipelineWOptions')
+data.setCell(3, 2, 'com.ibm.watson.health.acd.v1.unit.AnnotatorForClinicalDataAcdTest')
+data.setCell(3, 3, 66);
+data.setCell(4, 0, 4)
+data.setCell(4, 1, 'testCartridgesPostMultipartWOptions')
+data.setCell(4, 2, 'com.ibm.watson.health.acd.v1.unit.AnnotatorForClinicalDataAcdTest')
+data.setCell(4, 3, 54);
+data.setCell(5, 0, 5)
+data.setCell(5, 1, 'testConstructorWithNullAuthenticator')
+data.setCell(5, 2, 'com.ibm.watson.health.acd.v1.unit.AnnotatorForClinicalDataAcdTest')
+data.setCell(5, 3, 38);
+data.setCell(6, 0, 6)
+data.setCell(6, 1, 'testRunPipelineWithFlowWOptions')
+data.setCell(6, 2, 'com.ibm.watson.health.acd.v1.unit.AnnotatorForClinicalDataAcdTest')
+data.setCell(6, 3, 33);
+data.setCell(7, 0, 7)
+data.setCell(7, 1, 'testAnnotator')
+data.setCell(7, 2, 'com.ibm.watson.health.acd.v1.model.AnnotatorTest')
+data.setCell(7, 3, 24);
+data.setCell(8, 0, 8)
+data.setCell(8, 1, 'testRunPipelineWithFlowOptions')
+data.setCell(8, 2, 'com.ibm.watson.health.acd.v1.model.RunPipelineWithFlowOptionsTest')
+data.setCell(8, 3, 22);
+data.setCell(9, 0, 9)
+data.setCell(9, 1, 'testCreateProfileWOptions')
+data.setCell(9, 2, 'com.ibm.watson.health.acd.v1.unit.AnnotatorForClinicalDataAcdTest')
+data.setCell(9, 3, 21);
+data.setCell(10, 0, 10)
+data.setCell(10, 1, 'testCartridgesPutMultipartWOptions')
+data.setCell(10, 2, 'com.ibm.watson.health.acd.v1.unit.AnnotatorForClinicalDataAcdTest')
+data.setCell(10, 3, 19);
+data.setCell(11, 0, 11)
+data.setCell(11, 1, 'testGetAnnotatorsByIdWOptions')
+data.setCell(11, 2, 'com.ibm.watson.health.acd.v1.unit.AnnotatorForClinicalDataAcdTest')
+data.setCell(11, 3, 19);
+data.setCell(12, 0, 12)
+data.setCell(12, 1, 'testCartridgesGetWOptions')
+data.setCell(12, 2, 'com.ibm.watson.health.acd.v1.unit.AnnotatorForClinicalDataAcdTest')
+data.setCell(12, 3, 18);
+data.setCell(13, 0, 13)
+data.setCell(13, 1, 'testGetFlowsByIdWOptions')
+data.setCell(13, 2, 'com.ibm.watson.health.acd.v1.unit.AnnotatorForClinicalDataAcdTest')
+data.setCell(13, 3, 18);
+data.setCell(14, 0, 14)
+data.setCell(14, 1, 'testGetProfileWOptions')
+data.setCell(14, 2, 'com.ibm.watson.health.acd.v1.unit.AnnotatorForClinicalDataAcdTest')
+data.setCell(14, 3, 17);
+data.setCell(15, 0, 15)
+data.setCell(15, 1, 'testGetHealthCheckStatusWOptions')
+data.setCell(15, 2, 'com.ibm.watson.health.acd.v1.unit.AnnotatorForClinicalDataAcdTest')
+data.setCell(15, 3, 16);
+data.setCell(16, 0, 16)
+data.setCell(16, 1, 'testDeployCartridgeWOptions')
+data.setCell(16, 2, 'com.ibm.watson.health.acd.v1.unit.AnnotatorForClinicalDataAcdTest')
+data.setCell(16, 3, 16);
+data.setCell(17, 0, 17)
+data.setCell(17, 1, 'testUpdateProfileWOptions')
+data.setCell(17, 2, 'com.ibm.watson.health.acd.v1.unit.AnnotatorForClinicalDataAcdTest')
+data.setCell(17, 3, 14);
+data.setCell(18, 0, 18)
+data.setCell(18, 1, 'testUpdateFlowsWOptions')
+data.setCell(18, 2, 'com.ibm.watson.health.acd.v1.unit.AnnotatorForClinicalDataAcdTest')
+data.setCell(18, 3, 14);
+data.setCell(19, 0, 19)
+data.setCell(19, 1, 'testGetAnnotatorsWOptions')
+data.setCell(19, 2, 'com.ibm.watson.health.acd.v1.unit.AnnotatorForClinicalDataAcdTest')
+data.setCell(19, 3, 13);
+data.setCell(20, 0, 20)
+data.setCell(20, 1, 'testDeleteProfileWOptions')
+data.setCell(20, 2, 'com.ibm.watson.health.acd.v1.unit.AnnotatorForClinicalDataAcdTest')
+data.setCell(20, 3, 13);
+data.setCell(21, 0, 21)
+data.setCell(21, 1, 'testDeleteFlowsWOptions')
+data.setCell(21, 2, 'com.ibm.watson.health.acd.v1.unit.AnnotatorForClinicalDataAcdTest')
+data.setCell(21, 3, 12);
+data.setCell(22, 0, 22)
+data.setCell(22, 1, 'testGetProfilesWOptions')
+data.setCell(22, 2, 'com.ibm.watson.health.acd.v1.unit.AnnotatorForClinicalDataAcdTest')
+data.setCell(22, 3, 12);
+data.setCell(23, 0, 23)
+data.setCell(23, 1, 'testGetFlowsWOptions')
+data.setCell(23, 2, 'com.ibm.watson.health.acd.v1.unit.AnnotatorForClinicalDataAcdTest')
+data.setCell(23, 3, 12);
+data.setCell(24, 0, 24)
+data.setCell(24, 1, 'testUnstructuredContainer')
+data.setCell(24, 2, 'com.ibm.watson.health.acd.v1.model.UnstructuredContainerTest')
+data.setCell(24, 3, 12);
+data.setCell(25, 0, 25)
+data.setCell(25, 1, 'testDeleteUserSpecificArtifactsWOptions')
+data.setCell(25, 2, 'com.ibm.watson.health.acd.v1.unit.AnnotatorForClinicalDataAcdTest')
+data.setCell(25, 3, 9);
+data.setCell(26, 0, 26)
+data.setCell(26, 1, 'testGetAnnotatorsByIdNoOptions')
+data.setCell(26, 2, 'com.ibm.watson.health.acd.v1.unit.AnnotatorForClinicalDataAcdTest')
+data.setCell(26, 3, 8);
+data.setCell(27, 0, 27)
+data.setCell(27, 1, 'testAnnotatorFlow')
+data.setCell(27, 2, 'com.ibm.watson.health.acd.v1.model.AnnotatorFlowTest')
+data.setCell(27, 3, 6);
+data.setCell(28, 0, 28)
+data.setCell(28, 1, 'testDeleteFlowsNoOptions')
+data.setCell(28, 2, 'com.ibm.watson.health.acd.v1.unit.AnnotatorForClinicalDataAcdTest')
+data.setCell(28, 3, 5);
+data.setCell(29, 0, 29)
+data.setCell(29, 1, 'testGetVersion')
+data.setCell(29, 2, 'com.ibm.watson.health.acd.v1.unit.AnnotatorForClinicalDataAcdTest')
+data.setCell(29, 3, 5);
+data.setCell(30, 0, 30)
+data.setCell(30, 1, 'testDeleteProfileNoOptions')
+data.setCell(30, 2, 'com.ibm.watson.health.acd.v1.unit.AnnotatorForClinicalDataAcdTest')
+data.setCell(30, 3, 5);
+data.setCell(31, 0, 31)
+data.setCell(31, 1, 'testRunPipelineWithFlowNoOptions')
+data.setCell(31, 2, 'com.ibm.watson.health.acd.v1.unit.AnnotatorForClinicalDataAcdTest')
+data.setCell(31, 3, 4);
+data.setCell(32, 0, 32)
+data.setCell(32, 1, 'testGetFlowsByIdNoOptions')
+data.setCell(32, 2, 'com.ibm.watson.health.acd.v1.unit.AnnotatorForClinicalDataAcdTest')
+data.setCell(32, 3, 4);
+data.setCell(33, 0, 33)
+data.setCell(33, 1, 'testGetProfileNoOptions')
+data.setCell(33, 2, 'com.ibm.watson.health.acd.v1.unit.AnnotatorForClinicalDataAcdTest')
+data.setCell(33, 3, 4);
+data.setCell(34, 0, 34)
+data.setCell(34, 1, 'testUpdateFlowsNoOptions')
+data.setCell(34, 2, 'com.ibm.watson.health.acd.v1.unit.AnnotatorForClinicalDataAcdTest')
+data.setCell(34, 3, 4);
+data.setCell(35, 0, 35)
+data.setCell(35, 1, 'testAnalyticFlowBeanInput')
+data.setCell(35, 2, 'com.ibm.watson.health.acd.v1.model.AnalyticFlowBeanInputTest')
+data.setCell(35, 3, 4);
+data.setCell(36, 0, 36)
+data.setCell(36, 1, 'testUpdateProfileOptions')
+data.setCell(36, 2, 'com.ibm.watson.health.acd.v1.model.UpdateProfileOptionsTest')
+data.setCell(36, 3, 3);
+data.setCell(37, 0, 37)
+data.setCell(37, 1, 'testUpdateProfileNoOptions')
+data.setCell(37, 2, 'com.ibm.watson.health.acd.v1.unit.AnnotatorForClinicalDataAcdTest')
+data.setCell(37, 3, 3);
+data.setCell(38, 0, 38)
+data.setCell(38, 1, 'testCartridgesPostMultipartOptions')
+data.setCell(38, 2, 'com.ibm.watson.health.acd.v1.model.CartridgesPostMultipartOptionsTest')
+data.setCell(38, 3, 3);
+data.setCell(39, 0, 39)
+data.setCell(39, 1, 'testAcdProfile')
+data.setCell(39, 2, 'com.ibm.watson.health.acd.v1.model.AcdProfileTest')
+data.setCell(39, 3, 3);
+data.setCell(40, 0, 40)
+data.setCell(40, 1, 'testAcdFlow')
+data.setCell(40, 2, 'com.ibm.watson.health.acd.v1.model.AcdFlowTest')
+data.setCell(40, 3, 2);
+data.setCell(41, 0, 41)
+data.setCell(41, 1, 'testEntity')
+data.setCell(41, 2, 'com.ibm.watson.health.acd.v1.model.EntityTest')
+data.setCell(41, 3, 2);
+data.setCell(42, 0, 42)
+data.setCell(42, 1, 'testRunPipelineOptions')
+data.setCell(42, 2, 'com.ibm.watson.health.acd.v1.model.RunPipelineOptionsTest')
+data.setCell(42, 3, 2);
+data.setCell(43, 0, 43)
+data.setCell(43, 1, 'testCreateProfileOptions')
+data.setCell(43, 2, 'com.ibm.watson.health.acd.v1.model.CreateProfileOptionsTest')
+data.setCell(43, 3, 2);
+data.setCell(44, 0, 44)
+data.setCell(44, 1, 'testCreateFlowsOptions')
+data.setCell(44, 2, 'com.ibm.watson.health.acd.v1.model.CreateFlowsOptionsTest')
+data.setCell(44, 3, 1);
+data.setCell(45, 0, 45)
+data.setCell(45, 1, 'testServiceError')
+data.setCell(45, 2, 'com.ibm.watson.health.acd.v1.model.ServiceErrorTest')
+data.setCell(45, 3, 1);
+data.setCell(46, 0, 46)
+data.setCell(46, 1, 'testDeleteProfileOptions')
+data.setCell(46, 2, 'com.ibm.watson.health.acd.v1.model.DeleteProfileOptionsTest')
+data.setCell(46, 3, 1);
+data.setCell(47, 0, 47)
+data.setCell(47, 1, 'testDeployCartridgeResponse')
+data.setCell(47, 2, 'com.ibm.watson.health.acd.v1.model.DeployCartridgeResponseTest')
+data.setCell(47, 3, 1);
+data.setCell(48, 0, 48)
+data.setCell(48, 1, 'testListStringWrapper')
+data.setCell(48, 2, 'com.ibm.watson.health.acd.v1.model.ListStringWrapperTest')
+data.setCell(48, 3, 1);
+data.setCell(49, 0, 49)
+data.setCell(49, 1, 'testFlowEntry')
+data.setCell(49, 2, 'com.ibm.watson.health.acd.v1.model.FlowEntryTest')
+data.setCell(49, 3, 1);
+data.setCell(50, 0, 50)
+data.setCell(50, 1, 'testUpdateFlowsOptions')
+data.setCell(50, 2, 'com.ibm.watson.health.acd.v1.model.UpdateFlowsOptionsTest')
+data.setCell(50, 3, 1);
+data.setCell(51, 0, 51)
+data.setCell(51, 1, 'testCartridgesGetOptions')
+data.setCell(51, 2, 'com.ibm.watson.health.acd.v1.model.CartridgesGetOptionsTest')
+data.setCell(51, 3, 1);
+data.setCell(52, 0, 52)
+data.setCell(52, 1, 'testCartridgesPutMultipartOptions')
+data.setCell(52, 2, 'com.ibm.watson.health.acd.v1.model.CartridgesPutMultipartOptionsTest')
+data.setCell(52, 3, 1);
+data.setCell(53, 0, 53)
+data.setCell(53, 1, 'testGetFlowsOptions')
+data.setCell(53, 2, 'com.ibm.watson.health.acd.v1.model.GetFlowsOptionsTest')
+data.setCell(53, 3, 1);
+data.setCell(54, 0, 54)
+data.setCell(54, 1, 'testGetProfileOptions')
+data.setCell(54, 2, 'com.ibm.watson.health.acd.v1.model.GetProfileOptionsTest')
+data.setCell(54, 3, 1);
+data.setCell(55, 0, 55)
+data.setCell(55, 1, 'testGetFlowsByIdOptionsError')
+data.setCell(55, 2, 'com.ibm.watson.health.acd.v1.model.GetFlowsByIdOptionsTest')
+data.setCell(55, 3, 1);
+data.setCell(56, 0, 56)
+data.setCell(56, 1, 'testGetAnnotatorsByIdOptions')
+data.setCell(56, 2, 'com.ibm.watson.health.acd.v1.model.GetAnnotatorsByIdOptionsTest')
+data.setCell(56, 3, 1);
+data.setCell(57, 0, 57)
+data.setCell(57, 1, 'testCartridgesGetIdOptions')
+data.setCell(57, 2, 'com.ibm.watson.health.acd.v1.model.CartridgesGetIdOptionsTest')
+data.setCell(57, 3, 1);
+data.setCell(58, 0, 58)
+data.setCell(58, 1, 'testGetFlowsByIdOptions')
+data.setCell(58, 2, 'com.ibm.watson.health.acd.v1.model.GetFlowsByIdOptionsTest')
+data.setCell(58, 3, 1);
+data.setCell(59, 0, 59)
+data.setCell(59, 1, 'testGetAnnotatorsOptions')
+data.setCell(59, 2, 'com.ibm.watson.health.acd.v1.model.GetAnnotatorsOptionsTest')
+data.setCell(59, 3, 0);
+data.setCell(60, 0, 60)
+data.setCell(60, 1, 'testDeleteFlowsOptions')
+data.setCell(60, 2, 'com.ibm.watson.health.acd.v1.model.DeleteFlowsOptionsTest')
+data.setCell(60, 3, 0);
+data.setCell(61, 0, 61)
+data.setCell(61, 1, 'testServiceStatus')
+data.setCell(61, 2, 'com.ibm.watson.health.acd.v1.model.ServiceStatusTest')
+data.setCell(61, 3, 0);
+data.setCell(62, 0, 62)
+data.setCell(62, 1, 'testGetProfilesOptions')
+data.setCell(62, 2, 'com.ibm.watson.health.acd.v1.model.GetProfilesOptionsTest')
+data.setCell(62, 3, 0);
+data.setCell(63, 0, 63)
+data.setCell(63, 1, 'testRunPipelineWithFlowOptionsError')
+data.setCell(63, 2, 'com.ibm.watson.health.acd.v1.model.RunPipelineWithFlowOptionsTest')
+data.setCell(63, 3, 0);
+data.setCell(64, 0, 64)
+data.setCell(64, 1, 'testGetHealthCheckStatusOptions')
+data.setCell(64, 2, 'com.ibm.watson.health.acd.v1.model.GetHealthCheckStatusOptionsTest')
+data.setCell(64, 3, 0);
+data.setCell(65, 0, 65)
+data.setCell(65, 1, 'testGetProfileOptionsError')
+data.setCell(65, 2, 'com.ibm.watson.health.acd.v1.model.GetProfileOptionsTest')
+data.setCell(65, 3, 0);
+data.setCell(66, 0, 66)
+data.setCell(66, 1, 'testAcdCartridges')
+data.setCell(66, 2, 'com.ibm.watson.health.acd.v1.model.AcdCartridgesTest')
+data.setCell(66, 3, 0);
+data.setCell(67, 0, 67)
+data.setCell(67, 1, 'testConfigurationEntity')
+data.setCell(67, 2, 'com.ibm.watson.health.acd.v1.model.ConfigurationEntityTest')
+data.setCell(67, 3, 0);
+data.setCell(68, 0, 68)
+data.setCell(68, 1, 'testUpdateProfileOptionsError')
+data.setCell(68, 2, 'com.ibm.watson.health.acd.v1.model.UpdateProfileOptionsTest')
+data.setCell(68, 3, 0);
+data.setCell(69, 0, 69)
+data.setCell(69, 1, 'testDeleteProfileOptionsError')
+data.setCell(69, 2, 'com.ibm.watson.health.acd.v1.model.DeleteProfileOptionsTest')
+data.setCell(69, 3, 0);
+data.setCell(70, 0, 70)
+data.setCell(70, 1, 'testDeleteUserSpecificArtifactsOptions')
+data.setCell(70, 2, 'com.ibm.watson.health.acd.v1.model.DeleteUserSpecificArtifactsOptionsTest')
+data.setCell(70, 3, 0);
+data.setCell(71, 0, 71)
+data.setCell(71, 1, 'testDeployCartridgeOptions')
+data.setCell(71, 2, 'com.ibm.watson.health.acd.v1.model.DeployCartridgeOptionsTest')
+data.setCell(71, 3, 0);
+data.setCell(72, 0, 72)
+data.setCell(72, 1, 'testAnnotatorError')
+data.setCell(72, 2, 'com.ibm.watson.health.acd.v1.model.AnnotatorTest')
+data.setCell(72, 3, 0);
+data.setCell(73, 0, 73)
+data.setCell(73, 1, 'testCartridgesGetIdOptionsError')
+data.setCell(73, 2, 'com.ibm.watson.health.acd.v1.model.CartridgesGetIdOptionsTest')
+data.setCell(73, 3, 0);
+data.setCell(74, 0, 74)
+data.setCell(74, 1, 'testFlow')
+data.setCell(74, 2, 'com.ibm.watson.health.acd.v1.model.FlowTest')
+data.setCell(74, 3, 0);
+data.setCell(75, 0, 75)
+data.setCell(75, 1, 'testUpdateFlowsOptionsError')
+data.setCell(75, 2, 'com.ibm.watson.health.acd.v1.model.UpdateFlowsOptionsTest')
+data.setCell(75, 3, 0);
+data.setCell(76, 0, 76)
+data.setCell(76, 1, 'testDeleteFlowsOptionsError')
+data.setCell(76, 2, 'com.ibm.watson.health.acd.v1.model.DeleteFlowsOptionsTest')
+data.setCell(76, 3, 0);
+data.setCell(77, 0, 77)
+data.setCell(77, 1, 'testGetAnnotatorsByIdOptionsError')
+data.setCell(77, 2, 'com.ibm.watson.health.acd.v1.model.GetAnnotatorsByIdOptionsTest')
+data.setCell(77, 3, 0);
+window.suiteTableData['Command_line_suite']= { tableData: data, tableDiv: 'times-div-Command_line_suite'}
+return data;
+}
+              </script>
+              <span class="suite-total-time">Total running time: 2 seconds</span>
+              <div id="times-div-Command_line_suite">
+              </div> <!-- times-div-Command_line_suite -->
+            </div> <!-- times-div -->
+          </div> <!-- main-panel-content rounded-window-bottom -->
+        </div> <!-- panel -->
+        <div panel-name="reporter-Command_line_suite" class="panel">
+          <div class="main-panel-header rounded-window-top">
+            <span class="header-content">Reporter output for Command line suite</span>
+          </div> <!-- main-panel-header rounded-window-top -->
+          <div class="main-panel-content rounded-window-bottom">
+          </div> <!-- main-panel-content rounded-window-bottom -->
+        </div> <!-- panel -->
+        <div panel-name="ignored-methods-Command_line_suite" class="panel">
+          <div class="main-panel-header rounded-window-top">
+            <span class="header-content">0 ignored methods</span>
+          </div> <!-- main-panel-header rounded-window-top -->
+          <div class="main-panel-content rounded-window-bottom">
+          </div> <!-- main-panel-content rounded-window-bottom -->
+        </div> <!-- panel -->
+        <div panel-name="chronological-Command_line_suite" class="panel">
+          <div class="main-panel-header rounded-window-top">
+            <span class="header-content">Methods in chronological order</span>
+          </div> <!-- main-panel-header rounded-window-top -->
+          <div class="main-panel-content rounded-window-bottom">
+            <div class="chronological-class">
+              <div class="chronological-class-name">com.ibm.watson.health.acd.v1.unit.AnnotatorForClinicalDataAcdTest</div> <!-- chronological-class-name -->
+              <div class="configuration-class before">
+                <span class="method-name">beforePowerMockTestClass</span>
+                <span class="method-start">0 ms</span>
+              </div> <!-- configuration-class before -->
+              <div class="configuration-method before">
+                <span class="method-name">beforePowerMockTestMethod</span>
+                <span class="method-start">51 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="configuration-method before">
+                <span class="method-name">setUpMockServer</span>
+                <span class="method-start">1148 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">testCartridgesGetIdNoOptions</span>
+                <span class="method-start">1867 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">tearDownMockServer</span>
+                <span class="method-start">3311 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-method after">
+                <span class="method-name">afterPowerMockTestMethod</span>
+                <span class="method-start">3314 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-method before">
+                <span class="method-name">beforePowerMockTestMethod</span>
+                <span class="method-start">3320 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="configuration-method before">
+                <span class="method-name">setUpMockServer</span>
+                <span class="method-start">3321 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">testCartridgesGetIdWOptions</span>
+                <span class="method-start">3324 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">tearDownMockServer</span>
+                <span class="method-start">3806 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-method after">
+                <span class="method-name">afterPowerMockTestMethod</span>
+                <span class="method-start">3810 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-method before">
+                <span class="method-name">beforePowerMockTestMethod</span>
+                <span class="method-start">3811 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="configuration-method before">
+                <span class="method-name">setUpMockServer</span>
+                <span class="method-start">3812 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">testCartridgesGetWOptions</span>
+                <span class="method-start">3813 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">tearDownMockServer</span>
+                <span class="method-start">3832 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-method after">
+                <span class="method-name">afterPowerMockTestMethod</span>
+                <span class="method-start">3834 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-method before">
+                <span class="method-name">beforePowerMockTestMethod</span>
+                <span class="method-start">3836 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="configuration-method before">
+                <span class="method-name">setUpMockServer</span>
+                <span class="method-start">3836 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">testCartridgesPostMultipartWOptions</span>
+                <span class="method-start">3837 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">tearDownMockServer</span>
+                <span class="method-start">3892 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-method after">
+                <span class="method-name">afterPowerMockTestMethod</span>
+                <span class="method-start">3894 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-method before">
+                <span class="method-name">beforePowerMockTestMethod</span>
+                <span class="method-start">3895 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="configuration-method before">
+                <span class="method-name">setUpMockServer</span>
+                <span class="method-start">3896 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">testCartridgesPutMultipartWOptions</span>
+                <span class="method-start">3897 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">tearDownMockServer</span>
+                <span class="method-start">3916 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-method after">
+                <span class="method-name">afterPowerMockTestMethod</span>
+                <span class="method-start">3919 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-method before">
+                <span class="method-name">beforePowerMockTestMethod</span>
+                <span class="method-start">3920 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="configuration-method before">
+                <span class="method-name">setUpMockServer</span>
+                <span class="method-start">3921 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">testConstructorWithNullAuthenticator</span>
+                <span class="method-start">3921 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">tearDownMockServer</span>
+                <span class="method-start">3960 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-method after">
+                <span class="method-name">afterPowerMockTestMethod</span>
+                <span class="method-start">3962 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-method before">
+                <span class="method-name">beforePowerMockTestMethod</span>
+                <span class="method-start">3963 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="configuration-method before">
+                <span class="method-name">setUpMockServer</span>
+                <span class="method-start">3964 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">testCreateFlowsWOptions</span>
+                <span class="method-start">3965 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">tearDownMockServer</span>
+                <span class="method-start">4050 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-method after">
+                <span class="method-name">afterPowerMockTestMethod</span>
+                <span class="method-start">4052 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-method before">
+                <span class="method-name">beforePowerMockTestMethod</span>
+                <span class="method-start">4054 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="configuration-method before">
+                <span class="method-name">setUpMockServer</span>
+                <span class="method-start">4055 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">testCreateProfileWOptions</span>
+                <span class="method-start">4056 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">tearDownMockServer</span>
+                <span class="method-start">4077 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-method after">
+                <span class="method-name">afterPowerMockTestMethod</span>
+                <span class="method-start">4079 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-method before">
+                <span class="method-name">beforePowerMockTestMethod</span>
+                <span class="method-start">4080 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="configuration-method before">
+                <span class="method-name">setUpMockServer</span>
+                <span class="method-start">4081 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">testDeleteFlowsNoOptions</span>
+                <span class="method-start">4082 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">tearDownMockServer</span>
+                <span class="method-start">4087 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-method after">
+                <span class="method-name">afterPowerMockTestMethod</span>
+                <span class="method-start">4088 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-method before">
+                <span class="method-name">beforePowerMockTestMethod</span>
+                <span class="method-start">4089 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="configuration-method before">
+                <span class="method-name">setUpMockServer</span>
+                <span class="method-start">4090 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">testDeleteFlowsWOptions</span>
+                <span class="method-start">4091 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">tearDownMockServer</span>
+                <span class="method-start">4103 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-method after">
+                <span class="method-name">afterPowerMockTestMethod</span>
+                <span class="method-start">4105 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-method before">
+                <span class="method-name">beforePowerMockTestMethod</span>
+                <span class="method-start">4106 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="configuration-method before">
+                <span class="method-name">setUpMockServer</span>
+                <span class="method-start">4107 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">testDeleteProfileNoOptions</span>
+                <span class="method-start">4108 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">tearDownMockServer</span>
+                <span class="method-start">4114 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-method after">
+                <span class="method-name">afterPowerMockTestMethod</span>
+                <span class="method-start">4115 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-method before">
+                <span class="method-name">beforePowerMockTestMethod</span>
+                <span class="method-start">4116 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="configuration-method before">
+                <span class="method-name">setUpMockServer</span>
+                <span class="method-start">4116 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">testDeleteProfileWOptions</span>
+                <span class="method-start">4117 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">tearDownMockServer</span>
+                <span class="method-start">4130 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-method after">
+                <span class="method-name">afterPowerMockTestMethod</span>
+                <span class="method-start">4132 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-method before">
+                <span class="method-name">beforePowerMockTestMethod</span>
+                <span class="method-start">4133 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="configuration-method before">
+                <span class="method-name">setUpMockServer</span>
+                <span class="method-start">4133 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">testDeleteUserSpecificArtifactsWOptions</span>
+                <span class="method-start">4134 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">tearDownMockServer</span>
+                <span class="method-start">4144 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-method after">
+                <span class="method-name">afterPowerMockTestMethod</span>
+                <span class="method-start">4145 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-method before">
+                <span class="method-name">beforePowerMockTestMethod</span>
+                <span class="method-start">4147 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="configuration-method before">
+                <span class="method-name">setUpMockServer</span>
+                <span class="method-start">4148 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">testDeployCartridgeWOptions</span>
+                <span class="method-start">4149 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">tearDownMockServer</span>
+                <span class="method-start">4165 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-method after">
+                <span class="method-name">afterPowerMockTestMethod</span>
+                <span class="method-start">4167 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-method before">
+                <span class="method-name">beforePowerMockTestMethod</span>
+                <span class="method-start">4169 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="configuration-method before">
+                <span class="method-name">setUpMockServer</span>
+                <span class="method-start">4170 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">testGetAnnotatorsByIdNoOptions</span>
+                <span class="method-start">4171 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">tearDownMockServer</span>
+                <span class="method-start">4179 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-method after">
+                <span class="method-name">afterPowerMockTestMethod</span>
+                <span class="method-start">4181 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-method before">
+                <span class="method-name">beforePowerMockTestMethod</span>
+                <span class="method-start">4182 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="configuration-method before">
+                <span class="method-name">setUpMockServer</span>
+                <span class="method-start">4185 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">testGetAnnotatorsByIdWOptions</span>
+                <span class="method-start">4186 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">tearDownMockServer</span>
+                <span class="method-start">4206 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-method after">
+                <span class="method-name">afterPowerMockTestMethod</span>
+                <span class="method-start">4209 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-method before">
+                <span class="method-name">beforePowerMockTestMethod</span>
+                <span class="method-start">4211 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="configuration-method before">
+                <span class="method-name">setUpMockServer</span>
+                <span class="method-start">4211 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">testGetAnnotatorsWOptions</span>
+                <span class="method-start">4212 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">tearDownMockServer</span>
+                <span class="method-start">4226 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-method after">
+                <span class="method-name">afterPowerMockTestMethod</span>
+                <span class="method-start">4227 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-method before">
+                <span class="method-name">beforePowerMockTestMethod</span>
+                <span class="method-start">4228 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="configuration-method before">
+                <span class="method-name">setUpMockServer</span>
+                <span class="method-start">4229 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">testGetFlowsByIdNoOptions</span>
+                <span class="method-start">4229 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">tearDownMockServer</span>
+                <span class="method-start">4234 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-method after">
+                <span class="method-name">afterPowerMockTestMethod</span>
+                <span class="method-start">4237 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-method before">
+                <span class="method-name">beforePowerMockTestMethod</span>
+                <span class="method-start">4238 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="configuration-method before">
+                <span class="method-name">setUpMockServer</span>
+                <span class="method-start">4238 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">testGetFlowsByIdWOptions</span>
+                <span class="method-start">4239 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">tearDownMockServer</span>
+                <span class="method-start">4257 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-method after">
+                <span class="method-name">afterPowerMockTestMethod</span>
+                <span class="method-start">4259 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-method before">
+                <span class="method-name">beforePowerMockTestMethod</span>
+                <span class="method-start">4260 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="configuration-method before">
+                <span class="method-name">setUpMockServer</span>
+                <span class="method-start">4260 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">testGetFlowsWOptions</span>
+                <span class="method-start">4261 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">tearDownMockServer</span>
+                <span class="method-start">4274 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-method after">
+                <span class="method-name">afterPowerMockTestMethod</span>
+                <span class="method-start">4276 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-method before">
+                <span class="method-name">beforePowerMockTestMethod</span>
+                <span class="method-start">4277 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="configuration-method before">
+                <span class="method-name">setUpMockServer</span>
+                <span class="method-start">4277 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">testGetHealthCheckStatusWOptions</span>
+                <span class="method-start">4278 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">tearDownMockServer</span>
+                <span class="method-start">4294 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-method after">
+                <span class="method-name">afterPowerMockTestMethod</span>
+                <span class="method-start">4296 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-method before">
+                <span class="method-name">beforePowerMockTestMethod</span>
+                <span class="method-start">4297 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="configuration-method before">
+                <span class="method-name">setUpMockServer</span>
+                <span class="method-start">4297 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">testGetProfileNoOptions</span>
+                <span class="method-start">4298 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">tearDownMockServer</span>
+                <span class="method-start">4302 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-method after">
+                <span class="method-name">afterPowerMockTestMethod</span>
+                <span class="method-start">4303 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-method before">
+                <span class="method-name">beforePowerMockTestMethod</span>
+                <span class="method-start">4304 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="configuration-method before">
+                <span class="method-name">setUpMockServer</span>
+                <span class="method-start">4304 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">testGetProfileWOptions</span>
+                <span class="method-start">4305 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">tearDownMockServer</span>
+                <span class="method-start">4323 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-method after">
+                <span class="method-name">afterPowerMockTestMethod</span>
+                <span class="method-start">4324 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-method before">
+                <span class="method-name">beforePowerMockTestMethod</span>
+                <span class="method-start">4325 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="configuration-method before">
+                <span class="method-name">setUpMockServer</span>
+                <span class="method-start">4326 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">testGetProfilesWOptions</span>
+                <span class="method-start">4327 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">tearDownMockServer</span>
+                <span class="method-start">4339 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-method after">
+                <span class="method-name">afterPowerMockTestMethod</span>
+                <span class="method-start">4340 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-method before">
+                <span class="method-name">beforePowerMockTestMethod</span>
+                <span class="method-start">4341 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="configuration-method before">
+                <span class="method-name">setUpMockServer</span>
+                <span class="method-start">4342 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">testGetVersion</span>
+                <span class="method-start">4343 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">tearDownMockServer</span>
+                <span class="method-start">4348 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-method after">
+                <span class="method-name">afterPowerMockTestMethod</span>
+                <span class="method-start">4350 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-method before">
+                <span class="method-name">beforePowerMockTestMethod</span>
+                <span class="method-start">4351 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="configuration-method before">
+                <span class="method-name">setUpMockServer</span>
+                <span class="method-start">4353 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">testRunPipelineWOptions</span>
+                <span class="method-start">4354 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">tearDownMockServer</span>
+                <span class="method-start">4421 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-method after">
+                <span class="method-name">afterPowerMockTestMethod</span>
+                <span class="method-start">4422 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-method before">
+                <span class="method-name">beforePowerMockTestMethod</span>
+                <span class="method-start">4424 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="configuration-method before">
+                <span class="method-name">setUpMockServer</span>
+                <span class="method-start">4424 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">testRunPipelineWithFlowNoOptions</span>
+                <span class="method-start">4425 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">tearDownMockServer</span>
+                <span class="method-start">4430 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-method after">
+                <span class="method-name">afterPowerMockTestMethod</span>
+                <span class="method-start">4431 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-method before">
+                <span class="method-name">beforePowerMockTestMethod</span>
+                <span class="method-start">4432 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="configuration-method before">
+                <span class="method-name">setUpMockServer</span>
+                <span class="method-start">4432 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">testRunPipelineWithFlowWOptions</span>
+                <span class="method-start">4433 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">tearDownMockServer</span>
+                <span class="method-start">4466 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-method after">
+                <span class="method-name">afterPowerMockTestMethod</span>
+                <span class="method-start">4468 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-method before">
+                <span class="method-name">beforePowerMockTestMethod</span>
+                <span class="method-start">4469 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="configuration-method before">
+                <span class="method-name">setUpMockServer</span>
+                <span class="method-start">4469 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">testUpdateFlowsNoOptions</span>
+                <span class="method-start">4470 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">tearDownMockServer</span>
+                <span class="method-start">4474 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-method after">
+                <span class="method-name">afterPowerMockTestMethod</span>
+                <span class="method-start">4475 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-method before">
+                <span class="method-name">beforePowerMockTestMethod</span>
+                <span class="method-start">4476 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="configuration-method before">
+                <span class="method-name">setUpMockServer</span>
+                <span class="method-start">4476 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">testUpdateFlowsWOptions</span>
+                <span class="method-start">4477 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">tearDownMockServer</span>
+                <span class="method-start">4491 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-method after">
+                <span class="method-name">afterPowerMockTestMethod</span>
+                <span class="method-start">4492 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-method before">
+                <span class="method-name">beforePowerMockTestMethod</span>
+                <span class="method-start">4493 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="configuration-method before">
+                <span class="method-name">setUpMockServer</span>
+                <span class="method-start">4494 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">testUpdateProfileNoOptions</span>
+                <span class="method-start">4495 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">tearDownMockServer</span>
+                <span class="method-start">4498 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-method after">
+                <span class="method-name">afterPowerMockTestMethod</span>
+                <span class="method-start">4499 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-method before">
+                <span class="method-name">beforePowerMockTestMethod</span>
+                <span class="method-start">4500 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="configuration-method before">
+                <span class="method-name">setUpMockServer</span>
+                <span class="method-start">4501 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">testUpdateProfileWOptions</span>
+                <span class="method-start">4502 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">tearDownMockServer</span>
+                <span class="method-start">4516 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-method after">
+                <span class="method-name">afterPowerMockTestMethod</span>
+                <span class="method-start">4517 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-class after">
+                <span class="method-name">afterPowerMockTestClass</span>
+                <span class="method-start">4519 ms</span>
+              </div> <!-- configuration-class after -->
+            </div> <!-- chronological-class -->
+            <div class="chronological-class">
+              <div class="chronological-class-name">com.ibm.watson.health.acd.v1.model.DeleteFlowsOptionsTest</div> <!-- chronological-class-name -->
+              <div class="test-method">
+                <span class="method-name">testDeleteFlowsOptions</span>
+                <span class="method-start">4520 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">testDeleteFlowsOptionsError</span>
+                <span class="method-start">4521 ms</span>
+              </div> <!-- test-method -->
+            </div> <!-- chronological-class -->
+            <div class="chronological-class">
+              <div class="chronological-class-name">com.ibm.watson.health.acd.v1.model.GetHealthCheckStatusOptionsTest</div> <!-- chronological-class-name -->
+              <div class="test-method">
+                <span class="method-name">testGetHealthCheckStatusOptions</span>
+                <span class="method-start">4525 ms</span>
+              </div> <!-- test-method -->
+            </div> <!-- chronological-class -->
+            <div class="chronological-class">
+              <div class="chronological-class-name">com.ibm.watson.health.acd.v1.model.AnnotatorTest</div> <!-- chronological-class-name -->
+              <div class="test-method">
+                <span class="method-name">testAnnotator</span>
+                <span class="method-start">4526 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">testAnnotatorError</span>
+                <span class="method-start">4551 ms</span>
+              </div> <!-- test-method -->
+            </div> <!-- chronological-class -->
+            <div class="chronological-class">
+              <div class="chronological-class-name">com.ibm.watson.health.acd.v1.model.GetAnnotatorsOptionsTest</div> <!-- chronological-class-name -->
+              <div class="test-method">
+                <span class="method-name">testGetAnnotatorsOptions</span>
+                <span class="method-start">4552 ms</span>
+              </div> <!-- test-method -->
+            </div> <!-- chronological-class -->
+            <div class="chronological-class">
+              <div class="chronological-class-name">com.ibm.watson.health.acd.v1.model.GetFlowsOptionsTest</div> <!-- chronological-class-name -->
+              <div class="test-method">
+                <span class="method-name">testGetFlowsOptions</span>
+                <span class="method-start">4552 ms</span>
+              </div> <!-- test-method -->
+            </div> <!-- chronological-class -->
+            <div class="chronological-class">
+              <div class="chronological-class-name">com.ibm.watson.health.acd.v1.model.ListStringWrapperTest</div> <!-- chronological-class-name -->
+              <div class="test-method">
+                <span class="method-name">testListStringWrapper</span>
+                <span class="method-start">4553 ms</span>
+              </div> <!-- test-method -->
+            </div> <!-- chronological-class -->
+            <div class="chronological-class">
+              <div class="chronological-class-name">com.ibm.watson.health.acd.v1.model.AnnotatorFlowTest</div> <!-- chronological-class-name -->
+              <div class="test-method">
+                <span class="method-name">testAnnotatorFlow</span>
+                <span class="method-start">4555 ms</span>
+              </div> <!-- test-method -->
+            </div> <!-- chronological-class -->
+            <div class="chronological-class">
+              <div class="chronological-class-name">com.ibm.watson.health.acd.v1.model.GetAnnotatorsByIdOptionsTest</div> <!-- chronological-class-name -->
+              <div class="test-method">
+                <span class="method-name">testGetAnnotatorsByIdOptions</span>
+                <span class="method-start">4562 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">testGetAnnotatorsByIdOptionsError</span>
+                <span class="method-start">4563 ms</span>
+              </div> <!-- test-method -->
+            </div> <!-- chronological-class -->
+            <div class="chronological-class">
+              <div class="chronological-class-name">com.ibm.watson.health.acd.v1.model.AcdProfileTest</div> <!-- chronological-class-name -->
+              <div class="test-method">
+                <span class="method-name">testAcdProfile</span>
+                <span class="method-start">4564 ms</span>
+              </div> <!-- test-method -->
+            </div> <!-- chronological-class -->
+            <div class="chronological-class">
+              <div class="chronological-class-name">com.ibm.watson.health.acd.v1.model.FlowEntryTest</div> <!-- chronological-class-name -->
+              <div class="test-method">
+                <span class="method-name">testFlowEntry</span>
+                <span class="method-start">4568 ms</span>
+              </div> <!-- test-method -->
+            </div> <!-- chronological-class -->
+            <div class="chronological-class">
+              <div class="chronological-class-name">com.ibm.watson.health.acd.v1.model.EntityTest</div> <!-- chronological-class-name -->
+              <div class="test-method">
+                <span class="method-name">testEntity</span>
+                <span class="method-start">4569 ms</span>
+              </div> <!-- test-method -->
+            </div> <!-- chronological-class -->
+            <div class="chronological-class">
+              <div class="chronological-class-name">com.ibm.watson.health.acd.v1.model.RunPipelineWithFlowOptionsTest</div> <!-- chronological-class-name -->
+              <div class="test-method">
+                <span class="method-name">testRunPipelineWithFlowOptions</span>
+                <span class="method-start">4572 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">testRunPipelineWithFlowOptionsError</span>
+                <span class="method-start">4595 ms</span>
+              </div> <!-- test-method -->
+            </div> <!-- chronological-class -->
+            <div class="chronological-class">
+              <div class="chronological-class-name">com.ibm.watson.health.acd.v1.model.GetProfileOptionsTest</div> <!-- chronological-class-name -->
+              <div class="test-method">
+                <span class="method-name">testGetProfileOptions</span>
+                <span class="method-start">4596 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">testGetProfileOptionsError</span>
+                <span class="method-start">4597 ms</span>
+              </div> <!-- test-method -->
+            </div> <!-- chronological-class -->
+            <div class="chronological-class">
+              <div class="chronological-class-name">com.ibm.watson.health.acd.v1.model.CartridgesPostMultipartOptionsTest</div> <!-- chronological-class-name -->
+              <div class="test-method">
+                <span class="method-name">testCartridgesPostMultipartOptions</span>
+                <span class="method-start">4598 ms</span>
+              </div> <!-- test-method -->
+            </div> <!-- chronological-class -->
+            <div class="chronological-class">
+              <div class="chronological-class-name">com.ibm.watson.health.acd.v1.model.GetFlowsByIdOptionsTest</div> <!-- chronological-class-name -->
+              <div class="test-method">
+                <span class="method-name">testGetFlowsByIdOptions</span>
+                <span class="method-start">4602 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">testGetFlowsByIdOptionsError</span>
+                <span class="method-start">4603 ms</span>
+              </div> <!-- test-method -->
+            </div> <!-- chronological-class -->
+            <div class="chronological-class">
+              <div class="chronological-class-name">com.ibm.watson.health.acd.v1.model.UnstructuredContainerTest</div> <!-- chronological-class-name -->
+              <div class="test-method">
+                <span class="method-name">testUnstructuredContainer</span>
+                <span class="method-start">4604 ms</span>
+              </div> <!-- test-method -->
+            </div> <!-- chronological-class -->
+            <div class="chronological-class">
+              <div class="chronological-class-name">com.ibm.watson.health.acd.v1.model.ConfigurationEntityTest</div> <!-- chronological-class-name -->
+              <div class="test-method">
+                <span class="method-name">testConfigurationEntity</span>
+                <span class="method-start">4617 ms</span>
+              </div> <!-- test-method -->
+            </div> <!-- chronological-class -->
+            <div class="chronological-class">
+              <div class="chronological-class-name">com.ibm.watson.health.acd.v1.model.FlowTest</div> <!-- chronological-class-name -->
+              <div class="test-method">
+                <span class="method-name">testFlow</span>
+                <span class="method-start">4618 ms</span>
+              </div> <!-- test-method -->
+            </div> <!-- chronological-class -->
+            <div class="chronological-class">
+              <div class="chronological-class-name">com.ibm.watson.health.acd.v1.model.CartridgesPutMultipartOptionsTest</div> <!-- chronological-class-name -->
+              <div class="test-method">
+                <span class="method-name">testCartridgesPutMultipartOptions</span>
+                <span class="method-start">4619 ms</span>
+              </div> <!-- test-method -->
+            </div> <!-- chronological-class -->
+            <div class="chronological-class">
+              <div class="chronological-class-name">com.ibm.watson.health.acd.v1.model.AnalyticFlowBeanInputTest</div> <!-- chronological-class-name -->
+              <div class="test-method">
+                <span class="method-name">testAnalyticFlowBeanInput</span>
+                <span class="method-start">4620 ms</span>
+              </div> <!-- test-method -->
+            </div> <!-- chronological-class -->
+            <div class="chronological-class">
+              <div class="chronological-class-name">com.ibm.watson.health.acd.v1.model.CartridgesGetIdOptionsTest</div> <!-- chronological-class-name -->
+              <div class="test-method">
+                <span class="method-name">testCartridgesGetIdOptions</span>
+                <span class="method-start">4624 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">testCartridgesGetIdOptionsError</span>
+                <span class="method-start">4625 ms</span>
+              </div> <!-- test-method -->
+            </div> <!-- chronological-class -->
+            <div class="chronological-class">
+              <div class="chronological-class-name">com.ibm.watson.health.acd.v1.model.UpdateProfileOptionsTest</div> <!-- chronological-class-name -->
+              <div class="test-method">
+                <span class="method-name">testUpdateProfileOptions</span>
+                <span class="method-start">4626 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">testUpdateProfileOptionsError</span>
+                <span class="method-start">4629 ms</span>
+              </div> <!-- test-method -->
+            </div> <!-- chronological-class -->
+            <div class="chronological-class">
+              <div class="chronological-class-name">com.ibm.watson.health.acd.v1.model.AcdCartridgesTest</div> <!-- chronological-class-name -->
+              <div class="test-method">
+                <span class="method-name">testAcdCartridges</span>
+                <span class="method-start">4630 ms</span>
+              </div> <!-- test-method -->
+            </div> <!-- chronological-class -->
+            <div class="chronological-class">
+              <div class="chronological-class-name">com.ibm.watson.health.acd.v1.model.DeleteUserSpecificArtifactsOptionsTest</div> <!-- chronological-class-name -->
+              <div class="test-method">
+                <span class="method-name">testDeleteUserSpecificArtifactsOptions</span>
+                <span class="method-start">4631 ms</span>
+              </div> <!-- test-method -->
+            </div> <!-- chronological-class -->
+            <div class="chronological-class">
+              <div class="chronological-class-name">com.ibm.watson.health.acd.v1.model.DeployCartridgeResponseTest</div> <!-- chronological-class-name -->
+              <div class="test-method">
+                <span class="method-name">testDeployCartridgeResponse</span>
+                <span class="method-start">4632 ms</span>
+              </div> <!-- test-method -->
+            </div> <!-- chronological-class -->
+            <div class="chronological-class">
+              <div class="chronological-class-name">com.ibm.watson.health.acd.v1.model.DeleteProfileOptionsTest</div> <!-- chronological-class-name -->
+              <div class="test-method">
+                <span class="method-name">testDeleteProfileOptions</span>
+                <span class="method-start">4633 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">testDeleteProfileOptionsError</span>
+                <span class="method-start">4634 ms</span>
+              </div> <!-- test-method -->
+            </div> <!-- chronological-class -->
+            <div class="chronological-class">
+              <div class="chronological-class-name">com.ibm.watson.health.acd.v1.model.GetProfilesOptionsTest</div> <!-- chronological-class-name -->
+              <div class="test-method">
+                <span class="method-name">testGetProfilesOptions</span>
+                <span class="method-start">4635 ms</span>
+              </div> <!-- test-method -->
+            </div> <!-- chronological-class -->
+            <div class="chronological-class">
+              <div class="chronological-class-name">com.ibm.watson.health.acd.v1.model.ServiceStatusTest</div> <!-- chronological-class-name -->
+              <div class="test-method">
+                <span class="method-name">testServiceStatus</span>
+                <span class="method-start">4636 ms</span>
+              </div> <!-- test-method -->
+            </div> <!-- chronological-class -->
+            <div class="chronological-class">
+              <div class="chronological-class-name">com.ibm.watson.health.acd.v1.model.CartridgesGetOptionsTest</div> <!-- chronological-class-name -->
+              <div class="test-method">
+                <span class="method-name">testCartridgesGetOptions</span>
+                <span class="method-start">4636 ms</span>
+              </div> <!-- test-method -->
+            </div> <!-- chronological-class -->
+            <div class="chronological-class">
+              <div class="chronological-class-name">com.ibm.watson.health.acd.v1.model.AcdFlowTest</div> <!-- chronological-class-name -->
+              <div class="test-method">
+                <span class="method-name">testAcdFlow</span>
+                <span class="method-start">4637 ms</span>
+              </div> <!-- test-method -->
+            </div> <!-- chronological-class -->
+            <div class="chronological-class">
+              <div class="chronological-class-name">com.ibm.watson.health.acd.v1.model.ServiceErrorTest</div> <!-- chronological-class-name -->
+              <div class="test-method">
+                <span class="method-name">testServiceError</span>
+                <span class="method-start">4639 ms</span>
+              </div> <!-- test-method -->
+            </div> <!-- chronological-class -->
+            <div class="chronological-class">
+              <div class="chronological-class-name">com.ibm.watson.health.acd.v1.model.CreateFlowsOptionsTest</div> <!-- chronological-class-name -->
+              <div class="test-method">
+                <span class="method-name">testCreateFlowsOptions</span>
+                <span class="method-start">4640 ms</span>
+              </div> <!-- test-method -->
+            </div> <!-- chronological-class -->
+            <div class="chronological-class">
+              <div class="chronological-class-name">com.ibm.watson.health.acd.v1.model.DeployCartridgeOptionsTest</div> <!-- chronological-class-name -->
+              <div class="test-method">
+                <span class="method-name">testDeployCartridgeOptions</span>
+                <span class="method-start">4642 ms</span>
+              </div> <!-- test-method -->
+            </div> <!-- chronological-class -->
+            <div class="chronological-class">
+              <div class="chronological-class-name">com.ibm.watson.health.acd.v1.model.RunPipelineOptionsTest</div> <!-- chronological-class-name -->
+              <div class="test-method">
+                <span class="method-name">testRunPipelineOptions</span>
+                <span class="method-start">4643 ms</span>
+              </div> <!-- test-method -->
+            </div> <!-- chronological-class -->
+            <div class="chronological-class">
+              <div class="chronological-class-name">com.ibm.watson.health.acd.v1.model.CreateProfileOptionsTest</div> <!-- chronological-class-name -->
+              <div class="test-method">
+                <span class="method-name">testCreateProfileOptions</span>
+                <span class="method-start">4646 ms</span>
+              </div> <!-- test-method -->
+            </div> <!-- chronological-class -->
+            <div class="chronological-class">
+              <div class="chronological-class-name">com.ibm.watson.health.acd.v1.model.UpdateFlowsOptionsTest</div> <!-- chronological-class-name -->
+              <div class="test-method">
+                <span class="method-name">testUpdateFlowsOptions</span>
+                <span class="method-start">4648 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">testUpdateFlowsOptionsError</span>
+                <span class="method-start">4650 ms</span>
+              </div> <!-- test-method -->
+          </div> <!-- main-panel-content rounded-window-bottom -->
+        </div> <!-- panel -->
+      </div> <!-- main-panel-root -->
+    </div> <!-- wrapper -->
+  </body>
+</html>

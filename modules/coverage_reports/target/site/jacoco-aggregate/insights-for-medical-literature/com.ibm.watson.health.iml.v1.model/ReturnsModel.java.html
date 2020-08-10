@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../jacoco-resources/report.gif" type="image/gif"/><title>ReturnsModel.java</title><link rel="stylesheet" href="../../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../../index.html" class="el_report">IBM Watson Health Cognitive Services Coverage Reports</a> &gt; <a href="../index.html" class="el_bundle">insights-for-medical-literature</a> &gt; <a href="index.source.html" class="el_package">com.ibm.watson.health.iml.v1.model</a> &gt; <span class="el_source">ReturnsModel.java</span></div><h1>ReturnsModel.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2018 IBM Corp. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
+ * you may not use this file except in compliance with
+ * the License. You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing,
+ * software distributed under the License is distributed on
+ * an &quot;AS IS&quot; BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND,
+ * either express or implied. See the License for the
+ * specific language governing permissions and limitations under the License.
+ */
+package com.ibm.watson.health.iml.v1.model;
+
+import java.util.Map;
+
+import com.ibm.cloud.sdk.core.service.model.GenericModel;
+
+/**
+ * ReturnsModel.
+ */
+public class ReturnsModel extends GenericModel {
+
+  private Documents documents;
+  private Concepts concepts;
+  private Passages passages;
+  private Attributes attributes;
+  private Values values;
+  private Ranges ranges;
+  private Types types;
+  private Typeahead typeahead;
+  private Map&lt;String, DateHistograms&gt; dateHistograms;
+  private Map&lt;String, Aggregations&gt; aggregations;
+
+  /**
+   * Returns model for a query.
+   */
+<span class="fc" id="L41">  public ReturnsModel() {</span>
+
+<span class="fc" id="L43">  }</span>
+  /**
+   * Gets the documents.
+   *
+   * @return the documents
+   */
+  public Documents getDocuments() {
+<span class="nc" id="L50">    return documents;</span>
+  }
+
+  /**
+   * Gets the concepts.
+   *
+   * @return the concepts
+   */
+  public Concepts getConcepts() {
+<span class="nc" id="L59">    return concepts;</span>
+  }
+
+  /**
+   * Gets the passages.
+   *
+   * @return the passages
+   */
+  public Passages getPassages() {
+<span class="nc" id="L68">    return passages;</span>
+  }
+
+  /**
+   * Gets the attributes.
+   *
+   * @return the attributes
+   */
+  public Attributes getAttributes() {
+<span class="nc" id="L77">    return attributes;</span>
+  }
+
+  /**
+   * Gets the values.
+   *
+   * @return the values
+   */
+  public Values getValues() {
+<span class="nc" id="L86">    return values;</span>
+  }
+
+  /**
+   * Gets the ranges.
+   *
+   * @return the ranges
+   */
+  public Ranges getRanges() {
+<span class="nc" id="L95">    return ranges;</span>
+  }
+
+  /**
+   * Gets the types.
+   *
+   * @return the types
+   */
+  public Types getTypes() {
+<span class="nc" id="L104">    return types;</span>
+  }
+
+  /**
+   * Gets the typeahead.
+   *
+   * @return the typeahead
+   */
+  public Typeahead getTypeahead() {
+<span class="nc" id="L113">    return typeahead;</span>
+  }
+
+  /**
+   * Gets the dateHistograms.
+   *
+   * @return the dateHistograms
+   */
+  public Map&lt;String, DateHistograms&gt; getDateHistograms() {
+<span class="nc" id="L122">    return dateHistograms;</span>
+  }
+
+  /**
+   * Gets the aggregations.
+   *
+   * @return the aggregations
+   */
+  public Map&lt;String, Aggregations&gt; getAggregations() {
+<span class="nc" id="L131">    return aggregations;</span>
+  }
+
+  /**
+   * Sets the documents.
+   *
+   * @param documents the new documents
+   */
+  public void setDocuments(final Documents documents) {
+<span class="nc" id="L140">    this.documents = documents;</span>
+<span class="nc" id="L141">  }</span>
+
+  /**
+   * Sets the concepts.
+   *
+   * @param concepts the new concepts
+   */
+  public void setConcepts(final Concepts concepts) {
+<span class="nc" id="L149">    this.concepts = concepts;</span>
+<span class="nc" id="L150">  }</span>
+
+  /**
+   * Sets the passages.
+   *
+   * @param passages the new passages
+   */
+  public void setPassages(final Passages passages) {
+<span class="nc" id="L158">    this.passages = passages;</span>
+<span class="nc" id="L159">  }</span>
+
+  /**
+   * Sets the attributes.
+   *
+   * @param attributes the new attributes
+   */
+  public void setAttributes(final Attributes attributes) {
+<span class="nc" id="L167">    this.attributes = attributes;</span>
+<span class="nc" id="L168">  }</span>
+
+  /**
+   * Sets the values.
+   *
+   * @param values the new values
+   */
+  public void setValues(final Values values) {
+<span class="nc" id="L176">    this.values = values;</span>
+<span class="nc" id="L177">  }</span>
+
+  /**
+   * Sets the ranges.
+   *
+   * @param ranges the new ranges
+   */
+  public void setRanges(final Ranges ranges) {
+<span class="nc" id="L185">    this.ranges = ranges;</span>
+<span class="nc" id="L186">  }</span>
+
+  /**
+   * Sets the types.
+   *
+   * @param types the new types
+   */
+  public void setTypes(final Types types) {
+<span class="nc" id="L194">    this.types = types;</span>
+<span class="nc" id="L195">  }</span>
+
+  /**
+   * Sets the typeahead.
+   *
+   * @param typeahead the new typeahead
+   */
+  public void setTypeahead(final Typeahead typeahead) {
+<span class="nc" id="L203">    this.typeahead = typeahead;</span>
+<span class="nc" id="L204">  }</span>
+
+  /**
+   * Sets the dateHistograms.
+   *
+   * @param dateHistograms the new dateHistograms
+   */
+  public void setDateHistograms(final Map&lt;String, DateHistograms&gt; dateHistograms) {
+<span class="nc" id="L212">    this.dateHistograms = dateHistograms;</span>
+<span class="nc" id="L213">  }</span>
+
+  /**
+   * Sets the aggregations.
+   *
+   * @param aggregations the new aggregations
+   */
+  public void setAggregations(final Map&lt;String, Aggregations&gt; aggregations) {
+<span class="nc" id="L221">    this.aggregations = aggregations;</span>
+<span class="nc" id="L222">  }</span>
+}
+
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>

@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../jacoco-resources/report.gif" type="image/gif"/><title>Relation.java</title><link rel="stylesheet" href="../../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../../index.html" class="el_report">IBM Watson Health Cognitive Services Coverage Reports</a> &gt; <a href="../index.html" class="el_bundle">annotator-for-clinical-data</a> &gt; <a href="index.source.html" class="el_package">com.ibm.watson.health.acd.v1.model</a> &gt; <span class="el_source">Relation.java</span></div><h1>Relation.java</h1><pre class="source lang-java linenums">package com.ibm.watson.health.acd.v1.model;
+
+import java.lang.reflect.Type;
+import java.util.List;
+
+import com.google.gson.reflect.TypeToken;
+import com.ibm.watson.developer_cloud.service.model.DynamicModel;
+import com.ibm.watson.developer_cloud.util.GsonSerializationHelper;
+
+<span class="nc" id="L10">public class Relation extends DynamicModel {</span>
+
+<span class="nc" id="L12">  private Type typeType = new TypeToken&lt;String&gt;() { } .getType();</span>
+<span class="nc" id="L13">  private Type sourceType = new TypeToken&lt;String&gt;() { } .getType();</span>
+<span class="nc" id="L14">  private Type scoreType = new TypeToken&lt;Double&gt;() { } .getType();</span>
+<span class="nc" id="L15">  private Type nodeType = new TypeToken&lt;List&lt;RelationNode&gt;&gt;() { } .getType();</span>
+
+  /**
+   * Gets the type.
+   *
+   * @return the type
+   */
+  public String getType() {
+<span class="nc" id="L23">    return GsonSerializationHelper.serializeDynamicModelProperty(this.get(&quot;type&quot;), typeType);</span>
+  }
+
+  /**
+   * Gets the source.
+   *
+   * @return the source
+   */
+  public String getSource() {
+<span class="nc" id="L32">    return GsonSerializationHelper.serializeDynamicModelProperty(this.get(&quot;source&quot;), sourceType);</span>
+  }
+
+  /**
+   * Gets the score.
+   *
+   * @return the score
+   */
+  public Double getScore() {
+<span class="nc" id="L41">    return GsonSerializationHelper.serializeDynamicModelProperty(this.get(&quot;score&quot;), scoreType);</span>
+  }
+
+  /**
+   * Gets the node.
+   *
+   * @return the node
+   */
+  public List&lt;RelationNode&gt; getNodes() {
+//    List&lt;Object&gt; listObjects = GsonSerializationHelper.serializeDynamicModelProperty(this.get(&quot;nodes&quot;), nodeType);
+//    CustomCollection customCollection = new CustomCollection();
+//    List&lt;CustomCollection&gt; listValues = customCollection.convertToCustomCollectionList(listObjects);
+//    return listValues;
+<span class="nc" id="L54">    List&lt;RelationNode&gt; relationNodes = GsonSerializationHelper.serializeDynamicModelProperty(this.get(&quot;nodes&quot;), nodeType);</span>
+<span class="nc" id="L55">    return relationNodes;</span>
+  }
+
+  /**
+   * Gets the node.
+   *
+   * @return the node
+   */
+//  public CustomCollection getNode(int index) {
+//    return getNodes().get(index);
+//  }
+
+
+//  /**
+//   * Sets the type.
+//   * @param type the new type
+//   */
+//  public void setType(final String type) {
+//    this.put(&quot;type&quot;, type);
+//  }
+//
+//  /**
+//   * Sets the source.
+//   *
+//   * @param source the new source
+//   */
+//  public void setSource(final String source) {
+//    this.put(&quot;source&quot;, source);
+//  }
+//
+//  /**
+//   * Sets the score.
+//   *
+//   * @param source the new score
+//   */
+//  public void setScore(final Double score) {
+//    this.put(&quot;score&quot;, score);
+//  }
+//
+//  /**
+//     * Sets the node.
+//     *
+//     * @param node the relation nodes
+//     */
+//    public void setNodes(final List&lt;RelationNode&gt; node) {
+//      this.put(&quot;nodes&quot;, node);
+//    }
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>

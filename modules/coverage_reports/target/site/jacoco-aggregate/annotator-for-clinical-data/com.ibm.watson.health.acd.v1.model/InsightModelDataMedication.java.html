@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../jacoco-resources/report.gif" type="image/gif"/><title>InsightModelDataMedication.java</title><link rel="stylesheet" href="../../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../../index.html" class="el_report">IBM Watson Health Cognitive Services Coverage Reports</a> &gt; <a href="../index.html" class="el_bundle">annotator-for-clinical-data</a> &gt; <a href="index.source.html" class="el_package">com.ibm.watson.health.acd.v1.model</a> &gt; <span class="el_source">InsightModelDataMedication.java</span></div><h1>InsightModelDataMedication.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2018 IBM Corp. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the &quot;License&quot;); you may not use this file except in compliance with
+ * the License. You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on
+ * an &quot;AS IS&quot; BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the
+ * specific language governing permissions and limitations under the License.
+ */
+
+package com.ibm.watson.health.acd.v1.model;
+
+import java.lang.reflect.Type;
+
+import com.google.gson.reflect.TypeToken;
+import com.ibm.watson.developer_cloud.service.model.DynamicModel;
+import com.ibm.watson.developer_cloud.util.GsonSerializationHelper;
+
+/**
+ * InsightModelData Medication.
+ */
+<span class="nc" id="L25">public class InsightModelDataMedication extends DynamicModel {</span>
+
+<span class="nc" id="L27">  private Type usageType = new TypeToken&lt;InsightModelDataUsage&gt;() { } .getType();</span>
+<span class="nc" id="L28">  private Type startedType = new TypeToken&lt;InsightModelDataEvent&gt;() { } .getType();</span>
+<span class="nc" id="L29">  private Type stoppedType = new TypeToken&lt;InsightModelDataEvent&gt;() { } .getType();</span>
+<span class="nc" id="L30">  private Type doseChangedType = new TypeToken&lt;InsightModelDataEvent&gt;() { } .getType();</span>
+<span class="nc" id="L31">  private Type adverseType = new TypeToken&lt;InsightModelDataEvent&gt;() { } .getType();</span>
+
+  /**
+   * Gets the usage.
+   *
+   * @return the usage
+   */
+  public InsightModelDataUsage getUsage() {
+<span class="nc" id="L39">    return GsonSerializationHelper.serializeDynamicModelProperty(this.get(&quot;usage&quot;), usageType);</span>
+  }
+
+  /**
+   * Gets the started.
+   *
+   * @return the started
+   */
+  public InsightModelDataEvent getStarted() {
+<span class="nc" id="L48">    return GsonSerializationHelper.serializeDynamicModelProperty(this.get(&quot;startedEvent&quot;), startedType);</span>
+  }
+
+  /**
+   * Gets the stopped.
+   *
+   * @return the stopped
+   */
+  public InsightModelDataEvent getStopped() {
+<span class="nc" id="L57">    return GsonSerializationHelper.serializeDynamicModelProperty(this.get(&quot;stoppedEvent&quot;), stoppedType);</span>
+  }
+
+  /**
+   * Gets the doseChanged.
+   *
+   * @return the doseChanged
+   */
+  public InsightModelDataEvent getDoseChanged() {
+<span class="nc" id="L66">    return GsonSerializationHelper.serializeDynamicModelProperty(this.get(&quot;doseChangedEvent&quot;), doseChangedType);</span>
+  }
+
+  /**
+   * Gets the adverse.
+   *
+   * @return the adverse
+   */
+  public InsightModelDataEvent getAdverse() {
+<span class="nc" id="L75">    return GsonSerializationHelper.serializeDynamicModelProperty(this.get(&quot;adverseEvent&quot;), adverseType);</span>
+  }
+
+  /**
+   * Sets the usage.
+   *
+   * @param usage the new usage
+   */
+  public void setUsage(final InsightModelDataUsage usage) {
+<span class="nc" id="L84">    this.put(&quot;usage&quot;, usage);</span>
+<span class="nc" id="L85">  }</span>
+
+  /**
+   * Sets the started.
+   *
+   * @param started the new started
+   */
+  public void setStarted(final InsightModelDataEvent started) {
+<span class="nc" id="L93">    this.put(&quot;startedEvent&quot;, started);</span>
+<span class="nc" id="L94">  }</span>
+
+  /**
+   * Sets the stopped.
+   *
+   * @param stopped the new stopped
+   */
+  public void setStopped(final InsightModelDataEvent stopped) {
+<span class="nc" id="L102">    this.put(&quot;stoppedEvent&quot;, stopped);</span>
+<span class="nc" id="L103">  }</span>
+
+  /**
+   * Sets the doseChanged.
+   *
+   * @param doseChanged the new doseChanged
+   */
+  public void setDoseChanged(final InsightModelDataEvent doseChanged) {
+<span class="nc" id="L111">    this.put(&quot;doseChangedEvent&quot;, doseChanged);</span>
+<span class="nc" id="L112">  }</span>
+
+  /**
+   * Sets the adverse.
+   *
+   * @param adverse the new adverse
+   */
+  public void setAdverse(final InsightModelDataEvent adverse) {
+<span class="nc" id="L120">    this.put(&quot;adverseEvent&quot;, adverse);</span>
+<span class="nc" id="L121">  }</span>
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>

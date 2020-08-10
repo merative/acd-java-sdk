@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../jacoco-resources/report.gif" type="image/gif"/><title>Corpus.java</title><link rel="stylesheet" href="../../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../../index.html" class="el_report">IBM Watson Health Cognitive Services Coverage Reports</a> &gt; <a href="../index.html" class="el_bundle">insights-for-medical-literature</a> &gt; <a href="index.source.html" class="el_package">com.ibm.watson.health.iml.v1.model</a> &gt; <span class="el_source">Corpus.java</span></div><h1>Corpus.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2018, 2020 IBM Corp. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the &quot;License&quot;); you may not use this file except in compliance with
+ * the License. You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on
+ * an &quot;AS IS&quot; BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the
+ * specific language governing permissions and limitations under the License.
+ */
+package com.ibm.watson.health.iml.v1.model;
+
+import java.util.List;
+
+import com.ibm.cloud.sdk.core.service.model.GenericModel;
+
+/**
+ * Corpus.
+ */
+<span class="nc" id="L22">public class Corpus extends GenericModel {</span>
+
+  private String corpusName;
+  private List&lt;String&gt; ontologies;
+  private String descriptiveName;
+  private String umlsVersion;
+  private String umlsRelease;
+  private Boolean bvt;
+  private String elasticsearchIndex;
+
+  /**
+   * Gets the corpusName.
+   *
+   * @return the corpusName
+   */
+  public String getCorpusName() {
+<span class="nc" id="L38">    return corpusName;</span>
+  }
+
+  /**
+   * Gets the ontologies.
+   *
+   * @return the ontologies
+   */
+  public List&lt;String&gt; getOntologies() {
+<span class="nc" id="L47">    return ontologies;</span>
+  }
+
+  /**
+   * Gets the descriptiveName.
+   *
+   * @return the descriptiveName
+   */
+  public String getDescriptiveName() {
+<span class="nc" id="L56">    return descriptiveName;</span>
+  }
+
+  /**
+   * Gets the umlsVersion.
+   *
+   * @return the umlsVersion
+   */
+  public String getUmlsVersion() {
+<span class="nc" id="L65">    return umlsVersion;</span>
+  }
+
+  /**
+   * Gets the umlsRelease.
+   *
+   * @return the umlsRelease
+   */
+  public String getUmlsRelease() {
+<span class="nc" id="L74">    return umlsRelease;</span>
+  }
+
+  /**
+   * Gets the bvt.
+   *
+   * @return the bvt
+   */
+  public Boolean isBvt() {
+<span class="nc" id="L83">    return bvt;</span>
+  }
+
+  /**
+   * Gets the elasticsearchIndex.
+   *
+   * @return the elasticsearchIndex
+   */
+  public String getElasticsearchIndex() {
+<span class="nc" id="L92">    return elasticsearchIndex;</span>
+  }
+}
+
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>
