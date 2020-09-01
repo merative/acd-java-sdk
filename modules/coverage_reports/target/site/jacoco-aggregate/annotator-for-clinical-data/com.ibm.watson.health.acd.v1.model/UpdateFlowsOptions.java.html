@@ -1,0 +1,327 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../jacoco-resources/report.gif" type="image/gif"/><title>UpdateFlowsOptions.java</title><link rel="stylesheet" href="../../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../../index.html" class="el_report">IBM Watson Health Cognitive Services Coverage Reports</a> &gt; <a href="../index.html" class="el_bundle">annotator-for-clinical-data</a> &gt; <a href="index.source.html" class="el_package">com.ibm.watson.health.acd.v1.model</a> &gt; <span class="el_source">UpdateFlowsOptions.java</span></div><h1>UpdateFlowsOptions.java</h1><pre class="source lang-java linenums">/*
+ * (C) Copyright IBM Corp. 2020.
+ *
+ * Licensed under the Apache License, Version 2.0 (the &quot;License&quot;); you may not use this file except in compliance with
+ * the License. You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on
+ * an &quot;AS IS&quot; BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the
+ * specific language governing permissions and limitations under the License.
+ */
+package com.ibm.watson.health.acd.v1.model;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import com.ibm.cloud.sdk.core.service.model.GenericModel;
+
+/**
+ * The updateFlows options.
+ */
+public class UpdateFlowsOptions extends GenericModel {
+
+  protected String id;
+  protected String newId;
+  protected String newName;
+  protected String newDescription;
+  protected String newPublishedDate;
+  protected Boolean newPublish;
+  protected String newVersion;
+  protected String newCartridgeId;
+  protected List&lt;AnnotatorFlow&gt; newAnnotatorFlows;
+
+  /**
+   * Builder.
+   */
+  public static class Builder {
+    private String id;
+    private String newId;
+    private String newName;
+    private String newDescription;
+    private String newPublishedDate;
+    private Boolean newPublish;
+    private String newVersion;
+    private String newCartridgeId;
+    private List&lt;AnnotatorFlow&gt; newAnnotatorFlows;
+
+<span class="nc" id="L49">    private Builder(UpdateFlowsOptions updateFlowsOptions) {</span>
+<span class="nc" id="L50">      this.id = updateFlowsOptions.id;</span>
+<span class="nc" id="L51">      this.newId = updateFlowsOptions.newId;</span>
+<span class="nc" id="L52">      this.newName = updateFlowsOptions.newName;</span>
+<span class="nc" id="L53">      this.newDescription = updateFlowsOptions.newDescription;</span>
+<span class="nc" id="L54">      this.newPublishedDate = updateFlowsOptions.newPublishedDate;</span>
+<span class="nc" id="L55">      this.newPublish = updateFlowsOptions.newPublish;</span>
+<span class="nc" id="L56">      this.newVersion = updateFlowsOptions.newVersion;</span>
+<span class="nc" id="L57">      this.newCartridgeId = updateFlowsOptions.newCartridgeId;</span>
+<span class="nc" id="L58">      this.newAnnotatorFlows = updateFlowsOptions.newAnnotatorFlows;</span>
+<span class="nc" id="L59">    }</span>
+
+    /**
+     * Instantiates a new builder.
+     */
+<span class="fc" id="L64">    public Builder() {</span>
+<span class="fc" id="L65">    }</span>
+
+    /**
+     * Instantiates a new builder with required properties.
+     *
+     * @param id the id
+     */
+<span class="nc" id="L72">    public Builder(String id) {</span>
+<span class="nc" id="L73">      this.id = id;</span>
+<span class="nc" id="L74">    }</span>
+
+    /**
+     * Builds a UpdateFlowsOptions.
+     *
+     * @return the new UpdateFlowsOptions instance
+     */
+    public UpdateFlowsOptions build() {
+<span class="fc" id="L82">      return new UpdateFlowsOptions(this);</span>
+    }
+
+    /**
+     * Adds an newAnnotatorFlows to newAnnotatorFlows.
+     *
+     * @param newAnnotatorFlows the new newAnnotatorFlows
+     * @return the UpdateFlowsOptions builder
+     */
+    public Builder addNewAnnotatorFlows(AnnotatorFlow newAnnotatorFlows) {
+<span class="nc" id="L92">      com.ibm.cloud.sdk.core.util.Validator.notNull(newAnnotatorFlows,</span>
+        &quot;newAnnotatorFlows cannot be null&quot;);
+<span class="nc bnc" id="L94" title="All 2 branches missed.">      if (this.newAnnotatorFlows == null) {</span>
+<span class="nc" id="L95">        this.newAnnotatorFlows = new ArrayList&lt;AnnotatorFlow&gt;();</span>
+      }
+<span class="nc" id="L97">      this.newAnnotatorFlows.add(newAnnotatorFlows);</span>
+<span class="nc" id="L98">      return this;</span>
+    }
+
+    /**
+     * Set the id.
+     *
+     * @param id the id
+     * @return the UpdateFlowsOptions builder
+     */
+    public Builder id(String id) {
+<span class="fc" id="L108">      this.id = id;</span>
+<span class="fc" id="L109">      return this;</span>
+    }
+
+    /**
+     * Set the newId.
+     *
+     * @param newId the newId
+     * @return the UpdateFlowsOptions builder
+     */
+    public Builder newId(String newId) {
+<span class="fc" id="L119">      this.newId = newId;</span>
+<span class="fc" id="L120">      return this;</span>
+    }
+
+    /**
+     * Set the newName.
+     *
+     * @param newName the newName
+     * @return the UpdateFlowsOptions builder
+     */
+    public Builder newName(String newName) {
+<span class="fc" id="L130">      this.newName = newName;</span>
+<span class="fc" id="L131">      return this;</span>
+    }
+
+    /**
+     * Set the newDescription.
+     *
+     * @param newDescription the newDescription
+     * @return the UpdateFlowsOptions builder
+     */
+    public Builder newDescription(String newDescription) {
+<span class="fc" id="L141">      this.newDescription = newDescription;</span>
+<span class="fc" id="L142">      return this;</span>
+    }
+
+    /**
+     * Set the newPublishedDate.
+     *
+     * @param newPublishedDate the newPublishedDate
+     * @return the UpdateFlowsOptions builder
+     */
+    public Builder newPublishedDate(String newPublishedDate) {
+<span class="fc" id="L152">      this.newPublishedDate = newPublishedDate;</span>
+<span class="fc" id="L153">      return this;</span>
+    }
+
+    /**
+     * Set the newPublish.
+     *
+     * @param newPublish the newPublish
+     * @return the UpdateFlowsOptions builder
+     */
+    public Builder newPublish(Boolean newPublish) {
+<span class="fc" id="L163">      this.newPublish = newPublish;</span>
+<span class="fc" id="L164">      return this;</span>
+    }
+
+    /**
+     * Set the newVersion.
+     *
+     * @param newVersion the newVersion
+     * @return the UpdateFlowsOptions builder
+     */
+    public Builder newVersion(String newVersion) {
+<span class="fc" id="L174">      this.newVersion = newVersion;</span>
+<span class="fc" id="L175">      return this;</span>
+    }
+
+    /**
+     * Set the newCartridgeId.
+     *
+     * @param newCartridgeId the newCartridgeId
+     * @return the UpdateFlowsOptions builder
+     */
+    public Builder newCartridgeId(String newCartridgeId) {
+<span class="fc" id="L185">      this.newCartridgeId = newCartridgeId;</span>
+<span class="fc" id="L186">      return this;</span>
+    }
+
+    /**
+     * Set the newAnnotatorFlows.
+     * Existing newAnnotatorFlows will be replaced.
+     *
+     * @param newAnnotatorFlows the newAnnotatorFlows
+     * @return the UpdateFlowsOptions builder
+     */
+    public Builder newAnnotatorFlows(List&lt;AnnotatorFlow&gt; newAnnotatorFlows) {
+<span class="fc" id="L197">      this.newAnnotatorFlows = newAnnotatorFlows;</span>
+<span class="fc" id="L198">      return this;</span>
+    }
+
+    /**
+     * Set the acdFlow.
+     *
+     * @param acdFlow the acdFlow
+     * @return the UpdateFlowsOptions builder
+     */
+    public Builder acdFlow(AcdFlow acdFlow) {
+<span class="nc" id="L208">      this.newId = acdFlow.id();</span>
+<span class="nc" id="L209">      this.newName = acdFlow.name();</span>
+<span class="nc" id="L210">      this.newDescription = acdFlow.description();</span>
+<span class="nc" id="L211">      this.newPublishedDate = acdFlow.publishedDate();</span>
+<span class="nc" id="L212">      this.newPublish = acdFlow.publish();</span>
+<span class="nc" id="L213">      this.newVersion = acdFlow.version();</span>
+<span class="nc" id="L214">      this.newCartridgeId = acdFlow.cartridgeId();</span>
+<span class="nc" id="L215">      this.newAnnotatorFlows = acdFlow.annotatorFlows();</span>
+<span class="nc" id="L216">      return this;</span>
+    }
+  }
+
+<span class="fc" id="L220">  protected UpdateFlowsOptions(Builder builder) {</span>
+<span class="fc" id="L221">    com.ibm.cloud.sdk.core.util.Validator.notEmpty(builder.id,</span>
+      &quot;id cannot be empty&quot;);
+<span class="fc" id="L223">    id = builder.id;</span>
+<span class="fc" id="L224">    newId = builder.newId;</span>
+<span class="fc" id="L225">    newName = builder.newName;</span>
+<span class="fc" id="L226">    newDescription = builder.newDescription;</span>
+<span class="fc" id="L227">    newPublishedDate = builder.newPublishedDate;</span>
+<span class="fc" id="L228">    newPublish = builder.newPublish;</span>
+<span class="fc" id="L229">    newVersion = builder.newVersion;</span>
+<span class="fc" id="L230">    newCartridgeId = builder.newCartridgeId;</span>
+<span class="fc" id="L231">    newAnnotatorFlows = builder.newAnnotatorFlows;</span>
+<span class="fc" id="L232">  }</span>
+
+  /**
+   * New builder.
+   *
+   * @return a UpdateFlowsOptions builder
+   */
+  public Builder newBuilder() {
+<span class="nc" id="L240">    return new Builder(this);</span>
+  }
+
+  /**
+   * Gets the id.
+   *
+   * Flow ID.
+   *
+   * @return the id
+   */
+  public String id() {
+<span class="fc" id="L251">    return id;</span>
+  }
+
+  /**
+   * Gets the newId.
+   *
+   * @return the newId
+   */
+  public String newId() {
+<span class="fc" id="L260">    return newId;</span>
+  }
+
+  /**
+   * Gets the newName.
+   *
+   * @return the newName
+   */
+  public String newName() {
+<span class="fc" id="L269">    return newName;</span>
+  }
+
+  /**
+   * Gets the newDescription.
+   *
+   * @return the newDescription
+   */
+  public String newDescription() {
+<span class="fc" id="L278">    return newDescription;</span>
+  }
+
+  /**
+   * Gets the newPublishedDate.
+   *
+   * @return the newPublishedDate
+   */
+  public String newPublishedDate() {
+<span class="fc" id="L287">    return newPublishedDate;</span>
+  }
+
+  /**
+   * Gets the newPublish.
+   *
+   * @return the newPublish
+   */
+  public Boolean newPublish() {
+<span class="fc" id="L296">    return newPublish;</span>
+  }
+
+  /**
+   * Gets the newVersion.
+   *
+   * @return the newVersion
+   */
+  public String newVersion() {
+<span class="fc" id="L305">    return newVersion;</span>
+  }
+
+  /**
+   * Gets the newCartridgeId.
+   *
+   * @return the newCartridgeId
+   */
+  public String newCartridgeId() {
+<span class="fc" id="L314">    return newCartridgeId;</span>
+  }
+
+  /**
+   * Gets the newAnnotatorFlows.
+   *
+   * @return the newAnnotatorFlows
+   */
+  public List&lt;AnnotatorFlow&gt; newAnnotatorFlows() {
+<span class="fc" id="L323">    return newAnnotatorFlows;</span>
+  }
+}
+
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>

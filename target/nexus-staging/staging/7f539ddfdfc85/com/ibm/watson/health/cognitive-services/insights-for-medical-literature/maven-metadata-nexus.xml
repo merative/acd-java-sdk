@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metadata>
+  <groupId>com.ibm.watson.health.cognitive-services</groupId>
+  <artifactId>insights-for-medical-literature</artifactId>
+  <versioning>
+    <release>1.1.4</release>
+    <versions>
+      <version>1.1.4</version>
+    </versions>
+    <lastUpdated>20200901042559</lastUpdated>
+  </versioning>
+</metadata>

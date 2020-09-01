@@ -1,0 +1,274 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../jacoco-resources/report.gif" type="image/gif"/><title>AddCorpusDocumentOptions.java</title><link rel="stylesheet" href="../../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../../index.html" class="el_report">IBM Watson Health Cognitive Services Coverage Reports</a> &gt; <a href="../index.html" class="el_bundle">insights-for-medical-literature</a> &gt; <a href="index.source.html" class="el_package">com.ibm.watson.health.iml.v1.model</a> &gt; <span class="el_source">AddCorpusDocumentOptions.java</span></div><h1>AddCorpusDocumentOptions.java</h1><pre class="source lang-java linenums">/*
+ * (C) Copyright IBM Corp. 2020.
+ *
+ * Licensed under the Apache License, Version 2.0 (the &quot;License&quot;); you may not use this file except in compliance with
+ * the License. You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on
+ * an &quot;AS IS&quot; BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the
+ * specific language governing permissions and limitations under the License.
+ */
+package com.ibm.watson.health.iml.v1.model;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+
+import com.ibm.cloud.sdk.core.service.model.GenericModel;
+
+/**
+ * The addCorpusDocument options.
+ */
+public class AddCorpusDocumentOptions extends GenericModel {
+
+  protected String corpus;
+  protected Map&lt;String, Object&gt; document;
+  protected String acdUrl;
+  protected String apiKey;
+  protected String flowId;
+  protected String accessToken;
+  protected List&lt;Object&gt; otherAnnotators;
+
+  /**
+   * Builder.
+   */
+  public static class Builder {
+    private String corpus;
+    private Map&lt;String, Object&gt; document;
+    private String acdUrl;
+    private String apiKey;
+    private String flowId;
+    private String accessToken;
+    private List&lt;Object&gt; otherAnnotators;
+
+<span class="nc" id="L46">    private Builder(AddCorpusDocumentOptions addCorpusDocumentOptions) {</span>
+<span class="nc" id="L47">      this.corpus = addCorpusDocumentOptions.corpus;</span>
+<span class="nc" id="L48">      this.document = addCorpusDocumentOptions.document;</span>
+<span class="nc" id="L49">      this.acdUrl = addCorpusDocumentOptions.acdUrl;</span>
+<span class="nc" id="L50">      this.apiKey = addCorpusDocumentOptions.apiKey;</span>
+<span class="nc" id="L51">      this.flowId = addCorpusDocumentOptions.flowId;</span>
+<span class="nc" id="L52">      this.accessToken = addCorpusDocumentOptions.accessToken;</span>
+<span class="nc" id="L53">      this.otherAnnotators = addCorpusDocumentOptions.otherAnnotators;</span>
+<span class="nc" id="L54">    }</span>
+
+    /**
+     * Instantiates a new builder.
+     */
+<span class="fc" id="L59">    public Builder() {</span>
+<span class="fc" id="L60">    }</span>
+
+    /**
+     * Instantiates a new builder with required properties.
+     *
+     * @param corpus the corpus
+     */
+<span class="nc" id="L67">    public Builder(String corpus) {</span>
+<span class="nc" id="L68">      this.corpus = corpus;</span>
+<span class="nc" id="L69">    }</span>
+
+    /**
+     * Builds a AddCorpusDocumentOptions.
+     *
+     * @return the new AddCorpusDocumentOptions instance
+     */
+    public AddCorpusDocumentOptions build() {
+<span class="fc" id="L77">      return new AddCorpusDocumentOptions(this);</span>
+    }
+
+    /**
+     * Adds an otherAnnotators to otherAnnotators.
+     *
+     * @param otherAnnotators the new otherAnnotators
+     * @return the AddCorpusDocumentOptions builder
+     */
+    public Builder addOtherAnnotators(Object otherAnnotators) {
+<span class="nc" id="L87">      com.ibm.cloud.sdk.core.util.Validator.notNull(otherAnnotators,</span>
+        &quot;otherAnnotators cannot be null&quot;);
+<span class="nc bnc" id="L89" title="All 2 branches missed.">      if (this.otherAnnotators == null) {</span>
+<span class="nc" id="L90">        this.otherAnnotators = new ArrayList&lt;Object&gt;();</span>
+      }
+<span class="nc" id="L92">      this.otherAnnotators.add(otherAnnotators);</span>
+<span class="nc" id="L93">      return this;</span>
+    }
+
+    /**
+     * Set the corpus.
+     *
+     * @param corpus the corpus
+     * @return the AddCorpusDocumentOptions builder
+     */
+    public Builder corpus(String corpus) {
+<span class="fc" id="L103">      this.corpus = corpus;</span>
+<span class="fc" id="L104">      return this;</span>
+    }
+
+    /**
+     * Set the document.
+     *
+     * @param document the document
+     * @return the AddCorpusDocumentOptions builder
+     */
+    public Builder document(Map&lt;String, Object&gt; document) {
+<span class="fc" id="L114">      this.document = document;</span>
+<span class="fc" id="L115">      return this;</span>
+    }
+
+    /**
+     * Set the acdUrl.
+     *
+     * @param acdUrl the acdUrl
+     * @return the AddCorpusDocumentOptions builder
+     */
+    public Builder acdUrl(String acdUrl) {
+<span class="fc" id="L125">      this.acdUrl = acdUrl;</span>
+<span class="fc" id="L126">      return this;</span>
+    }
+
+    /**
+     * Set the apiKey.
+     *
+     * @param apiKey the apiKey
+     * @return the AddCorpusDocumentOptions builder
+     */
+    public Builder apiKey(String apiKey) {
+<span class="fc" id="L136">      this.apiKey = apiKey;</span>
+<span class="fc" id="L137">      return this;</span>
+    }
+
+    /**
+     * Set the flowId.
+     *
+     * @param flowId the flowId
+     * @return the AddCorpusDocumentOptions builder
+     */
+    public Builder flowId(String flowId) {
+<span class="fc" id="L147">      this.flowId = flowId;</span>
+<span class="fc" id="L148">      return this;</span>
+    }
+
+    /**
+     * Set the accessToken.
+     *
+     * @param accessToken the accessToken
+     * @return the AddCorpusDocumentOptions builder
+     */
+    public Builder accessToken(String accessToken) {
+<span class="fc" id="L158">      this.accessToken = accessToken;</span>
+<span class="fc" id="L159">      return this;</span>
+    }
+
+    /**
+     * Set the otherAnnotators.
+     * Existing otherAnnotators will be replaced.
+     *
+     * @param otherAnnotators the otherAnnotators
+     * @return the AddCorpusDocumentOptions builder
+     */
+    public Builder otherAnnotators(List&lt;Object&gt; otherAnnotators) {
+<span class="fc" id="L170">      this.otherAnnotators = otherAnnotators;</span>
+<span class="fc" id="L171">      return this;</span>
+    }
+  }
+
+<span class="fc" id="L175">  protected AddCorpusDocumentOptions(Builder builder) {</span>
+<span class="fc" id="L176">    com.ibm.cloud.sdk.core.util.Validator.notEmpty(builder.corpus,</span>
+      &quot;corpus cannot be empty&quot;);
+<span class="fc" id="L178">    corpus = builder.corpus;</span>
+<span class="fc" id="L179">    document = builder.document;</span>
+<span class="fc" id="L180">    acdUrl = builder.acdUrl;</span>
+<span class="fc" id="L181">    apiKey = builder.apiKey;</span>
+<span class="fc" id="L182">    flowId = builder.flowId;</span>
+<span class="fc" id="L183">    accessToken = builder.accessToken;</span>
+<span class="fc" id="L184">    otherAnnotators = builder.otherAnnotators;</span>
+<span class="fc" id="L185">  }</span>
+
+  /**
+   * New builder.
+   *
+   * @return a AddCorpusDocumentOptions builder
+   */
+  public Builder newBuilder() {
+<span class="nc" id="L193">    return new Builder(this);</span>
+  }
+
+  /**
+   * Gets the corpus.
+   *
+   * Corpus name.
+   *
+   * @return the corpus
+   */
+  public String corpus() {
+<span class="fc" id="L204">    return corpus;</span>
+  }
+
+  /**
+   * Gets the document.
+   *
+   * JSON based document for enrichment.
+   *
+   * @return the document
+   */
+  public Map&lt;String, Object&gt; document() {
+<span class="fc" id="L215">    return document;</span>
+  }
+
+  /**
+   * Gets the acdUrl.
+   *
+   * Annotator for clincial data url.
+   *
+   * @return the acdUrl
+   */
+  public String acdUrl() {
+<span class="fc" id="L226">    return acdUrl;</span>
+  }
+
+  /**
+   * Gets the apiKey.
+   *
+   * Security key.
+   *
+   * @return the apiKey
+   */
+  public String apiKey() {
+<span class="fc" id="L237">    return apiKey;</span>
+  }
+
+  /**
+   * Gets the flowId.
+   *
+   * Enrichment flow identifier.
+   *
+   * @return the flowId
+   */
+  public String flowId() {
+<span class="fc" id="L248">    return flowId;</span>
+  }
+
+  /**
+   * Gets the accessToken.
+   *
+   * Cloud access token.
+   *
+   * @return the accessToken
+   */
+  public String accessToken() {
+<span class="fc" id="L259">    return accessToken;</span>
+  }
+
+  /**
+   * Gets the otherAnnotators.
+   *
+   * URLs and API keys for custom annotators.
+   *
+   * @return the otherAnnotators
+   */
+  public List&lt;Object&gt; otherAnnotators() {
+<span class="fc" id="L270">    return otherAnnotators;</span>
+  }
+}
+
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>

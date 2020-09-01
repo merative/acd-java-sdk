@@ -1,0 +1,459 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../jacoco-resources/report.gif" type="image/gif"/><title>ConceptValue.java</title><link rel="stylesheet" href="../../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../../index.html" class="el_report">IBM Watson Health Cognitive Services Coverage Reports</a> &gt; <a href="../index.html" class="el_bundle">annotator-for-clinical-data</a> &gt; <a href="index.source.html" class="el_package">com.ibm.watson.health.acd.v1.model</a> &gt; <span class="el_source">ConceptValue.java</span></div><h1>ConceptValue.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2018 IBM Corp. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the &quot;License&quot;); you may not use this file except in compliance with
+ * the License. You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on
+ * an &quot;AS IS&quot; BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the
+ * specific language governing permissions and limitations under the License.
+ */
+package com.ibm.watson.health.acd.v1.model;
+
+import java.lang.reflect.Type;
+import java.util.List;
+import java.util.Map;
+
+import com.google.gson.reflect.TypeToken;
+import com.ibm.watson.developer_cloud.service.model.DynamicModel;
+import com.ibm.watson.developer_cloud.util.GsonSerializationHelper;
+import com.ibm.watson.health.acd.v1.util.CustomCollection;
+
+/**
+ * ConceptValue.
+ */
+<span class="nc" id="L27">public class ConceptValue extends DynamicModel {</span>
+<span class="nc" id="L28">  private Type idType = new TypeToken&lt;String&gt;() { } .getType();</span>
+<span class="nc" id="L29">  private Type typeType = new TypeToken&lt;String&gt;() { } .getType();</span>
+<span class="nc" id="L30">  private Type uidType = new TypeToken&lt;Long&gt;() { } .getType();</span>
+<span class="nc" id="L31">  private Type beginType = new TypeToken&lt;Long&gt;() { } .getType();</span>
+<span class="nc" id="L32">  private Type endType = new TypeToken&lt;Long&gt;() { } .getType();</span>
+<span class="nc" id="L33">  private Type coveredTextType = new TypeToken&lt;String&gt;() { } .getType();</span>
+<span class="nc" id="L34">  private Type negatedType = new TypeToken&lt;Boolean&gt;() { } .getType();</span>
+<span class="nc" id="L35">  private Type hypotheticalType = new TypeToken&lt;Boolean&gt;() { } .getType();</span>
+<span class="nc" id="L36">  private Type cuiType = new TypeToken&lt;String&gt;() { } .getType();</span>
+<span class="nc" id="L37">  private Type dimensionType = new TypeToken&lt;String&gt;() { } .getType();</span>
+<span class="nc" id="L38">  private Type preferredNameType = new TypeToken&lt;String&gt;() { } .getType();</span>
+<span class="nc" id="L39">  private Type triggerType = new TypeToken&lt;String&gt;() { } .getType();</span>
+<span class="nc" id="L40">  private Type sourceType = new TypeToken&lt;String&gt;() { } .getType();</span>
+<span class="nc" id="L41">  private Type valueType = new TypeToken&lt;String&gt;() { } .getType();</span>
+<span class="nc" id="L42">  private Type sectionNormalizedNameType = new TypeToken&lt;String&gt;() { } .getType();</span>
+<span class="nc" id="L43">  private Type sectionSurfaceFormType = new TypeToken&lt;String&gt;() { } .getType();</span>
+<span class="nc" id="L44">  private Type ruleIdType = new TypeToken&lt;String&gt;() { } .getType();</span>
+<span class="nc" id="L45">  private Type derivedFromType = new TypeToken&lt;List&lt;Concept&gt;&gt;() { } .getType();</span>
+<span class="nc" id="L46">  private Type unitType = new TypeToken&lt;String&gt;() { } .getType();</span>
+<span class="nc" id="L47">  private Type valuesType = new TypeToken&lt;List&lt;Map&gt;&gt;() { } .getType();</span>
+<span class="nc" id="L48">  private Type rangeBeginType = new TypeToken&lt;String&gt;() { } .getType();</span>
+<span class="nc" id="L49">  private Type rangeEndType = new TypeToken&lt;String&gt;() { } .getType();</span>
+
+  /**
+   * Gets the id.
+   *
+   * @return the id
+   */
+  public String getId() {
+<span class="nc" id="L57">    return GsonSerializationHelper.serializeDynamicModelProperty(this.get(&quot;id&quot;), idType);</span>
+  }
+
+  /**
+   * Gets the type.
+   *
+   * @return the type
+   */
+  public String getType() {
+<span class="nc" id="L66">    return GsonSerializationHelper.serializeDynamicModelProperty(this.get(&quot;type&quot;), typeType);</span>
+  }
+
+  /**
+   * Gets the uid.
+   *
+   * @return the uid
+   */
+  public Long getUid() {
+<span class="nc" id="L75">    return GsonSerializationHelper.serializeDynamicModelProperty(this.get(&quot;uid&quot;), uidType);</span>
+  }
+
+  /**
+   * Gets the begin.
+   *
+   * @return the begin
+   */
+  public Long getBegin() {
+<span class="nc" id="L84">    return GsonSerializationHelper.serializeDynamicModelProperty(this.get(&quot;begin&quot;), beginType);</span>
+  }
+
+  /**
+   * Gets the end.
+   *
+   * @return the end
+   */
+  public Long getEnd() {
+<span class="nc" id="L93">    return GsonSerializationHelper.serializeDynamicModelProperty(this.get(&quot;end&quot;), endType);</span>
+  }
+
+  /**
+   * Gets the coveredText.
+   *
+   * @return the coveredText
+   */
+  public String getCoveredText() {
+<span class="nc" id="L102">    return GsonSerializationHelper.serializeDynamicModelProperty(this.get(&quot;coveredText&quot;), coveredTextType);</span>
+  }
+
+  /**
+   * Gets the negated.
+   *
+   * @return the negated
+   */
+  public Boolean isNegated() {
+<span class="nc" id="L111">    Boolean negated = GsonSerializationHelper.serializeDynamicModelProperty(this.get(&quot;negated&quot;), negatedType);</span>
+<span class="nc bnc" id="L112" title="All 2 branches missed.">    if (negated == null) {</span>
+<span class="nc" id="L113">      negated = false;</span>
+    }
+<span class="nc" id="L115">    return negated;</span>
+  }
+
+  /**
+   * Gets the hypothetical.
+   *
+   * @return the hypothetical
+   */
+  public Boolean isHypothetical() {
+<span class="nc" id="L124">    Boolean hypothetical = GsonSerializationHelper.serializeDynamicModelProperty(this.get(&quot;hypothetical&quot;), hypotheticalType);</span>
+<span class="nc bnc" id="L125" title="All 2 branches missed.">    if (hypothetical == null) {</span>
+<span class="nc" id="L126">      hypothetical = false;</span>
+    }
+<span class="nc" id="L128">    return hypothetical;</span>
+  }
+
+  /**
+   * Gets the cui.
+   *
+   * @return the cui
+   */
+  public String getCui() {
+<span class="nc" id="L137">    return GsonSerializationHelper.serializeDynamicModelProperty(this.get(&quot;cui&quot;), cuiType);</span>
+  }
+
+  /**
+   * Gets the dimension.
+   *
+   * @return the dimension
+   */
+  public String getDimension() {
+<span class="nc" id="L146">    return GsonSerializationHelper.serializeDynamicModelProperty(this.get(&quot;dimension&quot;), dimensionType);</span>
+  }
+
+  /**
+   * Gets the preferredName.
+   *
+   * @return the preferredName
+   */
+  public String getPreferredName() {
+<span class="nc" id="L155">    return GsonSerializationHelper.serializeDynamicModelProperty(this.get(&quot;preferredName&quot;), preferredNameType);</span>
+  }
+
+  /**
+   * Gets the trigger.
+   *
+   * @return the trigger
+   */
+  public String getTrigger() {
+<span class="nc" id="L164">    return GsonSerializationHelper.serializeDynamicModelProperty(this.get(&quot;trigger&quot;), triggerType);</span>
+  }
+
+  /**
+   * Gets the source.
+   *
+   * @return the source
+   */
+  public String getSource() {
+<span class="nc" id="L173">    return GsonSerializationHelper.serializeDynamicModelProperty(this.get(&quot;source&quot;), sourceType);</span>
+  }
+
+  /**
+   * Gets the value.
+   *
+   * @return the value
+   */
+  public String getValue() {
+<span class="nc" id="L182">    return GsonSerializationHelper.serializeDynamicModelProperty(this.get(&quot;value&quot;), valueType);</span>
+  }
+
+  /**
+   * Gets the sectionNormalizedName.
+   *
+   * @return the sectionNormalizedName
+   */
+  public String getSectionNormalizedName() {
+<span class="nc" id="L191">    return GsonSerializationHelper.serializeDynamicModelProperty(this.get(&quot;sectionNormalizedName&quot;), sectionNormalizedNameType);</span>
+  }
+
+  /**
+   * Gets the sectionSurfaceForm.
+   *
+   * @return the sectionSurfaceForm
+   */
+  public String getSectionSurfaceForm() {
+<span class="nc" id="L200">    return GsonSerializationHelper.serializeDynamicModelProperty(this.get(&quot;sectionSurfaceForm&quot;), sectionSurfaceFormType);</span>
+  }
+
+  /**
+   * Gets the ruleId.
+   *
+   * @return the ruleId
+   */
+  public String getRuleId() {
+<span class="nc" id="L209">    return GsonSerializationHelper.serializeDynamicModelProperty(this.get(&quot;ruleId&quot;), ruleIdType);</span>
+  }
+
+  /**
+   * Gets the derivedFrom.
+   *
+   * @return the derivedFrom
+   */
+  public List&lt;Concept&gt; getDerivedFrom() {
+<span class="nc" id="L218">	  return GsonSerializationHelper.serializeDynamicModelProperty(this.get(&quot;derivedFrom&quot;), derivedFromType);</span>
+  }
+
+  /**
+   * Gets the unit.
+   *
+   * @return the unit
+   */
+  public String getUnit() {
+<span class="nc" id="L227">    return GsonSerializationHelper.serializeDynamicModelProperty(this.get(&quot;unit&quot;), unitType);</span>
+  }
+
+  /**
+   * Gets the values.
+   *
+   * @return the values
+   */
+  public List&lt;CustomCollection&gt; getValues() {
+<span class="nc" id="L236">    List&lt;Object&gt; listObjects = GsonSerializationHelper.serializeDynamicModelProperty(this.get(&quot;values&quot;), valuesType);</span>
+<span class="nc" id="L237">    CustomCollection customCollection = new CustomCollection();</span>
+<span class="nc" id="L238">    List&lt;CustomCollection&gt; listValues = customCollection.convertToCustomCollectionList(listObjects);</span>
+<span class="nc" id="L239">    return listValues;</span>
+  }
+
+  /**
+   * Gets the rangeBegin.
+   *
+   * @return the rangeBegin
+   */
+  public String getRangeBegin() {
+<span class="nc" id="L248">    return GsonSerializationHelper.serializeDynamicModelProperty(this.get(&quot;rangeBegin&quot;), rangeBeginType);</span>
+  }
+
+  /**
+   * Gets the rangeEnd.
+   *
+   * @return the rangeEnd
+   */
+  public String getRangeEnd() {
+<span class="nc" id="L257">    return GsonSerializationHelper.serializeDynamicModelProperty(this.get(&quot;rangeEnd&quot;), rangeEndType);</span>
+  }
+
+//  /**
+//   * Sets the id.
+//   *
+//   * @param id the new id
+//   */
+//  public void setId(final String id) {
+//    this.put(&quot;id&quot;, id);
+//  }
+//
+//  /**
+//   * Sets the type.
+//   *
+//   * @param type the new type
+//   */
+//  public void setType(final String type) {
+//    this.put(&quot;type&quot;, type);
+//  }
+//
+//  /**
+//   * Sets the uid.
+//   *
+//   * @param uid the new uid
+//   */
+//  public void setUid(final Long uid) {
+//    this.put(&quot;uid&quot;, uid);
+//  }
+//
+//  /**
+//   * Sets the begin.
+//   *
+//   * @param begin the new begin
+//   */
+//  public void setBegin(final Long begin) {
+//    this.put(&quot;begin&quot;, begin);
+//  }
+//
+//  /**
+//   * Sets the end.
+//   *
+//   * @param end the new end
+//   */
+//  public void setEnd(final Long end) {
+//    this.put(&quot;end&quot;, end);
+//  }
+//
+//  /**
+//   * Sets the coveredText.
+//   *
+//   * @param coveredText the new coveredText
+//   */
+//  public void setCoveredText(final String coveredText) {
+//    this.put(&quot;coveredText&quot;, coveredText);
+//  }
+//
+//  /**
+//   * Sets the negated.
+//   *
+//   * @param negated the new negated
+//   */
+//  public void setNegated(final Boolean negated) {
+//    this.put(&quot;negated&quot;, negated);
+//  }
+//
+//  /**
+//   * Sets the hypothetical.
+//   *
+//   * @param hypothetical the new hypothetical
+//   */
+//  public void setHypothetical(final Boolean hypothetical) {
+//    this.put(&quot;hypothetical&quot;, hypothetical);
+//  }
+//
+//  /**
+//   * Sets the cui.
+//   *
+//   * @param cui the new cui
+//   */
+//  public void setCui(final String cui) {
+//    this.put(&quot;cui&quot;, cui);
+//  }
+//
+//  /**
+//   * Sets the dimension.
+//   *
+//   * @param dimension the new dimension
+//   */
+//  public void setDimension(final String dimension) {
+//    this.put(&quot;dimension&quot;, dimension);
+//  }
+//
+//  /**
+//   * Sets the preferredName.
+//   *
+//   * @param preferredName the new preferredName
+//   */
+//  public void setPreferredName(final String preferredName) {
+//    this.put(&quot;preferredName&quot;, preferredName);
+//  }
+//
+//  /**
+//   * Sets the trigger.
+//   *
+//   * @param trigger the new trigger
+//   */
+//  public void setTrigger(final String trigger) {
+//    this.put(&quot;trigger&quot;, trigger);
+//  }
+//
+//  /**
+//   * Sets the source.
+//   *
+//   * @param source the new source
+//   */
+//  public void setSource(final String source) {
+//    this.put(&quot;source&quot;, source);
+//  }
+//
+//  /**
+//   * Sets the value.
+//   *
+//   * @param value the new value
+//   */
+//  public void setValue(final String value) {
+//    this.put(&quot;value&quot;, value);
+//  }
+//
+//  /**
+//   * Sets the sectionSurfaceForm.
+//   *
+//   * @param sectionSurfaceForm the new sectionSurfaceForm
+//   */
+//  public void setSectionSurfaceForm(final String sectionSurfaceForm) {
+//    this.put(&quot;sectionSurfaceForm&quot;, sectionSurfaceForm);
+//  }
+//
+//  /**
+//   * Sets the sectionNormalizedName.
+//   *
+//   * @param sectionNormalizedName the new sectionNormalizedName
+//   */
+//  public void setSectionNormalizedName(final String sectionNormalizedName) {
+//    this.put(&quot;sectionNormalizedName&quot;, sectionNormalizedName);
+//  }
+//
+//  /**
+//   * Sets the ruleId.
+//   *
+//   * @param ruleId the new ruleId
+//   */
+//  public void setRuleId(final String ruleId) {
+//    this.put(&quot;ruleId&quot;, ruleId);
+//  }
+//
+//  /**
+//   * Sets the derivedFrom.
+//   *
+//   * @param derivedFrom the new derivedFrom
+//   */
+//  public void setDerivedFrom(final List&lt;Concept&gt; derivedFrom) {
+//    this.put(&quot;derivedFrom&quot;, derivedFrom);
+//  }
+//
+//  /**
+//   * Sets the unit.
+//   *
+//   * @param unit the new unit
+//   */
+//  public void setUnit(final String unit) {
+//    this.put(&quot;unit&quot;, unit);
+//  }
+//
+//  /**
+//   * Sets the values.
+//   *
+//   * @param values the new values
+//   */
+//  public void setValues(final List&lt;Map&gt; values) {
+//    this.put(&quot;values&quot;, values);
+//  }
+//
+//  /**
+//   * Sets the rangeBegin.
+//   *
+//   * @param rangeBegin the new rangeBegin
+//   */
+//  public void setRangeBegin(final String rangeBegin) {
+//    this.put(&quot;rangeBegin&quot;, rangeBegin);
+//  }
+//
+//  /**
+//   * Sets the rangeEnd.
+//   *
+//   * @param rangeEnd the new rangeEnd
+//   */
+//  public void setRangeEnd(final String rangeEnd) {
+//    this.put(&quot;rangeEnd&quot;, rangeEnd);
+//  }
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>
