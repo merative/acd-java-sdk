@@ -75,49 +75,49 @@ public class InsightModelDataMedication extends DynamicModel {
     return GsonSerializationHelper.serializeDynamicModelProperty(this.get("adverseEvent"), adverseType);
   }
 
-  /**
-   * Sets the usage.
-   *
-   * @param usage the new usage
-   */
-  public void setUsage(final InsightModelDataUsage usage) {
-    this.put("usage", usage);
-  }
-
-  /**
-   * Sets the started.
-   *
-   * @param started the new started
-   */
-  public void setStarted(final InsightModelDataEvent started) {
-    this.put("startedEvent", started);
-  }
-
-  /**
-   * Sets the stopped.
-   *
-   * @param stopped the new stopped
-   */
-  public void setStopped(final InsightModelDataEvent stopped) {
-    this.put("stoppedEvent", stopped);
-  }
-
-  /**
-   * Sets the doseChanged.
-   *
-   * @param doseChanged the new doseChanged
-   */
-  public void setDoseChanged(final InsightModelDataEvent doseChanged) {
-    this.put("doseChangedEvent", doseChanged);
-  }
-
-  /**
-   * Sets the adverse.
-   *
-   * @param adverse the new adverse
-   */
-  public void setAdverse(final InsightModelDataEvent adverse) {
-    this.put("adverseEvent", adverse);
-  }
+//  /**
+//   * Sets the usage.
+//   *
+//   * @param usage the new usage
+//   */
+//  public void setUsage(final InsightModelDataUsage usage) {
+//    this.put("usage", usage);
+//  }
+//
+//  /**
+//   * Sets the started.
+//   *
+//   * @param started the new started
+//   */
+//  public void setStarted(final InsightModelDataEvent started) {
+//    this.put("startedEvent", started);
+//  }
+//
+//  /**
+//   * Sets the stopped.
+//   *
+//   * @param stopped the new stopped
+//   */
+//  public void setStopped(final InsightModelDataEvent stopped) {
+//    this.put("stoppedEvent", stopped);
+//  }
+//
+//  /**
+//   * Sets the doseChanged.
+//   *
+//   * @param doseChanged the new doseChanged
+//   */
+//  public void setDoseChanged(final InsightModelDataEvent doseChanged) {
+//    this.put("doseChangedEvent", doseChanged);
+//  }
+//
+//  /**
+//   * Sets the adverse.
+//   *
+//   * @param adverse the new adverse
+//   */
+//  public void setAdverse(final InsightModelDataEvent adverse) {
+//    this.put("adverseEvent", adverse);
+//  }
 
 }

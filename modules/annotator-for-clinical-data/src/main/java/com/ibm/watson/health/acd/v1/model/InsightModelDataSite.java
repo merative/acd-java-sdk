@@ -20,13 +20,14 @@ import com.ibm.watson.developer_cloud.service.model.DynamicModel;
 import com.ibm.watson.developer_cloud.util.GsonSerializationHelper;
 
 /**
- * InsightModelData Usage.
+ * InsightModelData Site.
  */
-public class InsightModelDataEvidence extends DynamicModel {
+public class InsightModelDataSite extends DynamicModel {
 
 	private Type beginType = new TypeToken<Long>() { } .getType();
 	private Type endType = new TypeToken<Long>() { } .getType();
 	private Type coveredTextType = new TypeToken<String>() { } .getType();
+	private Type typeType = new TypeToken<String>() { } .getType();
 
 	/**
 	 * Gets the begin.
@@ -55,6 +56,15 @@ public class InsightModelDataEvidence extends DynamicModel {
 		return GsonSerializationHelper.serializeDynamicModelProperty(this.get("coveredText"), coveredTextType);
 	}
 
+	/**
+	 * Gets the type.
+	 *
+	 * @return the type
+	 */
+	public String getType() {
+		return GsonSerializationHelper.serializeDynamicModelProperty(this.get("type"), typeType);
+	}
+
 //	/**
 //	 * Sets the begin.
 //	 *
@@ -80,6 +90,15 @@ public class InsightModelDataEvidence extends DynamicModel {
 //	 */
 //	public void setCoveredText(final String coveredText) {
 //		this.put("coveredText", coveredText);
+//	}
+//
+//	/**
+//	 * Sets the type.
+//	 *
+//	 * @param type the new type
+//	 */
+//	public void setType(final String type) {
+//		this.put("type", type);
 //	}
 
 }

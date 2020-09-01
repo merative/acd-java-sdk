@@ -13,10 +13,13 @@
 package com.ibm.watson.health.acd.v1.model;
 
 import java.lang.reflect.Type;
+import java.util.List;
+import java.util.Map;
 
 import com.google.gson.reflect.TypeToken;
 import com.ibm.watson.developer_cloud.service.model.DynamicModel;
 import com.ibm.watson.developer_cloud.util.GsonSerializationHelper;
+import com.ibm.watson.health.acd.v1.util.CustomCollection;
 
 /**
  * ConceptValue.
@@ -30,7 +33,7 @@ public class ConceptValue extends DynamicModel {
   private Type coveredTextType = new TypeToken<String>() { } .getType();
   private Type negatedType = new TypeToken<Boolean>() { } .getType();
   private Type hypotheticalType = new TypeToken<Boolean>() { } .getType();
-  private Type cuiType = new TypeToken<Long>() { } .getType();
+  private Type cuiType = new TypeToken<String>() { } .getType();
   private Type dimensionType = new TypeToken<String>() { } .getType();
   private Type preferredNameType = new TypeToken<String>() { } .getType();
   private Type triggerType = new TypeToken<String>() { } .getType();
@@ -38,8 +41,12 @@ public class ConceptValue extends DynamicModel {
   private Type valueType = new TypeToken<String>() { } .getType();
   private Type sectionNormalizedNameType = new TypeToken<String>() { } .getType();
   private Type sectionSurfaceFormType = new TypeToken<String>() { } .getType();
-
-
+  private Type ruleIdType = new TypeToken<String>() { } .getType();
+  private Type derivedFromType = new TypeToken<List<Concept>>() { } .getType();
+  private Type unitType = new TypeToken<String>() { } .getType();
+  private Type valuesType = new TypeToken<List<Map>>() { } .getType();
+  private Type rangeBeginType = new TypeToken<String>() { } .getType();
+  private Type rangeEndType = new TypeToken<String>() { } .getType();
 
   /**
    * Gets the id.
@@ -126,7 +133,7 @@ public class ConceptValue extends DynamicModel {
    *
    * @return the cui
    */
-  public Long getCui() {
+  public String getCui() {
     return GsonSerializationHelper.serializeDynamicModelProperty(this.get("cui"), cuiType);
   }
 
@@ -193,6 +200,62 @@ public class ConceptValue extends DynamicModel {
     return GsonSerializationHelper.serializeDynamicModelProperty(this.get("sectionSurfaceForm"), sectionSurfaceFormType);
   }
 
+  /**
+   * Gets the ruleId.
+   *
+   * @return the ruleId
+   */
+  public String getRuleId() {
+    return GsonSerializationHelper.serializeDynamicModelProperty(this.get("ruleId"), ruleIdType);
+  }
+
+  /**
+   * Gets the derivedFrom.
+   *
+   * @return the derivedFrom
+   */
+  public List<Concept> getDerivedFrom() {
+	  return GsonSerializationHelper.serializeDynamicModelProperty(this.get("derivedFrom"), derivedFromType);
+  }
+
+  /**
+   * Gets the unit.
+   *
+   * @return the unit
+   */
+  public String getUnit() {
+    return GsonSerializationHelper.serializeDynamicModelProperty(this.get("unit"), unitType);
+  }
+
+  /**
+   * Gets the values.
+   *
+   * @return the values
+   */
+  public List<CustomCollection> getValues() {
+    List<Object> listObjects = GsonSerializationHelper.serializeDynamicModelProperty(this.get("values"), valuesType);
+    CustomCollection customCollection = new CustomCollection();
+    List<CustomCollection> listValues = customCollection.convertToCustomCollectionList(listObjects);
+    return listValues;
+  }
+
+  /**
+   * Gets the rangeBegin.
+   *
+   * @return the rangeBegin
+   */
+  public String getRangeBegin() {
+    return GsonSerializationHelper.serializeDynamicModelProperty(this.get("rangeBegin"), rangeBeginType);
+  }
+
+  /**
+   * Gets the rangeEnd.
+   *
+   * @return the rangeEnd
+   */
+  public String getRangeEnd() {
+    return GsonSerializationHelper.serializeDynamicModelProperty(this.get("rangeEnd"), rangeEndType);
+  }
 
 //  /**
 //   * Sets the id.
@@ -271,7 +334,7 @@ public class ConceptValue extends DynamicModel {
 //   *
 //   * @param cui the new cui
 //   */
-//  public void setCui(final Long cui) {
+//  public void setCui(final String cui) {
 //    this.put("cui", cui);
 //  }
 //
@@ -329,7 +392,6 @@ public class ConceptValue extends DynamicModel {
 //    this.put("sectionSurfaceForm", sectionSurfaceForm);
 //  }
 //
-//
 //  /**
 //   * Sets the sectionNormalizedName.
 //   *
@@ -337,6 +399,60 @@ public class ConceptValue extends DynamicModel {
 //   */
 //  public void setSectionNormalizedName(final String sectionNormalizedName) {
 //    this.put("sectionNormalizedName", sectionNormalizedName);
+//  }
+//
+//  /**
+//   * Sets the ruleId.
+//   *
+//   * @param ruleId the new ruleId
+//   */
+//  public void setRuleId(final String ruleId) {
+//    this.put("ruleId", ruleId);
+//  }
+//
+//  /**
+//   * Sets the derivedFrom.
+//   *
+//   * @param derivedFrom the new derivedFrom
+//   */
+//  public void setDerivedFrom(final List<Concept> derivedFrom) {
+//    this.put("derivedFrom", derivedFrom);
+//  }
+//
+//  /**
+//   * Sets the unit.
+//   *
+//   * @param unit the new unit
+//   */
+//  public void setUnit(final String unit) {
+//    this.put("unit", unit);
+//  }
+//
+//  /**
+//   * Sets the values.
+//   *
+//   * @param values the new values
+//   */
+//  public void setValues(final List<Map> values) {
+//    this.put("values", values);
+//  }
+//
+//  /**
+//   * Sets the rangeBegin.
+//   *
+//   * @param rangeBegin the new rangeBegin
+//   */
+//  public void setRangeBegin(final String rangeBegin) {
+//    this.put("rangeBegin", rangeBegin);
+//  }
+//
+//  /**
+//   * Sets the rangeEnd.
+//   *
+//   * @param rangeEnd the new rangeEnd
+//   */
+//  public void setRangeEnd(final String rangeEnd) {
+//    this.put("rangeEnd", rangeEnd);
 //  }
 
 }

@@ -65,40 +65,40 @@ public class InsightModelData extends DynamicModel {
     return GsonSerializationHelper.serializeDynamicModelProperty(this.get("normality"), normalityType);
   }
 
-  /**
-   * Sets the medication.
-   *
-   * @param medication the new medication
-   */
-  public void setMedication(final InsightModelDataMedication medication) {
-    this.put("medication", medication);
-  }
-
-  /**
-   * Sets the procedure.
-   *
-   * @param procedure the new procedure
-   */
-  public void setProcedure(final InsightModelDataProcedure procedure) {
-    this.put("procedure", procedure);
-  }
-
-  /**
-   * Sets the diagnosis.
-   *
-   * @param diagnosis the new diagnosis
-   */
-  public void setDiagnosis(final InsightModelDataDiagnosis diagnosis) {
-    this.put("diagnosis", diagnosis);
-  }
-
-  /**
-   * Sets the normality.
-   *
-   * @param normality the new normality
-   */
-  public void setNormality(final InsightModelDataNormality normality) {
-    this.put("normality", normality);
-  }
+//  /**
+//   * Sets the medication.
+//   *
+//   * @param medication the new medication
+//   */
+//  public void setMedication(final InsightModelDataMedication medication) {
+//    this.put("medication", medication);
+//  }
+//
+//  /**
+//   * Sets the procedure.
+//   *
+//   * @param procedure the new procedure
+//   */
+//  public void setProcedure(final InsightModelDataProcedure procedure) {
+//    this.put("procedure", procedure);
+//  }
+//
+//  /**
+//   * Sets the diagnosis.
+//   *
+//   * @param diagnosis the new diagnosis
+//   */
+//  public void setDiagnosis(final InsightModelDataDiagnosis diagnosis) {
+//    this.put("diagnosis", diagnosis);
+//  }
+//
+//  /**
+//   * Sets the normality.
+//   *
+//   * @param normality the new normality
+//   */
+//  public void setNormality(final InsightModelDataNormality normality) {
+//    this.put("normality", normality);
+//  }
 
 }

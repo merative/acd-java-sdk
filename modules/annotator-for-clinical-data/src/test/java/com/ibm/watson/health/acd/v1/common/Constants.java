@@ -54,6 +54,7 @@ public class Constants {
 			+ "John Doe was seen at Baylor Hospital in Austin, TX."
 			+ "noone@testaddress.com"
 			+ "(555) 555-5555"
-			+ "The patient started on metformin because his blood sugar was too high.";
+			+ "The patient started on metformin because his blood sugar was too high."
+			+ "CT scan showed a tumor in his lung.";
 	public static final String CONTENT_TYPE = "application/json";
 }

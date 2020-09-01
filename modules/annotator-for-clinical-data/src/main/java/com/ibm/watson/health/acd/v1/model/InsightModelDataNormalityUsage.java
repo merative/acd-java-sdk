@@ -65,42 +65,40 @@ public class InsightModelDataNormalityUsage extends DynamicModel {
 	  return GsonSerializationHelper.serializeDynamicModelProperty(this.get("nonFindingScore"), nonFindingScoreType);
   }
 
-
-
-  /**
-   * Sets the normalScore.
-   *
-   * @param normalScore the new normalScore
-   */
-  public void setNormalScore(final Float normalScore) {
-    this.put("normalScore", normalScore);
-  }
-
-  /**
-   * Sets the abnormalScore.
-   *
-   * @param abnormalScore the new abnormalScore
-   */
-  public void setAbnormalScore(final Float abnormalScore) {
-    this.put("abnormalScore", abnormalScore);
-  }
-
-  /**
-   * Sets the unknownScore.
-   *
-   * @param unknownScore the new unknownScore
-   */
-  public void setUnknownScore(final Float unknownScore) {
-    this.put("unknownScore", unknownScore);
-  }
-
-  /**
-   * Sets the nonFindingScore.
-   *
-   * @param nonFindingScore the new nonFindingScore
-   */
-  public void setNonFindingScore(final Float nonFindingScore) {
-    this.put("nonFindingScore", nonFindingScore);
-  }
+//  /**
+//   * Sets the normalScore.
+//   *
+//   * @param normalScore the new normalScore
+//   */
+//  public void setNormalScore(final Float normalScore) {
+//    this.put("normalScore", normalScore);
+//  }
+//
+//  /**
+//   * Sets the abnormalScore.
+//   *
+//   * @param abnormalScore the new abnormalScore
+//   */
+//  public void setAbnormalScore(final Float abnormalScore) {
+//    this.put("abnormalScore", abnormalScore);
+//  }
+//
+//  /**
+//   * Sets the unknownScore.
+//   *
+//   * @param unknownScore the new unknownScore
+//   */
+//  public void setUnknownScore(final Float unknownScore) {
+//    this.put("unknownScore", unknownScore);
+//  }
+//
+//  /**
+//   * Sets the nonFindingScore.
+//   *
+//   * @param nonFindingScore the new nonFindingScore
+//   */
+//  public void setNonFindingScore(final Float nonFindingScore) {
+//    this.put("nonFindingScore", nonFindingScore);
+//  }
 
 }

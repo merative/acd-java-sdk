@@ -75,49 +75,49 @@ public class InsightModelDataType extends DynamicModel {
 	  return GsonSerializationHelper.serializeDynamicModelProperty(this.get("conditionManagementScore"), conditionManagementScoreType);
   }
 
-  /**
-   * Sets the deviceScore.
-   *
-   * @param deviceScore the new deviceScore
-   */
-  public void setDeviceScore(final Float deviceScore) {
-    this.put("deviceScore", deviceScore);
-  }
-
-  /**
-   * Sets the materialScore.
-   *
-   * @param materialScore the new materialScore
-   */
-  public void setMaterialScore(final Float materialScore) {
-    this.put("materialScore", materialScore);
-  }
-
-  /**
-   * Sets the medicationScore.
-   *
-   * @param medicationScore the new medicationScore
-   */
-  public void setMedicationScore(final Float medicationScore) {
-    this.put("medicationScore", medicationScore);
-  }
-
-  /**
-   * Sets the procedureScore.
-   *
-   * @param procedureScore the new procedureScore
-   */
-  public void setProcedureScore(final Float procedureScore) {
-    this.put("procedureScore", procedureScore);
-  }
-
-  /**
-   * Sets the conditionManagementScore.
-   *
-   * @param conditionManagementScore the new conditionManagementScore
-   */
-  public void setConditionManagementScore(final Float conditionManagementScore) {
-    this.put("conditionManagementScore", conditionManagementScore);
-  }
+//  /**
+//   * Sets the deviceScore.
+//   *
+//   * @param deviceScore the new deviceScore
+//   */
+//  public void setDeviceScore(final Float deviceScore) {
+//    this.put("deviceScore", deviceScore);
+//  }
+//
+//  /**
+//   * Sets the materialScore.
+//   *
+//   * @param materialScore the new materialScore
+//   */
+//  public void setMaterialScore(final Float materialScore) {
+//    this.put("materialScore", materialScore);
+//  }
+//
+//  /**
+//   * Sets the medicationScore.
+//   *
+//   * @param medicationScore the new medicationScore
+//   */
+//  public void setMedicationScore(final Float medicationScore) {
+//    this.put("medicationScore", medicationScore);
+//  }
+//
+//  /**
+//   * Sets the procedureScore.
+//   *
+//   * @param procedureScore the new procedureScore
+//   */
+//  public void setProcedureScore(final Float procedureScore) {
+//    this.put("procedureScore", procedureScore);
+//  }
+//
+//  /**
+//   * Sets the conditionManagementScore.
+//   *
+//   * @param conditionManagementScore the new conditionManagementScore
+//   */
+//  public void setConditionManagementScore(final Float conditionManagementScore) {
+//    this.put("conditionManagementScore", conditionManagementScore);
+//  }
 
 }

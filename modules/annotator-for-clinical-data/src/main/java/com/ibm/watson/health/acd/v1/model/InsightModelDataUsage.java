@@ -105,76 +105,76 @@ public class InsightModelDataUsage extends DynamicModel {
 	  return GsonSerializationHelper.serializeDynamicModelProperty(this.get("pendingScore"), pendingScoreType);
   }
 
-  /**
-   * Sets the takenScore.
-   *
-   * @param takenScore the new takenScore
-   */
-  public void setTakenScore(final Float takenScore) {
-    this.put("takenScore", takenScore);
-  }
-
-  /**
-   * Sets the explicitScore.
-   *
-   * @param explicitScore the new explicitScore
-   */
-  public void setExplicitScore(final Float explicitScore) {
-    this.put("explicitScore", explicitScore);
-  }
-
-  /**
-   * Sets the implicitScore.
-   *
-   * @param implicitScore the new implicitScore
-   */
-  public void setImplicitScore(final Float implicitScore) {
-    this.put("implicitScore", implicitScore);
-  }
-
-  /**
-   * Sets the consideringScore.
-   *
-   * @param consideringScore the new consideringScore
-   */
-  public void setConsideringScore(final Float consideringScore) {
-    this.put("consideringScore", consideringScore);
-  }
-
-  /**
-   * Sets the patientReportedScore.
-   *
-   * @param patientReportedScore the new patientReportedScore
-   */
-  public void setPatientReportedScore(final Float patientReportedScore) {
-    this.put("patientReportedScore", patientReportedScore);
-  }
-
-  /**
-   * Sets the discussedScore.
-   *
-   * @param discussedScore the new discussedScore
-   */
-  public void setDiscussedScore(final Float discussedScore) {
-    this.put("discussedScore", discussedScore);
-  }
-
-  /**
-   * Sets the labMeasurementScore.
-   *
-   * @param labMeasurementScore the new labMeasurementScore
-   */
-  public void setLabMeasurementScore(final Float labMeasurementScore) {
-    this.put("labMeasurementScore", labMeasurementScore);
-  }
-
-  /**
-   * Sets the pendingScore.
-   *
-   * @param pendingScore the new pendingScore
-   */
-  public void setPendingScore(final Float pendingScore) {
-    this.put("pendingScore", pendingScore);
-  }
+//  /**
+//   * Sets the takenScore.
+//   *
+//   * @param takenScore the new takenScore
+//   */
+//  public void setTakenScore(final Float takenScore) {
+//    this.put("takenScore", takenScore);
+//  }
+//
+//  /**
+//   * Sets the explicitScore.
+//   *
+//   * @param explicitScore the new explicitScore
+//   */
+//  public void setExplicitScore(final Float explicitScore) {
+//    this.put("explicitScore", explicitScore);
+//  }
+//
+//  /**
+//   * Sets the implicitScore.
+//   *
+//   * @param implicitScore the new implicitScore
+//   */
+//  public void setImplicitScore(final Float implicitScore) {
+//    this.put("implicitScore", implicitScore);
+//  }
+//
+//  /**
+//   * Sets the consideringScore.
+//   *
+//   * @param consideringScore the new consideringScore
+//   */
+//  public void setConsideringScore(final Float consideringScore) {
+//    this.put("consideringScore", consideringScore);
+//  }
+//
+//  /**
+//   * Sets the patientReportedScore.
+//   *
+//   * @param patientReportedScore the new patientReportedScore
+//   */
+//  public void setPatientReportedScore(final Float patientReportedScore) {
+//    this.put("patientReportedScore", patientReportedScore);
+//  }
+//
+//  /**
+//   * Sets the discussedScore.
+//   *
+//   * @param discussedScore the new discussedScore
+//   */
+//  public void setDiscussedScore(final Float discussedScore) {
+//    this.put("discussedScore", discussedScore);
+//  }
+//
+//  /**
+//   * Sets the labMeasurementScore.
+//   *
+//   * @param labMeasurementScore the new labMeasurementScore
+//   */
+//  public void setLabMeasurementScore(final Float labMeasurementScore) {
+//    this.put("labMeasurementScore", labMeasurementScore);
+//  }
+//
+//  /**
+//   * Sets the pendingScore.
+//   *
+//   * @param pendingScore the new pendingScore
+//   */
+//  public void setPendingScore(final Float pendingScore) {
+//    this.put("pendingScore", pendingScore);
+//  }
 
 }

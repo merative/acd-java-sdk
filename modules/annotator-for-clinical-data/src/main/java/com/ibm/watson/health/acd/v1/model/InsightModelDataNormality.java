@@ -26,6 +26,7 @@ public class InsightModelDataNormality extends DynamicModel {
 
   private Type usageType = new TypeToken<InsightModelDataNormalityUsage>() { } .getType();
   private Type evidenceType = new TypeToken<InsightModelDataEvidence>() { } .getType();
+  private Type directlyAffectedScoreType  = new TypeToken<Float>() { } .getType();
 
   /**
    * Gets the usage.
@@ -46,21 +47,39 @@ public class InsightModelDataNormality extends DynamicModel {
   }
 
   /**
-   * Sets the usage.
+   * Gets the directlyAffectedScore.
    *
-   * @param usage the new usage
+   * @return the directlyAffectedScore
    */
-  public void setUsage(final InsightModelDataNormalityUsage usage) {
-    this.put("usage", usage);
+  public Float getDirectlyAffectedScore() {
+	  return GsonSerializationHelper.serializeDynamicModelProperty(this.get("directlyAffectedScore"), directlyAffectedScoreType);
   }
 
-  /**
-   * Sets the evidence.
-   *
-   * @param evidence the new evidence
-   */
-  public void setEvidence(final InsightModelDataEvidence evidence) {
-    this.put("evidence", evidence);
-  }
+//  /**
+//   * Sets the usage.
+//   *
+//   * @param usage the new usage
+//   */
+//  public void setUsage(final InsightModelDataNormalityUsage usage) {
+//    this.put("usage", usage);
+//  }
+//
+//  /**
+//   * Sets the evidence.
+//   *
+//   * @param evidence the new evidence
+//   */
+//  public void setEvidence(final InsightModelDataEvidence evidence) {
+//    this.put("evidence", evidence);
+//  }
+
+//  /**
+//   * Sets the directlyAffectedScore.
+//   *
+//   * @param directlyAffectedScore the new directlyAffectedScore
+//   */
+//   public void setDirectlyAffectedScore(final Float directlyAffectedScore) {
+//     this.put("directlyAffectedScore", directlyAffectedScore);
+//   }
 
 }

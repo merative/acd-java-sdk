@@ -17,8 +17,11 @@ import org.junit.Assert;
 import com.ibm.watson.health.acd.v1.model.Disambiguation;
 import com.ibm.watson.health.acd.v1.model.InsightModelData;
 import com.ibm.watson.health.acd.v1.model.InsightModelDataDiagnosis;
+import com.ibm.watson.health.acd.v1.model.InsightModelDataDiagnosisModifier;
+import com.ibm.watson.health.acd.v1.model.InsightModelDataEvidence;
 import com.ibm.watson.health.acd.v1.model.InsightModelDataNormality;
 import com.ibm.watson.health.acd.v1.model.InsightModelDataNormalityUsage;
+import com.ibm.watson.health.acd.v1.model.InsightModelDataSite;
 import com.ibm.watson.health.acd.v1.model.InsightModelDataUsage;
 import com.ibm.watson.health.acd.v1.model.SymptomDisease;
 
@@ -83,6 +86,22 @@ public class TestSymptomAnnotation {
 					Float explicitScore = imdDiagUsage.getExplicitScore();
 					if (explicitScore != null) {
 						Assert.assertTrue(explicitScore >= 0);
+					}
+				}
+				if (imdDiag.getModifiers() != null) {
+					Assert.assertTrue(!imdDiag.getModifiers().isEmpty());
+					InsightModelDataDiagnosisModifier imdDiagModif = imdDiag.getModifiers();
+					if (imdDiagModif.getSites() != null) {
+						for (InsightModelDataSite imdSite : imdDiagModif.getSites()) {
+							Assert.assertNotNull(imdSite.getCoveredText());
+							Assert.assertTrue(imdSite.getEnd() > imdSite.getBegin());
+						}
+					}
+					if (imdDiagModif.getAssociatedProcedures() != null) {
+						for (InsightModelDataEvidence imdAssociatedProc : imdDiagModif.getAssociatedProcedures()) {
+							Assert.assertNotNull(imdAssociatedProc.getCoveredText());
+							Assert.assertTrue(imdAssociatedProc.getEnd() > imdAssociatedProc.getBegin());
+						}
 					}
 				}
 			}

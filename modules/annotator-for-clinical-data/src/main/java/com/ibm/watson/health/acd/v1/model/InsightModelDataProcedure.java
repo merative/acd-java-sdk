@@ -27,6 +27,7 @@ public class InsightModelDataProcedure extends DynamicModel {
   private Type usageType = new TypeToken<InsightModelDataUsage>() { } .getType();
   private Type taskType = new TypeToken<InsightModelDataTask>() { } .getType();
   private Type typeType = new TypeToken<InsightModelDataType>() { } .getType();
+  private Type modifiersType = new TypeToken<InsightModelDataProcedureModifier>() { } .getType();
 
   /**
    * Gets the usage.
@@ -56,30 +57,48 @@ public class InsightModelDataProcedure extends DynamicModel {
   }
 
   /**
-   * Sets the usage.
+   * Gets the modifiers.
    *
-   * @param usage the new usage
+   * @return the modifiers
    */
-  public void setUsage(final InsightModelDataUsage usage) {
-    this.put("usage", usage);
+  public InsightModelDataProcedureModifier getModifiers() {
+    return GsonSerializationHelper.serializeDynamicModelProperty(this.get("modifiers"), modifiersType);
   }
 
-  /**
-   * Sets the task.
-   *
-   * @param task the new task
-   */
-  public void setTask(final InsightModelDataTask task) {
-    this.put("task", task);
-  }
-
-  /**
-   * Sets the type.
-   *
-   * @param type the new type
-   */
-  public void settype(final InsightModelDataType type) {
-    this.put("type", type);
-  }
+//  /**
+//   * Sets the usage.
+//   *
+//   * @param usage the new usage
+//   */
+//  public void setUsage(final InsightModelDataUsage usage) {
+//    this.put("usage", usage);
+//  }
+//
+//  /**
+//   * Sets the task.
+//   *
+//   * @param task the new task
+//   */
+//  public void setTask(final InsightModelDataTask task) {
+//    this.put("task", task);
+//  }
+//
+//  /**
+//   * Sets the type.
+//   *
+//   * @param type the new type
+//   */
+//  public void setType(final InsightModelDataType type) {
+//    this.put("type", type);
+//  }
+//
+//   /**
+//   * Sets the modifiers.
+//   *
+//   * @param modifiers the new modifiers
+//   */
+//   public void setModifiers(final InsightModelDataProcedureModifier modifiers) {
+//    this.put("modifiers", modifiers);
+//   }
 
 }

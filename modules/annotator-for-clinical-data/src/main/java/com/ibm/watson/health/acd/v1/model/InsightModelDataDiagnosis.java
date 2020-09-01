@@ -29,6 +29,7 @@ public class InsightModelDataDiagnosis extends DynamicModel {
   private Type symptomScoreType = new TypeToken<Float>() { } .getType();
   private Type traumaScoreType = new TypeToken<Float>() { } .getType();
   private Type familyHistoryScoreType = new TypeToken<Float>() { } .getType();
+  private Type modifiersType = new TypeToken<InsightModelDataDiagnosisModifier>() { } .getType();
 
   /**
    * Gets the usage.
@@ -76,48 +77,66 @@ public class InsightModelDataDiagnosis extends DynamicModel {
   }
 
   /**
-   * Sets the usage.
+   * Gets the modifiers.
    *
-   * @param usage the new usage
+   * @return the modifiers
    */
-  public void setUsage(final InsightModelDataUsage usage) {
-    this.put("usage", usage);
+  public InsightModelDataDiagnosisModifier getModifiers() {
+    return GsonSerializationHelper.serializeDynamicModelProperty(this.get("modifiers"), modifiersType);
   }
 
-  /**
-   * Sets the suspectedScore.
-   *
-   * @param suspectedScore the new suspectedScore
-   */
-  public void setSuspectedScore(final Float suspectedScore) {
-    this.put("suspectedScore", suspectedScore);
-  }
+//  /**
+//   * Sets the usage.
+//   *
+//   * @param usage the new usage
+//   */
+//  public void setUsage(final InsightModelDataUsage usage) {
+//    this.put("usage", usage);
+//  }
+//
+//  /**
+//   * Sets the suspectedScore.
+//   *
+//   * @param suspectedScore the new suspectedScore
+//   */
+//  public void setSuspectedScore(final Float suspectedScore) {
+//    this.put("suspectedScore", suspectedScore);
+//  }
+//
+//  /**
+//   * Sets the symptomScore.
+//   *
+//   * @param symptomScore the new symptomScore
+//   */
+//  public void setSymptomScore(final Float symptomScore) {
+//    this.put("symptomScore", symptomScore);
+//  }
+//
+//  /**
+//   * Sets the traumaScore.
+//   *
+//   * @param traumaScore the new traumaScore
+//   */
+//  public void setTraumaScore(final Float traumaScore) {
+//    this.put("traumaScore", traumaScore);
+//  }
+//
+//  /**
+//   * Sets the familyHistoryScore.
+//   *
+//   * @param familyHistoryScore the new familyHistoryScore
+//   */
+//  public void setFamilyHistoryScore(final Float familyHistoryScore) {
+//    this.put("familyHistoryScore", familyHistoryScore);
+//  }
 
-  /**
-   * Sets the symptomScore.
-   *
-   * @param symptomScore the new symptomScore
-   */
-  public void setSymptomScore(final Float symptomScore) {
-    this.put("symptomScore", symptomScore);
-  }
-
-  /**
-   * Sets the traumaScore.
-   *
-   * @param traumaScore the new traumaScore
-   */
-  public void setTraumaScore(final Float traumaScore) {
-    this.put("traumaScore", traumaScore);
-  }
-
-  /**
-   * Sets the familyHistoryScore.
-   *
-   * @param familyHistoryScore the new familyHistoryScore
-   */
-  public void setFamilyHistoryScore(final Float familyHistoryScore) {
-    this.put("familyHistoryScore", familyHistoryScore);
-  }
+//  /**
+//   * Sets the modifiers.
+//   *
+//   * @param modifiers the new modifiers
+//   */
+//   public void setModifiers(final InsightModelDataDiagnosisModifier modifiers) {
+//     this.put("modifiers", modifiers);
+//   }
 
 }

@@ -22,18 +22,13 @@ public class TestConceptValue {
 		Assert.assertTrue(annotation.getBegin() > -1);
 		Assert.assertNotNull(annotation.getCoveredText());
 		Assert.assertNotNull(annotation.getCui());
-		Assert.assertNotNull(annotation.getDimension());
 		Assert.assertTrue(annotation.getEnd() > annotation.getBegin());
-		Assert.assertNotNull(annotation.getId());
 		Assert.assertNotNull(annotation.getPreferredName());
 		if (annotation.getSectionNormalizedName() != null) {
 			Assert.assertEquals(annotation.getSectionNormalizedName(), Constants.SECTION_NAME);
 			Assert.assertEquals(annotation.getSectionSurfaceForm(), Constants.SECTION_NAME);
 		}
-		Assert.assertNotNull(annotation.getSource());
-		Assert.assertNotNull(annotation.getTrigger());
 		Assert.assertNotNull(annotation.getType());
-		Assert.assertNotNull(annotation.getUid());
 		Assert.assertNotNull(annotation.getValue());
 	}
 }

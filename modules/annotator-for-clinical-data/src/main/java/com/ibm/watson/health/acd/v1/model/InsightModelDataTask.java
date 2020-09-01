@@ -75,49 +75,49 @@ public class InsightModelDataTask extends DynamicModel {
 	  return GsonSerializationHelper.serializeDynamicModelProperty(this.get("clinicalAssessmentScore"), clinicalAssessmentScoreType);
   }
 
-  /**
-   * Sets the therapeuticScore.
-   *
-   * @param therapeuticScore the new therapeuticScore
-   */
-  public void setTherapeuticScore(final Float therapeuticScore) {
-    this.put("therapeuticScore", therapeuticScore);
-  }
-
-  /**
-   * Sets the diagnosticScore.
-   *
-   * @param diagnosticScore the new diagnosticScore
-   */
-  public void setDiagnosticScore(final Float diagnosticScore) {
-    this.put("diagnosticScore", diagnosticScore);
-  }
-
-  /**
-   * Sets the labTestScore.
-   *
-   * @param labTestScore the new labTestScore
-   */
-  public void setLabTestScore(final Float labTestScore) {
-    this.put("labTestScore", labTestScore);
-  }
-
-  /**
-   * Sets the surgicalTaskScore.
-   *
-   * @param surgicalTaskScore the new surgicalTaskScore
-   */
-  public void setSurgicalTaskScore(final Float surgicalTaskScore) {
-    this.put("surgicalTaskScore", surgicalTaskScore);
-  }
-
-  /**
-   * Sets the clinicalAssessmentScore.
-   *
-   * @param clinicalAssessmentScore the new clinicalAssessmentScore
-   */
-  public void setClinicalAssessmentScore(final Float clinicalAssessmentScore) {
-    this.put("clinicalAssessmentScore", clinicalAssessmentScore);
-  }
+//  /**
+//   * Sets the therapeuticScore.
+//   *
+//   * @param therapeuticScore the new therapeuticScore
+//   */
+//  public void setTherapeuticScore(final Float therapeuticScore) {
+//    this.put("therapeuticScore", therapeuticScore);
+//  }
+//
+//  /**
+//   * Sets the diagnosticScore.
+//   *
+//   * @param diagnosticScore the new diagnosticScore
+//   */
+//  public void setDiagnosticScore(final Float diagnosticScore) {
+//    this.put("diagnosticScore", diagnosticScore);
+//  }
+//
+//  /**
+//   * Sets the labTestScore.
+//   *
+//   * @param labTestScore the new labTestScore
+//   */
+//  public void setLabTestScore(final Float labTestScore) {
+//    this.put("labTestScore", labTestScore);
+//  }
+//
+//  /**
+//   * Sets the surgicalTaskScore.
+//   *
+//   * @param surgicalTaskScore the new surgicalTaskScore
+//   */
+//  public void setSurgicalTaskScore(final Float surgicalTaskScore) {
+//    this.put("surgicalTaskScore", surgicalTaskScore);
+//  }
+//
+//  /**
+//   * Sets the clinicalAssessmentScore.
+//   *
+//   * @param clinicalAssessmentScore the new clinicalAssessmentScore
+//   */
+//  public void setClinicalAssessmentScore(final Float clinicalAssessmentScore) {
+//    this.put("clinicalAssessmentScore", clinicalAssessmentScore);
+//  }
 
 }
