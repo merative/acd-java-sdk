@@ -32,15 +32,6 @@ public class SectionAnnotation extends DynamicModel {
   private Type sectionType = new TypeToken<String>() { } .getType();
   private Type sectionTriggerType = new TypeToken<SectionTrigger>() { } .getType();
 
-
-
-
-
-
-
-
-
-
   /**
    * Gets the begin.
    *

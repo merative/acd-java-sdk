@@ -97,14 +97,14 @@ public class TestContainerGroup {
 			Assert.assertNotNull(concept);
 		}
 		List<ConceptValue> conceptValues = containerGroup.getConceptValues();
-//		if (conceptValues != null && !conceptValues.isEmpty()) {
-//			for (ConceptValue value : conceptValues) {
-//
-//				TestConceptValue.testConceptValue(value);
-//			}
-//			ConceptValue value = containerGroup.getConceptValues(0);
-//			Assert.assertNotNull(value);
-//		}
+		if (conceptValues != null && !conceptValues.isEmpty()) {
+			for (ConceptValue value : conceptValues) {
+
+				TestConceptValue.testConceptValue(value);
+			}
+			ConceptValue value = containerGroup.getConceptValues(0);
+			Assert.assertNotNull(value);
+		}
 		List<AssistanceAnnotation> dressingAnnotations = containerGroup.getDressingAssistance();
 		if (dressingAnnotations != null && !dressingAnnotations.isEmpty()) {
 			for (AssistanceAnnotation annotation : dressingAnnotations) {
@@ -201,9 +201,9 @@ public class TestContainerGroup {
 			Annotation annotation = containerGroup.getOrganization(0);
 			Assert.assertNotNull(annotation);
 		}
-		List<Annotation> personAnntations = containerGroup.getPerson();
-		if (personAnntations != null && !personAnntations.isEmpty()) {
-			for (Annotation annotation : personAnntations) {
+		List<Annotation> personAnnotations = containerGroup.getPerson();
+		if (personAnnotations != null && !personAnnotations.isEmpty()) {
+			for (Annotation annotation : personAnnotations) {
 				TestAnnotation.testAnnotation(annotation);
 			}
 			Annotation annotation = containerGroup.getPerson(0);
@@ -233,9 +233,9 @@ public class TestContainerGroup {
 			SectionAnnotation annotation = containerGroup.getSectionAnnotations(0);
 			Assert.assertNotNull(annotation);
 		}
-		List<AssistanceAnnotation> seeingAnnoations = containerGroup.getSeeingAssistanceInd();
-		if (seeingAnnoations != null && !seeingAnnoations.isEmpty()) {
-			for (AssistanceAnnotation annotation : seeingAnnoations) {
+		List<AssistanceAnnotation> seeingAnnotations = containerGroup.getSeeingAssistanceInd();
+		if (seeingAnnotations != null && !seeingAnnotations.isEmpty()) {
+			for (AssistanceAnnotation annotation : seeingAnnotations) {
 				TestAssistanceAnnotation.testAssistanceAnnotation(annotation);
 			}
 			AssistanceAnnotation annotation = containerGroup.getSeeingAssistanceInd(0);
