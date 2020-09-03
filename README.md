@@ -1,4 +1,4 @@
-# IBM Watson Health Cognitive Services Java SDK Version 1.1.3
+# IBM Watson Health Cognitive Services Java SDK Version 1.1.4
 
 The IBM Watson Health Cognitive Services (WHCS) Java SDK allows developers to programmatically interact with the following WHCS services:
 
@@ -18,7 +18,7 @@ NOTE:  You must be signed in to IBM Cloud to see the docs.
 * Java 8 or above.
 
 ## Installation
-The current version of this SDK is: 1.1.3
+The current version of this SDK is: 1.1.4
 
 #### All the services
 To define a dependency on the entire set of services contained in the project, use a dependency like these:
@@ -29,14 +29,14 @@ To define a dependency on the entire set of services contained in the project, u
 <dependency>
 	<groupId>com.ibm.watson.health.cognitive-services</groupId>
 	<artifactId>ibm-whcs-services</artifactId>
-	<version>1.1.3</version>
+	<version>1.1.4</version>
 </dependency>
 ```
 
 ##### Gradle
 
 ```gradle
-'com.ibm.watson.health.cognitive-services:ibm-whcs-services:1.1.3'
+'com.ibm.watson.health.cognitive-services:ibm-whcs-services:1.1.4'
 ```
 
 #### A single service
@@ -48,13 +48,13 @@ To define a dependency on a single service, use a dependency that contains the a
 <dependency>
     <groupId>com.ibm.watson.health.cognitive-services</groupId>
     <artifactId>annotator-for-clinical-data</artifactId>
-    <version>1.1.3</version>
+    <version>1.1.4</version>
 </dependency>
 ```
 
 ##### Gradle
 ```gradle
-'com.ibm.watson.health.cognitive-services:annotator-for-clinical-data:1.1.3'
+'com.ibm.watson.health.cognitive-services:annotator-for-clinical-data:1.1.4'
 ```
 Each service's artifact id is listed in the table of services above.
 
