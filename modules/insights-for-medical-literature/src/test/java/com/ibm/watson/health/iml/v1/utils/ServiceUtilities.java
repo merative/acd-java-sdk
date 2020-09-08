@@ -61,7 +61,11 @@ public class ServiceUtilities {
 			System.out.println("Error loading the config.properties");
 		} finally {
 			if (input != null) {
-				input.close();
+				try {
+					input.close();
+				} catch (IOException ioe){
+					System.out.println("failed to close input stream.");
+				}
 			}
 		}
 
