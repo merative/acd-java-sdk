@@ -200,7 +200,14 @@ public class AnnotatorForClinicalDataExample {
 		List<Annotator> annos = profile.annotators();
 		for (Annotator anno:annos)
 			System.out.println('\t' + anno.name());
-
+                        Map<String, List<String>> annoParmMap = (Map<String, List<String>>)anno.parameters();
+                        System.out.println("Profile Config Parms:");
+                        for (Map.Entry<String, List<String>> mapEntry : annoParmMap.entrySet()) {
+                                for (String profileParmEntry : mapEntry.getValue()) {
+                                        System.out.println("Name: " + mapEntry.getKey() + " Value: " + profileParmEntry);
+                                }
+                        }
+                }
 	}
 
 	// POST /profiles
