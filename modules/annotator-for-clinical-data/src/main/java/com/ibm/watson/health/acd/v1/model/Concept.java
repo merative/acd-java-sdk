@@ -52,6 +52,7 @@ public class Concept extends DynamicModel {
   private Type insightModelDataType = new TypeToken<InsightModelData>() { } .getType();
   private Type ruleIdType = new TypeToken<String>() { } .getType();
   private Type derivedFromType = new TypeToken<List<Concept>>() { } .getType();
+  private Type temporalType = new TypeToken<List<Temporal>>() { } .getType();
 
 
 
@@ -306,6 +307,15 @@ public class Concept extends DynamicModel {
   }
 
   /**
+   * Gets the temporal.
+   *
+   * @return the temporal
+   */
+  public List<Temporal> getTemporal() {
+	  return GsonSerializationHelper.serializeDynamicModelProperty(this.get("temporal"), temporalType);
+  }
+
+  /**
    * Sets the id.
    *
    * @param id the new id
@@ -537,6 +547,15 @@ public class Concept extends DynamicModel {
    */
   public void setDerivedFrom(final List<Concept> derivedFrom) {
     this.put("derivedFrom", derivedFrom);
+  }
+
+  /**
+   * Sets the temporal.
+   *
+   * @param temporal the new temporal
+   */
+  public void setTemporal(final List<Temporal> temporal) {
+    this.put("temporal", temporal);
   }
 
 }

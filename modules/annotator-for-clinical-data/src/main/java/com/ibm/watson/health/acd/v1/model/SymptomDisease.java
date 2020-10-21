@@ -13,6 +13,7 @@
 package com.ibm.watson.health.acd.v1.model;
 
 import java.lang.reflect.Type;
+import java.util.List;
 
 import com.google.gson.reflect.TypeToken;
 import com.ibm.watson.developer_cloud.service.model.DynamicModel;
@@ -44,6 +45,7 @@ public class SymptomDisease extends DynamicModel {
   private Type hccCodeType = new TypeToken<String>() { } .getType();
   private Type disambiguationDataType = new TypeToken<Disambiguation>() { } .getType();
   private Type insightModelDataType = new TypeToken<InsightModelData>() { } .getType();
+  private Type temporalType = new TypeToken<List<Temporal>>() { } .getType();
 
 
   /**
@@ -251,6 +253,15 @@ public class SymptomDisease extends DynamicModel {
     return GsonSerializationHelper.serializeDynamicModelProperty(this.get("insightModelData"), insightModelDataType);
   }
 
+  /**
+   * Gets the temporal.
+   *
+   * @return the temporal
+   */
+  public List<Temporal> getTemporal() {
+	  return GsonSerializationHelper.serializeDynamicModelProperty(this.get("temporal"), temporalType);
+  }
+
 //  /**
 //   * Sets the id.
 //   *
@@ -439,14 +450,23 @@ public class SymptomDisease extends DynamicModel {
 //  public void setDisambiguationData(final Disambiguation disambiguationData) {
 //    this.put("disambiguationData", disambiguationData);
 //  }
-
-  /**
-   * Sets the insightModelData.
-   *
-   * @param insightModelData the new insightModelData
-   */
-  public void setInsightModelData(final InsightModelData insightModelData) {
-      this.put("insightModelData", insightModelData);
-  }
+//
+//  /**
+//   * Sets the insightModelData.
+//   *
+//   * @param insightModelData the new insightModelData
+//   */
+//  public void setInsightModelData(final InsightModelData insightModelData) {
+//      this.put("insightModelData", insightModelData);
+//  }
+//
+//  /**
+//   * Sets the temporal.
+//   *
+//   * @param temporal the new temporal
+//   */
+//  public void setTemporal(final List<Temporal> temporal) {
+//    this.put("temporal", temporal);
+//  }
 
 }

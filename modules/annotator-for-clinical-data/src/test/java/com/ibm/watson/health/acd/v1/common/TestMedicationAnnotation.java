@@ -23,6 +23,7 @@ import com.ibm.watson.health.acd.v1.model.InsightModelDataNormality;
 import com.ibm.watson.health.acd.v1.model.InsightModelDataNormalityUsage;
 import com.ibm.watson.health.acd.v1.model.InsightModelDataUsage;
 import com.ibm.watson.health.acd.v1.model.MedicationAnnotation;
+import com.ibm.watson.health.acd.v1.model.Temporal;
 import com.ibm.watson.health.acd.v1.util.CustomCollection;
 
 public class TestMedicationAnnotation {
@@ -89,6 +90,15 @@ public class TestMedicationAnnotation {
 						Assert.assertTrue(normalScore >= 0);
 					}
 				}
+			}
+		}
+		List<Temporal> temporals = annotation.getTemporal();
+		if (temporals != null) {
+			Assert.assertTrue(temporals.size() > 0);
+			for (Temporal temporal : temporals) {
+				Assert.assertTrue(temporal.getBegin() > -1);
+				Assert.assertTrue(temporal.getEnd() > temporal.getBegin());
+				Assert.assertNotNull(temporal.getCoveredText());
 			}
 		}
 	}

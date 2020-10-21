@@ -591,6 +591,15 @@ public class UnstructuredContainer extends GenericModel {
     return this.data().getSpellingCorrections();
   }
 
+  /**
+   * Gets the temporalSpans.
+   *
+   * @return the temporalSpans
+   */
+  public List<Temporal> getTemporalSpans() {
+    return this.data().getTemporalSpans();
+  }
+
   /*
    *
    * Manually added code
@@ -1030,5 +1039,16 @@ public class UnstructuredContainer extends GenericModel {
    */
   public SpellCorrectedText getSpellCorrectedText(int index) {
     return this.data().getSpellCorrectedText().get(index);
+  }
+
+  /**
+   * Gets the temporalSpans at a given index.
+   *
+   * @param index position to retrieve
+   *
+   * @return the temporalSpans
+   */
+  public Temporal getTemporalSpans(int index) {
+    return this.data().getTemporalSpans().get(index);
   }
 }

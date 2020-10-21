@@ -12,6 +12,8 @@
  */
 package com.ibm.watson.health.acd.v1.common;
 
+import java.util.List;
+
 import org.junit.Assert;
 
 import com.ibm.watson.health.acd.v1.model.Disambiguation;
@@ -24,6 +26,7 @@ import com.ibm.watson.health.acd.v1.model.InsightModelDataNormalityUsage;
 import com.ibm.watson.health.acd.v1.model.InsightModelDataSite;
 import com.ibm.watson.health.acd.v1.model.InsightModelDataUsage;
 import com.ibm.watson.health.acd.v1.model.SymptomDisease;
+import com.ibm.watson.health.acd.v1.model.Temporal;
 
 public class TestSymptomAnnotation {
 
@@ -116,6 +119,15 @@ public class TestSymptomAnnotation {
 						Assert.assertTrue(normalScore >= 0);
 					}
 				}
+			}
+		}
+		List<Temporal> temporals = annotation.getTemporal();
+		if (temporals != null) {
+			Assert.assertTrue(temporals.size() > 0);
+			for (Temporal temporal : temporals) {
+				Assert.assertTrue(temporal.getBegin() > -1);
+				Assert.assertTrue(temporal.getEnd() > temporal.getBegin());
+				Assert.assertNotNull(temporal.getCoveredText());
 			}
 		}
 	}
