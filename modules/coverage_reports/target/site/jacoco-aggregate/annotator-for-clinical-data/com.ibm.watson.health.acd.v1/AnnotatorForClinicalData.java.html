@@ -1,0 +1,1485 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../jacoco-resources/report.gif" type="image/gif"/><title>AnnotatorForClinicalData.java</title><link rel="stylesheet" href="../../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../../index.html" class="el_report">IBM Watson Health Cognitive Services Coverage Reports</a> &gt; <a href="../index.html" class="el_bundle">annotator-for-clinical-data</a> &gt; <a href="index.source.html" class="el_package">com.ibm.watson.health.acd.v1</a> &gt; <span class="el_source">AnnotatorForClinicalData.java</span></div><h1>AnnotatorForClinicalData.java</h1><pre class="source lang-java linenums">/*
+ * (C) Copyright IBM Corp. 2020.
+ *
+ * Licensed under the Apache License, Version 2.0 (the &quot;License&quot;); you may not use this file except in compliance with
+ * the License. You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on
+ * an &quot;AS IS&quot; BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the
+ * specific language governing permissions and limitations under the License.
+ */
+package com.ibm.watson.health.acd.v1;
+
+import java.util.Map;
+import java.util.Map.Entry;
+
+import com.google.gson.JsonObject;
+import com.ibm.cloud.sdk.core.http.RequestBuilder;
+import com.ibm.cloud.sdk.core.http.Response;
+import com.ibm.cloud.sdk.core.http.ResponseConverter;
+import com.ibm.cloud.sdk.core.http.ServiceCall;
+import com.ibm.cloud.sdk.core.security.Authenticator;
+import com.ibm.cloud.sdk.core.security.ConfigBasedAuthenticatorFactory;
+import com.ibm.cloud.sdk.core.service.BaseService;
+import com.ibm.cloud.sdk.core.util.GsonSingleton;
+import com.ibm.cloud.sdk.core.util.RequestUtils;
+import com.ibm.cloud.sdk.core.util.ResponseConverterUtils;
+import com.ibm.cloud.sdk.core.util.Validator;
+import com.ibm.cloud.whcs.common.SdkCommon;
+import com.ibm.watson.health.acd.v1.model.AcdCartridges;
+import com.ibm.watson.health.acd.v1.model.AcdCartridgesList;
+import com.ibm.watson.health.acd.v1.model.AcdFlow;
+import com.ibm.watson.health.acd.v1.model.AcdProfile;
+import com.ibm.watson.health.acd.v1.model.AnalyzeOptions;
+import com.ibm.watson.health.acd.v1.model.AnalyzeWithFlowOptions;
+import com.ibm.watson.health.acd.v1.model.Annotator;
+import com.ibm.watson.health.acd.v1.model.AnnotatorFlow;
+import com.ibm.watson.health.acd.v1.model.CartridgesGetIdOptions;
+import com.ibm.watson.health.acd.v1.model.CartridgesGetOptions;
+import com.ibm.watson.health.acd.v1.model.CartridgesPostMultipartOptions;
+import com.ibm.watson.health.acd.v1.model.CartridgesPutMultipartOptions;
+import com.ibm.watson.health.acd.v1.model.ContainerGroup;
+import com.ibm.watson.health.acd.v1.model.CreateFlowsOptions;
+import com.ibm.watson.health.acd.v1.model.CreateProfileOptions;
+import com.ibm.watson.health.acd.v1.model.DeleteFlowsOptions;
+import com.ibm.watson.health.acd.v1.model.DeleteProfileOptions;
+import com.ibm.watson.health.acd.v1.model.DeleteUserSpecificArtifactsOptions;
+import com.ibm.watson.health.acd.v1.model.DeployCartridgeOptions;
+import com.ibm.watson.health.acd.v1.model.DeployCartridgeResponse;
+import com.ibm.watson.health.acd.v1.model.Flow;
+import com.ibm.watson.health.acd.v1.model.GetAnnotatorsByIdOptions;
+import com.ibm.watson.health.acd.v1.model.GetAnnotatorsOptions;
+import com.ibm.watson.health.acd.v1.model.GetFlowsByIdOptions;
+import com.ibm.watson.health.acd.v1.model.GetFlowsOptions;
+import com.ibm.watson.health.acd.v1.model.GetHealthCheckStatusOptions;
+import com.ibm.watson.health.acd.v1.model.GetProfileOptions;
+import com.ibm.watson.health.acd.v1.model.GetProfilesOptions;
+import com.ibm.watson.health.acd.v1.model.ListStringWrapper;
+import com.ibm.watson.health.acd.v1.model.RequestContainer;
+import com.ibm.watson.health.acd.v1.model.RunPipelineOptions;
+import com.ibm.watson.health.acd.v1.model.RunPipelineWithFlowOptions;
+import com.ibm.watson.health.acd.v1.model.ServiceApiBean;
+import com.ibm.watson.health.acd.v1.model.ServiceStatus;
+import com.ibm.watson.health.acd.v1.model.UnstructuredContainer;
+import com.ibm.watson.health.acd.v1.model.UpdateFlowsOptions;
+import com.ibm.watson.health.acd.v1.model.UpdateProfileOptions;
+
+import okhttp3.MultipartBody;
+
+/**
+ * Natural Language Processing (NLP) service featuring a set of medical domain annotators for use in detecting entities
+ * and medical concepts from unstructured data. Multiple annotators may be invoked from a single request.
+ *
+ * @version v1
+ */
+public class AnnotatorForClinicalData extends BaseService {
+
+  public static final String DEFAULT_SERVICE_NAME = &quot;annotator_for_clinical_data_acd&quot;;
+
+  public static final String DEFAULT_SERVICE_URL = &quot;https://annotator-for-clinical-data-acd.cloud.ibm.com/services/clinical_data_annotator/api&quot;;
+
+  public static final String RETURN_ANALYZED_TEXT = &quot;return_analyzed_text&quot;;
+
+  public static final String VERSION = &quot;version&quot;;
+
+  private String version;
+
+ /**
+   * Class method which constructs an instance of the `AnnotatorForClinicalDataAcd` client.
+   * The default service name is used to configure the client instance.
+   *
+   * @param version The release date of the version of the API you want to use. Specify dates in YYYY-MM-DD format.
+   * @return an instance of the `AnnotatorForClinicalDataAcd` client using external configuration
+   */
+  public static AnnotatorForClinicalData newInstance(String version) {
+<span class="nc" id="L97">    return newInstance(version, DEFAULT_SERVICE_NAME);</span>
+  }
+
+  /**
+   * Class method which constructs an instance of the `AnnotatorForClinicalDataAcd` client.
+   * The specified service name is used to configure the client instance.
+   *
+   * @param version The release date of the version of the API you want to use. Specify dates in YYYY-MM-DD format.
+   * @param serviceName the service name to be used when configuring the client instance
+   * @return an instance of the `AnnotatorForClinicalDataAcd` client using external configuration
+   */
+  public static AnnotatorForClinicalData newInstance(String version, String serviceName) {
+<span class="fc" id="L109">    Authenticator authenticator = ConfigBasedAuthenticatorFactory.getAuthenticator(serviceName);</span>
+<span class="fc" id="L110">    AnnotatorForClinicalData service = new AnnotatorForClinicalData(version, serviceName, authenticator);</span>
+<span class="fc" id="L111">    service.configureService(serviceName);</span>
+<span class="fc" id="L112">    return service;</span>
+  }
+
+  /**
+   * Constructs an instance of the `AnnotatorForClinicalDataAcd` client.
+   * The specified service name and authenticator are used to configure the client instance.
+   *
+   * @param version The release date of the version of the API you want to use. Specify dates in YYYY-MM-DD format.
+   * @param serviceName the service name to be used when configuring the client instance
+   * @param authenticator the {@link Authenticator} instance to be configured for this client
+   */
+  public AnnotatorForClinicalData(String version, String serviceName, Authenticator authenticator) {
+<span class="fc" id="L124">    super(serviceName, authenticator);</span>
+<span class="fc" id="L125">    setServiceUrl(DEFAULT_SERVICE_URL);</span>
+<span class="fc" id="L126">    setVersion(version);</span>
+<span class="fc" id="L127">  }</span>
+
+  /**
+   * Gets the version.
+   *
+   * The release date of the version of the API you want to use. Specify dates in YYYY-MM-DD format.
+   *
+   * @return the version
+   */
+  public String getVersion() {
+<span class="fc" id="L137">    return this.version;</span>
+  }
+
+  /**
+   * Sets the version.
+   *
+   * @param version the new version
+   */
+  public void setVersion(final String version) {
+<span class="fc" id="L146">    com.ibm.cloud.sdk.core.util.Validator.notEmpty(version, &quot;version cannot be empty.&quot;);</span>
+<span class="fc" id="L147">    this.version = version;</span>
+<span class="fc" id="L148">  }</span>
+
+  /**
+   * Get list of available persisted profiles.
+   *
+   * Returns a summary including ID and description of the available persisted profiles.
+   *
+   * @param getProfilesOptions the {@link GetProfilesOptions} containing the options for the call
+   * @return a {@link ServiceCall} with a result of type {@link ListStringWrapper}
+   */
+  public ServiceCall&lt;Map&lt;String, AcdProfile&gt;&gt; getProfiles(GetProfilesOptions getProfilesOptions) {
+<span class="fc" id="L159">    String[] pathSegments = { &quot;v1/profiles&quot; };</span>
+<span class="fc" id="L160">    RequestBuilder builder = RequestBuilder.get(RequestBuilder.constructHttpUrl(getServiceUrl(), pathSegments));</span>
+<span class="fc" id="L161">    Map&lt;String, String&gt; sdkHeaders = SdkCommon.getSdkHeaders(&quot;annotator_for_clinical_data_acd&quot;, &quot;v1&quot;, &quot;getProfiles&quot;);</span>
+<span class="fc bfc" id="L162" title="All 2 branches covered.">    for (Entry&lt;String, String&gt; header : sdkHeaders.entrySet()) {</span>
+<span class="fc" id="L163">      builder.header(header.getKey(), header.getValue());</span>
+<span class="fc" id="L164">    }</span>
+<span class="fc" id="L165">    builder.header(&quot;Accept&quot;, &quot;application/json&quot;);</span>
+<span class="pc bpc" id="L166" title="1 of 2 branches missed.">    if (getProfilesOptions != null) {</span>
+<span class="fc" id="L167">      builder.query(&quot;version&quot;, this.version);</span>
+    }
+<span class="fc" id="L169">    ResponseConverter&lt;Map&lt;String, AcdProfile&gt;&gt; responseConverter =</span>
+<span class="fc" id="L170">      ResponseConverterUtils.getValue(new com.google.gson.reflect.TypeToken&lt;Map&lt;String, AcdProfile&gt;&gt;() { }.getType());</span>
+<span class="fc" id="L171">    return createServiceCall(builder.build(), responseConverter);</span>
+  }
+
+  /**
+   * Get list of available persisted profiles.
+   *
+   * Returns a summary including ID and description of the available persisted profiles.
+   *
+   * @return a {@link ServiceCall} with a result of type {@link ListStringWrapper}
+   */
+  public ServiceCall&lt;Map&lt;String, AcdProfile&gt;&gt; getProfiles() {
+<span class="nc" id="L182">    return getProfiles(null);</span>
+  }
+
+  /**
+   * Persist a new profile.
+   *
+   * This API persists a new profile.  A profile is identified by an ID.  This ID can optionally be specified as part of
+   * the request body when invoking &amp;lt;b&amp;gt;POST /v1/analyze&amp;lt;/b&amp;gt; API.  A profile contains annotator configuration
+   * information that will be applied to the annotators specified in the annotator flow.&amp;lt;p&amp;gt;If a caller would
+   * choose to have the ID of the new profile generated on their behalf, then in the request body the &quot;id&quot; field of the
+   * profile definition should be an empty string (&quot;&quot;).  The auto-generated ID would be a normalized form of the &quot;name&quot;
+   * field from the profile definition.&amp;lt;p&amp;gt;&amp;lt;b&amp;gt;Sample Profile #1&amp;lt;/b&amp;gt;&amp;lt;br&amp;gt;A profile definition that
+   * configures the 'concept_detection' annotator to use the UMLS umls.latest library.&amp;lt;br&amp;gt;&amp;lt;pre&amp;gt;{&amp;lt;br&amp;gt;
+   * &quot;id&quot;: &quot;acd_profile_cd_umls_latest&quot;,&amp;lt;br&amp;gt;  &quot;name&quot;: &quot;Profile for the latest Concept Detection UMLS
+   * Library&quot;,&amp;lt;br&amp;gt;  &quot;description&quot;: &quot;Provides configurations for running Concept Detection with the latest UMLS
+   * library&quot;,&amp;lt;br&amp;gt;  &quot;annotators&quot;: [&amp;lt;br&amp;gt;    {&amp;lt;br&amp;gt;      &quot;name&quot;: &quot;concept_detection&quot;,&amp;lt;br&amp;gt;
+   * &quot;parameters&quot;: {&amp;lt;br&amp;gt;         &quot;libraries&quot;: [&quot;umls.latest&quot;]&amp;lt;br&amp;gt;       }&amp;lt;br&amp;gt;    }&amp;lt;br&amp;gt;
+   * ]&amp;lt;br&amp;gt;}&amp;lt;/pre&amp;gt;&amp;lt;p&amp;gt;&amp;lt;b&amp;gt;Sample Profile #2&amp;lt;/b&amp;gt;&amp;lt;br&amp;gt;A profile definition that configures
+   * the 'concept_detection' annotator to exclude any annotations where the semantic type does not equal
+   * 'neop'.&amp;lt;br&amp;gt;&amp;lt;pre&amp;gt;{&amp;lt;br&amp;gt;  &quot;id&quot;: &quot;acd_profile_cd_neop_only&quot;,&amp;lt;br&amp;gt;  &quot;name&quot;: &quot;Profile for Concept
+   * Detection neop Semantic Type&quot;,&amp;lt;br&amp;gt;  &quot;description&quot;: &quot;Concept Detection configuration fitler to exclude
+   * annotations where semantic type does not equal 'neop'.&quot;,&amp;lt;br&amp;gt;  &quot;annotators&quot;: [&amp;lt;br&amp;gt;    {&amp;lt;br&amp;gt;
+   * &quot;name&quot;: &quot;concept_detection&quot;,&amp;lt;br&amp;gt;       &quot;configurations&quot;: [&amp;lt;br&amp;gt;         {&amp;lt;br&amp;gt;           &quot;filter&quot;:
+   * {&amp;lt;br&amp;gt;             &quot;target&quot;: &quot;unstructured.data.concepts&quot;,&amp;lt;br&amp;gt;             &quot;condition&quot;: {&amp;lt;br&amp;gt;
+   *           &quot;type&quot;: &quot;match&quot;,&amp;lt;br&amp;gt;                &quot;field&quot;: &quot;semanticType&quot;,&amp;lt;br&amp;gt;                &quot;values&quot;:
+   * [&amp;lt;br&amp;gt;                   &quot;neop&quot;&amp;lt;br&amp;gt;                 ],&amp;lt;br&amp;gt;                &quot;not&quot;: false,&amp;lt;br&amp;gt;
+   *               &quot;caseInsensitive&quot;: false,&amp;lt;br&amp;gt;                &quot;operator&quot;: &quot;equals&quot;&amp;lt;br&amp;gt;
+   * }&amp;lt;br&amp;gt;            }&amp;lt;br&amp;gt;         }&amp;lt;br&amp;gt;       ]&amp;lt;br&amp;gt;    }&amp;lt;br&amp;gt;  ]&amp;lt;br&amp;gt;}&amp;lt;/pre&amp;gt;.
+   *
+   * @param createProfileOptions the {@link CreateProfileOptions} containing the options for the call
+   * @return a {@link ServiceCall} with a void result
+   */
+  public ServiceCall&lt;Void&gt; createProfile(CreateProfileOptions createProfileOptions) {
+<span class="fc" id="L215">    com.ibm.cloud.sdk.core.util.Validator.notNull(createProfileOptions,</span>
+      &quot;createProfileOptions cannot be null&quot;);
+<span class="fc" id="L217">    String[] pathSegments = { &quot;v1/profiles&quot; };</span>
+<span class="fc" id="L218">    RequestBuilder builder = RequestBuilder.post(RequestBuilder.constructHttpUrl(getServiceUrl(), pathSegments));</span>
+<span class="fc" id="L219">    Map&lt;String, String&gt; sdkHeaders = SdkCommon.getSdkHeaders(&quot;annotator_for_clinical_data_acd&quot;, &quot;v1&quot;, &quot;createProfile&quot;);</span>
+<span class="fc bfc" id="L220" title="All 2 branches covered.">    for (Entry&lt;String, String&gt; header : sdkHeaders.entrySet()) {</span>
+<span class="fc" id="L221">      builder.header(header.getKey(), header.getValue());</span>
+<span class="fc" id="L222">    }</span>
+<span class="fc" id="L223">    builder.query(&quot;version&quot;, this.version);</span>
+<span class="fc" id="L224">    final JsonObject contentJson = new JsonObject();</span>
+<span class="pc bpc" id="L225" title="1 of 2 branches missed.">    if (createProfileOptions.id() != null) {</span>
+<span class="fc" id="L226">      contentJson.addProperty(&quot;id&quot;, createProfileOptions.id());</span>
+    }
+<span class="pc bpc" id="L228" title="1 of 2 branches missed.">    if (createProfileOptions.name() != null) {</span>
+<span class="fc" id="L229">      contentJson.addProperty(&quot;name&quot;, createProfileOptions.name());</span>
+    }
+<span class="pc bpc" id="L231" title="1 of 2 branches missed.">    if (createProfileOptions.description() != null) {</span>
+<span class="fc" id="L232">      contentJson.addProperty(&quot;description&quot;, createProfileOptions.description());</span>
+    }
+<span class="pc bpc" id="L234" title="1 of 2 branches missed.">    if (createProfileOptions.publishedDate() != null) {</span>
+<span class="fc" id="L235">      contentJson.addProperty(&quot;publishedDate&quot;, createProfileOptions.publishedDate());</span>
+    }
+<span class="pc bpc" id="L237" title="1 of 2 branches missed.">    if (createProfileOptions.publish() != null) {</span>
+<span class="fc" id="L238">      contentJson.addProperty(&quot;publish&quot;, createProfileOptions.publish());</span>
+    }
+<span class="pc bpc" id="L240" title="1 of 2 branches missed.">    if (createProfileOptions.version() != null) {</span>
+<span class="fc" id="L241">      contentJson.addProperty(&quot;version&quot;, createProfileOptions.version());</span>
+    }
+<span class="pc bpc" id="L243" title="1 of 2 branches missed.">    if (createProfileOptions.cartridgeId() != null) {</span>
+<span class="fc" id="L244">      contentJson.addProperty(&quot;cartridgeId&quot;, createProfileOptions.cartridgeId());</span>
+    }
+<span class="pc bpc" id="L246" title="1 of 2 branches missed.">    if (createProfileOptions.annotators() != null) {</span>
+<span class="fc" id="L247">      contentJson.add(&quot;annotators&quot;, com.ibm.cloud.sdk.core.util.GsonSingleton.getGson().toJsonTree(createProfileOptions.annotators()));</span>
+    }
+<span class="fc" id="L249">    builder.bodyJson(contentJson);</span>
+<span class="fc" id="L250">    ResponseConverter&lt;Void&gt; responseConverter = ResponseConverterUtils.getVoid();</span>
+<span class="fc" id="L251">    return createServiceCall(builder.build(), responseConverter);</span>
+  }
+
+  /**
+   * Persist a new profile.
+   *
+   * This API persists a new profile.  A profile is identified by an ID.  This ID can optionally be specified as part of
+   * the request body when invoking &amp;lt;b&amp;gt;POST /v1/analyze&amp;lt;/b&amp;gt; API.  A profile contains annotator configuration
+   * information that will be applied to the annotators specified in the annotator flow.&amp;lt;p&amp;gt;If a caller would
+   * choose to have the ID of the new profile generated on their behalf, then in the request body the &quot;id&quot; field of the
+   * profile definition should be an empty string (&quot;&quot;).  The auto-generated ID would be a normalized form of the &quot;name&quot;
+   * field from the profile definition.&amp;lt;p&amp;gt;&amp;lt;b&amp;gt;Sample Profile #1&amp;lt;/b&amp;gt;&amp;lt;br&amp;gt;A profile definition that
+   * configures the 'concept_detection' annotator to use the UMLS umls.latest library.&amp;lt;br&amp;gt;&amp;lt;pre&amp;gt;{&amp;lt;br&amp;gt;
+   * &quot;id&quot;: &quot;acd_profile_cd_umls_latest&quot;,&amp;lt;br&amp;gt;  &quot;name&quot;: &quot;Profile for the latest Concept Detection UMLS
+   * Library&quot;,&amp;lt;br&amp;gt;  &quot;description&quot;: &quot;Provides configurations for running Concept Detection with the latest UMLS
+   * library&quot;,&amp;lt;br&amp;gt;  &quot;annotators&quot;: [&amp;lt;br&amp;gt;    {&amp;lt;br&amp;gt;      &quot;name&quot;: &quot;concept_detection&quot;,&amp;lt;br&amp;gt;
+   * &quot;parameters&quot;: {&amp;lt;br&amp;gt;         &quot;libraries&quot;: [&quot;umls.latest&quot;]&amp;lt;br&amp;gt;       }&amp;lt;br&amp;gt;    }&amp;lt;br&amp;gt;
+   * ]&amp;lt;br&amp;gt;}&amp;lt;/pre&amp;gt;&amp;lt;p&amp;gt;&amp;lt;b&amp;gt;Sample Profile #2&amp;lt;/b&amp;gt;&amp;lt;br&amp;gt;A profile definition that configures
+   * the 'concept_detection' annotator to exclude any annotations where the semantic type does not equal
+   * 'neop'.&amp;lt;br&amp;gt;&amp;lt;pre&amp;gt;{&amp;lt;br&amp;gt;  &quot;id&quot;: &quot;acd_profile_cd_neop_only&quot;,&amp;lt;br&amp;gt;  &quot;name&quot;: &quot;Profile for Concept
+   * Detection neop Semantic Type&quot;,&amp;lt;br&amp;gt;  &quot;description&quot;: &quot;Concept Detection configuration fitler to exclude
+   * annotations where semantic type does not equal 'neop'.&quot;,&amp;lt;br&amp;gt;  &quot;annotators&quot;: [&amp;lt;br&amp;gt;    {&amp;lt;br&amp;gt;
+   * &quot;name&quot;: &quot;concept_detection&quot;,&amp;lt;br&amp;gt;       &quot;configurations&quot;: [&amp;lt;br&amp;gt;         {&amp;lt;br&amp;gt;           &quot;filter&quot;:
+   * {&amp;lt;br&amp;gt;             &quot;target&quot;: &quot;unstructured.data.concepts&quot;,&amp;lt;br&amp;gt;             &quot;condition&quot;: {&amp;lt;br&amp;gt;
+   *           &quot;type&quot;: &quot;match&quot;,&amp;lt;br&amp;gt;                &quot;field&quot;: &quot;semanticType&quot;,&amp;lt;br&amp;gt;                &quot;values&quot;:
+   * [&amp;lt;br&amp;gt;                   &quot;neop&quot;&amp;lt;br&amp;gt;                 ],&amp;lt;br&amp;gt;                &quot;not&quot;: false,&amp;lt;br&amp;gt;
+   *               &quot;caseInsensitive&quot;: false,&amp;lt;br&amp;gt;                &quot;operator&quot;: &quot;equals&quot;&amp;lt;br&amp;gt;
+   * }&amp;lt;br&amp;gt;            }&amp;lt;br&amp;gt;         }&amp;lt;br&amp;gt;       ]&amp;lt;br&amp;gt;    }&amp;lt;br&amp;gt;  ]&amp;lt;br&amp;gt;}&amp;lt;/pre&amp;gt;.
+   *
+   * @return a {@link ServiceCall} with a void result
+   */
+  public ServiceCall&lt;Void&gt; createProfile() {
+<span class="nc" id="L283">    return createProfile(null);</span>
+  }
+
+  /**
+   * Get details of a specific profile.
+   *
+   * Using the specified profile ID, retrieves the profile definition.
+   *
+   * @param getProfileOptions the {@link GetProfileOptions} containing the options for the call
+   * @return a {@link ServiceCall} with a result of type {@link AcdProfile}
+   */
+  public ServiceCall&lt;AcdProfile&gt; getProfile(GetProfileOptions getProfileOptions) {
+<span class="fc" id="L295">    com.ibm.cloud.sdk.core.util.Validator.notNull(getProfileOptions,</span>
+      &quot;getProfileOptions cannot be null&quot;);
+<span class="fc" id="L297">    String[] pathSegments = { &quot;v1/profiles&quot; };</span>
+<span class="fc" id="L298">    String[] pathParameters = { getProfileOptions.id() };</span>
+<span class="fc" id="L299">    RequestBuilder builder = RequestBuilder.get(RequestBuilder.constructHttpUrl(getServiceUrl(), pathSegments, pathParameters));</span>
+<span class="fc" id="L300">    Map&lt;String, String&gt; sdkHeaders = SdkCommon.getSdkHeaders(&quot;annotator_for_clinical_data_acd&quot;, &quot;v1&quot;, &quot;getProfile&quot;);</span>
+<span class="fc bfc" id="L301" title="All 2 branches covered.">    for (Entry&lt;String, String&gt; header : sdkHeaders.entrySet()) {</span>
+<span class="fc" id="L302">      builder.header(header.getKey(), header.getValue());</span>
+<span class="fc" id="L303">    }</span>
+<span class="fc" id="L304">    builder.header(&quot;Accept&quot;, &quot;application/json&quot;);</span>
+<span class="fc" id="L305">    builder.query(&quot;version&quot;, this.version);</span>
+<span class="fc" id="L306">    ResponseConverter&lt;AcdProfile&gt; responseConverter =</span>
+<span class="fc" id="L307">      ResponseConverterUtils.getValue(new com.google.gson.reflect.TypeToken&lt;AcdProfile&gt;() { }.getType());</span>
+<span class="fc" id="L308">    return createServiceCall(builder.build(), responseConverter);</span>
+  }
+
+  /**
+   * Update a persisted profile definition.
+   *
+   * Using the specified Profile ID, updates the profile definition.  This is a complete replacement of the existing
+   * profile definition using the JSON object provided in the request body.
+   *
+   * @param updateProfileOptions the {@link UpdateProfileOptions} containing the options for the call
+   * @return a {@link ServiceCall} with a void result
+   */
+  public ServiceCall&lt;Void&gt; updateProfile(UpdateProfileOptions updateProfileOptions) {
+<span class="fc" id="L321">    com.ibm.cloud.sdk.core.util.Validator.notNull(updateProfileOptions,</span>
+      &quot;updateProfileOptions cannot be null&quot;);
+<span class="fc" id="L323">    String[] pathSegments = { &quot;v1/profiles&quot; };</span>
+<span class="fc" id="L324">    String[] pathParameters = { updateProfileOptions.id() };</span>
+<span class="fc" id="L325">    RequestBuilder builder = RequestBuilder.put(RequestBuilder.constructHttpUrl(getServiceUrl(), pathSegments, pathParameters));</span>
+<span class="fc" id="L326">    Map&lt;String, String&gt; sdkHeaders = SdkCommon.getSdkHeaders(&quot;annotator_for_clinical_data_acd&quot;, &quot;v1&quot;, &quot;updateProfile&quot;);</span>
+<span class="fc bfc" id="L327" title="All 2 branches covered.">    for (Entry&lt;String, String&gt; header : sdkHeaders.entrySet()) {</span>
+<span class="fc" id="L328">      builder.header(header.getKey(), header.getValue());</span>
+<span class="fc" id="L329">    }</span>
+<span class="fc" id="L330">    builder.query(&quot;version&quot;, this.version);</span>
+<span class="fc" id="L331">    final JsonObject contentJson = new JsonObject();</span>
+<span class="pc bpc" id="L332" title="1 of 2 branches missed.">    if (updateProfileOptions.newId() != null) {</span>
+<span class="fc" id="L333">      contentJson.addProperty(&quot;id&quot;, updateProfileOptions.newId());</span>
+    }
+<span class="pc bpc" id="L335" title="1 of 2 branches missed.">    if (updateProfileOptions.newName() != null) {</span>
+<span class="fc" id="L336">      contentJson.addProperty(&quot;name&quot;, updateProfileOptions.newName());</span>
+    }
+<span class="pc bpc" id="L338" title="1 of 2 branches missed.">    if (updateProfileOptions.newDescription() != null) {</span>
+<span class="fc" id="L339">      contentJson.addProperty(&quot;description&quot;, updateProfileOptions.newDescription());</span>
+    }
+<span class="pc bpc" id="L341" title="1 of 2 branches missed.">    if (updateProfileOptions.newPublishedDate() != null) {</span>
+<span class="fc" id="L342">      contentJson.addProperty(&quot;publishedDate&quot;, updateProfileOptions.newPublishedDate());</span>
+    }
+<span class="pc bpc" id="L344" title="1 of 2 branches missed.">    if (updateProfileOptions.newPublish() != null) {</span>
+<span class="fc" id="L345">      contentJson.addProperty(&quot;publish&quot;, updateProfileOptions.newPublish());</span>
+    }
+<span class="pc bpc" id="L347" title="1 of 2 branches missed.">    if (updateProfileOptions.newVersion() != null) {</span>
+<span class="fc" id="L348">      contentJson.addProperty(&quot;version&quot;, updateProfileOptions.newVersion());</span>
+    }
+<span class="pc bpc" id="L350" title="1 of 2 branches missed.">    if (updateProfileOptions.newCartridgeId() != null) {</span>
+<span class="fc" id="L351">      contentJson.addProperty(&quot;cartridgeId&quot;, updateProfileOptions.newCartridgeId());</span>
+    }
+<span class="pc bpc" id="L353" title="1 of 2 branches missed.">    if (updateProfileOptions.newAnnotators() != null) {</span>
+<span class="fc" id="L354">      contentJson.add(&quot;annotators&quot;, com.ibm.cloud.sdk.core.util.GsonSingleton.getGson().toJsonTree(updateProfileOptions.newAnnotators()));</span>
+    }
+<span class="fc" id="L356">    builder.bodyJson(contentJson);</span>
+<span class="fc" id="L357">    ResponseConverter&lt;Void&gt; responseConverter = ResponseConverterUtils.getVoid();</span>
+<span class="fc" id="L358">    return createServiceCall(builder.build(), responseConverter);</span>
+  }
+
+  /**
+   * Delete a persisted profile.
+   *
+   * Using the specified profile ID, deletes the profile from the list of persisted profiles.
+   *
+   * @param deleteProfileOptions the {@link DeleteProfileOptions} containing the options for the call
+   * @return a {@link ServiceCall} with a void result
+   */
+  public ServiceCall&lt;Void&gt; deleteProfile(DeleteProfileOptions deleteProfileOptions) {
+<span class="fc" id="L370">    com.ibm.cloud.sdk.core.util.Validator.notNull(deleteProfileOptions,</span>
+      &quot;deleteProfileOptions cannot be null&quot;);
+<span class="fc" id="L372">    String[] pathSegments = { &quot;v1/profiles&quot; };</span>
+<span class="fc" id="L373">    String[] pathParameters = { deleteProfileOptions.id() };</span>
+<span class="fc" id="L374">    RequestBuilder builder = RequestBuilder.delete(RequestBuilder.constructHttpUrl(getServiceUrl(), pathSegments, pathParameters));</span>
+<span class="fc" id="L375">    Map&lt;String, String&gt; sdkHeaders = SdkCommon.getSdkHeaders(&quot;annotator_for_clinical_data_acd&quot;, &quot;v1&quot;, &quot;deleteProfile&quot;);</span>
+<span class="fc bfc" id="L376" title="All 2 branches covered.">    for (Entry&lt;String, String&gt; header : sdkHeaders.entrySet()) {</span>
+<span class="fc" id="L377">      builder.header(header.getKey(), header.getValue());</span>
+<span class="fc" id="L378">    }</span>
+<span class="fc" id="L379">    builder.query(&quot;version&quot;, this.version);</span>
+<span class="fc" id="L380">    ResponseConverter&lt;Void&gt; responseConverter = ResponseConverterUtils.getVoid();</span>
+<span class="fc" id="L381">    return createServiceCall(builder.build(), responseConverter);</span>
+  }
+
+  /**
+   * Get list of available persisted flows.
+   *
+   * Returns a summary including ID and description of the available persisted flows.
+   *
+   * @param getFlowsOptions the {@link GetFlowsOptions} containing the options for the call
+   * @return a {@link ServiceCall} with a result of type {@link ListStringWrapper}
+   */
+  public ServiceCall&lt;Map&lt;String, AcdFlow&gt;&gt; getFlows(GetFlowsOptions getFlowsOptions) {
+<span class="fc" id="L393">    String[] pathSegments = { &quot;v1/flows&quot; };</span>
+<span class="fc" id="L394">    RequestBuilder builder = RequestBuilder.get(RequestBuilder.constructHttpUrl(getServiceUrl(), pathSegments));</span>
+<span class="fc" id="L395">    Map&lt;String, String&gt; sdkHeaders = SdkCommon.getSdkHeaders(&quot;annotator_for_clinical_data_acd&quot;, &quot;v1&quot;, &quot;getFlows&quot;);</span>
+<span class="fc bfc" id="L396" title="All 2 branches covered.">    for (Entry&lt;String, String&gt; header : sdkHeaders.entrySet()) {</span>
+<span class="fc" id="L397">      builder.header(header.getKey(), header.getValue());</span>
+<span class="fc" id="L398">    }</span>
+<span class="fc" id="L399">    builder.header(&quot;Accept&quot;, &quot;application/json&quot;);</span>
+<span class="pc bpc" id="L400" title="1 of 2 branches missed.">    if (getFlowsOptions != null) {</span>
+<span class="fc" id="L401">      builder.query(&quot;version&quot;, this.version);</span>
+    }
+<span class="fc" id="L403">    ResponseConverter&lt;Map&lt;String, AcdFlow&gt;&gt; responseConverter =</span>
+<span class="fc" id="L404">      ResponseConverterUtils.getValue(new com.google.gson.reflect.TypeToken&lt;Map&lt;String, AcdFlow&gt;&gt;() { }.getType());</span>
+<span class="fc" id="L405">    return createServiceCall(builder.build(), responseConverter);</span>
+  }
+
+  /**
+   * Get list of available persisted flows.
+   *
+   * Returns a summary including ID and description of the available persisted flows.
+   *
+   * @return a {@link ServiceCall} with a result of type {@link ListStringWrapper}
+   */
+  public ServiceCall&lt;Map&lt;String, AcdFlow&gt;&gt; getFlows() {
+<span class="nc" id="L416">    return getFlows(null);</span>
+  }
+
+  /**
+   * Persist a new flow definition.
+   *
+   * This API persists a new flow.  A flow is identified by an ID.  This ID can optionally be specified as part of the
+   * request body when invoking &amp;lt;b&amp;gt;POST /v1/analyze&amp;lt;/b&amp;gt; API.  A flow definition contains a list one or more
+   * annotators, and optionally can include annotator configuration, a flow ID, and/or flow sequence.&amp;lt;p&amp;gt;If a
+   * caller would choose to have the ID of the new flow generated on their behalf, then in the request body the &quot;id&quot;
+   * field of the flow definition should be an empty string (&quot;&quot;).  The auto-generated ID would be a normalized form of
+   * the &quot;name&quot; field from the flow definition.&amp;lt;p&amp;gt;&amp;lt;p&amp;gt;&amp;lt;b&amp;gt;Sample Flow #1&amp;lt;/b&amp;gt;&amp;lt;br&amp;gt;A flow
+   * definition that includes two annotators.&amp;lt;br&amp;gt;&amp;lt;pre&amp;gt;{&amp;lt;br&amp;gt;  &quot;id&quot;: &quot;flow_simple&quot;,&amp;lt;br&amp;gt;  &quot;name&quot;:
+   * &quot;flow simple&quot;,&amp;lt;br&amp;gt;  &quot;description&quot;: &quot;A simple flow with two annotators&quot;,&amp;lt;br&amp;gt;  &quot;annotatorFlows&quot;:
+   * [&amp;lt;br&amp;gt;      {&amp;lt;br&amp;gt;       &quot;flow&quot;: {&amp;lt;br&amp;gt;          &quot;elements&quot;: [&amp;lt;br&amp;gt;             {&amp;lt;br&amp;gt;
+   *           &quot;annotator&quot;: {&amp;lt;br&amp;gt;                   &quot;name&quot;: &quot;concept_detection&quot;&amp;lt;br&amp;gt;
+   * }&amp;lt;br&amp;gt;             },&amp;lt;br&amp;gt;             {&amp;lt;br&amp;gt;               &quot;annotator&quot;: {&amp;lt;br&amp;gt;
+   *   &quot;name&quot;: &quot;symptom_disease&quot;&amp;lt;br&amp;gt;                }&amp;lt;br&amp;gt;             }&amp;lt;br&amp;gt;           ],&amp;lt;br&amp;gt;
+   *   &quot;async&quot;: false&amp;lt;br&amp;gt;        }&amp;lt;br&amp;gt;      }&amp;lt;br&amp;gt;   ]&amp;lt;br&amp;gt;}&amp;lt;/pre&amp;gt;&amp;lt;p&amp;gt;&amp;lt;b&amp;gt;Sample
+   * Flow #2&amp;lt;/b&amp;gt;&amp;lt;br&amp;gt;A flow definition that includes the 'concept_detection' annotator and configuration
+   * details for the 'concept_detection' annotator.&amp;lt;br&amp;gt;&amp;lt;pre&amp;gt;{&amp;lt;br&amp;gt;  &quot;id&quot;:
+   * &quot;flow_concept_detection_exclude_non_neop&quot;,&amp;lt;br&amp;gt;  &quot;name&quot;: &quot;flow concept detection exclude non neop&quot;,&amp;lt;br&amp;gt;
+   * &quot;description&quot;: &quot;A flow excluding detected concepts that do not have 'neop' semantic type&quot;,&amp;lt;br&amp;gt;
+   * &quot;annotatorFlows&quot;: [&amp;lt;br&amp;gt;      {&amp;lt;br&amp;gt;       &quot;flow&quot;: {&amp;lt;br&amp;gt;          &quot;elements&quot;: [&amp;lt;br&amp;gt;
+   *   {&amp;lt;br&amp;gt;               &quot;annotator&quot;: {&amp;lt;br&amp;gt;                   &quot;name&quot;: &quot;concept_detection&quot;,&amp;lt;br&amp;gt;
+   *             &quot;configurations&quot;: [&amp;lt;br&amp;gt;                      {&amp;lt;br&amp;gt;                        &quot;filter&quot;:
+   * {&amp;lt;br&amp;gt;                           &quot;target&quot;: &quot;unstructured.data.concepts&quot;,&amp;lt;br&amp;gt;
+   * &quot;condition&quot;: {&amp;lt;br&amp;gt;                              &quot;type&quot;: &quot;match&quot;,&amp;lt;br&amp;gt;
+   * &quot;field&quot;: &quot;semanticType&quot;,&amp;lt;br&amp;gt;                              &quot;values&quot;: [&amp;lt;br&amp;gt;
+   *   &quot;neop&quot;&amp;lt;br&amp;gt;                                ],&amp;lt;br&amp;gt;                              &quot;not&quot;: false,&amp;lt;br&amp;gt;
+   *                              &quot;caseInsensitive&quot;: false,&amp;lt;br&amp;gt;                              &quot;operator&quot;:
+   * &quot;equals&quot;&amp;lt;br&amp;gt;                            }&amp;lt;br&amp;gt;                         }&amp;lt;br&amp;gt;
+   * }&amp;lt;br&amp;gt;                    ]&amp;lt;br&amp;gt;                 }&amp;lt;br&amp;gt;              }&amp;lt;br&amp;gt;
+   * ],&amp;lt;br&amp;gt;       &quot;async&quot;: false&amp;lt;br&amp;gt;        }&amp;lt;br&amp;gt;      }&amp;lt;br&amp;gt;   ]&amp;lt;br&amp;gt;}&amp;lt;/pre&amp;gt;.
+   *
+   * @param createFlowsOptions the {@link CreateFlowsOptions} containing the options for the call
+   * @return a {@link ServiceCall} with a void result
+   */
+  public ServiceCall&lt;Void&gt; createFlows(CreateFlowsOptions createFlowsOptions) {
+<span class="fc" id="L455">    com.ibm.cloud.sdk.core.util.Validator.notNull(createFlowsOptions,</span>
+      &quot;createFlowsOptions cannot be null&quot;);
+<span class="fc" id="L457">    String[] pathSegments = { &quot;v1/flows&quot; };</span>
+<span class="fc" id="L458">    RequestBuilder builder = RequestBuilder.post(RequestBuilder.constructHttpUrl(getServiceUrl(), pathSegments));</span>
+<span class="fc" id="L459">    Map&lt;String, String&gt; sdkHeaders = SdkCommon.getSdkHeaders(&quot;annotator_for_clinical_data_acd&quot;, &quot;v1&quot;, &quot;createFlows&quot;);</span>
+<span class="fc bfc" id="L460" title="All 2 branches covered.">    for (Entry&lt;String, String&gt; header : sdkHeaders.entrySet()) {</span>
+<span class="fc" id="L461">      builder.header(header.getKey(), header.getValue());</span>
+<span class="fc" id="L462">    }</span>
+<span class="fc" id="L463">    builder.query(&quot;version&quot;, this.version);</span>
+<span class="fc" id="L464">    final JsonObject contentJson = new JsonObject();</span>
+<span class="pc bpc" id="L465" title="1 of 2 branches missed.">    if (createFlowsOptions.id() != null) {</span>
+<span class="fc" id="L466">      contentJson.addProperty(&quot;id&quot;, createFlowsOptions.id());</span>
+    }
+<span class="pc bpc" id="L468" title="1 of 2 branches missed.">    if (createFlowsOptions.name() != null) {</span>
+<span class="fc" id="L469">      contentJson.addProperty(&quot;name&quot;, createFlowsOptions.name());</span>
+    }
+<span class="pc bpc" id="L471" title="1 of 2 branches missed.">    if (createFlowsOptions.description() != null) {</span>
+<span class="fc" id="L472">      contentJson.addProperty(&quot;description&quot;, createFlowsOptions.description());</span>
+    }
+<span class="pc bpc" id="L474" title="1 of 2 branches missed.">    if (createFlowsOptions.publishedDate() != null) {</span>
+<span class="fc" id="L475">      contentJson.addProperty(&quot;publishedDate&quot;, createFlowsOptions.publishedDate());</span>
+    }
+<span class="pc bpc" id="L477" title="1 of 2 branches missed.">    if (createFlowsOptions.publish() != null) {</span>
+<span class="fc" id="L478">      contentJson.addProperty(&quot;publish&quot;, createFlowsOptions.publish());</span>
+    }
+<span class="pc bpc" id="L480" title="1 of 2 branches missed.">    if (createFlowsOptions.version() != null) {</span>
+<span class="fc" id="L481">      contentJson.addProperty(&quot;version&quot;, createFlowsOptions.version());</span>
+    }
+<span class="pc bpc" id="L483" title="1 of 2 branches missed.">    if (createFlowsOptions.cartridgeId() != null) {</span>
+<span class="fc" id="L484">      contentJson.addProperty(&quot;cartridgeId&quot;, createFlowsOptions.cartridgeId());</span>
+    }
+<span class="pc bpc" id="L486" title="1 of 2 branches missed.">    if (createFlowsOptions.annotatorFlows() != null) {</span>
+<span class="fc" id="L487">      contentJson.add(&quot;annotatorFlows&quot;, com.ibm.cloud.sdk.core.util.GsonSingleton.getGson().toJsonTree(createFlowsOptions.annotatorFlows()));</span>
+    }
+<span class="fc" id="L489">    builder.bodyJson(contentJson);</span>
+<span class="fc" id="L490">    ResponseConverter&lt;Void&gt; responseConverter = ResponseConverterUtils.getVoid();</span>
+<span class="fc" id="L491">    return createServiceCall(builder.build(), responseConverter);</span>
+  }
+
+  /**
+   * Persist a new flow definition.
+   *
+   * This API persists a new flow.  A flow is identified by an ID.  This ID can optionally be specified as part of the
+   * request body when invoking &amp;lt;b&amp;gt;POST /v1/analyze&amp;lt;/b&amp;gt; API.  A flow definition contains a list one or more
+   * annotators, and optionally can include annotator configuration, a flow ID, and/or flow sequence.&amp;lt;p&amp;gt;If a
+   * caller would choose to have the ID of the new flow generated on their behalf, then in the request body the &quot;id&quot;
+   * field of the flow definition should be an empty string (&quot;&quot;).  The auto-generated ID would be a normalized form of
+   * the &quot;name&quot; field from the flow definition.&amp;lt;p&amp;gt;&amp;lt;p&amp;gt;&amp;lt;b&amp;gt;Sample Flow #1&amp;lt;/b&amp;gt;&amp;lt;br&amp;gt;A flow
+   * definition that includes two annotators.&amp;lt;br&amp;gt;&amp;lt;pre&amp;gt;{&amp;lt;br&amp;gt;  &quot;id&quot;: &quot;flow_simple&quot;,&amp;lt;br&amp;gt;  &quot;name&quot;:
+   * &quot;flow simple&quot;,&amp;lt;br&amp;gt;  &quot;description&quot;: &quot;A simple flow with two annotators&quot;,&amp;lt;br&amp;gt;  &quot;annotatorFlows&quot;:
+   * [&amp;lt;br&amp;gt;      {&amp;lt;br&amp;gt;       &quot;flow&quot;: {&amp;lt;br&amp;gt;          &quot;elements&quot;: [&amp;lt;br&amp;gt;             {&amp;lt;br&amp;gt;
+   *           &quot;annotator&quot;: {&amp;lt;br&amp;gt;                   &quot;name&quot;: &quot;concept_detection&quot;&amp;lt;br&amp;gt;
+   * }&amp;lt;br&amp;gt;             },&amp;lt;br&amp;gt;             {&amp;lt;br&amp;gt;               &quot;annotator&quot;: {&amp;lt;br&amp;gt;
+   *   &quot;name&quot;: &quot;symptom_disease&quot;&amp;lt;br&amp;gt;                }&amp;lt;br&amp;gt;             }&amp;lt;br&amp;gt;           ],&amp;lt;br&amp;gt;
+   *   &quot;async&quot;: false&amp;lt;br&amp;gt;        }&amp;lt;br&amp;gt;      }&amp;lt;br&amp;gt;   ]&amp;lt;br&amp;gt;}&amp;lt;/pre&amp;gt;&amp;lt;p&amp;gt;&amp;lt;b&amp;gt;Sample
+   * Flow #2&amp;lt;/b&amp;gt;&amp;lt;br&amp;gt;A flow definition that includes the 'concept_detection' annotator and configuration
+   * details for the 'concept_detection' annotator.&amp;lt;br&amp;gt;&amp;lt;pre&amp;gt;{&amp;lt;br&amp;gt;  &quot;id&quot;:
+   * &quot;flow_concept_detection_exclude_non_neop&quot;,&amp;lt;br&amp;gt;  &quot;name&quot;: &quot;flow concept detection exclude non neop&quot;,&amp;lt;br&amp;gt;
+   * &quot;description&quot;: &quot;A flow excluding detected concepts that do not have 'neop' semantic type&quot;,&amp;lt;br&amp;gt;
+   * &quot;annotatorFlows&quot;: [&amp;lt;br&amp;gt;      {&amp;lt;br&amp;gt;       &quot;flow&quot;: {&amp;lt;br&amp;gt;          &quot;elements&quot;: [&amp;lt;br&amp;gt;
+   *   {&amp;lt;br&amp;gt;               &quot;annotator&quot;: {&amp;lt;br&amp;gt;                   &quot;name&quot;: &quot;concept_detection&quot;,&amp;lt;br&amp;gt;
+   *             &quot;configurations&quot;: [&amp;lt;br&amp;gt;                      {&amp;lt;br&amp;gt;                        &quot;filter&quot;:
+   * {&amp;lt;br&amp;gt;                           &quot;target&quot;: &quot;unstructured.data.concepts&quot;,&amp;lt;br&amp;gt;
+   * &quot;condition&quot;: {&amp;lt;br&amp;gt;                              &quot;type&quot;: &quot;match&quot;,&amp;lt;br&amp;gt;
+   * &quot;field&quot;: &quot;semanticType&quot;,&amp;lt;br&amp;gt;                              &quot;values&quot;: [&amp;lt;br&amp;gt;
+   *   &quot;neop&quot;&amp;lt;br&amp;gt;                                ],&amp;lt;br&amp;gt;                              &quot;not&quot;: false,&amp;lt;br&amp;gt;
+   *                              &quot;caseInsensitive&quot;: false,&amp;lt;br&amp;gt;                              &quot;operator&quot;:
+   * &quot;equals&quot;&amp;lt;br&amp;gt;                            }&amp;lt;br&amp;gt;                         }&amp;lt;br&amp;gt;
+   * }&amp;lt;br&amp;gt;                    ]&amp;lt;br&amp;gt;                 }&amp;lt;br&amp;gt;              }&amp;lt;br&amp;gt;
+   * ],&amp;lt;br&amp;gt;       &quot;async&quot;: false&amp;lt;br&amp;gt;        }&amp;lt;br&amp;gt;      }&amp;lt;br&amp;gt;   ]&amp;lt;br&amp;gt;}&amp;lt;/pre&amp;gt;.
+   *
+   * @return a {@link ServiceCall} with a void result
+   */
+  public ServiceCall&lt;Void&gt; createFlows() {
+<span class="nc" id="L529">    return createFlows(null);</span>
+  }
+
+  /**
+   * Get details of a specific flow.
+   *
+   * Using the specified Flow ID, retrieves the flow definition.
+   *
+   * @param getFlowsByIdOptions the {@link GetFlowsByIdOptions} containing the options for the call
+   * @return a {@link ServiceCall} with a result of type {@link AcdFlow}
+   */
+  public ServiceCall&lt;AcdFlow&gt; getFlowsById(GetFlowsByIdOptions getFlowsByIdOptions) {
+<span class="fc" id="L541">    com.ibm.cloud.sdk.core.util.Validator.notNull(getFlowsByIdOptions,</span>
+      &quot;getFlowsByIdOptions cannot be null&quot;);
+<span class="fc" id="L543">    String[] pathSegments = { &quot;v1/flows&quot; };</span>
+<span class="fc" id="L544">    String[] pathParameters = { getFlowsByIdOptions.id() };</span>
+<span class="fc" id="L545">    RequestBuilder builder = RequestBuilder.get(RequestBuilder.constructHttpUrl(getServiceUrl(), pathSegments, pathParameters));</span>
+<span class="fc" id="L546">    Map&lt;String, String&gt; sdkHeaders = SdkCommon.getSdkHeaders(&quot;annotator_for_clinical_data_acd&quot;, &quot;v1&quot;, &quot;getFlowsById&quot;);</span>
+<span class="fc bfc" id="L547" title="All 2 branches covered.">    for (Entry&lt;String, String&gt; header : sdkHeaders.entrySet()) {</span>
+<span class="fc" id="L548">      builder.header(header.getKey(), header.getValue());</span>
+<span class="fc" id="L549">    }</span>
+<span class="fc" id="L550">    builder.header(&quot;Accept&quot;, &quot;application/json&quot;);</span>
+<span class="fc" id="L551">    builder.query(&quot;version&quot;, this.version);</span>
+<span class="fc" id="L552">    ResponseConverter&lt;AcdFlow&gt; responseConverter =</span>
+<span class="fc" id="L553">      ResponseConverterUtils.getValue(new com.google.gson.reflect.TypeToken&lt;AcdFlow&gt;() { }.getType());</span>
+<span class="fc" id="L554">    return createServiceCall(builder.build(), responseConverter);</span>
+  }
+
+  /**
+   * Update a persisted flow definition.
+   *
+   * Using the specified Flow ID, updates the persisted flow definition.  This is a complete replacement of the existing
+   * flow definition using the JSON object provided in the request body.
+   *
+   * @param updateFlowsOptions the {@link UpdateFlowsOptions} containing the options for the call
+   * @return a {@link ServiceCall} with a void result
+   */
+  public ServiceCall&lt;Void&gt; updateFlows(UpdateFlowsOptions updateFlowsOptions) {
+<span class="fc" id="L567">    com.ibm.cloud.sdk.core.util.Validator.notNull(updateFlowsOptions,</span>
+      &quot;updateFlowsOptions cannot be null&quot;);
+<span class="fc" id="L569">    String[] pathSegments = { &quot;v1/flows&quot; };</span>
+<span class="fc" id="L570">    String[] pathParameters = { updateFlowsOptions.id() };</span>
+<span class="fc" id="L571">    RequestBuilder builder = RequestBuilder.put(RequestBuilder.constructHttpUrl(getServiceUrl(), pathSegments, pathParameters));</span>
+<span class="fc" id="L572">    Map&lt;String, String&gt; sdkHeaders = SdkCommon.getSdkHeaders(&quot;annotator_for_clinical_data_acd&quot;, &quot;v1&quot;, &quot;updateFlows&quot;);</span>
+<span class="fc bfc" id="L573" title="All 2 branches covered.">    for (Entry&lt;String, String&gt; header : sdkHeaders.entrySet()) {</span>
+<span class="fc" id="L574">      builder.header(header.getKey(), header.getValue());</span>
+<span class="fc" id="L575">    }</span>
+<span class="fc" id="L576">    builder.query(&quot;version&quot;, this.version);</span>
+<span class="fc" id="L577">    final JsonObject contentJson = new JsonObject();</span>
+<span class="pc bpc" id="L578" title="1 of 2 branches missed.">    if (updateFlowsOptions.newId() != null) {</span>
+<span class="fc" id="L579">      contentJson.addProperty(&quot;id&quot;, updateFlowsOptions.newId());</span>
+    }
+<span class="pc bpc" id="L581" title="1 of 2 branches missed.">    if (updateFlowsOptions.newName() != null) {</span>
+<span class="fc" id="L582">      contentJson.addProperty(&quot;name&quot;, updateFlowsOptions.newName());</span>
+    }
+<span class="pc bpc" id="L584" title="1 of 2 branches missed.">    if (updateFlowsOptions.newDescription() != null) {</span>
+<span class="fc" id="L585">      contentJson.addProperty(&quot;description&quot;, updateFlowsOptions.newDescription());</span>
+    }
+<span class="pc bpc" id="L587" title="1 of 2 branches missed.">    if (updateFlowsOptions.newPublishedDate() != null) {</span>
+<span class="fc" id="L588">      contentJson.addProperty(&quot;publishedDate&quot;, updateFlowsOptions.newPublishedDate());</span>
+    }
+<span class="pc bpc" id="L590" title="1 of 2 branches missed.">    if (updateFlowsOptions.newPublish() != null) {</span>
+<span class="fc" id="L591">      contentJson.addProperty(&quot;publish&quot;, updateFlowsOptions.newPublish());</span>
+    }
+<span class="pc bpc" id="L593" title="1 of 2 branches missed.">    if (updateFlowsOptions.newVersion() != null) {</span>
+<span class="fc" id="L594">      contentJson.addProperty(&quot;version&quot;, updateFlowsOptions.newVersion());</span>
+    }
+<span class="pc bpc" id="L596" title="1 of 2 branches missed.">    if (updateFlowsOptions.newCartridgeId() != null) {</span>
+<span class="fc" id="L597">      contentJson.addProperty(&quot;cartridgeId&quot;, updateFlowsOptions.newCartridgeId());</span>
+    }
+<span class="pc bpc" id="L599" title="1 of 2 branches missed.">    if (updateFlowsOptions.newAnnotatorFlows() != null) {</span>
+<span class="fc" id="L600">      contentJson.add(&quot;annotatorFlows&quot;, com.ibm.cloud.sdk.core.util.GsonSingleton.getGson().toJsonTree(updateFlowsOptions.newAnnotatorFlows()));</span>
+    }
+<span class="fc" id="L602">    builder.bodyJson(contentJson);</span>
+<span class="fc" id="L603">    ResponseConverter&lt;Void&gt; responseConverter = ResponseConverterUtils.getVoid();</span>
+<span class="fc" id="L604">    return createServiceCall(builder.build(), responseConverter);</span>
+  }
+
+  /**
+   * Delete a persisted flow.
+   *
+   * Using the specified Flow ID, deletes the flow from the list of persisted flows.
+   *
+   * @param deleteFlowsOptions the {@link DeleteFlowsOptions} containing the options for the call
+   * @return a {@link ServiceCall} with a void result
+   */
+  public ServiceCall&lt;Void&gt; deleteFlows(DeleteFlowsOptions deleteFlowsOptions) {
+<span class="fc" id="L616">    com.ibm.cloud.sdk.core.util.Validator.notNull(deleteFlowsOptions,</span>
+      &quot;deleteFlowsOptions cannot be null&quot;);
+<span class="fc" id="L618">    String[] pathSegments = { &quot;v1/flows&quot; };</span>
+<span class="fc" id="L619">    String[] pathParameters = { deleteFlowsOptions.id() };</span>
+<span class="fc" id="L620">    RequestBuilder builder = RequestBuilder.delete(RequestBuilder.constructHttpUrl(getServiceUrl(), pathSegments, pathParameters));</span>
+<span class="fc" id="L621">    Map&lt;String, String&gt; sdkHeaders = SdkCommon.getSdkHeaders(&quot;annotator_for_clinical_data_acd&quot;, &quot;v1&quot;, &quot;deleteFlows&quot;);</span>
+<span class="fc bfc" id="L622" title="All 2 branches covered.">    for (Entry&lt;String, String&gt; header : sdkHeaders.entrySet()) {</span>
+<span class="fc" id="L623">      builder.header(header.getKey(), header.getValue());</span>
+<span class="fc" id="L624">    }</span>
+<span class="fc" id="L625">    builder.query(&quot;version&quot;, this.version);</span>
+<span class="fc" id="L626">    ResponseConverter&lt;Void&gt; responseConverter = ResponseConverterUtils.getVoid();</span>
+<span class="fc" id="L627">    return createServiceCall(builder.build(), responseConverter);</span>
+  }
+
+  /**
+   * Detect entities &amp;amp; relations from unstructured data.
+   *
+   * &amp;lt;p&amp;gt;This API accepts a JSON request model featuring both the unstructured data to be analyzed as well as the
+   * desired annotator flow.&amp;lt;p/&amp;gt;&amp;lt;p&amp;gt;&amp;lt;b&amp;gt;Annotator Chaining&amp;lt;/b&amp;gt;&amp;lt;br/&amp;gt;Sample request invoking
+   * both the concept_detection and symptom_disease annotators asynchronously. This sample request references
+   * configurations via a profile id. Profiles define configurations that can be referenced within a request. Profile is
+   * optional. A default profile is used if no profile id is available in the annotator flow. The default profile
+   * contains the parameters for the concept detection and the attribute detection. An empty profile can be used if
+   * absolutely no parameters are attached to any annotators. See &amp;lt;a href=&quot;..&quot;
+   * target=&quot;_blank&quot;&amp;gt;documentation&amp;lt;/a&amp;gt; for more information. &amp;lt;/p&amp;gt;&amp;lt;pre&amp;gt;{&amp;lt;br/&amp;gt;
+   * &quot;annotatorFlows&quot;: [&amp;lt;br/&amp;gt;    {&amp;lt;br/&amp;gt;      &quot;profile&quot; : &quot;default_profile_v1.0&quot;, &amp;lt;br/&amp;gt;      &quot;flow&quot;:
+   * {&amp;lt;br/&amp;gt;        &quot;elements&quot;: [&amp;lt;br/&amp;gt;          {&amp;lt;br/&amp;gt;            &quot;annotator&quot;: {&amp;lt;br/&amp;gt;
+   *  &quot;name&quot;: &quot;concept_detection&quot;&amp;lt;br/&amp;gt;            }&amp;lt;br/&amp;gt;          },&amp;lt;br/&amp;gt;          {&amp;lt;br/&amp;gt;
+   *     &quot;annotator&quot;: {&amp;lt;br/&amp;gt;              &quot;name&quot;: &quot;symptom_disease&quot;&amp;lt;br/&amp;gt;             }&amp;lt;br/&amp;gt;
+   * }&amp;lt;br/&amp;gt;        ],&amp;lt;br/&amp;gt;        &quot;async&quot;: false&amp;lt;br/&amp;gt;      }&amp;lt;br/&amp;gt;    }&amp;lt;br/&amp;gt;  ],&amp;lt;br/&amp;gt;
+   *  &quot;unstructured&quot;: [&amp;lt;br/&amp;gt;    {&amp;lt;br/&amp;gt;      &quot;text&quot;: &quot;Patient has lung cancer, but did not smoke. She may
+   * consider chemotherapy as part of a treatment plan.&quot;&amp;lt;br/&amp;gt;    }&amp;lt;br/&amp;gt;
+   * ]&amp;lt;br/&amp;gt;}&amp;lt;br/&amp;gt;&amp;lt;/pre&amp;gt;&amp;lt;p&amp;gt;&amp;lt;b&amp;gt;Annotation Filtering&amp;lt;/b&amp;gt;&amp;lt;br/&amp;gt;Sample request
+   * invoking concept_detection with a filter defined to exclude any annotations detected from concept_detection where
+   * the semanticType field does not equal &quot;neop&quot;.&amp;lt;/p&amp;gt;&amp;lt;pre&amp;gt;{&amp;lt;br/&amp;gt;  &quot;annotatorFlows&quot;: [&amp;lt;br/&amp;gt;
+   * {&amp;lt;br/&amp;gt;      &quot;flow&quot;: {&amp;lt;br/&amp;gt;        &quot;elements&quot;: [&amp;lt;br/&amp;gt;          {&amp;lt;br/&amp;gt;
+   * &quot;annotator&quot;: {&amp;lt;br/&amp;gt;              &quot;name&quot;: &quot;concept_detection&quot;,&amp;lt;br/&amp;gt;              &quot;configurations&quot;:
+   * [&amp;lt;br/&amp;gt;                {&amp;lt;br/&amp;gt;                  &quot;filter&quot;: {&amp;lt;br/&amp;gt;                     &quot;target&quot;:
+   * &quot;unstructured.data.concepts&quot;,&amp;lt;br/&amp;gt;                     &quot;condition&quot;: {&amp;lt;br/&amp;gt;
+   * &quot;type&quot;: &quot;match&quot;,&amp;lt;br/&amp;gt;                        &quot;field&quot;: &quot;semanticType&quot;,&amp;lt;br/&amp;gt;
+   * &quot;values&quot;: [&amp;lt;br/&amp;gt;                           &quot;neop&quot;&amp;lt;br/&amp;gt;                         ],&amp;lt;br/&amp;gt;
+   *             &quot;not&quot;: false,&amp;lt;br/&amp;gt;                        &quot;caseInsensitive&quot;: false,&amp;lt;br/&amp;gt;
+   *     &quot;operator&quot;: &quot;equals&quot;&amp;lt;br/&amp;gt;                     }&amp;lt;br/&amp;gt;                  }&amp;lt;br/&amp;gt;
+   * }&amp;lt;br/&amp;gt;              ]&amp;lt;br/&amp;gt;            }&amp;lt;br/&amp;gt;          }&amp;lt;br/&amp;gt;        ],&amp;lt;br/&amp;gt;
+   * &quot;async&quot;: false&amp;lt;br/&amp;gt;      }&amp;lt;br/&amp;gt;    }&amp;lt;br/&amp;gt;  ],&amp;lt;br/&amp;gt;  &quot;unstructured&quot;: [&amp;lt;br/&amp;gt;
+   * {&amp;lt;br/&amp;gt;      &quot;text&quot;: &quot;Patient has lung cancer, but did not smoke. She may consider chemotherapy as part of a
+   * treatment plan.&quot;&amp;lt;br/&amp;gt;    }&amp;lt;br/&amp;gt;  ]&amp;lt;br/&amp;gt;}&amp;lt;br/&amp;gt;&amp;lt;/pre&amp;gt;&amp;lt;p&amp;gt;&amp;lt;b&amp;gt;Annotators that
+   * support annotation filtering:&amp;lt;/b&amp;gt; allergy, bathing_assistance, cancer, concept_detection,
+   * dressing_assistance, eating_assistance, ejection_fraction, lab_value, medication, named_entities, procedure,
+   * seeing_assistance, smoking, symptom_disease, toileting_assistance,
+   * walking_assistance.&amp;lt;/p&amp;gt;&amp;lt;hr/&amp;gt;&amp;lt;p&amp;gt;&amp;lt;b&amp;gt;Annotation Augmentation&amp;lt;/b&amp;gt;&amp;lt;br/&amp;gt;Sample
+   * request invoking the cancer annotator and providing a whitelist entry for a new custom surface form:
+   * &quot;lungcancer&quot;.&amp;lt;/p&amp;gt;&amp;lt;pre&amp;gt;{&amp;lt;br/&amp;gt; &quot;annotatorFlows&quot;: [&amp;lt;br/&amp;gt;    {&amp;lt;br/&amp;gt;     &quot;flow&quot;:
+   * {&amp;lt;br/&amp;gt;       &quot;elements&quot;: [&amp;lt;br/&amp;gt;          {&amp;lt;br/&amp;gt;           &quot;annotator&quot;: {&amp;lt;br/&amp;gt;
+   * &quot;name&quot;: &quot;cancer&quot;,&amp;lt;br/&amp;gt;             &quot;configurations&quot;: [&amp;lt;br/&amp;gt;                {&amp;lt;br/&amp;gt;
+   * &quot;whitelist&quot;: {&amp;lt;br/&amp;gt;                   &quot;name&quot;: &quot;cancer&quot;,&amp;lt;br/&amp;gt;                   &quot;entries&quot;: [&amp;lt;br/&amp;gt;
+   *                     {&amp;lt;br/&amp;gt;                  &quot;surfaceForms&quot;: [&amp;lt;br/&amp;gt;
+   * &quot;lungcancer&quot;&amp;lt;br/&amp;gt;                ],&amp;lt;br/&amp;gt;               &quot;features&quot;: {&amp;lt;br/&amp;gt;
+   * &quot;normalizedName&quot;: &quot;lung cancer&quot;,&amp;lt;br/&amp;gt;                   &quot;hccCode&quot;: &quot;9&quot;,&amp;lt;br/&amp;gt;
+   * &quot;icd10Code&quot;: &quot;C34.9&quot;,&amp;lt;br/&amp;gt;                   &quot;ccsCode&quot;: &quot;19&quot;,&amp;lt;br/&amp;gt;                   &quot;icd9Code&quot;:
+   * &quot;162.9&quot;,&amp;lt;br/&amp;gt;                   &quot;conceptId&quot;: &quot;93880001&quot;&amp;lt;br/&amp;gt;                }&amp;lt;br/&amp;gt;
+   *       }&amp;lt;br/&amp;gt;                    ]&amp;lt;br/&amp;gt;                  }&amp;lt;br/&amp;gt;                }&amp;lt;br/&amp;gt;
+   *       ]&amp;lt;br/&amp;gt;            }&amp;lt;br/&amp;gt;          }&amp;lt;br/&amp;gt;        ],&amp;lt;br/&amp;gt;       &quot;async&quot;:
+   * false&amp;lt;br/&amp;gt;      }&amp;lt;br/&amp;gt;    }&amp;lt;br/&amp;gt;  ],&amp;lt;br/&amp;gt; &quot;unstructured&quot;: [&amp;lt;br/&amp;gt;    {&amp;lt;br/&amp;gt;
+   * &quot;text&quot;: &quot;The patient was diagnosed with lungcancer, on Dec 23, 2011.&quot;&amp;lt;br/&amp;gt;    }&amp;lt;br/&amp;gt;
+   * ]&amp;lt;br/&amp;gt;}&amp;lt;br/&amp;gt;&amp;lt;/pre&amp;gt;&amp;lt;b&amp;gt;Annotators that support annotation augmentation:&amp;lt;/b&amp;gt; allergy,
+   * bathing_assistance, cancer, dressing_assistance, eating_assistance, ejection_fraction, lab_value, medication,
+   * named_entities, procedure, seeing_assistance, smoking, symptom_disease, toileting_assistance,
+   * walking_assistance.&amp;lt;br/&amp;gt;.
+   *
+   * @param runPipelineOptions the {@link RunPipelineOptions} containing the options for the call
+   * @return a {@link ServiceCall} with a void result
+   */
+  public ServiceCall&lt;Void&gt; runPipeline(RunPipelineOptions runPipelineOptions) {
+<span class="fc" id="L690">    com.ibm.cloud.sdk.core.util.Validator.notNull(runPipelineOptions,</span>
+      &quot;runPipelineOptions cannot be null&quot;);
+<span class="fc" id="L692">    String[] pathSegments = { &quot;v1/analyze&quot; };</span>
+<span class="fc" id="L693">    RequestBuilder builder = RequestBuilder.post(RequestBuilder.constructHttpUrl(getServiceUrl(), pathSegments));</span>
+<span class="fc" id="L694">    Map&lt;String, String&gt; sdkHeaders = SdkCommon.getSdkHeaders(&quot;annotator_for_clinical_data_acd&quot;, &quot;v1&quot;, &quot;runPipeline&quot;);</span>
+<span class="fc bfc" id="L695" title="All 2 branches covered.">    for (Entry&lt;String, String&gt; header : sdkHeaders.entrySet()) {</span>
+<span class="fc" id="L696">      builder.header(header.getKey(), header.getValue());</span>
+<span class="fc" id="L697">    }</span>
+<span class="fc" id="L698">    builder.query(&quot;version&quot;, this.version);</span>
+<span class="pc bpc" id="L699" title="1 of 2 branches missed.">    if (runPipelineOptions.debugTextRestore() != null) {</span>
+<span class="fc" id="L700">      builder.query(&quot;debug_text_restore&quot;, String.valueOf(runPipelineOptions.debugTextRestore()));</span>
+    }
+<span class="pc bpc" id="L702" title="1 of 2 branches missed.">    if (runPipelineOptions.returnAnalyzedText() != null) {</span>
+<span class="fc" id="L703">      builder.query(&quot;return_analyzed_text&quot;, String.valueOf(runPipelineOptions.returnAnalyzedText()));</span>
+    }
+<span class="fc" id="L705">    final JsonObject contentJson = new JsonObject();</span>
+<span class="pc bpc" id="L706" title="1 of 2 branches missed.">    if (runPipelineOptions.unstructured() != null) {</span>
+<span class="fc" id="L707">      contentJson.add(&quot;unstructured&quot;, com.ibm.cloud.sdk.core.util.GsonSingleton.getGson().toJsonTree(runPipelineOptions.unstructured()));</span>
+    }
+<span class="pc bpc" id="L709" title="1 of 2 branches missed.">    if (runPipelineOptions.annotatorFlows() != null) {</span>
+<span class="fc" id="L710">      contentJson.add(&quot;annotatorFlows&quot;, com.ibm.cloud.sdk.core.util.GsonSingleton.getGson().toJsonTree(runPipelineOptions.annotatorFlows()));</span>
+    }
+<span class="fc" id="L712">    builder.bodyJson(contentJson);</span>
+<span class="fc" id="L713">    ResponseConverter&lt;Void&gt; responseConverter = ResponseConverterUtils.getVoid();</span>
+<span class="fc" id="L714">    return createServiceCall(builder.build(), responseConverter);</span>
+  }
+
+  /**
+   * Detect entities and relations from unstructured data.
+   *
+   * &amp;lt;p&amp;gt;This API accepts a JSON request model featuring both the unstructured data to be analyzed as well as the
+   * desired annotator flow.&amp;lt;p/&amp;gt;&amp;lt;p&amp;gt;&amp;lt;b&amp;gt;Annotator Chaining&amp;lt;/b&amp;gt;&amp;lt;br/&amp;gt;Sample request invoking
+   * both the concept_detection and symptom_disease annotators asynchronously. This sample request references
+   * configurations via a profile id. Profiles define configurations that can be referenced within a request. Profile is
+   * optional. A default profile is used if no profile id is available in the annotator flow. The default profile
+   * contains the parameters for the concept detection and the attribute detection. An empty profile can be used if
+   * absolutely no parameters are attached to any annotators. See &amp;lt;a href=&quot;..&quot;
+   * target=&quot;_blank&quot;&amp;gt;documentation&amp;lt;/a&amp;gt; for more information. &amp;lt;/p&amp;gt;&amp;lt;pre&amp;gt;{&amp;lt;br/&amp;gt;
+   * &quot;annotatorFlows&quot;: [&amp;lt;br/&amp;gt;    {&amp;lt;br/&amp;gt;      &quot;profile&quot; : &quot;default_profile_v1.0&quot;, &amp;lt;br/&amp;gt;      &quot;flow&quot;:
+   * {&amp;lt;br/&amp;gt;        &quot;elements&quot;: [&amp;lt;br/&amp;gt;          {&amp;lt;br/&amp;gt;            &quot;annotator&quot;: {&amp;lt;br/&amp;gt;
+   *  &quot;name&quot;: &quot;concept_detection&quot;&amp;lt;br/&amp;gt;            }&amp;lt;br/&amp;gt;          },&amp;lt;br/&amp;gt;          {&amp;lt;br/&amp;gt;
+   *     &quot;annotator&quot;: {&amp;lt;br/&amp;gt;              &quot;name&quot;: &quot;symptom_disease&quot;&amp;lt;br/&amp;gt;             }&amp;lt;br/&amp;gt;
+   * }&amp;lt;br/&amp;gt;        ],&amp;lt;br/&amp;gt;        &quot;async&quot;: false&amp;lt;br/&amp;gt;      }&amp;lt;br/&amp;gt;    }&amp;lt;br/&amp;gt;  ],&amp;lt;br/&amp;gt;
+   *  &quot;unstructured&quot;: [&amp;lt;br/&amp;gt;    {&amp;lt;br/&amp;gt;      &quot;text&quot;: &quot;Patient has lung cancer, but did not smoke. She may
+   * consider chemotherapy as part of a treatment plan.&quot;&amp;lt;br/&amp;gt;    }&amp;lt;br/&amp;gt;
+   * ]&amp;lt;br/&amp;gt;}&amp;lt;br/&amp;gt;&amp;lt;/pre&amp;gt;&amp;lt;p&amp;gt;&amp;lt;b&amp;gt;Annotation Filtering&amp;lt;/b&amp;gt;&amp;lt;br/&amp;gt;Sample request
+   * invoking concept_detection with a filter defined to exclude any annotations detected from concept_detection where
+   * the semanticType field does not equal &quot;neop&quot;.&amp;lt;/p&amp;gt;&amp;lt;pre&amp;gt;{&amp;lt;br/&amp;gt;  &quot;annotatorFlows&quot;: [&amp;lt;br/&amp;gt;
+   * {&amp;lt;br/&amp;gt;      &quot;flow&quot;: {&amp;lt;br/&amp;gt;        &quot;elements&quot;: [&amp;lt;br/&amp;gt;          {&amp;lt;br/&amp;gt;
+   * &quot;annotator&quot;: {&amp;lt;br/&amp;gt;              &quot;name&quot;: &quot;concept_detection&quot;,&amp;lt;br/&amp;gt;              &quot;configurations&quot;:
+   * [&amp;lt;br/&amp;gt;                {&amp;lt;br/&amp;gt;                  &quot;filter&quot;: {&amp;lt;br/&amp;gt;                     &quot;target&quot;:
+   * &quot;unstructured.data.concepts&quot;,&amp;lt;br/&amp;gt;                     &quot;condition&quot;: {&amp;lt;br/&amp;gt;
+   * &quot;type&quot;: &quot;match&quot;,&amp;lt;br/&amp;gt;                        &quot;field&quot;: &quot;semanticType&quot;,&amp;lt;br/&amp;gt;
+   * &quot;values&quot;: [&amp;lt;br/&amp;gt;                           &quot;neop&quot;&amp;lt;br/&amp;gt;                         ],&amp;lt;br/&amp;gt;
+   *             &quot;not&quot;: false,&amp;lt;br/&amp;gt;                        &quot;caseInsensitive&quot;: false,&amp;lt;br/&amp;gt;
+   *     &quot;operator&quot;: &quot;equals&quot;&amp;lt;br/&amp;gt;                     }&amp;lt;br/&amp;gt;                  }&amp;lt;br/&amp;gt;
+   * }&amp;lt;br/&amp;gt;              ]&amp;lt;br/&amp;gt;            }&amp;lt;br/&amp;gt;          }&amp;lt;br/&amp;gt;        ],&amp;lt;br/&amp;gt;
+   * &quot;async&quot;: false&amp;lt;br/&amp;gt;      }&amp;lt;br/&amp;gt;    }&amp;lt;br/&amp;gt;  ],&amp;lt;br/&amp;gt;  &quot;unstructured&quot;: [&amp;lt;br/&amp;gt;
+   * {&amp;lt;br/&amp;gt;      &quot;text&quot;: &quot;Patient has lung cancer, but did not smoke. She may consider chemotherapy as part of a
+   * treatment plan.&quot;&amp;lt;br/&amp;gt;    }&amp;lt;br/&amp;gt;  ]&amp;lt;br/&amp;gt;}&amp;lt;br/&amp;gt;&amp;lt;/pre&amp;gt;&amp;lt;p&amp;gt;&amp;lt;b&amp;gt;Annotators that
+   * support annotation filtering:&amp;lt;/b&amp;gt; allergy, bathing_assistance, cancer, concept_detection,
+   * dressing_assistance, eating_assistance, ejection_fraction, lab_value, medication, named_entities, procedure,
+   * seeing_assistance, smoking, symptom_disease, toileting_assistance,
+   * walking_assistance.&amp;lt;/p&amp;gt;&amp;lt;hr/&amp;gt;&amp;lt;p&amp;gt;&amp;lt;b&amp;gt;Annotation Augmentation&amp;lt;/b&amp;gt;&amp;lt;br/&amp;gt;Sample
+   * request invoking the cancer annotator and providing a whitelist entry for a new custom surface form:
+   * &quot;lungcancer&quot;.&amp;lt;/p&amp;gt;&amp;lt;pre&amp;gt;{&amp;lt;br/&amp;gt; &quot;annotatorFlows&quot;: [&amp;lt;br/&amp;gt;    {&amp;lt;br/&amp;gt;     &quot;flow&quot;:
+   * {&amp;lt;br/&amp;gt;       &quot;elements&quot;: [&amp;lt;br/&amp;gt;          {&amp;lt;br/&amp;gt;           &quot;annotator&quot;: {&amp;lt;br/&amp;gt;
+   * &quot;name&quot;: &quot;cancer&quot;,&amp;lt;br/&amp;gt;             &quot;configurations&quot;: [&amp;lt;br/&amp;gt;                {&amp;lt;br/&amp;gt;
+   * &quot;whitelist&quot;: {&amp;lt;br/&amp;gt;                   &quot;name&quot;: &quot;cancer&quot;,&amp;lt;br/&amp;gt;                   &quot;entries&quot;: [&amp;lt;br/&amp;gt;
+   *                     {&amp;lt;br/&amp;gt;                  &quot;surfaceForms&quot;: [&amp;lt;br/&amp;gt;
+   * &quot;lungcancer&quot;&amp;lt;br/&amp;gt;                ],&amp;lt;br/&amp;gt;               &quot;features&quot;: {&amp;lt;br/&amp;gt;
+   * &quot;normalizedName&quot;: &quot;lung cancer&quot;,&amp;lt;br/&amp;gt;                   &quot;hccCode&quot;: &quot;9&quot;,&amp;lt;br/&amp;gt;
+   * &quot;icd10Code&quot;: &quot;C34.9&quot;,&amp;lt;br/&amp;gt;                   &quot;ccsCode&quot;: &quot;19&quot;,&amp;lt;br/&amp;gt;                   &quot;icd9Code&quot;:
+   * &quot;162.9&quot;,&amp;lt;br/&amp;gt;                   &quot;conceptId&quot;: &quot;93880001&quot;&amp;lt;br/&amp;gt;                }&amp;lt;br/&amp;gt;
+   *       }&amp;lt;br/&amp;gt;                    ]&amp;lt;br/&amp;gt;                  }&amp;lt;br/&amp;gt;                }&amp;lt;br/&amp;gt;
+   *       ]&amp;lt;br/&amp;gt;            }&amp;lt;br/&amp;gt;          }&amp;lt;br/&amp;gt;        ],&amp;lt;br/&amp;gt;       &quot;async&quot;:
+   * false&amp;lt;br/&amp;gt;      }&amp;lt;br/&amp;gt;    }&amp;lt;br/&amp;gt;  ],&amp;lt;br/&amp;gt; &quot;unstructured&quot;: [&amp;lt;br/&amp;gt;    {&amp;lt;br/&amp;gt;
+   * &quot;text&quot;: &quot;The patient was diagnosed with lungcancer, on Dec 23, 2011.&quot;&amp;lt;br/&amp;gt;    }&amp;lt;br/&amp;gt;
+   * ]&amp;lt;br/&amp;gt;}&amp;lt;br/&amp;gt;&amp;lt;/pre&amp;gt;&amp;lt;b&amp;gt;Annotators that support annotation augmentation:&amp;lt;/b&amp;gt; allergy,
+   * bathing_assistance, cancer, dressing_assistance, eating_assistance, ejection_fraction, lab_value, medication,
+   * named_entities, procedure, seeing_assistance, smoking, symptom_disease, toileting_assistance,
+   * walking_assistance.&amp;lt;br/&amp;gt;.
+   *
+   * @return a {@link ServiceCall} with a void result
+   */
+  public ServiceCall&lt;Void&gt; runPipeline() {
+<span class="nc" id="L776">    return runPipeline(null);</span>
+  }
+
+  /**
+   * analyze with a pre-specified flow.
+   *
+   * &amp;lt;p&amp;gt;This API accepts a flow identifier as well as a &amp;lt;emph&amp;gt;TEXT&amp;lt;/emph&amp;gt; or a
+   * &amp;lt;emph&amp;gt;JSON&amp;lt;/emph&amp;gt; request model featuring the unstructured text to be analyzed.
+   * &amp;lt;p/&amp;gt;&amp;lt;p&amp;gt;&amp;lt;b&amp;gt;JSON request model with unstructured text &amp;lt;/b&amp;gt;&amp;lt;/p&amp;gt;&amp;lt;pre&amp;gt;{&amp;lt;br/&amp;gt;
+   * &quot;unstructured&quot;: [&amp;lt;br/&amp;gt;    {&amp;lt;br/&amp;gt;      &quot;text&quot;: &quot;Patient has lung cancer, but did not smoke. She may
+   * consider chemotherapy as part of a treatment plan.&quot;&amp;lt;br/&amp;gt;    }&amp;lt;br/&amp;gt;
+   * ]&amp;lt;br/&amp;gt;}&amp;lt;br/&amp;gt;&amp;lt;/pre&amp;gt;&amp;lt;p&amp;gt;&amp;lt;b&amp;gt;JSON request model with existing annotations
+   * &amp;lt;/b&amp;gt;&amp;lt;br/&amp;gt;&amp;lt;/p&amp;gt;&amp;lt;pre&amp;gt;{&amp;lt;br&amp;gt; &quot;unstructured&quot;: [&amp;lt;br&amp;gt;    {&amp;lt;br&amp;gt;      &quot;text&quot;:
+   * &quot;Patient will not start on cisplatin 80mg on 1/1/2018. Patient is also diabetic.&quot;,&amp;lt;br&amp;gt;      &quot;data&quot;:
+   * {&amp;lt;br&amp;gt;        &quot;concepts&quot;: [&amp;lt;br&amp;gt;          {&amp;lt;br&amp;gt;            &quot;cui&quot;: &quot;C0030705&quot;,&amp;lt;br&amp;gt;
+   * &quot;preferredName&quot;: &quot;Patients&quot;,&amp;lt;br&amp;gt;            &quot;semanticType&quot;: &quot;podg&quot;,&amp;lt;br&amp;gt;            &quot;source&quot;:
+   * &quot;umls&quot;,&amp;lt;br&amp;gt;            &quot;sourceVersion&quot;: &quot;2017AA&quot;,&amp;lt;br&amp;gt;            &quot;type&quot;:
+   * &quot;umls.PatientOrDisabledGroup&quot;,&amp;lt;br&amp;gt;            &quot;begin&quot;: 0,&amp;lt;br&amp;gt;            &quot;end&quot;: 7,&amp;lt;br&amp;gt;
+   * &quot;coveredText&quot;: &quot;Patient&quot;&amp;lt;br&amp;gt;          }&amp;lt;br&amp;gt; ]&amp;lt;br&amp;gt;      }  &amp;lt;br&amp;gt;    } &amp;lt;br&amp;gt;
+   * ]&amp;lt;br&amp;gt;}&amp;lt;br&amp;gt;&amp;lt;/pre&amp;gt;.
+   *
+   * @param runPipelineWithFlowOptions the {@link RunPipelineWithFlowOptions} containing the options for the call
+   * @return a {@link ServiceCall} with a void result
+   */
+  public ServiceCall&lt;Void&gt; runPipelineWithFlow(RunPipelineWithFlowOptions runPipelineWithFlowOptions) {
+<span class="fc" id="L801">    com.ibm.cloud.sdk.core.util.Validator.notNull(runPipelineWithFlowOptions,</span>
+      &quot;runPipelineWithFlowOptions cannot be null&quot;);
+<span class="fc" id="L803">    String[] pathSegments = { &quot;v1/analyze&quot; };</span>
+<span class="fc" id="L804">    String[] pathParameters = { runPipelineWithFlowOptions.flowId() };</span>
+<span class="fc" id="L805">    RequestBuilder builder = RequestBuilder.post(RequestBuilder.constructHttpUrl(getServiceUrl(), pathSegments, pathParameters));</span>
+<span class="fc" id="L806">    Map&lt;String, String&gt; sdkHeaders = SdkCommon.getSdkHeaders(&quot;annotator_for_clinical_data_acd&quot;, &quot;v1&quot;, &quot;runPipelineWithFlow&quot;);</span>
+<span class="fc bfc" id="L807" title="All 2 branches covered.">    for (Entry&lt;String, String&gt; header : sdkHeaders.entrySet()) {</span>
+<span class="fc" id="L808">      builder.header(header.getKey(), header.getValue());</span>
+<span class="fc" id="L809">    }</span>
+<span class="pc bpc" id="L810" title="1 of 2 branches missed.">    if (runPipelineWithFlowOptions.contentType() != null) {</span>
+<span class="fc" id="L811">      builder.header(&quot;Content-Type&quot;, runPipelineWithFlowOptions.contentType());</span>
+    }
+<span class="fc" id="L813">    builder.query(&quot;version&quot;, this.version);</span>
+<span class="fc" id="L814">    builder.query(&quot;return_analyzed_text&quot;, String.valueOf(runPipelineWithFlowOptions.returnAnalyzedText()));</span>
+<span class="pc bpc" id="L815" title="1 of 2 branches missed.">    if (runPipelineWithFlowOptions.debugTextRestore() != null) {</span>
+<span class="fc" id="L816">      builder.query(&quot;debug_text_restore&quot;, String.valueOf(runPipelineWithFlowOptions.debugTextRestore()));</span>
+    }
+<span class="fc" id="L818">    builder.bodyContent(runPipelineWithFlowOptions.contentType(), runPipelineWithFlowOptions.analyticFlowBeanInput(),</span>
+<span class="fc" id="L819">      null, runPipelineWithFlowOptions.body());</span>
+<span class="fc" id="L820">    ResponseConverter&lt;Void&gt; responseConverter = ResponseConverterUtils.getVoid();</span>
+<span class="fc" id="L821">    return createServiceCall(builder.build(), responseConverter);</span>
+  }
+
+     /**
+     * Derive entities and relations from unstructured data.
+     *
+     * This API accepts a JSON request model featuring both the unstructured data to
+     * be analyzed as well as the desired annotator flow.
+     *
+     * Annotator Chaining Sample request invoking both the concept_detection and
+     * symptom_disease annotators asynchronously. { &quot;annotatorFlows&quot;: [ { &quot;flow&quot;: {
+     * &quot;elements&quot;: [ { &quot;annotator&quot;: { &quot;name&quot;: &quot;concept_detection&quot; } }, {
+     * &quot;annotator&quot;: { &quot;name&quot;: &quot;symptom_disease&quot; } } ], &quot;async&quot;: true } } ],
+     * &quot;unstructured\&quot;: [ { &quot;text&quot;: &quot;Patient has lung cancer, but did not smoke. She
+     * may consider chemotherapy as part of a treatment plan.&quot; } ] }
+     *
+     * Annotation Filtering Sample request invoking concept_detection with a filter
+     * defined to exclude any annotations derived from concept_detection where the
+     * semanticType field does not equal &quot;neop&quot;.
+     *
+     * { &quot;annotatorFlows&quot;: {&quot;flow&quot;: {&quot;elements&quot;: [{&quot;annotator&quot;: {&quot;name&quot;:
+     * &quot;concept_detection&quot;, &quot;configurations&quot;: [ {&quot;filter&quot;: {&quot;target&quot;:
+     * &quot;unstructured.data.concepts&quot;,&quot;condition&quot;: { &quot;type&quot;: &quot;match&quot;, &quot;field&quot;:
+     * &quot;semanticType&quot;, &quot;values&quot;: [&quot;neop&quot;], &quot;not&quot;: false, &quot;caseInsensitive&quot;: false,
+     * &quot;operator&quot;: &quot;equals&quot; } }}]}}], &quot;async&quot;: false }}], unstructured&quot;: [{&quot;text&quot;:
+     * &quot;Patient has lung cancer, but did not smoke. She may consider chemotherapy as
+     * part of a treatment plan.&quot;} ]}Annotators that support annotation filtering:
+     * allergy, bathing_assistance, cancer, concept_detection, dressing_assistance,
+     * eating_assistance, ejection_fraction, lab_value, medication, named_entities,
+     * procedure, seeing_assistance, smoking, symptom_disease, toileting_assistance,
+     * walking_assistance. Annotation Augmentation Sample request invoking the
+     * cancer annotator and providing a whitelist entry for a new custom surface
+     * form: &quot;lungcancer&quot;. {&quot;annotatorFlows&quot;: [{&quot;flow&quot;: {&quot;elements&quot;: [ {
+     * &quot;annotator&quot;: {&quot;name&quot;: &quot;cancer&quot;, &quot;configurations&quot;: [{&quot;whitelist&quot;: {&quot;name&quot;:
+     * &quot;cancer&quot;,&quot;entries&quot;: [ {&quot;surfaceForms&quot;: [&quot;lungcancer&quot;],&quot;features&quot;:
+     * {&quot;normalizedName&quot;: &quot;lung cancer&quot;, &quot;hccCode&quot;: &quot;9&quot;, &quot;icd10Code&quot;: &quot;C34.9&quot;,
+     * &quot;ccsCode&quot;: &quot;19&quot;, &quot;icd9Code&quot;: &quot;162.9&quot;, &quot;conceptId&quot;: &quot;93880001&quot; } }]}}]}}],
+     * &quot;async&quot;: false}}], &quot;unstructured&quot;: [{&quot;text&quot;: &quot;The patient was diagnosed with
+     * lungcancer, on Dec 23, 2011.&quot; }]}
+     *
+     * Annotators that support annotation augmentation: allergy, bathing_assistance,
+     * cancer, dressing_assistance, eating_assistance, ejection_fraction, lab_value,
+     * medication, named_entities, procedure, seeing_assistance, smoking,
+     * symptom_disease, toileting_assistance, walking_assistance. .
+     *
+     * @param analyzeOptions the {@link AnalyzeOptions} containing the options for
+     *                       the call
+     * @return the service call
+     */
+    public ServiceCall&lt;ContainerGroup&gt; analyze(final AnalyzeOptions analyzeOptions) {
+<span class="nc" id="L871">      Validator.notNull(analyzeOptions, &quot;analyzeOptions cannot be null&quot;);</span>
+<span class="nc" id="L872">      String[] pathSegments = { &quot;v1/analyze&quot; };</span>
+<span class="nc" id="L873">      RequestBuilder builder = RequestBuilder.post(RequestBuilder.constructHttpUrl(getServiceUrl(), pathSegments));</span>
+<span class="nc" id="L874">      builder.query(VERSION, version);</span>
+<span class="nc" id="L875">      builder.query(RETURN_ANALYZED_TEXT, String.valueOf(analyzeOptions.returnAnalyzedText()));</span>
+<span class="nc" id="L876">      Map&lt;String, String&gt; sdkHeaders = SdkCommon.getSdkHeaders(DEFAULT_SERVICE_NAME, &quot;v1&quot;, &quot;analyze&quot;);</span>
+<span class="nc bnc" id="L877" title="All 2 branches missed.">      for (Entry&lt;String, String&gt; header : sdkHeaders.entrySet()) {</span>
+<span class="nc" id="L878">          builder.header(header.getKey(), header.getValue());</span>
+<span class="nc" id="L879">      }</span>
+<span class="nc bnc" id="L880" title="All 2 branches missed.">      if (analyzeOptions != null) {</span>
+<span class="nc" id="L881">          final JsonObject contentJson = new JsonObject();</span>
+<span class="nc bnc" id="L882" title="All 2 branches missed.">          if (analyzeOptions.unstructured() != null) {</span>
+<span class="nc" id="L883">              contentJson.add(&quot;unstructured&quot;, GsonSingleton.getGson().toJsonTree(analyzeOptions.unstructured()));</span>
+          }
+<span class="nc bnc" id="L885" title="All 2 branches missed.">          if (analyzeOptions.annotatorFlows() != null) {</span>
+<span class="nc" id="L886">              contentJson.add(&quot;annotatorFlows&quot;, GsonSingleton.getGson().toJsonTree(analyzeOptions.annotatorFlows()));</span>
+          }
+<span class="nc" id="L888">          builder.bodyJson(contentJson);</span>
+      }
+<span class="nc" id="L890">      return createServiceCall(builder.build(), ResponseConverterUtils.getObject(ContainerGroup.class));</span>
+  }
+
+  /**
+   * analyze with a persisted flow.
+   *
+   * This API accepts a flow identifier as well as a TEXT or a JSON request model
+   * featuring the unstructured text to be analyzed. JSON request model with
+   * unstructured text
+   *
+   * { &quot;unstructured&quot;: [ {&quot;text&quot;: &quot;Patient has lung cancer, but did not smoke. She
+   * may consider chemotherapy as part of a treatment plan.&quot; } ]} JSON request
+   * model with existing annotations {&quot;unstructured&quot;: [{&quot;text&quot;: &quot;Patient will not
+   * start on cisplatin 80mg on 1/1/2018. Patient is also diabetic.&quot;, &quot;data&quot;:
+   * {&quot;concepts&quot;: [{&quot;cui&quot;: &quot;C0030705&quot;, &quot;preferredName&quot;: &quot;Patients&quot;,
+   * &quot;semanticType&quot;: &quot;podg&quot;, &quot;source&quot;: &quot;umls&quot;, &quot;sourceVersion&quot;: &quot;2017AA&quot;, &quot;type&quot;:
+   * &quot;umls.PatientOrDisabledGroup&quot;, &quot;begin&quot;: 0, &quot;end&quot;: 7, &quot;coveredText&quot;:
+   * &quot;Patient&quot;}]}}]} .
+   *
+   * @param analyzeWithFlowOptions the {@link AnalyzeWithFlowOptions} containing
+   *                               the options for the call
+   * @return the service call
+   */
+  public ServiceCall&lt;ContainerGroup&gt; analyzeWithFlow(final AnalyzeWithFlowOptions analyzeWithFlowOptions) {
+<span class="nc" id="L914">      Validator.notNull(analyzeWithFlowOptions, &quot;analyzeWithFlowOptions cannot be null&quot;);</span>
+<span class="nc" id="L915">      String[] pathSegments = { &quot;v1/analyze&quot; };</span>
+<span class="nc" id="L916">      String[] pathParameters = { analyzeWithFlowOptions.flowId() };</span>
+<span class="nc" id="L917">      RequestBuilder builder = RequestBuilder</span>
+<span class="nc" id="L918">              .post(RequestBuilder.constructHttpUrl(getServiceUrl(), pathSegments, pathParameters));</span>
+<span class="nc" id="L919">      Map&lt;String, String&gt; sdkHeaders = SdkCommon.getSdkHeaders(DEFAULT_SERVICE_NAME, &quot;v1&quot;, &quot;analyzeWithFlow&quot;);</span>
+<span class="nc bnc" id="L920" title="All 2 branches missed.">      for (Entry&lt;String, String&gt; header : sdkHeaders.entrySet()) {</span>
+<span class="nc" id="L921">          builder.header(header.getKey(), header.getValue());</span>
+<span class="nc" id="L922">      }</span>
+<span class="nc" id="L923">      builder.query(VERSION, version);</span>
+<span class="nc" id="L924">      builder.query(RETURN_ANALYZED_TEXT, String.valueOf(analyzeWithFlowOptions.returnAnalyzedText()));</span>
+<span class="nc" id="L925">      builder.header(&quot;content-type&quot;, analyzeWithFlowOptions.contentType());</span>
+
+<span class="nc" id="L927">      if (analyzeWithFlowOptions.contentType()</span>
+<span class="nc bnc" id="L928" title="All 2 branches missed.">              .equalsIgnoreCase(AnalyzeWithFlowOptions.ContentType.APPLICATION_JSON)) {</span>
+<span class="nc" id="L929">          builder.bodyJson(GsonSingleton.getGson().toJsonTree(analyzeWithFlowOptions.request()).getAsJsonObject());</span>
+      } else {
+<span class="nc" id="L931">          builder.bodyContent(analyzeWithFlowOptions.body(), analyzeWithFlowOptions.contentType());</span>
+      }
+<span class="nc" id="L933">      return createServiceCall(builder.build(), ResponseConverterUtils.getObject(ContainerGroup.class));</span>
+  }
+
+      /**
+     * Method to analyze text with a manually defined annotator flow.
+     *
+     * @param text data to be analyzed
+     * @param flow {@link Flow} analytics to apply to the text
+     *
+     * @return the {@link ContainerGroup} discovered cogntive artifacts
+     */
+
+    public ContainerGroup analyze(final String text, final Flow flow) {
+<span class="nc" id="L946">      AnnotatorFlow annotatorFlow = new AnnotatorFlow.Builder().flow(flow).build();</span>
+<span class="nc" id="L947">      UnstructuredContainer unstructuredContainer = new UnstructuredContainer.Builder().text(text).build();</span>
+<span class="nc" id="L948">      AnalyzeOptions options = new AnalyzeOptions.Builder().addUnstructured(unstructuredContainer)</span>
+<span class="nc" id="L949">              .returnAnalyzedText(false).addAnnotatorFlows(annotatorFlow).build();</span>
+
+<span class="nc" id="L951">      return this.analyze(options).execute().getResult();</span>
+  }
+
+  /**
+   * Method to analyze text with a manually defined annotator flow.
+   *
+   * @param text data to be analyzed
+   * @param flow {@link Flow} analytics to apply to the text
+   *
+   * @return the response with {@link ContainerGroup}
+   */
+
+  public Response&lt;ContainerGroup&gt; analyzeInclResponseDetails(final String text, final Flow flow) {
+<span class="nc" id="L964">      AnnotatorFlow annotatorFlow = new AnnotatorFlow.Builder().flow(flow).build();</span>
+<span class="nc" id="L965">      UnstructuredContainer unstructuredContainer = new UnstructuredContainer.Builder().text(text).build();</span>
+<span class="nc" id="L966">      AnalyzeOptions options = new AnalyzeOptions.Builder().addUnstructured(unstructuredContainer)</span>
+<span class="nc" id="L967">              .returnAnalyzedText(false).addAnnotatorFlows(annotatorFlow).build();</span>
+
+<span class="nc" id="L969">      return this.analyze(options).execute();</span>
+  }
+
+  /**
+   * Method to analyze text with a manually defined annotator flow.
+   *
+   * @param text data to be analyzed
+   * @param flow analytics to appply to the text {@link Flow}
+   * @param returnAnalyzedText where to return the submitted data
+   *
+   * @return the {@link ContainerGroup}
+   */
+
+  public ContainerGroup analyze(final String text, final Flow flow, final boolean returnAnalyzedText) {
+<span class="nc" id="L983">      AnnotatorFlow annotatorFlow = new AnnotatorFlow.Builder().flow(flow).build();</span>
+<span class="nc" id="L984">      UnstructuredContainer unstructuredContainer = new UnstructuredContainer.Builder().text(text).build();</span>
+<span class="nc" id="L985">      AnalyzeOptions options = new AnalyzeOptions.Builder().addUnstructured(unstructuredContainer)</span>
+<span class="nc" id="L986">              .returnAnalyzedText(returnAnalyzedText).addAnnotatorFlows(annotatorFlow).build();</span>
+
+<span class="nc" id="L988">      return this.analyze(options).execute().getResult();</span>
+  }
+
+  /**
+   * Method to analyze text with a manually defined annotator flow.
+   *
+   * @param text data to be analyzed
+   * @param flow  analytics to appply to the text {@link Flow}
+   * @param returnAnalyzedText where to return the submitted data
+   *
+   * @return the resopnse with result representing {@link ContainerGroup}
+   */
+
+  public Response&lt;ContainerGroup&gt; analyzeInclResponseDetails(final String text, final Flow flow,
+          final boolean returnAnalyzedText) {
+<span class="nc" id="L1003">      AnnotatorFlow annotatorFlow = new AnnotatorFlow.Builder().flow(flow).build();</span>
+<span class="nc" id="L1004">      UnstructuredContainer unstructuredContainer = new UnstructuredContainer.Builder().text(text).build();</span>
+<span class="nc" id="L1005">      AnalyzeOptions options = new AnalyzeOptions.Builder().addUnstructured(unstructuredContainer)</span>
+<span class="nc" id="L1006">              .returnAnalyzedText(returnAnalyzedText).addAnnotatorFlows(annotatorFlow).build();</span>
+
+<span class="nc" id="L1008">      return this.analyze(options).execute();</span>
+  }
+
+  /**
+   * Method to analyze text with an existing annotator flow.
+   *
+   * @param flowId identifier of existing analytic flow to apply to the text
+   * @param text data to be analyzed
+   *
+   * @return the {@link ContainerGroup}
+   */
+
+  public ContainerGroup analyzeWithFlow(final String flowId, final String text) {
+<span class="nc" id="L1021">      AnalyzeWithFlowOptions analyzeWithFlowOptions = new AnalyzeWithFlowOptions.Builder().flowId(flowId).text(text)</span>
+<span class="nc" id="L1022">              .returnAnalyzedText(false).build();</span>
+
+<span class="nc" id="L1024">      return this.analyzeWithFlow(analyzeWithFlowOptions).execute().getResult();</span>
+  }
+
+  /**
+   * Method to analyze text with an existing annotator flow.
+   *
+   * @param flowId identifier of existing analytic flow to apply to the text
+   * @param text data to be analyzed
+   *
+   * @return the resopnse with result representing {@link ContainerGroup}
+   */
+
+  public Response&lt;ContainerGroup&gt; analyzeWithFlowInclResponseDetails(final String flowId, final String text) {
+<span class="nc" id="L1037">      AnalyzeWithFlowOptions analyzeWithFlowOptions = new AnalyzeWithFlowOptions.Builder().flowId(flowId).text(text)</span>
+<span class="nc" id="L1038">              .returnAnalyzedText(false).build();</span>
+
+<span class="nc" id="L1040">      return this.analyzeWithFlow(analyzeWithFlowOptions).execute();</span>
+  }
+
+  /**
+   * Method to analyze text with an existing annotator flow.
+   *
+   * @param flowId identifier of existing analytic flow to apply to the text
+   * @param text data to be analyzed
+   * @param returnAnalyzedText where to return the submitted data
+   *
+   * @return the resopnse with result representing {@link ContainerGroup}
+   */
+
+  public ContainerGroup analyzeWithFlow(final String flowId, final String text, final boolean returnAnalyzedText) {
+<span class="nc" id="L1054">      AnalyzeWithFlowOptions analyzeWithFlowOptions = new AnalyzeWithFlowOptions.Builder().flowId(flowId).text(text)</span>
+<span class="nc" id="L1055">              .returnAnalyzedText(returnAnalyzedText).build();</span>
+
+<span class="nc" id="L1057">      return this.analyzeWithFlow(analyzeWithFlowOptions).execute().getResult();</span>
+  }
+
+  /**
+   * Method to analyze text with an existing annotator flow.
+   *
+   * @param flowId identifier of existing analytic flow to apply to the text
+   * @param text data to be analyzed
+   * @param returnAnalyzedText where to return the submitted data
+   *
+   * @return the resopnse with result representing {@link ContainerGroup}
+   */
+
+  public Response&lt;ContainerGroup&gt; analyzeWithFlowInclResponseDetails(final String flowId, final String text,
+          final boolean returnAnalyzedText) {
+<span class="nc" id="L1072">      AnalyzeWithFlowOptions analyzeWithFlowOptions = new AnalyzeWithFlowOptions.Builder().flowId(flowId).text(text)</span>
+<span class="nc" id="L1073">              .returnAnalyzedText(returnAnalyzedText).build();</span>
+
+<span class="nc" id="L1075">      return this.analyzeWithFlow(analyzeWithFlowOptions).execute();</span>
+  }
+
+  /**
+   * Method to analyze text with an existing annotator flow.
+   *
+   * @param flowId identifier of existing analytic flow to apply to the text
+   * @param unstructuredContainer {@link UnstructuredContainer} discovered cogntive artifacts
+   *
+   * @return the {@link ContainerGroup}
+   */
+
+  public ContainerGroup analyzeWithFlow(final String flowId, final UnstructuredContainer unstructuredContainer) {
+<span class="nc" id="L1088">      RequestContainer requestContainer = new RequestContainer.Builder().addUnstructured(unstructuredContainer)</span>
+<span class="nc" id="L1089">              .build();</span>
+
+<span class="nc" id="L1091">      AnalyzeWithFlowOptions analyzeWithFlowOptions = new AnalyzeWithFlowOptions.Builder().flowId(flowId)</span>
+<span class="nc" id="L1092">              .returnAnalyzedText(false).request(requestContainer).build();</span>
+
+<span class="nc" id="L1094">      return this.analyzeWithFlow(analyzeWithFlowOptions).execute().getResult();</span>
+  }
+
+  /**
+   * Method to analyze text with an existing annotator flow.
+   *
+   * @param flowId identifier of existing analytic flow to apply to the text
+   * @param unstructuredContainer {@link UnstructuredContainer} discovered cogntive artifacts
+   *
+   * @return the resopnse with result representing {@link ContainerGroup}
+   */
+
+  public Response&lt;ContainerGroup&gt; analyzeWithFlowInclResponseDetails(final String flowId,
+          final UnstructuredContainer unstructuredContainer) {
+<span class="nc" id="L1108">      RequestContainer requestContainer = new RequestContainer.Builder().addUnstructured(unstructuredContainer)</span>
+<span class="nc" id="L1109">              .build();</span>
+
+<span class="nc" id="L1111">      AnalyzeWithFlowOptions analyzeWithFlowOptions = new AnalyzeWithFlowOptions.Builder().flowId(flowId)</span>
+<span class="nc" id="L1112">              .returnAnalyzedText(false).request(requestContainer).build();</span>
+
+<span class="nc" id="L1114">      return this.analyzeWithFlow(analyzeWithFlowOptions).execute();</span>
+  }
+
+  /**
+   * Method to analyze text with an existing annotator flow.
+   *
+   * @param flowId identifier of existing analytic flow to apply to the text
+   * @param unstructuredContainer {@link UnstructuredContainer}
+   * @param returnAnalyzedText where to return the submitted data
+   *
+   * @return the {@link ContainerGroup} discovered cogntive artifacts
+   */
+
+  public ContainerGroup analyzeWithFlow(final String flowId, final UnstructuredContainer unstructuredContainer,
+          final boolean returnAnalyzedText) {
+<span class="nc" id="L1129">      RequestContainer requestContainer = new RequestContainer.Builder().addUnstructured(unstructuredContainer)</span>
+<span class="nc" id="L1130">              .build();</span>
+
+<span class="nc" id="L1132">      AnalyzeWithFlowOptions analyzeWithFlowOptions = new AnalyzeWithFlowOptions.Builder().flowId(flowId)</span>
+<span class="nc" id="L1133">              .returnAnalyzedText(returnAnalyzedText).request(requestContainer).build();</span>
+
+<span class="nc" id="L1135">      return this.analyzeWithFlow(analyzeWithFlowOptions).execute().getResult();</span>
+  }
+
+  /**
+   * Method to analyze text with an existing annotator flow.
+   *
+   * @param flowId identifier of existing analytic flow to apply to the text
+   * @param unstructuredContainer {@link UnstructuredContainer}
+   * @param returnAnalyzedText where to return the submitted data
+   *
+   * @return the resopnse with result representing {@link ContainerGroup}
+   */
+
+  public Response&lt;ContainerGroup&gt; analyzeWithFlowInclResponseDetails(final String flowId,
+          final UnstructuredContainer unstructuredContainer, final boolean returnAnalyzedText) {
+<span class="nc" id="L1150">      RequestContainer requestContainer = new RequestContainer.Builder().addUnstructured(unstructuredContainer)</span>
+<span class="nc" id="L1151">              .build();</span>
+
+<span class="nc" id="L1153">      AnalyzeWithFlowOptions analyzeWithFlowOptions = new AnalyzeWithFlowOptions.Builder().flowId(flowId)</span>
+<span class="nc" id="L1154">              .returnAnalyzedText(returnAnalyzedText).request(requestContainer).build();</span>
+
+<span class="nc" id="L1156">      return this.analyzeWithFlow(analyzeWithFlowOptions).execute();</span>
+  }
+
+  /**
+   * Get list of available annotators.
+   *
+   * Get list of available annotators that can be leveraged to detect information from unstructured data. One or more
+   * annnotators can be leveraged within a single request to the service.
+   *
+   * @param getAnnotatorsOptions the {@link GetAnnotatorsOptions} containing the options for the call
+   * @return a {@link ServiceCall} with a void result
+   */
+  public ServiceCall&lt;Map&lt;String, ServiceApiBean&gt;&gt; getAnnotators(GetAnnotatorsOptions getAnnotatorsOptions) {
+<span class="fc" id="L1169">    String[] pathSegments = { &quot;v1/annotators&quot; };</span>
+<span class="fc" id="L1170">    RequestBuilder builder = RequestBuilder.get(RequestBuilder.constructHttpUrl(getServiceUrl(), pathSegments));</span>
+<span class="fc" id="L1171">    Map&lt;String, String&gt; sdkHeaders = SdkCommon.getSdkHeaders(&quot;annotator_for_clinical_data_acd&quot;, &quot;v1&quot;, &quot;getAnnotators&quot;);</span>
+<span class="fc bfc" id="L1172" title="All 2 branches covered.">    for (Entry&lt;String, String&gt; header : sdkHeaders.entrySet()) {</span>
+<span class="fc" id="L1173">      builder.header(header.getKey(), header.getValue());</span>
+<span class="fc" id="L1174">    }</span>
+<span class="pc bpc" id="L1175" title="1 of 2 branches missed.">    if (getAnnotatorsOptions != null) {</span>
+<span class="fc" id="L1176">      builder.query(&quot;version&quot;, this.version);</span>
+    }
+<span class="fc" id="L1178">    ResponseConverter&lt;Map&lt;String, ServiceApiBean&gt;&gt; responseConverter =</span>
+<span class="fc" id="L1179">    		ResponseConverterUtils.getValue(new com.google.gson.reflect.TypeToken&lt;Map&lt;String, ServiceApiBean&gt;&gt;() { }.getType());</span>
+<span class="fc" id="L1180">    return createServiceCall(builder.build(), responseConverter);</span>
+  }
+
+  /**
+   * Get list of available annotators.
+   *
+   * Get list of available annotators that can be leveraged to detect information from unstructured data. One or more
+   * annnotators can be leveraged within a single request to the service.
+   *
+   * @return a {@link ServiceCall} with a void result
+   */
+  public ServiceCall&lt;Map&lt;String, ServiceApiBean&gt;&gt; getAnnotators() {
+<span class="nc" id="L1192">    return getAnnotators(null);</span>
+  }
+
+  /**
+   * Get details of a specific annotator.
+   *
+   * Get details of an annotator that can be used to detect information from unstructured data.
+   *
+   * @param getAnnotatorsByIdOptions the {@link GetAnnotatorsByIdOptions} containing the options for the call
+   * @return a {@link ServiceCall} with a void result
+   */
+  public ServiceCall&lt;Annotator&gt; getAnnotatorsById(GetAnnotatorsByIdOptions getAnnotatorsByIdOptions) {
+<span class="fc" id="L1204">    com.ibm.cloud.sdk.core.util.Validator.notNull(getAnnotatorsByIdOptions,</span>
+      &quot;getAnnotatorsByIdOptions cannot be null&quot;);
+<span class="fc" id="L1206">    String[] pathSegments = { &quot;v1/annotators&quot; };</span>
+<span class="fc" id="L1207">    String[] pathParameters = { getAnnotatorsByIdOptions.id() };</span>
+<span class="fc" id="L1208">    RequestBuilder builder = RequestBuilder.get(RequestBuilder.constructHttpUrl(getServiceUrl(), pathSegments, pathParameters));</span>
+<span class="fc" id="L1209">    Map&lt;String, String&gt; sdkHeaders = SdkCommon.getSdkHeaders(&quot;annotator_for_clinical_data_acd&quot;, &quot;v1&quot;, &quot;getAnnotatorsById&quot;);</span>
+<span class="fc bfc" id="L1210" title="All 2 branches covered.">    for (Entry&lt;String, String&gt; header : sdkHeaders.entrySet()) {</span>
+<span class="fc" id="L1211">      builder.header(header.getKey(), header.getValue());</span>
+<span class="fc" id="L1212">    }</span>
+<span class="fc" id="L1213">    builder.query(&quot;version&quot;, this.version);</span>
+<span class="fc" id="L1214">    ResponseConverter&lt;Annotator&gt; responseConverter = ResponseConverterUtils.getValue(new com.google.gson.reflect.TypeToken&lt;Annotator&gt;() { }.getType());</span>
+<span class="fc" id="L1215">    return createServiceCall(builder.build(), responseConverter);</span>
+  }
+
+  /**
+   * Delete tenant specific artifacts.
+   *
+   * Delete tenant specific artifacts.
+   *
+   * @param deleteUserSpecificArtifactsOptions the {@link DeleteUserSpecificArtifactsOptions} containing the options for the call
+   * @return a {@link ServiceCall} with a void result
+   */
+  public ServiceCall&lt;Void&gt; deleteUserSpecificArtifacts(DeleteUserSpecificArtifactsOptions deleteUserSpecificArtifactsOptions) {
+<span class="fc" id="L1227">    String[] pathSegments = { &quot;v1/user_data&quot; };</span>
+<span class="fc" id="L1228">    RequestBuilder builder = RequestBuilder.delete(RequestBuilder.constructHttpUrl(getServiceUrl(), pathSegments));</span>
+<span class="fc" id="L1229">    Map&lt;String, String&gt; sdkHeaders = SdkCommon.getSdkHeaders(&quot;annotator_for_clinical_data_acd&quot;, &quot;v1&quot;, &quot;deleteUserSpecificArtifacts&quot;);</span>
+<span class="fc bfc" id="L1230" title="All 2 branches covered.">    for (Entry&lt;String, String&gt; header : sdkHeaders.entrySet()) {</span>
+<span class="fc" id="L1231">      builder.header(header.getKey(), header.getValue());</span>
+<span class="fc" id="L1232">    }</span>
+<span class="pc bpc" id="L1233" title="1 of 2 branches missed.">    if (deleteUserSpecificArtifactsOptions != null) {</span>
+<span class="fc" id="L1234">      builder.query(&quot;version&quot;, this.version);</span>
+    }
+<span class="fc" id="L1236">    ResponseConverter&lt;Void&gt; responseConverter = ResponseConverterUtils.getVoid();</span>
+<span class="fc" id="L1237">    return createServiceCall(builder.build(), responseConverter);</span>
+  }
+
+  /**
+   * Delete tenant specific artifacts.
+   *
+   * Delete tenant specific artifacts.
+   *
+   * @return a {@link ServiceCall} with a void result
+   */
+  public ServiceCall&lt;Void&gt; deleteUserSpecificArtifacts() {
+<span class="nc" id="L1248">    return deleteUserSpecificArtifacts(null);</span>
+  }
+
+  /**
+   * Get list of available deployment status.
+   *
+   * Returns a summary including ID and status of the available deployments.
+   *
+   * @param cartridgesGetOptions the {@link CartridgesGetOptions} containing the options for the call
+   * @return a {@link ServiceCall} with a result of type {@link ListStringWrapper}
+   */
+  public ServiceCall&lt;AcdCartridgesList&gt; cartridgesGet(CartridgesGetOptions cartridgesGetOptions) {
+<span class="fc" id="L1260">    String[] pathSegments = { &quot;v1/cartridges&quot; };</span>
+<span class="fc" id="L1261">    RequestBuilder builder = RequestBuilder.get(RequestBuilder.constructHttpUrl(getServiceUrl(), pathSegments));</span>
+<span class="fc" id="L1262">    Map&lt;String, String&gt; sdkHeaders = SdkCommon.getSdkHeaders(&quot;annotator_for_clinical_data_acd&quot;, &quot;v1&quot;, &quot;cartridgesGet&quot;);</span>
+<span class="fc bfc" id="L1263" title="All 2 branches covered.">    for (Entry&lt;String, String&gt; header : sdkHeaders.entrySet()) {</span>
+<span class="fc" id="L1264">      builder.header(header.getKey(), header.getValue());</span>
+<span class="fc" id="L1265">    }</span>
+<span class="fc" id="L1266">    builder.header(&quot;Accept&quot;, &quot;application/json&quot;);</span>
+<span class="pc bpc" id="L1267" title="1 of 2 branches missed.">    if (cartridgesGetOptions != null) {</span>
+<span class="fc" id="L1268">      builder.query(&quot;version&quot;, this.version);</span>
+    }
+<span class="fc" id="L1270">    ResponseConverter&lt;AcdCartridgesList&gt; responseConverter =</span>
+<span class="fc" id="L1271">      ResponseConverterUtils.getValue(new com.google.gson.reflect.TypeToken&lt;AcdCartridgesList&gt;() { }.getType());</span>
+<span class="fc" id="L1272">    return createServiceCall(builder.build(), responseConverter);</span>
+  }
+
+  /**
+   * Get list of available deployment status.
+   *
+   * Returns a summary including ID and status of the available deployments.
+   *
+   * @return a {@link ServiceCall} with a result of type {@link ListStringWrapper}
+   */
+  public ServiceCall&lt;AcdCartridgesList&gt; cartridgesGet() {
+<span class="nc" id="L1283">    return cartridgesGet(null);</span>
+  }
+
+  /**
+   * Create a cartridge deployment.
+   *
+   * Create a cartridge deployment from a cartridge archive file.
+   *
+   * @param cartridgesPostMultipartOptions the {@link CartridgesPostMultipartOptions} containing the options for the call
+   * @return a {@link ServiceCall} with a result of type {@link DeployCartridgeResponse}
+   */
+  public ServiceCall&lt;DeployCartridgeResponse&gt; cartridgesPostMultipart(CartridgesPostMultipartOptions cartridgesPostMultipartOptions) {
+<span class="fc" id="L1295">    com.ibm.cloud.sdk.core.util.Validator.notNull(cartridgesPostMultipartOptions,</span>
+      &quot;cartridgesPostMultipartOptions cannot be null&quot;);
+<span class="pc bpc" id="L1297" title="1 of 2 branches missed.">    com.ibm.cloud.sdk.core.util.Validator.isTrue((cartridgesPostMultipartOptions.archiveFile() != null), &quot;At least one of  or archiveFile must be supplied.&quot;);</span>
+<span class="fc" id="L1298">    String[] pathSegments = { &quot;v1/cartridges&quot; };</span>
+<span class="fc" id="L1299">    RequestBuilder builder = RequestBuilder.post(RequestBuilder.constructHttpUrl(getServiceUrl(), pathSegments));</span>
+<span class="fc" id="L1300">    Map&lt;String, String&gt; sdkHeaders = SdkCommon.getSdkHeaders(&quot;annotator_for_clinical_data_acd&quot;, &quot;v1&quot;, &quot;cartridgesPostMultipart&quot;);</span>
+<span class="fc bfc" id="L1301" title="All 2 branches covered.">    for (Entry&lt;String, String&gt; header : sdkHeaders.entrySet()) {</span>
+<span class="fc" id="L1302">      builder.header(header.getKey(), header.getValue());</span>
+<span class="fc" id="L1303">    }</span>
+<span class="fc" id="L1304">    builder.header(&quot;Accept&quot;, &quot;application/json&quot;);</span>
+<span class="fc" id="L1305">    builder.query(&quot;version&quot;, this.version);</span>
+<span class="fc" id="L1306">    MultipartBody.Builder multipartBuilder = new MultipartBody.Builder();</span>
+<span class="fc" id="L1307">    multipartBuilder.setType(MultipartBody.FORM);</span>
+<span class="pc bpc" id="L1308" title="1 of 2 branches missed.">    if (cartridgesPostMultipartOptions.archiveFile() != null) {</span>
+<span class="fc" id="L1309">      okhttp3.RequestBody archiveFileBody = RequestUtils.inputStreamBody(cartridgesPostMultipartOptions.archiveFile(), cartridgesPostMultipartOptions.archiveFileContentType());</span>
+<span class="fc" id="L1310">      multipartBuilder.addFormDataPart(&quot;archive_file&quot;, &quot;filename&quot;, archiveFileBody);</span>
+    }
+<span class="fc" id="L1312">    builder.body(multipartBuilder.build());</span>
+<span class="fc" id="L1313">    ResponseConverter&lt;DeployCartridgeResponse&gt; responseConverter =</span>
+<span class="fc" id="L1314">      ResponseConverterUtils.getValue(new com.google.gson.reflect.TypeToken&lt;DeployCartridgeResponse&gt;() { }.getType());</span>
+<span class="fc" id="L1315">    return createServiceCall(builder.build(), responseConverter);</span>
+  }
+
+  /**
+   * Create a cartridge deployment.
+   *
+   * Create a cartridge deployment from a cartridge archive file.
+   *
+   * @return a {@link ServiceCall} with a result of type {@link DeployCartridgeResponse}
+   */
+  public ServiceCall&lt;DeployCartridgeResponse&gt; cartridgesPostMultipart() {
+<span class="nc" id="L1326">    return cartridgesPostMultipart(null);</span>
+  }
+
+  /**
+   * Create a cartridge deployment.
+   *
+   * Update a cartridge deployment from a cartridge archive file.
+   *
+   * @param cartridgesPutMultipartOptions the {@link CartridgesPutMultipartOptions} containing the options for the call
+   * @return a {@link ServiceCall} with a result of type {@link DeployCartridgeResponse}
+   */
+  public ServiceCall&lt;DeployCartridgeResponse&gt; cartridgesPutMultipart(CartridgesPutMultipartOptions cartridgesPutMultipartOptions) {
+<span class="fc" id="L1338">    com.ibm.cloud.sdk.core.util.Validator.notNull(cartridgesPutMultipartOptions,</span>
+      &quot;cartridgesPutMultipartOptions cannot be null&quot;);
+<span class="pc bpc" id="L1340" title="1 of 2 branches missed.">    com.ibm.cloud.sdk.core.util.Validator.isTrue((cartridgesPutMultipartOptions.archiveFile() != null), &quot;At least one of  or archiveFile must be supplied.&quot;);</span>
+<span class="fc" id="L1341">    String[] pathSegments = { &quot;v1/cartridges&quot; };</span>
+<span class="fc" id="L1342">    RequestBuilder builder = RequestBuilder.put(RequestBuilder.constructHttpUrl(getServiceUrl(), pathSegments));</span>
+<span class="fc" id="L1343">    Map&lt;String, String&gt; sdkHeaders = SdkCommon.getSdkHeaders(&quot;annotator_for_clinical_data_acd&quot;, &quot;v1&quot;, &quot;cartridgesPutMultipart&quot;);</span>
+<span class="fc bfc" id="L1344" title="All 2 branches covered.">    for (Entry&lt;String, String&gt; header : sdkHeaders.entrySet()) {</span>
+<span class="fc" id="L1345">      builder.header(header.getKey(), header.getValue());</span>
+<span class="fc" id="L1346">    }</span>
+<span class="fc" id="L1347">    builder.header(&quot;Accept&quot;, &quot;application/json&quot;);</span>
+<span class="fc" id="L1348">    builder.query(&quot;version&quot;, this.version);</span>
+<span class="fc" id="L1349">    MultipartBody.Builder multipartBuilder = new MultipartBody.Builder();</span>
+<span class="fc" id="L1350">    multipartBuilder.setType(MultipartBody.FORM);</span>
+<span class="pc bpc" id="L1351" title="1 of 2 branches missed.">    if (cartridgesPutMultipartOptions.archiveFile() != null) {</span>
+<span class="fc" id="L1352">      okhttp3.RequestBody archiveFileBody = RequestUtils.inputStreamBody(cartridgesPutMultipartOptions.archiveFile(), cartridgesPutMultipartOptions.archiveFileContentType());</span>
+<span class="fc" id="L1353">      multipartBuilder.addFormDataPart(&quot;archive_file&quot;, &quot;filename&quot;, archiveFileBody);</span>
+    }
+<span class="fc" id="L1355">    builder.body(multipartBuilder.build());</span>
+<span class="fc" id="L1356">    ResponseConverter&lt;DeployCartridgeResponse&gt; responseConverter =</span>
+<span class="fc" id="L1357">      ResponseConverterUtils.getValue(new com.google.gson.reflect.TypeToken&lt;DeployCartridgeResponse&gt;() { }.getType());</span>
+<span class="fc" id="L1358">    return createServiceCall(builder.build(), responseConverter);</span>
+  }
+
+  /**
+   * Create a cartridge deployment.
+   *
+   * Update a cartridge deployment from a cartridge archive file.
+   *
+   * @return a {@link ServiceCall} with a result of type {@link DeployCartridgeResponse}
+   */
+  public ServiceCall&lt;DeployCartridgeResponse&gt; cartridgesPutMultipart() {
+<span class="nc" id="L1369">    return cartridgesPutMultipart(null);</span>
+  }
+
+  /**
+   * Get details of a specific deployment.
+   *
+   * Using the specified Catridge ID, retrieves the deployment status.
+   *
+   * @param cartridgesGetIdOptions the {@link CartridgesGetIdOptions} containing the options for the call
+   * @return a {@link ServiceCall} with a result of type {@link AcdCartridges}
+   */
+  public ServiceCall&lt;AcdCartridges&gt; cartridgesGetId(CartridgesGetIdOptions cartridgesGetIdOptions) {
+<span class="fc" id="L1381">    com.ibm.cloud.sdk.core.util.Validator.notNull(cartridgesGetIdOptions,</span>
+      &quot;cartridgesGetIdOptions cannot be null&quot;);
+<span class="fc" id="L1383">    String[] pathSegments = { &quot;v1/cartridges&quot; };</span>
+<span class="fc" id="L1384">    String[] pathParameters = { cartridgesGetIdOptions.id() };</span>
+<span class="fc" id="L1385">    RequestBuilder builder = RequestBuilder.get(RequestBuilder.constructHttpUrl(getServiceUrl(), pathSegments, pathParameters));</span>
+<span class="fc" id="L1386">    Map&lt;String, String&gt; sdkHeaders = SdkCommon.getSdkHeaders(&quot;annotator_for_clinical_data_acd&quot;, &quot;v1&quot;, &quot;cartridgesGetId&quot;);</span>
+<span class="fc bfc" id="L1387" title="All 2 branches covered.">    for (Entry&lt;String, String&gt; header : sdkHeaders.entrySet()) {</span>
+<span class="fc" id="L1388">      builder.header(header.getKey(), header.getValue());</span>
+<span class="fc" id="L1389">    }</span>
+<span class="fc" id="L1390">    builder.header(&quot;Accept&quot;, &quot;application/json&quot;);</span>
+<span class="fc" id="L1391">    builder.query(&quot;version&quot;, this.version);</span>
+<span class="fc" id="L1392">    ResponseConverter&lt;AcdCartridges&gt; responseConverter =</span>
+<span class="fc" id="L1393">      ResponseConverterUtils.getValue(new com.google.gson.reflect.TypeToken&lt;AcdCartridges&gt;() { }.getType());</span>
+<span class="fc" id="L1394">    return createServiceCall(builder.build(), responseConverter);</span>
+  }
+
+  /**
+   * Deploy a cartridge.
+   *
+   * Deploy a cartridge from a cartridge archive file.
+   *
+   * @param deployCartridgeOptions the {@link DeployCartridgeOptions} containing the options for the call
+   * @return a {@link ServiceCall} with a result of type {@link DeployCartridgeResponse}
+   */
+  public ServiceCall&lt;DeployCartridgeResponse&gt; deployCartridge(DeployCartridgeOptions deployCartridgeOptions) {
+<span class="fc" id="L1406">    com.ibm.cloud.sdk.core.util.Validator.notNull(deployCartridgeOptions,</span>
+      &quot;deployCartridgeOptions cannot be null&quot;);
+<span class="pc bpc" id="L1408" title="1 of 2 branches missed.">    com.ibm.cloud.sdk.core.util.Validator.isTrue((deployCartridgeOptions.archiveFile() != null), &quot;At least one of  or archiveFile must be supplied.&quot;);</span>
+<span class="fc" id="L1409">    String[] pathSegments = { &quot;v1/deploy&quot; };</span>
+<span class="fc" id="L1410">    RequestBuilder builder = RequestBuilder.post(RequestBuilder.constructHttpUrl(getServiceUrl(), pathSegments));</span>
+<span class="fc" id="L1411">    Map&lt;String, String&gt; sdkHeaders = SdkCommon.getSdkHeaders(&quot;annotator_for_clinical_data_acd&quot;, &quot;v1&quot;, &quot;deployCartridge&quot;);</span>
+<span class="fc bfc" id="L1412" title="All 2 branches covered.">    for (Entry&lt;String, String&gt; header : sdkHeaders.entrySet()) {</span>
+<span class="fc" id="L1413">      builder.header(header.getKey(), header.getValue());</span>
+<span class="fc" id="L1414">    }</span>
+<span class="fc" id="L1415">    builder.header(&quot;Accept&quot;, &quot;application/json&quot;);</span>
+<span class="fc" id="L1416">    builder.query(&quot;version&quot;, this.version);</span>
+<span class="pc bpc" id="L1417" title="1 of 2 branches missed.">    if (deployCartridgeOptions.update() != null) {</span>
+<span class="fc" id="L1418">      builder.query(&quot;update&quot;, String.valueOf(deployCartridgeOptions.update()));</span>
+    }
+<span class="fc" id="L1420">    MultipartBody.Builder multipartBuilder = new MultipartBody.Builder();</span>
+<span class="fc" id="L1421">    multipartBuilder.setType(MultipartBody.FORM);</span>
+<span class="pc bpc" id="L1422" title="1 of 2 branches missed.">    if (deployCartridgeOptions.archiveFile() != null) {</span>
+<span class="fc" id="L1423">      okhttp3.RequestBody archiveFileBody = RequestUtils.inputStreamBody(deployCartridgeOptions.archiveFile(), deployCartridgeOptions.archiveFileContentType());</span>
+<span class="fc" id="L1424">      multipartBuilder.addFormDataPart(&quot;archive_file&quot;, &quot;filename&quot;, archiveFileBody);</span>
+    }
+<span class="fc" id="L1426">    builder.body(multipartBuilder.build());</span>
+<span class="fc" id="L1427">    ResponseConverter&lt;DeployCartridgeResponse&gt; responseConverter =</span>
+<span class="fc" id="L1428">      ResponseConverterUtils.getValue(new com.google.gson.reflect.TypeToken&lt;DeployCartridgeResponse&gt;() { }.getType());</span>
+<span class="fc" id="L1429">    return createServiceCall(builder.build(), responseConverter);</span>
+  }
+
+  /**
+   * Deploy a cartridge.
+   *
+   * Deploy a cartridge from a cartridge archive file.
+   *
+   * @return a {@link ServiceCall} with a result of type {@link DeployCartridgeResponse}
+   */
+  public ServiceCall&lt;DeployCartridgeResponse&gt; deployCartridge() {
+<span class="nc" id="L1440">    return deployCartridge(null);</span>
+  }
+
+  /**
+   * Determine if service is running correctly.
+   *
+   * This resource differs from /status in that it will will always return a 500 error if the service state is not OK.
+   * This makes it simpler for service front ends (such as Datapower) to detect a failed service.
+   *
+   * @param getHealthCheckStatusOptions the {@link GetHealthCheckStatusOptions} containing the options for the call
+   * @return a {@link ServiceCall} with a result of type {@link ServiceStatus}
+   */
+  public ServiceCall&lt;ServiceStatus&gt; getHealthCheckStatus(GetHealthCheckStatusOptions getHealthCheckStatusOptions) {
+<span class="fc" id="L1453">    String[] pathSegments = { &quot;v1/status/health_check&quot; };</span>
+<span class="fc" id="L1454">    RequestBuilder builder = RequestBuilder.get(RequestBuilder.constructHttpUrl(getServiceUrl(), pathSegments));</span>
+<span class="fc" id="L1455">    Map&lt;String, String&gt; sdkHeaders = SdkCommon.getSdkHeaders(&quot;annotator_for_clinical_data_acd&quot;, &quot;v1&quot;, &quot;getHealthCheckStatus&quot;);</span>
+<span class="fc bfc" id="L1456" title="All 2 branches covered.">    for (Entry&lt;String, String&gt; header : sdkHeaders.entrySet()) {</span>
+<span class="fc" id="L1457">      builder.header(header.getKey(), header.getValue());</span>
+<span class="fc" id="L1458">    }</span>
+<span class="pc bpc" id="L1459" title="1 of 2 branches missed.">    if (getHealthCheckStatusOptions != null) {</span>
+<span class="pc bpc" id="L1460" title="1 of 2 branches missed.">      if (getHealthCheckStatusOptions.accept() != null) {</span>
+<span class="fc" id="L1461">        builder.header(&quot;Accept&quot;, getHealthCheckStatusOptions.accept());</span>
+      }
+<span class="pc bpc" id="L1463" title="1 of 2 branches missed.">      if (getHealthCheckStatusOptions.format() != null) {</span>
+<span class="fc" id="L1464">        builder.query(&quot;format&quot;, getHealthCheckStatusOptions.format());</span>
+      }
+    }
+<span class="fc" id="L1467">    ResponseConverter&lt;ServiceStatus&gt; responseConverter =</span>
+<span class="fc" id="L1468">      ResponseConverterUtils.getValue(new com.google.gson.reflect.TypeToken&lt;ServiceStatus&gt;() { }.getType());</span>
+<span class="fc" id="L1469">    return createServiceCall(builder.build(), responseConverter);</span>
+  }
+
+  /**
+   * Determine if service is running correctly.
+   *
+   * This resource differs from /status in that it will will always return a 500 error if the service state is not OK.
+   * This makes it simpler for service front ends (such as Datapower) to detect a failed service.
+   *
+   * @return a {@link ServiceCall} with a result of type {@link ServiceStatus}
+   */
+  public ServiceCall&lt;ServiceStatus&gt; getHealthCheckStatus() {
+<span class="nc" id="L1481">    return getHealthCheckStatus(null);</span>
+  }
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>

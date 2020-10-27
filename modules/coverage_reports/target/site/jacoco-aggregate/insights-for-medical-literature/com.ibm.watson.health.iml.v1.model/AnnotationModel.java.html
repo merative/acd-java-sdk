@@ -1,0 +1,814 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../jacoco-resources/report.gif" type="image/gif"/><title>AnnotationModel.java</title><link rel="stylesheet" href="../../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../../index.html" class="el_report">IBM Watson Health Cognitive Services Coverage Reports</a> &gt; <a href="../index.html" class="el_bundle">insights-for-medical-literature</a> &gt; <a href="index.source.html" class="el_package">com.ibm.watson.health.iml.v1.model</a> &gt; <span class="el_source">AnnotationModel.java</span></div><h1>AnnotationModel.java</h1><pre class="source lang-java linenums">/*
+ * (C) Copyright IBM Corp. 2020.
+ *
+ * Licensed under the Apache License, Version 2.0 (the &quot;License&quot;); you may not use this file except in compliance with
+ * the License. You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on
+ * an &quot;AS IS&quot; BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the
+ * specific language governing permissions and limitations under the License.
+ */
+package com.ibm.watson.health.iml.v1.model;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+
+import com.ibm.cloud.sdk.core.service.model.GenericModel;
+
+/**
+ * Model for congntive asset annotations.
+ */
+public class AnnotationModel extends GenericModel {
+
+  protected Long uniqueId;
+  protected List&lt;Long&gt; stickyIds;
+  protected String ontology;
+  protected String section;
+  protected String preferredName;
+  protected String cui;
+  protected String attributeId;
+  protected List&lt;String&gt; qualifiers;
+  protected String type;
+  protected Boolean negated;
+  protected Boolean hypothetical;
+  protected String unit;
+  protected String minValue;
+  protected String maxValue;
+  protected String operator;
+  protected String nluSourceType;
+  protected String nluRelation;
+  protected String nluTargetType;
+  protected String nluEntityIndex;
+  protected String nluMentionIndex;
+  protected String nluRelationId;
+  protected String nluSide;
+  protected Long begin;
+  protected Long end;
+  protected Float score;
+  protected Long timestamp;
+  protected Map&lt;String, String&gt; features;
+  protected Long hits;
+
+  /**
+   * Builder.
+   */
+  public static class Builder {
+    private Long uniqueId;
+    private List&lt;Long&gt; stickyIds;
+    private String ontology;
+    private String section;
+    private String preferredName;
+    private String cui;
+    private String attributeId;
+    private List&lt;String&gt; qualifiers;
+    private String type;
+    private Boolean negated;
+    private Boolean hypothetical;
+    private String unit;
+    private String minValue;
+    private String maxValue;
+    private String operator;
+    private String nluSourceType;
+    private String nluRelation;
+    private String nluTargetType;
+    private String nluEntityIndex;
+    private String nluMentionIndex;
+    private String nluRelationId;
+    private String nluSide;
+    private Long begin;
+    private Long end;
+    private Float score;
+    private Long timestamp;
+    private Map&lt;String, String&gt; features;
+    private Long hits;
+
+<span class="nc" id="L88">    private Builder(AnnotationModel annotationModel) {</span>
+<span class="nc" id="L89">      this.uniqueId = annotationModel.uniqueId;</span>
+<span class="nc" id="L90">      this.stickyIds = annotationModel.stickyIds;</span>
+<span class="nc" id="L91">      this.ontology = annotationModel.ontology;</span>
+<span class="nc" id="L92">      this.section = annotationModel.section;</span>
+<span class="nc" id="L93">      this.preferredName = annotationModel.preferredName;</span>
+<span class="nc" id="L94">      this.cui = annotationModel.cui;</span>
+<span class="nc" id="L95">      this.attributeId = annotationModel.attributeId;</span>
+<span class="nc" id="L96">      this.qualifiers = annotationModel.qualifiers;</span>
+<span class="nc" id="L97">      this.type = annotationModel.type;</span>
+<span class="nc" id="L98">      this.negated = annotationModel.negated;</span>
+<span class="nc" id="L99">      this.hypothetical = annotationModel.hypothetical;</span>
+<span class="nc" id="L100">      this.unit = annotationModel.unit;</span>
+<span class="nc" id="L101">      this.minValue = annotationModel.minValue;</span>
+<span class="nc" id="L102">      this.maxValue = annotationModel.maxValue;</span>
+<span class="nc" id="L103">      this.operator = annotationModel.operator;</span>
+<span class="nc" id="L104">      this.nluSourceType = annotationModel.nluSourceType;</span>
+<span class="nc" id="L105">      this.nluRelation = annotationModel.nluRelation;</span>
+<span class="nc" id="L106">      this.nluTargetType = annotationModel.nluTargetType;</span>
+<span class="nc" id="L107">      this.nluEntityIndex = annotationModel.nluEntityIndex;</span>
+<span class="nc" id="L108">      this.nluMentionIndex = annotationModel.nluMentionIndex;</span>
+<span class="nc" id="L109">      this.nluRelationId = annotationModel.nluRelationId;</span>
+<span class="nc" id="L110">      this.nluSide = annotationModel.nluSide;</span>
+<span class="nc" id="L111">      this.begin = annotationModel.begin;</span>
+<span class="nc" id="L112">      this.end = annotationModel.end;</span>
+<span class="nc" id="L113">      this.score = annotationModel.score;</span>
+<span class="nc" id="L114">      this.timestamp = annotationModel.timestamp;</span>
+<span class="nc" id="L115">      this.features = annotationModel.features;</span>
+<span class="nc" id="L116">      this.hits = annotationModel.hits;</span>
+<span class="nc" id="L117">    }</span>
+
+    /**
+     * Instantiates a new builder.
+     */
+<span class="fc" id="L122">    public Builder() {</span>
+<span class="fc" id="L123">    }</span>
+
+    /**
+     * Builds a AnnotationModel.
+     *
+     * @return the new AnnotationModel instance
+     */
+    public AnnotationModel build() {
+<span class="fc" id="L131">      return new AnnotationModel(this);</span>
+    }
+
+    /**
+     * Adds an stickyIds to stickyIds.
+     *
+     * @param stickyIds the new stickyIds
+     * @return the AnnotationModel builder
+     */
+    public Builder addStickyIds(Long stickyIds) {
+<span class="nc" id="L141">      com.ibm.cloud.sdk.core.util.Validator.notNull(stickyIds,</span>
+        &quot;stickyIds cannot be null&quot;);
+<span class="nc bnc" id="L143" title="All 2 branches missed.">      if (this.stickyIds == null) {</span>
+<span class="nc" id="L144">        this.stickyIds = new ArrayList&lt;Long&gt;();</span>
+      }
+<span class="nc" id="L146">      this.stickyIds.add(stickyIds);</span>
+<span class="nc" id="L147">      return this;</span>
+    }
+
+    /**
+     * Adds an qualifiers to qualifiers.
+     *
+     * @param qualifiers the new qualifiers
+     * @return the AnnotationModel builder
+     */
+    public Builder addQualifiers(String qualifiers) {
+<span class="nc" id="L157">      com.ibm.cloud.sdk.core.util.Validator.notNull(qualifiers,</span>
+        &quot;qualifiers cannot be null&quot;);
+<span class="nc bnc" id="L159" title="All 2 branches missed.">      if (this.qualifiers == null) {</span>
+<span class="nc" id="L160">        this.qualifiers = new ArrayList&lt;String&gt;();</span>
+      }
+<span class="nc" id="L162">      this.qualifiers.add(qualifiers);</span>
+<span class="nc" id="L163">      return this;</span>
+    }
+
+    /**
+     * Set the uniqueId.
+     *
+     * @param uniqueId the uniqueId
+     * @return the AnnotationModel builder
+     */
+    public Builder uniqueId(long uniqueId) {
+<span class="fc" id="L173">      this.uniqueId = uniqueId;</span>
+<span class="fc" id="L174">      return this;</span>
+    }
+
+    /**
+     * Set the stickyIds.
+     * Existing stickyIds will be replaced.
+     *
+     * @param stickyIds the stickyIds
+     * @return the AnnotationModel builder
+     */
+    public Builder stickyIds(List&lt;Long&gt; stickyIds) {
+<span class="fc" id="L185">      this.stickyIds = stickyIds;</span>
+<span class="fc" id="L186">      return this;</span>
+    }
+
+    /**
+     * Set the ontology.
+     *
+     * @param ontology the ontology
+     * @return the AnnotationModel builder
+     */
+    public Builder ontology(String ontology) {
+<span class="fc" id="L196">      this.ontology = ontology;</span>
+<span class="fc" id="L197">      return this;</span>
+    }
+
+    /**
+     * Set the section.
+     *
+     * @param section the section
+     * @return the AnnotationModel builder
+     */
+    public Builder section(String section) {
+<span class="fc" id="L207">      this.section = section;</span>
+<span class="fc" id="L208">      return this;</span>
+    }
+
+    /**
+     * Set the preferredName.
+     *
+     * @param preferredName the preferredName
+     * @return the AnnotationModel builder
+     */
+    public Builder preferredName(String preferredName) {
+<span class="fc" id="L218">      this.preferredName = preferredName;</span>
+<span class="fc" id="L219">      return this;</span>
+    }
+
+    /**
+     * Set the cui.
+     *
+     * @param cui the cui
+     * @return the AnnotationModel builder
+     */
+    public Builder cui(String cui) {
+<span class="fc" id="L229">      this.cui = cui;</span>
+<span class="fc" id="L230">      return this;</span>
+    }
+
+    /**
+     * Set the attributeId.
+     *
+     * @param attributeId the attributeId
+     * @return the AnnotationModel builder
+     */
+    public Builder attributeId(String attributeId) {
+<span class="fc" id="L240">      this.attributeId = attributeId;</span>
+<span class="fc" id="L241">      return this;</span>
+    }
+
+    /**
+     * Set the qualifiers.
+     * Existing qualifiers will be replaced.
+     *
+     * @param qualifiers the qualifiers
+     * @return the AnnotationModel builder
+     */
+    public Builder qualifiers(List&lt;String&gt; qualifiers) {
+<span class="fc" id="L252">      this.qualifiers = qualifiers;</span>
+<span class="fc" id="L253">      return this;</span>
+    }
+
+    /**
+     * Set the type.
+     *
+     * @param type the type
+     * @return the AnnotationModel builder
+     */
+    public Builder type(String type) {
+<span class="fc" id="L263">      this.type = type;</span>
+<span class="fc" id="L264">      return this;</span>
+    }
+
+    /**
+     * Set the negated.
+     *
+     * @param negated the negated
+     * @return the AnnotationModel builder
+     */
+    public Builder negated(Boolean negated) {
+<span class="fc" id="L274">      this.negated = negated;</span>
+<span class="fc" id="L275">      return this;</span>
+    }
+
+    /**
+     * Set the hypothetical.
+     *
+     * @param hypothetical the hypothetical
+     * @return the AnnotationModel builder
+     */
+    public Builder hypothetical(Boolean hypothetical) {
+<span class="fc" id="L285">      this.hypothetical = hypothetical;</span>
+<span class="fc" id="L286">      return this;</span>
+    }
+
+    /**
+     * Set the unit.
+     *
+     * @param unit the unit
+     * @return the AnnotationModel builder
+     */
+    public Builder unit(String unit) {
+<span class="fc" id="L296">      this.unit = unit;</span>
+<span class="fc" id="L297">      return this;</span>
+    }
+
+    /**
+     * Set the minValue.
+     *
+     * @param minValue the minValue
+     * @return the AnnotationModel builder
+     */
+    public Builder minValue(String minValue) {
+<span class="fc" id="L307">      this.minValue = minValue;</span>
+<span class="fc" id="L308">      return this;</span>
+    }
+
+    /**
+     * Set the maxValue.
+     *
+     * @param maxValue the maxValue
+     * @return the AnnotationModel builder
+     */
+    public Builder maxValue(String maxValue) {
+<span class="fc" id="L318">      this.maxValue = maxValue;</span>
+<span class="fc" id="L319">      return this;</span>
+    }
+
+    /**
+     * Set the operator.
+     *
+     * @param operator the operator
+     * @return the AnnotationModel builder
+     */
+    public Builder operator(String operator) {
+<span class="fc" id="L329">      this.operator = operator;</span>
+<span class="fc" id="L330">      return this;</span>
+    }
+
+    /**
+     * Set the nluSourceType.
+     *
+     * @param nluSourceType the nluSourceType
+     * @return the AnnotationModel builder
+     */
+    public Builder nluSourceType(String nluSourceType) {
+<span class="fc" id="L340">      this.nluSourceType = nluSourceType;</span>
+<span class="fc" id="L341">      return this;</span>
+    }
+
+    /**
+     * Set the nluRelation.
+     *
+     * @param nluRelation the nluRelation
+     * @return the AnnotationModel builder
+     */
+    public Builder nluRelation(String nluRelation) {
+<span class="fc" id="L351">      this.nluRelation = nluRelation;</span>
+<span class="fc" id="L352">      return this;</span>
+    }
+
+    /**
+     * Set the nluTargetType.
+     *
+     * @param nluTargetType the nluTargetType
+     * @return the AnnotationModel builder
+     */
+    public Builder nluTargetType(String nluTargetType) {
+<span class="fc" id="L362">      this.nluTargetType = nluTargetType;</span>
+<span class="fc" id="L363">      return this;</span>
+    }
+
+    /**
+     * Set the nluEntityIndex.
+     *
+     * @param nluEntityIndex the nluEntityIndex
+     * @return the AnnotationModel builder
+     */
+    public Builder nluEntityIndex(String nluEntityIndex) {
+<span class="fc" id="L373">      this.nluEntityIndex = nluEntityIndex;</span>
+<span class="fc" id="L374">      return this;</span>
+    }
+
+    /**
+     * Set the nluMentionIndex.
+     *
+     * @param nluMentionIndex the nluMentionIndex
+     * @return the AnnotationModel builder
+     */
+    public Builder nluMentionIndex(String nluMentionIndex) {
+<span class="fc" id="L384">      this.nluMentionIndex = nluMentionIndex;</span>
+<span class="fc" id="L385">      return this;</span>
+    }
+
+    /**
+     * Set the nluRelationId.
+     *
+     * @param nluRelationId the nluRelationId
+     * @return the AnnotationModel builder
+     */
+    public Builder nluRelationId(String nluRelationId) {
+<span class="fc" id="L395">      this.nluRelationId = nluRelationId;</span>
+<span class="fc" id="L396">      return this;</span>
+    }
+
+    /**
+     * Set the nluSide.
+     *
+     * @param nluSide the nluSide
+     * @return the AnnotationModel builder
+     */
+    public Builder nluSide(String nluSide) {
+<span class="fc" id="L406">      this.nluSide = nluSide;</span>
+<span class="fc" id="L407">      return this;</span>
+    }
+
+    /**
+     * Set the begin.
+     *
+     * @param begin the begin
+     * @return the AnnotationModel builder
+     */
+    public Builder begin(long begin) {
+<span class="fc" id="L417">      this.begin = begin;</span>
+<span class="fc" id="L418">      return this;</span>
+    }
+
+    /**
+     * Set the end.
+     *
+     * @param end the end
+     * @return the AnnotationModel builder
+     */
+    public Builder end(long end) {
+<span class="fc" id="L428">      this.end = end;</span>
+<span class="fc" id="L429">      return this;</span>
+    }
+
+    /**
+     * Set the score.
+     *
+     * @param score the score
+     * @return the AnnotationModel builder
+     */
+    public Builder score(Float score) {
+<span class="fc" id="L439">      this.score = score;</span>
+<span class="fc" id="L440">      return this;</span>
+    }
+
+    /**
+     * Set the timestamp.
+     *
+     * @param timestamp the timestamp
+     * @return the AnnotationModel builder
+     */
+    public Builder timestamp(long timestamp) {
+<span class="fc" id="L450">      this.timestamp = timestamp;</span>
+<span class="fc" id="L451">      return this;</span>
+    }
+
+    /**
+     * Set the features.
+     *
+     * @param features the features
+     * @return the AnnotationModel builder
+     */
+    public Builder features(Map&lt;String, String&gt; features) {
+<span class="fc" id="L461">      this.features = features;</span>
+<span class="fc" id="L462">      return this;</span>
+    }
+
+    /**
+     * Set the hits.
+     *
+     * @param hits the hits
+     * @return the AnnotationModel builder
+     */
+    public Builder hits(long hits) {
+<span class="fc" id="L472">      this.hits = hits;</span>
+<span class="fc" id="L473">      return this;</span>
+    }
+  }
+
+<span class="fc" id="L477">  protected AnnotationModel(Builder builder) {</span>
+<span class="fc" id="L478">    uniqueId = builder.uniqueId;</span>
+<span class="fc" id="L479">    stickyIds = builder.stickyIds;</span>
+<span class="fc" id="L480">    ontology = builder.ontology;</span>
+<span class="fc" id="L481">    section = builder.section;</span>
+<span class="fc" id="L482">    preferredName = builder.preferredName;</span>
+<span class="fc" id="L483">    cui = builder.cui;</span>
+<span class="fc" id="L484">    attributeId = builder.attributeId;</span>
+<span class="fc" id="L485">    qualifiers = builder.qualifiers;</span>
+<span class="fc" id="L486">    type = builder.type;</span>
+<span class="fc" id="L487">    negated = builder.negated;</span>
+<span class="fc" id="L488">    hypothetical = builder.hypothetical;</span>
+<span class="fc" id="L489">    unit = builder.unit;</span>
+<span class="fc" id="L490">    minValue = builder.minValue;</span>
+<span class="fc" id="L491">    maxValue = builder.maxValue;</span>
+<span class="fc" id="L492">    operator = builder.operator;</span>
+<span class="fc" id="L493">    nluSourceType = builder.nluSourceType;</span>
+<span class="fc" id="L494">    nluRelation = builder.nluRelation;</span>
+<span class="fc" id="L495">    nluTargetType = builder.nluTargetType;</span>
+<span class="fc" id="L496">    nluEntityIndex = builder.nluEntityIndex;</span>
+<span class="fc" id="L497">    nluMentionIndex = builder.nluMentionIndex;</span>
+<span class="fc" id="L498">    nluRelationId = builder.nluRelationId;</span>
+<span class="fc" id="L499">    nluSide = builder.nluSide;</span>
+<span class="fc" id="L500">    begin = builder.begin;</span>
+<span class="fc" id="L501">    end = builder.end;</span>
+<span class="fc" id="L502">    score = builder.score;</span>
+<span class="fc" id="L503">    timestamp = builder.timestamp;</span>
+<span class="fc" id="L504">    features = builder.features;</span>
+<span class="fc" id="L505">    hits = builder.hits;</span>
+<span class="fc" id="L506">  }</span>
+
+  /**
+   * New builder.
+   *
+   * @return a AnnotationModel builder
+   */
+  public Builder newBuilder() {
+<span class="nc" id="L514">    return new Builder(this);</span>
+  }
+
+  /**
+   * Gets the uniqueId.
+   *
+   * Unique identifer of annotation.
+   *
+   * @return the uniqueId
+   */
+  public Long uniqueId() {
+<span class="fc" id="L525">    return uniqueId;</span>
+  }
+
+  /**
+   * Gets the stickyIds.
+   *
+   * List of identifiers associated with annotation.
+   *
+   * @return the stickyIds
+   */
+  public List&lt;Long&gt; stickyIds() {
+<span class="fc" id="L536">    return stickyIds;</span>
+  }
+
+  /**
+   * Gets the ontology.
+   *
+   * Source ontology of annotation.
+   *
+   * @return the ontology
+   */
+  public String ontology() {
+<span class="fc" id="L547">    return ontology;</span>
+  }
+
+  /**
+   * Gets the section.
+   *
+   * Document section for annotation.
+   *
+   * @return the section
+   */
+  public String section() {
+<span class="fc" id="L558">    return section;</span>
+  }
+
+  /**
+   * Gets the preferredName.
+   *
+   * Ontology provide normalized name of annotation.
+   *
+   * @return the preferredName
+   */
+  public String preferredName() {
+<span class="fc" id="L569">    return preferredName;</span>
+  }
+
+  /**
+   * Gets the cui.
+   *
+   * Ontology provided unique identifier of annotation.
+   *
+   * @return the cui
+   */
+  public String cui() {
+<span class="fc" id="L580">    return cui;</span>
+  }
+
+  /**
+   * Gets the attributeId.
+   *
+   * Attribute identifier of annotation.
+   *
+   * @return the attributeId
+   */
+  public String attributeId() {
+<span class="fc" id="L591">    return attributeId;</span>
+  }
+
+  /**
+   * Gets the qualifiers.
+   *
+   * Qualifier for attribute annotation.
+   *
+   * @return the qualifiers
+   */
+  public List&lt;String&gt; qualifiers() {
+<span class="fc" id="L602">    return qualifiers;</span>
+  }
+
+  /**
+   * Gets the type.
+   *
+   * Ontology provided semantic type of annotation.
+   *
+   * @return the type
+   */
+  public String type() {
+<span class="fc" id="L613">    return type;</span>
+  }
+
+  /**
+   * Gets the negated.
+   *
+   * Whether the annotation is a negated span.
+   *
+   * @return the negated
+   */
+  public Boolean negated() {
+<span class="fc" id="L624">    return negated;</span>
+  }
+
+  /**
+   * Gets the hypothetical.
+   *
+   * Whether the annotation is a hypothetical span.
+   *
+   * @return the hypothetical
+   */
+  public Boolean hypothetical() {
+<span class="fc" id="L635">    return hypothetical;</span>
+  }
+
+  /**
+   * Gets the unit.
+   *
+   * Unit of measure for attribute value annotation.
+   *
+   * @return the unit
+   */
+  public String unit() {
+<span class="fc" id="L646">    return unit;</span>
+  }
+
+  /**
+   * Gets the minValue.
+   *
+   * Minumum value for attribute value annotation.
+   *
+   * @return the minValue
+   */
+  public String minValue() {
+<span class="fc" id="L657">    return minValue;</span>
+  }
+
+  /**
+   * Gets the maxValue.
+   *
+   * Maximum value for attribute value annotation.
+   *
+   * @return the maxValue
+   */
+  public String maxValue() {
+<span class="fc" id="L668">    return maxValue;</span>
+  }
+
+  /**
+   * Gets the operator.
+   *
+   * Mathematical operator for attribute value annotation.
+   *
+   * @return the operator
+   */
+  public String operator() {
+<span class="fc" id="L679">    return operator;</span>
+  }
+
+  /**
+   * Gets the nluSourceType.
+   *
+   * Ontology type of source relation annotation.
+   *
+   * @return the nluSourceType
+   */
+  public String nluSourceType() {
+<span class="fc" id="L690">    return nluSourceType;</span>
+  }
+
+  /**
+   * Gets the nluRelation.
+   *
+   * Relation name for annotation.
+   *
+   * @return the nluRelation
+   */
+  public String nluRelation() {
+<span class="fc" id="L701">    return nluRelation;</span>
+  }
+
+  /**
+   * Gets the nluTargetType.
+   *
+   * Ontology type of target relation annotation.
+   *
+   * @return the nluTargetType
+   */
+  public String nluTargetType() {
+<span class="fc" id="L712">    return nluTargetType;</span>
+  }
+
+  /**
+   * Gets the nluEntityIndex.
+   *
+   * @return the nluEntityIndex
+   */
+  public String nluEntityIndex() {
+<span class="fc" id="L721">    return nluEntityIndex;</span>
+  }
+
+  /**
+   * Gets the nluMentionIndex.
+   *
+   * @return the nluMentionIndex
+   */
+  public String nluMentionIndex() {
+<span class="fc" id="L730">    return nluMentionIndex;</span>
+  }
+
+  /**
+   * Gets the nluRelationId.
+   *
+   * @return the nluRelationId
+   */
+  public String nluRelationId() {
+<span class="fc" id="L739">    return nluRelationId;</span>
+  }
+
+  /**
+   * Gets the nluSide.
+   *
+   * @return the nluSide
+   */
+  public String nluSide() {
+<span class="fc" id="L748">    return nluSide;</span>
+  }
+
+  /**
+   * Gets the begin.
+   *
+   * Starting offset of annotation.
+   *
+   * @return the begin
+   */
+  public Long begin() {
+<span class="fc" id="L759">    return begin;</span>
+  }
+
+  /**
+   * Gets the end.
+   *
+   * Ending offset of annotation.
+   *
+   * @return the end
+   */
+  public Long end() {
+<span class="fc" id="L770">    return end;</span>
+  }
+
+  /**
+   * Gets the score.
+   *
+   * Relevancy score of annotation.
+   *
+   * @return the score
+   */
+  public Float score() {
+<span class="fc" id="L781">    return score;</span>
+  }
+
+  /**
+   * Gets the timestamp.
+   *
+   * @return the timestamp
+   */
+  public Long timestamp() {
+<span class="fc" id="L790">    return timestamp;</span>
+  }
+
+  /**
+   * Gets the features.
+   *
+   * @return the features
+   */
+  public Map&lt;String, String&gt; features() {
+<span class="fc" id="L799">    return features;</span>
+  }
+
+  /**
+   * Gets the hits.
+   *
+   * Number of times artifact is mentioned in the corpus.
+   *
+   * @return the hits
+   */
+  public Long hits() {
+<span class="fc" id="L810">    return hits;</span>
+  }
+}
+
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>
