@@ -75,6 +75,8 @@ public class ContainerAnnotation extends GenericModel {
   private List<SpellCorrectedText> spellCorrectedText;
   @SerializedName("spellingCorrections")
   private List<SpellingCorrection> spellingCorrections;
+  @SerializedName("temporalSpans")
+  private List<Temporal> temporalSpans;
 
     /**
      * Gets the allergyInd.
@@ -344,6 +346,15 @@ public class ContainerAnnotation extends GenericModel {
      */
     public List<AssistanceAnnotation> getWalkingAssistanceInd() {
       return walkingAssistanceInd;
+    }
+
+    /**
+     * Gets the temporalSpans.
+     *
+     * @return the temporalSpans
+     */
+    public List<Temporal> getTemporalSpans() {
+      return temporalSpans;
     }
 
 //    /**
@@ -616,4 +627,13 @@ public class ContainerAnnotation extends GenericModel {
 //    public void setSpellingCorrections(final List<SpellingCorrection> spellingCorrections) {
 //      this.spellingCorrections = spellingCorrections;
 //    }
+//
+//  /**
+//  * Sets the temporalSpans.
+//  *
+//  * @param temporalSpans the new temporalSpans
+//  */
+// public void setTemporalSpans(final List<TemporalSpan> temporalSpans) {
+//   this.temporalSpans = temporalSpans;
+// }
   }

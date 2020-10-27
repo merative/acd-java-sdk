@@ -34,6 +34,7 @@ import com.ibm.watson.health.acd.v1.model.Smoking;
 import com.ibm.watson.health.acd.v1.model.SpellCorrectedText;
 import com.ibm.watson.health.acd.v1.model.SpellingCorrection;
 import com.ibm.watson.health.acd.v1.model.SymptomDisease;
+import com.ibm.watson.health.acd.v1.model.Temporal;
 import com.ibm.watson.health.acd.v1.model.UnstructuredContainer;
 
 public class TestUnstructuredContainer {
@@ -277,6 +278,14 @@ public class TestUnstructuredContainer {
 				TestAssistanceAnnotation.testAssistanceAnnotation(annotation);
 			}
 			AssistanceAnnotation annotation = container.getWalkingAssistance(0);
+			Assert.assertNotNull(annotation);
+		}
+		List<Temporal> temporalSpans = container.getTemporalSpans();
+		if (temporalSpans != null && !temporalSpans.isEmpty()) {
+			for (Temporal annotation : temporalSpans) {
+				TestTemporal.testTemporal(annotation);
+			}
+			Temporal annotation = container.getTemporalSpans(0);
 			Assert.assertNotNull(annotation);
 		}
 	}

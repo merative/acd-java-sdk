@@ -671,6 +671,22 @@ public class ContainerGroup extends GenericModel {
   	return corrections;
   }
 
+  /**
+   * Gets the temporalSpans.
+   *
+   * @return the temporalSpans
+   */
+  public List<Temporal> getTemporalSpans() {
+  	List<Temporal> temporals = new ArrayList<Temporal>();
+  	try {
+      validateUnstructuredElementData("TemporalSpans");
+      temporals = this.getUnstructured().get(0).data().getTemporalSpans();
+  	} catch (IllegalArgumentException iae) {
+  		//ACD didn't return any annotations
+  	}
+  	return temporals;
+  }
+
 
   /*
    * Manually added method
@@ -1321,6 +1337,24 @@ public class ContainerGroup extends GenericModel {
 	  	//ACD didn't return any annotations
   	}
   	return annotation;
+  }
+
+  /**
+   * Gets the temporalSpans at given index.
+   *
+   * @param index position to retrieve
+   *
+   * @return the temporalSpan or null in invalid index
+   */
+  public Temporal getTemporalSpans(int index) {
+	  Temporal temporal = null;
+  	try {
+      validateUnstructuredElementData("TemporalSpans");
+      temporal = this.getUnstructured().get(0).data().getTemporalSpans().get(index);
+  	} catch (IllegalArgumentException iae) {
+  		//ACD didn't return any annotations
+  	}
+  	return temporal;
   }
 
   /*

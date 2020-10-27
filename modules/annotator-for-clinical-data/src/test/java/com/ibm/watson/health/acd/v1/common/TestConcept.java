@@ -12,6 +12,8 @@
  */
 package com.ibm.watson.health.acd.v1.common;
 
+import java.util.List;
+
 import org.junit.Assert;
 
 import com.ibm.watson.health.acd.v1.model.Concept;
@@ -24,6 +26,7 @@ import com.ibm.watson.health.acd.v1.model.InsightModelDataNormalityUsage;
 import com.ibm.watson.health.acd.v1.model.InsightModelDataProcedure;
 import com.ibm.watson.health.acd.v1.model.InsightModelDataTask;
 import com.ibm.watson.health.acd.v1.model.InsightModelDataUsage;
+import com.ibm.watson.health.acd.v1.model.Temporal;
 
 public class TestConcept {
 
@@ -149,6 +152,15 @@ public class TestConcept {
 		}
 		if (concept.getDerivedFrom() != null) {
 			Assert.assertTrue(concept.getDerivedFrom().size() > 0);
+		}
+		List<Temporal> temporals = concept.getTemporal();
+		if (temporals != null) {
+			Assert.assertTrue(temporals.size() > 0);
+			for (Temporal temporal : temporals) {
+				Assert.assertTrue(temporal.getBegin() > -1);
+				Assert.assertTrue(temporal.getEnd() > temporal.getBegin());
+				Assert.assertNotNull(temporal.getCoveredText());
+			}
 		}
 	}
 }

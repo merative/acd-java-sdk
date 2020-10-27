@@ -38,6 +38,7 @@ public class MedicationAnnotation extends DynamicModel {
   private Type drugType = new TypeToken<List<Map>>() { } .getType();
   private Type sectionSurfaceFormType = new TypeToken<String>() { } .getType();
   private Type insightModelDataType = new TypeToken<InsightModelData>() { } .getType();
+  private Type temporalType = new TypeToken<List<Temporal>>() { } .getType();
 
 
   /**
@@ -160,6 +161,15 @@ public class MedicationAnnotation extends DynamicModel {
   }
 
   /**
+   * Gets the temporal.
+   *
+   * @return the temporal
+   */
+  public List<Temporal> getTemporal() {
+	  return GsonSerializationHelper.serializeDynamicModelProperty(this.get("temporal"), temporalType);
+  }
+
+  /**
    * Sets the id.
    *
    * @param id the new id
@@ -274,6 +284,15 @@ public class MedicationAnnotation extends DynamicModel {
    */
   public void setInsightModelData(final InsightModelData insightModelData) {
       this.put("insightModelData", insightModelData);
+  }
+
+  /**
+   * Sets the temporal.
+   *
+   * @param temporal the new temporal
+   */
+  public void setTemporal(final List<Temporal> temporal) {
+    this.put("temporal", temporal);
   }
 
 /*
