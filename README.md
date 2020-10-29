@@ -1,4 +1,4 @@
-# IBM Watson Health Cognitive Services Java SDK Version 1.1.4
+# IBM Watson Health Cognitive Services Java SDK Version 1.1.5
 
 The IBM Watson Health Cognitive Services (WHCS) Java SDK allows developers to programmatically interact with the following WHCS services:
 
@@ -18,7 +18,7 @@ NOTE:  You must be signed in to IBM Cloud to see the docs.
 * Java 8 or above.
 
 ## Installation
-The current version of this SDK is: 1.1.4
+The current version of this SDK is: 1.1.5
 
 #### All the services
 To define a dependency on the entire set of services contained in the project, use a dependency like these:
@@ -29,7 +29,7 @@ To define a dependency on the entire set of services contained in the project, u
 <dependency>
 	<groupId>com.ibm.watson.health.cognitive-services</groupId>
 	<artifactId>ibm-whcs-services</artifactId>
-	<version>1.1.4</version>
+	<version>1.1.5</version>
 </dependency>
 ```
 
