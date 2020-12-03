@@ -1,11 +1,10 @@
 # IBM Watson Health Cognitive Services Java SDK Version 1.1.5
 
-The IBM Watson Health Cognitive Services (WHCS) Java SDK allows developers to programmatically interact with the following WHCS services:
+The IBM Watson Health Cognitive Services (WHCS) Java SDK allows developers to programmatically interact with the following service:
 
-| Service Name | Artifact Id |
+| Service Name | Artifact ID |
 |--------------|-------------|
-| [Annotator for Clinical data](https://cloud.ibm.com/apidocs/wh-acd) | annotator-for-clinical-data |
-| [Insights for Medical Literature](https://cloud.ibm.com/apidocs/wh-iml) | insights-for-medical-literature |
+| [Annotator for Clinical Data](https://cloud.ibm.com/apidocs/wh-acd) | annotator-for-clinical-data |
 
 NOTE:  You must be signed in to IBM Cloud to see the docs.
 
@@ -20,8 +19,8 @@ NOTE:  You must be signed in to IBM Cloud to see the docs.
 ## Installation
 The current version of this SDK is: 1.1.5
 
-#### All the services
-To define a dependency on the entire set of services contained in the project, use a dependency like these:
+#### WHCS service (Option 1)
+To define a dependency on the WHCS service contained in the project, use a dependency like these:
 
 ##### Maven
 
@@ -39,8 +38,8 @@ To define a dependency on the entire set of services contained in the project, u
 'com.ibm.watson.health.cognitive-services:ibm-whcs-services:1.1.5'
 ```
 
-#### A single service
-To define a dependency on a single service, use a dependency that contains the artifact id for the service, like this:
+#### Annotator for Clinical Data service (Option 2)
+To define a dependency on the Annotator for Clinical Data service, use a dependency like this:
 
 ##### Maven
 
@@ -56,7 +55,7 @@ To define a dependency on a single service, use a dependency that contains the a
 ```gradle
 'com.ibm.watson.health.cognitive-services:annotator-for-clinical-data:1.1.5'
 ```
-Each service's artifact id is listed in the table of services above.
+The artifact ID is listed in the table above.
 
 ## Using the SDK
 For general SDK usage information, please see [this link](https://github.com/IBM/ibm-cloud-sdk-common/blob/master/README.md)
@@ -81,5 +80,5 @@ See [CONTRIBUTING](CONTRIBUTING.md).
 
 ## License
 
-The IBM Cloud MySDK Java SDK is released under the Apache 2.0 license.
+The WHCS Java SDK is released under the Apache 2.0 license.
 The license's full text can be found in [LICENSE](LICENSE).
