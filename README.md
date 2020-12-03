@@ -1,6 +1,8 @@
 # IBM Watson Health Cognitive Services Java SDK Version 1.1.5
 
-The IBM Watson Health Cognitive Services (WHCS) Java SDK allows developers to programmatically interact with the following service:
+## Overview
+
+The IBM Watson Health Cognitive Services (WHCS) Java SDK allows developers to programmatically interact with the following IBM Cloud service:
 
 | Service Name | Artifact ID |
 |--------------|-------------|
@@ -13,7 +15,7 @@ NOTE:  You must be signed in to IBM Cloud to see the docs.
 [ibm-cloud-onboarding]: https://cloud.ibm.com/registration
 
 * An [IBM Cloud][ibm-cloud-onboarding] account.
-* An IAM API key to allow the SDK to access your account. Create one [here](https://cloud.ibm.com/iam/apikeys).
+* An IAM API key to allow the SDK to access your service instance. For instructions about copying the credentials of an existing service instance, or creating a new service instance, refer to Getting Started [here](https://cloud.ibm.com/docs/wh-acd?topic=wh-acd-getting-started).
 * Java 8 or above.
 
 ## Installation
@@ -80,5 +82,5 @@ See [CONTRIBUTING](CONTRIBUTING.md).
 
 ## License
 
-The WHCS Java SDK is released under the Apache 2.0 license.
+The IBM Watson Health Cognitive Services Java SDK is released under the Apache 2.0 license.
 The license's full text can be found in [LICENSE](LICENSE).
