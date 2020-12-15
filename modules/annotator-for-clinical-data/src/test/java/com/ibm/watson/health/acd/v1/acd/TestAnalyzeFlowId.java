@@ -17,6 +17,7 @@ import org.junit.Test;
 
 import com.ibm.cloud.sdk.core.http.Response;
 import com.ibm.cloud.sdk.core.http.ServiceCall;
+import com.ibm.cloud.sdk.core.service.exception.ServiceResponseException;
 import com.ibm.watson.health.acd.v1.AnnotatorForClinicalData;
 import com.ibm.watson.health.acd.v1.WatsonServiceTest;
 import com.ibm.watson.health.acd.v1.common.Constants;
@@ -45,25 +46,41 @@ public class TestAnalyzeFlowId extends WatsonServiceTest {
 	}
 
 	@Test
-	public void testAnalyze() {
+	public void testAnalyzeFlowIdOptionsFlowId() {
 		AnalyzeWithFlowOptions options = new AnalyzeWithFlowOptions.Builder().flowId(Constants.FLOW_ID)
 				.contentType(Constants.CONTENT_TYPE).text(Constants.TEXT).build();
 
 		ServiceCall<ContainerGroup> sc = service.analyzeWithFlow(options);
-		Response<ContainerGroup> response = sc.execute();
-		ContainerGroup containerGroup = response.getResult();
+		ContainerGroup containerGroup = null;
+		try {
+			Response<ContainerGroup> response = sc.execute();
+			containerGroup = response.getResult();
+		} catch (ServiceResponseException e) {
+			// Base class for all exceptions caused by error responses from the service
+			System.out.println("testAnalyzeFlowIdOptionsFlowId: Service returned status code "
+					+ e.getStatusCode() + ": " + e.getMessage());
+			System.out.println("Detailed error info:\n" + e.getDebuggingInfo().toString());
+		}
 		Assert.assertNotNull(containerGroup);
 		TestContainerGroup.testContainerGroups(containerGroup);
 	}
 
 	@Test
-	public void testAnalyzeFlowId() {
+	public void testAnalyzeFlowIdOptions() {
 		AnalyzeWithFlowOptions options = new AnalyzeWithFlowOptions.Builder(Constants.FLOW_ID)
 				.contentType(Constants.CONTENT_TYPE).text(Constants.TEXT).build();
 
 		ServiceCall<ContainerGroup> sc = service.analyzeWithFlow(options);
-		Response<ContainerGroup> response = sc.execute();
-		ContainerGroup containerGroup = response.getResult();
+		ContainerGroup containerGroup = null;
+		try {
+			Response<ContainerGroup> response = sc.execute();
+			containerGroup = response.getResult();
+		} catch (ServiceResponseException e) {
+			// Base class for all exceptions caused by error responses from the service
+			System.out.println("testAnalyzeFlowIdOptions: Service returned status code "
+					+ e.getStatusCode() + ": " + e.getMessage());
+			System.out.println("Detailed error info:\n" + e.getDebuggingInfo().toString());
+		}
 		Assert.assertNotNull(containerGroup);
 		TestContainerGroup.testContainerGroups(containerGroup);
 	}
@@ -71,7 +88,15 @@ public class TestAnalyzeFlowId extends WatsonServiceTest {
 	@Test
 	public void testAnalyzeFlowIdNoOptions() {
 
-		ContainerGroup containerGroup = service.analyzeWithFlow(Constants.FLOW_ID, Constants.TEXT);
+		ContainerGroup containerGroup = null;
+		try {
+			containerGroup = service.analyzeWithFlow(Constants.FLOW_ID, Constants.TEXT);
+		} catch (ServiceResponseException e) {
+			// Base class for all exceptions caused by error responses from the service
+			System.out.println("testAnalyzeFlowIdNoOptions: Service returned status code "
+					+ e.getStatusCode() + ": " + e.getMessage());
+			System.out.println("Detailed error info:\n" + e.getDebuggingInfo().toString());
+		}
 		Assert.assertNotNull(containerGroup);
 		TestContainerGroup.testContainerGroups(containerGroup);
 	}
@@ -79,8 +104,16 @@ public class TestAnalyzeFlowId extends WatsonServiceTest {
 	@Test
 	public void testAnalyzeFlowIdNoOptionsDetailedResponse() {
 
-		Response<ContainerGroup> response = service.analyzeWithFlowInclResponseDetails(Constants.FLOW_ID, Constants.TEXT);
-		ContainerGroup containerGroup = response.getResult();
+		ContainerGroup containerGroup = null;
+		try {
+			Response<ContainerGroup> response = service.analyzeWithFlowInclResponseDetails(Constants.FLOW_ID, Constants.TEXT);
+			containerGroup = response.getResult();
+		} catch (ServiceResponseException e) {
+			// Base class for all exceptions caused by error responses from the service
+			System.out.println("testAnalyzeFlowIdNoOptionsDetailedResponse: Service returned status code "
+					+ e.getStatusCode() + ": " + e.getMessage());
+			System.out.println("Detailed error info:\n" + e.getDebuggingInfo().toString());
+		}
 		Assert.assertNotNull(containerGroup);
 		TestContainerGroup.testContainerGroups(containerGroup);
 	}
@@ -88,7 +121,15 @@ public class TestAnalyzeFlowId extends WatsonServiceTest {
 	@Test
 	public void testAnalyzeFlowIdNoOptionsReturnText() {
 
-		ContainerGroup containerGroup = service.analyzeWithFlow(Constants.FLOW_ID, Constants.TEXT, true);
+		ContainerGroup containerGroup = null;
+		try {
+			containerGroup = service.analyzeWithFlow(Constants.FLOW_ID, Constants.TEXT, true);
+		} catch (ServiceResponseException e) {
+			// Base class for all exceptions caused by error responses from the service
+			System.out.println("testAnalyzeFlowIdNoOptionsReturnText: Service returned status code "
+					+ e.getStatusCode() + ": " + e.getMessage());
+			System.out.println("Detailed error info:\n" + e.getDebuggingInfo().toString());
+		}
 		Assert.assertNotNull(containerGroup);
 		TestContainerGroup.testContainerGroups(containerGroup);
 	}
@@ -96,8 +137,16 @@ public class TestAnalyzeFlowId extends WatsonServiceTest {
 	@Test
 	public void testAnalyzeFlowIdNoOptionsReturnTextDetailedResponse() {
 
-		Response<ContainerGroup> response = service.analyzeWithFlowInclResponseDetails(Constants.FLOW_ID, Constants.TEXT, true);
-		ContainerGroup containerGroup = response.getResult();
+		ContainerGroup containerGroup = null;
+		try {
+			Response<ContainerGroup> response = service.analyzeWithFlowInclResponseDetails(Constants.FLOW_ID, Constants.TEXT, true);
+			containerGroup = response.getResult();
+		} catch (ServiceResponseException e) {
+			// Base class for all exceptions caused by error responses from the service
+			System.out.println("testAnalyzeFlowIdNoOptionsReturnTextDetailedResponse: Service returned status code "
+					+ e.getStatusCode() + ": " + e.getMessage());
+			System.out.println("Detailed error info:\n" + e.getDebuggingInfo().toString());
+		}
 		Assert.assertNotNull(containerGroup);
 		TestContainerGroup.testContainerGroups(containerGroup);
 	}
@@ -105,22 +154,48 @@ public class TestAnalyzeFlowId extends WatsonServiceTest {
 	@Test
 	public void testAnalyzeFlowIdUnstructuredContainer() {
 		UnstructuredContainer unstructured = new UnstructuredContainer.Builder().text(Constants.TEXT).build();
-		ContainerGroup containerGroup = service.analyzeWithFlow(Constants.FLOW_ID, unstructured);
+		ContainerGroup containerGroup = null;
+		try {
+			containerGroup = service.analyzeWithFlow(Constants.FLOW_ID, unstructured);
+		} catch (ServiceResponseException e) {
+			// Base class for all exceptions caused by error responses from the service
+			System.out.println("testAnalyzeFlowIdUnstructuredContainer: Service returned status code "
+					+ e.getStatusCode() + ": " + e.getMessage());
+			System.out.println("Detailed error info:\n" + e.getDebuggingInfo().toString());
+		}
+		Assert.assertNotNull(containerGroup);
 		TestContainerGroup.testContainerGroups(containerGroup);
 	}
 
 	@Test
 	public void testAnalyzeFlowIdUnstructuredContainerDetailedReponse() {
 		UnstructuredContainer unstructured = new UnstructuredContainer.Builder().text(Constants.TEXT).build();
-		Response<ContainerGroup> response = service.analyzeWithFlowInclResponseDetails(Constants.FLOW_ID, unstructured);
-		ContainerGroup containerGroup = response.getResult();
+		ContainerGroup containerGroup = null;
+		try {
+			Response<ContainerGroup> response = service.analyzeWithFlowInclResponseDetails(Constants.FLOW_ID, unstructured);
+			containerGroup = response.getResult();
+		} catch (ServiceResponseException e) {
+			// Base class for all exceptions caused by error responses from the service
+			System.out.println("testAnalyzeFlowIdUnstructuredContainerDetailedReponse: Service returned status code "
+					+ e.getStatusCode() + ": " + e.getMessage());
+			System.out.println("Detailed error info:\n" + e.getDebuggingInfo().toString());
+		}
+		Assert.assertNotNull(containerGroup);
 		TestContainerGroup.testContainerGroups(containerGroup);
 	}
 
 	@Test
 	public void testAnalyzeFlowIdUnstructuredContainerReturnText() {
 		UnstructuredContainer unstructured = new UnstructuredContainer.Builder().text(Constants.TEXT).build();
-		ContainerGroup containerGroup = service.analyzeWithFlow(Constants.FLOW_ID, unstructured, true);
+		ContainerGroup containerGroup = null;
+		try {
+			containerGroup = service.analyzeWithFlow(Constants.FLOW_ID, unstructured, true);
+		} catch (ServiceResponseException e) {
+			// Base class for all exceptions caused by error responses from the service
+			System.out.println("testAnalyzeFlowIdUnstructuredContainerReturnText: Service returned status code "
+					+ e.getStatusCode() + ": " + e.getMessage());
+			System.out.println("Detailed error info:\n" + e.getDebuggingInfo().toString());
+		}
 		Assert.assertNotNull(containerGroup);
 		TestContainerGroup.testContainerGroups(containerGroup);
 	}
@@ -128,8 +203,16 @@ public class TestAnalyzeFlowId extends WatsonServiceTest {
 	@Test
 	public void testAnalyzeFlowIdUnstructuredContainerReturnTextDetailedResponse() {
 		UnstructuredContainer unstructured = new UnstructuredContainer.Builder().text(Constants.TEXT).build();
-		Response<ContainerGroup> response  = service.analyzeWithFlowInclResponseDetails(Constants.FLOW_ID, unstructured, true);
-		ContainerGroup containerGroup = response.getResult();
+		ContainerGroup containerGroup = null;
+		try {
+			Response<ContainerGroup> response  = service.analyzeWithFlowInclResponseDetails(Constants.FLOW_ID, unstructured, true);
+			containerGroup = response.getResult();
+		} catch (ServiceResponseException e) {
+			// Base class for all exceptions caused by error responses from the service
+			System.out.println("testAnalyzeFlowIdUnstructuredContainerReturnTextDetailedResponse: Service returned status code "
+					+ e.getStatusCode() + ": " + e.getMessage());
+			System.out.println("Detailed error info:\n" + e.getDebuggingInfo().toString());
+		}
 		Assert.assertNotNull(containerGroup);
 		TestContainerGroup.testContainerGroups(containerGroup);
 	}

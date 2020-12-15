@@ -33,6 +33,7 @@ public class Constants {
 	public static final String HYPOTHETICAL = "hypothetical";
 	public static final String LAB_VALUE = "lab_value";
 	public static final String MEDICATION = "medication";
+	public static final String MODEL_BROKER = "model_broker";
 	public static final String NAMED_ENTITIES = "named_entities";
 	public static final String NEGATION = "negation";
 	public static final String PROCEDURE = "procedure";

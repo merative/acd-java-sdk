@@ -21,7 +21,6 @@ public class TestLabValueAnnotation {
 	public static void testLabValueAnnotation(LabValueAnnotation annotation) {
 		Assert.assertTrue(annotation.getBegin() > -1);
 		Assert.assertNotNull(annotation.getCoveredText());
-		Assert.assertNotNull(annotation.getDateInMilliseconds());
 		Assert.assertTrue(annotation.getEnd() > annotation.getBegin());
 		if (annotation.getId() != null){
 			Assert.assertTrue(annotation.getId().length() > 0);
