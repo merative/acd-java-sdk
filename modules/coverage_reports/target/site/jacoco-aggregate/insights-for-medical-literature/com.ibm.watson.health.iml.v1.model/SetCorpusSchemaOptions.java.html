@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../jacoco-resources/report.gif" type="image/gif"/><title>SetCorpusSchemaOptions.java</title><link rel="stylesheet" href="../../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../../index.html" class="el_report">IBM Watson Health Cognitive Services Coverage Reports</a> &gt; <a href="../index.html" class="el_bundle">insights-for-medical-literature</a> &gt; <a href="index.source.html" class="el_package">com.ibm.watson.health.iml.v1.model</a> &gt; <span class="el_source">SetCorpusSchemaOptions.java</span></div><h1>SetCorpusSchemaOptions.java</h1><pre class="source lang-java linenums">/*
+ * (C) Copyright IBM Corp. 2020.
+ *
+ * Licensed under the Apache License, Version 2.0 (the &quot;License&quot;); you may not use this file except in compliance with
+ * the License. You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on
+ * an &quot;AS IS&quot; BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the
+ * specific language governing permissions and limitations under the License.
+ */
+package com.ibm.watson.health.iml.v1.model;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+
+import com.ibm.cloud.sdk.core.service.model.GenericModel;
+
+/**
+ * The setCorpusSchema options.
+ */
+public class SetCorpusSchemaOptions extends GenericModel {
+
+  protected List&lt;Object&gt; enrichmentTargets;
+  protected List&lt;Object&gt; metadataFields;
+  protected String corpusName;
+  protected Map&lt;String, Object&gt; references;
+
+  /**
+   * Builder.
+   */
+  public static class Builder {
+    private List&lt;Object&gt; enrichmentTargets;
+    private List&lt;Object&gt; metadataFields;
+    private String corpusName;
+    private Map&lt;String, Object&gt; references;
+
+<span class="nc" id="L40">    private Builder(SetCorpusSchemaOptions setCorpusSchemaOptions) {</span>
+<span class="nc" id="L41">      this.enrichmentTargets = setCorpusSchemaOptions.enrichmentTargets;</span>
+<span class="nc" id="L42">      this.metadataFields = setCorpusSchemaOptions.metadataFields;</span>
+<span class="nc" id="L43">      this.corpusName = setCorpusSchemaOptions.corpusName;</span>
+<span class="nc" id="L44">      this.references = setCorpusSchemaOptions.references;</span>
+<span class="nc" id="L45">    }</span>
+
+    /**
+     * Instantiates a new builder.
+     */
+<span class="fc" id="L50">    public Builder() {</span>
+<span class="fc" id="L51">    }</span>
+
+    /**
+     * Builds a SetCorpusSchemaOptions.
+     *
+     * @return the new SetCorpusSchemaOptions instance
+     */
+    public SetCorpusSchemaOptions build() {
+<span class="fc" id="L59">      return new SetCorpusSchemaOptions(this);</span>
+    }
+
+    /**
+     * Adds an enrichmentTargets to enrichmentTargets.
+     *
+     * @param enrichmentTargets the new enrichmentTargets
+     * @return the SetCorpusSchemaOptions builder
+     */
+    public Builder addEnrichmentTargets(Object enrichmentTargets) {
+<span class="nc" id="L69">      com.ibm.cloud.sdk.core.util.Validator.notNull(enrichmentTargets,</span>
+        &quot;enrichmentTargets cannot be null&quot;);
+<span class="nc bnc" id="L71" title="All 2 branches missed.">      if (this.enrichmentTargets == null) {</span>
+<span class="nc" id="L72">        this.enrichmentTargets = new ArrayList&lt;Object&gt;();</span>
+      }
+<span class="nc" id="L74">      this.enrichmentTargets.add(enrichmentTargets);</span>
+<span class="nc" id="L75">      return this;</span>
+    }
+
+    /**
+     * Adds an metadataFields to metadataFields.
+     *
+     * @param metadataFields the new metadataFields
+     * @return the SetCorpusSchemaOptions builder
+     */
+    public Builder addMetadataFields(Object metadataFields) {
+<span class="nc" id="L85">      com.ibm.cloud.sdk.core.util.Validator.notNull(metadataFields,</span>
+        &quot;metadataFields cannot be null&quot;);
+<span class="nc bnc" id="L87" title="All 2 branches missed.">      if (this.metadataFields == null) {</span>
+<span class="nc" id="L88">        this.metadataFields = new ArrayList&lt;Object&gt;();</span>
+      }
+<span class="nc" id="L90">      this.metadataFields.add(metadataFields);</span>
+<span class="nc" id="L91">      return this;</span>
+    }
+
+    /**
+     * Set the enrichmentTargets.
+     * Existing enrichmentTargets will be replaced.
+     *
+     * @param enrichmentTargets the enrichmentTargets
+     * @return the SetCorpusSchemaOptions builder
+     */
+    public Builder enrichmentTargets(List&lt;Object&gt; enrichmentTargets) {
+<span class="fc" id="L102">      this.enrichmentTargets = enrichmentTargets;</span>
+<span class="fc" id="L103">      return this;</span>
+    }
+
+    /**
+     * Set the metadataFields.
+     * Existing metadataFields will be replaced.
+     *
+     * @param metadataFields the metadataFields
+     * @return the SetCorpusSchemaOptions builder
+     */
+    public Builder metadataFields(List&lt;Object&gt; metadataFields) {
+<span class="fc" id="L114">      this.metadataFields = metadataFields;</span>
+<span class="fc" id="L115">      return this;</span>
+    }
+
+    /**
+     * Set the corpusName.
+     *
+     * @param corpusName the corpusName
+     * @return the SetCorpusSchemaOptions builder
+     */
+    public Builder corpusName(String corpusName) {
+<span class="fc" id="L125">      this.corpusName = corpusName;</span>
+<span class="fc" id="L126">      return this;</span>
+    }
+
+    /**
+     * Set the references.
+     *
+     * @param references the references
+     * @return the SetCorpusSchemaOptions builder
+     */
+    public Builder references(Map&lt;String, Object&gt; references) {
+<span class="fc" id="L136">      this.references = references;</span>
+<span class="fc" id="L137">      return this;</span>
+    }
+  }
+
+<span class="fc" id="L141">  protected SetCorpusSchemaOptions(Builder builder) {</span>
+<span class="fc" id="L142">    enrichmentTargets = builder.enrichmentTargets;</span>
+<span class="fc" id="L143">    metadataFields = builder.metadataFields;</span>
+<span class="fc" id="L144">    corpusName = builder.corpusName;</span>
+<span class="fc" id="L145">    references = builder.references;</span>
+<span class="fc" id="L146">  }</span>
+
+  /**
+   * New builder.
+   *
+   * @return a SetCorpusSchemaOptions builder
+   */
+  public Builder newBuilder() {
+<span class="nc" id="L154">    return new Builder(this);</span>
+  }
+
+  /**
+   * Gets the enrichmentTargets.
+   *
+   * Input and Output field names.
+   *
+   * @return the enrichmentTargets
+   */
+  public List&lt;Object&gt; enrichmentTargets() {
+<span class="fc" id="L165">    return enrichmentTargets;</span>
+  }
+
+  /**
+   * Gets the metadataFields.
+   *
+   * Metadata field names.
+   *
+   * @return the metadataFields
+   */
+  public List&lt;Object&gt; metadataFields() {
+<span class="fc" id="L176">    return metadataFields;</span>
+  }
+
+  /**
+   * Gets the corpusName.
+   *
+   * Corpus name.
+   *
+   * @return the corpusName
+   */
+  public String corpusName() {
+<span class="fc" id="L187">    return corpusName;</span>
+  }
+
+  /**
+   * Gets the references.
+   *
+   * Reference indices.
+   *
+   * @return the references
+   */
+  public Map&lt;String, Object&gt; references() {
+<span class="fc" id="L198">    return references;</span>
+  }
+}
+
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>

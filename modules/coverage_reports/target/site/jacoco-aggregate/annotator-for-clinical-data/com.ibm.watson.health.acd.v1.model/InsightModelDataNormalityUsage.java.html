@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../jacoco-resources/report.gif" type="image/gif"/><title>InsightModelDataNormalityUsage.java</title><link rel="stylesheet" href="../../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../../index.html" class="el_report">IBM Watson Health Cognitive Services Coverage Reports</a> &gt; <a href="../index.html" class="el_bundle">annotator-for-clinical-data</a> &gt; <a href="index.source.html" class="el_package">com.ibm.watson.health.acd.v1.model</a> &gt; <span class="el_source">InsightModelDataNormalityUsage.java</span></div><h1>InsightModelDataNormalityUsage.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2018 IBM Corp. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the &quot;License&quot;); you may not use this file except in compliance with
+ * the License. You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on
+ * an &quot;AS IS&quot; BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the
+ * specific language governing permissions and limitations under the License.
+ */
+
+package com.ibm.watson.health.acd.v1.model;
+
+import java.lang.reflect.Type;
+
+import com.google.gson.reflect.TypeToken;
+import com.ibm.watson.developer_cloud.service.model.DynamicModel;
+import com.ibm.watson.developer_cloud.util.GsonSerializationHelper;
+
+/**
+ * InsightModelData Usage.
+ */
+<span class="nc" id="L25">public class InsightModelDataNormalityUsage extends DynamicModel {</span>
+
+<span class="nc" id="L27">  private Type normalScoreType = new TypeToken&lt;Float&gt;() { } .getType();</span>
+<span class="nc" id="L28">  private Type abnormalScoreType = new TypeToken&lt;Float&gt;() { } .getType();</span>
+<span class="nc" id="L29">  private Type unknownScoreType = new TypeToken&lt;Float&gt;() { } .getType();</span>
+<span class="nc" id="L30">  private Type nonFindingScoreType = new TypeToken&lt;Float&gt;() { } .getType();</span>
+
+  /**
+   * Gets the normalScore.
+   *
+   * @return the normalScore
+   */
+  public Float getNormalScore() {
+<span class="nc" id="L38">	  return GsonSerializationHelper.serializeDynamicModelProperty(this.get(&quot;normalScore&quot;), normalScoreType);</span>
+  }
+
+  /**
+   * Gets the abnormalScore.
+   *
+   * @return the abnormalScore
+   */
+  public Float getAbnormalScore() {
+<span class="nc" id="L47">	  return GsonSerializationHelper.serializeDynamicModelProperty(this.get(&quot;abnormalScore&quot;), abnormalScoreType);</span>
+  }
+
+  /**
+   * Gets the unknownScore.
+   *
+   * @return the unknownScore
+   */
+  public Float getUnknownScore() {
+<span class="nc" id="L56">	  return GsonSerializationHelper.serializeDynamicModelProperty(this.get(&quot;unknownScore&quot;), unknownScoreType);</span>
+  }
+
+  /**
+   * Gets the nonFindingScore.
+   *
+   * @return the nonFindingScore
+   */
+  public Float getNonFindingScore() {
+<span class="nc" id="L65">	  return GsonSerializationHelper.serializeDynamicModelProperty(this.get(&quot;nonFindingScore&quot;), nonFindingScoreType);</span>
+  }
+
+//  /**
+//   * Sets the normalScore.
+//   *
+//   * @param normalScore the new normalScore
+//   */
+//  public void setNormalScore(final Float normalScore) {
+//    this.put(&quot;normalScore&quot;, normalScore);
+//  }
+//
+//  /**
+//   * Sets the abnormalScore.
+//   *
+//   * @param abnormalScore the new abnormalScore
+//   */
+//  public void setAbnormalScore(final Float abnormalScore) {
+//    this.put(&quot;abnormalScore&quot;, abnormalScore);
+//  }
+//
+//  /**
+//   * Sets the unknownScore.
+//   *
+//   * @param unknownScore the new unknownScore
+//   */
+//  public void setUnknownScore(final Float unknownScore) {
+//    this.put(&quot;unknownScore&quot;, unknownScore);
+//  }
+//
+//  /**
+//   * Sets the nonFindingScore.
+//   *
+//   * @param nonFindingScore the new nonFindingScore
+//   */
+//  public void setNonFindingScore(final Float nonFindingScore) {
+//    this.put(&quot;nonFindingScore&quot;, nonFindingScore);
+//  }
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>

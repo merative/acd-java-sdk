@@ -1,0 +1,1318 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../jacoco-resources/report.gif" type="image/gif"/><title>InsightsForMedicalLiteratureService.java</title><link rel="stylesheet" href="../../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../../index.html" class="el_report">IBM Watson Health Cognitive Services Coverage Reports</a> &gt; <a href="../index.html" class="el_bundle">insights-for-medical-literature</a> &gt; <a href="index.source.html" class="el_package">com.ibm.watson.health.iml.v1</a> &gt; <span class="el_source">InsightsForMedicalLiteratureService.java</span></div><h1>InsightsForMedicalLiteratureService.java</h1><pre class="source lang-java linenums">/*
+ * (C) Copyright IBM Corp. 2020.
+ *
+ * Licensed under the Apache License, Version 2.0 (the &quot;License&quot;); you may not use this file except in compliance with
+ * the License. You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on
+ * an &quot;AS IS&quot; BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the
+ * specific language governing permissions and limitations under the License.
+ */
+package com.ibm.watson.health.iml.v1;
+
+import com.google.gson.JsonObject;
+import com.ibm.cloud.whcs.common.SdkCommon;
+import com.ibm.cloud.sdk.core.http.RequestBuilder;
+import com.ibm.cloud.sdk.core.http.ResponseConverter;
+import com.ibm.cloud.sdk.core.http.ServiceCall;
+import com.ibm.cloud.sdk.core.security.Authenticator;
+import com.ibm.cloud.sdk.core.security.ConfigBasedAuthenticatorFactory;
+import com.ibm.cloud.sdk.core.service.BaseService;
+import com.ibm.cloud.sdk.core.util.RequestUtils;
+import com.ibm.cloud.sdk.core.util.ResponseConverterUtils;
+import com.ibm.watson.health.iml.v1.model.AddArtifactOptions;
+import com.ibm.watson.health.iml.v1.model.AddCorpusDocumentOptions;
+import com.ibm.watson.health.iml.v1.model.AnnotationsModel;
+import com.ibm.watson.health.iml.v1.model.CategoriesModel;
+import com.ibm.watson.health.iml.v1.model.CommonDataModel;
+import com.ibm.watson.health.iml.v1.model.ConceptInfoModel;
+import com.ibm.watson.health.iml.v1.model.ConceptListModel;
+import com.ibm.watson.health.iml.v1.model.CorporaConfig;
+import com.ibm.watson.health.iml.v1.model.CorpusInfoModel;
+import com.ibm.watson.health.iml.v1.model.CorpusModel;
+import com.ibm.watson.health.iml.v1.model.DeleteCorpusSchemaOptions;
+import com.ibm.watson.health.iml.v1.model.EnableCorpusSearchTrackingOptions;
+import com.ibm.watson.health.iml.v1.model.GetConceptsOptions;
+import com.ibm.watson.health.iml.v1.model.GetCorporaConfigOptions;
+import com.ibm.watson.health.iml.v1.model.GetCorpusConfigOptions;
+import com.ibm.watson.health.iml.v1.model.GetCuiInfoOptions;
+import com.ibm.watson.health.iml.v1.model.GetDocumentAnnotationsOptions;
+import com.ibm.watson.health.iml.v1.model.GetDocumentCategoriesOptions;
+import com.ibm.watson.health.iml.v1.model.GetDocumentInfoOptions;
+import com.ibm.watson.health.iml.v1.model.GetDocumentInfoResponse;
+import com.ibm.watson.health.iml.v1.model.GetDocumentMultipleCategoriesOptions;
+import com.ibm.watson.health.iml.v1.model.GetDocumentsOptions;
+import com.ibm.watson.health.iml.v1.model.GetFieldsOptions;
+import com.ibm.watson.health.iml.v1.model.GetHealthCheckStatusOptions;
+import com.ibm.watson.health.iml.v1.model.GetHitCountOptions;
+import com.ibm.watson.health.iml.v1.model.GetRelatedConceptsOptions;
+import com.ibm.watson.health.iml.v1.model.GetSearchMatchesOptions;
+import com.ibm.watson.health.iml.v1.model.GetServiceStatusOptions;
+import com.ibm.watson.health.iml.v1.model.GetSimilarConceptsOptions;
+import com.ibm.watson.health.iml.v1.model.GetStatisticsOptions;
+import com.ibm.watson.health.iml.v1.model.HitCount;
+import com.ibm.watson.health.iml.v1.model.MetadataModel;
+import com.ibm.watson.health.iml.v1.model.MonitorCorpusOptions;
+import com.ibm.watson.health.iml.v1.model.RelatedConceptsModel;
+import com.ibm.watson.health.iml.v1.model.SearchMatchesModel;
+import com.ibm.watson.health.iml.v1.model.SearchModel;
+import com.ibm.watson.health.iml.v1.model.SearchOptions;
+import com.ibm.watson.health.iml.v1.model.ServiceStatus;
+import com.ibm.watson.health.iml.v1.model.SetCorpusConfigOptions;
+import com.ibm.watson.health.iml.v1.model.SetCorpusSchemaOptions;
+import com.ibm.watson.health.iml.v1.model.StatisticsModel;
+import com.ibm.watson.health.iml.v1.model.TokenizeOptions;
+import com.ibm.watson.health.iml.v1.model.TypeaheadOptions;
+
+import java.util.Map;
+import java.util.Map.Entry;
+
+/**
+ * For more information see the &amp;lt;a href='../../documentation' target='_blank'&amp;gt;extended
+ * documentation&amp;lt;/a&amp;gt;.&amp;lt;p&amp;gt;Try the &amp;lt;a href='../../application'&amp;gt;Insights for Medical Literature demo
+ * application&amp;lt;/a&amp;gt;.&amp;lt;h3&amp;gt;Service Overview&amp;lt;/h3&amp;gt;The Insights for Medical Literature service provides APIs
+ * that enable you to derive insights from a corpus of medical documents. For example, the &amp;lt;a
+ * href='https://www.nlm.nih.gov/bsd/pmresources.html' target='_blank'&amp;gt;MEDLINE&amp;amp;reg;&amp;lt;/a&amp;gt; corpus contains
+ * more than 26 million references to medical journal articles.  An unstructured medical document corpus is ingested by
+ * IBM, enriched with the Unified Medical Language System (&amp;lt;a href='https://www.nlm.nih.gov/research/umls/'
+ * target='_blank'&amp;gt;UMLS&amp;amp;reg;&amp;lt;/a&amp;gt;) and stored as structured data in an IBM managed database.  The UMLS
+ * enrichment enables a concept based search, in addition to a conventional text search.  Other unique features include
+ * concept matching, concept relationships, identifying co-occurring concepts and identifying disorders, drugs, genes
+ * and other medical terms mentioned in a medical document.&amp;lt;h3&amp;gt;National Library of Medicine&amp;amp;reg;
+ * (NLM&amp;amp;reg;) License&amp;lt;/h3&amp;gt;The MEDLINE corpus is imported from &amp;lt;a
+ * href='https://www.nlm.nih.gov/databases/journal.html' target='_blank'&amp;gt;MEDLINE&amp;amp;reg;/PubMed&amp;amp;reg;&amp;lt;/a&amp;gt;,
+ * a database of the U.S. National Library of Medicine. &amp;lt;P&amp;gt;&amp;lt;P&amp;gt;The MEDLINE corpus is periodically updated to
+ * contain new and/or maintained records, and remove deleted records, at least once every thirty (30) days. The MEDLINE
+ * corpus may be updated on a weekly basis.&amp;lt;P&amp;gt;&amp;lt;P&amp;gt;NLM represents that its data were formulated with a
+ * reasonable standard of care.  Except for this representation, NLM makes no representation or warranties, expressed or
+ * implied.  This includes, but is not limited to, any implied warranty of merchantability or fitness for a particular
+ * purpose, with respect to the NLM data, and NLM specifically disclaims any such warranties and
+ * representations.&amp;lt;P&amp;gt;&amp;lt;P&amp;gt;All complete or parts of U.S. National Library of Medicine (NLM) records that are
+ * redistributed or retransmitted must be identified as being derived from NLM  data.&amp;lt;h3&amp;gt;API
+ * Overview&amp;lt;/h3&amp;gt;The APIs are grouped into these categories:&amp;lt;UL&amp;gt;&amp;lt;LI&amp;gt;&amp;lt;B&amp;gt;Concepts&amp;lt;/B&amp;gt; :
+ * Concept information&amp;lt;/LI&amp;gt;&amp;lt;P&amp;gt;Concept information includes a concept unique identifier (CUI), preferred
+ * name, alternative name (other surface forms), semantic group (category), semantic types, counts (hits, parents,
+ * children, siblings...) and, related concepts. &amp;lt;LI&amp;gt;&amp;lt;B&amp;gt;Corpora&amp;lt;/B&amp;gt; : Corpora
+ * information&amp;lt;/LI&amp;gt;&amp;lt;P&amp;gt;You can retrieve a list of corpus names.  For each corpus a unique list of semantic
+ * groups and semantic types is provided. &amp;lt;LI&amp;gt;&amp;lt;B&amp;gt;Documents&amp;lt;/B&amp;gt; : Document
+ * information&amp;lt;/LI&amp;gt;&amp;lt;P&amp;gt;These APIs enable full text documents and document annotations to be retreived.
+ * Concepts mentioned in a medical document may also be categorized by semantic groups and types.  The best matching
+ * search concepts can also be identified in a medical document.&amp;lt;LI&amp;gt;&amp;lt;B&amp;gt;Search&amp;lt;/B&amp;gt; : Concept
+ * search&amp;lt;/LI&amp;gt;&amp;lt;P&amp;gt;These APIs perform typeahead concept searches, ranked document searches, and cohesive and
+ * co-occurring concept searches.  A search targets a single medical document corpus.&amp;lt;LI&amp;gt;&amp;lt;B&amp;gt;Status&amp;lt;/B&amp;gt;
+ * : Check the status of this
+ * service&amp;lt;/LI&amp;gt;&amp;lt;/UL&amp;gt;&amp;lt;h3&amp;gt;Terminology&amp;lt;/h3&amp;gt;&amp;lt;UL&amp;gt;&amp;lt;LI&amp;gt;&amp;lt;B&amp;gt;Concept Unique Identifier
+ * (cui)&amp;lt;/B&amp;gt;&amp;lt;/LI&amp;gt;A UMLS CUI identifies a concept, and is specified as a path or query parameter to select a
+ * specific concept.  A CUI always begins with an uppercase letter 'C' followed by seven decimal digits (e.g.,
+ * C0446516).&amp;lt;LI&amp;gt;&amp;lt;B&amp;gt;Document Identifiter&amp;lt;/B&amp;gt;&amp;lt;/LI&amp;gt;A document ID uniquely identifies a document in
+ * a corpus, and is specified as a path or query parameter to select a specific medical document.&amp;lt;LI&amp;gt;&amp;lt;B&amp;gt;Hit
+ * count&amp;lt;/B&amp;gt;&amp;lt;/LI&amp;gt;A hit count specifies the number of times a specific concept is mentioned in a
+ * corpus.&amp;lt;LI&amp;gt;&amp;lt;B&amp;gt;Preferred Name (pn)&amp;lt;/B&amp;gt;&amp;lt;/LI&amp;gt;A preferred name is the common name for a concept.
+ * A concept may also have other surface forms or alternative names.&amp;lt;LI&amp;gt;&amp;lt;B&amp;gt;Semantic Group
+ * (group)&amp;lt;/B&amp;gt;&amp;lt;/LI&amp;gt;A semantic group aggregates multiple semantic types, and is specified as a path or query
+ * parameter to filter or select concepts belonging to the same semantic group (e.g., Disorders or
+ * ChemicalsAndDrugs).&amp;lt;LI&amp;gt;&amp;lt;B&amp;gt;Semantic Type (type)&amp;lt;/B&amp;gt;&amp;lt;/LI&amp;gt;A semantic type is a camelcase string
+ * derived from a UMLS semantic type (e.g., ClinicalDrug or DiseaseOrSyndrome). It is specified as a path or query
+ * parameter to filter or select concepts belonging to the same category (semantic type).&amp;lt;LI&amp;gt;&amp;lt;B&amp;gt;Surface
+ * form&amp;lt;/B&amp;gt;&amp;lt;/LI&amp;gt;A surface form is an alternative name for a concept.  The surface forms identify text spans
+ * in a medical document, and the identified text spans are annotated with the matching CUI, preferred name and semantic
+ * type.&amp;lt;/UL&amp;gt;&amp;lt;h3&amp;gt;Typical Document Search Flow&amp;lt;/h3&amp;gt;&amp;lt;p&amp;gt;1. &amp;lt;b&amp;gt;GET /v1/corpora&amp;lt;/b&amp;gt; - Get
+ * list of all available corpus names&amp;lt;p&amp;gt;2. &amp;lt;b&amp;gt;GET /v1/corpora/corpus_name/search/typeahead&amp;lt;/b&amp;gt; - Use
+ * typeahead to select search concepts&amp;lt;p&amp;gt;3. &amp;lt;b&amp;gt;GET
+ * /v1/corpora/corpus_name/search/cooccurring_concepts&amp;lt;/b&amp;gt; - Find additional co-occurring search
+ * concepts&amp;lt;p&amp;gt;4. &amp;lt;b&amp;gt;GET /v1/corpora/corpus_name/concepts/{cui}/matching_concepts&amp;lt;/b&amp;gt; - Find additional
+ * matching search concepts&amp;lt;p&amp;gt;5. &amp;lt;b&amp;gt;GET /v1/corpora/corpus_name/concepts/{cui}/related_concepts&amp;lt;/b&amp;gt; -
+ * Find additional related search concepts&amp;lt;p&amp;gt;6. &amp;lt;b&amp;gt;GET
+ * /v1/corpora/corpus_name/search/ranked_documents&amp;lt;/b&amp;gt; - Search for ranked documents matching search
+ * concepts&amp;lt;p&amp;gt;7. &amp;lt;b&amp;gt;GET /v1/corpora/corpus_name/documents/{document_id}/search_matches&amp;lt;/b&amp;gt; - Highlight
+ * matching search concepts in a ranked documents&amp;lt;p&amp;gt;8. &amp;lt;b&amp;gt;GET
+ * /v1/corpora/corpus_name/documents/{document_id}/categories&amp;lt;/b&amp;gt; - Highlight diseases, drugs and genes in a
+ * ranked document.
+ *
+ * @version v1
+ */
+public class InsightsForMedicalLiteratureService extends BaseService {
+
+  public static final String DEFAULT_SERVICE_NAME = &quot;insights_for_medical_literature_service&quot;;
+
+  public static final String DEFAULT_SERVICE_URL = &quot;https://insights-for-medical-literature-service.cloud.ibm.com/services/medical_insights/api&quot;;
+
+  private String version;
+
+ /**
+   * Class method which constructs an instance of the `InsightsForMedicalLiteratureService` client.
+   * The default service name is used to configure the client instance.
+   *
+   * @param version The release date of the version of the API you want to use. Specify dates in YYYY-MM-DD format.
+   * @return an instance of the `InsightsForMedicalLiteratureService` client using external configuration
+   */
+  public static InsightsForMedicalLiteratureService newInstance(String version) {
+<span class="nc" id="L152">    return newInstance(version, DEFAULT_SERVICE_NAME);</span>
+  }
+
+  /**
+   * Class method which constructs an instance of the `InsightsForMedicalLiteratureService` client.
+   * The specified service name is used to configure the client instance.
+   *
+   * @param version The release date of the version of the API you want to use. Specify dates in YYYY-MM-DD format.
+   * @param serviceName the service name to be used when configuring the client instance
+   * @return an instance of the `InsightsForMedicalLiteratureService` client using external configuration
+   */
+  public static InsightsForMedicalLiteratureService newInstance(String version, String serviceName) {
+<span class="fc" id="L164">    Authenticator authenticator = ConfigBasedAuthenticatorFactory.getAuthenticator(serviceName);</span>
+<span class="fc" id="L165">    InsightsForMedicalLiteratureService service = new InsightsForMedicalLiteratureService(version, serviceName, authenticator);</span>
+<span class="fc" id="L166">    service.configureService(serviceName);</span>
+<span class="fc" id="L167">    return service;</span>
+  }
+
+  /**
+   * Constructs an instance of the `InsightsForMedicalLiteratureService` client.
+   * The specified service name and authenticator are used to configure the client instance.
+   *
+   * @param version The release date of the version of the API you want to use. Specify dates in YYYY-MM-DD format.
+   * @param serviceName the service name to be used when configuring the client instance
+   * @param authenticator the {@link Authenticator} instance to be configured for this client
+   */
+  public InsightsForMedicalLiteratureService(String version, String serviceName, Authenticator authenticator) {
+<span class="fc" id="L179">    super(serviceName, authenticator);</span>
+<span class="fc" id="L180">    setServiceUrl(DEFAULT_SERVICE_URL);</span>
+<span class="fc" id="L181">    setVersion(version);</span>
+<span class="fc" id="L182">  }</span>
+
+  /**
+   * Gets the version.
+   *
+   * The release date of the version of the API you want to use. Specify dates in YYYY-MM-DD format.
+   *
+   * @return the version
+   */
+  public String getVersion() {
+<span class="fc" id="L192">    return this.version;</span>
+  }
+
+  /**
+   * Sets the version.
+   *
+   * @param version the new version
+   */
+  public void setVersion(final String version) {
+<span class="fc" id="L201">    com.ibm.cloud.sdk.core.util.Validator.notEmpty(version, &quot;version cannot be empty.&quot;);</span>
+<span class="fc" id="L202">    this.version = version;</span>
+<span class="fc" id="L203">  }</span>
+
+  /**
+   * Retrieves information about the documents in this corpus.
+   *
+   * The response returns the following information: &amp;lt;ul&amp;gt;&amp;lt;li&amp;gt;number of documents in the
+   * corpus&amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;corpus provider&amp;lt;/li&amp;gt;&amp;lt;/ul&amp;gt;.
+   *
+   * @param getDocumentsOptions the {@link GetDocumentsOptions} containing the options for the call
+   * @return a {@link ServiceCall} with a result of type {@link CorpusModel}
+   */
+  public ServiceCall&lt;CorpusInfoModel&gt; getDocuments(GetDocumentsOptions getDocumentsOptions) {
+<span class="fc" id="L215">    com.ibm.cloud.sdk.core.util.Validator.notNull(getDocumentsOptions,</span>
+      &quot;getDocumentsOptions cannot be null&quot;);
+<span class="fc" id="L217">    String[] pathSegments = { &quot;v1/corpora&quot;, &quot;documents&quot; };</span>
+<span class="fc" id="L218">    String[] pathParameters = { getDocumentsOptions.corpus() };</span>
+<span class="fc" id="L219">    RequestBuilder builder = RequestBuilder.get(RequestBuilder.constructHttpUrl(getServiceUrl(), pathSegments, pathParameters));</span>
+<span class="fc" id="L220">    Map&lt;String, String&gt; sdkHeaders = SdkCommon.getSdkHeaders(&quot;insights_for_medical_literature_service&quot;, &quot;v1&quot;, &quot;getDocuments&quot;);</span>
+<span class="fc bfc" id="L221" title="All 2 branches covered.">    for (Entry&lt;String, String&gt; header : sdkHeaders.entrySet()) {</span>
+<span class="fc" id="L222">      builder.header(header.getKey(), header.getValue());</span>
+<span class="fc" id="L223">    }</span>
+<span class="fc" id="L224">    builder.header(&quot;Accept&quot;, &quot;application/json&quot;);</span>
+<span class="fc" id="L225">    builder.query(&quot;version&quot;, this.version);</span>
+<span class="fc" id="L226">    ResponseConverter&lt;CorpusInfoModel&gt; responseConverter =</span>
+<span class="fc" id="L227">      ResponseConverterUtils.getValue(new com.google.gson.reflect.TypeToken&lt;CorpusInfoModel&gt;() { }.getType());</span>
+<span class="fc" id="L228">    return createServiceCall(builder.build(), responseConverter);</span>
+  }
+
+  /**
+   * Define enrichment document.
+   *
+   * The response returns whether the document was properly added to the corpus.  &amp;lt;P&amp;gt;This API should be used for
+   * adding a document to a custom corpus.&amp;lt;P&amp;gt;Example POST body:&amp;lt;pre&amp;gt;{
+   *   &quot;acdUrl&quot; :
+   *   &quot;acdApiKeyl&quot; :
+   *   &quot;flowId&quot; :
+   *   &quot;document&quot; : {
+   *    &quot;doc_id&quot; :
+   *    &quot;field[n]&quot; : &quot;value&quot;
+   *   }
+   *   &quot;otherAnnotators&quot; : [   &quot;{    &quot;annotatorUrl    &quot;annotatorApiKey    &quot;containerName   &quot;}  ]
+   * }
+   * &amp;lt;/pre&amp;gt;.
+   *
+   * @param addCorpusDocumentOptions the {@link AddCorpusDocumentOptions} containing the options for the call
+   * @return a {@link ServiceCall} with a void result
+   */
+  public ServiceCall&lt;Void&gt; addCorpusDocument(AddCorpusDocumentOptions addCorpusDocumentOptions) {
+<span class="fc" id="L251">    com.ibm.cloud.sdk.core.util.Validator.notNull(addCorpusDocumentOptions,</span>
+      &quot;addCorpusDocumentOptions cannot be null&quot;);
+<span class="fc" id="L253">    String[] pathSegments = { &quot;v1/corpora&quot;, &quot;documents&quot; };</span>
+<span class="fc" id="L254">    String[] pathParameters = { addCorpusDocumentOptions.corpus() };</span>
+<span class="fc" id="L255">    RequestBuilder builder = RequestBuilder.post(RequestBuilder.constructHttpUrl(getServiceUrl(), pathSegments, pathParameters));</span>
+<span class="fc" id="L256">    Map&lt;String, String&gt; sdkHeaders = SdkCommon.getSdkHeaders(&quot;insights_for_medical_literature_service&quot;, &quot;v1&quot;, &quot;addCorpusDocument&quot;);</span>
+<span class="fc bfc" id="L257" title="All 2 branches covered.">    for (Entry&lt;String, String&gt; header : sdkHeaders.entrySet()) {</span>
+<span class="fc" id="L258">      builder.header(header.getKey(), header.getValue());</span>
+<span class="fc" id="L259">    }</span>
+<span class="fc" id="L260">    builder.query(&quot;version&quot;, this.version);</span>
+<span class="fc" id="L261">    final JsonObject contentJson = new JsonObject();</span>
+<span class="pc bpc" id="L262" title="1 of 2 branches missed.">    if (addCorpusDocumentOptions.document() != null) {</span>
+<span class="fc" id="L263">      contentJson.add(&quot;document&quot;, com.ibm.cloud.sdk.core.util.GsonSingleton.getGson().toJsonTree(addCorpusDocumentOptions.document()));</span>
+    }
+<span class="pc bpc" id="L265" title="1 of 2 branches missed.">    if (addCorpusDocumentOptions.acdUrl() != null) {</span>
+<span class="fc" id="L266">      contentJson.addProperty(&quot;acdUrl&quot;, addCorpusDocumentOptions.acdUrl());</span>
+    }
+<span class="pc bpc" id="L268" title="1 of 2 branches missed.">    if (addCorpusDocumentOptions.apiKey() != null) {</span>
+<span class="fc" id="L269">      contentJson.addProperty(&quot;apiKey&quot;, addCorpusDocumentOptions.apiKey());</span>
+    }
+<span class="pc bpc" id="L271" title="1 of 2 branches missed.">    if (addCorpusDocumentOptions.flowId() != null) {</span>
+<span class="fc" id="L272">      contentJson.addProperty(&quot;flowId&quot;, addCorpusDocumentOptions.flowId());</span>
+    }
+<span class="pc bpc" id="L274" title="1 of 2 branches missed.">    if (addCorpusDocumentOptions.accessToken() != null) {</span>
+<span class="fc" id="L275">      contentJson.addProperty(&quot;accessToken&quot;, addCorpusDocumentOptions.accessToken());</span>
+    }
+<span class="pc bpc" id="L277" title="1 of 2 branches missed.">    if (addCorpusDocumentOptions.otherAnnotators() != null) {</span>
+<span class="fc" id="L278">      contentJson.add(&quot;otherAnnotators&quot;, com.ibm.cloud.sdk.core.util.GsonSingleton.getGson().toJsonTree(addCorpusDocumentOptions.otherAnnotators()));</span>
+    }
+<span class="fc" id="L280">    builder.bodyJson(contentJson);</span>
+<span class="fc" id="L281">    ResponseConverter&lt;Void&gt; responseConverter = ResponseConverterUtils.getVoid();</span>
+<span class="fc" id="L282">    return createServiceCall(builder.build(), responseConverter);</span>
+  }
+
+  /**
+   * Retrieves the external ID, title, abstract and text for a document.
+   *
+   * The response may return the following fields:&amp;lt;ul&amp;gt;&amp;lt;li&amp;gt;external ID (e.g., PubMed
+   * ID)&amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;title&amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;abstract&amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;body&amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;pdfUrl&amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;referenceUrl&amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;other
+   * metadata&amp;lt;/li&amp;gt;&amp;lt;/ul&amp;gt;Note, some documents may not have an abstract, or only the abstract may be available
+   * without the body text.
+   *
+   * @param getDocumentInfoOptions the {@link GetDocumentInfoOptions} containing the options for the call
+   * @return a {@link ServiceCall} with a result of type {@link GetDocumentInfoResponse}
+   */
+  public ServiceCall&lt;GetDocumentInfoResponse&gt; getDocumentInfo(GetDocumentInfoOptions getDocumentInfoOptions) {
+<span class="fc" id="L297">    com.ibm.cloud.sdk.core.util.Validator.notNull(getDocumentInfoOptions,</span>
+      &quot;getDocumentInfoOptions cannot be null&quot;);
+<span class="fc" id="L299">    String[] pathSegments = { &quot;v1/corpora&quot;, &quot;documents&quot; };</span>
+<span class="fc" id="L300">    String[] pathParameters = { getDocumentInfoOptions.corpus(), getDocumentInfoOptions.documentId() };</span>
+<span class="fc" id="L301">    RequestBuilder builder = RequestBuilder.get(RequestBuilder.constructHttpUrl(getServiceUrl(), pathSegments, pathParameters));</span>
+<span class="fc" id="L302">    Map&lt;String, String&gt; sdkHeaders = SdkCommon.getSdkHeaders(&quot;insights_for_medical_literature_service&quot;, &quot;v1&quot;, &quot;getDocumentInfo&quot;);</span>
+<span class="fc bfc" id="L303" title="All 2 branches covered.">    for (Entry&lt;String, String&gt; header : sdkHeaders.entrySet()) {</span>
+<span class="fc" id="L304">      builder.header(header.getKey(), header.getValue());</span>
+<span class="fc" id="L305">    }</span>
+<span class="fc" id="L306">    builder.header(&quot;Accept&quot;, &quot;application/json&quot;);</span>
+<span class="fc" id="L307">    builder.query(&quot;version&quot;, this.version);</span>
+<span class="pc bpc" id="L308" title="1 of 2 branches missed.">    if (getDocumentInfoOptions.verbose() != null) {</span>
+<span class="fc" id="L309">      builder.query(&quot;verbose&quot;, String.valueOf(getDocumentInfoOptions.verbose()));</span>
+    }
+<span class="fc" id="L311">    ResponseConverter&lt;GetDocumentInfoResponse&gt; responseConverter =</span>
+<span class="fc" id="L312">      ResponseConverterUtils.getValue(new com.google.gson.reflect.TypeToken&lt;GetDocumentInfoResponse&gt;() { }.getType());</span>
+<span class="fc" id="L313">    return createServiceCall(builder.build(), responseConverter);</span>
+  }
+
+  /**
+   * Retrieves annotations for a document.
+   *
+   * The response returns a list of all the annotations contained in the document.
+   *
+   * @param getDocumentAnnotationsOptions the {@link GetDocumentAnnotationsOptions} containing the options for the call
+   * @return a {@link ServiceCall} with a void result
+   */
+  public ServiceCall&lt;AnnotationsModel&gt; getDocumentAnnotations(GetDocumentAnnotationsOptions getDocumentAnnotationsOptions) {
+<span class="fc" id="L325">    com.ibm.cloud.sdk.core.util.Validator.notNull(getDocumentAnnotationsOptions,</span>
+      &quot;getDocumentAnnotationsOptions cannot be null&quot;);
+<span class="fc" id="L327">    String[] pathSegments = { &quot;v1/corpora&quot;, &quot;documents&quot;, &quot;annotations&quot; };</span>
+<span class="fc" id="L328">    String[] pathParameters = { getDocumentAnnotationsOptions.corpus(), getDocumentAnnotationsOptions.documentId() };</span>
+<span class="fc" id="L329">    RequestBuilder builder = RequestBuilder.get(RequestBuilder.constructHttpUrl(getServiceUrl(), pathSegments, pathParameters));</span>
+<span class="fc" id="L330">    Map&lt;String, String&gt; sdkHeaders = SdkCommon.getSdkHeaders(&quot;insights_for_medical_literature_service&quot;, &quot;v1&quot;, &quot;getDocumentAnnotations&quot;);</span>
+<span class="fc bfc" id="L331" title="All 2 branches covered.">    for (Entry&lt;String, String&gt; header : sdkHeaders.entrySet()) {</span>
+<span class="fc" id="L332">      builder.header(header.getKey(), header.getValue());</span>
+<span class="fc" id="L333">    }</span>
+<span class="fc" id="L334">    builder.query(&quot;version&quot;, this.version);</span>
+<span class="fc" id="L335">    builder.query(&quot;document_section&quot;, getDocumentAnnotationsOptions.documentSection());</span>
+<span class="pc bpc" id="L336" title="1 of 2 branches missed.">    if (getDocumentAnnotationsOptions.cuis() != null) {</span>
+<span class="fc" id="L337">      builder.query(&quot;cuis&quot;, RequestUtils.join(getDocumentAnnotationsOptions.cuis(), &quot;,&quot;));</span>
+    }
+<span class="pc bpc" id="L339" title="1 of 2 branches missed.">    if (getDocumentAnnotationsOptions.includeText() != null) {</span>
+<span class="fc" id="L340">      builder.query(&quot;include_text&quot;, String.valueOf(getDocumentAnnotationsOptions.includeText()));</span>
+    }
+<span class="fc" id="L342">    ResponseConverter&lt;AnnotationsModel&gt; responseConverter = ResponseConverterUtils</span>
+<span class="fc" id="L343">    		.getValue(new com.google.gson.reflect.TypeToken&lt;AnnotationsModel&gt;() { }.getType());</span>
+<span class="fc" id="L344">    return createServiceCall(builder.build(), responseConverter);</span>
+  }
+
+  /**
+   * Categorizes concepts in a document.
+   *
+   * The response returns a categorized list of text passages in a document.  The sentences are grouped by concept with
+   * the matching concepts highlighted.
+   *
+   * @param getDocumentCategoriesOptions the {@link GetDocumentCategoriesOptions} containing the options for the call
+   * @return a {@link ServiceCall} with a result of type {@link CategoriesModel}
+   */
+  public ServiceCall&lt;CategoriesModel&gt; getDocumentCategories(GetDocumentCategoriesOptions getDocumentCategoriesOptions) {
+<span class="fc" id="L357">    com.ibm.cloud.sdk.core.util.Validator.notNull(getDocumentCategoriesOptions,</span>
+      &quot;getDocumentCategoriesOptions cannot be null&quot;);
+<span class="fc" id="L359">    String[] pathSegments = { &quot;v1/corpora&quot;, &quot;documents&quot;, &quot;categories&quot; };</span>
+<span class="fc" id="L360">    String[] pathParameters = { getDocumentCategoriesOptions.corpus(), getDocumentCategoriesOptions.documentId() };</span>
+<span class="fc" id="L361">    RequestBuilder builder = RequestBuilder.get(RequestBuilder.constructHttpUrl(getServiceUrl(), pathSegments, pathParameters));</span>
+<span class="fc" id="L362">    Map&lt;String, String&gt; sdkHeaders = SdkCommon.getSdkHeaders(&quot;insights_for_medical_literature_service&quot;, &quot;v1&quot;, &quot;getDocumentCategories&quot;);</span>
+<span class="fc bfc" id="L363" title="All 2 branches covered.">    for (Entry&lt;String, String&gt; header : sdkHeaders.entrySet()) {</span>
+<span class="fc" id="L364">      builder.header(header.getKey(), header.getValue());</span>
+<span class="fc" id="L365">    }</span>
+<span class="fc" id="L366">    builder.header(&quot;Accept&quot;, &quot;application/json&quot;);</span>
+<span class="fc" id="L367">    builder.query(&quot;version&quot;, this.version);</span>
+<span class="pc bpc" id="L368" title="1 of 2 branches missed.">    if (getDocumentCategoriesOptions.highlightTagBegin() != null) {</span>
+<span class="fc" id="L369">      builder.query(&quot;highlight_tag_begin&quot;, getDocumentCategoriesOptions.highlightTagBegin());</span>
+    }
+<span class="pc bpc" id="L371" title="1 of 2 branches missed.">    if (getDocumentCategoriesOptions.highlightTagEnd() != null) {</span>
+<span class="fc" id="L372">      builder.query(&quot;highlight_tag_end&quot;, getDocumentCategoriesOptions.highlightTagEnd());</span>
+    }
+<span class="pc bpc" id="L374" title="1 of 2 branches missed.">    if (getDocumentCategoriesOptions.types() != null) {</span>
+<span class="fc" id="L375">      builder.query(&quot;types&quot;, RequestUtils.join(getDocumentCategoriesOptions.types(), &quot;,&quot;));</span>
+    }
+<span class="pc bpc" id="L377" title="1 of 2 branches missed.">    if (getDocumentCategoriesOptions.category() != null) {</span>
+<span class="fc" id="L378">      builder.query(&quot;category&quot;, getDocumentCategoriesOptions.category());</span>
+    }
+<span class="pc bpc" id="L380" title="1 of 2 branches missed.">    if (getDocumentCategoriesOptions.onlyNegatedConcepts() != null) {</span>
+<span class="fc" id="L381">      builder.query(&quot;only_negated_concepts&quot;, String.valueOf(getDocumentCategoriesOptions.onlyNegatedConcepts()));</span>
+    }
+<span class="pc bpc" id="L383" title="1 of 2 branches missed.">    if (getDocumentCategoriesOptions.fields() != null) {</span>
+<span class="fc" id="L384">      builder.query(&quot;_fields&quot;, getDocumentCategoriesOptions.fields());</span>
+    }
+<span class="pc bpc" id="L386" title="1 of 2 branches missed.">    if (getDocumentCategoriesOptions.limit() != null) {</span>
+<span class="fc" id="L387">      builder.query(&quot;_limit&quot;, String.valueOf(getDocumentCategoriesOptions.limit()));</span>
+    }
+<span class="fc" id="L389">    ResponseConverter&lt;CategoriesModel&gt; responseConverter =</span>
+<span class="fc" id="L390">      ResponseConverterUtils.getValue(new com.google.gson.reflect.TypeToken&lt;CategoriesModel&gt;() { }.getType());</span>
+<span class="fc" id="L391">    return createServiceCall(builder.build(), responseConverter);</span>
+  }
+
+  /**
+   * Categorizes concepts in a document.
+   *
+   * The response returns multiple categorized lists of text passages in a document.  The sentences are grouped by
+   * concept with the matching concepts highlighted.&amp;lt;P&amp;gt;This API should be used to batch multiple categories in a
+   * single request to improve performance.&amp;lt;P&amp;gt;Example POST body:&amp;lt;pre&amp;gt;{
+   *  categories: [
+   *   {
+   *    name : 'disorders',
+   *    category : 'disorders'
+   *   },
+   *   {
+   *    name : 'drugs',
+   *    category : 'drugs'
+   *   },
+   *   {
+   *    name : 'genes',
+   *    category : 'genes'
+   *   },
+   *   {
+   *    name : 'negated',
+   *    category : 'negated'
+   *   },
+   *   {
+   *    name : 'finding','
+   *    types : ['Finding']
+   *   },
+   *  ]
+   * }
+   * &amp;lt;/pre&amp;gt;.
+   *
+   * @param getDocumentMultipleCategoriesOptions the {@link GetDocumentMultipleCategoriesOptions} containing the options for the call
+   * @return a {@link ServiceCall} with a result of type {@link CategoriesModel}
+   */
+  public ServiceCall&lt;CategoriesModel&gt; getDocumentMultipleCategories(GetDocumentMultipleCategoriesOptions getDocumentMultipleCategoriesOptions) {
+<span class="fc" id="L429">    com.ibm.cloud.sdk.core.util.Validator.notNull(getDocumentMultipleCategoriesOptions,</span>
+      &quot;getDocumentMultipleCategoriesOptions cannot be null&quot;);
+<span class="fc" id="L431">    String[] pathSegments = { &quot;v1/corpora&quot;, &quot;documents&quot;, &quot;categories&quot; };</span>
+<span class="fc" id="L432">    String[] pathParameters = { getDocumentMultipleCategoriesOptions.corpus(), getDocumentMultipleCategoriesOptions.documentId() };</span>
+<span class="fc" id="L433">    RequestBuilder builder = RequestBuilder.post(RequestBuilder.constructHttpUrl(getServiceUrl(), pathSegments, pathParameters));</span>
+<span class="fc" id="L434">    Map&lt;String, String&gt; sdkHeaders = SdkCommon.getSdkHeaders(&quot;insights_for_medical_literature_service&quot;, &quot;v1&quot;, &quot;getDocumentMultipleCategories&quot;);</span>
+<span class="fc bfc" id="L435" title="All 2 branches covered.">    for (Entry&lt;String, String&gt; header : sdkHeaders.entrySet()) {</span>
+<span class="fc" id="L436">      builder.header(header.getKey(), header.getValue());</span>
+<span class="fc" id="L437">    }</span>
+<span class="fc" id="L438">    builder.header(&quot;Accept&quot;, &quot;application/json&quot;);</span>
+<span class="fc" id="L439">    builder.query(&quot;version&quot;, this.version);</span>
+<span class="pc bpc" id="L440" title="1 of 2 branches missed.">    if (getDocumentMultipleCategoriesOptions.highlightTagBegin() != null) {</span>
+<span class="fc" id="L441">      builder.query(&quot;highlight_tag_begin&quot;, getDocumentMultipleCategoriesOptions.highlightTagBegin());</span>
+    }
+<span class="pc bpc" id="L443" title="1 of 2 branches missed.">    if (getDocumentMultipleCategoriesOptions.highlightTagEnd() != null) {</span>
+<span class="fc" id="L444">      builder.query(&quot;highlight_tag_end&quot;, getDocumentMultipleCategoriesOptions.highlightTagEnd());</span>
+    }
+<span class="pc bpc" id="L446" title="1 of 2 branches missed.">    if (getDocumentMultipleCategoriesOptions.fields() != null) {</span>
+<span class="fc" id="L447">      builder.query(&quot;_fields&quot;, getDocumentMultipleCategoriesOptions.fields());</span>
+    }
+<span class="pc bpc" id="L449" title="1 of 2 branches missed.">    if (getDocumentMultipleCategoriesOptions.limit() != null) {</span>
+<span class="fc" id="L450">      builder.query(&quot;_limit&quot;, String.valueOf(getDocumentMultipleCategoriesOptions.limit()));</span>
+    }
+<span class="fc" id="L452">    final JsonObject contentJson = new JsonObject();</span>
+<span class="pc bpc" id="L453" title="1 of 2 branches missed.">    if (getDocumentMultipleCategoriesOptions.categories() != null) {</span>
+<span class="nc" id="L454">      contentJson.add(&quot;categories&quot;, com.ibm.cloud.sdk.core.util.GsonSingleton.getGson().toJsonTree(getDocumentMultipleCategoriesOptions.categories()));</span>
+    }
+<span class="fc" id="L456">    builder.bodyJson(contentJson);</span>
+<span class="fc" id="L457">    ResponseConverter&lt;CategoriesModel&gt; responseConverter =</span>
+<span class="fc" id="L458">      ResponseConverterUtils.getValue(new com.google.gson.reflect.TypeToken&lt;CategoriesModel&gt;() { }.getType());</span>
+<span class="fc" id="L459">    return createServiceCall(builder.build(), responseConverter);</span>
+  }
+
+  /**
+   * Finds concepts in a document matching a set of search concepts.
+   *
+   * Returns matching concepts and text passages. The sentences containing each concept are returned with the concept
+   * highlighted. &amp;lt;p&amp;gt;Extended annotations provide additional details for  each discrete search match detected in
+   * the document.  An iml-annotation-id attribute is added to each highlight tag which allows an application to easily
+   * show the annotation details when hovering over a text span.  The iml-annotation-id may also be used to color code
+   * the text spans.  The ibm_annotation-id is used as a key for the returned annotations. &amp;lt;p&amp;gt;For example, a
+   * search match on the concept &quot;Breast Carcinoma&quot; will have a class name &quot;iml-breast-carcinoma&quot; inserted in the
+   * highlight tag, and the returned annotations['umls-breast_carcinoma-hypothetical'] JSON field will contain the
+   * detailed annotation data: &amp;lt;pre&amp;gt;{
+   *  &quot;cui&quot;: &quot;C0678222&quot;
+   *  &quot;hypothetical&quot;: true
+   *  &quot;preferredName&quot;: &quot;Breast Carcinoma&quot;
+   *  &quot;semanticType&quot;: &quot;umls.NeoplasticProcess&quot;
+   *  &quot;source&quot;: &quot;umls&quot;
+   *  &quot;type&quot;: &quot;umls.NeoplasticProcess&quot;
+   * }
+   * &amp;lt;/pre&amp;gt;.
+   *
+   * @param getSearchMatchesOptions the {@link GetSearchMatchesOptions} containing the options for the call
+   * @return a {@link ServiceCall} with a result of type {@link SearchMatchesModel}
+   */
+  public ServiceCall&lt;SearchMatchesModel&gt; getSearchMatches(GetSearchMatchesOptions getSearchMatchesOptions) {
+<span class="fc" id="L486">    com.ibm.cloud.sdk.core.util.Validator.notNull(getSearchMatchesOptions,</span>
+      &quot;getSearchMatchesOptions cannot be null&quot;);
+<span class="fc" id="L488">    String[] pathSegments = { &quot;v1/corpora&quot;, &quot;documents&quot;, &quot;search_matches&quot; };</span>
+<span class="fc" id="L489">    String[] pathParameters = { getSearchMatchesOptions.corpus(), getSearchMatchesOptions.documentId() };</span>
+<span class="fc" id="L490">    RequestBuilder builder = RequestBuilder.get(RequestBuilder.constructHttpUrl(getServiceUrl(), pathSegments, pathParameters));</span>
+<span class="fc" id="L491">    Map&lt;String, String&gt; sdkHeaders = SdkCommon.getSdkHeaders(&quot;insights_for_medical_literature_service&quot;, &quot;v1&quot;, &quot;getSearchMatches&quot;);</span>
+<span class="fc bfc" id="L492" title="All 2 branches covered.">    for (Entry&lt;String, String&gt; header : sdkHeaders.entrySet()) {</span>
+<span class="fc" id="L493">      builder.header(header.getKey(), header.getValue());</span>
+<span class="fc" id="L494">    }</span>
+<span class="fc" id="L495">    builder.header(&quot;Accept&quot;, &quot;application/json&quot;);</span>
+<span class="fc" id="L496">    builder.query(&quot;version&quot;, this.version);</span>
+<span class="fc" id="L497">    builder.query(&quot;min_score&quot;, String.valueOf(getSearchMatchesOptions.minScore()));</span>
+<span class="pc bpc" id="L498" title="1 of 2 branches missed.">    if (getSearchMatchesOptions.cuis() != null) {</span>
+<span class="fc" id="L499">      builder.query(&quot;cuis&quot;, getSearchMatchesOptions.cuis());</span>
+    }
+<span class="pc bpc" id="L501" title="1 of 2 branches missed.">    if (getSearchMatchesOptions.text() != null) {</span>
+<span class="fc" id="L502">      builder.query(&quot;text&quot;, getSearchMatchesOptions.text());</span>
+    }
+<span class="pc bpc" id="L504" title="1 of 2 branches missed.">    if (getSearchMatchesOptions.types() != null) {</span>
+<span class="fc" id="L505">      builder.query(&quot;types&quot;, getSearchMatchesOptions.types());</span>
+    }
+<span class="pc bpc" id="L507" title="1 of 2 branches missed.">    if (getSearchMatchesOptions.attributes() != null) {</span>
+<span class="fc" id="L508">      builder.query(&quot;attributes&quot;, getSearchMatchesOptions.attributes());</span>
+    }
+<span class="pc bpc" id="L510" title="1 of 2 branches missed.">    if (getSearchMatchesOptions.values() != null) {</span>
+<span class="fc" id="L511">      builder.query(&quot;values&quot;, getSearchMatchesOptions.values());</span>
+    }
+<span class="pc bpc" id="L513" title="1 of 2 branches missed.">    if (getSearchMatchesOptions.nluRelations() != null) {</span>
+<span class="fc" id="L514">      builder.query(&quot;nlu_relations&quot;, getSearchMatchesOptions.nluRelations());</span>
+    }
+<span class="pc bpc" id="L516" title="1 of 2 branches missed.">    if (getSearchMatchesOptions.limit() != null) {</span>
+<span class="fc" id="L517">      builder.query(&quot;_limit&quot;, String.valueOf(getSearchMatchesOptions.limit()));</span>
+    }
+<span class="pc bpc" id="L519" title="1 of 2 branches missed.">    if (getSearchMatchesOptions.searchTagBegin() != null) {</span>
+<span class="fc" id="L520">      builder.query(&quot;search_tag_begin&quot;, getSearchMatchesOptions.searchTagBegin());</span>
+    }
+<span class="pc bpc" id="L522" title="1 of 2 branches missed.">    if (getSearchMatchesOptions.searchTagEnd() != null) {</span>
+<span class="fc" id="L523">      builder.query(&quot;search_tag_end&quot;, getSearchMatchesOptions.searchTagEnd());</span>
+    }
+<span class="pc bpc" id="L525" title="1 of 2 branches missed.">    if (getSearchMatchesOptions.relatedTagBegin() != null) {</span>
+<span class="fc" id="L526">      builder.query(&quot;related_tag_begin&quot;, getSearchMatchesOptions.relatedTagBegin());</span>
+    }
+<span class="pc bpc" id="L528" title="1 of 2 branches missed.">    if (getSearchMatchesOptions.relatedTagEnd() != null) {</span>
+<span class="fc" id="L529">      builder.query(&quot;related_tag_end&quot;, getSearchMatchesOptions.relatedTagEnd());</span>
+    }
+<span class="pc bpc" id="L531" title="1 of 2 branches missed.">    if (getSearchMatchesOptions.fields() != null) {</span>
+<span class="fc" id="L532">      builder.query(&quot;_fields&quot;, getSearchMatchesOptions.fields());</span>
+    }
+<span class="fc" id="L534">    ResponseConverter&lt;SearchMatchesModel&gt; responseConverter =</span>
+<span class="fc" id="L535">      ResponseConverterUtils.getValue(new com.google.gson.reflect.TypeToken&lt;SearchMatchesModel&gt;() { }.getType());</span>
+<span class="fc" id="L536">    return createServiceCall(builder.build(), responseConverter);</span>
+  }
+
+  /**
+   * Retrieves the available corpus names and configuration.
+   *
+   * The response returns an array of available corpus names and optionally includes detailed configuation parameters.
+   *
+   * @param getCorporaConfigOptions the {@link GetCorporaConfigOptions} containing the options for the call
+   * @return a {@link ServiceCall} with a result of type {@link CorporaConfig}
+   */
+  public ServiceCall&lt;CorporaConfig&gt; getCorporaConfig(GetCorporaConfigOptions getCorporaConfigOptions) {
+<span class="fc" id="L548">    String[] pathSegments = { &quot;v1/corpora&quot; };</span>
+<span class="fc" id="L549">    RequestBuilder builder = RequestBuilder.get(RequestBuilder.constructHttpUrl(getServiceUrl(), pathSegments));</span>
+<span class="fc" id="L550">    Map&lt;String, String&gt; sdkHeaders = SdkCommon.getSdkHeaders(&quot;insights_for_medical_literature_service&quot;, &quot;v1&quot;, &quot;getCorporaConfig&quot;);</span>
+<span class="fc bfc" id="L551" title="All 2 branches covered.">    for (Entry&lt;String, String&gt; header : sdkHeaders.entrySet()) {</span>
+<span class="fc" id="L552">      builder.header(header.getKey(), header.getValue());</span>
+<span class="fc" id="L553">    }</span>
+<span class="fc" id="L554">    builder.header(&quot;Accept&quot;, &quot;application/json&quot;);</span>
+<span class="pc bpc" id="L555" title="1 of 2 branches missed.">    if (getCorporaConfigOptions != null) {</span>
+<span class="fc" id="L556">      builder.query(&quot;version&quot;, this.version);</span>
+<span class="pc bpc" id="L557" title="1 of 2 branches missed.">      if (getCorporaConfigOptions.verbose() != null) {</span>
+<span class="fc" id="L558">        builder.query(&quot;verbose&quot;, String.valueOf(getCorporaConfigOptions.verbose()));</span>
+      }
+    }
+<span class="fc" id="L561">    ResponseConverter&lt;CorporaConfig&gt; responseConverter =</span>
+<span class="fc" id="L562">      ResponseConverterUtils.getValue(new com.google.gson.reflect.TypeToken&lt;CorporaConfig&gt;() { }.getType());</span>
+<span class="fc" id="L563">    return createServiceCall(builder.build(), responseConverter);</span>
+  }
+
+  /**
+   * Retrieves the available corpus names and configuration.
+   *
+   * The response returns an array of available corpus names and optionally includes detailed configuation parameters.
+   *
+   * @return a {@link ServiceCall} with a result of type {@link CorporaConfig}
+   */
+  public ServiceCall&lt;CorporaConfig&gt; getCorporaConfig() {
+<span class="nc" id="L574">    return getCorporaConfig(null);</span>
+  }
+
+  /**
+   * Define service repository data model.
+   *
+   * The response returns whether the instance schema was properly created.  &amp;lt;P&amp;gt;This API should be used for
+   * defining a custom corpus schema.&amp;lt;P&amp;gt;Example POST body:&amp;lt;pre&amp;gt;{
+   *    corpusName : 'string'
+   *   &quot;enrichmentTargets&quot; : [
+   *    {
+   *     &quot;contentField&quot;: 'string',
+   *     &quot;enrichmentField : 'string'
+   *    }
+   *   ],
+   *   &quot;metadataFields&quot; : [
+   *    {
+   *     &quot;fieldName&quot;: 'string',
+   *     &quot;fieldType : 'string'
+   *    }
+   *   ],
+   *   &quot;referenceIndices&quot; : {
+   *    &quot;dictionaryIndex&quot; : &quot;my_umls&quot;,
+   *    &quot;attributeIndex&quot; : &quot;my_attributes&quot;,
+   *    &quot;meshIndex&quot; : &quot;my_mesh&quot;,
+   *   }
+   * }
+   * &amp;lt;/pre&amp;gt;.
+   *
+   * @param setCorpusSchemaOptions the {@link SetCorpusSchemaOptions} containing the options for the call
+   * @return a {@link ServiceCall} with a result of type {@link CorporaConfig}
+   */
+  public ServiceCall&lt;CorporaConfig&gt; setCorpusSchema(SetCorpusSchemaOptions setCorpusSchemaOptions) {
+<span class="fc" id="L607">    com.ibm.cloud.sdk.core.util.Validator.notNull(setCorpusSchemaOptions,</span>
+      &quot;setCorpusSchemaOptions cannot be null&quot;);
+<span class="fc" id="L609">    String[] pathSegments = { &quot;v1/corpora&quot; };</span>
+<span class="fc" id="L610">    RequestBuilder builder = RequestBuilder.post(RequestBuilder.constructHttpUrl(getServiceUrl(), pathSegments));</span>
+<span class="fc" id="L611">    Map&lt;String, String&gt; sdkHeaders = SdkCommon.getSdkHeaders(&quot;insights_for_medical_literature_service&quot;, &quot;v1&quot;, &quot;setCorpusSchema&quot;);</span>
+<span class="fc bfc" id="L612" title="All 2 branches covered.">    for (Entry&lt;String, String&gt; header : sdkHeaders.entrySet()) {</span>
+<span class="fc" id="L613">      builder.header(header.getKey(), header.getValue());</span>
+<span class="fc" id="L614">    }</span>
+<span class="fc" id="L615">    builder.header(&quot;Accept&quot;, &quot;application/json&quot;);</span>
+<span class="fc" id="L616">    builder.query(&quot;version&quot;, this.version);</span>
+<span class="fc" id="L617">    final JsonObject contentJson = new JsonObject();</span>
+<span class="pc bpc" id="L618" title="1 of 2 branches missed.">    if (setCorpusSchemaOptions.enrichmentTargets() != null) {</span>
+<span class="fc" id="L619">      contentJson.add(&quot;enrichmentTargets&quot;, com.ibm.cloud.sdk.core.util.GsonSingleton.getGson().toJsonTree(setCorpusSchemaOptions.enrichmentTargets()));</span>
+    }
+<span class="pc bpc" id="L621" title="1 of 2 branches missed.">    if (setCorpusSchemaOptions.metadataFields() != null) {</span>
+<span class="fc" id="L622">      contentJson.add(&quot;metadataFields&quot;, com.ibm.cloud.sdk.core.util.GsonSingleton.getGson().toJsonTree(setCorpusSchemaOptions.metadataFields()));</span>
+    }
+<span class="pc bpc" id="L624" title="1 of 2 branches missed.">    if (setCorpusSchemaOptions.corpusName() != null) {</span>
+<span class="fc" id="L625">      contentJson.addProperty(&quot;corpusName&quot;, setCorpusSchemaOptions.corpusName());</span>
+    }
+<span class="pc bpc" id="L627" title="1 of 2 branches missed.">    if (setCorpusSchemaOptions.references() != null) {</span>
+<span class="fc" id="L628">      contentJson.add(&quot;references&quot;, com.ibm.cloud.sdk.core.util.GsonSingleton.getGson().toJsonTree(setCorpusSchemaOptions.references()));</span>
+    }
+<span class="fc" id="L630">    builder.bodyJson(contentJson);</span>
+<span class="fc" id="L631">    ResponseConverter&lt;CorporaConfig&gt; responseConverter =</span>
+<span class="fc" id="L632">      ResponseConverterUtils.getValue(new com.google.gson.reflect.TypeToken&lt;CorporaConfig&gt;() { }.getType());</span>
+<span class="fc" id="L633">    return createServiceCall(builder.build(), responseConverter);</span>
+  }
+
+  /**
+   * Define service repository data model.
+   *
+   * The response returns whether the instance schema was properly created.  &amp;lt;P&amp;gt;This API should be used for
+   * defining a custom corpus schema.&amp;lt;P&amp;gt;Example POST body:&amp;lt;pre&amp;gt;{
+   *    corpusName : 'string'
+   *   &quot;enrichmentTargets&quot; : [
+   *    {
+   *     &quot;contentField&quot;: 'string',
+   *     &quot;enrichmentField : 'string'
+   *    }
+   *   ],
+   *   &quot;metadataFields&quot; : [
+   *    {
+   *     &quot;fieldName&quot;: 'string',
+   *     &quot;fieldType : 'string'
+   *    }
+   *   ],
+   *   &quot;referenceIndices&quot; : {
+   *    &quot;dictionaryIndex&quot; : &quot;my_umls&quot;,
+   *    &quot;attributeIndex&quot; : &quot;my_attributes&quot;,
+   *    &quot;meshIndex&quot; : &quot;my_mesh&quot;,
+   *   }
+   * }
+   * &amp;lt;/pre&amp;gt;.
+   *
+   * @return a {@link ServiceCall} with a result of type {@link CorporaConfig}
+   */
+  public ServiceCall&lt;CorporaConfig&gt; setCorpusSchema() {
+<span class="nc" id="L665">    return setCorpusSchema(null);</span>
+  }
+
+  /**
+   * Delete a corpus.
+   *
+   * The response returns whether the instance schema was properly deleted.
+   *
+   * @param deleteCorpusSchemaOptions the {@link DeleteCorpusSchemaOptions} containing the options for the call
+   * @return a {@link ServiceCall} with a result of type {@link CorporaConfig}
+   */
+  public ServiceCall&lt;CorporaConfig&gt; deleteCorpusSchema(DeleteCorpusSchemaOptions deleteCorpusSchemaOptions) {
+<span class="fc" id="L677">    com.ibm.cloud.sdk.core.util.Validator.notNull(deleteCorpusSchemaOptions,</span>
+      &quot;deleteCorpusSchemaOptions cannot be null&quot;);
+<span class="fc" id="L679">    String[] pathSegments = { &quot;v1/corpora&quot; };</span>
+<span class="fc" id="L680">    RequestBuilder builder = RequestBuilder.delete(RequestBuilder.constructHttpUrl(getServiceUrl(), pathSegments));</span>
+<span class="fc" id="L681">    Map&lt;String, String&gt; sdkHeaders = SdkCommon.getSdkHeaders(&quot;insights_for_medical_literature_service&quot;, &quot;v1&quot;, &quot;deleteCorpusSchema&quot;);</span>
+<span class="fc bfc" id="L682" title="All 2 branches covered.">    for (Entry&lt;String, String&gt; header : sdkHeaders.entrySet()) {</span>
+<span class="fc" id="L683">      builder.header(header.getKey(), header.getValue());</span>
+<span class="fc" id="L684">    }</span>
+<span class="fc" id="L685">    builder.header(&quot;Accept&quot;, &quot;application/json&quot;);</span>
+<span class="fc" id="L686">    builder.query(&quot;version&quot;, this.version);</span>
+<span class="fc" id="L687">    builder.query(&quot;instance&quot;, deleteCorpusSchemaOptions.instance());</span>
+<span class="fc" id="L688">    ResponseConverter&lt;CorporaConfig&gt; responseConverter =</span>
+<span class="fc" id="L689">      ResponseConverterUtils.getValue(new com.google.gson.reflect.TypeToken&lt;CorporaConfig&gt;() { }.getType());</span>
+<span class="fc" id="L690">    return createServiceCall(builder.build(), responseConverter);</span>
+  }
+
+  /**
+   * Define service repository.
+   *
+   * The response returns whether the service successfully connected to the specified repository.  &amp;lt;P&amp;gt;This API
+   * should be used for providing a custom enriched corpus.&amp;lt;P&amp;gt;Example POST body:&amp;lt;pre&amp;gt;{
+   *    userName : 'string',
+   *    password : 'string'
+   *    repositoryUri : 'uri'
+   * }
+   * &amp;lt;/pre&amp;gt;.
+   *
+   * @param setCorpusConfigOptions the {@link SetCorpusConfigOptions} containing the options for the call
+   * @return a {@link ServiceCall} with a result of type {@link CorporaConfig}
+   */
+  public ServiceCall&lt;CorporaConfig&gt; setCorpusConfig(SetCorpusConfigOptions setCorpusConfigOptions) {
+<span class="fc" id="L708">    com.ibm.cloud.sdk.core.util.Validator.notNull(setCorpusConfigOptions,</span>
+      &quot;setCorpusConfigOptions cannot be null&quot;);
+<span class="fc" id="L710">    String[] pathSegments = { &quot;v1/corpora/configure&quot; };</span>
+<span class="fc" id="L711">    RequestBuilder builder = RequestBuilder.post(RequestBuilder.constructHttpUrl(getServiceUrl(), pathSegments));</span>
+<span class="fc" id="L712">    Map&lt;String, String&gt; sdkHeaders = SdkCommon.getSdkHeaders(&quot;insights_for_medical_literature_service&quot;, &quot;v1&quot;, &quot;setCorpusConfig&quot;);</span>
+<span class="fc bfc" id="L713" title="All 2 branches covered.">    for (Entry&lt;String, String&gt; header : sdkHeaders.entrySet()) {</span>
+<span class="fc" id="L714">      builder.header(header.getKey(), header.getValue());</span>
+<span class="fc" id="L715">    }</span>
+<span class="fc" id="L716">    builder.header(&quot;Accept&quot;, &quot;application/json&quot;);</span>
+<span class="fc" id="L717">    builder.query(&quot;version&quot;, this.version);</span>
+<span class="fc" id="L718">    final JsonObject contentJson = new JsonObject();</span>
+<span class="pc bpc" id="L719" title="1 of 2 branches missed.">    if (setCorpusConfigOptions.userName() != null) {</span>
+<span class="fc" id="L720">      contentJson.addProperty(&quot;userName&quot;, setCorpusConfigOptions.userName());</span>
+    }
+<span class="pc bpc" id="L722" title="1 of 2 branches missed.">    if (setCorpusConfigOptions.password() != null) {</span>
+<span class="fc" id="L723">      contentJson.addProperty(&quot;password&quot;, setCorpusConfigOptions.password());</span>
+    }
+<span class="pc bpc" id="L725" title="1 of 2 branches missed.">    if (setCorpusConfigOptions.corpusUri() != null) {</span>
+<span class="fc" id="L726">      contentJson.addProperty(&quot;corpusURI&quot;, setCorpusConfigOptions.corpusUri());</span>
+    }
+<span class="fc" id="L728">    builder.bodyJson(contentJson);</span>
+<span class="fc" id="L729">    ResponseConverter&lt;CorporaConfig&gt; responseConverter =</span>
+<span class="fc" id="L730">      ResponseConverterUtils.getValue(new com.google.gson.reflect.TypeToken&lt;CorporaConfig&gt;() { }.getType());</span>
+<span class="fc" id="L731">    return createServiceCall(builder.build(), responseConverter);</span>
+  }
+
+  /**
+   * Define service repository.
+   *
+   * The response returns whether the service successfully connected to the specified repository.  &amp;lt;P&amp;gt;This API
+   * should be used for providing a custom enriched corpus.&amp;lt;P&amp;gt;Example POST body:&amp;lt;pre&amp;gt;{
+   *    userName : 'string',
+   *    password : 'string'
+   *    repositoryUri : 'uri'
+   * }
+   * &amp;lt;/pre&amp;gt;.
+   *
+   * @return a {@link ServiceCall} with a result of type {@link CorporaConfig}
+   */
+  public ServiceCall&lt;CorporaConfig&gt; setCorpusConfig() {
+<span class="nc" id="L748">    return setCorpusConfig(null);</span>
+  }
+
+  /**
+   * Enable monitoring for a custom instance.
+   *
+   * This API is meant to be used for IBM Cloud automated monitoring of custom plan instances.  A service api-key with
+   * read only role can be submitted to enable monitoring.
+   *
+   * @param monitorCorpusOptions the {@link MonitorCorpusOptions} containing the options for the call
+   * @return a {@link ServiceCall} with a void result
+   */
+  public ServiceCall&lt;Void&gt; monitorCorpus(MonitorCorpusOptions monitorCorpusOptions) {
+<span class="fc" id="L761">    com.ibm.cloud.sdk.core.util.Validator.notNull(monitorCorpusOptions,</span>
+      &quot;monitorCorpusOptions cannot be null&quot;);
+<span class="fc" id="L763">    String[] pathSegments = { &quot;v1/corpora/monitor&quot; };</span>
+<span class="fc" id="L764">    RequestBuilder builder = RequestBuilder.put(RequestBuilder.constructHttpUrl(getServiceUrl(), pathSegments));</span>
+<span class="fc" id="L765">    Map&lt;String, String&gt; sdkHeaders = SdkCommon.getSdkHeaders(&quot;insights_for_medical_literature_service&quot;, &quot;v1&quot;, &quot;monitorCorpus&quot;);</span>
+<span class="fc bfc" id="L766" title="All 2 branches covered.">    for (Entry&lt;String, String&gt; header : sdkHeaders.entrySet()) {</span>
+<span class="fc" id="L767">      builder.header(header.getKey(), header.getValue());</span>
+<span class="fc" id="L768">    }</span>
+<span class="fc" id="L769">    builder.query(&quot;version&quot;, this.version);</span>
+<span class="fc" id="L770">    builder.query(&quot;apikey&quot;, monitorCorpusOptions.apikey());</span>
+<span class="fc" id="L771">    ResponseConverter&lt;Void&gt; responseConverter = ResponseConverterUtils.getVoid();</span>
+<span class="fc" id="L772">    return createServiceCall(builder.build(), responseConverter);</span>
+  }
+
+  /**
+   * Toggle Search Activity Tracking.
+   *
+   * The response returns whether the tracking was enabled or disabled.
+   *
+   * @param enableCorpusSearchTrackingOptions the {@link EnableCorpusSearchTrackingOptions} containing the options for the call
+   * @return a {@link ServiceCall} with a void result
+   */
+  public ServiceCall&lt;Void&gt; enableCorpusSearchTracking(EnableCorpusSearchTrackingOptions enableCorpusSearchTrackingOptions) {
+<span class="fc" id="L784">    String[] pathSegments = { &quot;v1/corpora/tracking&quot; };</span>
+<span class="fc" id="L785">    RequestBuilder builder = RequestBuilder.put(RequestBuilder.constructHttpUrl(getServiceUrl(), pathSegments));</span>
+<span class="fc" id="L786">    Map&lt;String, String&gt; sdkHeaders = SdkCommon.getSdkHeaders(&quot;insights_for_medical_literature_service&quot;, &quot;v1&quot;, &quot;enableCorpusSearchTracking&quot;);</span>
+<span class="fc bfc" id="L787" title="All 2 branches covered.">    for (Entry&lt;String, String&gt; header : sdkHeaders.entrySet()) {</span>
+<span class="fc" id="L788">      builder.header(header.getKey(), header.getValue());</span>
+<span class="fc" id="L789">    }</span>
+<span class="pc bpc" id="L790" title="1 of 2 branches missed.">    if (enableCorpusSearchTrackingOptions != null) {</span>
+<span class="fc" id="L791">      builder.query(&quot;version&quot;, this.version);</span>
+<span class="pc bpc" id="L792" title="1 of 2 branches missed.">      if (enableCorpusSearchTrackingOptions.enableTracking() != null) {</span>
+<span class="fc" id="L793">        builder.query(&quot;enable_tracking&quot;, String.valueOf(enableCorpusSearchTrackingOptions.enableTracking()));</span>
+      }
+    }
+<span class="fc" id="L796">    ResponseConverter&lt;Void&gt; responseConverter = ResponseConverterUtils.getVoid();</span>
+<span class="fc" id="L797">    return createServiceCall(builder.build(), responseConverter);</span>
+  }
+
+  /**
+   * Toggle Search Activity Tracking.
+   *
+   * The response returns whether the tracking was enabled or disabled.
+   *
+   * @return a {@link ServiceCall} with a void result
+   */
+  public ServiceCall&lt;Void&gt; enableCorpusSearchTracking() {
+<span class="nc" id="L808">    return enableCorpusSearchTracking(null);</span>
+  }
+
+  /**
+   * Retrieves the corpus configuration.
+   *
+   * The response returns the corpus configuration.
+   *
+   * @param getCorpusConfigOptions the {@link GetCorpusConfigOptions} containing the options for the call
+   * @return a {@link ServiceCall} with a result of type {@link CorporaConfig}
+   */
+  public ServiceCall&lt;CorporaConfig&gt; getCorpusConfig(GetCorpusConfigOptions getCorpusConfigOptions) {
+<span class="fc" id="L820">    com.ibm.cloud.sdk.core.util.Validator.notNull(getCorpusConfigOptions,</span>
+      &quot;getCorpusConfigOptions cannot be null&quot;);
+<span class="fc" id="L822">    String[] pathSegments = { &quot;v1/corpora&quot; };</span>
+<span class="fc" id="L823">    String[] pathParameters = { getCorpusConfigOptions.corpus() };</span>
+<span class="fc" id="L824">    RequestBuilder builder = RequestBuilder.get(RequestBuilder.constructHttpUrl(getServiceUrl(), pathSegments, pathParameters));</span>
+<span class="fc" id="L825">    Map&lt;String, String&gt; sdkHeaders = SdkCommon.getSdkHeaders(&quot;insights_for_medical_literature_service&quot;, &quot;v1&quot;, &quot;getCorpusConfig&quot;);</span>
+<span class="fc bfc" id="L826" title="All 2 branches covered.">    for (Entry&lt;String, String&gt; header : sdkHeaders.entrySet()) {</span>
+<span class="fc" id="L827">      builder.header(header.getKey(), header.getValue());</span>
+<span class="fc" id="L828">    }</span>
+<span class="fc" id="L829">    builder.header(&quot;Accept&quot;, &quot;application/json&quot;);</span>
+<span class="fc" id="L830">    builder.query(&quot;version&quot;, this.version);</span>
+<span class="pc bpc" id="L831" title="1 of 2 branches missed.">    if (getCorpusConfigOptions.verbose() != null) {</span>
+<span class="fc" id="L832">      builder.query(&quot;verbose&quot;, String.valueOf(getCorpusConfigOptions.verbose()));</span>
+    }
+<span class="fc" id="L834">    ResponseConverter&lt;CorporaConfig&gt; responseConverter =</span>
+<span class="fc" id="L835">      ResponseConverterUtils.getValue(new com.google.gson.reflect.TypeToken&lt;CorporaConfig&gt;() { }.getType());</span>
+<span class="fc" id="L836">    return createServiceCall(builder.build(), responseConverter);</span>
+  }
+
+  /**
+   * Retrieves statistics for a corpus.
+   *
+   * The response returns internal statistics for the corpus.
+   *
+   * @param getStatisticsOptions the {@link GetStatisticsOptions} containing the options for the call
+   * @return a {@link ServiceCall} with a result of type {@link StatisticsModel}
+   */
+  public ServiceCall&lt;StatisticsModel&gt; getStatistics(GetStatisticsOptions getStatisticsOptions) {
+<span class="fc" id="L848">    com.ibm.cloud.sdk.core.util.Validator.notNull(getStatisticsOptions,</span>
+      &quot;getStatisticsOptions cannot be null&quot;);
+<span class="fc" id="L850">    String[] pathSegments = { &quot;v1/corpora&quot;, &quot;statistics&quot; };</span>
+<span class="fc" id="L851">    String[] pathParameters = { getStatisticsOptions.corpus() };</span>
+<span class="fc" id="L852">    RequestBuilder builder = RequestBuilder.get(RequestBuilder.constructHttpUrl(getServiceUrl(), pathSegments, pathParameters));</span>
+<span class="fc" id="L853">    Map&lt;String, String&gt; sdkHeaders = SdkCommon.getSdkHeaders(&quot;insights_for_medical_literature_service&quot;, &quot;v1&quot;, &quot;getStatistics&quot;);</span>
+<span class="fc bfc" id="L854" title="All 2 branches covered.">    for (Entry&lt;String, String&gt; header : sdkHeaders.entrySet()) {</span>
+<span class="fc" id="L855">      builder.header(header.getKey(), header.getValue());</span>
+<span class="fc" id="L856">    }</span>
+<span class="fc" id="L857">    builder.header(&quot;Accept&quot;, &quot;application/json&quot;);</span>
+<span class="fc" id="L858">    builder.query(&quot;version&quot;, this.version);</span>
+<span class="fc" id="L859">    ResponseConverter&lt;StatisticsModel&gt; responseConverter =</span>
+<span class="fc" id="L860">      ResponseConverterUtils.getValue(new com.google.gson.reflect.TypeToken&lt;StatisticsModel&gt;() { }.getType());</span>
+<span class="fc" id="L861">    return createServiceCall(builder.build(), responseConverter);</span>
+  }
+
+  /**
+   * Get status of service.
+   *
+   * @param getServiceStatusOptions the {@link GetServiceStatusOptions} containing the options for the call
+   * @return a {@link ServiceCall} with a result of type {@link ServiceStatus}
+   */
+  public ServiceCall&lt;ServiceStatus&gt; getServiceStatus(GetServiceStatusOptions getServiceStatusOptions) {
+<span class="fc" id="L871">    String[] pathSegments = { &quot;v1/status&quot; };</span>
+<span class="fc" id="L872">    RequestBuilder builder = RequestBuilder.get(RequestBuilder.constructHttpUrl(getServiceUrl(), pathSegments));</span>
+<span class="fc" id="L873">    Map&lt;String, String&gt; sdkHeaders = SdkCommon.getSdkHeaders(&quot;insights_for_medical_literature_service&quot;, &quot;v1&quot;, &quot;getServiceStatus&quot;);</span>
+<span class="fc bfc" id="L874" title="All 2 branches covered.">    for (Entry&lt;String, String&gt; header : sdkHeaders.entrySet()) {</span>
+<span class="fc" id="L875">      builder.header(header.getKey(), header.getValue());</span>
+<span class="fc" id="L876">    }</span>
+<span class="pc bpc" id="L877" title="1 of 2 branches missed.">    if (getServiceStatusOptions != null) {</span>
+<span class="pc bpc" id="L878" title="1 of 2 branches missed.">      if (getServiceStatusOptions.accept() != null) {</span>
+<span class="fc" id="L879">        builder.header(&quot;Accept&quot;, getServiceStatusOptions.accept());</span>
+      }
+<span class="pc bpc" id="L881" title="1 of 2 branches missed.">      if (getServiceStatusOptions.format() != null) {</span>
+<span class="fc" id="L882">        builder.query(&quot;format&quot;, getServiceStatusOptions.format());</span>
+      }
+<span class="pc bpc" id="L884" title="1 of 2 branches missed.">      if (getServiceStatusOptions.livenessCheck() != null) {</span>
+<span class="fc" id="L885">        builder.query(&quot;liveness_check&quot;, getServiceStatusOptions.livenessCheck());</span>
+      }
+    }
+<span class="fc" id="L888">    ResponseConverter&lt;ServiceStatus&gt; responseConverter =</span>
+<span class="fc" id="L889">      ResponseConverterUtils.getValue(new com.google.gson.reflect.TypeToken&lt;ServiceStatus&gt;() { }.getType());</span>
+<span class="fc" id="L890">    return createServiceCall(builder.build(), responseConverter);</span>
+  }
+
+  /**
+   * Get status of service.
+   *
+   * @return a {@link ServiceCall} with a result of type {@link ServiceStatus}
+   */
+  public ServiceCall&lt;ServiceStatus&gt; getServiceStatus() {
+<span class="nc" id="L899">    return getServiceStatus(null);</span>
+  }
+
+  /**
+   * Determine if service is running correctly.
+   *
+   * This resource differs from /status in that it will will always return a 500 error if the service state is not OK.
+   * This makes it simpler for service front ends (such as Datapower) to detect a failed service.
+   *
+   * @param getHealthCheckStatusOptions the {@link GetHealthCheckStatusOptions} containing the options for the call
+   * @return a {@link ServiceCall} with a result of type {@link ServiceStatus}
+   */
+  public ServiceCall&lt;ServiceStatus&gt; getHealthCheckStatus(GetHealthCheckStatusOptions getHealthCheckStatusOptions) {
+<span class="fc" id="L912">    String[] pathSegments = { &quot;v1/status/health_check&quot; };</span>
+<span class="fc" id="L913">    RequestBuilder builder = RequestBuilder.get(RequestBuilder.constructHttpUrl(getServiceUrl(), pathSegments));</span>
+<span class="fc" id="L914">    Map&lt;String, String&gt; sdkHeaders = SdkCommon.getSdkHeaders(&quot;insights_for_medical_literature_service&quot;, &quot;v1&quot;, &quot;getHealthCheckStatus&quot;);</span>
+<span class="fc bfc" id="L915" title="All 2 branches covered.">    for (Entry&lt;String, String&gt; header : sdkHeaders.entrySet()) {</span>
+<span class="fc" id="L916">      builder.header(header.getKey(), header.getValue());</span>
+<span class="fc" id="L917">    }</span>
+<span class="pc bpc" id="L918" title="1 of 2 branches missed.">    if (getHealthCheckStatusOptions != null) {</span>
+<span class="pc bpc" id="L919" title="1 of 2 branches missed.">      if (getHealthCheckStatusOptions.accept() != null) {</span>
+<span class="fc" id="L920">        builder.header(&quot;Accept&quot;, getHealthCheckStatusOptions.accept());</span>
+      }
+<span class="pc bpc" id="L922" title="1 of 2 branches missed.">      if (getHealthCheckStatusOptions.format() != null) {</span>
+<span class="fc" id="L923">        builder.query(&quot;format&quot;, getHealthCheckStatusOptions.format());</span>
+      }
+    }
+<span class="fc" id="L926">    ResponseConverter&lt;ServiceStatus&gt; responseConverter =</span>
+<span class="fc" id="L927">      ResponseConverterUtils.getValue(new com.google.gson.reflect.TypeToken&lt;ServiceStatus&gt;() { }.getType());</span>
+<span class="fc" id="L928">    return createServiceCall(builder.build(), responseConverter);</span>
+  }
+
+  /**
+   * Determine if service is running correctly.
+   *
+   * This resource differs from /status in that it will will always return a 500 error if the service state is not OK.
+   * This makes it simpler for service front ends (such as Datapower) to detect a failed service.
+   *
+   * @return a {@link ServiceCall} with a result of type {@link ServiceStatus}
+   */
+  public ServiceCall&lt;ServiceStatus&gt; getHealthCheckStatus() {
+<span class="nc" id="L940">    return getHealthCheckStatus(null);</span>
+  }
+
+  /**
+   * Search for concepts, documents, and authors.
+   *
+   * Features include:&amp;lt;ul&amp;gt;&amp;lt;li&amp;gt;Concept search&amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;Keyword
+   * search&amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;Attributes search&amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;Attributes typeahead&amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;Regular
+   * expressions&amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;Find passages&amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;Selecting authors&amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;Selecting
+   * providers&amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;Date ranges: publish
+   * date&amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;Pagination&amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;Aggregation: authors, concepts, and
+   * documents&amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;Document date histogram&amp;lt;/li&amp;gt;&amp;lt;/ul&amp;gt;.
+   *
+   * @param searchOptions the {@link SearchOptions} containing the options for the call
+   * @return a {@link ServiceCall} with a result of type {@link SearchModel}
+   */
+  public ServiceCall&lt;SearchModel&gt; search(SearchOptions searchOptions) {
+<span class="fc" id="L957">    com.ibm.cloud.sdk.core.util.Validator.notNull(searchOptions,</span>
+      &quot;searchOptions cannot be null&quot;);
+<span class="fc" id="L959">    String[] pathSegments = { &quot;v1/corpora&quot;, &quot;search&quot; };</span>
+<span class="fc" id="L960">    String[] pathParameters = { searchOptions.corpus() };</span>
+<span class="fc" id="L961">    RequestBuilder builder = RequestBuilder.post(RequestBuilder.constructHttpUrl(getServiceUrl(), pathSegments, pathParameters));</span>
+<span class="fc" id="L962">    Map&lt;String, String&gt; sdkHeaders = SdkCommon.getSdkHeaders(&quot;insights_for_medical_literature_service&quot;, &quot;v1&quot;, &quot;search&quot;);</span>
+<span class="fc bfc" id="L963" title="All 2 branches covered.">    for (Entry&lt;String, String&gt; header : sdkHeaders.entrySet()) {</span>
+<span class="fc" id="L964">      builder.header(header.getKey(), header.getValue());</span>
+<span class="fc" id="L965">    }</span>
+<span class="fc" id="L966">    builder.header(&quot;Accept&quot;, &quot;application/json&quot;);</span>
+<span class="fc" id="L967">    builder.query(&quot;version&quot;, this.version);</span>
+<span class="pc bpc" id="L968" title="1 of 2 branches missed.">    if (searchOptions.verbose() != null) {</span>
+<span class="fc" id="L969">      builder.query(&quot;verbose&quot;, String.valueOf(searchOptions.verbose()));</span>
+    }
+<span class="fc" id="L971">    final JsonObject contentJson = new JsonObject();</span>
+<span class="pc bpc" id="L972" title="1 of 2 branches missed.">    if (searchOptions.query() != null) {</span>
+<span class="nc" id="L973">    	contentJson.add(&quot;query&quot;, com.ibm.cloud.sdk.core.util.GsonSingleton.getGson().toJsonTree(searchOptions.query()));</span>
+    }
+<span class="fc" id="L975">    contentJson.add(&quot;returns&quot;, com.ibm.cloud.sdk.core.util.GsonSingleton.getGson().toJsonTree(searchOptions.returns()));</span>
+//    builder.bodyContent(com.ibm.cloud.sdk.core.util.GsonSingleton.getGsonWithoutPrettyPrinting().toJson(contentJson), &quot;application/json&quot;);
+<span class="fc" id="L977">    builder.bodyContent(com.ibm.cloud.sdk.core.util.GsonSingleton.getGsonWithoutPrettyPrinting().toJson(contentJson), &quot;application/json&quot;);</span>
+<span class="fc" id="L978">    ResponseConverter&lt;SearchModel&gt; responseConverter =</span>
+<span class="fc" id="L979">      ResponseConverterUtils.getValue(new com.google.gson.reflect.TypeToken&lt;SearchModel&gt;() { }.getType());</span>
+<span class="fc" id="L980">    return createServiceCall(builder.build(), responseConverter);</span>
+  }
+
+  /**
+   * Retrieves a list of metadata fields defined in the corpus.
+   *
+   * The response returns a list of metadata field names that can be used by the POST search API.
+   *
+   * @param getFieldsOptions the {@link GetFieldsOptions} containing the options for the call
+   * @return a {@link ServiceCall} with a result of type {@link MetadataModel}
+   */
+  public ServiceCall&lt;MetadataModel&gt; getFields(GetFieldsOptions getFieldsOptions) {
+<span class="fc" id="L992">    com.ibm.cloud.sdk.core.util.Validator.notNull(getFieldsOptions,</span>
+      &quot;getFieldsOptions cannot be null&quot;);
+<span class="fc" id="L994">    String[] pathSegments = { &quot;v1/corpora&quot;, &quot;search/metadata&quot; };</span>
+<span class="fc" id="L995">    String[] pathParameters = { getFieldsOptions.corpus() };</span>
+<span class="fc" id="L996">    RequestBuilder builder = RequestBuilder.get(RequestBuilder.constructHttpUrl(getServiceUrl(), pathSegments, pathParameters));</span>
+<span class="fc" id="L997">    Map&lt;String, String&gt; sdkHeaders = SdkCommon.getSdkHeaders(&quot;insights_for_medical_literature_service&quot;, &quot;v1&quot;, &quot;getFields&quot;);</span>
+<span class="fc bfc" id="L998" title="All 2 branches covered.">    for (Entry&lt;String, String&gt; header : sdkHeaders.entrySet()) {</span>
+<span class="fc" id="L999">      builder.header(header.getKey(), header.getValue());</span>
+<span class="fc" id="L1000">    }</span>
+<span class="fc" id="L1001">    builder.header(&quot;Accept&quot;, &quot;application/json&quot;);</span>
+<span class="fc" id="L1002">    builder.query(&quot;version&quot;, this.version);</span>
+<span class="fc" id="L1003">    ResponseConverter&lt;MetadataModel&gt; responseConverter =</span>
+<span class="fc" id="L1004">      ResponseConverterUtils.getValue(new com.google.gson.reflect.TypeToken&lt;MetadataModel&gt;() { }.getType());</span>
+<span class="fc" id="L1005">    return createServiceCall(builder.build(), responseConverter);</span>
+  }
+
+  /**
+   * Find concepts matching the specified query string.
+   *
+   * Searches concepts mentioned in the corpus looking for matches on the query string field. The comparison is not case
+   * sensitive. The main use of this method is to build query boxes that offer auto-complete, to allow users to select
+   * valid concepts.
+   *
+   * @param typeaheadOptions the {@link TypeaheadOptions} containing the options for the call
+   * @return a {@link ServiceCall} with a result of type {@link ConceptListModel}
+   */
+  public ServiceCall&lt;ConceptListModel&gt; typeahead(TypeaheadOptions typeaheadOptions) {
+<span class="fc" id="L1019">    com.ibm.cloud.sdk.core.util.Validator.notNull(typeaheadOptions,</span>
+      &quot;typeaheadOptions cannot be null&quot;);
+<span class="fc" id="L1021">    String[] pathSegments = { &quot;v1/corpora&quot;, &quot;search/typeahead&quot; };</span>
+<span class="fc" id="L1022">    String[] pathParameters = { typeaheadOptions.corpus() };</span>
+<span class="fc" id="L1023">    RequestBuilder builder = RequestBuilder.get(RequestBuilder.constructHttpUrl(getServiceUrl(), pathSegments, pathParameters));</span>
+<span class="fc" id="L1024">    Map&lt;String, String&gt; sdkHeaders = SdkCommon.getSdkHeaders(&quot;insights_for_medical_literature_service&quot;, &quot;v1&quot;, &quot;typeahead&quot;);</span>
+<span class="fc bfc" id="L1025" title="All 2 branches covered.">    for (Entry&lt;String, String&gt; header : sdkHeaders.entrySet()) {</span>
+<span class="fc" id="L1026">      builder.header(header.getKey(), header.getValue());</span>
+<span class="fc" id="L1027">    }</span>
+<span class="fc" id="L1028">    builder.header(&quot;Accept&quot;, &quot;application/json&quot;);</span>
+<span class="fc" id="L1029">    builder.query(&quot;version&quot;, this.version);</span>
+<span class="fc" id="L1030">    builder.query(&quot;query&quot;, typeaheadOptions.query());</span>
+<span class="pc bpc" id="L1031" title="1 of 2 branches missed.">    if (typeaheadOptions.ontologies() != null) {</span>
+<span class="fc" id="L1032">      builder.query(&quot;ontologies&quot;, RequestUtils.join(typeaheadOptions.ontologies(), &quot;,&quot;));</span>
+    }
+<span class="pc bpc" id="L1034" title="1 of 2 branches missed.">    if (typeaheadOptions.types() != null) {</span>
+<span class="fc" id="L1035">      builder.query(&quot;types&quot;, RequestUtils.join(typeaheadOptions.types(), &quot;,&quot;));</span>
+    }
+<span class="pc bpc" id="L1037" title="1 of 2 branches missed.">    if (typeaheadOptions.category() != null) {</span>
+<span class="fc" id="L1038">      builder.query(&quot;category&quot;, typeaheadOptions.category());</span>
+    }
+<span class="pc bpc" id="L1040" title="1 of 2 branches missed.">    if (typeaheadOptions.verbose() != null) {</span>
+<span class="fc" id="L1041">      builder.query(&quot;verbose&quot;, String.valueOf(typeaheadOptions.verbose()));</span>
+    }
+<span class="pc bpc" id="L1043" title="1 of 2 branches missed.">    if (typeaheadOptions.limit() != null) {</span>
+<span class="fc" id="L1044">      builder.query(&quot;_limit&quot;, String.valueOf(typeaheadOptions.limit()));</span>
+    }
+<span class="pc bpc" id="L1046" title="1 of 2 branches missed.">    if (typeaheadOptions.maxHitCount() != null) {</span>
+<span class="fc" id="L1047">      builder.query(&quot;max_hit_count&quot;, String.valueOf(typeaheadOptions.maxHitCount()));</span>
+    }
+<span class="pc bpc" id="L1049" title="1 of 2 branches missed.">    if (typeaheadOptions.noDuplicates() != null) {</span>
+<span class="fc" id="L1050">      builder.query(&quot;no_duplicates&quot;, String.valueOf(typeaheadOptions.noDuplicates()));</span>
+    }
+<span class="fc" id="L1052">    ResponseConverter&lt;ConceptListModel&gt; responseConverter =</span>
+<span class="fc" id="L1053">      ResponseConverterUtils.getValue(new com.google.gson.reflect.TypeToken&lt;ConceptListModel&gt;() { }.getType());</span>
+<span class="fc" id="L1054">    return createServiceCall(builder.build(), responseConverter);</span>
+  }
+
+  /**
+   * Retrieves information for concepts mentioned in this corpus.
+   *
+   * The response returns concepts mentioned in this corpus.  The returned concepts may be selected by CUI, preferred
+   * name, suface forms and attribute name.  All selected concepts are returned.
+   *
+   * @param getConceptsOptions the {@link GetConceptsOptions} containing the options for the call
+   * @return a {@link ServiceCall} with a result of type {@link ConceptListModel}
+   */
+  public ServiceCall&lt;ConceptListModel&gt; getConcepts(GetConceptsOptions getConceptsOptions) {
+<span class="fc" id="L1067">    com.ibm.cloud.sdk.core.util.Validator.notNull(getConceptsOptions,</span>
+      &quot;getConceptsOptions cannot be null&quot;);
+<span class="fc" id="L1069">    String[] pathSegments = { &quot;v1/corpora&quot;, &quot;concepts&quot; };</span>
+<span class="fc" id="L1070">    String[] pathParameters = { getConceptsOptions.corpus() };</span>
+<span class="fc" id="L1071">    RequestBuilder builder = RequestBuilder.get(RequestBuilder.constructHttpUrl(getServiceUrl(), pathSegments, pathParameters));</span>
+<span class="fc" id="L1072">    Map&lt;String, String&gt; sdkHeaders = SdkCommon.getSdkHeaders(&quot;insights_for_medical_literature_service&quot;, &quot;v1&quot;, &quot;getConcepts&quot;);</span>
+<span class="fc bfc" id="L1073" title="All 2 branches covered.">    for (Entry&lt;String, String&gt; header : sdkHeaders.entrySet()) {</span>
+<span class="fc" id="L1074">      builder.header(header.getKey(), header.getValue());</span>
+<span class="fc" id="L1075">    }</span>
+<span class="fc" id="L1076">    builder.header(&quot;Accept&quot;, &quot;application/json&quot;);</span>
+<span class="fc" id="L1077">    builder.query(&quot;version&quot;, this.version);</span>
+<span class="pc bpc" id="L1078" title="1 of 2 branches missed.">    if (getConceptsOptions.cuis() != null) {</span>
+<span class="fc" id="L1079">      builder.query(&quot;cuis&quot;, RequestUtils.join(getConceptsOptions.cuis(), &quot;,&quot;));</span>
+    }
+<span class="pc bpc" id="L1081" title="1 of 2 branches missed.">    if (getConceptsOptions.preferredNames() != null) {</span>
+<span class="fc" id="L1082">      builder.query(&quot;preferred_names&quot;, RequestUtils.join(getConceptsOptions.preferredNames(), &quot;,&quot;));</span>
+    }
+<span class="pc bpc" id="L1084" title="1 of 2 branches missed.">    if (getConceptsOptions.surfaceForms() != null) {</span>
+<span class="fc" id="L1085">      builder.query(&quot;surface_forms&quot;, RequestUtils.join(getConceptsOptions.surfaceForms(), &quot;,&quot;));</span>
+    }
+<span class="pc bpc" id="L1087" title="1 of 2 branches missed.">    if (getConceptsOptions.attributes() != null) {</span>
+<span class="fc" id="L1088">      builder.query(&quot;attributes&quot;, RequestUtils.join(getConceptsOptions.attributes(), &quot;,&quot;));</span>
+    }
+<span class="pc bpc" id="L1090" title="1 of 2 branches missed.">    if (getConceptsOptions.verbose() != null) {</span>
+<span class="fc" id="L1091">      builder.query(&quot;verbose&quot;, String.valueOf(getConceptsOptions.verbose()));</span>
+    }
+<span class="pc bpc" id="L1093" title="1 of 2 branches missed.">    if (getConceptsOptions.sort() != null) {</span>
+<span class="fc" id="L1094">      builder.query(&quot;_sort&quot;, getConceptsOptions.sort());</span>
+    }
+<span class="pc bpc" id="L1096" title="1 of 2 branches missed.">    if (getConceptsOptions.limit() != null) {</span>
+<span class="fc" id="L1097">      builder.query(&quot;_limit&quot;, String.valueOf(getConceptsOptions.limit()));</span>
+    }
+<span class="fc" id="L1099">    ResponseConverter&lt;ConceptListModel&gt; responseConverter =</span>
+<span class="fc" id="L1100">      ResponseConverterUtils.getValue(new com.google.gson.reflect.TypeToken&lt;ConceptListModel&gt;() { }.getType());</span>
+<span class="fc" id="L1101">    return createServiceCall(builder.build(), responseConverter);</span>
+  }
+
+  /**
+   * Add cartridge artifact.
+   *
+   * @param addArtifactOptions the {@link AddArtifactOptions} containing the options for the call
+   * @return a {@link ServiceCall} with a void result
+   */
+  public ServiceCall&lt;Void&gt; addArtifact(AddArtifactOptions addArtifactOptions) {
+<span class="fc" id="L1111">    com.ibm.cloud.sdk.core.util.Validator.notNull(addArtifactOptions,</span>
+      &quot;addArtifactOptions cannot be null&quot;);
+<span class="fc" id="L1113">    String[] pathSegments = { &quot;v1/corpora&quot;, &quot;concepts/definitions&quot; };</span>
+<span class="fc" id="L1114">    String[] pathParameters = { addArtifactOptions.corpus() };</span>
+<span class="fc" id="L1115">    RequestBuilder builder = RequestBuilder.post(RequestBuilder.constructHttpUrl(getServiceUrl(), pathSegments, pathParameters));</span>
+<span class="fc" id="L1116">    Map&lt;String, String&gt; sdkHeaders = SdkCommon.getSdkHeaders(&quot;insights_for_medical_literature_service&quot;, &quot;v1&quot;, &quot;addArtifact&quot;);</span>
+<span class="fc bfc" id="L1117" title="All 2 branches covered.">    for (Entry&lt;String, String&gt; header : sdkHeaders.entrySet()) {</span>
+<span class="fc" id="L1118">      builder.header(header.getKey(), header.getValue());</span>
+<span class="fc" id="L1119">    }</span>
+<span class="fc" id="L1120">    builder.query(&quot;version&quot;, this.version);</span>
+<span class="fc" id="L1121">    final JsonObject contentJson = new JsonObject();</span>
+<span class="pc bpc" id="L1122" title="1 of 2 branches missed.">    if (addArtifactOptions.dictionaryEntry() != null) {</span>
+<span class="fc" id="L1123">      contentJson.add(&quot;dictionaryEntry&quot;, com.ibm.cloud.sdk.core.util.GsonSingleton.getGson().toJsonTree(addArtifactOptions.dictionaryEntry()));</span>
+    }
+<span class="pc bpc" id="L1125" title="1 of 2 branches missed.">    if (addArtifactOptions.attributeEntry() != null) {</span>
+<span class="fc" id="L1126">      contentJson.add(&quot;attributeEntry&quot;, com.ibm.cloud.sdk.core.util.GsonSingleton.getGson().toJsonTree(addArtifactOptions.attributeEntry()));</span>
+    }
+<span class="fc" id="L1128">    builder.bodyJson(contentJson);</span>
+<span class="fc" id="L1129">    ResponseConverter&lt;Void&gt; responseConverter = ResponseConverterUtils.getVoid();</span>
+<span class="fc" id="L1130">    return createServiceCall(builder.build(), responseConverter);</span>
+  }
+
+  /**
+   * Retrieve information for a concept.
+   *
+   * The followning fields may be retrieved: &amp;lt;ul&amp;gt;&amp;lt;li&amp;gt;Preferred name&amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;Semantic
+   * types&amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;Surface forms - Ontology Dictionary names for this concept&amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;Definition
+   * - Concept definition (if available)&amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;Related Concepts info&amp;lt;/li&amp;gt;&amp;lt;/ul&amp;gt;&amp;lt;P&amp;gt;The
+   * default is to return all fields.  Individual fields may be selected using the '_fields' query parameter.
+   *
+   * @param getCuiInfoOptions the {@link GetCuiInfoOptions} containing the options for the call
+   * @return a {@link ServiceCall} with a result of type {@link ConceptInfoModel}
+   */
+  public ServiceCall&lt;ConceptInfoModel&gt; getCuiInfo(GetCuiInfoOptions getCuiInfoOptions) {
+<span class="fc" id="L1145">    com.ibm.cloud.sdk.core.util.Validator.notNull(getCuiInfoOptions,</span>
+      &quot;getCuiInfoOptions cannot be null&quot;);
+<span class="fc" id="L1147">    String[] pathSegments = { &quot;v1/corpora&quot;, &quot;concepts&quot; };</span>
+<span class="fc" id="L1148">    String[] pathParameters = { getCuiInfoOptions.corpus(), getCuiInfoOptions.nameOrId() };</span>
+<span class="fc" id="L1149">    RequestBuilder builder = RequestBuilder.get(RequestBuilder.constructHttpUrl(getServiceUrl(), pathSegments, pathParameters));</span>
+<span class="fc" id="L1150">    Map&lt;String, String&gt; sdkHeaders = SdkCommon.getSdkHeaders(&quot;insights_for_medical_literature_service&quot;, &quot;v1&quot;, &quot;getCuiInfo&quot;);</span>
+<span class="fc bfc" id="L1151" title="All 2 branches covered.">    for (Entry&lt;String, String&gt; header : sdkHeaders.entrySet()) {</span>
+<span class="fc" id="L1152">      builder.header(header.getKey(), header.getValue());</span>
+<span class="fc" id="L1153">    }</span>
+<span class="fc" id="L1154">    builder.header(&quot;Accept&quot;, &quot;application/json&quot;);</span>
+<span class="fc" id="L1155">    builder.query(&quot;version&quot;, this.version);</span>
+<span class="pc bpc" id="L1156" title="1 of 2 branches missed.">    if (getCuiInfoOptions.ontology() != null) {</span>
+<span class="fc" id="L1157">      builder.query(&quot;ontology&quot;, getCuiInfoOptions.ontology());</span>
+    }
+<span class="pc bpc" id="L1159" title="1 of 2 branches missed.">    if (getCuiInfoOptions.fields() != null) {</span>
+<span class="fc" id="L1160">      builder.query(&quot;_fields&quot;, getCuiInfoOptions.fields());</span>
+    }
+<span class="pc bpc" id="L1162" title="1 of 2 branches missed.">    if (getCuiInfoOptions.treeLayout() != null) {</span>
+<span class="fc" id="L1163">      builder.query(&quot;tree_layout&quot;, String.valueOf(getCuiInfoOptions.treeLayout()));</span>
+    }
+<span class="fc" id="L1165">    ResponseConverter&lt;ConceptInfoModel&gt; responseConverter =</span>
+<span class="fc" id="L1166">      ResponseConverterUtils.getValue(new com.google.gson.reflect.TypeToken&lt;ConceptInfoModel&gt;() { }.getType());</span>
+<span class="fc" id="L1167">    return createServiceCall(builder.build(), responseConverter);</span>
+  }
+
+  /**
+   * Retrieves a count of the number of times a concept is mentioned in the corpus.
+   *
+   * The response returns the number of times a concept is mentioned (hit count) in the corpus.
+   *
+   * @param getHitCountOptions the {@link GetHitCountOptions} containing the options for the call
+   * @return a {@link ServiceCall} with a result of type {@link HitCount}
+   */
+  public ServiceCall&lt;HitCount&gt; getHitCount(GetHitCountOptions getHitCountOptions) {
+<span class="fc" id="L1179">    com.ibm.cloud.sdk.core.util.Validator.notNull(getHitCountOptions,</span>
+      &quot;getHitCountOptions cannot be null&quot;);
+<span class="fc" id="L1181">    String[] pathSegments = { &quot;v1/corpora&quot;, &quot;concepts&quot;, &quot;hit_count&quot; };</span>
+<span class="fc" id="L1182">    String[] pathParameters = { getHitCountOptions.corpus(), getHitCountOptions.nameOrId() };</span>
+<span class="fc" id="L1183">    RequestBuilder builder = RequestBuilder.get(RequestBuilder.constructHttpUrl(getServiceUrl(), pathSegments, pathParameters));</span>
+<span class="fc" id="L1184">    Map&lt;String, String&gt; sdkHeaders = SdkCommon.getSdkHeaders(&quot;insights_for_medical_literature_service&quot;, &quot;v1&quot;, &quot;getHitCount&quot;);</span>
+<span class="fc bfc" id="L1185" title="All 2 branches covered.">    for (Entry&lt;String, String&gt; header : sdkHeaders.entrySet()) {</span>
+<span class="fc" id="L1186">      builder.header(header.getKey(), header.getValue());</span>
+<span class="fc" id="L1187">    }</span>
+<span class="fc" id="L1188">    builder.header(&quot;Accept&quot;, &quot;application/json&quot;);</span>
+<span class="fc" id="L1189">    builder.query(&quot;version&quot;, this.version);</span>
+<span class="pc bpc" id="L1190" title="1 of 2 branches missed.">    if (getHitCountOptions.ontology() != null) {</span>
+<span class="fc" id="L1191">      builder.query(&quot;ontology&quot;, getHitCountOptions.ontology());</span>
+    }
+<span class="fc" id="L1193">    ResponseConverter&lt;HitCount&gt; responseConverter =</span>
+<span class="fc" id="L1194">      ResponseConverterUtils.getValue(new com.google.gson.reflect.TypeToken&lt;HitCount&gt;() { }.getType());</span>
+<span class="fc" id="L1195">    return createServiceCall(builder.build(), responseConverter);</span>
+  }
+
+  /**
+   * Retrieve concepts related to a concept.
+   *
+   * Returns a list of related concepts mentioned in the specified corpus. The following relationships are suppored:
+   * &amp;lt;ul&amp;gt;&amp;lt;li&amp;gt;&amp;lt;b&amp;gt;children&amp;lt;/b&amp;gt; child concepts&amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;&amp;lt;b&amp;gt;parents&amp;lt;/b&amp;gt;
+   * parent concepts&amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;&amp;lt;b&amp;gt;siblings&amp;lt;/b&amp;gt; sibling
+   * concepts&amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;&amp;lt;b&amp;gt;synonyms&amp;lt;/b&amp;gt; synonym concepts&amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;&amp;lt;b&amp;gt;qualified
+   * by&amp;lt;/b&amp;gt; qualified by concepts&amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;&amp;lt;b&amp;gt;broader&amp;lt;/b&amp;gt; broader
+   * concepts&amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;&amp;lt;b&amp;gt;narrower&amp;lt;/b&amp;gt; narrower
+   * concepts&amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;&amp;lt;b&amp;gt;other&amp;lt;/b&amp;gt; other than synonyms, narrower or
+   * broader&amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;&amp;lt;b&amp;gt;related&amp;lt;/b&amp;gt; related and posibly synonymous
+   * concepts&amp;lt;/li&amp;gt;&amp;lt;/ul&amp;gt;&amp;lt;p&amp;gt;If the corpus path parameter can be set to 'umls' to look up relationship in
+   * the entire UMLS dictionary.  Otherwise, an actual corpus name may be specified to limit the output to only those
+   * concepts mentioned in a specific corpus.
+   *
+   * @param getRelatedConceptsOptions the {@link GetRelatedConceptsOptions} containing the options for the call
+   * @return a {@link ServiceCall} with a result of type {@link RelatedConceptsModel}
+   */
+  public ServiceCall&lt;RelatedConceptsModel&gt; getRelatedConcepts(GetRelatedConceptsOptions getRelatedConceptsOptions) {
+<span class="fc" id="L1217">    com.ibm.cloud.sdk.core.util.Validator.notNull(getRelatedConceptsOptions,</span>
+      &quot;getRelatedConceptsOptions cannot be null&quot;);
+<span class="fc" id="L1219">    String[] pathSegments = { &quot;v1/corpora&quot;, &quot;concepts&quot;, &quot;related_concepts&quot; };</span>
+<span class="fc" id="L1220">    String[] pathParameters = { getRelatedConceptsOptions.corpus(), getRelatedConceptsOptions.nameOrId() };</span>
+<span class="fc" id="L1221">    RequestBuilder builder = RequestBuilder.get(RequestBuilder.constructHttpUrl(getServiceUrl(), pathSegments, pathParameters));</span>
+<span class="fc" id="L1222">    Map&lt;String, String&gt; sdkHeaders = SdkCommon.getSdkHeaders(&quot;insights_for_medical_literature_service&quot;, &quot;v1&quot;, &quot;getRelatedConcepts&quot;);</span>
+<span class="fc bfc" id="L1223" title="All 2 branches covered.">    for (Entry&lt;String, String&gt; header : sdkHeaders.entrySet()) {</span>
+<span class="fc" id="L1224">      builder.header(header.getKey(), header.getValue());</span>
+<span class="fc" id="L1225">    }</span>
+<span class="fc" id="L1226">    builder.header(&quot;Accept&quot;, &quot;application/json&quot;);</span>
+<span class="fc" id="L1227">    builder.query(&quot;relationship&quot;, getRelatedConceptsOptions.relationship());</span>
+<span class="fc" id="L1228">    builder.query(&quot;version&quot;, this.version);</span>
+<span class="pc bpc" id="L1229" title="1 of 2 branches missed.">    if (getRelatedConceptsOptions.ontology() != null) {</span>
+<span class="fc" id="L1230">      builder.query(&quot;ontology&quot;, getRelatedConceptsOptions.ontology());</span>
+    }
+<span class="pc bpc" id="L1232" title="1 of 2 branches missed.">    if (getRelatedConceptsOptions.relationshipAttributes() != null) {</span>
+<span class="fc" id="L1233">      builder.query(&quot;relationship_attributes&quot;, RequestUtils.join(getRelatedConceptsOptions.relationshipAttributes(), &quot;,&quot;));</span>
+    }
+<span class="pc bpc" id="L1235" title="1 of 2 branches missed.">    if (getRelatedConceptsOptions.sources() != null) {</span>
+<span class="fc" id="L1236">      builder.query(&quot;sources&quot;, RequestUtils.join(getRelatedConceptsOptions.sources(), &quot;,&quot;));</span>
+    }
+<span class="pc bpc" id="L1238" title="1 of 2 branches missed.">    if (getRelatedConceptsOptions.recursive() != null) {</span>
+<span class="fc" id="L1239">      builder.query(&quot;recursive&quot;, String.valueOf(getRelatedConceptsOptions.recursive()));</span>
+    }
+<span class="pc bpc" id="L1241" title="1 of 2 branches missed.">    if (getRelatedConceptsOptions.treeLayout() != null) {</span>
+<span class="fc" id="L1242">      builder.query(&quot;tree_layout&quot;, String.valueOf(getRelatedConceptsOptions.treeLayout()));</span>
+    }
+<span class="pc bpc" id="L1244" title="1 of 2 branches missed.">    if (getRelatedConceptsOptions.maxDepth() != null) {</span>
+<span class="fc" id="L1245">      builder.query(&quot;max_depth&quot;, String.valueOf(getRelatedConceptsOptions.maxDepth()));</span>
+    }
+<span class="fc" id="L1247">    ResponseConverter&lt;RelatedConceptsModel&gt; responseConverter =</span>
+<span class="fc" id="L1248">      ResponseConverterUtils.getValue(new com.google.gson.reflect.TypeToken&lt;RelatedConceptsModel&gt;() { }.getType());</span>
+<span class="fc" id="L1249">    return createServiceCall(builder.build(), responseConverter);</span>
+  }
+
+  /**
+   * Find similar concepts.
+   *
+   * The response returns a list of similar concepts.   All ontologies defined in the corpora are searched.  Similarity
+   * is determined by checking for overlapping surface forms.  The results are sorted in descending order by hit count.
+   *
+   * @param getSimilarConceptsOptions the {@link GetSimilarConceptsOptions} containing the options for the call
+   * @return a {@link ServiceCall} with a result of type {@link ConceptListModel}
+   */
+  public ServiceCall&lt;ConceptListModel&gt; getSimilarConcepts(GetSimilarConceptsOptions getSimilarConceptsOptions) {
+<span class="fc" id="L1262">    com.ibm.cloud.sdk.core.util.Validator.notNull(getSimilarConceptsOptions,</span>
+      &quot;getSimilarConceptsOptions cannot be null&quot;);
+<span class="fc" id="L1264">    String[] pathSegments = { &quot;v1/corpora&quot;, &quot;concepts&quot;, &quot;similar_concepts&quot; };</span>
+<span class="fc" id="L1265">    String[] pathParameters = { getSimilarConceptsOptions.corpus(), getSimilarConceptsOptions.nameOrId() };</span>
+<span class="fc" id="L1266">    RequestBuilder builder = RequestBuilder.get(RequestBuilder.constructHttpUrl(getServiceUrl(), pathSegments, pathParameters));</span>
+<span class="fc" id="L1267">    Map&lt;String, String&gt; sdkHeaders = SdkCommon.getSdkHeaders(&quot;insights_for_medical_literature_service&quot;, &quot;v1&quot;, &quot;getSimilarConcepts&quot;);</span>
+<span class="fc bfc" id="L1268" title="All 2 branches covered.">    for (Entry&lt;String, String&gt; header : sdkHeaders.entrySet()) {</span>
+<span class="fc" id="L1269">      builder.header(header.getKey(), header.getValue());</span>
+<span class="fc" id="L1270">    }</span>
+<span class="fc" id="L1271">    builder.header(&quot;Accept&quot;, &quot;application/json&quot;);</span>
+<span class="fc" id="L1272">    builder.query(&quot;version&quot;, this.version);</span>
+<span class="fc" id="L1273">    builder.query(&quot;return_ontologies&quot;, getSimilarConceptsOptions.returnOntologies());</span>
+<span class="pc bpc" id="L1274" title="1 of 2 branches missed.">    if (getSimilarConceptsOptions.ontology() != null) {</span>
+<span class="fc" id="L1275">      builder.query(&quot;ontology&quot;, getSimilarConceptsOptions.ontology());</span>
+    }
+<span class="pc bpc" id="L1277" title="1 of 2 branches missed.">    if (getSimilarConceptsOptions.limit() != null) {</span>
+<span class="fc" id="L1278">      builder.query(&quot;_limit&quot;, String.valueOf(getSimilarConceptsOptions.limit()));</span>
+    }
+<span class="fc" id="L1280">    ResponseConverter&lt;ConceptListModel&gt; responseConverter =</span>
+<span class="fc" id="L1281">      ResponseConverterUtils.getValue(new com.google.gson.reflect.TypeToken&lt;ConceptListModel&gt;() { }.getType());</span>
+<span class="fc" id="L1282">    return createServiceCall(builder.build(), responseConverter);</span>
+  }
+
+  /**
+   * Tokenize the input text into concepts.
+   *
+   * The response returns a list of tokenized concepts for the specified ontologies.
+   *
+   * @param tokenizeOptions the {@link TokenizeOptions} containing the options for the call
+   * @return a {@link ServiceCall} with a result of type {@link CommonDataModel}
+   */
+  public ServiceCall&lt;CommonDataModel&gt; tokenize(TokenizeOptions tokenizeOptions) {
+<span class="fc" id="L1294">    com.ibm.cloud.sdk.core.util.Validator.notNull(tokenizeOptions,</span>
+      &quot;tokenizeOptions cannot be null&quot;);
+<span class="fc" id="L1296">    String[] pathSegments = { &quot;v1/corpora&quot;, &quot;debug/analyze&quot; };</span>
+<span class="fc" id="L1297">    String[] pathParameters = { tokenizeOptions.corpus(), tokenizeOptions.flow() };</span>
+<span class="fc" id="L1298">    RequestBuilder builder = RequestBuilder.post(RequestBuilder.constructHttpUrl(getServiceUrl(), pathSegments, pathParameters));</span>
+<span class="fc" id="L1299">    Map&lt;String, String&gt; sdkHeaders = SdkCommon.getSdkHeaders(&quot;insights_for_medical_literature_service&quot;, &quot;v1&quot;, &quot;tokenize&quot;);</span>
+<span class="fc bfc" id="L1300" title="All 2 branches covered.">    for (Entry&lt;String, String&gt; header : sdkHeaders.entrySet()) {</span>
+<span class="fc" id="L1301">      builder.header(header.getKey(), header.getValue());</span>
+<span class="fc" id="L1302">    }</span>
+<span class="fc" id="L1303">    builder.header(&quot;Accept&quot;, &quot;application/json&quot;);</span>
+<span class="fc" id="L1304">    builder.query(&quot;version&quot;, this.version);</span>
+<span class="pc bpc" id="L1305" title="1 of 2 branches missed.">    if (tokenizeOptions.ontologies() != null) {</span>
+<span class="fc" id="L1306">      builder.query(&quot;ontologies&quot;, RequestUtils.join(tokenizeOptions.ontologies(), &quot;,&quot;));</span>
+    }
+<span class="pc bpc" id="L1308" title="1 of 2 branches missed.">    if (tokenizeOptions.maxWords() != null) {</span>
+<span class="fc" id="L1309">      builder.query(&quot;max_words&quot;, String.valueOf(tokenizeOptions.maxWords()));</span>
+    }
+<span class="fc" id="L1311">    builder.bodyContent(com.ibm.cloud.sdk.core.util.GsonSingleton.getGsonWithoutPrettyPrinting().toJson(tokenizeOptions.body()), &quot;application/json&quot;);</span>
+<span class="fc" id="L1312">    ResponseConverter&lt;CommonDataModel&gt; responseConverter =</span>
+<span class="fc" id="L1313">      ResponseConverterUtils.getValue(new com.google.gson.reflect.TypeToken&lt;CommonDataModel&gt;() { }.getType());</span>
+<span class="fc" id="L1314">    return createServiceCall(builder.build(), responseConverter);</span>
+  }
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>

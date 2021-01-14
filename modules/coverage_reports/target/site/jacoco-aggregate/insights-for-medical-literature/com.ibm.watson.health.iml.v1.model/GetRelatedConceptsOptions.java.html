@@ -1,0 +1,408 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../jacoco-resources/report.gif" type="image/gif"/><title>GetRelatedConceptsOptions.java</title><link rel="stylesheet" href="../../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../../index.html" class="el_report">IBM Watson Health Cognitive Services Coverage Reports</a> &gt; <a href="../index.html" class="el_bundle">insights-for-medical-literature</a> &gt; <a href="index.source.html" class="el_package">com.ibm.watson.health.iml.v1.model</a> &gt; <span class="el_source">GetRelatedConceptsOptions.java</span></div><h1>GetRelatedConceptsOptions.java</h1><pre class="source lang-java linenums">/*
+ * (C) Copyright IBM Corp. 2020.
+ *
+ * Licensed under the Apache License, Version 2.0 (the &quot;License&quot;); you may not use this file except in compliance with
+ * the License. You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on
+ * an &quot;AS IS&quot; BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the
+ * specific language governing permissions and limitations under the License.
+ */
+package com.ibm.watson.health.iml.v1.model;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import com.ibm.cloud.sdk.core.service.model.GenericModel;
+
+/**
+ * The getRelatedConcepts options.
+ */
+public class GetRelatedConceptsOptions extends GenericModel {
+
+  /**
+   * Select the relationship to retrieve.
+   */
+  public interface Relationship {
+    /** children. */
+    String CHILDREN = &quot;children&quot;;
+    /** parents. */
+    String PARENTS = &quot;parents&quot;;
+    /** siblings. */
+    String SIBLINGS = &quot;siblings&quot;;
+    /** allowedQualifier. */
+    String ALLOWEDQUALIFIER = &quot;allowedQualifier&quot;;
+    /** qualifiedBy. */
+    String QUALIFIEDBY = &quot;qualifiedBy&quot;;
+    /** broader. */
+    String BROADER = &quot;broader&quot;;
+    /** alike. */
+    String ALIKE = &quot;alike&quot;;
+    /** narrower. */
+    String NARROWER = &quot;narrower&quot;;
+    /** other. */
+    String OTHER = &quot;other&quot;;
+    /** relatedUnspecified. */
+    String RELATEDUNSPECIFIED = &quot;relatedUnspecified&quot;;
+    /** related. */
+    String RELATED = &quot;related&quot;;
+    /** synonym. */
+    String SYNONYM = &quot;synonym&quot;;
+    /** notRelated. */
+    String NOTRELATED = &quot;notRelated&quot;;
+    /** chd. */
+    String CHD = &quot;chd&quot;;
+    /** par. */
+    String PAR = &quot;par&quot;;
+    /** sib. */
+    String SIB = &quot;sib&quot;;
+    /** aq. */
+    String AQ = &quot;aq&quot;;
+    /** qb. */
+    String QB = &quot;qb&quot;;
+    /** rb. */
+    String RB = &quot;rb&quot;;
+    /** rl. */
+    String RL = &quot;rl&quot;;
+    /** rn. */
+    String RN = &quot;rn&quot;;
+    /** ro. */
+    String RO = &quot;ro&quot;;
+    /** ru. */
+    String RU = &quot;ru&quot;;
+    /** rq. */
+    String RQ = &quot;rq&quot;;
+    /** sy. */
+    String SY = &quot;sy&quot;;
+    /** xr. */
+    String XR = &quot;xr&quot;;
+  }
+
+  protected String corpus;
+  protected String nameOrId;
+  protected String relationship;
+  protected String ontology;
+  protected List&lt;String&gt; relationshipAttributes;
+  protected List&lt;String&gt; sources;
+  protected Boolean recursive;
+  protected Boolean treeLayout;
+  protected Long maxDepth;
+
+  /**
+   * Builder.
+   */
+  public static class Builder {
+    private String corpus;
+    private String nameOrId;
+    private String relationship;
+    private String ontology;
+    private List&lt;String&gt; relationshipAttributes;
+    private List&lt;String&gt; sources;
+    private Boolean recursive;
+    private Boolean treeLayout;
+    private Long maxDepth;
+
+<span class="nc" id="L107">    private Builder(GetRelatedConceptsOptions getRelatedConceptsOptions) {</span>
+<span class="nc" id="L108">      this.corpus = getRelatedConceptsOptions.corpus;</span>
+<span class="nc" id="L109">      this.nameOrId = getRelatedConceptsOptions.nameOrId;</span>
+<span class="nc" id="L110">      this.relationship = getRelatedConceptsOptions.relationship;</span>
+<span class="nc" id="L111">      this.ontology = getRelatedConceptsOptions.ontology;</span>
+<span class="nc" id="L112">      this.relationshipAttributes = getRelatedConceptsOptions.relationshipAttributes;</span>
+<span class="nc" id="L113">      this.sources = getRelatedConceptsOptions.sources;</span>
+<span class="nc" id="L114">      this.recursive = getRelatedConceptsOptions.recursive;</span>
+<span class="nc" id="L115">      this.treeLayout = getRelatedConceptsOptions.treeLayout;</span>
+<span class="nc" id="L116">      this.maxDepth = getRelatedConceptsOptions.maxDepth;</span>
+<span class="nc" id="L117">    }</span>
+
+    /**
+     * Instantiates a new builder.
+     */
+<span class="fc" id="L122">    public Builder() {</span>
+<span class="fc" id="L123">    }</span>
+
+    /**
+     * Instantiates a new builder with required properties.
+     *
+     * @param corpus the corpus
+     * @param nameOrId the nameOrId
+     * @param relationship the relationship
+     */
+<span class="nc" id="L132">    public Builder(String corpus, String nameOrId, String relationship) {</span>
+<span class="nc" id="L133">      this.corpus = corpus;</span>
+<span class="nc" id="L134">      this.nameOrId = nameOrId;</span>
+<span class="nc" id="L135">      this.relationship = relationship;</span>
+<span class="nc" id="L136">    }</span>
+
+    /**
+     * Builds a GetRelatedConceptsOptions.
+     *
+     * @return the new GetRelatedConceptsOptions instance
+     */
+    public GetRelatedConceptsOptions build() {
+<span class="fc" id="L144">      return new GetRelatedConceptsOptions(this);</span>
+    }
+
+    /**
+     * Adds an relationshipAttributes to relationshipAttributes.
+     *
+     * @param relationshipAttributes the new relationshipAttributes
+     * @return the GetRelatedConceptsOptions builder
+     */
+    public Builder addRelationshipAttributes(String relationshipAttributes) {
+<span class="nc" id="L154">      com.ibm.cloud.sdk.core.util.Validator.notNull(relationshipAttributes,</span>
+        &quot;relationshipAttributes cannot be null&quot;);
+<span class="nc bnc" id="L156" title="All 2 branches missed.">      if (this.relationshipAttributes == null) {</span>
+<span class="nc" id="L157">        this.relationshipAttributes = new ArrayList&lt;String&gt;();</span>
+      }
+<span class="nc" id="L159">      this.relationshipAttributes.add(relationshipAttributes);</span>
+<span class="nc" id="L160">      return this;</span>
+    }
+
+    /**
+     * Adds an sources to sources.
+     *
+     * @param sources the new sources
+     * @return the GetRelatedConceptsOptions builder
+     */
+    public Builder addSources(String sources) {
+<span class="nc" id="L170">      com.ibm.cloud.sdk.core.util.Validator.notNull(sources,</span>
+        &quot;sources cannot be null&quot;);
+<span class="nc bnc" id="L172" title="All 2 branches missed.">      if (this.sources == null) {</span>
+<span class="nc" id="L173">        this.sources = new ArrayList&lt;String&gt;();</span>
+      }
+<span class="nc" id="L175">      this.sources.add(sources);</span>
+<span class="nc" id="L176">      return this;</span>
+    }
+
+    /**
+     * Set the corpus.
+     *
+     * @param corpus the corpus
+     * @return the GetRelatedConceptsOptions builder
+     */
+    public Builder corpus(String corpus) {
+<span class="fc" id="L186">      this.corpus = corpus;</span>
+<span class="fc" id="L187">      return this;</span>
+    }
+
+    /**
+     * Set the nameOrId.
+     *
+     * @param nameOrId the nameOrId
+     * @return the GetRelatedConceptsOptions builder
+     */
+    public Builder nameOrId(String nameOrId) {
+<span class="fc" id="L197">      this.nameOrId = nameOrId;</span>
+<span class="fc" id="L198">      return this;</span>
+    }
+
+    /**
+     * Set the relationship.
+     *
+     * @param relationship the relationship
+     * @return the GetRelatedConceptsOptions builder
+     */
+    public Builder relationship(String relationship) {
+<span class="fc" id="L208">      this.relationship = relationship;</span>
+<span class="fc" id="L209">      return this;</span>
+    }
+
+    /**
+     * Set the ontology.
+     *
+     * @param ontology the ontology
+     * @return the GetRelatedConceptsOptions builder
+     */
+    public Builder ontology(String ontology) {
+<span class="fc" id="L219">      this.ontology = ontology;</span>
+<span class="fc" id="L220">      return this;</span>
+    }
+
+    /**
+     * Set the relationshipAttributes.
+     * Existing relationshipAttributes will be replaced.
+     *
+     * @param relationshipAttributes the relationshipAttributes
+     * @return the GetRelatedConceptsOptions builder
+     */
+    public Builder relationshipAttributes(List&lt;String&gt; relationshipAttributes) {
+<span class="fc" id="L231">      this.relationshipAttributes = relationshipAttributes;</span>
+<span class="fc" id="L232">      return this;</span>
+    }
+
+    /**
+     * Set the sources.
+     * Existing sources will be replaced.
+     *
+     * @param sources the sources
+     * @return the GetRelatedConceptsOptions builder
+     */
+    public Builder sources(List&lt;String&gt; sources) {
+<span class="fc" id="L243">      this.sources = sources;</span>
+<span class="fc" id="L244">      return this;</span>
+    }
+
+    /**
+     * Set the recursive.
+     *
+     * @param recursive the recursive
+     * @return the GetRelatedConceptsOptions builder
+     */
+    public Builder recursive(Boolean recursive) {
+<span class="fc" id="L254">      this.recursive = recursive;</span>
+<span class="fc" id="L255">      return this;</span>
+    }
+
+    /**
+     * Set the treeLayout.
+     *
+     * @param treeLayout the treeLayout
+     * @return the GetRelatedConceptsOptions builder
+     */
+    public Builder treeLayout(Boolean treeLayout) {
+<span class="fc" id="L265">      this.treeLayout = treeLayout;</span>
+<span class="fc" id="L266">      return this;</span>
+    }
+
+    /**
+     * Set the maxDepth.
+     *
+     * @param maxDepth the maxDepth
+     * @return the GetRelatedConceptsOptions builder
+     */
+    public Builder maxDepth(long maxDepth) {
+<span class="fc" id="L276">      this.maxDepth = maxDepth;</span>
+<span class="fc" id="L277">      return this;</span>
+    }
+  }
+
+<span class="fc" id="L281">  protected GetRelatedConceptsOptions(Builder builder) {</span>
+<span class="fc" id="L282">    com.ibm.cloud.sdk.core.util.Validator.notEmpty(builder.corpus,</span>
+      &quot;corpus cannot be empty&quot;);
+<span class="fc" id="L284">    com.ibm.cloud.sdk.core.util.Validator.notEmpty(builder.nameOrId,</span>
+      &quot;nameOrId cannot be empty&quot;);
+<span class="fc" id="L286">    com.ibm.cloud.sdk.core.util.Validator.notNull(builder.relationship,</span>
+      &quot;relationship cannot be null&quot;);
+<span class="fc" id="L288">    corpus = builder.corpus;</span>
+<span class="fc" id="L289">    nameOrId = builder.nameOrId;</span>
+<span class="fc" id="L290">    relationship = builder.relationship;</span>
+<span class="fc" id="L291">    ontology = builder.ontology;</span>
+<span class="fc" id="L292">    relationshipAttributes = builder.relationshipAttributes;</span>
+<span class="fc" id="L293">    sources = builder.sources;</span>
+<span class="fc" id="L294">    recursive = builder.recursive;</span>
+<span class="fc" id="L295">    treeLayout = builder.treeLayout;</span>
+<span class="fc" id="L296">    maxDepth = builder.maxDepth;</span>
+<span class="fc" id="L297">  }</span>
+
+  /**
+   * New builder.
+   *
+   * @return a GetRelatedConceptsOptions builder
+   */
+  public Builder newBuilder() {
+<span class="nc" id="L305">    return new Builder(this);</span>
+  }
+
+  /**
+   * Gets the corpus.
+   *
+   * Corpus name or null to show all ontology relationships.
+   *
+   * @return the corpus
+   */
+  public String corpus() {
+<span class="fc" id="L316">    return corpus;</span>
+  }
+
+  /**
+   * Gets the nameOrId.
+   *
+   * Preferred name or concept ID.
+   *
+   * @return the nameOrId
+   */
+  public String nameOrId() {
+<span class="fc" id="L327">    return nameOrId;</span>
+  }
+
+  /**
+   * Gets the relationship.
+   *
+   * Select the relationship to retrieve.
+   *
+   * @return the relationship
+   */
+  public String relationship() {
+<span class="fc" id="L338">    return relationship;</span>
+  }
+
+  /**
+   * Gets the ontology.
+   *
+   * The ontology that defines the cui.
+   *
+   * @return the ontology
+   */
+  public String ontology() {
+<span class="fc" id="L349">    return ontology;</span>
+  }
+
+  /**
+   * Gets the relationshipAttributes.
+   *
+   * Select UMLS relationship attributes.  If null, all relationship attributes are returned.
+   *
+   * @return the relationshipAttributes
+   */
+  public List&lt;String&gt; relationshipAttributes() {
+<span class="fc" id="L360">    return relationshipAttributes;</span>
+  }
+
+  /**
+   * Gets the sources.
+   *
+   * Select source vocabularies.  If null, concepts for all source vocabularies are returned.
+   *
+   * @return the sources
+   */
+  public List&lt;String&gt; sources() {
+<span class="fc" id="L371">    return sources;</span>
+  }
+
+  /**
+   * Gets the recursive.
+   *
+   * Recursively return parents, children, broader and narrower relations.  Default is false.
+   *
+   * @return the recursive
+   */
+  public Boolean recursive() {
+<span class="fc" id="L382">    return recursive;</span>
+  }
+
+  /**
+   * Gets the treeLayout.
+   *
+   * Generate JSON output that is compatible with a d3 tree layout.  Default is true.
+   *
+   * @return the treeLayout
+   */
+  public Boolean treeLayout() {
+<span class="fc" id="L393">    return treeLayout;</span>
+  }
+
+  /**
+   * Gets the maxDepth.
+   *
+   * Maximum depth.  Default is 3.
+   *
+   * @return the maxDepth
+   */
+  public Long maxDepth() {
+<span class="fc" id="L404">    return maxDepth;</span>
+  }
+}
+
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>

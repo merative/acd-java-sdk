@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../jacoco-resources/report.gif" type="image/gif"/><title>GetDocumentAnnotationsOptions.java</title><link rel="stylesheet" href="../../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../../index.html" class="el_report">IBM Watson Health Cognitive Services Coverage Reports</a> &gt; <a href="../index.html" class="el_bundle">insights-for-medical-literature</a> &gt; <a href="index.source.html" class="el_package">com.ibm.watson.health.iml.v1.model</a> &gt; <span class="el_source">GetDocumentAnnotationsOptions.java</span></div><h1>GetDocumentAnnotationsOptions.java</h1><pre class="source lang-java linenums">/*
+ * (C) Copyright IBM Corp. 2020.
+ *
+ * Licensed under the Apache License, Version 2.0 (the &quot;License&quot;); you may not use this file except in compliance with
+ * the License. You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on
+ * an &quot;AS IS&quot; BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the
+ * specific language governing permissions and limitations under the License.
+ */
+package com.ibm.watson.health.iml.v1.model;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import com.ibm.cloud.sdk.core.service.model.GenericModel;
+
+/**
+ * The getDocumentAnnotations options.
+ */
+public class GetDocumentAnnotationsOptions extends GenericModel {
+
+  protected String corpus;
+  protected String documentId;
+  protected String documentSection;
+  protected List&lt;String&gt; cuis;
+  protected Boolean includeText;
+
+  /**
+   * Builder.
+   */
+  public static class Builder {
+    private String corpus;
+    private String documentId;
+    private String documentSection;
+    private List&lt;String&gt; cuis;
+    private Boolean includeText;
+
+<span class="nc" id="L41">    private Builder(GetDocumentAnnotationsOptions getDocumentAnnotationsOptions) {</span>
+<span class="nc" id="L42">      this.corpus = getDocumentAnnotationsOptions.corpus;</span>
+<span class="nc" id="L43">      this.documentId = getDocumentAnnotationsOptions.documentId;</span>
+<span class="nc" id="L44">      this.documentSection = getDocumentAnnotationsOptions.documentSection;</span>
+<span class="nc" id="L45">      this.cuis = getDocumentAnnotationsOptions.cuis;</span>
+<span class="nc" id="L46">      this.includeText = getDocumentAnnotationsOptions.includeText;</span>
+<span class="nc" id="L47">    }</span>
+
+    /**
+     * Instantiates a new builder.
+     */
+<span class="fc" id="L52">    public Builder() {</span>
+<span class="fc" id="L53">    }</span>
+
+    /**
+     * Instantiates a new builder with required properties.
+     *
+     * @param corpus the corpus
+     * @param documentId the documentId
+     * @param documentSection the documentSection
+     */
+<span class="nc" id="L62">    public Builder(String corpus, String documentId, String documentSection) {</span>
+<span class="nc" id="L63">      this.corpus = corpus;</span>
+<span class="nc" id="L64">      this.documentId = documentId;</span>
+<span class="nc" id="L65">      this.documentSection = documentSection;</span>
+<span class="nc" id="L66">    }</span>
+
+    /**
+     * Builds a GetDocumentAnnotationsOptions.
+     *
+     * @return the new GetDocumentAnnotationsOptions instance
+     */
+    public GetDocumentAnnotationsOptions build() {
+<span class="fc" id="L74">      return new GetDocumentAnnotationsOptions(this);</span>
+    }
+
+    /**
+     * Adds an cuis to cuis.
+     *
+     * @param cuis the new cuis
+     * @return the GetDocumentAnnotationsOptions builder
+     */
+    public Builder addCuis(String cuis) {
+<span class="nc" id="L84">      com.ibm.cloud.sdk.core.util.Validator.notNull(cuis,</span>
+        &quot;cuis cannot be null&quot;);
+<span class="nc bnc" id="L86" title="All 2 branches missed.">      if (this.cuis == null) {</span>
+<span class="nc" id="L87">        this.cuis = new ArrayList&lt;String&gt;();</span>
+      }
+<span class="nc" id="L89">      this.cuis.add(cuis);</span>
+<span class="nc" id="L90">      return this;</span>
+    }
+
+    /**
+     * Set the corpus.
+     *
+     * @param corpus the corpus
+     * @return the GetDocumentAnnotationsOptions builder
+     */
+    public Builder corpus(String corpus) {
+<span class="fc" id="L100">      this.corpus = corpus;</span>
+<span class="fc" id="L101">      return this;</span>
+    }
+
+    /**
+     * Set the documentId.
+     *
+     * @param documentId the documentId
+     * @return the GetDocumentAnnotationsOptions builder
+     */
+    public Builder documentId(String documentId) {
+<span class="fc" id="L111">      this.documentId = documentId;</span>
+<span class="fc" id="L112">      return this;</span>
+    }
+
+    /**
+     * Set the documentSection.
+     *
+     * @param documentSection the documentSection
+     * @return the GetDocumentAnnotationsOptions builder
+     */
+    public Builder documentSection(String documentSection) {
+<span class="fc" id="L122">      this.documentSection = documentSection;</span>
+<span class="fc" id="L123">      return this;</span>
+    }
+
+    /**
+     * Set the cuis.
+     * Existing cuis will be replaced.
+     *
+     * @param cuis the cuis
+     * @return the GetDocumentAnnotationsOptions builder
+     */
+    public Builder cuis(List&lt;String&gt; cuis) {
+<span class="fc" id="L134">      this.cuis = cuis;</span>
+<span class="fc" id="L135">      return this;</span>
+    }
+
+    /**
+     * Set the includeText.
+     *
+     * @param includeText the includeText
+     * @return the GetDocumentAnnotationsOptions builder
+     */
+    public Builder includeText(Boolean includeText) {
+<span class="fc" id="L145">      this.includeText = includeText;</span>
+<span class="fc" id="L146">      return this;</span>
+    }
+  }
+
+<span class="fc" id="L150">  protected GetDocumentAnnotationsOptions(Builder builder) {</span>
+<span class="fc" id="L151">    com.ibm.cloud.sdk.core.util.Validator.notEmpty(builder.corpus,</span>
+      &quot;corpus cannot be empty&quot;);
+<span class="fc" id="L153">    com.ibm.cloud.sdk.core.util.Validator.notEmpty(builder.documentId,</span>
+      &quot;documentId cannot be empty&quot;);
+<span class="fc" id="L155">    com.ibm.cloud.sdk.core.util.Validator.notNull(builder.documentSection,</span>
+      &quot;documentSection cannot be null&quot;);
+<span class="fc" id="L157">    corpus = builder.corpus;</span>
+<span class="fc" id="L158">    documentId = builder.documentId;</span>
+<span class="fc" id="L159">    documentSection = builder.documentSection;</span>
+<span class="fc" id="L160">    cuis = builder.cuis;</span>
+<span class="fc" id="L161">    includeText = builder.includeText;</span>
+<span class="fc" id="L162">  }</span>
+
+  /**
+   * New builder.
+   *
+   * @return a GetDocumentAnnotationsOptions builder
+   */
+  public Builder newBuilder() {
+<span class="nc" id="L170">    return new Builder(this);</span>
+  }
+
+  /**
+   * Gets the corpus.
+   *
+   * Corpus name.
+   *
+   * @return the corpus
+   */
+  public String corpus() {
+<span class="fc" id="L181">    return corpus;</span>
+  }
+
+  /**
+   * Gets the documentId.
+   *
+   * Document ID.
+   *
+   * @return the documentId
+   */
+  public String documentId() {
+<span class="fc" id="L192">    return documentId;</span>
+  }
+
+  /**
+   * Gets the documentSection.
+   *
+   * Document section to annotate. (e.g., title, abstract, body...
+   *
+   * @return the documentSection
+   */
+  public String documentSection() {
+<span class="fc" id="L203">    return documentSection;</span>
+  }
+
+  /**
+   * Gets the cuis.
+   *
+   * Concepts to show.  Defaults to all concepts.
+   *
+   * @return the cuis
+   */
+  public List&lt;String&gt; cuis() {
+<span class="fc" id="L214">    return cuis;</span>
+  }
+
+  /**
+   * Gets the includeText.
+   *
+   * Include document text.
+   *
+   * @return the includeText
+   */
+  public Boolean includeText() {
+<span class="fc" id="L225">    return includeText;</span>
+  }
+}
+
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>
