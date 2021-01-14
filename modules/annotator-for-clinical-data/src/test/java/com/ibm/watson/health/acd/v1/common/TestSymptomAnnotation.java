@@ -37,7 +37,6 @@ public class TestSymptomAnnotation {
 		}
 		Assert.assertNotNull(annotation.getCoveredText());
 		Assert.assertNotNull(annotation.getCui());
-		Assert.assertNotNull(annotation.getDateInMilliseconds());
 		Disambiguation disambigData = annotation.getDisambiguationData();
 		if (disambigData != null) {
 			Assert.assertNotNull(disambigData.getValidity());
