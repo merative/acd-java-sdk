@@ -156,19 +156,17 @@ public class AnnotatorForClinicalData extends BaseService {
    * @return a {@link ServiceCall} with a result of type {@link ListStringWrapper}
    */
   public ServiceCall<Map<String, AcdProfile>> getProfiles(GetProfilesOptions getProfilesOptions) {
-    String[] pathSegments = { "v1/profiles" };
-    RequestBuilder builder = RequestBuilder.get(RequestBuilder.constructHttpUrl(getServiceUrl(), pathSegments));
-    Map<String, String> sdkHeaders = SdkCommon.getSdkHeaders("annotator_for_clinical_data_acd", "v1", "getProfiles");
-    for (Entry<String, String> header : sdkHeaders.entrySet()) {
-      builder.header(header.getKey(), header.getValue());
-    }
-    builder.header("Accept", "application/json");
-    if (getProfilesOptions != null) {
-      builder.query("version", this.version);
-    }
-    ResponseConverter<Map<String, AcdProfile>> responseConverter =
-      ResponseConverterUtils.getValue(new com.google.gson.reflect.TypeToken<Map<String, AcdProfile>>() { }.getType());
-    return createServiceCall(builder.build(), responseConverter);
+	  String[] pathSegments = { "v1/profiles" };
+	  RequestBuilder builder = RequestBuilder.get(RequestBuilder.constructHttpUrl(getServiceUrl(), pathSegments));
+	  Map<String, String> sdkHeaders = SdkCommon.getSdkHeaders("annotator_for_clinical_data_acd", "v1", "getProfiles");
+	  for (Entry<String, String> header : sdkHeaders.entrySet()) {
+		  builder.header(header.getKey(), header.getValue());
+	  }
+	  builder.header("Accept", "application/json");
+	  builder.query("version", this.version);
+	  ResponseConverter<Map<String, AcdProfile>> responseConverter =
+			  ResponseConverterUtils.getValue(new com.google.gson.reflect.TypeToken<Map<String, AcdProfile>>() { }.getType());
+	  return createServiceCall(builder.build(), responseConverter);
   }
 
   /**
@@ -397,9 +395,7 @@ public class AnnotatorForClinicalData extends BaseService {
       builder.header(header.getKey(), header.getValue());
     }
     builder.header("Accept", "application/json");
-    if (getFlowsOptions != null) {
-      builder.query("version", this.version);
-    }
+    builder.query("version", this.version);
     ResponseConverter<Map<String, AcdFlow>> responseConverter =
       ResponseConverterUtils.getValue(new com.google.gson.reflect.TypeToken<Map<String, AcdFlow>>() { }.getType());
     return createServiceCall(builder.build(), responseConverter);

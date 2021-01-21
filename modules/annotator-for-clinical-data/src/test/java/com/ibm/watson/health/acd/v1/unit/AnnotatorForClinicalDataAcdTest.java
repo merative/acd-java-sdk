@@ -42,6 +42,7 @@ import com.ibm.watson.health.acd.v1.model.AcdCartridgesList;
 import com.ibm.watson.health.acd.v1.model.AcdFlow;
 import com.ibm.watson.health.acd.v1.model.AcdProfile;
 import com.ibm.watson.health.acd.v1.model.AnalyticFlowBeanInput;
+import com.ibm.watson.health.acd.v1.model.AnalyzeOptions;
 import com.ibm.watson.health.acd.v1.model.Annotator;
 import com.ibm.watson.health.acd.v1.model.AnnotatorFlow;
 import com.ibm.watson.health.acd.v1.model.CartridgesGetIdOptions;
@@ -50,6 +51,7 @@ import com.ibm.watson.health.acd.v1.model.CartridgesPostMultipartOptions;
 import com.ibm.watson.health.acd.v1.model.CartridgesPutMultipartOptions;
 import com.ibm.watson.health.acd.v1.model.ConfigurationEntity;
 import com.ibm.watson.health.acd.v1.model.ContainerAnnotation;
+import com.ibm.watson.health.acd.v1.model.ContainerGroup;
 import com.ibm.watson.health.acd.v1.model.CreateFlowsOptions;
 import com.ibm.watson.health.acd.v1.model.CreateProfileOptions;
 import com.ibm.watson.health.acd.v1.model.DeleteFlowsOptions;
@@ -57,7 +59,6 @@ import com.ibm.watson.health.acd.v1.model.DeleteProfileOptions;
 import com.ibm.watson.health.acd.v1.model.DeleteUserSpecificArtifactsOptions;
 import com.ibm.watson.health.acd.v1.model.DeployCartridgeOptions;
 import com.ibm.watson.health.acd.v1.model.DeployCartridgeResponse;
-import com.ibm.watson.health.acd.v1.model.Entity;
 import com.ibm.watson.health.acd.v1.model.Flow;
 import com.ibm.watson.health.acd.v1.model.FlowEntry;
 import com.ibm.watson.health.acd.v1.model.GetAnnotatorsByIdOptions;
@@ -67,7 +68,6 @@ import com.ibm.watson.health.acd.v1.model.GetFlowsOptions;
 import com.ibm.watson.health.acd.v1.model.GetHealthCheckStatusOptions;
 import com.ibm.watson.health.acd.v1.model.GetProfileOptions;
 import com.ibm.watson.health.acd.v1.model.GetProfilesOptions;
-import com.ibm.watson.health.acd.v1.model.ListStringWrapper;
 import com.ibm.watson.health.acd.v1.model.RunPipelineOptions;
 import com.ibm.watson.health.acd.v1.model.RunPipelineWithFlowOptions;
 import com.ibm.watson.health.acd.v1.model.ServiceApiBean;
@@ -709,18 +709,15 @@ public class AnnotatorForClinicalDataAcdTest extends PowerMockTestCase {
 
   @Test
   public void testRunPipelineWOptions() throws Throwable {
-    // Schedule some responses.
-    String mockResponseBody = "";
-    String runPipelinePath = "/v1/analyze";
+	  // Schedule some responses.
+	  String mockResponseBody = "";
+	  String runPipelinePath = "/v1/analyze";
 
     server.enqueue(new MockResponse()
     .setResponseCode(200)
     .setBody(mockResponseBody));
 
     constructClientService();
-
-    // Construct an instance of the FlowEntry model
-    FlowEntry flowEntryModel = new FlowEntry.Builder().build();
 
     // Construct an instance of the ConfigurationEntity model
     ConfigurationEntity configurationEntityModel = new ConfigurationEntity.Builder()
@@ -729,6 +726,20 @@ public class AnnotatorForClinicalDataAcdTest extends PowerMockTestCase {
     .uid(Long.valueOf("26"))
     .mergeid(Long.valueOf("26"))
     .build();
+
+    Annotator annotatorModel = new Annotator.Builder()
+    		.name("testString")
+    		.configurations(new ArrayList<ConfigurationEntity>(Arrays.asList(configurationEntityModel)))
+    		.parameters(new java.util.HashMap<String,List<String>>(){{put("foo", new ArrayList<String>(Arrays.asList("testString"))); }})
+    		.build();
+    assertEquals(annotatorModel.name(), "testString");
+    assertEquals(annotatorModel.parameters(), new java.util.HashMap<String,List<String>>(){{put("foo", new ArrayList<String>(Arrays.asList("testString"))); }});
+    assertEquals(annotatorModel.configurations(), new ArrayList<ConfigurationEntity>(Arrays.asList(configurationEntityModel)));
+
+    // Construct an instance of the FlowEntry model
+    FlowEntry flowEntryModel = new FlowEntry.Builder()
+    		.annotator(annotatorModel)
+    		.build();
 
     // Construct an instance of the Flow model
     Flow flowModel = new Flow.Builder()
@@ -740,12 +751,6 @@ public class AnnotatorForClinicalDataAcdTest extends PowerMockTestCase {
     AnnotatorFlow annotatorFlowModel = new AnnotatorFlow.Builder()
     .profile("testString")
     .flow(flowModel)
-//    .id("testString")
-//    .type("testString")
-//    .data(new java.util.HashMap<String,List<Entity>>(){{put("foo", new ArrayList<Entity>(Arrays.asList(entityModel))); }})
-//    .metadata(new java.util.HashMap<String,Object>(){{put("foo", "testString"); }})
-//    .globalConfigurations(new ArrayList<ConfigurationEntity>(Arrays.asList(configurationEntityModel)))
-//    .uid(Long.valueOf("26"))
     .build();
 
     // Construct an instance of the UnstructuredContainer model
@@ -802,9 +807,6 @@ public class AnnotatorForClinicalDataAcdTest extends PowerMockTestCase {
 
     constructClientService();
 
-    // Construct an instance of the FlowEntry model
-    FlowEntry flowEntryModel = new FlowEntry.Builder().build();
-
     // Construct an instance of the ConfigurationEntity model
     ConfigurationEntity configurationEntityModel = new ConfigurationEntity.Builder()
     .id("testString")
@@ -812,6 +814,20 @@ public class AnnotatorForClinicalDataAcdTest extends PowerMockTestCase {
     .uid(Long.valueOf("26"))
     .mergeid(Long.valueOf("26"))
     .build();
+
+    Annotator annotatorModel = new Annotator.Builder()
+    		.name("testString")
+    		.configurations(new ArrayList<ConfigurationEntity>(Arrays.asList(configurationEntityModel)))
+    		.parameters(new java.util.HashMap<String,List<String>>(){{put("foo", new ArrayList<String>(Arrays.asList("testString"))); }})
+    		.build();
+    assertEquals(annotatorModel.name(), "testString");
+    assertEquals(annotatorModel.parameters(), new java.util.HashMap<String,List<String>>(){{put("foo", new ArrayList<String>(Arrays.asList("testString"))); }});
+    assertEquals(annotatorModel.configurations(), new ArrayList<ConfigurationEntity>(Arrays.asList(configurationEntityModel)));
+
+    // Construct an instance of the FlowEntry model
+    FlowEntry flowEntryModel = new FlowEntry.Builder()
+    		.annotator(annotatorModel)
+    		.build();
 
     // Construct an instance of the Flow model
     Flow flowModel = new Flow.Builder()
@@ -823,12 +839,6 @@ public class AnnotatorForClinicalDataAcdTest extends PowerMockTestCase {
     AnnotatorFlow annotatorFlowModel = new AnnotatorFlow.Builder()
     .profile("testString")
     .flow(flowModel)
-//    .id("testString")
-//    .type("testString")
-//    .data(new java.util.HashMap<String,List<Entity>>(){{put("foo", new ArrayList<Entity>(Arrays.asList(entityModel))); }})
-//    .metadata(new java.util.HashMap<String,Object>(){{put("foo", "testString"); }})
-//    .globalConfigurations(new ArrayList<ConfigurationEntity>(Arrays.asList(configurationEntityModel)))
-//    .uid(Long.valueOf("26"))
     .build();
 
     // Construct an instance of the UnstructuredContainer model

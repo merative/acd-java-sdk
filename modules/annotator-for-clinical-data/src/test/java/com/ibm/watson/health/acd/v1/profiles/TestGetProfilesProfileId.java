@@ -19,6 +19,7 @@ import org.junit.Test;
 
 import com.ibm.cloud.sdk.core.http.Response;
 import com.ibm.cloud.sdk.core.http.ServiceCall;
+import com.ibm.cloud.sdk.core.service.exception.ServiceResponseException;
 import com.ibm.watson.health.acd.v1.AnnotatorForClinicalData;
 import com.ibm.watson.health.acd.v1.WatsonServiceTest;
 import com.ibm.watson.health.acd.v1.common.Constants;
@@ -46,53 +47,69 @@ public class TestGetProfilesProfileId extends WatsonServiceTest {
 	}
 
 	@Test
-	public void testGetProfiles() {
-		Assert.assertNotNull(service.getProfiles());
-	}
-
-	@Test
 	public void testGetProfile() {
 		GetProfileOptions options = new GetProfileOptions.Builder().id(Constants.PROFILE_ID).build();
 
-		ServiceCall<AcdProfile> sc = service.getProfile(options);
-		Response<AcdProfile> response = sc.execute();
-		AcdProfile profile = response.getResult();
-		Assert.assertNotNull(profile);
-		Assert.assertEquals(profile.id(), Constants.PROFILE_ID);
-		Assert.assertNotNull(profile.name());
-		if (profile.description() != null) {
-			Assert.assertTrue(profile.description().length() > 0);
+		Response<AcdProfile> response = null;
+		try {
+			ServiceCall<AcdProfile> sc = service.getProfile(options);
+			response = sc.execute();
+		} catch (ServiceResponseException e) {
+			// Base class for all exceptions caused by error responses from the service
+			System.out.println("testGetProfile: Service returned status code "
+					+ e.getStatusCode() + ": " + e.getMessage());
+			System.out.println("Detailed error info:\n" + e.getDebuggingInfo().toString());
 		}
-		List<Annotator> annotators = profile.annotators();
-		Assert.assertNotNull(annotators);
-		for (Annotator annotator : annotators) {
-			Assert.assertNotNull(annotator.name());
-			Assert.assertNull(annotator.description());
+		if (response != null) {
+			AcdProfile profile = response.getResult();
+			Assert.assertNotNull(profile);
+			Assert.assertEquals(profile.id(), Constants.PROFILE_ID);
+			Assert.assertNotNull(profile.name());
+			if (profile.description() != null) {
+				Assert.assertTrue(profile.description().length() > 0);
+			}
+			List<Annotator> annotators = profile.annotators();
+			Assert.assertNotNull(annotators);
+			for (Annotator annotator : annotators) {
+				Assert.assertNotNull(annotator.name());
+				Assert.assertNull(annotator.description());
+			}
 		}
 	}
 
 	@Test
 	public void testGetProfileBuilder() {
-		GetProfileOptions options = new GetProfileOptions.Builder(Constants.PROFILE_ID).build();
+		Builder builder = new GetProfileOptions.Builder(Constants.PROFILE_ID);
 
-		ServiceCall<AcdProfile> sc = service.getProfile(options);
-		Response<AcdProfile> response = sc.execute();
-		AcdProfile profile = response.getResult();
-		Assert.assertNotNull(profile);
-		Assert.assertEquals(profile.id(), Constants.PROFILE_ID);
-		Assert.assertNotNull(profile.name());
-		Assert.assertNotNull(profile.description());
-		List<Annotator> annotators = profile.annotators();
-		Assert.assertNotNull(annotators);
-		for (Annotator annotator : annotators) {
-			Assert.assertNotNull(annotator.name());
-			Assert.assertNull(annotator.description());
+		Response<AcdProfile> response = null;
+		try {
+			ServiceCall<AcdProfile> sc = service.getProfile(builder.build());
+			response = sc.execute();
+		} catch (ServiceResponseException e) {
+			// Base class for all exceptions caused by error responses from the service
+			System.out.println("testGetProfileBuilder: Service returned status code "
+					+ e.getStatusCode() + ": " + e.getMessage());
+			System.out.println("Detailed error info:\n" + e.getDebuggingInfo().toString());
+		}
+		if (response != null) {
+			AcdProfile profile = response.getResult();
+			Assert.assertNotNull(profile);
+			Assert.assertEquals(profile.id(), Constants.PROFILE_ID);
+			Assert.assertNotNull(profile.name());
+			Assert.assertNotNull(profile.description());
+			List<Annotator> annotators = profile.annotators();
+			Assert.assertNotNull(annotators);
+			for (Annotator annotator : annotators) {
+				Assert.assertNotNull(annotator.name());
+				Assert.assertNull(annotator.description());
+			}
 		}
 	}
 
 	@Test
-	public void getBuilderFromOptions() {
+	public void testGetBuilderFromOptions() {
 		GetProfileOptions options = new GetProfileOptions.Builder().id(Constants.PROFILE_ID).build();
+
 		Builder builder = options.newBuilder();
 		Assert.assertNotNull(builder);
 	}

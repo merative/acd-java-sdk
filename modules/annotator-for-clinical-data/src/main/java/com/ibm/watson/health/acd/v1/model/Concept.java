@@ -392,7 +392,7 @@ public class Concept extends DynamicModel {
    *
    * @param cui the new cui
    */
-  public void setCui(final Long cui) {
+  public void setCui(final String cui) {
     this.put("cui", cui);
   }
 
