@@ -63,7 +63,6 @@ public class CustomCollection extends CustomDeserializer {
   public CustomCollection get(String key) throws ParameterNotAvailableException {
     CustomCollection cd = new CustomCollection();
     if (this.object instanceof JsonObject) {
-      // System.out.println("Object");
       try {
         JsonObject jsobj = this.getObject().getAsJsonObject();
         cd.setObject(jsobj.get(key));
@@ -86,7 +85,6 @@ public class CustomCollection extends CustomDeserializer {
   public CustomCollection get(int key) throws IndexNotAvailableException {
     CustomCollection cd = new CustomCollection();
     if (this.object instanceof JsonArray) {
-      // System.out.println("Array");
       int size = 0;
       try {
         JsonArray jsarr = this.getObject().getAsJsonArray();
@@ -112,7 +110,6 @@ public class CustomCollection extends CustomDeserializer {
     List<CustomCollection> listCustomCollections = new ArrayList<CustomCollection>();
     CustomCollection cd = new CustomCollection();
     if (this.object instanceof JsonObject) {
-      // System.out.println("Array");
       try {
         JsonObject jsarr = this.getObject().getAsJsonObject();
         cd.setObject(jsarr.get(key).getAsJsonArray());
@@ -144,17 +141,12 @@ public class CustomCollection extends CustomDeserializer {
    */
 
   public String getValue(String key) throws ParameterNotAvailableException {
-    // System.out.println(this.getTempobj().toString());
     try {
       JsonObject tempJsonObject = this.getObject().getAsJsonObject();
       return tempJsonObject.get(key).toString();
     } catch (RuntimeException ex) {
       throw new ParameterNotAvailableException(key + " is not available.");
     }
-    /*
-     * if(tempJsonObject.get(key) instanceof JsonElement)
-     * System.out.println("String"); else System.out.println("No");
-     */
 
   }
 

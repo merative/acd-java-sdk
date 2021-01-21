@@ -19,6 +19,7 @@ import org.junit.Test;
 
 import com.ibm.cloud.sdk.core.http.Response;
 import com.ibm.cloud.sdk.core.http.ServiceCall;
+import com.ibm.cloud.sdk.core.service.exception.ServiceResponseException;
 import com.ibm.watson.health.acd.v1.AnnotatorForClinicalData;
 import com.ibm.watson.health.acd.v1.WatsonServiceTest;
 import com.ibm.watson.health.acd.v1.common.Constants;
@@ -26,13 +27,12 @@ import com.ibm.watson.health.acd.v1.model.AcdFlow;
 import com.ibm.watson.health.acd.v1.model.AnnotatorFlow;
 import com.ibm.watson.health.acd.v1.model.Flow;
 import com.ibm.watson.health.acd.v1.model.FlowEntry;
-import com.ibm.watson.health.acd.v1.model.GetFlowOptions;
-import com.ibm.watson.health.acd.v1.model.GetFlowOptions.Builder;
 import com.ibm.watson.health.acd.v1.model.GetFlowsByIdOptions;
+import com.ibm.watson.health.acd.v1.model.GetFlowsByIdOptions.Builder;
 
 /**
  *
- * Class for testing /v1/flows/{id}.
+ * Class for testing GET /v1/flows/{id}.
  *
  */
 public class TestGetFlowsFlowId extends WatsonServiceTest {
@@ -49,27 +49,37 @@ public class TestGetFlowsFlowId extends WatsonServiceTest {
 	}
 
 	@Test
-	public void testGetFlow() {
+	public void testGetFlowsById() {
 		GetFlowsByIdOptions options = new GetFlowsByIdOptions.Builder().id(Constants.FLOW_ID).build();
 
-		ServiceCall<AcdFlow> sc = service.getFlowsById(options);
-		Response<AcdFlow> response = sc.execute();
-		AcdFlow flow = response.getResult();
-		Assert.assertNotNull(flow);
-		Assert.assertEquals(flow.id(), Constants.FLOW_ID);
-		Assert.assertNotNull(flow.name());
-		String desc = flow.description();
-		if (desc != null) {
-			Assert.assertTrue(desc.length() > 0);
+		Response<AcdFlow> response = null;
+		try {
+			ServiceCall<AcdFlow> sc = service.getFlowsById(options);
+			response = sc.execute();
+		} catch (ServiceResponseException e) {
+			// Base class for all exceptions caused by error responses from the service
+			System.out.println("testGetFlowsById: Service returned status code "
+					+ e.getStatusCode() + ": " + e.getMessage());
+			System.out.println("Detailed error info:\n" + e.getDebuggingInfo().toString());
 		}
-		List<AnnotatorFlow> flowList = flow.annotatorFlows();
-		if (flowList != null && !flowList.isEmpty()) {
-			for (AnnotatorFlow annoFlow : flowList) {
-				Flow flowForAnnotator = annoFlow.flow();
-				List<FlowEntry> flowEntries = flowForAnnotator.elements();
-				if (flowEntries != null && !flowEntries.isEmpty()) {
-					for (FlowEntry entry : flowEntries) {
-						Assert.assertNotNull(entry);
+		if (response != null) {
+			AcdFlow flow = response.getResult();
+			Assert.assertNotNull(flow);
+			Assert.assertEquals(flow.id(), Constants.FLOW_ID);
+			Assert.assertNotNull(flow.name());
+			String desc = flow.description();
+			if (desc != null) {
+				Assert.assertTrue(desc.length() > 0);
+			}
+			List<AnnotatorFlow> flowList = flow.annotatorFlows();
+			if (flowList != null && !flowList.isEmpty()) {
+				for (AnnotatorFlow annoFlow : flowList) {
+					Flow flowForAnnotator = annoFlow.flow();
+					List<FlowEntry> flowEntries = flowForAnnotator.elements();
+					if (flowEntries != null && !flowEntries.isEmpty()) {
+						for (FlowEntry entry : flowEntries) {
+							Assert.assertNotNull(entry);
+						}
 					}
 				}
 			}
@@ -77,27 +87,37 @@ public class TestGetFlowsFlowId extends WatsonServiceTest {
 	}
 
 	@Test
-	public void testGetFlowBuilder() {
-		GetFlowsByIdOptions options = new GetFlowsByIdOptions.Builder(Constants.FLOW_ID).build();
+	public void testGetFlowsByIdBuilder() {
+		Builder builder = new GetFlowsByIdOptions.Builder(Constants.FLOW_ID);
 
-		ServiceCall<AcdFlow> sc = service.getFlowsById(options);
-		Response<AcdFlow> response = sc.execute();
-		AcdFlow flow = response.getResult();
-		Assert.assertNotNull(flow);
-		Assert.assertNotNull(flow.id());
-		Assert.assertNotNull(flow.name());
-		String desc = flow.description();
-		if (desc != null) {
-			Assert.assertTrue(desc.length() > 0);
+		Response<AcdFlow> response = null;
+		try {
+			ServiceCall<AcdFlow> sc = service.getFlowsById(builder.build());
+			response = sc.execute();
+		} catch (ServiceResponseException e) {
+			// Base class for all exceptions caused by error responses from the service
+			System.out.println("testGetFlowsByIdBuilder: Service returned status code "
+					+ e.getStatusCode() + ": " + e.getMessage());
+			System.out.println("Detailed error info:\n" + e.getDebuggingInfo().toString());
 		}
-		List<AnnotatorFlow> flowList = flow.annotatorFlows();
-		if (flowList != null && !flowList.isEmpty()) {
-			for (AnnotatorFlow annoFlow : flowList) {
-				Flow flowForAnnotator = annoFlow.flow();
-				List<FlowEntry> flowEntries = flowForAnnotator.elements();
-				if (flowEntries != null && !flowEntries.isEmpty()) {
-					for (FlowEntry entry : flowEntries) {
-						Assert.assertNotNull(entry);
+		if (response != null) {
+			AcdFlow flow = response.getResult();
+			Assert.assertNotNull(flow);
+			Assert.assertNotNull(flow.id());
+			Assert.assertNotNull(flow.name());
+			String desc = flow.description();
+			if (desc != null) {
+				Assert.assertTrue(desc.length() > 0);
+			}
+			List<AnnotatorFlow> flowList = flow.annotatorFlows();
+			if (flowList != null && !flowList.isEmpty()) {
+				for (AnnotatorFlow annoFlow : flowList) {
+					Flow flowForAnnotator = annoFlow.flow();
+					List<FlowEntry> flowEntries = flowForAnnotator.elements();
+					if (flowEntries != null && !flowEntries.isEmpty()) {
+						for (FlowEntry entry : flowEntries) {
+							Assert.assertNotNull(entry);
+						}
 					}
 				}
 			}
@@ -105,8 +125,9 @@ public class TestGetFlowsFlowId extends WatsonServiceTest {
 	}
 
 	@Test
-	public void testBuilderFromOptions() {
-		GetFlowOptions options = new GetFlowOptions.Builder().id(Constants.FLOW_ID).build();
+	public void testGetBuilderFromOptions() {
+		GetFlowsByIdOptions options = new GetFlowsByIdOptions.Builder().id(Constants.FLOW_ID).build();
+
 		Builder builder = options.newBuilder();
 		Assert.assertNotNull(builder);
 	}

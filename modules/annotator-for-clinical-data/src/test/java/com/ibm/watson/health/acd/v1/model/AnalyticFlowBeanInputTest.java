@@ -37,8 +37,6 @@ public class AnalyticFlowBeanInputTest {
 
   @Test
   public void testAnalyticFlowBeanInput() throws Throwable {
-    FlowEntry flowEntryModel = new FlowEntry.Builder().build();
-
     ConfigurationEntity configurationEntityModel = new ConfigurationEntity.Builder()
       .id("testString")
       .type("testString")
@@ -50,6 +48,20 @@ public class AnalyticFlowBeanInputTest {
     assertEquals(configurationEntityModel.uid(), Long.valueOf("26"));
     assertEquals(configurationEntityModel.mergeid(), Long.valueOf("26"));
 
+    Annotator annotatorModel = new Annotator.Builder()
+    		.name("testString")
+    		.configurations(new ArrayList<ConfigurationEntity>(Arrays.asList(configurationEntityModel)))
+    		.parameters(new java.util.HashMap<String,List<String>>(){{put("foo", new ArrayList<String>(Arrays.asList("testString"))); }})
+    		.build();
+    assertEquals(annotatorModel.name(), "testString");
+    assertEquals(annotatorModel.parameters(), new java.util.HashMap<String,List<String>>(){{put("foo", new ArrayList<String>(Arrays.asList("testString"))); }});
+    assertEquals(annotatorModel.configurations(), new ArrayList<ConfigurationEntity>(Arrays.asList(configurationEntityModel)));
+
+    FlowEntry flowEntryModel = new FlowEntry.Builder()
+    		.annotator(annotatorModel)
+    		.build();
+    assertEquals(flowEntryModel.annotator(), annotatorModel);
+
     Flow flowModel = new Flow.Builder()
       .elements(new ArrayList<FlowEntry>(Arrays.asList(flowEntryModel)))
       .async(true)
@@ -60,21 +72,9 @@ public class AnalyticFlowBeanInputTest {
     AnnotatorFlow annotatorFlowModel = new AnnotatorFlow.Builder()
       .profile("testString")
       .flow(flowModel)
-//      .id("testString")
-//      .type("testString")
-//      .data(new java.util.HashMap<String,List<Entity>>(){{put("foo", new ArrayList<Entity>(Arrays.asList(entityModel))); }})
-//      .metadata(new java.util.HashMap<String,Object>(){{put("foo", "testString"); }})
-//      .globalConfigurations(new ArrayList<ConfigurationEntity>(Arrays.asList(configurationEntityModel)))
-//      .uid(Long.valueOf("26"))
       .build();
     assertEquals(annotatorFlowModel.profile(), "testString");
     assertEquals(annotatorFlowModel.flow(), flowModel);
-//    assertEquals(annotatorFlowModel.id(), "testString");
-//    assertEquals(annotatorFlowModel.type(), "testString");
-//    assertEquals(annotatorFlowModel.data(), new java.util.HashMap<String,List<Entity>>(){{put("foo", new ArrayList<Entity>(Arrays.asList(entityModel))); }});
-//    assertEquals(annotatorFlowModel.metadata(), new java.util.HashMap<String,Object>(){{put("foo", "testString"); }});
-//    assertEquals(annotatorFlowModel.globalConfigurations(), new ArrayList<ConfigurationEntity>(Arrays.asList(configurationEntityModel)));
-//    assertEquals(annotatorFlowModel.uid(), Long.valueOf("26"));
 
     UnstructuredContainer unstructuredContainerModel = new UnstructuredContainer.Builder()
       .text("testString")

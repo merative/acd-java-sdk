@@ -59,21 +59,9 @@ public class RunPipelineOptionsTest {
     AnnotatorFlow annotatorFlowModel = new AnnotatorFlow.Builder()
       .profile("testString")
       .flow(flowModel)
-//      .id("testString")
-//      .type("testString")
-//      .data(new java.util.HashMap<String,List<Entity>>(){{put("foo", new ArrayList<Entity>(Arrays.asList(entityModel))); }})
-//      .metadata(new java.util.HashMap<String,Object>(){{put("foo", "testString"); }})
-//      .globalConfigurations(new ArrayList<ConfigurationEntity>(Arrays.asList(configurationEntityModel)))
-//      .uid(Long.valueOf("26"))
       .build();
     assertEquals(annotatorFlowModel.profile(), "testString");
     assertEquals(annotatorFlowModel.flow(), flowModel);
-//    assertEquals(annotatorFlowModel.id(), "testString");
-//    assertEquals(annotatorFlowModel.type(), "testString");
-//    assertEquals(annotatorFlowModel.data(), new java.util.HashMap<String,List<Entity>>(){{put("foo", new ArrayList<Entity>(Arrays.asList(entityModel))); }});
-//    assertEquals(annotatorFlowModel.metadata(), new java.util.HashMap<String,Object>(){{put("foo", "testString"); }});
-//    assertEquals(annotatorFlowModel.globalConfigurations(), new ArrayList<ConfigurationEntity>(Arrays.asList(configurationEntityModel)));
-//    assertEquals(annotatorFlowModel.uid(), Long.valueOf("26"));
 
     UnstructuredContainer unstructuredContainerModel = new UnstructuredContainer.Builder()
       .text("testString")

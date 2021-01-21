@@ -22,20 +22,21 @@ import com.ibm.cloud.sdk.core.http.ServiceCall;
 import com.ibm.cloud.sdk.core.service.exception.ServiceResponseException;
 import com.ibm.watson.health.acd.v1.AnnotatorForClinicalData;
 import com.ibm.watson.health.acd.v1.WatsonServiceTest;
+import com.ibm.watson.health.acd.v1.common.Constants;
 import com.ibm.watson.health.acd.v1.model.AcdCartridges;
 import com.ibm.watson.health.acd.v1.model.AcdCartridgesList;
-import com.ibm.watson.health.acd.v1.model.CartridgesGetOptions;
-import com.ibm.watson.health.acd.v1.model.CartridgesGetOptions.Builder;
+import com.ibm.watson.health.acd.v1.model.CartridgesGetIdOptions;
+import com.ibm.watson.health.acd.v1.model.CartridgesGetIdOptions.Builder;
 
 /**
 *
-* Class for testing GET /v1/cartridges.
+* Class for testing GET /v1/cartridges/{id}.
 *
 */
-public class TestGetCartridges extends WatsonServiceTest {
+public class TestGetCartridgesCartridgeId extends WatsonServiceTest {
 	private AnnotatorForClinicalData service;
 
-	public TestGetCartridges() {
+	public TestGetCartridgesCartridgeId() {
 		super();
 		try {
 			this.setUp();
@@ -46,56 +47,50 @@ public class TestGetCartridges extends WatsonServiceTest {
 	}
 
 	@Test
-	public void testGetCartridges() {
-		CartridgesGetOptions options = new CartridgesGetOptions.Builder().build();
+	public void testGetCartridgesCartridgeId() {
+		CartridgesGetIdOptions options = new CartridgesGetIdOptions.Builder().id(Constants.CARTRIDGE_ID).build();
 
-		Response<AcdCartridgesList> response = null;
+		Response<AcdCartridges> response = null;
 		try {
-			ServiceCall<AcdCartridgesList> sc = service.cartridgesGet(options);
+			ServiceCall<AcdCartridges> sc = service.cartridgesGetId(options);
 			response = sc.execute();
 		} catch (ServiceResponseException e) {
 			// Base class for all exceptions caused by error responses from the service
-			System.out.println("testGetCartridges: Service returned status code "
+			System.out.println("testGetCartridgesCartridgeId: Service returned status code "
 					+ e.getStatusCode() + ": " + e.getMessage());
 			System.out.println("Detailed error info:\n" + e.getDebuggingInfo().toString());
 		}
 		if (response != null) {
 			Assert.assertNotNull(response.getResult());
-			AcdCartridgesList cartridgeList = response.getResult();
-			List<AcdCartridges> cartridges = cartridgeList.getCartridges();
-			for (AcdCartridges cartridge : cartridges){
-				Assert.assertNotNull(cartridge.getId());
-			}
+			AcdCartridges cartridge = response.getResult();
+			Assert.assertNotNull(cartridge.getId());
 		}
 	}
 
 	@Test
-	public void testGetCartridgesBuilder() {
-		Builder builder = new CartridgesGetOptions.Builder();
+	public void testGetCartridgesCartridgeIdBuilder() {
+		Builder builder = new CartridgesGetIdOptions.Builder(Constants.CARTRIDGE_ID);
 
-		Response<AcdCartridgesList> response = null;
+		Response<AcdCartridges> response = null;
 		try {
-			ServiceCall<AcdCartridgesList> sc = service.cartridgesGet(builder.build());
+			ServiceCall<AcdCartridges> sc = service.cartridgesGetId(builder.build());
 			response = sc.execute();
 		} catch (ServiceResponseException e) {
 			// Base class for all exceptions caused by error responses from the service
-			System.out.println("testGetCartridgesBuilder: Service returned status code "
+			System.out.println("testGetCartridgesCartridgeIdBuilder: Service returned status code "
 					+ e.getStatusCode() + ": " + e.getMessage());
 			System.out.println("Detailed error info:\n" + e.getDebuggingInfo().toString());
 		}
 		if (response != null) {
 			Assert.assertNotNull(response.getResult());
-			AcdCartridgesList cartridgeList = response.getResult();
-			List<AcdCartridges> cartridges = cartridgeList.getCartridges();
-			for (AcdCartridges cartridge : cartridges){
-				Assert.assertNotNull(cartridge.getId());
-			}
+			AcdCartridges cartridge = response.getResult();
+			Assert.assertNotNull(cartridge.getId());
 		}
 	}
 
 	@Test
 	public void testGetBuilderFromOptions() {
-		CartridgesGetOptions options = new CartridgesGetOptions.Builder().build();
+		CartridgesGetIdOptions options = new CartridgesGetIdOptions.Builder().id(Constants.CARTRIDGE_ID).build();
 
 		Builder builder = options.newBuilder();
 		Assert.assertNotNull(builder);

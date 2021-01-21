@@ -33,7 +33,7 @@ public class DeleteUserSpecificArtifactsOptionsTest {
 
   @Test
   public void testDeleteUserSpecificArtifactsOptions() throws Throwable {
-    DeleteUserSpecificArtifactsOptions deleteUserSpecificArtifactsOptionsModel = new DeleteUserSpecificArtifactsOptions();
+    DeleteUserSpecificArtifactsOptions deleteUserSpecificArtifactsOptionsModel = new DeleteUserSpecificArtifactsOptions.Builder().build();
     assertNotNull(deleteUserSpecificArtifactsOptionsModel);
   }
 }

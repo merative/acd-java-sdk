@@ -185,13 +185,13 @@ public abstract class WatsonServiceTest {
 //		service = builder.build();
 		if ((getProperty(Constants.APIKEY) == null) || getProperty(Constants.APIKEY).trim().length() == 0) {
 			service = new AnnotatorForClinicalData(getProperty(Constants.VERSION),
-				"InsightsForMedicalLiterature", new NoAuthAuthenticator());
+				"AnnotatorForClinicalData", new NoAuthAuthenticator());
 			service.setServiceUrl(getProperty(Constants.URL));
 			HttpConfigOptions options = new HttpConfigOptions.Builder().disableSslVerification(true).build();
 			service.configureClient(options);
 		} else {
 			service = new AnnotatorForClinicalData(getProperty(Constants.VERSION),
-			"InsightsForMedicalLiterature", new IamAuthenticator(getProperty(Constants.APIKEY),
+			"AnnotatorForClinicalData", new IamAuthenticator(getProperty(Constants.APIKEY),
 			getProperty(Constants.IAM_URL), null, null, Boolean.parseBoolean(Constants.DISABLE_SSL), null));
 			service.setServiceUrl(getProperty(Constants.URL));
 		}
