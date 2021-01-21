@@ -19,40 +19,5 @@ import com.ibm.cloud.sdk.core.service.model.GenericModel;
  */
 public class CartridgesGetOptions extends GenericModel {
 
-	/**
-	 * Builder.
-	 */
-	public static class Builder {
-
-		private Builder(CartridgesGetOptions getCartridgesOptions) {
-		}
-
-		/**
-		 * Instantiates a new builder.
-		 */
-		public Builder() {
-		}
-
-		/**
-		 * Builds a CartridgesGetOptions.
-		 *
-		 * @return the cartridgesGetOptions
-		 */
-		public CartridgesGetOptions build() {
-			return new CartridgesGetOptions(this);
-		}
-	}
-
-	private CartridgesGetOptions(Builder build) {
-	}
-
-	/**
-	 * New builder.
-	 *
-	 * @return a CartridgesGetOptions builder
-	 */
-	public Builder newBuilder() {
-		return new Builder(this);
-	}
 }
 

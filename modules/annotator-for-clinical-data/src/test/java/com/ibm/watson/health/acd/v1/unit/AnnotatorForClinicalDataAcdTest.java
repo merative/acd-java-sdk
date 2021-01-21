@@ -49,7 +49,6 @@ import com.ibm.watson.health.acd.v1.model.CartridgesGetIdOptions;
 import com.ibm.watson.health.acd.v1.model.CartridgesGetOptions;
 import com.ibm.watson.health.acd.v1.model.CartridgesPostMultipartOptions;
 import com.ibm.watson.health.acd.v1.model.CartridgesPutMultipartOptions;
-import com.ibm.watson.health.acd.v1.model.Concept;
 import com.ibm.watson.health.acd.v1.model.ConfigurationEntity;
 import com.ibm.watson.health.acd.v1.model.ContainerAnnotation;
 import com.ibm.watson.health.acd.v1.model.ContainerGroup;
@@ -60,7 +59,6 @@ import com.ibm.watson.health.acd.v1.model.DeleteProfileOptions;
 import com.ibm.watson.health.acd.v1.model.DeleteUserSpecificArtifactsOptions;
 import com.ibm.watson.health.acd.v1.model.DeployCartridgeOptions;
 import com.ibm.watson.health.acd.v1.model.DeployCartridgeResponse;
-import com.ibm.watson.health.acd.v1.model.Entity;
 import com.ibm.watson.health.acd.v1.model.Flow;
 import com.ibm.watson.health.acd.v1.model.FlowEntry;
 import com.ibm.watson.health.acd.v1.model.GetAnnotatorsByIdOptions;
@@ -70,7 +68,6 @@ import com.ibm.watson.health.acd.v1.model.GetFlowsOptions;
 import com.ibm.watson.health.acd.v1.model.GetHealthCheckStatusOptions;
 import com.ibm.watson.health.acd.v1.model.GetProfileOptions;
 import com.ibm.watson.health.acd.v1.model.GetProfilesOptions;
-import com.ibm.watson.health.acd.v1.model.ListStringWrapper;
 import com.ibm.watson.health.acd.v1.model.RunPipelineOptions;
 import com.ibm.watson.health.acd.v1.model.RunPipelineWithFlowOptions;
 import com.ibm.watson.health.acd.v1.model.ServiceApiBean;
@@ -810,9 +807,6 @@ public class AnnotatorForClinicalDataAcdTest extends PowerMockTestCase {
 
     constructClientService();
 
-    // Construct an instance of the FlowEntry model
-    FlowEntry flowEntryModel = new FlowEntry.Builder().build();
-
     // Construct an instance of the ConfigurationEntity model
     ConfigurationEntity configurationEntityModel = new ConfigurationEntity.Builder()
     .id("testString")
@@ -820,6 +814,20 @@ public class AnnotatorForClinicalDataAcdTest extends PowerMockTestCase {
     .uid(Long.valueOf("26"))
     .mergeid(Long.valueOf("26"))
     .build();
+
+    Annotator annotatorModel = new Annotator.Builder()
+    		.name("testString")
+    		.configurations(new ArrayList<ConfigurationEntity>(Arrays.asList(configurationEntityModel)))
+    		.parameters(new java.util.HashMap<String,List<String>>(){{put("foo", new ArrayList<String>(Arrays.asList("testString"))); }})
+    		.build();
+    assertEquals(annotatorModel.name(), "testString");
+    assertEquals(annotatorModel.parameters(), new java.util.HashMap<String,List<String>>(){{put("foo", new ArrayList<String>(Arrays.asList("testString"))); }});
+    assertEquals(annotatorModel.configurations(), new ArrayList<ConfigurationEntity>(Arrays.asList(configurationEntityModel)));
+
+    // Construct an instance of the FlowEntry model
+    FlowEntry flowEntryModel = new FlowEntry.Builder()
+    		.annotator(annotatorModel)
+    		.build();
 
     // Construct an instance of the Flow model
     Flow flowModel = new Flow.Builder()
@@ -891,99 +899,6 @@ public class AnnotatorForClinicalDataAcdTest extends PowerMockTestCase {
 
     // Invoke operation with null options model (negative test)
     testService.runPipelineWithFlow(null).execute();
-  }
-
-  @Test
-  public void testAnalyze() throws Throwable {
-	  // Schedule some responses.
-	  String mockResponseBody = "{\"unstructured\": [{\"text\": \"patient\", \"data\": {\"concepts\": [{\"cui\": \"C0030705\", \"preferredName\": \"Patients\", \"semanticType\": \"podg\", \"source\": \"umls\", \"begin\": 0, \"end\": 7, \"coveredText\": \"patient\"}]}}]}";
-	  String runPipelinePath = "/v1/analyze";
-
-	  server.enqueue(new MockResponse()
-			  .setHeader("Content-type", "application/json")
-			  .setResponseCode(200)
-			  .setBody(mockResponseBody));
-
-	  constructClientService();
-
-    // Construct an instance of the ConfigurationEntity model
-    ConfigurationEntity configurationEntityModel = new ConfigurationEntity.Builder()
-    .id("testString")
-    .type("testString")
-    .uid(Long.valueOf("26"))
-    .mergeid(Long.valueOf("26"))
-    .build();
-
-    Annotator annotatorModel = new Annotator.Builder()
-    		.name("testString")
-    		.configurations(new ArrayList<ConfigurationEntity>(Arrays.asList(configurationEntityModel)))
-    		.parameters(new java.util.HashMap<String,List<String>>(){{put("foo", new ArrayList<String>(Arrays.asList("testString"))); }})
-    		.build();
-    assertEquals(annotatorModel.name(), "testString");
-    assertEquals(annotatorModel.parameters(), new java.util.HashMap<String,List<String>>(){{put("foo", new ArrayList<String>(Arrays.asList("testString"))); }});
-    assertEquals(annotatorModel.configurations(), new ArrayList<ConfigurationEntity>(Arrays.asList(configurationEntityModel)));
-
-    // Construct an instance of the FlowEntry model
-    FlowEntry flowEntryModel = new FlowEntry.Builder()
-    		.annotator(annotatorModel)
-    		.build();
-
-    // Construct an instance of the Flow model
-    Flow flowModel = new Flow.Builder()
-    .elements(new ArrayList<FlowEntry>(Arrays.asList(flowEntryModel)))
-    .async(true)
-    .build();
-
-    // Construct an instance of the AnnotatorFlow model
-    AnnotatorFlow annotatorFlowModel = new AnnotatorFlow.Builder()
-    .profile("testString")
-    .flow(flowModel)
-    .build();
-
-    // Construct an instance of the UnstructuredContainer model
-    UnstructuredContainer unstructuredContainerModel = new UnstructuredContainer.Builder()
-    .text("testString")
-    .id("testString")
-    .type("testString")
-    .data(new ContainerAnnotation())
-    .metadata(new java.util.HashMap<String,Map>(){{put("foo", new HashMap()); }})
-    .uid(Long.valueOf("26"))
-    .build();
-
-
-    // Construct an instance of the AnalyzeOptions model
-    AnalyzeOptions options = new AnalyzeOptions.Builder().addAnnotatorFlows(annotatorFlowModel).addUnstructured(unstructuredContainerModel).build();
-
-    // Invoke operation with valid options model (positive test)
-    Response<ContainerGroup> response = testService.analyze(options).execute();
-    assertNotNull(response);
-    System.out.println("DEBMOCK RSP" + response);
-    ContainerGroup responseObj = response.getResult();
-    System.out.println("DEBMOCK RSPOBJ " + responseObj);
-    assertNotNull(responseObj);
-
-    // Concept
-    //Concept concept = responseObj.getConcepts(0);
-    //assertNotNull(concept.getBegin());
-    //assertNotNull(concept.getEnd());
-    //assertNotNull(concept.getCoveredText());
-    //assertNotNull(concept.getSemanticType());
-    //assertNotNull(concept.getPreferredName());
-    //assertNotNull(concept.getSource());
-
-    // Verify the contents of the request
-    RecordedRequest request = server.takeRequest();
-    assertNotNull(request);
-    assertEquals(request.getMethod(), "POST");
-
-    // Check query
-    Map<String, String> query = TestUtilities.parseQueryString(request);
-    assertNotNull(query);
-    // Get query params
-    assertEquals(query.get("version"), "testString");
-    // Check request path
-    String parsedPath = TestUtilities.parseReqPath(request);
-    assertEquals(parsedPath, runPipelinePath);
   }
 
   @Test
@@ -1087,7 +1002,7 @@ public class AnnotatorForClinicalDataAcdTest extends PowerMockTestCase {
     constructClientService();
 
     // Construct an instance of the DeleteUserSpecificArtifactsOptions model
-    DeleteUserSpecificArtifactsOptions deleteUserSpecificArtifactsOptionsModel = new DeleteUserSpecificArtifactsOptions.Builder().build();
+    DeleteUserSpecificArtifactsOptions deleteUserSpecificArtifactsOptionsModel = new DeleteUserSpecificArtifactsOptions();
 
     // Invoke operation with valid options model (positive test)
     Response<Void> response = testService.deleteUserSpecificArtifacts(deleteUserSpecificArtifactsOptionsModel).execute();
@@ -1125,7 +1040,7 @@ public class AnnotatorForClinicalDataAcdTest extends PowerMockTestCase {
     constructClientService();
 
     // Construct an instance of the CartridgesGetOptions model
-    CartridgesGetOptions cartridgesGetOptionsModel = new CartridgesGetOptions.Builder().build();
+    CartridgesGetOptions cartridgesGetOptionsModel = new CartridgesGetOptions();
 
     // Invoke operation with valid options model (positive test)
     Response<AcdCartridgesList> response = testService.cartridgesGet(cartridgesGetOptionsModel).execute();

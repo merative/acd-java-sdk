@@ -25,7 +25,6 @@ import com.ibm.watson.health.acd.v1.WatsonServiceTest;
 import com.ibm.watson.health.acd.v1.model.AcdCartridges;
 import com.ibm.watson.health.acd.v1.model.AcdCartridgesList;
 import com.ibm.watson.health.acd.v1.model.CartridgesGetOptions;
-import com.ibm.watson.health.acd.v1.model.CartridgesGetOptions.Builder;
 
 /**
 *
@@ -47,7 +46,7 @@ public class TestGetCartridges extends WatsonServiceTest {
 
 	@Test
 	public void testGetCartridges() {
-		CartridgesGetOptions options = new CartridgesGetOptions.Builder().build();
+		CartridgesGetOptions options = new CartridgesGetOptions();
 
 		Response<AcdCartridgesList> response = null;
 		try {
@@ -70,34 +69,8 @@ public class TestGetCartridges extends WatsonServiceTest {
 	}
 
 	@Test
-	public void testGetCartridgesBuilder() {
-		Builder builder = new CartridgesGetOptions.Builder();
-
-		Response<AcdCartridgesList> response = null;
-		try {
-			ServiceCall<AcdCartridgesList> sc = service.cartridgesGet(builder.build());
-			response = sc.execute();
-		} catch (ServiceResponseException e) {
-			// Base class for all exceptions caused by error responses from the service
-			System.out.println("testGetCartridgesBuilder: Service returned status code "
-					+ e.getStatusCode() + ": " + e.getMessage());
-			System.out.println("Detailed error info:\n" + e.getDebuggingInfo().toString());
-		}
-		if (response != null) {
-			Assert.assertNotNull(response.getResult());
-			AcdCartridgesList cartridgeList = response.getResult();
-			List<AcdCartridges> cartridges = cartridgeList.getCartridges();
-			for (AcdCartridges cartridge : cartridges){
-				Assert.assertNotNull(cartridge.getId());
-			}
-		}
-	}
-
-	@Test
 	public void testGetBuilderFromOptions() {
-		CartridgesGetOptions options = new CartridgesGetOptions.Builder().build();
-
-		Builder builder = options.newBuilder();
-		Assert.assertNotNull(builder);
+		CartridgesGetOptions options = new CartridgesGetOptions();
+		Assert.assertNotNull(options);
 	}
 }

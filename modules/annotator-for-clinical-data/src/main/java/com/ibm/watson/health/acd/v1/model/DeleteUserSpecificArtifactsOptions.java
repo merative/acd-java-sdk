@@ -18,41 +18,6 @@ import com.ibm.cloud.sdk.core.service.model.GenericModel;
  * The deleteUserSpecificArtifacts options.
  */
 public class DeleteUserSpecificArtifactsOptions extends GenericModel {
-	/**
-	 * Builder.
-	 */
-	public static class Builder {
-
-		private Builder(DeleteUserSpecificArtifactsOptions deleteUserSpecificArtifactsOptions) {
-		}
-
-		/**
-		 * Instantiates a new builder.
-		 */
-		public Builder() {
-		}
-
-		/**
-		 * Builds a DeleteUserSpecificArtifactstOptions.
-		 *
-		 * @return the deleteUserSpecificArtifactsOptions
-		 */
-		public DeleteUserSpecificArtifactsOptions build() {
-			return new DeleteUserSpecificArtifactsOptions(this);
-		}
-	}
-
-	private DeleteUserSpecificArtifactsOptions(Builder build) {
-	}
-
-	/**
-	 * New builder.
-	 *
-	 * @return a DeleteUserSpecificArtifactsOptions builder
-	 */
-	public Builder newBuilder() {
-		return new Builder(this);
-	}
 
 }
 

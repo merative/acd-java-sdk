@@ -26,7 +26,6 @@ import com.ibm.cloud.sdk.core.http.ServiceCall;
 import com.ibm.cloud.sdk.core.service.exception.ServiceResponseException;
 import com.ibm.watson.health.acd.v1.AnnotatorForClinicalData;
 import com.ibm.watson.health.acd.v1.WatsonServiceTest;
-import com.ibm.watson.health.acd.v1.common.Constants;
 import com.ibm.watson.health.acd.v1.model.AcdCartridges;
 import com.ibm.watson.health.acd.v1.model.CartridgesGetIdOptions;
 import com.ibm.watson.health.acd.v1.model.CartridgesPostMultipartOptions;
@@ -69,7 +68,7 @@ public class TestUpdateCartridges extends WatsonServiceTest {
 
 	private Response<Void> deleteExistingCartridge(File cartridgeFile) {
 		Response<Void> resp = null;
-		DeleteUserSpecificArtifactsOptions options = new DeleteUserSpecificArtifactsOptions.Builder().build();
+		DeleteUserSpecificArtifactsOptions options = new DeleteUserSpecificArtifactsOptions();
 
 		try {
 			ServiceCall<Void> sc = service.deleteUserSpecificArtifacts(options);

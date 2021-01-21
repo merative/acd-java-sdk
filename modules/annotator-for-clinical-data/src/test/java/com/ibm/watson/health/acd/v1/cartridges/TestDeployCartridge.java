@@ -41,7 +41,7 @@ public class TestDeployCartridge extends WatsonServiceTest {
 
 	private Response<Void> deleteExistingCartridge(File cartridgeFile) {
 		Response<Void> resp = null;
-		DeleteUserSpecificArtifactsOptions options = new DeleteUserSpecificArtifactsOptions.Builder().build();
+		DeleteUserSpecificArtifactsOptions options = new DeleteUserSpecificArtifactsOptions();
 
 		try {
 			ServiceCall<Void> sc = service.deleteUserSpecificArtifacts(options);

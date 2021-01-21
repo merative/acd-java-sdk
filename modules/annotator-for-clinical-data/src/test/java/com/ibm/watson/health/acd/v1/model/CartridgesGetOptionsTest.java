@@ -33,7 +33,7 @@ public class CartridgesGetOptionsTest {
 
   @Test
   public void testCartridgesGetOptions() throws Throwable {
-	  CartridgesGetOptions cartridgesGetOptionsModel = new CartridgesGetOptions.Builder().build();
+	  CartridgesGetOptions cartridgesGetOptionsModel = new CartridgesGetOptions();
 	  assertNotNull(cartridgesGetOptionsModel);
   }
 }
