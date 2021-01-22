@@ -1,0 +1,420 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../jacoco-resources/report.gif" type="image/gif"/><title>AttributeEntry.java</title><link rel="stylesheet" href="../../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../../index.html" class="el_report">IBM Watson Health Cognitive Services Coverage Reports</a> &gt; <a href="../index.html" class="el_bundle">insights-for-medical-literature</a> &gt; <a href="index.source.html" class="el_package">com.ibm.watson.health.iml.v1.model</a> &gt; <span class="el_source">AttributeEntry.java</span></div><h1>AttributeEntry.java</h1><pre class="source lang-java linenums">/*
+ * (C) Copyright IBM Corp. 2020.
+ *
+ * Licensed under the Apache License, Version 2.0 (the &quot;License&quot;); you may not use this file except in compliance with
+ * the License. You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on
+ * an &quot;AS IS&quot; BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the
+ * specific language governing permissions and limitations under the License.
+ */
+package com.ibm.watson.health.iml.v1.model;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import com.google.gson.annotations.SerializedName;
+import com.ibm.cloud.sdk.core.service.model.GenericModel;
+
+/**
+ * AttributeEntry.
+ */
+public class AttributeEntry extends GenericModel {
+
+  @SerializedName(&quot;attr_name&quot;)
+  protected String attrName;
+  @SerializedName(&quot;data_type&quot;)
+  protected String dataType;
+  @SerializedName(&quot;default_value&quot;)
+  protected String defaultValue;
+  protected String description;
+  @SerializedName(&quot;display_name&quot;)
+  protected String displayName;
+  @SerializedName(&quot;doc_id&quot;)
+  protected String docId;
+  @SerializedName(&quot;field_values&quot;)
+  protected List&lt;String&gt; fieldValues;
+  @SerializedName(&quot;maximum_value&quot;)
+  protected String maximumValue;
+  @SerializedName(&quot;minimum_value&quot;)
+  protected String minimumValue;
+  @SerializedName(&quot;multi_value&quot;)
+  protected Boolean multiValue;
+  protected String units;
+  protected String valueType;
+  @SerializedName(&quot;possible_values&quot;)
+  protected List&lt;PossibleValues&gt; possibleValues;
+
+  /**
+   * Builder.
+   */
+  public static class Builder {
+    private String attrName;
+    private String dataType;
+    private String defaultValue;
+    private String description;
+    private String displayName;
+    private String docId;
+    private List&lt;String&gt; fieldValues;
+    private String maximumValue;
+    private String minimumValue;
+    private Boolean multiValue;
+    private String units;
+    private String valueType;
+    private List&lt;PossibleValues&gt; possibleValues;
+
+<span class="nc" id="L68">    private Builder(AttributeEntry attributeEntry) {</span>
+<span class="nc" id="L69">      this.attrName = attributeEntry.attrName;</span>
+<span class="nc" id="L70">      this.dataType = attributeEntry.dataType;</span>
+<span class="nc" id="L71">      this.defaultValue = attributeEntry.defaultValue;</span>
+<span class="nc" id="L72">      this.description = attributeEntry.description;</span>
+<span class="nc" id="L73">      this.displayName = attributeEntry.displayName;</span>
+<span class="nc" id="L74">      this.docId = attributeEntry.docId;</span>
+<span class="nc" id="L75">      this.fieldValues = attributeEntry.fieldValues;</span>
+<span class="nc" id="L76">      this.maximumValue = attributeEntry.maximumValue;</span>
+<span class="nc" id="L77">      this.minimumValue = attributeEntry.minimumValue;</span>
+<span class="nc" id="L78">      this.multiValue = attributeEntry.multiValue;</span>
+<span class="nc" id="L79">      this.units = attributeEntry.units;</span>
+<span class="nc" id="L80">      this.valueType = attributeEntry.valueType;</span>
+<span class="nc" id="L81">      this.possibleValues = attributeEntry.possibleValues;</span>
+<span class="nc" id="L82">    }</span>
+
+    /**
+     * Instantiates a new builder.
+     */
+<span class="fc" id="L87">    public Builder() {</span>
+<span class="fc" id="L88">    }</span>
+
+    /**
+     * Builds a AttributeEntry.
+     *
+     * @return the new AttributeEntry instance
+     */
+    public AttributeEntry build() {
+<span class="fc" id="L96">      return new AttributeEntry(this);</span>
+    }
+
+    /**
+     * Adds an fieldValues to fieldValues.
+     *
+     * @param fieldValues the new fieldValues
+     * @return the AttributeEntry builder
+     */
+    public Builder addFieldValues(String fieldValues) {
+<span class="nc" id="L106">      com.ibm.cloud.sdk.core.util.Validator.notNull(fieldValues,</span>
+        &quot;fieldValues cannot be null&quot;);
+<span class="nc bnc" id="L108" title="All 2 branches missed.">      if (this.fieldValues == null) {</span>
+<span class="nc" id="L109">        this.fieldValues = new ArrayList&lt;String&gt;();</span>
+      }
+<span class="nc" id="L111">      this.fieldValues.add(fieldValues);</span>
+<span class="nc" id="L112">      return this;</span>
+    }
+
+    /**
+     * Adds an possibleValues to possibleValues.
+     *
+     * @param possibleValues the new possibleValues
+     * @return the AttributeEntry builder
+     */
+    public Builder addPossibleValues(PossibleValues possibleValues) {
+<span class="nc" id="L122">      com.ibm.cloud.sdk.core.util.Validator.notNull(possibleValues,</span>
+        &quot;possibleValues cannot be null&quot;);
+<span class="nc bnc" id="L124" title="All 2 branches missed.">      if (this.possibleValues == null) {</span>
+<span class="nc" id="L125">        this.possibleValues = new ArrayList&lt;PossibleValues&gt;();</span>
+      }
+<span class="nc" id="L127">      this.possibleValues.add(possibleValues);</span>
+<span class="nc" id="L128">      return this;</span>
+    }
+
+    /**
+     * Set the attrName.
+     *
+     * @param attrName the attrName
+     * @return the AttributeEntry builder
+     */
+    public Builder attrName(String attrName) {
+<span class="fc" id="L138">      this.attrName = attrName;</span>
+<span class="fc" id="L139">      return this;</span>
+    }
+
+    /**
+     * Set the dataType.
+     *
+     * @param dataType the dataType
+     * @return the AttributeEntry builder
+     */
+    public Builder dataType(String dataType) {
+<span class="fc" id="L149">      this.dataType = dataType;</span>
+<span class="fc" id="L150">      return this;</span>
+    }
+
+    /**
+     * Set the defaultValue.
+     *
+     * @param defaultValue the defaultValue
+     * @return the AttributeEntry builder
+     */
+    public Builder defaultValue(String defaultValue) {
+<span class="fc" id="L160">      this.defaultValue = defaultValue;</span>
+<span class="fc" id="L161">      return this;</span>
+    }
+
+    /**
+     * Set the description.
+     *
+     * @param description the description
+     * @return the AttributeEntry builder
+     */
+    public Builder description(String description) {
+<span class="fc" id="L171">      this.description = description;</span>
+<span class="fc" id="L172">      return this;</span>
+    }
+
+    /**
+     * Set the displayName.
+     *
+     * @param displayName the displayName
+     * @return the AttributeEntry builder
+     */
+    public Builder displayName(String displayName) {
+<span class="fc" id="L182">      this.displayName = displayName;</span>
+<span class="fc" id="L183">      return this;</span>
+    }
+
+    /**
+     * Set the docId.
+     *
+     * @param docId the docId
+     * @return the AttributeEntry builder
+     */
+    public Builder docId(String docId) {
+<span class="fc" id="L193">      this.docId = docId;</span>
+<span class="fc" id="L194">      return this;</span>
+    }
+
+    /**
+     * Set the fieldValues.
+     * Existing fieldValues will be replaced.
+     *
+     * @param fieldValues the fieldValues
+     * @return the AttributeEntry builder
+     */
+    public Builder fieldValues(List&lt;String&gt; fieldValues) {
+<span class="fc" id="L205">      this.fieldValues = fieldValues;</span>
+<span class="fc" id="L206">      return this;</span>
+    }
+
+    /**
+     * Set the maximumValue.
+     *
+     * @param maximumValue the maximumValue
+     * @return the AttributeEntry builder
+     */
+    public Builder maximumValue(String maximumValue) {
+<span class="fc" id="L216">      this.maximumValue = maximumValue;</span>
+<span class="fc" id="L217">      return this;</span>
+    }
+
+    /**
+     * Set the minimumValue.
+     *
+     * @param minimumValue the minimumValue
+     * @return the AttributeEntry builder
+     */
+    public Builder minimumValue(String minimumValue) {
+<span class="fc" id="L227">      this.minimumValue = minimumValue;</span>
+<span class="fc" id="L228">      return this;</span>
+    }
+
+    /**
+     * Set the multiValue.
+     *
+     * @param multiValue the multiValue
+     * @return the AttributeEntry builder
+     */
+    public Builder multiValue(Boolean multiValue) {
+<span class="fc" id="L238">      this.multiValue = multiValue;</span>
+<span class="fc" id="L239">      return this;</span>
+    }
+
+    /**
+     * Set the units.
+     *
+     * @param units the units
+     * @return the AttributeEntry builder
+     */
+    public Builder units(String units) {
+<span class="fc" id="L249">      this.units = units;</span>
+<span class="fc" id="L250">      return this;</span>
+    }
+
+    /**
+     * Set the valueType.
+     *
+     * @param valueType the valueType
+     * @return the AttributeEntry builder
+     */
+    public Builder valueType(String valueType) {
+<span class="fc" id="L260">      this.valueType = valueType;</span>
+<span class="fc" id="L261">      return this;</span>
+    }
+
+    /**
+     * Set the possibleValues.
+     * Existing possibleValues will be replaced.
+     *
+     * @param possibleValues the possibleValues
+     * @return the AttributeEntry builder
+     */
+    public Builder possibleValues(List&lt;PossibleValues&gt; possibleValues) {
+<span class="fc" id="L272">      this.possibleValues = possibleValues;</span>
+<span class="fc" id="L273">      return this;</span>
+    }
+  }
+
+<span class="fc" id="L277">  protected AttributeEntry(Builder builder) {</span>
+<span class="fc" id="L278">    attrName = builder.attrName;</span>
+<span class="fc" id="L279">    dataType = builder.dataType;</span>
+<span class="fc" id="L280">    defaultValue = builder.defaultValue;</span>
+<span class="fc" id="L281">    description = builder.description;</span>
+<span class="fc" id="L282">    displayName = builder.displayName;</span>
+<span class="fc" id="L283">    docId = builder.docId;</span>
+<span class="fc" id="L284">    fieldValues = builder.fieldValues;</span>
+<span class="fc" id="L285">    maximumValue = builder.maximumValue;</span>
+<span class="fc" id="L286">    minimumValue = builder.minimumValue;</span>
+<span class="fc" id="L287">    multiValue = builder.multiValue;</span>
+<span class="fc" id="L288">    units = builder.units;</span>
+<span class="fc" id="L289">    valueType = builder.valueType;</span>
+<span class="fc" id="L290">    possibleValues = builder.possibleValues;</span>
+<span class="fc" id="L291">  }</span>
+
+  /**
+   * New builder.
+   *
+   * @return a AttributeEntry builder
+   */
+  public Builder newBuilder() {
+<span class="nc" id="L299">    return new Builder(this);</span>
+  }
+
+  /**
+   * Gets the attrName.
+   *
+   * @return the attrName
+   */
+  public String attrName() {
+<span class="fc" id="L308">    return attrName;</span>
+  }
+
+  /**
+   * Gets the dataType.
+   *
+   * @return the dataType
+   */
+  public String dataType() {
+<span class="fc" id="L317">    return dataType;</span>
+  }
+
+  /**
+   * Gets the defaultValue.
+   *
+   * @return the defaultValue
+   */
+  public String defaultValue() {
+<span class="fc" id="L326">    return defaultValue;</span>
+  }
+
+  /**
+   * Gets the description.
+   *
+   * @return the description
+   */
+  public String description() {
+<span class="fc" id="L335">    return description;</span>
+  }
+
+  /**
+   * Gets the displayName.
+   *
+   * @return the displayName
+   */
+  public String displayName() {
+<span class="fc" id="L344">    return displayName;</span>
+  }
+
+  /**
+   * Gets the docId.
+   *
+   * @return the docId
+   */
+  public String docId() {
+<span class="fc" id="L353">    return docId;</span>
+  }
+
+  /**
+   * Gets the fieldValues.
+   *
+   * @return the fieldValues
+   */
+  public List&lt;String&gt; fieldValues() {
+<span class="fc" id="L362">    return fieldValues;</span>
+  }
+
+  /**
+   * Gets the maximumValue.
+   *
+   * @return the maximumValue
+   */
+  public String maximumValue() {
+<span class="fc" id="L371">    return maximumValue;</span>
+  }
+
+  /**
+   * Gets the minimumValue.
+   *
+   * @return the minimumValue
+   */
+  public String minimumValue() {
+<span class="fc" id="L380">    return minimumValue;</span>
+  }
+
+  /**
+   * Gets the multiValue.
+   *
+   * @return the multiValue
+   */
+  public Boolean multiValue() {
+<span class="fc" id="L389">    return multiValue;</span>
+  }
+
+  /**
+   * Gets the units.
+   *
+   * @return the units
+   */
+  public String units() {
+<span class="fc" id="L398">    return units;</span>
+  }
+
+  /**
+   * Gets the valueType.
+   *
+   * @return the valueType
+   */
+  public String valueType() {
+<span class="fc" id="L407">    return valueType;</span>
+  }
+
+  /**
+   * Gets the possibleValues.
+   *
+   * @return the possibleValues
+   */
+  public List&lt;PossibleValues&gt; possibleValues() {
+<span class="fc" id="L416">    return possibleValues;</span>
+  }
+}
+
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>

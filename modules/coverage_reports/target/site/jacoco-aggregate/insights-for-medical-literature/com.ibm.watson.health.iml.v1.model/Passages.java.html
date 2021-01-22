@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../jacoco-resources/report.gif" type="image/gif"/><title>Passages.java</title><link rel="stylesheet" href="../../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../../index.html" class="el_report">IBM Watson Health Cognitive Services Coverage Reports</a> &gt; <a href="../index.html" class="el_bundle">insights-for-medical-literature</a> &gt; <a href="index.source.html" class="el_package">com.ibm.watson.health.iml.v1.model</a> &gt; <span class="el_source">Passages.java</span></div><h1>Passages.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2018 IBM Corp. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
+ * you may not use this file except in compliance with
+ * the License. You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing,
+ * software distributed under the License is distributed on
+ * an &quot;AS IS&quot; BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND,
+ * either express or implied. See the License for the
+ * specific language governing permissions and limitations under the License.
+ */
+package com.ibm.watson.health.iml.v1.model;
+
+import java.util.List;
+
+import com.ibm.cloud.sdk.core.service.model.GenericModel;
+//import com.ibm.cloud.sdk.core.service.model.BoolConcept;
+
+/**
+ * Passages.
+ */
+public class Passages extends GenericModel {
+
+<span class="nc" id="L28">  private List&lt;QueryConcept&gt; conceptsToHighlight = null;</span>
+  private String searchTagBegin;
+  private String searchTagEnd;
+  private String relatedTagBegin;
+  private String relatedTagEnd;
+  private Long limit;
+  private Float minScore;
+
+<span class="nc" id="L36">  public Passages() {</span>
+
+<span class="nc" id="L38">  }</span>
+
+  /**
+   * Gets the conceptsToHighlight.
+   *
+   * @return the searchTagBegin
+   */
+  public List&lt;QueryConcept&gt; getConceptsToHightlight() {
+<span class="nc" id="L46">    return conceptsToHighlight;</span>
+  }
+
+  /**
+   * Gets the searchTagBegin.
+   *
+   * @return the searchTagBegin
+   */
+  public String getSearchTagBegin() {
+<span class="nc" id="L55">    return searchTagBegin;</span>
+  }
+
+  /**
+   * Gets the searchTagEnd.
+   *
+   * @return the searchTagEnd
+   */
+  public String getSearchTagEnd() {
+<span class="nc" id="L64">    return searchTagEnd;</span>
+  }
+
+  /**
+   * Gets the relatedTagBegin.
+   *
+   * @return the relatedTagBegin
+   */
+  public String getRelatedTagBegin() {
+<span class="nc" id="L73">    return relatedTagBegin;</span>
+  }
+
+  /**
+   * Gets the relatedTagEnd.
+   *
+   * @return the relatedTagEnd
+   */
+  public String getRelatedTagEnd() {
+<span class="nc" id="L82">    return relatedTagEnd;</span>
+  }
+
+  /**
+   * Gets the limit.
+   *
+   * @return the limit
+   */
+  public Long getLimit() {
+<span class="nc" id="L91">    return limit;</span>
+  }
+
+  /**
+   * Gets the minScore.
+   *
+   * @return the minScore
+   */
+  public Float getMinScore() {
+<span class="nc" id="L100">    return minScore;</span>
+  }
+
+  /**
+   * Sets the concepts to highlight.
+   *
+   * @param concepts the search criteria
+   */
+  public void setConceptsToHighlight(List&lt;QueryConcept&gt; concepts) {
+<span class="nc" id="L109">    this.conceptsToHighlight = concepts;</span>
+<span class="nc" id="L110">  }</span>
+
+  /**
+   * Sets the searchTagBegin.
+   *
+   * @param searchTagBegin the new searchTagBegin
+   */
+  public void setSearchTagBegin(final String searchTagBegin) {
+<span class="nc" id="L118">    this.searchTagBegin = searchTagBegin;</span>
+<span class="nc" id="L119">  }</span>
+
+  /**
+   * Sets the searchTagEnd.
+   *
+   * @param searchTagEnd the new searchTagEnd
+   */
+  public void setSearchTagEnd(final String searchTagEnd) {
+<span class="nc" id="L127">    this.searchTagEnd = searchTagEnd;</span>
+<span class="nc" id="L128">  }</span>
+
+  /**
+   * Sets the relatedTagBegin.
+   *
+   * @param relatedTagBegin the new relatedTagBegin
+   */
+  public void setRelatedTagBegin(final String relatedTagBegin) {
+<span class="nc" id="L136">    this.relatedTagBegin = relatedTagBegin;</span>
+<span class="nc" id="L137">  }</span>
+
+  /**
+   * Sets the relatedTagEnd.
+   *
+   * @param relatedTagEnd the new relatedTagEnd
+   */
+  public void setRelatedTagEnd(final String relatedTagEnd) {
+<span class="nc" id="L145">    this.relatedTagEnd = relatedTagEnd;</span>
+<span class="nc" id="L146">  }</span>
+
+  /**
+   * Sets the limit.
+   *
+   * @param limit the new limit
+   */
+  public void setLimit(final long limit) {
+<span class="nc" id="L154">    this.limit = limit;</span>
+<span class="nc" id="L155">  }</span>
+
+  /**
+   * Sets the minScore.
+   *
+   * @param minScore the new minScore
+   */
+  public void setMinScore(final Float minScore) {
+<span class="nc" id="L163">    this.minScore = minScore;</span>
+<span class="nc" id="L164">  }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>

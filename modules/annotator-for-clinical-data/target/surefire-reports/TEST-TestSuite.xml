@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuite tests="79" failures="0" name="TestSuite" time="2.633" errors="0" skipped="0">
+  <properties>
+    <property name="java.runtime.name" value="OpenJDK Runtime Environment"/>
+    <property name="sun.boot.library.path" value="/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/amd64"/>
+    <property name="java.vm.version" value="25.222-b10"/>
+    <property name="java.vm.vendor" value="Private Build"/>
+    <property name="maven.multiModuleProjectDirectory" value="/home/jenkins/workspace/Build_Sdk/Build_Sdk_Java"/>
+    <property name="java.vendor.url" value="http://java.oracle.com/"/>
+    <property name="path.separator" value=":"/>
+    <property name="guice.disable.misplaced.annotation.check" value="true"/>
+    <property name="java.vm.name" value="OpenJDK 64-Bit Server VM"/>
+    <property name="file.encoding.pkg" value="sun.io"/>
+    <property name="user.country" value="US"/>
+    <property name="sun.java.launcher" value="SUN_STANDARD"/>
+    <property name="sun.os.patch.level" value="unknown"/>
+    <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
+    <property name="user.dir" value="/home/jenkins/workspace/Build_Sdk/Build_Sdk_Java"/>
+    <property name="java.runtime.version" value="1.8.0_222-8u222-b10-1ubuntu1~16.04.1-b10"/>
+    <property name="java.awt.graphicsenv" value="sun.awt.X11GraphicsEnvironment"/>
+    <property name="java.endorsed.dirs" value="/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/endorsed"/>
+    <property name="os.arch" value="amd64"/>
+    <property name="java.io.tmpdir" value="/tmp"/>
+    <property name="line.separator" value="
+"/>
+    <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
+    <property name="os.name" value="Linux"/>
+    <property name="classworlds.conf" value="/home/jenkins/tools/hudson.tasks.Maven_MavenInstallation/Maven_3.3.3/bin/m2.conf"/>
+    <property name="sun.jnu.encoding" value="UTF-8"/>
+    <property name="java.library.path" value="/usr/java/packages/lib/amd64:/usr/lib/x86_64-linux-gnu/jni:/lib/x86_64-linux-gnu:/usr/lib/x86_64-linux-gnu:/usr/lib/jni:/lib:/usr/lib"/>
+    <property name="java.specification.name" value="Java Platform API Specification"/>
+    <property name="java.class.version" value="52.0"/>
+    <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
+    <property name="os.version" value="4.4.0-130-generic"/>
+    <property name="user.home" value="/home/jenkins"/>
+    <property name="user.timezone" value="Etc/UTC"/>
+    <property name="java.awt.printerjob" value="sun.print.PSPrinterJob"/>
+    <property name="file.encoding" value="UTF-8"/>
+    <property name="java.specification.version" value="1.8"/>
+    <property name="user.name" value="jenkins"/>
+    <property name="java.class.path" value="/home/jenkins/tools/hudson.tasks.Maven_MavenInstallation/Maven_3.3.3/boot/plexus-classworlds-2.5.2.jar"/>
+    <property name="java.vm.specification.version" value="1.8"/>
+    <property name="sun.arch.data.model" value="64"/>
+    <property name="java.home" value="/usr/lib/jvm/java-8-openjdk-amd64/jre"/>
+    <property name="sun.java.command" value="org.codehaus.plexus.classworlds.launcher.Launcher -f pom.xml -gs /tmp/global-settings2464300363145264100.xml clean install --batch-mode -P ossrh"/>
+    <property name="java.specification.vendor" value="Oracle Corporation"/>
+    <property name="user.language" value="en"/>
+    <property name="awt.toolkit" value="sun.awt.X11.XToolkit"/>
+    <property name="java.vm.info" value="mixed mode"/>
+    <property name="java.version" value="1.8.0_222"/>
+    <property name="java.ext.dirs" value="/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/ext:/usr/java/packages/lib/ext"/>
+    <property name="securerandom.source" value="file:/dev/./urandom"/>
+    <property name="sun.boot.class.path" value="/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/resources.jar:/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/rt.jar:/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/sunrsasign.jar:/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/jsse.jar:/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/jce.jar:/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/charsets.jar:/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/jfr.jar:/usr/lib/jvm/java-8-openjdk-amd64/jre/classes"/>
+    <property name="java.vendor" value="Private Build"/>
+    <property name="maven.home" value="/home/jenkins/tools/hudson.tasks.Maven_MavenInstallation/Maven_3.3.3"/>
+    <property name="file.separator" value="/"/>
+    <property name="java.vendor.url.bug" value="http://bugreport.sun.com/bugreport/"/>
+    <property name="sun.cpu.endian" value="little"/>
+    <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
+    <property name="sun.cpu.isalist" value=""/>
+  </properties>
+  <testcase classname="com.ibm.watson.health.acd.v1.unit.AnnotatorForClinicalDataAcdTest" name="testCartridgesGetIdNoOptions" time="1.397"/>
+  <testcase classname="com.ibm.watson.health.acd.v1.unit.AnnotatorForClinicalDataAcdTest" name="testCartridgesGetIdWOptions" time="0.458"/>
+  <testcase classname="com.ibm.watson.health.acd.v1.unit.AnnotatorForClinicalDataAcdTest" name="testCartridgesGetWOptions" time="0.018"/>
+  <testcase classname="com.ibm.watson.health.acd.v1.unit.AnnotatorForClinicalDataAcdTest" name="testCartridgesPostMultipartWOptions" time="0.049"/>
+  <testcase classname="com.ibm.watson.health.acd.v1.unit.AnnotatorForClinicalDataAcdTest" name="testCartridgesPutMultipartWOptions" time="0.019"/>
+  <testcase classname="com.ibm.watson.health.acd.v1.unit.AnnotatorForClinicalDataAcdTest" name="testConstructorWithNullAuthenticator" time="0.035"/>
+  <testcase classname="com.ibm.watson.health.acd.v1.unit.AnnotatorForClinicalDataAcdTest" name="testCreateFlowsWOptions" time="0.087"/>
+  <testcase classname="com.ibm.watson.health.acd.v1.unit.AnnotatorForClinicalDataAcdTest" name="testCreateProfileWOptions" time="0.03"/>
+  <testcase classname="com.ibm.watson.health.acd.v1.unit.AnnotatorForClinicalDataAcdTest" name="testDeleteFlowsNoOptions" time="0.006"/>
+  <testcase classname="com.ibm.watson.health.acd.v1.unit.AnnotatorForClinicalDataAcdTest" name="testDeleteFlowsWOptions" time="0.014"/>
+  <testcase classname="com.ibm.watson.health.acd.v1.unit.AnnotatorForClinicalDataAcdTest" name="testDeleteProfileNoOptions" time="0.006"/>
+  <testcase classname="com.ibm.watson.health.acd.v1.unit.AnnotatorForClinicalDataAcdTest" name="testDeleteProfileWOptions" time="0.015"/>
+  <testcase classname="com.ibm.watson.health.acd.v1.unit.AnnotatorForClinicalDataAcdTest" name="testDeleteUserSpecificArtifactsWOptions" time="0.007"/>
+  <testcase classname="com.ibm.watson.health.acd.v1.unit.AnnotatorForClinicalDataAcdTest" name="testDeployCartridgeWOptions" time="0.015"/>
+  <testcase classname="com.ibm.watson.health.acd.v1.unit.AnnotatorForClinicalDataAcdTest" name="testGetAnnotatorsByIdNoOptions" time="0.004"/>
+  <testcase classname="com.ibm.watson.health.acd.v1.unit.AnnotatorForClinicalDataAcdTest" name="testGetAnnotatorsByIdWOptions" time="0.014"/>
+  <testcase classname="com.ibm.watson.health.acd.v1.unit.AnnotatorForClinicalDataAcdTest" name="testGetAnnotatorsWOptions" time="0.014"/>
+  <testcase classname="com.ibm.watson.health.acd.v1.unit.AnnotatorForClinicalDataAcdTest" name="testGetFlowsByIdNoOptions" time="0.007"/>
+  <testcase classname="com.ibm.watson.health.acd.v1.unit.AnnotatorForClinicalDataAcdTest" name="testGetFlowsByIdWOptions" time="0.02"/>
+  <testcase classname="com.ibm.watson.health.acd.v1.unit.AnnotatorForClinicalDataAcdTest" name="testGetFlowsWOptions" time="0.068"/>
+  <testcase classname="com.ibm.watson.health.acd.v1.unit.AnnotatorForClinicalDataAcdTest" name="testGetHealthCheckStatusWOptions" time="0.018"/>
+  <testcase classname="com.ibm.watson.health.acd.v1.unit.AnnotatorForClinicalDataAcdTest" name="testGetProfileNoOptions" time="0.005"/>
+  <testcase classname="com.ibm.watson.health.acd.v1.unit.AnnotatorForClinicalDataAcdTest" name="testGetProfileWOptions" time="0.017"/>
+  <testcase classname="com.ibm.watson.health.acd.v1.unit.AnnotatorForClinicalDataAcdTest" name="testGetProfilesWOptions" time="0.013"/>
+  <testcase classname="com.ibm.watson.health.acd.v1.unit.AnnotatorForClinicalDataAcdTest" name="testGetVersion" time="0.005"/>
+  <testcase classname="com.ibm.watson.health.acd.v1.unit.AnnotatorForClinicalDataAcdTest" name="testRunPipelineWOptions" time="0.084"/>
+  <testcase classname="com.ibm.watson.health.acd.v1.unit.AnnotatorForClinicalDataAcdTest" name="testRunPipelineWithFlowNoOptions" time="0.004"/>
+  <testcase classname="com.ibm.watson.health.acd.v1.unit.AnnotatorForClinicalDataAcdTest" name="testRunPipelineWithFlowWOptions" time="0.034"/>
+  <testcase classname="com.ibm.watson.health.acd.v1.unit.AnnotatorForClinicalDataAcdTest" name="testUpdateFlowsNoOptions" time="0.005"/>
+  <testcase classname="com.ibm.watson.health.acd.v1.unit.AnnotatorForClinicalDataAcdTest" name="testUpdateFlowsWOptions" time="0.013"/>
+  <testcase classname="com.ibm.watson.health.acd.v1.unit.AnnotatorForClinicalDataAcdTest" name="testUpdateProfileNoOptions" time="0.006"/>
+  <testcase classname="com.ibm.watson.health.acd.v1.unit.AnnotatorForClinicalDataAcdTest" name="testUpdateProfileWOptions" time="0.016"/>
+  <testcase classname="com.ibm.watson.health.acd.v1.model.DeleteFlowsOptionsTest" name="testDeleteFlowsOptions" time="0"/>
+  <testcase classname="com.ibm.watson.health.acd.v1.model.DeleteFlowsOptionsTest" name="testDeleteFlowsOptionsError" time="0"/>
+  <testcase classname="com.ibm.watson.health.acd.v1.model.GetHealthCheckStatusOptionsTest" name="testGetHealthCheckStatusOptions" time="0"/>
+  <testcase classname="com.ibm.watson.health.acd.v1.model.AnnotatorTest" name="testAnnotator" time="0.031"/>
+  <testcase classname="com.ibm.watson.health.acd.v1.model.AnnotatorTest" name="testAnnotatorError" time="0"/>
+  <testcase classname="com.ibm.watson.health.acd.v1.model.GetAnnotatorsOptionsTest" name="testGetAnnotatorsOptions" time="0"/>
+  <testcase classname="com.ibm.watson.health.acd.v1.model.GetFlowsOptionsTest" name="testGetFlowsOptions" time="0"/>
+  <testcase classname="com.ibm.watson.health.acd.v1.model.CustomCollectionTest" name="testCustomCollection" time="0.024"/>
+  <testcase classname="com.ibm.watson.health.acd.v1.model.ListStringWrapperTest" name="testListStringWrapper" time="0.001"/>
+  <testcase classname="com.ibm.watson.health.acd.v1.model.AnnotatorFlowTest" name="testAnnotatorFlow" time="0.007"/>
+  <testcase classname="com.ibm.watson.health.acd.v1.model.GetAnnotatorsByIdOptionsTest" name="testGetAnnotatorsByIdOptions" time="0"/>
+  <testcase classname="com.ibm.watson.health.acd.v1.model.GetAnnotatorsByIdOptionsTest" name="testGetAnnotatorsByIdOptionsError" time="0"/>
+  <testcase classname="com.ibm.watson.health.acd.v1.model.AcdProfileTest" name="testAcdProfile" time="0.004"/>
+  <testcase classname="com.ibm.watson.health.acd.v1.model.FlowEntryTest" name="testFlowEntry" time="0.001"/>
+  <testcase classname="com.ibm.watson.health.acd.v1.model.EntityTest" name="testEntity" time="0.003"/>
+  <testcase classname="com.ibm.watson.health.acd.v1.model.RunPipelineWithFlowOptionsTest" name="testRunPipelineWithFlowOptions" time="0.02"/>
+  <testcase classname="com.ibm.watson.health.acd.v1.model.RunPipelineWithFlowOptionsTest" name="testRunPipelineWithFlowOptionsError" time="0"/>
+  <testcase classname="com.ibm.watson.health.acd.v1.model.GetProfileOptionsTest" name="testGetProfileOptions" time="0"/>
+  <testcase classname="com.ibm.watson.health.acd.v1.model.GetProfileOptionsTest" name="testGetProfileOptionsError" time="0"/>
+  <testcase classname="com.ibm.watson.health.acd.v1.model.CartridgesPostMultipartOptionsTest" name="testCartridgesPostMultipartOptions" time="0.004"/>
+  <testcase classname="com.ibm.watson.health.acd.v1.model.GetFlowsByIdOptionsTest" name="testGetFlowsByIdOptions" time="0"/>
+  <testcase classname="com.ibm.watson.health.acd.v1.model.GetFlowsByIdOptionsTest" name="testGetFlowsByIdOptionsError" time="0"/>
+  <testcase classname="com.ibm.watson.health.acd.v1.model.UnstructuredContainerTest" name="testUnstructuredContainer" time="0.012"/>
+  <testcase classname="com.ibm.watson.health.acd.v1.model.ConfigurationEntityTest" name="testConfigurationEntity" time="0"/>
+  <testcase classname="com.ibm.watson.health.acd.v1.model.FlowTest" name="testFlow" time="0"/>
+  <testcase classname="com.ibm.watson.health.acd.v1.model.CartridgesPutMultipartOptionsTest" name="testCartridgesPutMultipartOptions" time="0.001"/>
+  <testcase classname="com.ibm.watson.health.acd.v1.model.AnalyticFlowBeanInputTest" name="testAnalyticFlowBeanInput" time="0.006"/>
+  <testcase classname="com.ibm.watson.health.acd.v1.model.CartridgesGetIdOptionsTest" name="testCartridgesGetIdOptions" time="0"/>
+  <testcase classname="com.ibm.watson.health.acd.v1.model.CartridgesGetIdOptionsTest" name="testCartridgesGetIdOptionsError" time="0"/>
+  <testcase classname="com.ibm.watson.health.acd.v1.model.UpdateProfileOptionsTest" name="testUpdateProfileOptions" time="0.002"/>
+  <testcase classname="com.ibm.watson.health.acd.v1.model.UpdateProfileOptionsTest" name="testUpdateProfileOptionsError" time="0"/>
+  <testcase classname="com.ibm.watson.health.acd.v1.model.AcdCartridgesTest" name="testAcdCartridges" time="0"/>
+  <testcase classname="com.ibm.watson.health.acd.v1.model.DeleteUserSpecificArtifactsOptionsTest" name="testDeleteUserSpecificArtifactsOptions" time="0"/>
+  <testcase classname="com.ibm.watson.health.acd.v1.model.DeployCartridgeResponseTest" name="testDeployCartridgeResponse" time="0"/>
+  <testcase classname="com.ibm.watson.health.acd.v1.model.DeleteProfileOptionsTest" name="testDeleteProfileOptions" time="0"/>
+  <testcase classname="com.ibm.watson.health.acd.v1.model.DeleteProfileOptionsTest" name="testDeleteProfileOptionsError" time="0"/>
+  <testcase classname="com.ibm.watson.health.acd.v1.model.GetProfilesOptionsTest" name="testGetProfilesOptions" time="0.001"/>
+  <testcase classname="com.ibm.watson.health.acd.v1.model.ServiceStatusTest" name="testServiceStatus" time="0.001"/>
+  <testcase classname="com.ibm.watson.health.acd.v1.model.CartridgesGetOptionsTest" name="testCartridgesGetOptions" time="0"/>
+  <testcase classname="com.ibm.watson.health.acd.v1.model.AcdFlowTest" name="testAcdFlow" time="0.002"/>
+  <testcase classname="com.ibm.watson.health.acd.v1.model.ServiceErrorTest" name="testServiceError" time="0"/>
+  <testcase classname="com.ibm.watson.health.acd.v1.model.CreateFlowsOptionsTest" name="testCreateFlowsOptions" time="0.001"/>
+  <testcase classname="com.ibm.watson.health.acd.v1.model.DeployCartridgeOptionsTest" name="testDeployCartridgeOptions" time="0.001"/>
+  <testcase classname="com.ibm.watson.health.acd.v1.model.RunPipelineOptionsTest" name="testRunPipelineOptions" time="0.003"/>
+  <testcase classname="com.ibm.watson.health.acd.v1.model.CreateProfileOptionsTest" name="testCreateProfileOptions" time="0.003"/>
+  <testcase classname="com.ibm.watson.health.acd.v1.model.UpdateFlowsOptionsTest" name="testUpdateFlowsOptions" time="0.001"/>
+  <testcase classname="com.ibm.watson.health.acd.v1.model.UpdateFlowsOptionsTest" name="testUpdateFlowsOptionsError" time="0.001"/>
+</testsuite>
