@@ -1,24 +1,42 @@
+# Compiled class file
+*.class
+
+# Log file
+*.log
+
+# BlueJ files
+*.ctxt
+
+# Mobile Tools for Java (J2ME)
+.mtj.tmp/
+
+# Package Files #
+*.jar
+*.war
+*.nar
+*.ear
+*.zip
+*.tar.gz
+*.rar
+
+*.env
+*.key
+
+# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
+hs_err_pid*
+
+/**/target/
+/**/test-output/
+/**/.settings/
+.classpath
+.project
+.factorypath
+*-apiref.json
+
+*.iml
+.idea
+.openapi-generator/
+.openapi-generator-ignore
+
+package-lock.json
 .DS_Store
-*.pyc
-__pycache__
-dist
-build
-docs/build
-docs/source/reference/services
-tests/cover
-tests/.coverage
-*.egg-info
-.env
-
-# Test state / virtualenvs
-.tox
-.coverage
-coverage.xml
-nosetests.xml
-
-# Common virtualenv names
-venv
-env
-env1
-env2
-env3

@@ -28,18 +28,17 @@
         <!-- This is the version associated with the Java core. The version used
             here should be compatible with the version of the SDK generator used to generate
             your SDK code. See this link for details: https://github.ibm.com/CloudEngineering/openapi-sdkgen/wiki/Compatibility-Chart -->
-      <sdk-core-version>8.1.3</sdk-core-version>
+        <sdk-core-version>8.1.3</sdk-core-version>
 
-      <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-      <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-      <timestamp>${maven.build.timestamp}</timestamp>
-      <maven.build.timestamp.format>yyyyMMdd-HHmm</maven.build.timestamp.format>
-      <java.version>1.8</java.version>
-  	<!-- >>> Replace this with the name of your SDK's github repository -->
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <timestamp>${maven.build.timestamp}</timestamp>
+        <maven.build.timestamp.format>yyyyMMdd-HHmm</maven.build.timestamp.format>
+        <java.version>1.8</java.version>
   	<git-repository-name>whcs-java-sdk</git-repository-name>
 
         <testng-version>7.1.0</testng-version>
-        <okhttp3-version>3.12.1</okhttp3-version>
+        <okhttp3-version>3.13.1</okhttp3-version>
         <surefire-version>3.0.0-M3</surefire-version>
         <jacoco-plugin-version>0.8.5</jacoco-plugin-version>
         <maven-source-plugin-version>3.1.0</maven-source-plugin-version>
@@ -92,21 +91,26 @@
         <url>https://github.ibm.com/IBM/whcs-java-sdk/issues</url>
     </issueManagement>
 
+    <ciManagement>
+        <system>Travis-CI</system>
+        <url>https://travis-ci.com/IBM/whcs-java-sdk/</url>
+    </ciManagement>
+
     <!-- we use the travis providers for deployment so don't need to specify repositories here -->
-    <distributionManagement>
-      <snapshotRepository>
-        <id>ossrh</id>
-        <url>https://oss.sonatype.org/content/repositories/snapshots</url>
-      </snapshotRepository>
-      <repository>
-        <id>ossrh</id>
-        <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
-      </repository>
-    </distributionManagement>
+    <!-- <distributionManagement> -->
+    <!--   <snapshotRepository> -->
+    <!--     <id>ossrh</id> -->
+    <!--     <url>https://oss.sonatype.org/content/repositories/snapshots</url> -->
+    <!--   </snapshotRepository> -->
+    <!--   <repository> -->
+    <!--     <id>ossrh</id> -->
+    <!--     <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url> -->
+    <!--   </repository> -->
+    <!-- </distributionManagement> -->
 
     <!-- we currently don't need any non-public repositories -->
-    <repositories>
-    </repositories>
+    <!-- <repositories> -->
+    <!-- </repositories> -->
 
     <dependencyManagement>
         <dependencies>
@@ -302,17 +306,17 @@
             </plugins>
         </pluginManagement>
         <plugins>
-          <plugin>
-            <groupId>org.sonatype.plugins</groupId>
-            <artifactId>nexus-staging-maven-plugin</artifactId>
-            <version>1.6.7</version>
-            <extensions>true</extensions>
-            <configuration>
-              <serverId>ossrh</serverId>
-              <nexusUrl>https://oss.sonatype.org/</nexusUrl>
-              <autoReleaseAfterClose>true</autoReleaseAfterClose>
-            </configuration>
-          </plugin>
+          <!-- <plugin> -->
+          <!--   <groupId>org.sonatype.plugins</groupId> -->
+          <!--   <artifactId>nexus-staging-maven-plugin</artifactId> -->
+          <!--   <version>1.6.7</version> -->
+          <!--   <extensions>true</extensions> -->
+          <!--   <configuration> -->
+          <!--     <serverId>ossrh</serverId> -->
+          <!--     <nexusUrl>https://oss.sonatype.org/</nexusUrl> -->
+          <!--     <autoReleaseAfterClose>true</autoReleaseAfterClose> -->
+          <!--   </configuration> -->
+          <!-- </plugin> -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-javadoc-plugin</artifactId>
@@ -355,26 +359,26 @@
                  </execution>
                </executions>
              </plugin>
-             <plugin>
-              <groupId>org.apache.maven.plugins</groupId>
-              <artifactId>maven-gpg-plugin</artifactId>
-              <version>1.5</version>
-              <executions>
-                <execution>
-                  <id>sign-artifacts</id>
-                  <phase>verify</phase>
-                  <goals>
-                    <goal>sign</goal>
-                  </goals>
-                  <configuration>
-                    <gpgArguments>
-                      <arg>--pinentry-mode</arg>
-                      <arg>loopback</arg>
-                    </gpgArguments>
-                  </configuration>
-                </execution>
-              </executions>
-            </plugin>
+             <!-- <plugin> -->
+             <!--  <groupId>org.apache.maven.plugins</groupId> -->
+             <!--  <artifactId>maven-gpg-plugin</artifactId> -->
+             <!--  <version>1.5</version> -->
+             <!--  <executions> -->
+             <!--    <execution> -->
+             <!--      <id>sign-artifacts</id> -->
+             <!--     <phase>verify</phase> -->
+             <!--     <goals> -->
+             <!--       <goal>sign</goal> -->
+             <!--     </goals> -->
+             <!--     <configuration> -->
+             <!--       <gpgArguments> -->
+             <!--         <arg>- -pinentry-mode</arg> -->
+             <!--         <arg>loopback</arg> -->
+             <!--       </gpgArguments> -->
+             <!--     </configuration> -->
+             <!--   </execution> -->
+             <!--  </executions> -->
+             <!-- </plugin> -->
         </plugins>
     </build>
 
@@ -396,4 +400,63 @@
         </plugins>
     </reporting>
 
+    <profiles>
+        <!-- "central" is used to deploy artifacts on maven central -->
+        <profile>
+            <id>central</id>
+
+            <!-- For this profile, we'll get dependencies from maven central -->
+            <repositories></repositories>
+
+            <distributionManagement>
+                <snapshotRepository>
+                    <!-- We don't deploy snapshot releases -->
+                </snapshotRepository>
+                <repository>
+                    <id>ossrh</id>
+                    <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+                </repository>
+            </distributionManagement>
+
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.sonatype.plugins</groupId>
+                        <artifactId>nexus-staging-maven-plugin</artifactId>
+                        <extensions>true</extensions>
+                        <configuration>
+                            <serverId>ossrh</serverId>
+                            <nexusUrl>https://oss.sonatype.org/</nexusUrl>
+                            <autoReleaseAfterClose>true</autoReleaseAfterClose>
+                            <keepStagingRepositoryOnCloseRuleFailure>true</keepStagingRepositoryOnCloseRuleFailure>
+                        </configuration>
+                    </plugin>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-gpg-plugin</artifactId>
+                        <executions>
+                            <execution>
+                                <id>sign-artifacts</id>
+                                <phase>verify</phase>
+                                <goals>
+                                    <goal>sign</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                        <configuration>
+                            <gpgArguments>
+                                <gpgArgument>--batch</gpgArgument>
+                                <gpgArgument>--yes</gpgArgument>
+                                <gpgArgument>--no-tty</gpgArgument>
+                            </gpgArguments>
+                        </configuration>
+                    </plugin>
+                </plugins>
+            </build>
+            <properties>
+                <gpg.keyname>${env.GPG_KEYNAME}</gpg.keyname>
+                <gpg.passphrase>${env.GPG_PASSPHRASE}</gpg.passphrase>
+            </properties>
+        </profile>
+    </profiles>
 </project>
