@@ -1,3 +1,10 @@
+## [1.1.10](https://github.com/IBM/whcs-java-sdk/compare/1.1.9...1.1.10) (2021-02-01)
+
+
+### Bug Fixes
+
+* **build:** pom cleanup ([b2a5b8c](https://github.com/IBM/whcs-java-sdk/commit/b2a5b8c5ecbd28e9872cec966749c333587c7d60))
+
 ## [1.1.9](https://github.com/IBM/whcs-java-sdk/compare/1.1.8...1.1.9) (2021-02-01)
 
 
