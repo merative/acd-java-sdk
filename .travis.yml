@@ -19,8 +19,8 @@ cache:
 env:
   global:
     - MVN_ARGS="--settings build/.travis.settings.xml"
-#    - BINTRAY_ORG=ibm-cloud-sdks
-#    - BINTRAY_REPO=platform-services-java-sdk
+#     - BINTRAY_ORG=ibm-cloud-sdks
+#     - BINTRAY_REPO=platform-services-java-sdk
 
 stages:
   - name: Build-Test
