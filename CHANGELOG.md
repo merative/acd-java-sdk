@@ -1,3 +1,10 @@
+## [1.1.11](https://github.com/IBM/whcs-java-sdk/compare/1.1.10...1.1.11) (2021-02-02)
+
+
+### Bug Fixes
+
+* **build:** Reorg ACD example ([5a32164](https://github.com/IBM/whcs-java-sdk/commit/5a321640f7e5217c91548ee17e5f2e8a0ede32cc))
+
 ## [1.1.10](https://github.com/IBM/whcs-java-sdk/compare/1.1.9...1.1.10) (2021-02-01)
 
 
