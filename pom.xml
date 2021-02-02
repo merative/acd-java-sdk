@@ -36,7 +36,7 @@
         <maven.build.timestamp.format>yyyyMMdd-HHmm</maven.build.timestamp.format>
         <java.version>1.8</java.version>
   	<git-repository-name>whcs-java-sdk</git-repository-name>
-        <nexus-staging-plugin-version>1.6.7</nexus-staging-plugin-version>
+        <nexus-staging-plugin-version>1.6.8</nexus-staging-plugin-version>
         <testng-version>7.1.0</testng-version>
         <okhttp3-version>3.13.1</okhttp3-version>
         <surefire-version>3.0.0-M3</surefire-version>
@@ -54,6 +54,7 @@
         <maven-deploy-plugin-version>3.0.0-M1</maven-deploy-plugin-version>
         <powermock-version>2.0.5</powermock-version>
         <mockito-version>3.2.4</mockito-version>
+        <slf4j-version>1.7.28</slf4j-version>
 
         <!-- Skip integration tests by default -->
         <skipITs>true</skipITs>
@@ -67,8 +68,10 @@
         <module>modules/annotator-for-clinical-data</module>
         <module>modules/insights-for-medical-literature</module>
 
-        <!-- This module should always be listed last -->
         <module>modules/coverage_reports</module>
+
+        <!-- This module should always be listed last -->
+        <module>modules/examples</module>
     </modules>
 
     <licenses>
@@ -159,6 +162,12 @@
                 <artifactId>powermock-module-testng</artifactId>
                 <version>${powermock-version}</version>
                 <scope>test</scope>
+            </dependency>
+            <!-- Dependency needed to build examples -->
+            <dependency>
+                <groupId>org.slf4j</groupId>
+                <artifactId>slf4j-jdk14</artifactId>
+                <version>${slf4j-version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
