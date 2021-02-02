@@ -10,7 +10,7 @@
         <relativePath>../../pom.xml</relativePath>
     </parent>
 
-    <artifactId>whcs-examples</artifactId>
+    <artifactId>ibm-whcs-services-examples</artifactId>
     <packaging>jar</packaging>
     <name>IBM Watson Health Cognitive Services Code Examples</name>
 
