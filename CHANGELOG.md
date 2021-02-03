@@ -1,3 +1,10 @@
+## [1.1.14](https://github.com/IBM/whcs-java-sdk/compare/1.1.13...1.1.14) (2021-02-03)
+
+
+### Bug Fixes
+
+* **build:** code cov dir ([c46f8df](https://github.com/IBM/whcs-java-sdk/commit/c46f8df89e9c39c8d80bd6d2992ab20d9203bd75))
+
 ## [1.1.13](https://github.com/IBM/whcs-java-sdk/compare/1.1.12...1.1.13) (2021-02-03)
 
 
