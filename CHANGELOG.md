@@ -1,3 +1,10 @@
+## [1.1.13](https://github.com/IBM/whcs-java-sdk/compare/1.1.12...1.1.13) (2021-02-03)
+
+
+### Bug Fixes
+
+* **build:** publish javadoc ([590c1c7](https://github.com/IBM/whcs-java-sdk/commit/590c1c78527596fdb6a8a2bf69e84a0959a7a8fc))
+
 ## [1.1.12](https://github.com/IBM/whcs-java-sdk/compare/1.1.11...1.1.12) (2021-02-02)
 
 
