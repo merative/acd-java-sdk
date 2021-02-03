@@ -67,7 +67,7 @@ jobs:
       script:
         - build/setMavenVersion.sh
         - mvn clean javadoc:aggregate $MVN_ARGS
-#        - build/publishJavadoc.sh
+        - build/publishJavadoc.sh
       after_success:
         - echo "Javadocs successfully published to gh-pages!"
 #    - jdk: openjdk8
