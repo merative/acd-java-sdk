@@ -1,3 +1,10 @@
+## [1.1.15](https://github.com/IBM/whcs-java-sdk/compare/1.1.14...1.1.15) (2021-05-12)
+
+
+### Bug Fixes
+
+* gen release build ([4179fa3](https://github.com/IBM/whcs-java-sdk/commit/4179fa34b83e91b4e8f0d9a618f388d0e212a52f))
+
 ## [1.1.14](https://github.com/IBM/whcs-java-sdk/compare/1.1.13...1.1.14) (2021-02-03)
 
 
