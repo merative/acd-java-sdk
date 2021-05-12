@@ -8,7 +8,7 @@ The IBM Watson Health Cognitive Services (WHCS) Java SDK allows developers to pr
 |--------------|-------------|
 | [Annotator for Clinical Data](https://cloud.ibm.com/apidocs/wh-acd) | annotator-for-clinical-data |
 
-NOTE:  You must be signed in to IBM Cloud to see the docs.
+NOTE: You must be signed in to IBM Cloud to see the docs.
 
 ## Prerequisites
 
