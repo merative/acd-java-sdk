@@ -1,5 +1,5 @@
 /*
- * Copyright 2018 IBM Corp. All Rights Reserved.
+ * Copyright 2021 IBM Corp. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with
  * the License. You may obtain a copy of the License at
@@ -39,7 +39,6 @@ public class Concept extends DynamicModel {
   private Type disambiguationDataType = new TypeToken<Disambiguation>() { } .getType();
   private Type sectionNormalizedNameType = new TypeToken<String>() { } .getType();
   private Type sectionSurfaceFormType = new TypeToken<String>() { } .getType();
-
   private Type icd9CodeType = new TypeToken<String>() { } .getType();
   private Type icd10CodeType = new TypeToken<String>() { } .getType();
   private Type snomedConceptIdType = new TypeToken<String>() { } .getType();
@@ -53,7 +52,8 @@ public class Concept extends DynamicModel {
   private Type ruleIdType = new TypeToken<String>() { } .getType();
   private Type derivedFromType = new TypeToken<List<Concept>>() { } .getType();
   private Type temporalType = new TypeToken<List<Temporal>>() { } .getType();
-
+  private Type selectionLabelType = new TypeToken<String>() { } .getType();
+  private Type valueIndexType = new TypeToken<Integer>() { } .getType();
 
 
   /**
@@ -316,6 +316,22 @@ public class Concept extends DynamicModel {
   }
 
   /**
+   * Gets the selectionLabel.
+   * @return the selectionLabel
+   */
+  public String getSelectionLabel() {
+    return GsonSerializationHelper.serializeDynamicModelProperty(this.get("selectionLabel"), selectionLabelType);
+  }
+
+  /**
+   * Gets the valueIndex.
+   * @return the valueIndex
+   */
+  public Integer getValueIndex() {
+    return GsonSerializationHelper.serializeDynamicModelProperty(this.get("valueIndex"), valueIndexType);
+  }
+
+  /**
    * Sets the id.
    *
    * @param id the new id
@@ -556,6 +572,24 @@ public class Concept extends DynamicModel {
    */
   public void setTemporal(final List<Temporal> temporal) {
     this.put("temporal", temporal);
+  }
+
+  /**
+   * Sets the selectionLabel.
+   *
+   * @param selectionLabel the new selection label
+   */
+  public void setSelectionLabel(final String selectionLabel) {
+    this.put("selectionLabel", selectionLabel);
+  }
+
+  /**
+   * Sets the valueIndex.
+   *
+   * @param valueIndex the new valueIndex
+   */
+  public void setValueIndex(final Integer valueIndex) {
+    this.put("valueIndex", valueIndex);
   }
 
 }

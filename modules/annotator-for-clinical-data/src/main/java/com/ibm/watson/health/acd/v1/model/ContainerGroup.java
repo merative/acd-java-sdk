@@ -1,5 +1,5 @@
 /*
- * Copyright 2018 IBM Corp. All Rights Reserved.
+ * Copyright 2021 IBM Corp. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with
  * the License. You may obtain a copy of the License at
@@ -1355,6 +1355,102 @@ public class ContainerGroup extends GenericModel {
   		//ACD didn't return any annotations
   	}
   	return temporal;
+  }
+
+  /**
+   * Gets the lines scopes.
+   *
+   * @return the lines scopes
+   */
+  public List<Annotation> getLines() {
+	  List<Annotation> annotations = new ArrayList<Annotation>();
+	  try {
+      validateUnstructuredElementData("lines");
+      annotations = this.getUnstructured().get(0).data().getLines();
+   } catch (IllegalArgumentException iae) {
+  		//ACD didn't return any annotations
+  	}
+  	return annotations;
+  }
+
+  /**
+   * Gets the line scope at given index.
+   *
+   * @return the line scope
+   */
+  public Annotation getLines(int index) {
+  	Annotation annotation = null;
+	  try {
+      validateUnstructuredElementData("lines");
+      annotation = this.getUnstructured().get(0).data().getLines().get(index);
+	  } catch (IllegalArgumentException iae) {
+	  	//ACD didn't return any annotations
+  	}
+  	return annotation;
+  }
+
+  /**
+   * Gets the sentences scopes.
+   *
+   * @return the sentences scopes
+   */
+  public List<Annotation> getSentences() {
+  	List<Annotation> annotations = new ArrayList<Annotation>();
+	  try {
+      validateUnstructuredElementData("sentences");
+      annotations = this.getUnstructured().get(0).data().getSentences();
+	  } catch (IllegalArgumentException iae) {
+	  	//ACD didn't return any annotations
+  	}
+  	return annotations;
+  }
+
+  /**
+   * Gets the sentence scope at given index.
+   *
+   * @return the sentence scope
+   */
+  public Annotation getSentences(int index) {
+  	Annotation annotation = null;
+	  try {
+      validateUnstructuredElementData("sentences");
+      annotation = this.getUnstructured().get(0).data().getSentences().get(index);
+	  } catch (IllegalArgumentException iae) {
+	  	//ACD didn't return any annotations
+  	}
+  	return annotation;
+  }
+
+  /**
+   * Gets the paragraphs scopes.
+   *
+   * @return the paragraphs scopes
+   */
+  public List<Annotation> getParagraphs() {
+  	List<Annotation> annotations = new ArrayList<Annotation>();
+	  try {
+      validateUnstructuredElementData("paragraphs");
+      annotations = this.getUnstructured().get(0).data().getParagraphs();
+	  } catch (IllegalArgumentException iae) {
+	  	//ACD didn't return any annotations
+  	}
+  	return annotations;
+  }
+
+  /**
+   * Gets the paragraph scope at given index.
+   *
+   * @return the paragraph scope
+   */
+  public Annotation getParagraphs(int index) {
+  	Annotation annotation = null;
+	  try {
+      validateUnstructuredElementData("paragraphs");
+      annotation = this.getUnstructured().get(0).data().getParagraphs().get(index);
+	  } catch (IllegalArgumentException iae) {
+	  	//ACD didn't return any annotations
+  	}
+  	return annotation;
   }
 
   /*
