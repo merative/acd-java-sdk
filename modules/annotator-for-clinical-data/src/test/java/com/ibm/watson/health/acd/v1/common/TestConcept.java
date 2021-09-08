@@ -1,5 +1,5 @@
 /*
- * Copyright 2018, 2020 IBM Corp. All Rights Reserved.
+ * Copyright 2021 IBM Corp. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with
  * the License. You may obtain a copy of the License at
@@ -152,6 +152,15 @@ public class TestConcept {
 		}
 		if (concept.getDerivedFrom() != null) {
 			Assert.assertTrue(concept.getDerivedFrom().size() > 0);
+			List<Concept> derivedFroms = concept.getDerivedFrom();
+			if (derivedFroms != null) {
+				for (Concept derivedFrom : derivedFroms) {
+					Assert.assertTrue(derivedFrom.getUid() > -1);
+					if (derivedFrom.getSelectionLabel() != null) {
+						Assert.assertTrue(derivedFrom.getSelectionLabel().length() > 0);
+					}
+				}
+			}
 		}
 		List<Temporal> temporals = concept.getTemporal();
 		if (temporals != null) {

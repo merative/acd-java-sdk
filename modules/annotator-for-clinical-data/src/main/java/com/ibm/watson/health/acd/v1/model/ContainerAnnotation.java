@@ -1,5 +1,5 @@
 /*
- * Copyright 2018 IBM Corp. All Rights Reserved.
+ * Copyright 2021 IBM Corp. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with
  * the License. You may obtain a copy of the License at
@@ -77,6 +77,9 @@ public class ContainerAnnotation extends GenericModel {
   private List<SpellingCorrection> spellingCorrections;
   @SerializedName("temporalSpans")
   private List<Temporal> temporalSpans;
+  private List<Annotation> lines;
+  private List<Annotation> sentences;
+  private List<Annotation> paragraphs;
 
     /**
      * Gets the allergyInd.
@@ -355,6 +358,34 @@ public class ContainerAnnotation extends GenericModel {
      */
     public List<Temporal> getTemporalSpans() {
       return temporalSpans;
+    }
+
+
+    /**
+     * Gets the lines scopes.
+     *
+     * @return the lines scopes
+     */
+    public List<Annotation> getLines() {
+      return lines;
+    }
+
+    /**
+     * Gets the sentences scopes.
+     *
+     * @return the sentences scopes
+     */
+    public List<Annotation> getSentences() {
+      return sentences;
+    }
+
+    /**
+     * Gets the paragraphs scopes.
+     *
+     * @return the paragraphs scopes
+     */
+    public List<Annotation> getParagraphs() {
+      return paragraphs;
     }
 
 //    /**

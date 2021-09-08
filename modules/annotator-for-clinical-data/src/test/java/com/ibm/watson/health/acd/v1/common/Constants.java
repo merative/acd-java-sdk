@@ -1,5 +1,5 @@
 /*
- * Copyright 2018 IBM Corp. All Rights Reserved.
+ * Copyright 2021 IBM Corp. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with
  * the License. You may obtain a copy of the License at
@@ -58,6 +58,7 @@ public class Constants {
 			+ "(555) 555-5555"
 			+ "The patient started on metformin because his blood sugar was too high."
 			+ "CT scan showed a tumor in his lung."
-			+ "She had gallbladder removal September 19 2020";
+			+ "She had gallbladder removal September 19 2020"
+			+ "Her father had lung cancer. Her mother had asthma and diabetes.";
 	public static final String CONTENT_TYPE = "application/json";
 }

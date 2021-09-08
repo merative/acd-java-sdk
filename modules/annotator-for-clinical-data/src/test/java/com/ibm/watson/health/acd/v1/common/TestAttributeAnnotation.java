@@ -1,5 +1,5 @@
 /*
- * Copyright 2018, 2020 IBM Corp. All Rights Reserved.
+ * Copyright 2021 IBM Corp. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with
  * the License. You may obtain a copy of the License at
@@ -28,6 +28,7 @@ import com.ibm.watson.health.acd.v1.model.InsightModelDataNormalityUsage;
 import com.ibm.watson.health.acd.v1.model.InsightModelDataProcedure;
 import com.ibm.watson.health.acd.v1.model.InsightModelDataTask;
 import com.ibm.watson.health.acd.v1.model.InsightModelDataUsage;
+import com.ibm.watson.health.acd.v1.model.Reference;
 import com.ibm.watson.health.acd.v1.model.Temporal;
 
 public class TestAttributeAnnotation {
@@ -154,6 +155,15 @@ public class TestAttributeAnnotation {
 		}
 		if (annotation.getDerivedFrom() != null) {
 			Assert.assertTrue(annotation.getDerivedFrom().size() > 0);
+			List<Concept> derivedFroms = annotation.getDerivedFrom();
+			if (derivedFroms != null) {
+				for (Concept derivedFrom : derivedFroms) {
+					Assert.assertTrue(derivedFrom.getUid() > -1);
+					if (derivedFrom.getValueIndex() != null) {
+						Assert.assertTrue(derivedFrom.getValueIndex() >= 0);
+					}
+				}
+			}
 		}
 		if (annotation.getValues() != null) {
 			Assert.assertTrue(annotation.getValues().size() > 0);
@@ -165,6 +175,16 @@ public class TestAttributeAnnotation {
 				Assert.assertTrue(temporal.getBegin() > -1);
 				Assert.assertTrue(temporal.getEnd() > temporal.getBegin());
 				Assert.assertNotNull(temporal.getCoveredText());
+			}
+		}
+		List<Reference> evidenceSpans = annotation.getEvidenceSpans();
+		if (evidenceSpans != null) {
+			Assert.assertTrue(evidenceSpans.size() > 0);
+			for (Reference evidenceSpan : evidenceSpans) {
+				Long evSpanUid = evidenceSpan.getUid();
+				if (evSpanUid != null) {
+					Assert.assertTrue(evSpanUid > 0);
+				}
 			}
 		}
 	}

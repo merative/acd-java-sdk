@@ -1,5 +1,5 @@
 /*
- * Copyright 2018, 2020 IBM Corp. All Rights Reserved.
+ * Copyright 2021 IBM Corp. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with
  * the License. You may obtain a copy of the License at
@@ -20,12 +20,16 @@ public class TestAnnotation {
 
 	public static void testAnnotation(Annotation annotation) {
 		Assert.assertTrue(annotation.getBegin() > -1);
-		Assert.assertNotNull(annotation.getCoveredText());
+		if (annotation.getCoveredText() != null && !annotation.getCoveredText().isEmpty()) {
+			Assert.assertTrue(annotation.getCoveredText().length() > 0);
+		}
 		Assert.assertTrue(annotation.getEnd() > annotation.getBegin());
 		if (annotation.getId() != null){
 			Assert.assertTrue(annotation.getId().length() > 0);
 		}
-		Assert.assertNotNull(annotation.getType());
+		if (annotation.getType() != null && !annotation.getType().isEmpty()) {
+			Assert.assertTrue(annotation.getType().length() > 0);
+		}
 		if (annotation.getUid() != null){
 			Assert.assertTrue(annotation.getUid() > 0);
 		}

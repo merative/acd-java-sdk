@@ -1,5 +1,5 @@
 /*
- * Copyright 2018 IBM Corp. All Rights Reserved.
+ * Copyright 2021 IBM Corp. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with
  * the License. You may obtain a copy of the License at
@@ -312,6 +312,30 @@ public class TestContainerGroup {
 				TestTemporal.testTemporal(annotation);
 			}
 			Temporal annotation = containerGroup.getTemporalSpans(0);
+			Assert.assertNotNull(annotation);
+		}
+		List<Annotation> lines = containerGroup.getLines();
+		if (lines != null && !lines.isEmpty()) {
+			for (Annotation annotation : lines) {
+				TestAnnotation.testAnnotation(annotation);
+			}
+			Annotation annotation = containerGroup.getLines(0);
+			Assert.assertNotNull(annotation);
+		}
+		List<Annotation> sentences = containerGroup.getSentences();
+		if (sentences != null && !sentences.isEmpty()) {
+			for (Annotation annotation : sentences) {
+				TestAnnotation.testAnnotation(annotation);
+			}
+			Annotation annotation = containerGroup.getSentences(0);
+			Assert.assertNotNull(annotation);
+		}
+		List<Annotation> paragraphs = containerGroup.getParagraphs();
+		if (paragraphs != null && !paragraphs.isEmpty()) {
+			for (Annotation annotation : paragraphs) {
+				TestAnnotation.testAnnotation(annotation);
+			}
+			Annotation annotation = containerGroup.getParagraphs(0);
 			Assert.assertNotNull(annotation);
 		}
 	}

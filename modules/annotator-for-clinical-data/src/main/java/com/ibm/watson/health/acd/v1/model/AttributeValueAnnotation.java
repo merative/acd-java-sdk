@@ -1,5 +1,5 @@
 /*
- * Copyright 2018 IBM Corp. All Rights Reserved.
+ * Copyright 2021 IBM Corp. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with
  * the License. You may obtain a copy of the License at
@@ -42,7 +42,6 @@ public class AttributeValueAnnotation extends DynamicModel {
   private Type nameType = new TypeToken<String>() { } .getType();
   private Type sectionNormalizedNameType = new TypeToken<String>() { } .getType();
   private Type sectionSurfaceFormType = new TypeToken<String>() { } .getType();
-
   private Type icd9CodeType = new TypeToken<String>() { } .getType();
   private Type icd10CodeType = new TypeToken<String>() { } .getType();
   private Type snomedConceptIdType = new TypeToken<String>() { } .getType();
@@ -59,7 +58,7 @@ public class AttributeValueAnnotation extends DynamicModel {
   private Type ruleIdType = new TypeToken<String>() { } .getType();
   private Type derivedFromType = new TypeToken<List<Concept>>() { } .getType();
   private Type temporalType = new TypeToken<List<Temporal>>() { } .getType();
-
+  private Type evidenceSpansType = new TypeToken<List<Reference>>() { } .getType();
 
   /**
    * Gets the id.
@@ -160,6 +159,18 @@ public class AttributeValueAnnotation extends DynamicModel {
     CustomCollection customCollection = new CustomCollection();
     List<CustomCollection> listValues = customCollection.convertToCustomCollectionList(listObjects);
     return listValues;
+  }
+
+  /*
+   *
+   * Manually Added code
+   *
+   * */
+  public CustomCollection getValues(int index) {
+    List<Object> listObjects = GsonSerializationHelper.serializeDynamicModelProperty(this.get("values"), valuesType);
+    CustomCollection customCollection = new CustomCollection();
+    CustomCollection values = customCollection.convertToCustomCollection(listObjects.get(index));
+    return values;
   }
 
   /**
@@ -347,6 +358,15 @@ public class AttributeValueAnnotation extends DynamicModel {
   }
 
   /**
+   * Gets the evidenceSpans.
+   *
+   * @return the evidenceSpans
+   */
+  public List<Reference> getEvidenceSpans() {
+	  return GsonSerializationHelper.serializeDynamicModelProperty(this.get("evidenceSpans"), evidenceSpansType);
+  }
+
+  /**
    * Sets the id.
    *
    * @param id the new id
@@ -470,19 +490,6 @@ public class AttributeValueAnnotation extends DynamicModel {
    */
   public void setName(final String name) {
     this.put("name", name);
-  }
-
-
-  /*
-   *
-   * Manually Added code
-   *
-   * */
-  public CustomCollection getValues(int index) {
-    List<Object> listObjects = GsonSerializationHelper.serializeDynamicModelProperty(this.get("values"), valuesType);
-    CustomCollection customCollection = new CustomCollection();
-    CustomCollection values = customCollection.convertToCustomCollection(listObjects.get(index));
-    return values;
   }
 
 
@@ -648,6 +655,15 @@ public class AttributeValueAnnotation extends DynamicModel {
    */
   public void setTemporal(final List<Temporal> temporal) {
     this.put("temporal", temporal);
+  }
+
+  /**
+   * Sets the evidenceSpans.
+   *
+   * @param evidenceSpans the new evidenceSpans
+   */
+  public void setEvidenceSpans(final List<Reference> evidenceSpans) {
+    this.put("evidenceSpans", evidenceSpans);
   }
 
 }
