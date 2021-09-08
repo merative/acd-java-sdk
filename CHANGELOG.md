@@ -1,3 +1,10 @@
+## [1.1.16](https://github.com/IBM/whcs-java-sdk/compare/1.1.15...1.1.16) (2021-09-08)
+
+
+### Bug Fixes
+
+* **build:** selection label and evidence spans features ([80c7e4e](https://github.com/IBM/whcs-java-sdk/commit/80c7e4e5aef1a57650314e86bf3cf4932f619648))
+
 ## [1.1.15](https://github.com/IBM/whcs-java-sdk/compare/1.1.14...1.1.15) (2021-05-12)
 
 
