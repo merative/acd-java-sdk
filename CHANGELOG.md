@@ -1,3 +1,10 @@
+## [1.2.1](https://github.com/IBM/whcs-java-sdk/compare/1.2.0...1.2.1) (2021-10-05)
+
+
+### Bug Fixes
+
+* **build:** fix setup signing script ([c4cc002](https://github.com/IBM/whcs-java-sdk/commit/c4cc00225f71ffba7f46c71cb1dd76da3ebd3a42))
+
 # [1.2.0](https://github.com/IBM/whcs-java-sdk/compare/1.1.16...1.2.0) (2021-10-05)
 
 
