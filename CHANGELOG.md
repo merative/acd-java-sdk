@@ -1,3 +1,15 @@
+# [1.2.0](https://github.com/IBM/whcs-java-sdk/compare/1.1.16...1.2.0) (2021-10-05)
+
+
+### Bug Fixes
+
+* config properties ([4900f4f](https://github.com/IBM/whcs-java-sdk/commit/4900f4fab478819deeddbe044e8a30d7bf92e3af))
+
+
+### Features
+
+* **build:** key refresh ([a389374](https://github.com/IBM/whcs-java-sdk/commit/a38937429d478e8ee63cf067446662becaef5e06))
+
 ## [1.1.16](https://github.com/IBM/whcs-java-sdk/compare/1.1.15...1.1.16) (2021-09-08)
 
 
