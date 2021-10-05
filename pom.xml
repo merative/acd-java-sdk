@@ -41,7 +41,7 @@
         <okhttp3-version>3.13.1</okhttp3-version>
         <surefire-version>3.0.0-M3</surefire-version>
         <jacoco-plugin-version>0.8.5</jacoco-plugin-version>
-        <maven-gpg-plugin-version>1.6</maven-gpg-plugin-version>
+        <maven-gpg-plugin-version>3.0.1</maven-gpg-plugin-version>
         <maven-source-plugin-version>3.1.0</maven-source-plugin-version>
         <maven-jar-plugin-version>3.2.0</maven-jar-plugin-version>
         <maven-javadoc-plugin-version>3.1.1</maven-javadoc-plugin-version>
@@ -468,9 +468,9 @@
                         </executions>
                         <configuration>
                             <gpgArguments>
-                                <gpgArgument>--batch</gpgArgument>
-                                <gpgArgument>--yes</gpgArgument>
-                                <gpgArgument>--no-tty</gpgArgument>
+                                <arg>--batch</arg>
+                                <arg>--pinentry-mode</arg>
+                                <arg>loopback</arg>
                             </gpgArguments>
                         </configuration>
                     </plugin>
