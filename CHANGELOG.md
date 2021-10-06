@@ -1,3 +1,10 @@
+## [1.2.2](https://github.com/IBM/whcs-java-sdk/compare/1.2.1...1.2.2) (2021-10-06)
+
+
+### Bug Fixes
+
+* **build:** use latest maven gpg plugin ([7b47be4](https://github.com/IBM/whcs-java-sdk/commit/7b47be43bfcd4c69e704d953194d454816fca282))
+
 ## [1.2.1](https://github.com/IBM/whcs-java-sdk/compare/1.2.0...1.2.1) (2021-10-05)
 
 
