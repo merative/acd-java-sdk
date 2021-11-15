@@ -1,3 +1,10 @@
+# [1.3.0](https://github.com/IBM/whcs-java-sdk/compare/1.2.2...1.3.0) (2021-11-15)
+
+
+### Features
+
+* Update sdk-core ([f962c51](https://github.com/IBM/whcs-java-sdk/commit/f962c51ae57722acc58147a9b4642a85aea2466b))
+
 ## [1.2.2](https://github.com/IBM/whcs-java-sdk/compare/1.2.1...1.2.2) (2021-10-06)
 
 
