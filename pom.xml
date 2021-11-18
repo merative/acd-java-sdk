@@ -38,16 +38,16 @@
   	<git-repository-name>whcs-java-sdk</git-repository-name>
         <nexus-staging-plugin-version>1.6.8</nexus-staging-plugin-version>
         <testng-version>7.1.0</testng-version>
-        <okhttp3-version>3.13.1</okhttp3-version>
+        <okhttp3-version>4.9.1</okhttp3-version>
         <surefire-version>3.0.0-M3</surefire-version>
         <jacoco-plugin-version>0.8.5</jacoco-plugin-version>
-        <maven-gpg-plugin-version>3.0.1</maven-gpg-plugin-version>
+        <maven-gpg-plugin-version>1.6</maven-gpg-plugin-version>
         <maven-source-plugin-version>3.1.0</maven-source-plugin-version>
         <maven-jar-plugin-version>3.2.0</maven-jar-plugin-version>
         <maven-javadoc-plugin-version>3.1.1</maven-javadoc-plugin-version>
         <maven-compiler-plugin-version>3.8.1</maven-compiler-plugin-version>
         <maven-site-plugin-version>3.7.1</maven-site-plugin-version>
-        <maven-checkstyle-plugin-version>3.1.0</maven-checkstyle-plugin-version>
+        <maven-checkstyle-plugin-version>3.1.2</maven-checkstyle-plugin-version>
         <maven-reports-plugin-version>3.0.0</maven-reports-plugin-version>
         <maven-failsafe-plugin-version>3.0.0-M4</maven-failsafe-plugin-version>
         <maven-buildnumber-plugin-version>1.4</maven-buildnumber-plugin-version>
@@ -101,21 +101,11 @@
         <url>https://travis-ci.com/IBM/whcs-java-sdk/</url>
     </ciManagement>
 
-    <!-- we use the travis providers for deployment so don't need to specify repositories here -->
-    <distributionManagement>
-    <!--   <snapshotRepository> -->
-    <!--     <id>ossrh</id> -->
-    <!--     <url>https://oss.sonatype.org/content/repositories/snapshots</url> -->
-    <!--   </snapshotRepository> -->
-    <!--   <repository> -->
-    <!--     <id>ossrh</id> -->
-    <!--     <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url> -->
-    <!--   </repository> -->
-    </distributionManagement>
+    <!-- we define this in the profile below -->
+    <distributionManagement></distributionManagement>
 
-    <!-- we currently don't need any non-public repositories -->
-    <repositories>
-    </repositories>
+    <!-- we define repositories in the profile below -->
+    <repositories></repositories>
 
     <dependencyManagement>
         <dependencies>
@@ -339,17 +329,6 @@
             </plugins>
         </pluginManagement>
         <plugins>
-          <!-- <plugin> -->
-          <!--   <groupId>org.sonatype.plugins</groupId> -->
-          <!--   <artifactId>nexus-staging-maven-plugin</artifactId> -->
-          <!--   <version>1.6.7</version> -->
-          <!--   <extensions>true</extensions> -->
-          <!--   <configuration> -->
-          <!--     <serverId>ossrh</serverId> -->
-          <!--     <nexusUrl>https://oss.sonatype.org/</nexusUrl> -->
-          <!--     <autoReleaseAfterClose>true</autoReleaseAfterClose> -->
-          <!--   </configuration> -->
-          <!-- </plugin> -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-javadoc-plugin</artifactId>
@@ -358,6 +337,8 @@
                     <show>public</show>
                     <doctitle>${project.name}, version ${project.version}</doctitle>
                     <footer>IBM Corporation</footer>
+                    <source>8</source>
+                    <detectJavaApiLink>false</detectJavaApiLink>
                 </configuration>
                 <executions>
                     <execution>
@@ -365,7 +346,7 @@
                         <goals>
                             <goal>aggregate</goal>
                         </goals>
-                        <phase>site</phase>
+                        <phase>package</phase>
                     </execution>
                 </executions>
             </plugin>
