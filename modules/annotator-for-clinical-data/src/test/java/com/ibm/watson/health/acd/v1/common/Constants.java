@@ -1,5 +1,5 @@
 /*
- * Copyright 2021 IBM Corp. All Rights Reserved.
+ * Copyright 2018, 2021 IBM Corp. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with
  * the License. You may obtain a copy of the License at
@@ -40,7 +40,8 @@ public class Constants {
 	public static final String PROCEDURE = "procedure";
 	public static final String RELATION = "relation";
 	public static final String SECTION = "section";
-	public static final String SECTION_NAME = "HISTORY";
+	public static final String SECTION_NAME_HISTORY = "HISTORY";
+	public static final String SECTION_NAME_PATIENT = "Patient";
 	public static final String SEEING = "seeing_assistance";
 	public static final String SMOKING = "smoking";
 	public static final String SPELL_CHECKER = "spell_checker";
@@ -60,5 +61,20 @@ public class Constants {
 			+ "CT scan showed a tumor in his lung."
 			+ "She had gallbladder removal September 19 2020"
 			+ "Her father had lung cancer. Her mother had asthma and diabetes.";
+	public static final String TEXT2 = "Patient is a 43-year-old obese male with a history of diabetes. He presents today with numbness and pain in his left foot which he says began last Wednesday and progressively got worse over the course of a week. Allergic to penicillin. "
+			+ "ALLERGY HISTORY: "
+			+ "penicillin. allergic to peanuts "
+			+ "FAMILY HISTORY: "
+			+ "-mother: T2D, liver disease "
+			+ "-father: MI x 3 in 2003. Died of MI in 2004. "
+			+ "COURSE OF TREATMENT: "
+			+ "IV insulin. Scheduled for a nerve conduction study";
+	public static final String TEXT3 = "Patient:    Kevin Hudson (M)         MRN:0099598    01/01/1900(121y)\n"
+			+ "Family Information\n"
+			+ "by report, pt with hx of ETOH abuse; BAL 147.\n"
+			+ "Patient is a 43-year-old obese male with a history of diabetes."
+			+ "Allergic to penicillin.  Patient had a colonoscopy in 2009."
+			+ "Patient abuses vodka and smokes cigarettes and marijuana.";
+	public static final String[] SAMPLE_TEXT_ARRAY = {TEXT, TEXT2, TEXT3};
 	public static final String CONTENT_TYPE = "application/json";
 }

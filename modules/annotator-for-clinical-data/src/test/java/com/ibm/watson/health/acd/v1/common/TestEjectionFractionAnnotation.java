@@ -1,5 +1,5 @@
 /*
- * Copyright 2018, 2020 IBM Corp. All Rights Reserved.
+ * Copyright 2018, 2021 IBM Corp. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with
  * the License. You may obtain a copy of the License at
@@ -55,8 +55,13 @@ public class TestEjectionFractionAnnotation {
 			Assert.assertNotNull(annotation.getSecondValue().length() > 0);
 		}
 		if (annotation.getSectionNormalizedName() != null) {
-			Assert.assertEquals(annotation.getSectionNormalizedName(), Constants.SECTION_NAME);
-			Assert.assertEquals(annotation.getSectionSurfaceForm(), Constants.SECTION_NAME);
+			Assert.assertTrue(annotation.getSectionNormalizedName().equals(Constants.SECTION_NAME_HISTORY) ||
+					annotation.getSectionNormalizedName().equals(Constants.SECTION_NAME_PATIENT));
+		}
+		if (annotation.getSectionSurfaceForm() != null) {
+			Assert.assertTrue(annotation.getSectionSurfaceForm().equals(Constants.SECTION_NAME_HISTORY) ||
+					annotation.getSectionSurfaceForm().equals(Constants.SECTION_NAME_PATIENT));
+
 		}
 		if (annotation.getUid() != null) {
 			Assert.assertTrue(annotation.getUid() > 0);

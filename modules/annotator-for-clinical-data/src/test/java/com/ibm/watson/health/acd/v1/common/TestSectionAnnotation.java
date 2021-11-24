@@ -1,5 +1,5 @@
 /*
- * Copyright 2018, 2020 IBM Corp. All Rights Reserved.
+ * Copyright 2018, 2021 IBM Corp. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with
  * the License. You may obtain a copy of the License at
@@ -30,7 +30,8 @@ public class TestSectionAnnotation {
 		Assert.assertNotNull(trigger.getCoveredText());
 		Assert.assertNotNull(trigger.getEnd());
 		if (trigger.getSectionNormalizedName() != null) {
-			Assert.assertEquals(trigger.getSectionNormalizedName(), Constants.SECTION_NAME);
+			Assert.assertTrue(trigger.getSectionNormalizedName().equals(Constants.SECTION_NAME_HISTORY) ||
+					trigger.getSectionNormalizedName().equals(Constants.SECTION_NAME_PATIENT));
 		}
 		Assert.assertNotNull(trigger.getSource());
 		Assert.assertNotNull(trigger.getType());

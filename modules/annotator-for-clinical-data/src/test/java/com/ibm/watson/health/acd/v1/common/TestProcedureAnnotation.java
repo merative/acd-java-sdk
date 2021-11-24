@@ -1,5 +1,5 @@
 /*
- * Copyright 2018, 2020 IBM Corp. All Rights Reserved.
+ * Copyright 2018, 2021 IBM Corp. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with
  * the License. You may obtain a copy of the License at
@@ -51,8 +51,12 @@ public class TestProcedureAnnotation {
 			Assert.assertTrue(annotation.getProcedureSurfaceForm().length() > 0);
 		}
 		if (annotation.getSectionNormalizedName() != null) {
-			Assert.assertEquals(annotation.getSectionNormalizedName(), Constants.SECTION_NAME);
-			Assert.assertEquals(annotation.getSectionSurfaceForm(), Constants.SECTION_NAME);
+			Assert.assertTrue(annotation.getSectionNormalizedName().equals(Constants.SECTION_NAME_HISTORY) ||
+					annotation.getSectionNormalizedName().equals(Constants.SECTION_NAME_PATIENT));
+		}
+		if (annotation.getSectionSurfaceForm() != null) {
+			Assert.assertTrue(annotation.getSectionSurfaceForm().equals(Constants.SECTION_NAME_HISTORY) ||
+					annotation.getSectionSurfaceForm().equals(Constants.SECTION_NAME_PATIENT));
 		}
 		if (annotation.getSnomedConceptId() != null) {
 			Assert.assertTrue(annotation.getSnomedConceptId().length() > 0);
@@ -64,47 +68,7 @@ public class TestProcedureAnnotation {
 		Assert.assertNotNull(annotation.isNegated());
 		if (annotation.getInsightModelData() != null) {
 			Assert.assertTrue(!annotation.getInsightModelData().isEmpty());
-			InsightModelData imd = annotation.getInsightModelData();
-			if (imd.getProcedure() != null) {
-				Assert.assertTrue(!imd.getProcedure().isEmpty());
-				InsightModelDataProcedure imdProc = imd.getProcedure();
-				if (imdProc.getTask() != null) {
-					Assert.assertTrue(!imdProc.getTask().isEmpty());
-					InsightModelDataTask imdProcTask = imdProc.getTask();
-					Float clinicalAssessScore = imdProcTask.getClinicalAssessmentScore();
-					if (clinicalAssessScore != null) {
-						Assert.assertTrue(clinicalAssessScore >= 0);
-					}
-				}
-				if (imdProc.getModifiers() != null) {
-					Assert.assertTrue(!imdProc.getModifiers().isEmpty());
-					InsightModelDataProcedureModifier imdProcModif = imdProc.getModifiers();
-					if (imdProcModif.getSites() != null) {
-						for (InsightModelDataSite imdSite : imdProcModif.getSites()) {
-							Assert.assertNotNull(imdSite.getCoveredText());
-							Assert.assertTrue(imdSite.getEnd() > imdSite.getBegin());
-						}
-					}
-					if (imdProcModif.getAssociatedDiagnoses() != null) {
-						for (InsightModelDataEvidence imdAssociatedDiag : imdProcModif.getAssociatedDiagnoses()) {
-							Assert.assertNotNull(imdAssociatedDiag.getCoveredText());
-							Assert.assertTrue(imdAssociatedDiag.getEnd() > imdAssociatedDiag.getBegin());
-						}
-					}
-				}
-			}
-			if (imd.getNormality() != null) {
-				Assert.assertTrue(!imd.getNormality().isEmpty());
-				InsightModelDataNormality imdNorm = imd.getNormality();
-				if (imdNorm.getUsage() != null) {
-					Assert.assertTrue(!imdNorm.getUsage().isEmpty());
-					InsightModelDataNormalityUsage imdNormUsage = imdNorm.getUsage();
-					Float normalScore = imdNormUsage.getNormalScore();
-					if (normalScore != null) {
-						Assert.assertTrue(normalScore >= 0);
-					}
-				}
-			}
+			TestInsightModelData.testInsightModelData(annotation.getInsightModelData());
 		}
 		List<Temporal> temporals = annotation.getTemporal();
 		if (temporals != null) {

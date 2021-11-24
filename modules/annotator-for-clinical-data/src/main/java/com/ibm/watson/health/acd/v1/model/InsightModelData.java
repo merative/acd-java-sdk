@@ -1,5 +1,5 @@
 /*
- * Copyright 2018 IBM Corp. All Rights Reserved.
+ * Copyright 2018, 2021 IBM Corp. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with
  * the License. You may obtain a copy of the License at
@@ -28,6 +28,10 @@ public class InsightModelData extends DynamicModel {
   private Type procedureType = new TypeToken<InsightModelDataProcedure>() { } .getType();
   private Type diagnosisType = new TypeToken<InsightModelDataDiagnosis>() { } .getType();
   private Type normalityType = new TypeToken<InsightModelDataNormality>() { } .getType();
+  private Type tobaccoType = new TypeToken<InsightModelTobacco>() { } .getType();
+  private Type alcoholType = new TypeToken<InsightModelAlcohol>() { } .getType();
+  private Type illicitDrugType = new TypeToken<InsightModelIllicitDrug>() { } .getType();
+  private Type substanceType = new TypeToken<InsightModelSubstanceAbuse>() { } .getType();
 
   /**
    * Gets the medication.
@@ -65,6 +69,42 @@ public class InsightModelData extends DynamicModel {
     return GsonSerializationHelper.serializeDynamicModelProperty(this.get("normality"), normalityType);
   }
 
+  /**
+   * Gets the tobacco.
+   *
+   * @return the tobacco
+   */
+  public InsightModelTobacco getTobacco() {
+	  return GsonSerializationHelper.serializeDynamicModelProperty(this.get("tobacco"), tobaccoType);
+  }
+
+  /**
+   * Gets the alcohol.
+   *
+   * @return the alcohol
+   */
+  public InsightModelAlcohol getAlcohol() {
+	  return GsonSerializationHelper.serializeDynamicModelProperty(this.get("alcohol"), alcoholType);
+  }
+
+  /**
+   * Gets the illicitDrug.
+   *
+   * @return the illicitDrug
+   */
+  public InsightModelIllicitDrug getIllicitDrug() {
+	  return GsonSerializationHelper.serializeDynamicModelProperty(this.get("illicitDrug"), illicitDrugType);
+  }
+
+  /**
+   * Gets the substance.
+   *
+   * @return the substance
+   */
+  public InsightModelSubstanceAbuse getSubstance() {
+	  return GsonSerializationHelper.serializeDynamicModelProperty(this.get("substance"), substanceType);
+  }
+
 //  /**
 //   * Sets the medication.
 //   *
@@ -99,6 +139,42 @@ public class InsightModelData extends DynamicModel {
 //   */
 //  public void setNormality(final InsightModelDataNormality normality) {
 //    this.put("normality", normality);
+//  }
+//
+//  /**
+//   * Sets the tobacco.
+//   *
+//   * @param tobacco the new tobacco
+//   */
+//  public void setTobacco(final InsightModelTobacco tobacco) {
+//    this.put("tobacco", tobacco);
+//  }
+//
+//  /**
+//   * Sets the alcohol.
+//   *
+//   * @param alcohol the new alcohol
+//   */
+//  public void setAlcohol(final InsightModelAlcohol alcohol) {
+//    this.put("alcohol", alcohol);
+//  }
+//
+//  /**
+//   * Sets the illicitDrug.
+//   *
+//   * @param illicitDrug the new illicitDrug
+//   */
+//  public void setIllicitDrug(final InsightModelIllicitDrug illicitDrug) {
+//    this.put("illicitDrug", illicitDrug);
+//  }
+//
+//  /**
+//   * Sets the substance.
+//   *
+//   * @param substance the new substance
+//   */
+//  public void setSubstance(final InsightModelSubstanceAbuse substance) {
+//    this.put("substance", substance);
 //  }
 
 }
