@@ -1,3 +1,10 @@
+# [1.4.0](https://github.com/IBM/whcs-java-sdk/compare/1.3.0...1.4.0) (2021-11-24)
+
+
+### Features
+
+* Support SDoH v1 features ([3bbe929](https://github.com/IBM/whcs-java-sdk/commit/3bbe92926a87ad0643b772baa2c7b238612f2e4e))
+
 # [1.3.0](https://github.com/IBM/whcs-java-sdk/compare/1.2.2...1.3.0) (2021-11-15)
 
 
