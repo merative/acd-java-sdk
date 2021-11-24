@@ -1,5 +1,5 @@
 /*
- * Copyright 2018 IBM Corp. All Rights Reserved.
+ * Copyright 2018, 2021 IBM Corp. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with
  * the License. You may obtain a copy of the License at
@@ -14,18 +14,19 @@
 package com.ibm.watson.health.acd.v1.model;
 
 import java.lang.reflect.Type;
+import java.util.List;
 
 import com.google.gson.reflect.TypeToken;
 import com.ibm.watson.developer_cloud.service.model.DynamicModel;
 import com.ibm.watson.developer_cloud.util.GsonSerializationHelper;
 
 /**
- * InsightModelData Procedure.
+ * InsightModelData Normality.
  */
 public class InsightModelDataNormality extends DynamicModel {
 
   private Type usageType = new TypeToken<InsightModelDataNormalityUsage>() { } .getType();
-  private Type evidenceType = new TypeToken<InsightModelDataEvidence>() { } .getType();
+  private Type evidenceType = new TypeToken<List<InsightModelDataEvidence>>() { } .getType();
   private Type directlyAffectedScoreType  = new TypeToken<Float>() { } .getType();
 
   /**
@@ -42,7 +43,7 @@ public class InsightModelDataNormality extends DynamicModel {
    *
    * @return the evidence
    */
-  public InsightModelDataEvidence getEvidence() {
+  public List<InsightModelDataEvidence> getEvidence() {
     return GsonSerializationHelper.serializeDynamicModelProperty(this.get("evidence"), evidenceType);
   }
 
@@ -69,7 +70,7 @@ public class InsightModelDataNormality extends DynamicModel {
 //   *
 //   * @param evidence the new evidence
 //   */
-//  public void setEvidence(final InsightModelDataEvidence evidence) {
+//  public void setEvidence(final List<InsightModelDataEvidence> evidence) {
 //    this.put("evidence", evidence);
 //  }
 

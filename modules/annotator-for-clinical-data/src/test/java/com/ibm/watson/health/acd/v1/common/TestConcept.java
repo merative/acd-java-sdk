@@ -1,5 +1,5 @@
 /*
- * Copyright 2021 IBM Corp. All Rights Reserved.
+ * Copyright 2018, 2021 IBM Corp. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with
  * the License. You may obtain a copy of the License at
@@ -68,8 +68,12 @@ public class TestConcept {
 			Assert.assertTrue(concept.getRxNormId().length() > 0);
 		}
 		if (concept.getSectionNormalizedName() != null) {
-			Assert.assertEquals(concept.getSectionNormalizedName(), Constants.SECTION_NAME);
-			Assert.assertEquals(concept.getSectionSurfaceForm(), Constants.SECTION_NAME);
+			Assert.assertTrue(concept.getSectionNormalizedName().equals(Constants.SECTION_NAME_HISTORY) ||
+					concept.getSectionNormalizedName().equals(Constants.SECTION_NAME_PATIENT));
+		}
+		if (concept.getSectionSurfaceForm() != null) {
+			Assert.assertTrue(concept.getSectionSurfaceForm().equals(Constants.SECTION_NAME_HISTORY) ||
+					concept.getSectionSurfaceForm().equals(Constants.SECTION_NAME_PATIENT));
 		}
 		if (concept.getSnomedConceptId() != null) {
 			Assert.assertTrue(concept.getSnomedConceptId().length() > 0);
@@ -97,55 +101,7 @@ public class TestConcept {
 		}
 		if (concept.getInsightModelData() != null) {
 			Assert.assertTrue(!concept.getInsightModelData().isEmpty());
-			InsightModelData imd = concept.getInsightModelData();
-			if (imd.getMedication() != null) {
-				Assert.assertTrue(!imd.getMedication().isEmpty());
-				InsightModelDataMedication imdMed = imd.getMedication();
-				if (imdMed.getUsage() != null) {
-					Assert.assertTrue(!imdMed.getUsage().isEmpty());
-					InsightModelDataUsage imdMedUsage = imdMed.getUsage();
-					Float explicitScore = imdMedUsage.getExplicitScore();
-					if (explicitScore != null) {
-						Assert.assertTrue(explicitScore >= 0);
-					}
-				}
-			}
-			if (imd.getProcedure() != null) {
-				Assert.assertTrue(!imd.getProcedure().isEmpty());
-				InsightModelDataProcedure imdProc = imd.getProcedure();
-				if (imdProc.getTask() != null) {
-					Assert.assertTrue(!imdProc.getTask().isEmpty());
-					InsightModelDataTask imdProcTask = imdProc.getTask();
-					Float clinicalAssessScore = imdProcTask.getClinicalAssessmentScore();
-					if (clinicalAssessScore != null) {
-						Assert.assertTrue(clinicalAssessScore >= 0);
-					}
-				}
-			}
-			if (imd.getDiagnosis() != null) {
-				Assert.assertTrue(!imd.getDiagnosis().isEmpty());
-				InsightModelDataDiagnosis imdDiag = imd.getDiagnosis();
-				if (imdDiag.getUsage() != null) {
-					Assert.assertTrue(!imdDiag.getUsage().isEmpty());
-					InsightModelDataUsage imdDiagUsage = imdDiag.getUsage();
-					Float explicitScore = imdDiagUsage.getExplicitScore();
-					if (explicitScore != null) {
-						Assert.assertTrue(explicitScore >= 0);
-					}
-				}
-			}
-			if (imd.getNormality() != null) {
-				Assert.assertTrue(!imd.getNormality().isEmpty());
-				InsightModelDataNormality imdNorm = imd.getNormality();
-				if (imdNorm.getUsage() != null) {
-					Assert.assertTrue(!imdNorm.getUsage().isEmpty());
-					InsightModelDataNormalityUsage imdNormUsage = imdNorm.getUsage();
-					Float normalScore = imdNormUsage.getNormalScore();
-					if (normalScore != null) {
-						Assert.assertTrue(normalScore >= 0);
-					}
-				}
-			}
+			TestInsightModelData.testInsightModelData(concept.getInsightModelData());
 		}
 		if (concept.getRuleId() != null) {
 			Assert.assertTrue(concept.getRuleId().length() > 0);

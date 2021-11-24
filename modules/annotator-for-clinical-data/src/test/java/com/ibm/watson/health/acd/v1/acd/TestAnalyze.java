@@ -1,5 +1,5 @@
 /*
- * Copyright 2018, 2020 IBM Corp. All Rights Reserved.
+ * Copyright 2018, 2021 IBM Corp. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with
  * the License. You may obtain a copy of the License at
@@ -62,10 +62,10 @@ public class TestAnalyze extends WatsonServiceTest {
 	@Test
 	public void testAnalyzeSingleAnnotator() {
 		ConfigurationEntity ce = new ConfigurationEntity.Builder()
-		.id("t1")
-		.type("customType")
-		.uid(99)
-		.build();
+				.id("t1")
+				.type("customType")
+				.uid(99)
+				.build();
 		Map<String, String> params = new HashMap<String, String>();
 		params.put("include_optional_fields", "medical_codes");
 
@@ -75,24 +75,26 @@ public class TestAnalyze extends WatsonServiceTest {
 		Flow elementFlow = new Flow.Builder().addElements(flowEntry).async(false).build();
 		AnnotatorFlow annotatorFlow = new AnnotatorFlow.Builder().flow(elementFlow).build();
 
-		UnstructuredContainer unstructured = new UnstructuredContainer.Builder().text(Constants.TEXT).build();
+		for (int i = 0; i < Constants.SAMPLE_TEXT_ARRAY.length; i++) {
+			UnstructuredContainer unstructured = new UnstructuredContainer.Builder().text(Constants.SAMPLE_TEXT_ARRAY[i]).build();
 
-		AnalyzeOptions options = new AnalyzeOptions.Builder().addAnnotatorFlows(annotatorFlow).addUnstructured(unstructured).build();
+			AnalyzeOptions options = new AnalyzeOptions.Builder().addAnnotatorFlows(annotatorFlow).addUnstructured(unstructured).build();
 
-		ServiceCall<ContainerGroup> sc = service.analyze(options);
+			ServiceCall<ContainerGroup> sc = service.analyze(options);
 
-		ContainerGroup containerGroup = null;
-		try {
-			Response<ContainerGroup> response = sc.execute();
-			containerGroup = response.getResult();
-		} catch (ServiceResponseException e) {
-			// Base class for all exceptions caused by error responses from the service
-			System.out.println("testAnalyzeSingleAnnotator: Service returned status code "
-					+ e.getStatusCode() + ": " + e.getMessage());
-			System.out.println("Detailed error info:\n" + e.getDebuggingInfo().toString());
+			ContainerGroup containerGroup = null;
+			try {
+				Response<ContainerGroup> response = sc.execute();
+				containerGroup = response.getResult();
+			} catch (ServiceResponseException e) {
+				// Base class for all exceptions caused by error responses from the service
+				System.out.println("testAnalyzeSingleAnnotator: Service returned status code "
+						+ e.getStatusCode() + ": " + e.getMessage());
+				System.out.println("Detailed error info:\n" + e.getDebuggingInfo().toString());
+			}
+			Assert.assertNotNull(containerGroup);
+			TestContainerGroup.testContainerGroups(containerGroup);
 		}
-		Assert.assertNotNull(containerGroup);
-		TestContainerGroup.testContainerGroups(containerGroup);
 	}
 
 	@Test
@@ -101,17 +103,19 @@ public class TestAnalyze extends WatsonServiceTest {
 		FlowEntry flowEntry = new FlowEntry.Builder().annotator(annotator).build();
 		Flow elementFlow = new Flow.Builder().addElements(flowEntry).async(false).build();
 
-		ContainerGroup containerGroup = null;
-		try {
-			containerGroup = service.analyze(Constants.TEXT, elementFlow);
-		} catch (ServiceResponseException e) {
-			// Base class for all exceptions caused by error responses from the service
-			System.out.println("testAnalyzeText: Service returned status code "
-					+ e.getStatusCode() + ": " + e.getMessage());
-			System.out.println("Detailed error info:\n" + e.getDebuggingInfo().toString());
+		for (int i = 0; i < Constants.SAMPLE_TEXT_ARRAY.length; i++) {
+			ContainerGroup containerGroup = null;
+			try {
+				containerGroup = service.analyze(Constants.SAMPLE_TEXT_ARRAY[i], elementFlow);
+			} catch (ServiceResponseException e) {
+				// Base class for all exceptions caused by error responses from the service
+				System.out.println("testAnalyzeText: Service returned status code "
+						+ e.getStatusCode() + ": " + e.getMessage());
+				System.out.println("Detailed error info:\n" + e.getDebuggingInfo().toString());
+			}
+			Assert.assertNotNull(containerGroup);
+			TestContainerGroup.testContainerGroups(containerGroup);
 		}
-		Assert.assertNotNull(containerGroup);
-		TestContainerGroup.testContainerGroups(containerGroup);
 	}
 
 	@Test
@@ -120,18 +124,20 @@ public class TestAnalyze extends WatsonServiceTest {
 		FlowEntry flowEntry = new FlowEntry.Builder().annotator(annotator).build();
 		Flow elementFlow = new Flow.Builder().addElements(flowEntry).async(false).build();
 
-		ContainerGroup containerGroup = null;
-		try {
-			Response<ContainerGroup> response = service.analyzeInclResponseDetails(Constants.TEXT, elementFlow);
-			containerGroup = response.getResult();
-		} catch (ServiceResponseException e) {
-			// Base class for all exceptions caused by error responses from the service
-			System.out.println("testAnalyzeTextDetailedResponse: Service returned status code "
-					+ e.getStatusCode() + ": " + e.getMessage());
-			System.out.println("Detailed error info:\n" + e.getDebuggingInfo().toString());
+		for (int i = 0; i < Constants.SAMPLE_TEXT_ARRAY.length; i++) {
+			ContainerGroup containerGroup = null;
+			try {
+				Response<ContainerGroup> response = service.analyzeInclResponseDetails(Constants.SAMPLE_TEXT_ARRAY[i], elementFlow);
+				containerGroup = response.getResult();
+			} catch (ServiceResponseException e) {
+				// Base class for all exceptions caused by error responses from the service
+				System.out.println("testAnalyzeTextDetailedResponse: Service returned status code "
+						+ e.getStatusCode() + ": " + e.getMessage());
+				System.out.println("Detailed error info:\n" + e.getDebuggingInfo().toString());
+			}
+			Assert.assertNotNull(containerGroup);
+			TestContainerGroup.testContainerGroups(containerGroup);
 		}
-		Assert.assertNotNull(containerGroup);
-		TestContainerGroup.testContainerGroups(containerGroup);
 	}
 
 	@Test
@@ -140,17 +146,19 @@ public class TestAnalyze extends WatsonServiceTest {
 		FlowEntry flowEntry = new FlowEntry.Builder().annotator(annotator).build();
 		Flow elementFlow = new Flow.Builder().addElements(flowEntry).async(false).build();
 
-		ContainerGroup containerGroup = null;
-		try {
-			containerGroup = service.analyze(Constants.TEXT, elementFlow, true);
-		} catch (ServiceResponseException e) {
-			// Base class for all exceptions caused by error responses from the service
-			System.out.println("testAnalyzeTextReturnText: Service returned status code "
-					+ e.getStatusCode() + ": " + e.getMessage());
-			System.out.println("Detailed error info:\n" + e.getDebuggingInfo().toString());
+		for (int i = 0; i < Constants.SAMPLE_TEXT_ARRAY.length; i++) {
+			ContainerGroup containerGroup = null;
+			try {
+				containerGroup = service.analyze(Constants.SAMPLE_TEXT_ARRAY[i], elementFlow, true);
+			} catch (ServiceResponseException e) {
+				// Base class for all exceptions caused by error responses from the service
+				System.out.println("testAnalyzeTextReturnText: Service returned status code "
+						+ e.getStatusCode() + ": " + e.getMessage());
+				System.out.println("Detailed error info:\n" + e.getDebuggingInfo().toString());
+			}
+			Assert.assertNotNull(containerGroup);
+			TestContainerGroup.testContainerGroups(containerGroup);
 		}
-		Assert.assertNotNull(containerGroup);
-		TestContainerGroup.testContainerGroups(containerGroup);
 	}
 
 	@Test
@@ -159,18 +167,20 @@ public class TestAnalyze extends WatsonServiceTest {
 		FlowEntry flowEntry = new FlowEntry.Builder().annotator(annotator).build();
 		Flow elementFlow = new Flow.Builder().addElements(flowEntry).async(false).build();
 
-		ContainerGroup containerGroup = null;
-		try {
-			Response<ContainerGroup> response = service.analyzeInclResponseDetails(Constants.TEXT, elementFlow, true);
-			containerGroup = response.getResult();
-		} catch (ServiceResponseException e) {
-			// Base class for all exceptions caused by error responses from the service
-			System.out.println("testAnalyzeTextReturnTextDetailedResponse: Service returned status code "
-					+ e.getStatusCode() + ": " + e.getMessage());
-			System.out.println("Detailed error info:\n" + e.getDebuggingInfo().toString());
+		for (int i = 0; i < Constants.SAMPLE_TEXT_ARRAY.length; i++) {
+			ContainerGroup containerGroup = null;
+			try {
+				Response<ContainerGroup> response = service.analyzeInclResponseDetails(Constants.SAMPLE_TEXT_ARRAY[i], elementFlow, true);
+				containerGroup = response.getResult();
+			} catch (ServiceResponseException e) {
+				// Base class for all exceptions caused by error responses from the service
+				System.out.println("testAnalyzeTextReturnTextDetailedResponse: Service returned status code "
+						+ e.getStatusCode() + ": " + e.getMessage());
+				System.out.println("Detailed error info:\n" + e.getDebuggingInfo().toString());
+			}
+			Assert.assertNotNull(containerGroup);
+			TestContainerGroup.testContainerGroups(containerGroup);
 		}
-		Assert.assertNotNull(containerGroup);
-		TestContainerGroup.testContainerGroups(containerGroup);
 	}
 
 	@Test
@@ -221,15 +231,15 @@ public class TestAnalyze extends WatsonServiceTest {
 		FlowEntry toiletEntry = new FlowEntry.Builder().annotator(toilet).build();
 		Annotator walk = new Annotator.Builder().name(Constants.WALKING).build();
 		FlowEntry walkEntry = new FlowEntry.Builder().annotator(walk).build();
-		 Annotator section = new Annotator.Builder().name(Constants.SECTION).build();
-		 FlowEntry sectionEntry = new FlowEntry.Builder().annotator(section).build();
+		Annotator section = new Annotator.Builder().name(Constants.SECTION).build();
+		FlowEntry sectionEntry = new FlowEntry.Builder().annotator(section).build();
 		List<FlowEntry> flowEntries = new ArrayList<FlowEntry>(25);
 		flowEntries.add(sdEntry);
 		flowEntries.add(cdEntry);
 		flowEntries.add(allergyEntry);
 		flowEntries.add(bathingyEntry);
 		flowEntries.add(cancerEntry);
-//		flowEntries.add(cvEntry); NumberFormatException
+		//		flowEntries.add(cvEntry); NumberFormatException
 		flowEntries.add(disEntry);
 		flowEntries.add(dressingEntry);
 		flowEntries.add(eatingEntry);
@@ -237,7 +247,7 @@ public class TestAnalyze extends WatsonServiceTest {
 		flowEntries.add(hypoEntry);
 		flowEntries.add(lvEntry);
 		flowEntries.add(medEntry);
-//		flowEntries.add(modelEntry);
+		//		flowEntries.add(modelEntry);
 		flowEntries.add(neEntry);
 		flowEntries.add(negEntry);
 		flowEntries.add(procEntry);
@@ -251,23 +261,26 @@ public class TestAnalyze extends WatsonServiceTest {
 
 		Flow elementflow = new Flow.Builder().elements(flowEntries).async(false).build();
 		AnnotatorFlow annotatorflow = new AnnotatorFlow.Builder().flow(elementflow).build();
-		UnstructuredContainer unstructured = new UnstructuredContainer.Builder().text(Constants.TEXT).build();
-		AnalyzeOptions options = new AnalyzeOptions.Builder().addAnnotatorFlows(annotatorflow).addUnstructured(unstructured).build();
 
-		ServiceCall<ContainerGroup> sc = service.analyze(options);
+		for (int i = 0; i < Constants.SAMPLE_TEXT_ARRAY.length; i++) {
+			UnstructuredContainer unstructured = new UnstructuredContainer.Builder().text(Constants.SAMPLE_TEXT_ARRAY[i]).build();
+			AnalyzeOptions options = new AnalyzeOptions.Builder().addAnnotatorFlows(annotatorflow).addUnstructured(unstructured).build();
 
-		ContainerGroup containerGroup = null;
-		try {
-			Response<ContainerGroup> response = sc.execute();
-			containerGroup = response.getResult();
-		} catch (ServiceResponseException e) {
-			// Base class for all exceptions caused by error responses from the service
-			System.out.println("testAnalyzeMultipleAnnotators: Service returned status code "
-					+ e.getStatusCode() + ": " + e.getMessage());
-			System.out.println("Detailed error info:\n" + e.getDebuggingInfo().toString());
+			ServiceCall<ContainerGroup> sc = service.analyze(options);
+
+			ContainerGroup containerGroup = null;
+			try {
+				Response<ContainerGroup> response = sc.execute();
+				containerGroup = response.getResult();
+			} catch (ServiceResponseException e) {
+				// Base class for all exceptions caused by error responses from the service
+				System.out.println("testAnalyzeMultipleAnnotators: Service returned status code "
+						+ e.getStatusCode() + ": " + e.getMessage());
+				System.out.println("Detailed error info:\n" + e.getDebuggingInfo().toString());
+			}
+			Assert.assertNotNull(containerGroup);
+			TestContainerGroup.testContainerGroups(containerGroup);
 		}
-		Assert.assertNotNull(containerGroup);
-		TestContainerGroup.testContainerGroups(containerGroup);
 	}
 
 	@Test
@@ -280,24 +293,26 @@ public class TestAnalyze extends WatsonServiceTest {
 
 		AnnotatorFlow annotatorflow = new AnnotatorFlow.Builder().flow(elementFlow).build();
 
-		UnstructuredContainer unstructured = new UnstructuredContainer.Builder().text(Constants.TEXT).build();
+		for (int i = 0; i < Constants.SAMPLE_TEXT_ARRAY.length; i++) {
+			UnstructuredContainer unstructured = new UnstructuredContainer.Builder().text(Constants.SAMPLE_TEXT_ARRAY[i]).build();
 
-		AnalyzeOptions options = new AnalyzeOptions.Builder().addAnnotatorFlows(annotatorflow).addUnstructured(unstructured).build();
+			AnalyzeOptions options = new AnalyzeOptions.Builder().addAnnotatorFlows(annotatorflow).addUnstructured(unstructured).build();
 
-		ServiceCall<ContainerGroup> sc = service.analyze(options);
+			ServiceCall<ContainerGroup> sc = service.analyze(options);
 
-		ContainerGroup containerGroup = null;
-		try {
-			Response<ContainerGroup> response = sc.execute();
-			containerGroup = response.getResult();
-		} catch (ServiceResponseException e) {
-			// Base class for all exceptions caused by error responses from the service
-			System.out.println("testAnalyzeFlowUtilBuildFlow: Service returned status code "
-					+ e.getStatusCode() + ": " + e.getMessage());
-			System.out.println("Detailed error info:\n" + e.getDebuggingInfo().toString());
+			ContainerGroup containerGroup = null;
+			try {
+				Response<ContainerGroup> response = sc.execute();
+				containerGroup = response.getResult();
+			} catch (ServiceResponseException e) {
+				// Base class for all exceptions caused by error responses from the service
+				System.out.println("testAnalyzeFlowUtilBuildFlow: Service returned status code "
+						+ e.getStatusCode() + ": " + e.getMessage());
+				System.out.println("Detailed error info:\n" + e.getDebuggingInfo().toString());
+			}
+			Assert.assertNotNull(containerGroup);
+			TestContainerGroup.testContainerGroups(containerGroup);
 		}
-		Assert.assertNotNull(containerGroup);
-		TestContainerGroup.testContainerGroups(containerGroup);
 	}
 
 	@Test
@@ -338,10 +353,11 @@ public class TestAnalyze extends WatsonServiceTest {
 		com.ibm.watson.health.acd.v1.model.AnnotatorFlow.Builder afBuilder = annotatorFlow.newBuilder();
 		Assert.assertNotNull(afBuilder);
 
-		UnstructuredContainer unstructured = new UnstructuredContainer.Builder().text(Constants.TEXT).build();
-
-		AnalyzeOptions options = new AnalyzeOptions.Builder().addAnnotatorFlows(annotatorFlow).addUnstructured(unstructured).build();
-		com.ibm.watson.health.acd.v1.model.AnalyzeOptions.Builder optionsBuilder = options.newBuilder();
-		Assert.assertNotNull(optionsBuilder);
+		for (int i = 0; i < Constants.SAMPLE_TEXT_ARRAY.length; i++) {
+			UnstructuredContainer unstructured = new UnstructuredContainer.Builder().text(Constants.SAMPLE_TEXT_ARRAY[i]).build();
+			AnalyzeOptions options = new AnalyzeOptions.Builder().addAnnotatorFlows(annotatorFlow).addUnstructured(unstructured).build();
+			com.ibm.watson.health.acd.v1.model.AnalyzeOptions.Builder optionsBuilder = options.newBuilder();
+			Assert.assertNotNull(optionsBuilder);
+		}
 	}
 }

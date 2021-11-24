@@ -1,5 +1,5 @@
 /*
- * Copyright 2018 IBM Corp. All Rights Reserved.
+ * Copyright 2018, 2021 IBM Corp. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with
  * the License. You may obtain a copy of the License at
@@ -29,7 +29,7 @@ public class SectionAnnotation extends DynamicModel {
   private Type endType = new TypeToken<Long>() { } .getType();
   private Type typeType = new TypeToken<String>() { } .getType();
   private Type coveredTextType = new TypeToken<String>() { } .getType();
-  private Type sectionType = new TypeToken<String>() { } .getType();
+  private Type sectionTypeType = new TypeToken<String>() { } .getType();
   private Type sectionTriggerType = new TypeToken<SectionTrigger>() { } .getType();
 
   /**
@@ -80,12 +80,12 @@ public class SectionAnnotation extends DynamicModel {
   }
 
   /**
-   * Gets the type.
+   * Gets the section type.
    *
-   * @return the type
+   * @return the section type
    */
   public String getSectionType() {
-    return GsonSerializationHelper.serializeDynamicModelProperty(this.get("sectionType"), typeType);
+    return GsonSerializationHelper.serializeDynamicModelProperty(this.get("sectionType"), sectionTypeType);
   }
 
 
@@ -123,17 +123,22 @@ public class SectionAnnotation extends DynamicModel {
 //    this.put("coveredText", coveredText);
 //  }
 //
+//  /**
+//   * Sets the trigger.
 //
+//   * @param trigger the new trigger
+//   */
 //  public void setTrigger(final SectionTrigger sectionTrigger) {
 //      this.put("trigger", sectionTrigger);
 //  }
 //
 //  /**
 //   * Sets the type.
+//
 //   * @param type the new type
 //   */
 //  public void setSectionType(final String sectionType) {
-//    this.put("sectionType", sectionType);
+//    this.put("sectionType", sectionTypeType);
 //  }
 
 }

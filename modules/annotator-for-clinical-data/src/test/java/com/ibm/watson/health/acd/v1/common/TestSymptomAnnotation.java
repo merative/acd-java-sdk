@@ -1,5 +1,5 @@
 /*
- * Copyright 2018, 2020 IBM Corp. All Rights Reserved.
+ * Copyright 2018, 2021 IBM Corp. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with
  * the License. You may obtain a copy of the License at
@@ -36,7 +36,6 @@ public class TestSymptomAnnotation {
 			Assert.assertTrue(annotation.getCcsCode().length() > 0);
 		}
 		Assert.assertNotNull(annotation.getCoveredText());
-		Assert.assertNotNull(annotation.getCui());
 		Disambiguation disambigData = annotation.getDisambiguationData();
 		if (disambigData != null) {
 			Assert.assertNotNull(disambigData.getValidity());
@@ -58,8 +57,12 @@ public class TestSymptomAnnotation {
 			Assert.assertTrue(annotation.getModality().length() > 0);
 		}
 		if (annotation.getSectionNormalizedName() != null) {
-			Assert.assertEquals(annotation.getSectionNormalizedName(), Constants.SECTION_NAME);
-			Assert.assertEquals(annotation.getSectionSurfaceForm(), Constants.SECTION_NAME);
+			Assert.assertTrue(annotation.getSectionNormalizedName().equals(Constants.SECTION_NAME_HISTORY) ||
+					annotation.getSectionNormalizedName().equals(Constants.SECTION_NAME_PATIENT));
+		}
+		if (annotation.getSectionSurfaceForm() != null) {
+			Assert.assertTrue(annotation.getSectionSurfaceForm().equals(Constants.SECTION_NAME_HISTORY) ||
+					annotation.getSectionSurfaceForm().equals(Constants.SECTION_NAME_PATIENT));
 		}
 		if (annotation.getSnomedConceptId() != null){
 			Assert.assertTrue(annotation.getSnomedConceptId().length() > 0);
@@ -78,47 +81,7 @@ public class TestSymptomAnnotation {
 		Assert.assertNotNull(annotation.isNegated());
 		if (annotation.getInsightModelData() != null) {
 			Assert.assertTrue(!annotation.getInsightModelData().isEmpty());
-			InsightModelData imd = annotation.getInsightModelData();
-			if (imd.getDiagnosis() != null) {
-				Assert.assertTrue(!imd.getDiagnosis().isEmpty());
-				InsightModelDataDiagnosis imdDiag = imd.getDiagnosis();
-				if (imdDiag.getUsage() != null) {
-					Assert.assertTrue(!imdDiag.getUsage().isEmpty());
-					InsightModelDataUsage imdDiagUsage = imdDiag.getUsage();
-					Float explicitScore = imdDiagUsage.getExplicitScore();
-					if (explicitScore != null) {
-						Assert.assertTrue(explicitScore >= 0);
-					}
-				}
-				if (imdDiag.getModifiers() != null) {
-					Assert.assertTrue(!imdDiag.getModifiers().isEmpty());
-					InsightModelDataDiagnosisModifier imdDiagModif = imdDiag.getModifiers();
-					if (imdDiagModif.getSites() != null) {
-						for (InsightModelDataSite imdSite : imdDiagModif.getSites()) {
-							Assert.assertNotNull(imdSite.getCoveredText());
-							Assert.assertTrue(imdSite.getEnd() > imdSite.getBegin());
-						}
-					}
-					if (imdDiagModif.getAssociatedProcedures() != null) {
-						for (InsightModelDataEvidence imdAssociatedProc : imdDiagModif.getAssociatedProcedures()) {
-							Assert.assertNotNull(imdAssociatedProc.getCoveredText());
-							Assert.assertTrue(imdAssociatedProc.getEnd() > imdAssociatedProc.getBegin());
-						}
-					}
-				}
-			}
-			if (imd.getNormality() != null) {
-				Assert.assertTrue(!imd.getNormality().isEmpty());
-				InsightModelDataNormality imdNorm = imd.getNormality();
-				if (imdNorm.getUsage() != null) {
-					Assert.assertTrue(!imdNorm.getUsage().isEmpty());
-					InsightModelDataNormalityUsage imdNormUsage = imdNorm.getUsage();
-					Float normalScore = imdNormUsage.getNormalScore();
-					if (normalScore != null) {
-						Assert.assertTrue(normalScore >= 0);
-					}
-				}
-			}
+			TestInsightModelData.testInsightModelData(annotation.getInsightModelData());
 		}
 		List<Temporal> temporals = annotation.getTemporal();
 		if (temporals != null) {

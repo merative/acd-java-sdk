@@ -1,5 +1,5 @@
 /*
- * Copyright 2018 IBM Corp. All Rights Reserved.
+ * Copyright 2018, 2021 IBM Corp. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with
  * the License. You may obtain a copy of the License at
@@ -39,6 +39,7 @@ public class MedicationAnnotation extends DynamicModel {
   private Type sectionSurfaceFormType = new TypeToken<String>() { } .getType();
   private Type insightModelDataType = new TypeToken<InsightModelData>() { } .getType();
   private Type temporalType = new TypeToken<List<Temporal>>() { } .getType();
+  private Type disambiguationDataType = new TypeToken<Disambiguation>() { } .getType();
 
 
   /**
@@ -170,6 +171,15 @@ public class MedicationAnnotation extends DynamicModel {
   }
 
   /**
+   * Gets the disambiguationData.
+   *
+   * @return the disambiguationData
+   */
+  public Disambiguation getDisambiguationData() {
+    return GsonSerializationHelper.serializeDynamicModelProperty(this.get("disambiguationData"), disambiguationDataType);
+  }
+
+  /**
    * Sets the id.
    *
    * @param id the new id
@@ -293,6 +303,15 @@ public class MedicationAnnotation extends DynamicModel {
    */
   public void setTemporal(final List<Temporal> temporal) {
     this.put("temporal", temporal);
+  }
+
+  /**
+   * Sets the disambiguationData.
+   *
+   * @param disambiguationData the new disambiguationData
+   */
+  public void setDisambiguationData(final Disambiguation disambiguationData) {
+      this.put("disambiguationData", disambiguationData);
   }
 
 /*

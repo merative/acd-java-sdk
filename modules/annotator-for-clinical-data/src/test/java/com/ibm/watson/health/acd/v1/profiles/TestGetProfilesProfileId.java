@@ -96,7 +96,6 @@ public class TestGetProfilesProfileId extends WatsonServiceTest {
 			Assert.assertNotNull(profile);
 			Assert.assertEquals(profile.id(), Constants.PROFILE_ID);
 			Assert.assertNotNull(profile.name());
-			Assert.assertNotNull(profile.description());
 			List<Annotator> annotators = profile.annotators();
 			Assert.assertNotNull(annotators);
 			for (Annotator annotator : annotators) {
