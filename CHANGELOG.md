@@ -1,3 +1,10 @@
+## [1.4.1](https://github.com/IBM/whcs-java-sdk/compare/1.4.0...1.4.1) (2021-12-13)
+
+
+### Bug Fixes
+
+* remove extraneous slf4j dependency ([502721f](https://github.com/IBM/whcs-java-sdk/commit/502721fb46aba55a8fe2e5c1fc5944d98f50fec3))
+
 # [1.4.0](https://github.com/IBM/whcs-java-sdk/compare/1.3.0...1.4.0) (2021-11-24)
 
 
