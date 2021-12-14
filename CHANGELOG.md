@@ -1,3 +1,10 @@
+## [1.4.2](https://github.com/IBM/whcs-java-sdk/compare/1.4.1...1.4.2) (2021-12-14)
+
+
+### Bug Fixes
+
+* issue publishing to maven central ([4b87a3d](https://github.com/IBM/whcs-java-sdk/commit/4b87a3d42d7f6ee57a31dde0ec5d8e7df853c22e))
+
 ## [1.4.1](https://github.com/IBM/whcs-java-sdk/compare/1.4.0...1.4.1) (2021-12-13)
 
 
