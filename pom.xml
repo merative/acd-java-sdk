@@ -51,6 +51,7 @@
         <maven-reports-plugin-version>3.0.0</maven-reports-plugin-version>
         <maven-failsafe-plugin-version>3.0.0-M4</maven-failsafe-plugin-version>
         <maven-buildnumber-plugin-version>1.4</maven-buildnumber-plugin-version>
+        <maven-shade-plugin-version>3.2.4</maven-shade-plugin-version>
         <maven-deploy-plugin-version>3.0.0-M1</maven-deploy-plugin-version>
         <powermock-version>2.0.5</powermock-version>
         <mockito-version>3.2.4</mockito-version>
@@ -326,6 +327,11 @@
                         </archive>
                     </configuration>
                 </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-shade-plugin</artifactId>
+                    <version>${maven-shade-plugin-version}</version>
+                </plugin>
             </plugins>
         </pluginManagement>
         <plugins>
@@ -383,6 +389,10 @@
                  </execution>
                </executions>
              </plugin>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>buildnumber-maven-plugin</artifactId>
+            </plugin>
         </plugins>
     </build>
 

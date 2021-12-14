@@ -28,17 +28,39 @@
             <artifactId>annotator-for-clinical-data</artifactId>
             <version>${project.version}</version>
         </dependency>
-        <dependency> 
+        <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-jdk14</artifactId>
         </dependency>
     </dependencies>
 
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-shade-plugin</artifactId>
+                <configuration>
+                    <minimizeJar>true</minimizeJar>
+                    <createDependencyReducedPom>false</createDependencyReducedPom>
+                </configuration>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>shade</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+
     <developers>
-        <developer>
-            <name>IBM Cloud DevX SDK Development</name>
-            <email>devxsdk@us.ibm.com</email>
-            <url>https://www.ibm.com/</url>
-        </developer>
+      <developer>
+         <name>Watson Health</name>
+         <email>dcweber@us.ibm.com</email>
+         <organization>IBM</organization>
+         <organizationUrl>https://ibm.com</organizationUrl>
+      </developer>
     </developers>
 </project>
