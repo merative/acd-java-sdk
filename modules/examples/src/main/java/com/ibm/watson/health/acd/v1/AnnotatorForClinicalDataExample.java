@@ -1,5 +1,5 @@
 /*
- * (C) Copyright IBM Corp. 2020.
+ * (C) Copyright IBM Corp. 2020, 2022.
  *
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with
  * the License. You may obtain a copy of the License at
@@ -41,7 +41,7 @@ public class AnnotatorForClinicalDataExample {
 	  String apikey = "YOUR_APIKEY";
 	  String url = "https://us-east.wh-acd.cloud.ibm.com/wh-acd/api";
 	  //String url = "https://us-south.wh-acd.cloud.ibm.com/wh-acd/api";
-	  String version = "2020-06-01";
+	  String version = "2022-02-24";
 	  AnnotatorForClinicalData acd = null;
 
           Authenticator authenticator = new BasicAuthenticator("apikey", apikey);
