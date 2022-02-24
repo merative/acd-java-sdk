@@ -41,7 +41,7 @@ public class AnnotatorForClinicalDataExample {
 	  String apikey = "YOUR_APIKEY";
 	  String url = "https://us-east.wh-acd.cloud.ibm.com/wh-acd/api";
 	  //String url = "https://us-south.wh-acd.cloud.ibm.com/wh-acd/api";
-	  String version = "2022-02-01";
+	  String version = "2022-02-24";
 	  AnnotatorForClinicalData acd = null;
 
           Authenticator authenticator = new BasicAuthenticator("apikey", apikey);
