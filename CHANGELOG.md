@@ -1,3 +1,10 @@
+# [1.5.0](https://github.com/IBM/whcs-java-sdk/compare/1.4.2...1.5.0) (2022-03-23)
+
+
+### Features
+
+* migrate models from watson developer core to java sdk core ([957df64](https://github.com/IBM/whcs-java-sdk/commit/957df646a7b4a1829c67cc77147d6cc636752c36))
+
 ## [1.4.2](https://github.com/IBM/whcs-java-sdk/compare/1.4.1...1.4.2) (2021-12-14)
 
 
