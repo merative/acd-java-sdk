@@ -1,5 +1,5 @@
 /*
- * Copyright 2021 IBM Corp. All Rights Reserved.
+ * Copyright 2021, 2022 IBM Corp. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with
  * the License. You may obtain a copy of the License at
@@ -16,6 +16,7 @@ import java.util.List;
 
 import org.junit.Assert;
 
+import com.ibm.watson.health.acd.v1.model.AllergyMedicationInd;
 import com.ibm.watson.health.acd.v1.model.Annotation;
 import com.ibm.watson.health.acd.v1.model.AnnotatorFlow;
 import com.ibm.watson.health.acd.v1.model.AssistanceAnnotation;
@@ -50,6 +51,14 @@ public class TestContainerGroup {
 				TestAnnotation.testAnnotation(annotation);
 			}
 			Annotation annotation = containerGroup.getAllergy(0);
+			Assert.assertNotNull(annotation);
+		}
+		List<AllergyMedicationInd> allergyMedicationAnnotations = containerGroup.getAllergyMedication();
+		if (allergyMedicationAnnotations != null && !allergyMedicationAnnotations.isEmpty()) {
+			for (AllergyMedicationInd annotation : allergyMedicationAnnotations) {
+				TestAllergyMedicationAnnotation.testAllergyMedicationAnnotation(annotation);
+			}
+			AllergyMedicationInd annotation = containerGroup.getAllergyMedication(0);
 			Assert.assertNotNull(annotation);
 		}
 		List<AnnotatorFlow> annotatorFlows = containerGroup.getAnnotatorFlows();

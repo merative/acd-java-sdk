@@ -1,5 +1,5 @@
 /*
- * Copyright 2018 IBM Corp. All Rights Reserved.
+ * Copyright 2018, 2022 IBM Corp. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with
  * the License. You may obtain a copy of the License at
@@ -16,13 +16,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.ibm.watson.health.acd.v1.exception.IllegalMethodException;
 import com.ibm.watson.health.acd.v1.exception.IndexNotAvailableException;
 import com.ibm.watson.health.acd.v1.exception.ParameterNotAvailableException;
+
+import com.ibm.cloud.sdk.core.util.GsonSingleton;
 
 /**
  * CustomCollection
@@ -121,7 +122,7 @@ public class CustomCollection extends CustomDeserializer {
 
       JsonArray array = cd.getObject().getAsJsonArray();
       int length = array.size();
-      Gson gson = new GsonBuilder().setPrettyPrinting().create();
+      Gson gson = GsonSingleton.getGson();
       for (int i = 0; i < length; i++) {
         CustomDeserializer customDeserializer = new CustomDeserializer();
         CustomCollection customCollection = customDeserializer.convertObject(gson.toJson(array.get(i)));
@@ -160,7 +161,7 @@ public class CustomCollection extends CustomDeserializer {
   public List<CustomCollection> convertToCustomCollectionList(List<Object> listAnnotation) {
 
     List<CustomCollection> lisCustomCollections = new ArrayList<CustomCollection>();
-    Gson gson = new GsonBuilder().setPrettyPrinting().create();
+    Gson gson = GsonSingleton.getGson();
     for (Object annotation : listAnnotation) {
       CustomCollection customCollection = new CustomCollection();
       CustomDeserializer customDeserializer = new CustomDeserializer();
@@ -181,7 +182,7 @@ public class CustomCollection extends CustomDeserializer {
 
   public CustomCollection convertToCustomCollection(Object annotation) {
 
-    Gson gson = new GsonBuilder().setPrettyPrinting().create();
+    Gson gson = GsonSingleton.getGson();
     CustomCollection customCollection = new CustomCollection();
     CustomDeserializer customDeserializer = new CustomDeserializer();
     customCollection = customDeserializer.convertObject(gson.toJson(annotation));

@@ -1,5 +1,5 @@
 /*
- * Copyright 2018, 2021 IBM Corp. All Rights Reserved.
+ * Copyright 2018, 2022 IBM Corp. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with
  * the License. You may obtain a copy of the License at
@@ -100,7 +100,6 @@ public class TestConcept {
 			Assert.assertTrue(concept.getSemanticType().length() > 0);
 		}
 		if (concept.getInsightModelData() != null) {
-			Assert.assertTrue(!concept.getInsightModelData().isEmpty());
 			TestInsightModelData.testInsightModelData(concept.getInsightModelData());
 		}
 		if (concept.getRuleId() != null) {

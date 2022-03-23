@@ -1,5 +1,5 @@
 /*
- * Copyright 2021 IBM Corp. All Rights Reserved.
+ * Copyright 2021, 2022 IBM Corp. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with
  * the License. You may obtain a copy of the License at
@@ -13,19 +13,23 @@
 
 package com.ibm.watson.health.acd.v1.model;
 
-import java.lang.reflect.Type;
-
+import com.google.gson.annotations.SerializedName;
 import com.google.gson.reflect.TypeToken;
-import com.ibm.watson.developer_cloud.service.model.DynamicModel;
-import com.ibm.watson.developer_cloud.util.GsonSerializationHelper;
+import com.ibm.cloud.sdk.core.service.model.DynamicModel;
 
 /**
  * InsightModelData Tobacco Use Status.
  */
-public class InsightModelAlcoholUseStatus extends DynamicModel {
+public class InsightModelAlcoholUseStatus extends DynamicModel<Object> {
 
-  private Type stoppedScoreType = new TypeToken<Float>() { } .getType();
-  private Type neverScoreType = new TypeToken<Float>() { } .getType();
+  @SerializedName("stoppedScore")
+  protected Float stoppedScore;
+  @SerializedName("neverScore")
+  protected Float neverScore;
+
+  public InsightModelAlcoholUseStatus() {
+	  super(new TypeToken<Object>() { });
+  }
 
   /**
    * Gets the stoppedScore.
@@ -33,7 +37,7 @@ public class InsightModelAlcoholUseStatus extends DynamicModel {
    * @return the stoppedScore
    */
   public Float getStoppedScore() {
-	  return GsonSerializationHelper.serializeDynamicModelProperty(this.get("stoppedScore"), stoppedScoreType);
+	  return this.stoppedScore;
   }
 
   /**
@@ -42,26 +46,7 @@ public class InsightModelAlcoholUseStatus extends DynamicModel {
    * @return the neverScore
    */
   public Float getNeverScore() {
-	  return GsonSerializationHelper.serializeDynamicModelProperty(this.get("neverScore"), neverScoreType);
+	  return this.neverScore;
   }
-
-//
-//  /**
-//   * Sets the stoppedScore.
-//   *
-//   * @param stoppedScore the new stoppedScore
-//   */
-//  public void setStoppedScore(final Float stoppedScore) {
-//    this.put("stoppedScore", stoppedScore);
-//  }
-//
-//  /**
-//   * Sets the neverScore.
-//   *
-//   * @param neverScore the new neverScore
-//   */
-//  public void setNeverScore(final Float neverScore) {
-//    this.put("neverScore", neverScore);
-//  }
 
 }

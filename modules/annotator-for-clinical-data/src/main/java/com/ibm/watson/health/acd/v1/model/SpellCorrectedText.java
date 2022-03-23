@@ -1,5 +1,5 @@
 /*
- * Copyright 2018 IBM Corp. All Rights Reserved.
+ * Copyright 2018, 2022 IBM Corp. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with
@@ -15,19 +15,23 @@
  */
 package com.ibm.watson.health.acd.v1.model;
 
-import java.lang.reflect.Type;
-
+import com.google.gson.annotations.SerializedName;
 import com.google.gson.reflect.TypeToken;
-import com.ibm.watson.developer_cloud.service.model.DynamicModel;
-import com.ibm.watson.developer_cloud.util.GsonSerializationHelper;
+import com.ibm.cloud.sdk.core.service.model.DynamicModel;
 
 /**
  * Spell corrected text.
  */
-public class SpellCorrectedText extends DynamicModel {
+public class SpellCorrectedText extends DynamicModel<Object> {
 
-  private Type correctedTextType = new TypeToken<String>() { } .getType();
-  private Type debugTextType = new TypeToken<String>() { } .getType();
+  @SerializedName("correctedText")
+  protected String correctedText;
+  @SerializedName("debugText")
+  protected String debugText;
+
+  public SpellCorrectedText() {
+	  super(new TypeToken<Object>() { });
+  }
 
   /**
    * Gets the correctedText.
@@ -35,7 +39,7 @@ public class SpellCorrectedText extends DynamicModel {
    * @return the correctedText
    */
   public String getCorrectedText() {
-    return GsonSerializationHelper.serializeDynamicModelProperty(this.get("correctedText"), correctedTextType);
+    return this.correctedText;
   }
 
   /**
@@ -44,24 +48,7 @@ public class SpellCorrectedText extends DynamicModel {
    * @return the debugText
    */
   public String getDebugText() {
-    return GsonSerializationHelper.serializeDynamicModelProperty(this.get("debugText"), debugTextType);
+    return this.debugText;
   }
 
-//  /**
-//   * Sets the correctedText.
-//   *
-//   * @param correctedText the new correctedText
-//   */
-//  public void setCorrectedText(final String correctedText) {
-//    this.put("correctedText", correctedText);
-//  }
-//
-//  /**
-//   * Sets the debugText.
-//   *
-//   * @param debugText the new debugText
-//   */
-//  public void setDebugText(final String debugText) {
-//    this.put("debugText", debugText);
-//  }
 }

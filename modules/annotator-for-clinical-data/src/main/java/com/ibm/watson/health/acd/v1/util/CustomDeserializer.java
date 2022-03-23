@@ -1,5 +1,5 @@
 /*
- * Copyright 2018 IBM Corp. All Rights Reserved.
+ * Copyright 2018, 2022 IBM Corp. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with
  * the License. You may obtain a copy of the License at
@@ -13,9 +13,11 @@
 package com.ibm.watson.health.acd.v1.util;
 
 import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
+
+import com.ibm.cloud.sdk.core.util.GsonSingleton;
+
 
 /**
  * CustomDeserializer
@@ -34,8 +36,7 @@ public class CustomDeserializer {
    */
 
   public JsonObject convertJsonObject(String response) {
-    CustomDeserializer cd = new CustomDeserializer();
-    Gson gson = new GsonBuilder().setPrettyPrinting().create();
+    Gson gson = GsonSingleton.getGson();
     JsonObject jsonObject = gson.fromJson(response, JsonObject.class);
     return jsonObject;
 
@@ -48,14 +49,9 @@ public class CustomDeserializer {
 
   public CustomCollection convertObject(String response) {
     CustomCollection cd = new CustomCollection();
-    Gson gson = new GsonBuilder().setPrettyPrinting().create();
-    JsonElement jsonObject = gson.fromJson(response, JsonElement.class);
+    JsonElement jsonObject = GsonSingleton.getGson().fromJson(response, JsonElement.class);
     cd.setObject(jsonObject);
     return cd;
   }
-
-
-
-
 
 }

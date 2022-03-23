@@ -1,5 +1,5 @@
 /*
- * Copyright 2018, 2021 IBM Corp. All Rights Reserved.
+ * Copyright 2018, 2022 IBM Corp. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with
  * the License. You may obtain a copy of the License at
@@ -13,21 +13,27 @@
 
 package com.ibm.watson.health.acd.v1.model;
 
-import java.lang.reflect.Type;
-
+import com.google.gson.annotations.SerializedName;
 import com.google.gson.reflect.TypeToken;
-import com.ibm.watson.developer_cloud.service.model.DynamicModel;
-import com.ibm.watson.developer_cloud.util.GsonSerializationHelper;
+import com.ibm.cloud.sdk.core.service.model.DynamicModel;
 
 /**
  * InsightModelData Normality Usage.
  */
-public class InsightModelDataNormalityUsage extends DynamicModel {
+public class InsightModelDataNormalityUsage extends DynamicModel<Object> {
 
-  private Type normalScoreType = new TypeToken<Float>() { } .getType();
-  private Type abnormalScoreType = new TypeToken<Float>() { } .getType();
-  private Type unknownScoreType = new TypeToken<Float>() { } .getType();
-  private Type nonFindingScoreType = new TypeToken<Float>() { } .getType();
+  @SerializedName("normalScore")
+  protected Float normalScore;
+  @SerializedName("abnormalScore")
+  protected Float abnormalScore;
+  @SerializedName("unknownScore")
+  protected Float unknownScore;
+  @SerializedName("nonFindingScore")
+  protected Float nonFindingScore;
+
+  public InsightModelDataNormalityUsage() {
+	  super(new TypeToken<Object>() { });
+  }
 
   /**
    * Gets the normalScore.
@@ -35,7 +41,7 @@ public class InsightModelDataNormalityUsage extends DynamicModel {
    * @return the normalScore
    */
   public Float getNormalScore() {
-	  return GsonSerializationHelper.serializeDynamicModelProperty(this.get("normalScore"), normalScoreType);
+	  return this.normalScore;
   }
 
   /**
@@ -44,7 +50,7 @@ public class InsightModelDataNormalityUsage extends DynamicModel {
    * @return the abnormalScore
    */
   public Float getAbnormalScore() {
-	  return GsonSerializationHelper.serializeDynamicModelProperty(this.get("abnormalScore"), abnormalScoreType);
+	  return this.abnormalScore;
   }
 
   /**
@@ -53,7 +59,7 @@ public class InsightModelDataNormalityUsage extends DynamicModel {
    * @return the unknownScore
    */
   public Float getUnknownScore() {
-	  return GsonSerializationHelper.serializeDynamicModelProperty(this.get("unknownScore"), unknownScoreType);
+	  return this.unknownScore;
   }
 
   /**
@@ -62,43 +68,7 @@ public class InsightModelDataNormalityUsage extends DynamicModel {
    * @return the nonFindingScore
    */
   public Float getNonFindingScore() {
-	  return GsonSerializationHelper.serializeDynamicModelProperty(this.get("nonFindingScore"), nonFindingScoreType);
+	  return this.nonFindingScore;
   }
-
-//  /**
-//   * Sets the normalScore.
-//   *
-//   * @param normalScore the new normalScore
-//   */
-//  public void setNormalScore(final Float normalScore) {
-//    this.put("normalScore", normalScore);
-//  }
-//
-//  /**
-//   * Sets the abnormalScore.
-//   *
-//   * @param abnormalScore the new abnormalScore
-//   */
-//  public void setAbnormalScore(final Float abnormalScore) {
-//    this.put("abnormalScore", abnormalScore);
-//  }
-//
-//  /**
-//   * Sets the unknownScore.
-//   *
-//   * @param unknownScore the new unknownScore
-//   */
-//  public void setUnknownScore(final Float unknownScore) {
-//    this.put("unknownScore", unknownScore);
-//  }
-//
-//  /**
-//   * Sets the nonFindingScore.
-//   *
-//   * @param nonFindingScore the new nonFindingScore
-//   */
-//  public void setNonFindingScore(final Float nonFindingScore) {
-//    this.put("nonFindingScore", nonFindingScore);
-//  }
 
 }

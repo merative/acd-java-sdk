@@ -1,5 +1,5 @@
 /*
- * Copyright 2018, 2021 IBM Corp. All Rights Reserved.
+ * Copyright 2018, 2022 IBM Corp. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with
  * the License. You may obtain a copy of the License at
@@ -13,21 +13,27 @@
 
 package com.ibm.watson.health.acd.v1.model;
 
-import java.lang.reflect.Type;
 import java.util.List;
 
+import com.google.gson.annotations.SerializedName;
 import com.google.gson.reflect.TypeToken;
-import com.ibm.watson.developer_cloud.service.model.DynamicModel;
-import com.ibm.watson.developer_cloud.util.GsonSerializationHelper;
+import com.ibm.cloud.sdk.core.service.model.DynamicModel;
 
 /**
  * InsightModelData Normality.
  */
-public class InsightModelDataNormality extends DynamicModel {
+public class InsightModelDataNormality extends DynamicModel<Object> {
 
-  private Type usageType = new TypeToken<InsightModelDataNormalityUsage>() { } .getType();
-  private Type evidenceType = new TypeToken<List<InsightModelDataEvidence>>() { } .getType();
-  private Type directlyAffectedScoreType  = new TypeToken<Float>() { } .getType();
+  @SerializedName("usage")
+  protected InsightModelDataNormalityUsage usage;
+  @SerializedName("evidence")
+  protected List<InsightModelDataEvidence> evidence;
+  @SerializedName("directlyAffectedScore")
+  protected Float directlyAffectedScore;
+
+  public InsightModelDataNormality() {
+	  super(new TypeToken<Object>() { });
+  }
 
   /**
    * Gets the usage.
@@ -35,7 +41,7 @@ public class InsightModelDataNormality extends DynamicModel {
    * @return the usage
    */
   public InsightModelDataNormalityUsage getUsage() {
-    return GsonSerializationHelper.serializeDynamicModelProperty(this.get("usage"), usageType);
+    return this.usage;
   }
 
   /**
@@ -44,7 +50,7 @@ public class InsightModelDataNormality extends DynamicModel {
    * @return the evidence
    */
   public List<InsightModelDataEvidence> getEvidence() {
-    return GsonSerializationHelper.serializeDynamicModelProperty(this.get("evidence"), evidenceType);
+    return this.evidence;
   }
 
   /**
@@ -53,34 +59,7 @@ public class InsightModelDataNormality extends DynamicModel {
    * @return the directlyAffectedScore
    */
   public Float getDirectlyAffectedScore() {
-	  return GsonSerializationHelper.serializeDynamicModelProperty(this.get("directlyAffectedScore"), directlyAffectedScoreType);
+	  return this.directlyAffectedScore;
   }
-
-//  /**
-//   * Sets the usage.
-//   *
-//   * @param usage the new usage
-//   */
-//  public void setUsage(final InsightModelDataNormalityUsage usage) {
-//    this.put("usage", usage);
-//  }
-//
-//  /**
-//   * Sets the evidence.
-//   *
-//   * @param evidence the new evidence
-//   */
-//  public void setEvidence(final List<InsightModelDataEvidence> evidence) {
-//    this.put("evidence", evidence);
-//  }
-
-//  /**
-//   * Sets the directlyAffectedScore.
-//   *
-//   * @param directlyAffectedScore the new directlyAffectedScore
-//   */
-//   public void setDirectlyAffectedScore(final Float directlyAffectedScore) {
-//     this.put("directlyAffectedScore", directlyAffectedScore);
-//   }
 
 }

@@ -1,5 +1,5 @@
 /*
- * Copyright 2021 IBM Corp. All Rights Reserved.
+ * Copyright 2021, 2022 IBM Corp. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with
  * the License. You may obtain a copy of the License at
@@ -13,19 +13,23 @@
 
 package com.ibm.watson.health.acd.v1.model;
 
-import java.lang.reflect.Type;
-
+import com.google.gson.annotations.SerializedName;
 import com.google.gson.reflect.TypeToken;
-import com.ibm.watson.developer_cloud.service.model.DynamicModel;
-import com.ibm.watson.developer_cloud.util.GsonSerializationHelper;
+import com.ibm.cloud.sdk.core.service.model.DynamicModel;
 
 /**
  * InsightModelData Substance Abuse Treatment.
  */
-public class InsightModelSubstanceAbuseTreatment extends DynamicModel {
+public class InsightModelSubstanceAbuseTreatment extends DynamicModel<Object> {
 
-  private Type discussedScoreType = new TypeToken<Float>() { } .getType();
-  private Type complianceScoreType = new TypeToken<Float>() { } .getType();
+  @SerializedName("discussedScore")
+  protected Float discussedScore;
+  @SerializedName("complianceScore")
+  protected Float complianceScore;
+
+  public InsightModelSubstanceAbuseTreatment() {
+	  super(new TypeToken<Object>() { });
+  }
 
   /**
    * Gets the discussedScore.
@@ -33,7 +37,7 @@ public class InsightModelSubstanceAbuseTreatment extends DynamicModel {
    * @return the discussedScore
    */
   public Float getDiscussedScore() {
-	  return GsonSerializationHelper.serializeDynamicModelProperty(this.get("discussedScore"), discussedScoreType);
+	  return this.discussedScore;
   }
 
   /**
@@ -42,25 +46,7 @@ public class InsightModelSubstanceAbuseTreatment extends DynamicModel {
    * @return the complianceScore
    */
   public Float getComplianceScore() {
-	  return GsonSerializationHelper.serializeDynamicModelProperty(this.get("complianceScore"), complianceScoreType);
+	  return this.complianceScore;
   }
 
-//
-//  /**
-//   * Sets the discussedScore.
-//   *
-//   * @param discussedScore the new discussedScore
-//   */
-//  public void setDiscussedScore(final Float discussedScore) {
-//    this.put("discussedScore", discussedScore);
-//  }
-//
-//  /**
-//   * Sets the complianceScore.
-//   *
-//   * @param complianceScore the new complianceScore
-//   */
-//  public void setComplianceScore(final Float complianceScore) {
-//    this.put("complianceScore", complianceScore);
-//  }
 }

@@ -1,5 +1,5 @@
 /*
- * (C) Copyright IBM Corp. 2020.
+ * (C) Copyright IBM Corp. 2018, 2022.
  *
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with
  * the License. You may obtain a copy of the License at
@@ -1162,18 +1162,16 @@ public class AnnotatorForClinicalData extends BaseService {
    * @return a {@link ServiceCall} with a void result
    */
   public ServiceCall<Map<String, ServiceApiBean>> getAnnotators(GetAnnotatorsOptions getAnnotatorsOptions) {
-    String[] pathSegments = { "v1/annotators" };
-    RequestBuilder builder = RequestBuilder.get(RequestBuilder.constructHttpUrl(getServiceUrl(), pathSegments));
-    Map<String, String> sdkHeaders = SdkCommon.getSdkHeaders("annotator_for_clinical_data_acd", "v1", "getAnnotators");
-    for (Entry<String, String> header : sdkHeaders.entrySet()) {
-      builder.header(header.getKey(), header.getValue());
-    }
-    if (getAnnotatorsOptions != null) {
-      builder.query("version", this.version);
-    }
-    ResponseConverter<Map<String, ServiceApiBean>> responseConverter =
-    		ResponseConverterUtils.getValue(new com.google.gson.reflect.TypeToken<Map<String, ServiceApiBean>>() { }.getType());
-    return createServiceCall(builder.build(), responseConverter);
+	  String[] pathSegments = { "v1/annotators" };
+	  RequestBuilder builder = RequestBuilder.get(RequestBuilder.constructHttpUrl(getServiceUrl(), pathSegments));
+	  Map<String, String> sdkHeaders = SdkCommon.getSdkHeaders("annotator_for_clinical_data_acd", "v1", "getAnnotators");
+	  for (Entry<String, String> header : sdkHeaders.entrySet()) {
+		  builder.header(header.getKey(), header.getValue());
+	  }
+	  builder.query("version", this.version);
+	  ResponseConverter<Map<String, ServiceApiBean>> responseConverter =
+			  ResponseConverterUtils.getValue(new com.google.gson.reflect.TypeToken<Map<String, ServiceApiBean>>() { }.getType());
+	  return createServiceCall(builder.build(), responseConverter);
   }
 
   /**
@@ -1226,9 +1224,7 @@ public class AnnotatorForClinicalData extends BaseService {
     for (Entry<String, String> header : sdkHeaders.entrySet()) {
       builder.header(header.getKey(), header.getValue());
     }
-    if (deleteUserSpecificArtifactsOptions != null) {
-      builder.query("version", this.version);
-    }
+    builder.query("version", this.version);
     ResponseConverter<Void> responseConverter = ResponseConverterUtils.getVoid();
     return createServiceCall(builder.build(), responseConverter);
   }
@@ -1260,9 +1256,7 @@ public class AnnotatorForClinicalData extends BaseService {
       builder.header(header.getKey(), header.getValue());
     }
     builder.header("Accept", "application/json");
-    if (cartridgesGetOptions != null) {
-      builder.query("version", this.version);
-    }
+    builder.query("version", this.version);
     ResponseConverter<AcdCartridgesList> responseConverter =
       ResponseConverterUtils.getValue(new com.google.gson.reflect.TypeToken<AcdCartridgesList>() { }.getType());
     return createServiceCall(builder.build(), responseConverter);
@@ -1323,7 +1317,7 @@ public class AnnotatorForClinicalData extends BaseService {
   }
 
   /**
-   * Create a cartridge deployment.
+   * Update an existing a cartridge deployment.
    *
    * Update a cartridge deployment from a cartridge archive file.
    *
@@ -1355,7 +1349,7 @@ public class AnnotatorForClinicalData extends BaseService {
   }
 
   /**
-   * Create a cartridge deployment.
+   * Update an existing cartridge deployment.
    *
    * Update a cartridge deployment from a cartridge archive file.
    *
@@ -1397,7 +1391,10 @@ public class AnnotatorForClinicalData extends BaseService {
    *
    * @param deployCartridgeOptions the {@link DeployCartridgeOptions} containing the options for the call
    * @return a {@link ServiceCall} with a result of type {@link DeployCartridgeResponse}
+   *
+   * @deprecated Instead use cartridgesPostMultipart to create a new deployment or cartridgesPutMultipart to update existing deployment.
    */
+  @Deprecated
   public ServiceCall<DeployCartridgeResponse> deployCartridge(DeployCartridgeOptions deployCartridgeOptions) {
     com.ibm.cloud.sdk.core.util.Validator.notNull(deployCartridgeOptions,
       "deployCartridgeOptions cannot be null");

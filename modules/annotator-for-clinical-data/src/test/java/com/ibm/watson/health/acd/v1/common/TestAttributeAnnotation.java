@@ -1,5 +1,5 @@
 /*
- * Copyright 2018, 2021 IBM Corp. All Rights Reserved.
+ * Copyright 2018, 2022 IBM Corp. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with
  * the License. You may obtain a copy of the License at
@@ -20,16 +20,9 @@ import org.junit.Assert;
 import com.ibm.watson.health.acd.v1.model.AttributeValueAnnotation;
 import com.ibm.watson.health.acd.v1.model.Concept;
 import com.ibm.watson.health.acd.v1.model.Disambiguation;
-import com.ibm.watson.health.acd.v1.model.InsightModelData;
-import com.ibm.watson.health.acd.v1.model.InsightModelDataDiagnosis;
-import com.ibm.watson.health.acd.v1.model.InsightModelDataMedication;
-import com.ibm.watson.health.acd.v1.model.InsightModelDataNormality;
-import com.ibm.watson.health.acd.v1.model.InsightModelDataNormalityUsage;
-import com.ibm.watson.health.acd.v1.model.InsightModelDataProcedure;
-import com.ibm.watson.health.acd.v1.model.InsightModelDataTask;
-import com.ibm.watson.health.acd.v1.model.InsightModelDataUsage;
 import com.ibm.watson.health.acd.v1.model.Reference;
 import com.ibm.watson.health.acd.v1.model.Temporal;
+import com.ibm.watson.health.acd.v1.util.CustomCollection;
 
 public class TestAttributeAnnotation {
 
@@ -94,7 +87,7 @@ public class TestAttributeAnnotation {
 		if (uid != null) {
 			Assert.assertTrue(uid > 0);
 		}
-		if (annotation.getInsightModelData() != null && !annotation.getInsightModelData().isEmpty()) {
+		if (annotation.getInsightModelData() != null) {
 			TestInsightModelData.testInsightModelData(annotation.getInsightModelData());
 		}
 		if (annotation.getCcsCode() != null) {
@@ -118,8 +111,13 @@ public class TestAttributeAnnotation {
 				}
 			}
 		}
-		if (annotation.getValues() != null) {
+		List<CustomCollection> customCollections = annotation.getValues();
+		if (customCollections != null && !customCollections.isEmpty()) {
 			Assert.assertTrue(annotation.getValues().size() > 0);
+			Assert.assertTrue(annotation.getValues(0) != null);
+			for (CustomCollection collection : customCollections) {
+				TestCustomCollection.testCustomCollectionByName(collection, "value");
+			}
 		}
 		List<Temporal> temporals = annotation.getTemporal();
 		if (temporals != null) {

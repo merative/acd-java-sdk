@@ -1,5 +1,5 @@
 /*
- * Copyright 2021 IBM Corp. All Rights Reserved.
+ * Copyright 2018, 2022 IBM Corp. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with
  * the License. You may obtain a copy of the License at
@@ -12,49 +12,82 @@
  */
 package com.ibm.watson.health.acd.v1.model;
 
-import java.lang.reflect.Type;
 import java.util.List;
 
+import com.google.gson.annotations.SerializedName;
 import com.google.gson.reflect.TypeToken;
-import com.ibm.watson.developer_cloud.service.model.DynamicModel;
-import com.ibm.watson.developer_cloud.util.GsonSerializationHelper;
+import com.ibm.cloud.sdk.core.service.model.DynamicModel;
 
 /**
  * Concept.
  */
-public class Concept extends DynamicModel {
-  private Type idType = new TypeToken<String>() { } .getType();
-  private Type typeType = new TypeToken<String>() { } .getType();
-  private Type uidType = new TypeToken<Long>() { } .getType();
-  private Type beginType = new TypeToken<Long>() { } .getType();
-  private Type endType = new TypeToken<Long>() { } .getType();
-  private Type coveredTextType = new TypeToken<String>() { } .getType();
-  private Type negatedType = new TypeToken<Boolean>() { } .getType();
-  private Type hypotheticalType = new TypeToken<Boolean>() { } .getType();
-  private Type cuiType = new TypeToken<String>() { } .getType();
-  private Type preferredNameType = new TypeToken<String>() { } .getType();
-  private Type semanticTypeType = new TypeToken<String>() { } .getType();
-  private Type sourceType = new TypeToken<String>() { } .getType();
-  private Type sourceVersionType = new TypeToken<String>() { } .getType();
-  private Type disambiguationDataType = new TypeToken<Disambiguation>() { } .getType();
-  private Type sectionNormalizedNameType = new TypeToken<String>() { } .getType();
-  private Type sectionSurfaceFormType = new TypeToken<String>() { } .getType();
-  private Type icd9CodeType = new TypeToken<String>() { } .getType();
-  private Type icd10CodeType = new TypeToken<String>() { } .getType();
-  private Type snomedConceptIdType = new TypeToken<String>() { } .getType();
-  private Type nciCodeType = new TypeToken<String>() { } .getType();
-  private Type meshIdType = new TypeToken<String>() { } .getType();
-  private Type rxNormIdType = new TypeToken<String>() { } .getType();
-  private Type loincIdType = new TypeToken<String>() { } .getType();
-  private Type vocabsType = new TypeToken<String>() { } .getType();
-  private Type cptCodeType = new TypeToken<String>() { } .getType();
-  private Type insightModelDataType = new TypeToken<InsightModelData>() { } .getType();
-  private Type ruleIdType = new TypeToken<String>() { } .getType();
-  private Type derivedFromType = new TypeToken<List<Concept>>() { } .getType();
-  private Type temporalType = new TypeToken<List<Temporal>>() { } .getType();
-  private Type selectionLabelType = new TypeToken<String>() { } .getType();
-  private Type valueIndexType = new TypeToken<Integer>() { } .getType();
+public class Concept extends DynamicModel<Object> {
+  @SerializedName("id")
+  protected String id;
+  @SerializedName("type")
+  protected String type;
+  @SerializedName("uid")
+  protected Long uid;
+  @SerializedName("begin")
+  protected Long begin;
+  @SerializedName("end")
+  protected Long end;
+  @SerializedName("coveredText")
+  protected String coveredText;
+  @SerializedName("negated")
+  protected Boolean negated;
+  @SerializedName("hypothetical")
+  protected Boolean hypothetical;
+  @SerializedName("cui")
+  protected String cui;
+  @SerializedName("preferredName")
+  protected String preferredName;
+  @SerializedName("semanticType")
+  protected String semanticType;
+  @SerializedName("source")
+  protected String source;
+  @SerializedName("sourceVersion")
+  protected String sourceVersion;
+  @SerializedName("disambiguationData")
+  protected Disambiguation disambiguationData;
+  @SerializedName("sectionNormalizedName")
+  protected String sectionNormalizedName;
+  @SerializedName("sectionSurfaceForm")
+  protected String sectionSurfaceForm;
+  @SerializedName("icd9Code")
+  protected String icd9Code;
+  @SerializedName("icd10Code")
+  protected String icd10Code;
+  @SerializedName("snomedConceptId")
+  protected String snomedConceptId;
+  @SerializedName("nciCode")
+  protected String nciCode;
+  @SerializedName("meshId")
+  protected String meshId;
+  @SerializedName("rxNormId")
+  protected String rxNormId;
+  @SerializedName("loincId")
+  protected String loincId;
+  @SerializedName("vocabs")
+  protected String vocabs;
+  @SerializedName("cptCode")
+  protected String cptCode;
+  @SerializedName("insightModelData")
+  protected InsightModelData insightModelData;
+  @SerializedName("ruleId")
+  protected String ruleId;
+  @SerializedName("derivedFrom")
+  protected List<Concept> derivedFrom;
+  @SerializedName("temporal")
+  protected List<Temporal> temporal;
+  @SerializedName("selectionLabel")
+  protected String selectionLabel;
+  @SerializedName("valueIndex")
+  protected Integer valueIndex;
 
+  public Concept() {
+	  super(new TypeToken<Object>() { });
+  }
 
   /**
    * Gets the id.
@@ -62,7 +95,7 @@ public class Concept extends DynamicModel {
    * @return the id
    */
   public String getId() {
-    return GsonSerializationHelper.serializeDynamicModelProperty(this.get("id"), idType);
+    return this.id;
   }
 
   /**
@@ -71,7 +104,7 @@ public class Concept extends DynamicModel {
    * @return the type
    */
   public String getType() {
-    return GsonSerializationHelper.serializeDynamicModelProperty(this.get("type"), typeType);
+    return this.type;
   }
 
   /**
@@ -80,7 +113,7 @@ public class Concept extends DynamicModel {
    * @return the uid
    */
   public Long getUid() {
-    return GsonSerializationHelper.serializeDynamicModelProperty(this.get("uid"), uidType);
+    return this.uid;
   }
 
   /**
@@ -89,7 +122,7 @@ public class Concept extends DynamicModel {
    * @return the begin
    */
   public Long getBegin() {
-    return GsonSerializationHelper.serializeDynamicModelProperty(this.get("begin"), beginType);
+    return this.begin;
   }
 
   /**
@@ -98,7 +131,7 @@ public class Concept extends DynamicModel {
    * @return the end
    */
   public Long getEnd() {
-    return GsonSerializationHelper.serializeDynamicModelProperty(this.get("end"), endType);
+    return this.end;
   }
 
   /**
@@ -107,7 +140,7 @@ public class Concept extends DynamicModel {
    * @return the coveredText
    */
   public String getCoveredText() {
-    return GsonSerializationHelper.serializeDynamicModelProperty(this.get("coveredText"), coveredTextType);
+    return this.coveredText;
   }
 
   /**
@@ -116,7 +149,7 @@ public class Concept extends DynamicModel {
    * @return the negated
    */
   public Boolean isNegated() {
-    Boolean negated = GsonSerializationHelper.serializeDynamicModelProperty(this.get("negated"), negatedType);
+    Boolean negated = this.negated;
     if (negated == null) {
       negated = false;
     }
@@ -129,7 +162,7 @@ public class Concept extends DynamicModel {
    * @return the hypothetical
    */
   public Boolean isHypothetical() {
-    Boolean hypothetical = GsonSerializationHelper.serializeDynamicModelProperty(this.get("hypothetical"), hypotheticalType);
+    Boolean hypothetical = this.hypothetical;
     if (hypothetical == null) {
       hypothetical = false;
     }
@@ -142,7 +175,7 @@ public class Concept extends DynamicModel {
    * @return the cui
    */
   public String getCui() {
-    return GsonSerializationHelper.serializeDynamicModelProperty(this.get("cui"), cuiType);
+    return this.cui;
   }
 
   /**
@@ -151,7 +184,7 @@ public class Concept extends DynamicModel {
    * @return the preferredName
    */
   public String getPreferredName() {
-    return GsonSerializationHelper.serializeDynamicModelProperty(this.get("preferredName"), preferredNameType);
+    return this.preferredName;
   }
 
   /**
@@ -160,7 +193,7 @@ public class Concept extends DynamicModel {
    * @return the semanticType
    */
   public String getSemanticType() {
-    return GsonSerializationHelper.serializeDynamicModelProperty(this.get("semanticType"), semanticTypeType);
+    return this.semanticType;
   }
 
   /**
@@ -169,7 +202,7 @@ public class Concept extends DynamicModel {
    * @return the source
    */
   public String getSource() {
-    return GsonSerializationHelper.serializeDynamicModelProperty(this.get("source"), sourceType);
+    return this.source;
   }
 
   /**
@@ -178,7 +211,7 @@ public class Concept extends DynamicModel {
    * @return the sourceVersion
    */
   public String getSourceVersion() {
-    return GsonSerializationHelper.serializeDynamicModelProperty(this.get("sourceVersion"), sourceVersionType);
+    return this.sourceVersion;
   }
 
   /**
@@ -187,7 +220,7 @@ public class Concept extends DynamicModel {
    * @return the disambiguationData
    */
   public Disambiguation getDisambiguationData() {
-    return GsonSerializationHelper.serializeDynamicModelProperty(this.get("disambiguationData"), disambiguationDataType);
+    return this.disambiguationData;
   }
 
   /**
@@ -196,7 +229,7 @@ public class Concept extends DynamicModel {
    * @return the sectionNormalizedName
    */
   public String getSectionNormalizedName() {
-    return GsonSerializationHelper.serializeDynamicModelProperty(this.get("sectionNormalizedName"), sectionNormalizedNameType);
+    return this.sectionNormalizedName;
   }
 
   /**
@@ -205,7 +238,7 @@ public class Concept extends DynamicModel {
    * @return the sectionSurfaceForm
    */
   public String getSectionSurfaceForm() {
-    return GsonSerializationHelper.serializeDynamicModelProperty(this.get("sectionSurfaceForm"), sectionSurfaceFormType);
+    return this.sectionSurfaceForm;
   }
 
 
@@ -214,7 +247,7 @@ public class Concept extends DynamicModel {
    * @return the getIcd9Code
    */
   public String getIcd9Code() {
-    return GsonSerializationHelper.serializeDynamicModelProperty(this.get("icd9Code"), icd9CodeType);
+    return this.icd9Code;
   }
 
   /**
@@ -222,7 +255,7 @@ public class Concept extends DynamicModel {
    * @return the getIcd10CodeForm
    */
   public String getIcd10Code() {
-    return GsonSerializationHelper.serializeDynamicModelProperty(this.get("icd10Code"), icd10CodeType);
+    return this.icd10Code;
   }
 
   /**
@@ -230,7 +263,7 @@ public class Concept extends DynamicModel {
    * @return the getSnomedConceptId
    */
   public String getSnomedConceptId() {
-    return GsonSerializationHelper.serializeDynamicModelProperty(this.get("snomedConceptId"), snomedConceptIdType);
+    return this.snomedConceptId;
   }
 
   /**
@@ -238,7 +271,7 @@ public class Concept extends DynamicModel {
    * @return the getNciCode
    */
   public String getNciCode() {
-    return GsonSerializationHelper.serializeDynamicModelProperty(this.get("nciCode"), nciCodeType);
+    return this.nciCode;
   }
 
   /**
@@ -246,7 +279,7 @@ public class Concept extends DynamicModel {
    * @return the getCptCode
    */
   public String getCptCode() {
-    return GsonSerializationHelper.serializeDynamicModelProperty(this.get("cptCode"), cptCodeType);
+    return this.cptCode;
   }
 
   /**
@@ -254,7 +287,7 @@ public class Concept extends DynamicModel {
    * @return the getMeshId
    */
   public String getMeshId() {
-    return GsonSerializationHelper.serializeDynamicModelProperty(this.get("meshId"), meshIdType);
+    return this.meshId;
   }
 
   /**
@@ -262,7 +295,7 @@ public class Concept extends DynamicModel {
    * @return the getRxNormId
    */
   public String getRxNormId() {
-   return GsonSerializationHelper.serializeDynamicModelProperty(this.get("rxNormId"), rxNormIdType);
+   return this.rxNormId;
   }
 
   /**
@@ -270,7 +303,7 @@ public class Concept extends DynamicModel {
    * @return the getLoincId
    */
   public String getLoincId() {
-    return GsonSerializationHelper.serializeDynamicModelProperty(this.get("loincId"), loincIdType);
+    return this.loincId;
   }
 
   /**
@@ -278,7 +311,7 @@ public class Concept extends DynamicModel {
    * @return the getVocabs
    */
   public String getVocabs() {
-   return GsonSerializationHelper.serializeDynamicModelProperty(this.get("vocabs"), vocabsType);
+   return this.vocabs;
   }
 
   /**
@@ -286,7 +319,7 @@ public class Concept extends DynamicModel {
    * @return the insightModelData
    */
   public InsightModelData getInsightModelData() {
-    return GsonSerializationHelper.serializeDynamicModelProperty(this.get("insightModelData"), insightModelDataType);
+    return this.insightModelData;
   }
 
   /**
@@ -294,7 +327,7 @@ public class Concept extends DynamicModel {
    * @return the ruleId
    */
   public String getRuleId() {
-    return GsonSerializationHelper.serializeDynamicModelProperty(this.get("ruleId"), ruleIdType);
+    return this.ruleId;
   }
 
   /**
@@ -303,7 +336,7 @@ public class Concept extends DynamicModel {
    * @return the derivedFrom
    */
   public List<Concept> getDerivedFrom() {
-	  return GsonSerializationHelper.serializeDynamicModelProperty(this.get("derivedFrom"), derivedFromType);
+	  return this.derivedFrom;
   }
 
   /**
@@ -312,7 +345,7 @@ public class Concept extends DynamicModel {
    * @return the temporal
    */
   public List<Temporal> getTemporal() {
-	  return GsonSerializationHelper.serializeDynamicModelProperty(this.get("temporal"), temporalType);
+	  return this.temporal;
   }
 
   /**
@@ -320,7 +353,7 @@ public class Concept extends DynamicModel {
    * @return the selectionLabel
    */
   public String getSelectionLabel() {
-    return GsonSerializationHelper.serializeDynamicModelProperty(this.get("selectionLabel"), selectionLabelType);
+    return this.selectionLabel;
   }
 
   /**
@@ -328,7 +361,7 @@ public class Concept extends DynamicModel {
    * @return the valueIndex
    */
   public Integer getValueIndex() {
-    return GsonSerializationHelper.serializeDynamicModelProperty(this.get("valueIndex"), valueIndexType);
+    return this.valueIndex;
   }
 
   /**
@@ -337,7 +370,7 @@ public class Concept extends DynamicModel {
    * @param id the new id
    */
   public void setId(final String id) {
-    this.put("id", id);
+    this.id = id;
   }
 
   /**
@@ -346,7 +379,7 @@ public class Concept extends DynamicModel {
    * @param type the new type
    */
   public void setType(final String type) {
-    this.put("type", type);
+    this.type = type;
   }
 
   /**
@@ -355,7 +388,7 @@ public class Concept extends DynamicModel {
    * @param uid the new uid
    */
   public void setUid(final Long uid) {
-    this.put("uid", uid);
+    this.uid = uid;
   }
 
   /**
@@ -364,7 +397,7 @@ public class Concept extends DynamicModel {
    * @param begin the new begin
    */
   public void setBegin(final Long begin) {
-    this.put("begin", begin);
+    this.begin = begin;
   }
 
   /**
@@ -373,7 +406,7 @@ public class Concept extends DynamicModel {
    * @param end the new end
    */
   public void setEnd(final Long end) {
-    this.put("end", end);
+    this.end = end;
   }
 
   /**
@@ -382,7 +415,7 @@ public class Concept extends DynamicModel {
    * @param coveredText the new coveredText
    */
   public void setCoveredText(final String coveredText) {
-    this.put("coveredText", coveredText);
+    this.coveredText = coveredText;
   }
 
   /**
@@ -391,7 +424,7 @@ public class Concept extends DynamicModel {
    * @param negated the new negated
    */
   public void setNegated(final Boolean negated) {
-    this.put("negated", negated);
+    this.negated = negated;
   }
 
   /**
@@ -400,7 +433,7 @@ public class Concept extends DynamicModel {
    * @param hypothetical the new hypothetical
    */
   public void setHypothetical(final Boolean hypothetical) {
-    this.put("hypothetical", hypothetical);
+    this.hypothetical = hypothetical;
   }
 
   /**
@@ -409,7 +442,7 @@ public class Concept extends DynamicModel {
    * @param cui the new cui
    */
   public void setCui(final String cui) {
-    this.put("cui", cui);
+    this.cui = cui;
   }
 
   /**
@@ -418,7 +451,7 @@ public class Concept extends DynamicModel {
    * @param preferredName the new preferredName
    */
   public void setPreferredName(final String preferredName) {
-    this.put("preferredName", preferredName);
+    this.preferredName = preferredName;
   }
 
   /**
@@ -427,7 +460,7 @@ public class Concept extends DynamicModel {
    * @param semanticType the new semanticType
    */
   public void setSemanticType(final String semanticType) {
-    this.put("semanticType", semanticType);
+    this.semanticType = semanticType;
   }
 
   /**
@@ -436,7 +469,7 @@ public class Concept extends DynamicModel {
    * @param source the new source
    */
   public void setSource(final String source) {
-    this.put("source", source);
+    this.source = source;
   }
 
   /**
@@ -445,7 +478,7 @@ public class Concept extends DynamicModel {
    * @param sourceVersion the new sourceVersion
    */
   public void setSourceVersion(final String sourceVersion) {
-    this.put("sourceVersion", sourceVersion);
+    this.sourceVersion = sourceVersion;
   }
 
   /**
@@ -454,7 +487,7 @@ public class Concept extends DynamicModel {
    * @param disambiguationData the new disambiguationData
    */
   public void setDisambiguationData(final Disambiguation disambiguationData) {
-    this.put("disambiguationData", disambiguationData);
+    this.disambiguationData = disambiguationData;
   }
 
   /**
@@ -463,7 +496,7 @@ public class Concept extends DynamicModel {
    * @param icd9Code the new icd 9 Code
    */
   public void setIcd9Code(final String icd9Code) {
-  this.put("icd9Code", icd9Code);
+  this.icd9Code = icd9Code;
   }
 
   /**
@@ -472,7 +505,7 @@ public class Concept extends DynamicModel {
    * @param icd10Code the new icd 10 code
    */
   public void setIcd10Code(final String icd10Code) {
-    this.put("icd10Code", icd10Code);
+    this.icd10Code = icd10Code;
   }
 
   /**
@@ -481,7 +514,7 @@ public class Concept extends DynamicModel {
    * @param snomedConceptId the new snomed concept id
    */
   public void setSnomedConceptId(final String snomedConceptId) {
-    this.put("snomedConceptId", snomedConceptId);
+    this.snomedConceptId = snomedConceptId;
   }
 
   /**
@@ -490,7 +523,7 @@ public class Concept extends DynamicModel {
    * @param nciCode the new nci code
    */
   public void setNciCode(final String nciCode) {
-    this.put("nciCode", nciCode);
+    this.nciCode = nciCode;
   }
 
   /**
@@ -499,7 +532,7 @@ public class Concept extends DynamicModel {
    * @param cptCode the new cpt code
    */
   public void setCptCode(final String cptCode) {
-    this.put("cptCode", cptCode);
+    this.cptCode = cptCode;
   }
 
   /**
@@ -508,7 +541,7 @@ public class Concept extends DynamicModel {
    * @param meshId the new mesh id
    */
   public void setMeshId(final String meshId) {
-    this.put("meshId", meshId);
+    this.meshId = meshId;
   }
 
   /**
@@ -517,7 +550,7 @@ public class Concept extends DynamicModel {
    * @param rxNormId the new rx norm id
    */
   public void setRxNormId(final String rxNormId) {
-    this.put("rxNormId", rxNormId);
+    this.rxNormId = rxNormId;
   }
 
   /**
@@ -526,7 +559,7 @@ public class Concept extends DynamicModel {
    * @param loincId the new loinc id
    */
   public void setLoincId(final String loincId) {
-    this.put("loincId", loincId);
+    this.loincId = loincId;
   }
 
   /**
@@ -535,7 +568,7 @@ public class Concept extends DynamicModel {
    * @param vocabs the new vocabs id
    */
   public void setVocabs(final String vocabs) {
-    this.put("vocabs", vocabs);
+    this.vocabs = vocabs;
   }
 
   /**
@@ -544,7 +577,7 @@ public class Concept extends DynamicModel {
    * @param insightModelData the new insightModelData
    */
   public void setInsightModelData(final InsightModelData insightModelData) {
-      this.put("insightModelData", insightModelData);
+      this.insightModelData = insightModelData;
   }
 
   /**
@@ -553,7 +586,7 @@ public class Concept extends DynamicModel {
    * @param ruleId the new rule Id
    */
   public void setRuleId(final String ruleId) {
-    this.put("ruleId", ruleId);
+    this.ruleId = ruleId;
   }
 
   /**
@@ -562,7 +595,7 @@ public class Concept extends DynamicModel {
    * @param derivedFrom the new derivedFrom
    */
   public void setDerivedFrom(final List<Concept> derivedFrom) {
-    this.put("derivedFrom", derivedFrom);
+    this.derivedFrom = derivedFrom;
   }
 
   /**
@@ -571,7 +604,7 @@ public class Concept extends DynamicModel {
    * @param temporal the new temporal
    */
   public void setTemporal(final List<Temporal> temporal) {
-    this.put("temporal", temporal);
+    this.temporal = temporal;
   }
 
   /**
@@ -580,7 +613,7 @@ public class Concept extends DynamicModel {
    * @param selectionLabel the new selection label
    */
   public void setSelectionLabel(final String selectionLabel) {
-    this.put("selectionLabel", selectionLabel);
+    this.selectionLabel = selectionLabel;
   }
 
   /**
@@ -589,7 +622,7 @@ public class Concept extends DynamicModel {
    * @param valueIndex the new valueIndex
    */
   public void setValueIndex(final Integer valueIndex) {
-    this.put("valueIndex", valueIndex);
+    this.valueIndex = valueIndex;
   }
 
 }

@@ -1,5 +1,5 @@
 /*
- * Copyright 2018, 2021 IBM Corp. All Rights Reserved.
+ * Copyright 2018, 2022 IBM Corp. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with
  * the License. You may obtain a copy of the License at
@@ -74,7 +74,9 @@ public class Constants {
 			+ "by report, pt with hx of ETOH abuse; BAL 147.\n"
 			+ "Patient is a 43-year-old obese male with a history of diabetes."
 			+ "Allergic to penicillin.  Patient had a colonoscopy in 2009."
-			+ "Patient abuses vodka and smokes cigarettes and marijuana.";
+			+ "Patient abuses vodka and smokes cigarettes and marijuana."
+			+ "Will follow-up with an additional blood glucose test in 3 months."
+			+ "She is taking ibuprofen to help with her pain.";
 	public static final String[] SAMPLE_TEXT_ARRAY = {TEXT, TEXT2, TEXT3};
 	public static final String CONTENT_TYPE = "application/json";
 }

@@ -1,5 +1,5 @@
 /*
- * Copyright 2018, 2021 IBM Corp. All Rights Reserved.
+ * Copyright 2018, 2022 IBM Corp. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with
  * the License. You may obtain a copy of the License at
@@ -50,10 +50,7 @@ public class TestAnalyze extends WatsonServiceTest {
 	public TestAnalyze() {
 		super();
 		try {
-			this.setUp();
 			service = this.getServiceInstance();
-			Map<String, String> headerMap = this.getDefaultHeaders();
-			Assert.assertNotNull(headerMap);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -219,6 +216,8 @@ public class TestAnalyze extends WatsonServiceTest {
 		FlowEntry negEntry = new FlowEntry.Builder().annotator(neg).build();
 		Annotator proc = new Annotator.Builder().name(Constants.PROCEDURE).build();
 		FlowEntry procEntry = new FlowEntry.Builder().annotator(proc).build();
+		Annotator relation = new Annotator.Builder().name(Constants.RELATION).build();
+		FlowEntry relationEntry = new FlowEntry.Builder().annotator(relation).build();
 		Annotator seeing = new Annotator.Builder().name(Constants.SEEING).build();
 		FlowEntry seeingEntry = new FlowEntry.Builder().annotator(seeing).build();
 		Annotator smoking = new Annotator.Builder().name(Constants.SMOKING).build();
@@ -239,7 +238,7 @@ public class TestAnalyze extends WatsonServiceTest {
 		flowEntries.add(allergyEntry);
 		flowEntries.add(bathingyEntry);
 		flowEntries.add(cancerEntry);
-		//		flowEntries.add(cvEntry); NumberFormatException
+		flowEntries.add(cvEntry);
 		flowEntries.add(disEntry);
 		flowEntries.add(dressingEntry);
 		flowEntries.add(eatingEntry);
@@ -251,6 +250,7 @@ public class TestAnalyze extends WatsonServiceTest {
 		flowEntries.add(neEntry);
 		flowEntries.add(negEntry);
 		flowEntries.add(procEntry);
+		flowEntries.add(relationEntry);
 		flowEntries.add(sectionEntry);
 		flowEntries.add(seeingEntry);
 		flowEntries.add(smokingEntry);

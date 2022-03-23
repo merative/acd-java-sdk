@@ -1,5 +1,5 @@
 /*
- * Copyright 2018 IBM Corp. All Rights Reserved.
+ * Copyright 2018, 2022 IBM Corp. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with
  * the License. You may obtain a copy of the License at
@@ -13,22 +13,29 @@
 
 package com.ibm.watson.health.acd.v1.model;
 
-import java.lang.reflect.Type;
-
+import com.google.gson.annotations.SerializedName;
 import com.google.gson.reflect.TypeToken;
-import com.ibm.watson.developer_cloud.service.model.DynamicModel;
-import com.ibm.watson.developer_cloud.util.GsonSerializationHelper;
+import com.ibm.cloud.sdk.core.service.model.DynamicModel;
 
 /**
  * InsightModelData Medication.
  */
-public class InsightModelDataMedication extends DynamicModel {
+public class InsightModelDataMedication extends DynamicModel<Object> {
 
-  private Type usageType = new TypeToken<InsightModelDataUsage>() { } .getType();
-  private Type startedType = new TypeToken<InsightModelDataEvent>() { } .getType();
-  private Type stoppedType = new TypeToken<InsightModelDataEvent>() { } .getType();
-  private Type doseChangedType = new TypeToken<InsightModelDataEvent>() { } .getType();
-  private Type adverseType = new TypeToken<InsightModelDataEvent>() { } .getType();
+  @SerializedName("usage")
+  protected InsightModelDataUsage usage;
+  @SerializedName("started")
+  protected InsightModelDataEvent started;
+  @SerializedName("stopped")
+  protected InsightModelDataEvent stopped;
+  @SerializedName("doseChanged")
+  protected InsightModelDataEvent doseChanged;
+  @SerializedName("adverse")
+  protected InsightModelDataEvent adverse;
+
+  public InsightModelDataMedication() {
+	  super(new TypeToken<Object>() { });
+  }
 
   /**
    * Gets the usage.
@@ -36,7 +43,7 @@ public class InsightModelDataMedication extends DynamicModel {
    * @return the usage
    */
   public InsightModelDataUsage getUsage() {
-    return GsonSerializationHelper.serializeDynamicModelProperty(this.get("usage"), usageType);
+    return this.usage;
   }
 
   /**
@@ -45,7 +52,7 @@ public class InsightModelDataMedication extends DynamicModel {
    * @return the started
    */
   public InsightModelDataEvent getStarted() {
-    return GsonSerializationHelper.serializeDynamicModelProperty(this.get("startedEvent"), startedType);
+    return this.started;
   }
 
   /**
@@ -54,7 +61,7 @@ public class InsightModelDataMedication extends DynamicModel {
    * @return the stopped
    */
   public InsightModelDataEvent getStopped() {
-    return GsonSerializationHelper.serializeDynamicModelProperty(this.get("stoppedEvent"), stoppedType);
+    return this.stopped;
   }
 
   /**
@@ -63,7 +70,7 @@ public class InsightModelDataMedication extends DynamicModel {
    * @return the doseChanged
    */
   public InsightModelDataEvent getDoseChanged() {
-    return GsonSerializationHelper.serializeDynamicModelProperty(this.get("doseChangedEvent"), doseChangedType);
+    return this.doseChanged;
   }
 
   /**
@@ -72,52 +79,7 @@ public class InsightModelDataMedication extends DynamicModel {
    * @return the adverse
    */
   public InsightModelDataEvent getAdverse() {
-    return GsonSerializationHelper.serializeDynamicModelProperty(this.get("adverseEvent"), adverseType);
+    return this.adverse;
   }
-
-//  /**
-//   * Sets the usage.
-//   *
-//   * @param usage the new usage
-//   */
-//  public void setUsage(final InsightModelDataUsage usage) {
-//    this.put("usage", usage);
-//  }
-//
-//  /**
-//   * Sets the started.
-//   *
-//   * @param started the new started
-//   */
-//  public void setStarted(final InsightModelDataEvent started) {
-//    this.put("startedEvent", started);
-//  }
-//
-//  /**
-//   * Sets the stopped.
-//   *
-//   * @param stopped the new stopped
-//   */
-//  public void setStopped(final InsightModelDataEvent stopped) {
-//    this.put("stoppedEvent", stopped);
-//  }
-//
-//  /**
-//   * Sets the doseChanged.
-//   *
-//   * @param doseChanged the new doseChanged
-//   */
-//  public void setDoseChanged(final InsightModelDataEvent doseChanged) {
-//    this.put("doseChangedEvent", doseChanged);
-//  }
-//
-//  /**
-//   * Sets the adverse.
-//   *
-//   * @param adverse the new adverse
-//   */
-//  public void setAdverse(final InsightModelDataEvent adverse) {
-//    this.put("adverseEvent", adverse);
-//  }
 
 }

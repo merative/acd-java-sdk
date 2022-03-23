@@ -1,5 +1,5 @@
 /*
- * Copyright 2018, 2021 IBM Corp. All Rights Reserved.
+ * Copyright 2018, 2022 IBM Corp. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with
  * the License. You may obtain a copy of the License at
@@ -12,35 +12,55 @@
  */
 package com.ibm.watson.health.acd.v1.model;
 
-import java.lang.reflect.Type;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
+import com.google.gson.Gson;
+import com.google.gson.JsonElement;
+import com.google.gson.annotations.SerializedName;
 import com.google.gson.reflect.TypeToken;
-import com.ibm.watson.developer_cloud.service.model.DynamicModel;
-import com.ibm.watson.developer_cloud.util.GsonSerializationHelper;
+import com.ibm.cloud.sdk.core.service.model.DynamicModel;
 import com.ibm.watson.health.acd.v1.util.CustomCollection;
 
 /**
  * MedicationAnnotation.
  */
-public class MedicationAnnotation extends DynamicModel {
-  private Type idType = new TypeToken<String>() { } .getType();
-  private Type typeType = new TypeToken<String>() { } .getType();
-  private Type uidType = new TypeToken<Long>() { } .getType();
-  private Type beginType = new TypeToken<Long>() { } .getType();
-  private Type endType = new TypeToken<Long>() { } .getType();
-  private Type coveredTextType = new TypeToken<String>() { } .getType();
-  private Type negatedType = new TypeToken<Boolean>() { } .getType();
-  private Type hypotheticalType = new TypeToken<Boolean>() { } .getType();
-  private Type sectionNormalizedNameType = new TypeToken<String>() { } .getType();
-  private Type cuiType = new TypeToken<String>() { } .getType();
-  private Type drugType = new TypeToken<List<Map>>() { } .getType();
-  private Type sectionSurfaceFormType = new TypeToken<String>() { } .getType();
-  private Type insightModelDataType = new TypeToken<InsightModelData>() { } .getType();
-  private Type temporalType = new TypeToken<List<Temporal>>() { } .getType();
-  private Type disambiguationDataType = new TypeToken<Disambiguation>() { } .getType();
+public class MedicationAnnotation extends DynamicModel<Object> {
+  @SerializedName("id")
+  protected String id;
+  @SerializedName("type")
+  protected String type;
+  @SerializedName("uid")
+  protected Long uid;
+  @SerializedName("begin")
+  protected Long begin;
+  @SerializedName("end")
+  protected Long end;
+  @SerializedName("coveredText")
+  protected String coveredText;
+  @SerializedName("negated")
+  protected Boolean negated;
+  @SerializedName("hypothetical")
+  protected Boolean hypothetical;
+  @SerializedName("sectionNormalizedName")
+  protected String sectionNormalizedName;
+  @SerializedName("cui")
+  protected String cui;
+  @SerializedName("drug")
+  protected List<Map> drug;
+  @SerializedName("sectionSurfaceForm")
+  protected String sectionSurfaceForm;
+  @SerializedName("insightModelData")
+  protected InsightModelData insightModelData;
+  @SerializedName("temporal")
+  protected List<Temporal> temporal;
+  @SerializedName("disambiguationData")
+  protected Disambiguation disambiguationData;
 
+  public MedicationAnnotation() {
+	  super(new TypeToken<Object>() { });
+  }
 
   /**
    * Gets the id.
@@ -48,7 +68,7 @@ public class MedicationAnnotation extends DynamicModel {
    * @return the id
    */
   public String getId() {
-    return GsonSerializationHelper.serializeDynamicModelProperty(this.get("id"), idType);
+    return this.id;
   }
 
   /**
@@ -57,7 +77,7 @@ public class MedicationAnnotation extends DynamicModel {
    * @return the type
    */
   public String getType() {
-    return GsonSerializationHelper.serializeDynamicModelProperty(this.get("type"), typeType);
+    return this.type;
   }
 
   /**
@@ -66,7 +86,7 @@ public class MedicationAnnotation extends DynamicModel {
    * @return the uid
    */
   public Long getUid() {
-    return GsonSerializationHelper.serializeDynamicModelProperty(this.get("uid"), uidType);
+    return this.uid;
   }
 
   /**
@@ -75,7 +95,7 @@ public class MedicationAnnotation extends DynamicModel {
    * @return the begin
    */
   public Long getBegin() {
-    return GsonSerializationHelper.serializeDynamicModelProperty(this.get("begin"), beginType);
+    return this.begin;
   }
 
   /**
@@ -84,7 +104,7 @@ public class MedicationAnnotation extends DynamicModel {
    * @return the end
    */
   public Long getEnd() {
-    return GsonSerializationHelper.serializeDynamicModelProperty(this.get("end"), endType);
+    return this.end;
   }
 
   /**
@@ -93,7 +113,7 @@ public class MedicationAnnotation extends DynamicModel {
    * @return the coveredText
    */
   public String getCoveredText() {
-    return GsonSerializationHelper.serializeDynamicModelProperty(this.get("coveredText"), coveredTextType);
+    return this.coveredText;
   }
 
   /**
@@ -102,7 +122,7 @@ public class MedicationAnnotation extends DynamicModel {
    * @return the negated
    */
   public Boolean isNegated() {
-    return GsonSerializationHelper.serializeDynamicModelProperty(this.get("negated"), negatedType);
+    return this.negated;
   }
 
   /**
@@ -111,7 +131,7 @@ public class MedicationAnnotation extends DynamicModel {
    * @return the hypothetical
    */
   public Boolean isHypothetical() {
-    return GsonSerializationHelper.serializeDynamicModelProperty(this.get("hypothetical"), hypotheticalType);
+    return this.hypothetical;
   }
 
   /**
@@ -120,7 +140,7 @@ public class MedicationAnnotation extends DynamicModel {
    * @return the sectionNormalizedName
    */
   public String getSectionNormalizedName() {
-    return GsonSerializationHelper.serializeDynamicModelProperty(this.get("sectionNormalizedName"), sectionNormalizedNameType);
+    return this.sectionNormalizedName;
   }
 
   /**
@@ -129,7 +149,7 @@ public class MedicationAnnotation extends DynamicModel {
    * @return the cui
    */
   public String getCui() {
-    return GsonSerializationHelper.serializeDynamicModelProperty(this.get("cui"), cuiType);
+    return this.cui;
   }
 
   /**
@@ -138,7 +158,13 @@ public class MedicationAnnotation extends DynamicModel {
    * @return the drug
    */
   public List<CustomCollection> getDrug() {
-    List<Object> listObjects = GsonSerializationHelper.serializeDynamicModelProperty(this.get("drug"), drugType);
+    List<Object> listObjects = new ArrayList<Object>();
+    for (Map map : this.drug) {
+    	Gson gson = new Gson();
+    	JsonElement jsonElement = gson.toJsonTree(map);
+    	Object mapObj = gson.fromJson(jsonElement, Object.class);
+    	listObjects.add(mapObj);
+    }
     CustomCollection customCollection = new CustomCollection();
     List<CustomCollection> listValues = customCollection.convertToCustomCollectionList(listObjects);
     return listValues;
@@ -150,7 +176,7 @@ public class MedicationAnnotation extends DynamicModel {
    * @return the sectionSurfaceForm
    */
   public String getSectionSurfaceForm() {
-    return GsonSerializationHelper.serializeDynamicModelProperty(this.get("sectionSurfaceForm"), sectionSurfaceFormType);
+    return this.sectionSurfaceForm;
   }
 
   /**
@@ -158,7 +184,7 @@ public class MedicationAnnotation extends DynamicModel {
    * @return the insightModelData
    */
   public InsightModelData getInsightModelData() {
-    return GsonSerializationHelper.serializeDynamicModelProperty(this.get("insightModelData"), insightModelDataType);
+    return this.insightModelData;
   }
 
   /**
@@ -167,7 +193,7 @@ public class MedicationAnnotation extends DynamicModel {
    * @return the temporal
    */
   public List<Temporal> getTemporal() {
-	  return GsonSerializationHelper.serializeDynamicModelProperty(this.get("temporal"), temporalType);
+	  return this.temporal;
   }
 
   /**
@@ -176,7 +202,7 @@ public class MedicationAnnotation extends DynamicModel {
    * @return the disambiguationData
    */
   public Disambiguation getDisambiguationData() {
-    return GsonSerializationHelper.serializeDynamicModelProperty(this.get("disambiguationData"), disambiguationDataType);
+    return this.disambiguationData;
   }
 
   /**
@@ -185,7 +211,7 @@ public class MedicationAnnotation extends DynamicModel {
    * @param id the new id
    */
   public void setId(final String id) {
-    this.put("id", id);
+    this.id = id;
   }
 
   /**
@@ -194,7 +220,7 @@ public class MedicationAnnotation extends DynamicModel {
    * @param type the new type
    */
   public void setType(final String type) {
-    this.put("type", type);
+    this.type = type;
   }
 
   /**
@@ -203,7 +229,7 @@ public class MedicationAnnotation extends DynamicModel {
    * @param uid the new uid
    */
   public void setUid(final Long uid) {
-    this.put("uid", uid);
+    this.uid = uid;
   }
 
   /**
@@ -212,7 +238,7 @@ public class MedicationAnnotation extends DynamicModel {
    * @param begin the new begin
    */
   public void setBegin(final Long begin) {
-    this.put("begin", begin);
+    this.begin = begin;
   }
 
   /**
@@ -221,7 +247,7 @@ public class MedicationAnnotation extends DynamicModel {
    * @param end the new end
    */
   public void setEnd(final Long end) {
-    this.put("end", end);
+    this.end = end;
   }
 
   /**
@@ -230,7 +256,7 @@ public class MedicationAnnotation extends DynamicModel {
    * @param coveredText the new coveredText
    */
   public void setCoveredText(final String coveredText) {
-    this.put("coveredText", coveredText);
+    this.coveredText = coveredText;
   }
 
   /**
@@ -239,7 +265,7 @@ public class MedicationAnnotation extends DynamicModel {
    * @param negated the new negated
    */
   public void setNegated(final Boolean negated) {
-    this.put("negated", negated);
+    this.negated = negated;
   }
 
   /**
@@ -248,7 +274,7 @@ public class MedicationAnnotation extends DynamicModel {
    * @param hypothetical the new hypothetical
    */
   public void setHypothetical(final Boolean hypothetical) {
-    this.put("hypothetical", hypothetical);
+    this.hypothetical = hypothetical;
   }
 
   /**
@@ -257,7 +283,7 @@ public class MedicationAnnotation extends DynamicModel {
    * @param sectionNormalizedName the new sectionNormalizedName
    */
   public void setSectionNormalizedName(final String sectionNormalizedName) {
-    this.put("sectionNormalizedName", sectionNormalizedName);
+    this.sectionNormalizedName = sectionNormalizedName;
   }
 
   /**
@@ -266,7 +292,7 @@ public class MedicationAnnotation extends DynamicModel {
    * @param cui the new cui
    */
   public void setCui(final String cui) {
-    this.put("cui", cui);
+    this.cui = cui;
   }
 
   /**
@@ -275,7 +301,7 @@ public class MedicationAnnotation extends DynamicModel {
    * @param drug the new drug
    */
   public void setDrug(final List<Map> drug) {
-    this.put("drug", drug);
+    this.drug = drug;
   }
 
   /**
@@ -284,7 +310,7 @@ public class MedicationAnnotation extends DynamicModel {
    * @param sectionSurfaceForm the new sectionSurfaceForm
    */
   public void setSectionSurfaceForm(final String sectionSurfaceForm) {
-    this.put("sectionSurfaceForm", sectionSurfaceForm);
+    this.sectionSurfaceForm = sectionSurfaceForm;
   }
 
   /**
@@ -293,7 +319,7 @@ public class MedicationAnnotation extends DynamicModel {
    * @param insightModelData the new insightModelData
    */
   public void setInsightModelData(final InsightModelData insightModelData) {
-      this.put("insightModelData", insightModelData);
+      this.insightModelData = insightModelData;
   }
 
   /**
@@ -302,7 +328,7 @@ public class MedicationAnnotation extends DynamicModel {
    * @param temporal the new temporal
    */
   public void setTemporal(final List<Temporal> temporal) {
-    this.put("temporal", temporal);
+    this.temporal = temporal;
   }
 
   /**
@@ -311,7 +337,7 @@ public class MedicationAnnotation extends DynamicModel {
    * @param disambiguationData the new disambiguationData
    */
   public void setDisambiguationData(final Disambiguation disambiguationData) {
-      this.put("disambiguationData", disambiguationData);
+      this.disambiguationData = disambiguationData;
   }
 
 /*
@@ -319,8 +345,14 @@ public class MedicationAnnotation extends DynamicModel {
  * Manually Added code
  *
  * */
-public CustomCollection getDrug(int index) {
-    List<Object> listObjects = GsonSerializationHelper.serializeDynamicModelProperty(this.get("drug"), drugType);
+  public CustomCollection getDrug(int index) {
+	List<Object> listObjects = new ArrayList<Object>();
+    for (Map map : this.drug) {
+    	Gson gson = new Gson();
+    	JsonElement jsonElement = gson.toJsonTree(map);
+    	Object mapObj = gson.fromJson(jsonElement, Object.class);
+    	listObjects.add(mapObj);
+    }
     CustomCollection customCollection = new CustomCollection();
     CustomCollection drug = customCollection.convertToCustomCollection(listObjects.get(index));
     return drug;

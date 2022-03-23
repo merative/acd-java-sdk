@@ -1,5 +1,5 @@
 /*
- * Copyright 2018 IBM Corp. All Rights Reserved.
+ * Copyright 2018, 2022 IBM Corp. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with
  * the License. You may obtain a copy of the License at
@@ -15,7 +15,7 @@ package com.ibm.watson.health.acd.v1.model;
 import java.util.List;
 import java.util.Map;
 
-import com.ibm.watson.developer_cloud.service.model.GenericModel;
+import com.ibm.cloud.sdk.core.service.model.GenericModel;
 
 /**
  * UnstructuredContainer.
@@ -337,6 +337,15 @@ public class UnstructuredContainer extends GenericModel {
     return this.data().getAllergyInd();
   }
 
+  /**
+   * Gets the allergyMedicationInd.
+   *
+   * @return the allergyInd
+   */
+  public List<AllergyMedicationInd> getAllergyMedication() {
+    return this.data().getAllergyMedicationInd();
+  }
+
   /*
    * Manually added method
    */
@@ -608,7 +617,7 @@ public class UnstructuredContainer extends GenericModel {
 
    /**
     * Gets the concept.
-    * @param index postion to retrieve
+    * @param index position to retrieve
     * @return the concept
     */
   public Concept getConcepts(int index) {
@@ -623,7 +632,7 @@ public class UnstructuredContainer extends GenericModel {
   /**
    * Gets the symptomDiseaseInd.
    *
-   * @param index postion to retrieve
+   * @param index position to retrieve
    *
    * @return the symptomDiseaseInd
    */
@@ -640,7 +649,7 @@ public class UnstructuredContainer extends GenericModel {
   /**
    * Gets the bathingAssistanceInd.
    *
-   * @param index postion to retrieve
+   * @param index position to retrieve
    *
    * @return the bathingAssistanceInd
    */
@@ -655,7 +664,7 @@ public class UnstructuredContainer extends GenericModel {
   /**
    * Gets the dressingAssistanceInd.
    *
-   * @param index postion to retrieve
+   * @param index position to retrieve
    *
    * @return the dressingAssistanceInd
    */
@@ -670,7 +679,7 @@ public class UnstructuredContainer extends GenericModel {
   /**
    * Gets the eatingAssistanceInd.
    *
-   * @param index postion to retrieve
+   * @param index position to retrieve
    *
    * @return the eatingAssistanceInd
    */
@@ -685,7 +694,7 @@ public class UnstructuredContainer extends GenericModel {
   /**
    * Gets the walkingAssistanceInd.
    *
-   * @param index postion to retrieve
+   * @param index position to retrieve
    *
    * @return the walkingAssistanceInd
    */
@@ -700,7 +709,7 @@ public class UnstructuredContainer extends GenericModel {
   /**
    * Gets the toiletingAssistanceInd.
    *
-   * @param index postion to retrieve
+   * @param index position to retrieve
    *
    * @return the toiletingAssistanceInd
    */
@@ -715,7 +724,7 @@ public class UnstructuredContainer extends GenericModel {
   /**
    * Gets the icaCancerDiagnosisInd.
    *
-   * @param index postion to retrieve
+   * @param index position to retrieve
    *
    * @return the icaCancerDiagnosisInd
    */
@@ -730,7 +739,7 @@ public class UnstructuredContainer extends GenericModel {
   /**
    * Gets the hypotheticalSpans.
    *
-   * @param index postion to retrieve
+   * @param index position to retrieve
    *
    * @return the hypotheticalSpans
    */
@@ -745,12 +754,23 @@ public class UnstructuredContainer extends GenericModel {
   /**
    * Gets the allergyInd.
    *
-   * @param index postion to retrieve
+   * @param index position to retrieve
    *
    * @return the allergyInd
    */
   public Annotation getAllergy(int index) {
     return this.data().getAllergyInd().get(index);
+  }
+
+  /**
+   * Gets the allergyMedicationInd.
+   *
+   * @param index position to retrieve
+   *
+   * @return the allergyMedicationInd
+   */
+  public AllergyMedicationInd getAllergyMedication(int index) {
+    return this.data().getAllergyMedicationInd().get(index);
   }
 
   /*
@@ -760,7 +780,7 @@ public class UnstructuredContainer extends GenericModel {
   /**
    * Gets the negatedSpans.
    *
-   * @param index postion to retrieve
+   * @param index position to retrieve
    *
    * @return the negatedSpans
    */
@@ -775,7 +795,7 @@ public class UnstructuredContainer extends GenericModel {
   /**
    * Gets the conceptValues.
    *
-   * @param index postion to retrieve
+   * @param index position to retrieve
    *
    * @return the conceptValues
    */
@@ -789,7 +809,7 @@ public class UnstructuredContainer extends GenericModel {
 
   /**
    * Gets the procedureInd.
-   * @param index postion to retrieve
+   * @param index position to retrieve
    * @return the procedureInd
    */
   public Procedure getProcedure(int index) {
@@ -803,7 +823,7 @@ public class UnstructuredContainer extends GenericModel {
   /**
    * Gets the smokingInd.
    *
-   * @param index postion to retrieve
+   * @param index position to retrieve
    *
    * @return the smokingInd
    */
@@ -818,7 +838,7 @@ public class UnstructuredContainer extends GenericModel {
   /**
    * Gets the organizationInd.
    *
-   * @param index postion to retrieve
+   * @param index position to retrieve
    *
    * @return the organizationInd
    */
@@ -833,7 +853,7 @@ public class UnstructuredContainer extends GenericModel {
   /**
    * Gets the personInd.
    *
-   * @param index postion to retrieve
+   * @param index position to retrieve
    *
    * @return the personInd
    */
@@ -848,7 +868,7 @@ public class UnstructuredContainer extends GenericModel {
   /**
    * Gets the medicalInstitutionInd.
    *
-   * @param index postion to retrieve
+   * @param index position to retrieve
    *
    * @return the medicalInstitutionInd
    */
@@ -864,7 +884,7 @@ public class UnstructuredContainer extends GenericModel {
   /**
    * Gets the attributeValues.
    *
-   * @param index postion to retrieve
+   * @param index position to retrieve
    *
    * @return the attributeValues
    */
@@ -879,7 +899,7 @@ public class UnstructuredContainer extends GenericModel {
   /**
    * Gets the ejectionFractionInd.
    *
-   * @param index postion to retrieve
+   * @param index position to retrieve
    *
    * @return the ejectionFractionInd
    */
@@ -894,7 +914,7 @@ public class UnstructuredContainer extends GenericModel {
   /**
    * Gets the labValueInd.
    *
-   * @param index postion to retrieve
+   * @param index position to retrieve
    *
    * @return the labValueInd
    */
@@ -909,7 +929,7 @@ public class UnstructuredContainer extends GenericModel {
   /**
    * Gets the medicationInd.
    *
-   * @param index postion to retrieve
+   * @param index position to retrieve
    *
    * @return the medicationInd
    */
@@ -924,7 +944,7 @@ public class UnstructuredContainer extends GenericModel {
   /**
    * Gets the emailAddressInd.
    *
-   * @param index postion to retrieve
+   * @param index position to retrieve
    *
    * @return the emailAddressInd
    */
@@ -939,7 +959,7 @@ public class UnstructuredContainer extends GenericModel {
   /**
    * Gets the locationInd.
    *
-   * @param index postion to retrieve
+   * @param index position to retrieve
    *
    * @return the locationInd
    */
@@ -954,7 +974,7 @@ public class UnstructuredContainer extends GenericModel {
   /**
    * Gets the uSPhoneNumberInd.
    *
-   * @param index postion to retrieve
+   * @param index position to retrieve
    *
    * @return the uSPhoneNumberInd
    */
@@ -969,7 +989,7 @@ public class UnstructuredContainer extends GenericModel {
   /**
    * Gets the seeingAssistanceInd.
    *
-   * @param index postion to retrieve
+   * @param index position to retrieve
    *
    * @return the seeingAssistanceInd
    */
@@ -985,7 +1005,7 @@ public class UnstructuredContainer extends GenericModel {
   /**
    * Gets SectionAnnotations.
    *
-   * @param index postion to retrieve
+   * @param index position to retrieve
    *
    * @return the sectionAnnotations
    */
@@ -1000,7 +1020,7 @@ public class UnstructuredContainer extends GenericModel {
   /**
    * Gets NluEntity.
    *
-   * @param index postion to retrieve
+   * @param index position to retrieve
    *
    * @return the NluEntity
    */
@@ -1011,7 +1031,7 @@ public class UnstructuredContainer extends GenericModel {
   /**
    * Gets Relation.
    *
-   * @param index postion to retrieve
+   * @param index position to retrieve
    *
    * @return the Relation
    */
@@ -1022,7 +1042,7 @@ public class UnstructuredContainer extends GenericModel {
   /**
    * Gets the SpellingCorrection object at the given index.
    *
-   * @param index postion to retrieve
+   * @param index position to retrieve
    *
    * @return the SpellingCorrection
    */
@@ -1033,7 +1053,7 @@ public class UnstructuredContainer extends GenericModel {
   /**
    * Gets the SpellCorrectedText at the given index.
    *
-   * @param index postion to retrieve
+   * @param index position to retrieve
    *
    * @return the SpellCorrectedText
    */

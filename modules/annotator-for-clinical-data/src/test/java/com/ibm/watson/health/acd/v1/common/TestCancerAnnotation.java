@@ -1,5 +1,5 @@
 /*
- * Copyright 2018, 2021 IBM Corp. All Rights Reserved.
+ * Copyright 2018, 2022 IBM Corp. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with
  * the License. You may obtain a copy of the License at
@@ -24,10 +24,11 @@ public class TestCancerAnnotation {
 
 	public static void testCancerAnnotation(CancerDiagnosis annotation) {
 		Assert.assertTrue(annotation.getBegin() > -1);
+		
 		List<CustomCollection> customCollections = annotation.getCancer();
 		if (customCollections != null && !customCollections.isEmpty()) {
 			for (CustomCollection collection : customCollections) {
-				TestCustomCollection.testCustomCollection(collection);
+				TestCustomCollection.testCustomCollectionByName(collection, "coveredText");
 			}
 		}
 		Assert.assertNotNull(annotation.getCoveredText());
