@@ -1,5 +1,5 @@
 /*
- * Copyright 2021 IBM Corp. All Rights Reserved.
+ * Copyright 2021, 2022 IBM Corp. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with
  * the License. You may obtain a copy of the License at
@@ -13,20 +13,25 @@
 
 package com.ibm.watson.health.acd.v1.model;
 
-import java.lang.reflect.Type;
-
+import com.google.gson.annotations.SerializedName;
 import com.google.gson.reflect.TypeToken;
-import com.ibm.watson.developer_cloud.service.model.DynamicModel;
-import com.ibm.watson.developer_cloud.util.GsonSerializationHelper;
+import com.ibm.cloud.sdk.core.service.model.DynamicModel;
 
 /**
  * InsightModelData Substance Abuse.
  */
-public class InsightModelSubstanceAbuse extends DynamicModel {
+public class InsightModelSubstanceAbuse extends DynamicModel<Object> {
 
-  private Type treatmentScoreType = new TypeToken<Float>() { } .getType();
-  private Type nonPatientScoreType = new TypeToken<Float>() { } .getType();
-  private Type treatmentType = new TypeToken<InsightModelSubstanceAbuseTreatment>() { } .getType();
+  @SerializedName("treatmentScore")
+  protected Float treatmentScore;
+  @SerializedName("nonPatientScore")
+  protected Float nonPatientScore;
+  @SerializedName("treatment")
+  protected InsightModelSubstanceAbuseTreatment treatment;
+
+  public InsightModelSubstanceAbuse() {
+	  super(new TypeToken<Object>() { });
+  }
 
     /**
      * Gets the treatmentScore.
@@ -34,7 +39,7 @@ public class InsightModelSubstanceAbuse extends DynamicModel {
      * @return the treatmentScore
      */
     public Float getTreatmentScore() {
-  	  return GsonSerializationHelper.serializeDynamicModelProperty(this.get("treatmentScore"), treatmentScoreType);
+  	  return this.treatmentScore;
     }
 
     /**
@@ -43,7 +48,7 @@ public class InsightModelSubstanceAbuse extends DynamicModel {
      * @return the nonPatientScore
      */
     public Float getNonPatientScore() {
-  	  return GsonSerializationHelper.serializeDynamicModelProperty(this.get("nonPatientScore"), nonPatientScoreType);
+  	  return this.nonPatientScore;
     }
 
     /**
@@ -52,33 +57,7 @@ public class InsightModelSubstanceAbuse extends DynamicModel {
      * @return the treatment
      */
     public InsightModelSubstanceAbuseTreatment getTreatment() {
-  	  return GsonSerializationHelper.serializeDynamicModelProperty(this.get("treatment"), treatmentType);
+  	  return this.treatment;
     }
 
-//  /**
-//   * Sets the treatmentScore.
-//   *
-//   * @param treatmentScore the new treatmentScore
-//   */
-//  public void setTreatmentScore(final Float treatmentScore) {
-//    this.put("treatmentScore", treatmentScore);
-//  }
-//
-//  /**
-//   * Sets the nonPatientScore.
-//   *
-//   * @param nonPatientScore the new nonPatientScore
-//   */
-//  public void setNonPatientScore(final Float nonPatientScore) {
-//    this.put("nonPatientScore", nonPatientScore);
-//  }
-//
-//  /**
-//   * Sets the treatment.
-//   *
-//   * @param treatment the new treatment
-//   */
-//  public void setTreatment(final InsightModelDataTreatment treatment) {
-//    this.put("treatment", treatment);
-//  }
 }

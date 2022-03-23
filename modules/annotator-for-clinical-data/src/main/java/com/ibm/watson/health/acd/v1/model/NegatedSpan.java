@@ -1,5 +1,5 @@
 /*
- * Copyright 2018 IBM Corp. All Rights Reserved.
+ * Copyright 2018, 2022 IBM Corp. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with
  * the License. You may obtain a copy of the License at
@@ -12,27 +12,39 @@
  */
 package com.ibm.watson.health.acd.v1.model;
 
-import java.lang.reflect.Type;
 import java.util.Map;
 
+import com.google.gson.annotations.SerializedName;
 import com.google.gson.reflect.TypeToken;
-import com.ibm.watson.developer_cloud.service.model.DynamicModel;
-import com.ibm.watson.developer_cloud.util.GsonSerializationHelper;
+import com.ibm.cloud.sdk.core.service.model.DynamicModel;
 import com.ibm.watson.health.acd.v1.util.CustomCollection;
 
 /**
  * NegatedSpan.
  */
-public class NegatedSpan extends DynamicModel {
-  private Type idType = new TypeToken<String>() { } .getType();
-  private Type typeType = new TypeToken<String>() { } .getType();
-  private Type uidType = new TypeToken<Long>() { } .getType();
-  private Type beginType = new TypeToken<Long>() { } .getType();
-  private Type endType = new TypeToken<Long>() { } .getType();
-  private Type coveredTextType = new TypeToken<String>() { } .getType();
-  private Type negatedType = new TypeToken<Boolean>() { } .getType();
-  private Type hypotheticalType = new TypeToken<Boolean>() { } .getType();
-  private Type triggerType = new TypeToken<Map>() { } .getType();
+public class NegatedSpan extends DynamicModel<Object> {
+  @SerializedName("id")
+  protected String id;
+  @SerializedName("type")
+  protected String type;
+  @SerializedName("uid")
+  protected Long uid;
+  @SerializedName("begin")
+  protected Long begin;
+  @SerializedName("end")
+  protected Long end;
+  @SerializedName("coveredText")
+  protected String coveredText;
+  @SerializedName("negated")
+  protected Boolean negated;
+  @SerializedName("hypothetical")
+  protected Boolean hypothetical;
+  @SerializedName("trigger")
+  protected Map trigger;
+
+  public NegatedSpan() {
+	  super(new TypeToken<Object>() { });
+  }
 
 
   /**
@@ -41,7 +53,7 @@ public class NegatedSpan extends DynamicModel {
    * @return the id
    */
   public String getId() {
-    return GsonSerializationHelper.serializeDynamicModelProperty(this.get("id"), idType);
+    return this.id;
   }
 
   /**
@@ -50,7 +62,7 @@ public class NegatedSpan extends DynamicModel {
    * @return the type
    */
   public String getType() {
-    return GsonSerializationHelper.serializeDynamicModelProperty(this.get("type"), typeType);
+    return this.type;
   }
 
   /**
@@ -59,7 +71,7 @@ public class NegatedSpan extends DynamicModel {
    * @return the uid
    */
   public Long getUid() {
-    return GsonSerializationHelper.serializeDynamicModelProperty(this.get("uid"), uidType);
+    return this.uid;
   }
 
   /**
@@ -68,7 +80,7 @@ public class NegatedSpan extends DynamicModel {
    * @return the begin
    */
   public Long getBegin() {
-    return GsonSerializationHelper.serializeDynamicModelProperty(this.get("begin"), beginType);
+    return this.begin;
   }
 
   /**
@@ -77,7 +89,7 @@ public class NegatedSpan extends DynamicModel {
    * @return the end
    */
   public Long getEnd() {
-    return GsonSerializationHelper.serializeDynamicModelProperty(this.get("end"), endType);
+    return this.end;
   }
 
   /**
@@ -86,7 +98,7 @@ public class NegatedSpan extends DynamicModel {
    * @return the coveredText
    */
   public String getCoveredText() {
-    return GsonSerializationHelper.serializeDynamicModelProperty(this.get("coveredText"), coveredTextType);
+    return this.coveredText;
   }
 
   /**
@@ -95,7 +107,7 @@ public class NegatedSpan extends DynamicModel {
    * @return the negated
    */
   public Boolean isNegated() {
-    Boolean negated = GsonSerializationHelper.serializeDynamicModelProperty(this.get("negated"), negatedType);
+    Boolean negated = this.negated;
     if (negated == null) {
       negated = false;
     }
@@ -108,7 +120,7 @@ public class NegatedSpan extends DynamicModel {
    * @return the hypothetical
    */
   public Boolean isHypothetical() {
-    Boolean hypothetical = GsonSerializationHelper.serializeDynamicModelProperty(this.get("hypothetical"), hypotheticalType);
+    Boolean hypothetical = this.hypothetical;
     if (hypothetical == null) {
       hypothetical = false;
     }
@@ -121,89 +133,9 @@ public class NegatedSpan extends DynamicModel {
    * @return the trigger
    */
   public CustomCollection getTrigger() {
-    Object triggerObject = GsonSerializationHelper.serializeDynamicModelProperty(this.get("trigger"), triggerType);
+    Object triggerObject = this.trigger;
     CustomCollection customCollection = new CustomCollection();
     return customCollection.convertToCustomCollection(triggerObject);
   }
 
-//  /**
-//   * Sets the id.
-//   *
-//   * @param id the new id
-//   */
-//  public void setId(final String id) {
-//    this.put("id", id);
-//  }
-//
-//  /**
-//   * Sets the type.
-//   *
-//   * @param type the new type
-//   */
-//  public void setType(final String type) {
-//    this.put("type", type);
-//  }
-//
-//  /**
-//   * Sets the uid.
-//   *
-//   * @param uid the new uid
-//   */
-//  public void setUid(final Long uid) {
-//    this.put("uid", uid);
-//  }
-//
-//  /**
-//   * Sets the begin.
-//   *
-//   * @param begin the new begin
-//   */
-//  public void setBegin(final Long begin) {
-//    this.put("begin", begin);
-//  }
-//
-//  /**
-//   * Sets the end.
-//   *
-//   * @param end the new end
-//   */
-//  public void setEnd(final Long end) {
-//    this.put("end", end);
-//  }
-//
-//  /**
-//   * Sets the coveredText.
-//   *
-//   * @param coveredText the new coveredText
-//   */
-//  public void setCoveredText(final String coveredText) {
-//    this.put("coveredText", coveredText);
-//  }
-//
-//  /**
-//   * Sets the negated.
-//   *
-//   * @param negated the new negated
-//   */
-//  public void setNegated(final Boolean negated) {
-//    this.put("negated", negated);
-//  }
-//
-//  /**
-//   * Sets the hypothetical.
-//   *
-//   * @param hypothetical the new hypothetical
-//   */
-//  public void setHypothetical(final Boolean hypothetical) {
-//    this.put("hypothetical", hypothetical);
-//  }
-//
-//  /**
-//   * Sets the trigger.
-//   *
-//   * @param trigger the new trigger
-//   */
-//  public void setTrigger(final Map trigger) {
-//    this.put("trigger", trigger);
-//  }
 }

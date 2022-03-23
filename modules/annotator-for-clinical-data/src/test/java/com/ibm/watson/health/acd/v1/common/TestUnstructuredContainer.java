@@ -1,5 +1,5 @@
 /*
- * Copyright 2018, 2020 IBM Corp. All Rights Reserved.
+ * Copyright 2018, 2022 IBM Corp. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with
  * the License. You may obtain a copy of the License at
@@ -80,14 +80,14 @@ public class TestUnstructuredContainer {
 			Concept concept = container.getConcepts(0);
 			Assert.assertNotNull(concept);
 		}
-//		List<ConceptValue> conceptValues = container.getConceptValues();
-//		if (conceptValues != null && !conceptValues.isEmpty()) {
-//			for (ConceptValue value : conceptValues) {
-//				TestConceptValue.testConceptValue(value);
-//			}
-//			ConceptValue value = container.getConceptValues(0);
-//			Assert.assertNotNull(value);
-//		}
+		List<ConceptValue> conceptValues = container.getConceptValues();
+		if (conceptValues != null && !conceptValues.isEmpty()) {
+			for (ConceptValue value : conceptValues) {
+				TestConceptValue.testConceptValue(value);
+			}
+			ConceptValue value = container.getConceptValues(0);
+			Assert.assertNotNull(value);
+		}
 		List<AssistanceAnnotation> dressingAnnotations = container.getDressingAssistance();
 		if (dressingAnnotations != null && !dressingAnnotations.isEmpty()) {
 			for (AssistanceAnnotation annotation : dressingAnnotations) {

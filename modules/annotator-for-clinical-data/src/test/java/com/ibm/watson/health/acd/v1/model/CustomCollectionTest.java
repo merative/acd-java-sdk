@@ -1,5 +1,5 @@
 /*
- * (C) Copyright IBM Corp. 2020.
+ * (C) Copyright IBM Corp. 2020, 2022.
  *
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with
  * the License. You may obtain a copy of the License at
@@ -17,7 +17,6 @@ import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertTrue;
 
 import java.io.InputStream;
-import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -26,12 +25,9 @@ import org.junit.Assert;
 import org.testng.annotations.Test;
 
 import com.google.gson.Gson;
-import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
-import com.google.gson.reflect.TypeToken;
 import com.ibm.cloud.sdk.core.service.model.FileWithMetadata;
-import com.ibm.watson.developer_cloud.util.GsonSerializationHelper;
 import com.ibm.watson.health.acd.v1.exception.IllegalMethodException;
 import com.ibm.watson.health.acd.v1.exception.IndexNotAvailableException;
 import com.ibm.watson.health.acd.v1.exception.ParameterNotAvailableException;

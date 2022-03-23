@@ -1,5 +1,5 @@
 /*
- * Copyright 2018 IBM Corp. All Rights Reserved.
+ * Copyright 2018, 2022 IBM Corp. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with
  * the License. You may obtain a copy of the License at
@@ -12,42 +12,62 @@
  */
 package com.ibm.watson.health.acd.v1.model;
 
-import java.lang.reflect.Type;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
+import com.google.gson.Gson;
+import com.google.gson.JsonElement;
+import com.google.gson.annotations.SerializedName;
 import com.google.gson.reflect.TypeToken;
-import com.ibm.watson.developer_cloud.service.model.DynamicModel;
-import com.ibm.watson.developer_cloud.util.GsonSerializationHelper;
+import com.ibm.cloud.sdk.core.service.model.DynamicModel;
+
 import com.ibm.watson.health.acd.v1.util.CustomCollection;
 
 /**
  * CancerDiagnosis.
  */
-public class CancerDiagnosis extends DynamicModel {
-  private Type idType = new TypeToken<String>() { } .getType();
-  private Type typeType = new TypeToken<String>() { } .getType();
-  private Type uidType = new TypeToken<Long>() { } .getType();
-  private Type beginType = new TypeToken<Long>() { } .getType();
-  private Type endType = new TypeToken<Long>() { } .getType();
-  private Type coveredTextType = new TypeToken<String>() { } .getType();
-  private Type cuiType = new TypeToken<Long>() { } .getType();
-  private Type negatedType = new TypeToken<Boolean>() { } .getType();
-  private Type hypotheticalType = new TypeToken<Boolean>() { } .getType();
-  private Type sectionNormalizedNameType = new TypeToken<String>() { } .getType();
-  private Type modalityType = new TypeToken<String>() { } .getType();
-  private Type sectionSurfaceFormType = new TypeToken<String>() { } .getType();
-  private Type disambiguationDataType = new TypeToken<Disambiguation>() { } .getType();
-  private Type cancerType = new TypeToken<List<Map>>() { } .getType();
+public class CancerDiagnosis extends DynamicModel<Object> {
+  @SerializedName("id")
+  protected String id;
+  @SerializedName("type")
+  protected String type;
+  @SerializedName("uid")
+  protected Long uid;
+  @SerializedName("begin")
+  protected Long begin;
+  @SerializedName("end")
+  protected Long end;
+  @SerializedName("coveredText")
+  protected String coveredText;
+  @SerializedName("cui")
+  protected Long cui;
+  @SerializedName("negated")
+  protected Boolean negated;
+  @SerializedName("hypohetical")
+  protected Boolean hypothetical;
+  @SerializedName("sectionNormalizedName")
+  protected String sectionNormalizedName;
+  @SerializedName("modality")
+  protected String modality;
+  @SerializedName("sectionSurfaceForm")
+  protected String sectionSurfaceForm;
+  @SerializedName("disambiguationData")
+  protected Disambiguation disambiguationData;
+  @SerializedName("cancer")
+  protected List<Map> cancer;
 
 
+  public CancerDiagnosis() {
+	  super(new TypeToken<Object>() { });
+  }
   /**
    * Gets the id.
    *
    * @return the id
    */
   public String getId() {
-    return GsonSerializationHelper.serializeDynamicModelProperty(this.get("id"), idType);
+    return this.id;
   }
 
   /**
@@ -56,7 +76,7 @@ public class CancerDiagnosis extends DynamicModel {
    * @return the type
    */
   public String getType() {
-    return GsonSerializationHelper.serializeDynamicModelProperty(this.get("type"), typeType);
+    return this.type;
   }
 
   /**
@@ -65,7 +85,7 @@ public class CancerDiagnosis extends DynamicModel {
    * @return the uid
    */
   public Long getUid() {
-    return GsonSerializationHelper.serializeDynamicModelProperty(this.get("uid"), uidType);
+    return this.uid;
   }
 
   /**
@@ -74,7 +94,7 @@ public class CancerDiagnosis extends DynamicModel {
    * @return the begin
    */
   public Long getBegin() {
-    return GsonSerializationHelper.serializeDynamicModelProperty(this.get("begin"), beginType);
+    return this.begin;
   }
 
   /**
@@ -83,7 +103,7 @@ public class CancerDiagnosis extends DynamicModel {
    * @return the end
    */
   public Long getEnd() {
-    return GsonSerializationHelper.serializeDynamicModelProperty(this.get("end"), endType);
+    return this.end;
   }
 
   /**
@@ -92,7 +112,7 @@ public class CancerDiagnosis extends DynamicModel {
    * @return the coveredText
    */
   public String getCoveredText() {
-    return GsonSerializationHelper.serializeDynamicModelProperty(this.get("coveredText"), coveredTextType);
+    return this.coveredText;
   }
 
   /**
@@ -101,7 +121,7 @@ public class CancerDiagnosis extends DynamicModel {
    * @return the cui
    */
   public Long getCui() {
-    return GsonSerializationHelper.serializeDynamicModelProperty(this.get("cui"), cuiType);
+    return this.cui;
   }
 
   /**
@@ -110,7 +130,7 @@ public class CancerDiagnosis extends DynamicModel {
    * @return the negated
    */
   public Boolean isNegated() {
-    Boolean negated = GsonSerializationHelper.serializeDynamicModelProperty(this.get("negated"), negatedType);
+    Boolean negated = this.negated;
     if (negated == null) {
       negated = false;
     }
@@ -123,7 +143,7 @@ public class CancerDiagnosis extends DynamicModel {
    * @return the hypothetical
    */
   public Boolean isHypothetical() {
-    Boolean hypothetical = GsonSerializationHelper.serializeDynamicModelProperty(this.get("hypothetical"), hypotheticalType);
+    Boolean hypothetical = this.hypothetical;
     if (hypothetical == null) {
       hypothetical = false;
     }
@@ -136,7 +156,7 @@ public class CancerDiagnosis extends DynamicModel {
    * @return the sectionNormalizedName
    */
   public String getSectionNormalizedName() {
-    return GsonSerializationHelper.serializeDynamicModelProperty(this.get("sectionNormalizedName"), sectionNormalizedNameType);
+    return this.sectionNormalizedName;
   }
 
   /**
@@ -145,7 +165,7 @@ public class CancerDiagnosis extends DynamicModel {
    * @return the modality
    */
   public String getModality() {
-    return GsonSerializationHelper.serializeDynamicModelProperty(this.get("modality"), modalityType);
+    return this.modality;
   }
 
   /**
@@ -154,7 +174,7 @@ public class CancerDiagnosis extends DynamicModel {
    * @return the sectionSurfaceForm
    */
   public String getSectionSurfaceForm() {
-    return GsonSerializationHelper.serializeDynamicModelProperty(this.get("sectionSurfaceForm"), sectionSurfaceFormType);
+    return this.sectionSurfaceForm;
   }
 
   /**
@@ -163,7 +183,7 @@ public class CancerDiagnosis extends DynamicModel {
    * @return the disambiguationData
    */
   public Disambiguation getDisambiguationData() {
-    return GsonSerializationHelper.serializeDynamicModelProperty(this.get("disambiguationData"), disambiguationDataType);
+    return this.disambiguationData;
   }
 
   /**
@@ -172,148 +192,26 @@ public class CancerDiagnosis extends DynamicModel {
    * @return the cancer
    */
   public List<CustomCollection> getCancer() {
-    List<Object> listCancer = GsonSerializationHelper.serializeDynamicModelProperty(this.get("cancer"), cancerType);
+    List<Object> listCancer = new ArrayList<Object>();
+    for (Map map : this.cancer) {
+    	Gson gson = new Gson();
+    	JsonElement jsonElement = gson.toJsonTree(map);
+    	Object mapObj = gson.fromJson(jsonElement, Object.class);
+    	listCancer.add(mapObj);
+    }
     CustomCollection customCollection = new CustomCollection();
     return customCollection.convertToCustomCollectionList(listCancer);
-
   }
 
-//  /**
-//   * Sets the id.
-//   *
-//   * @param id the new id
-//   */
-//  public void setId(final String id) {
-//    this.put("id", id);
-//  }
-//
-//  /**
-//   * Sets the type.
-//   *
-//   * @param type the new type
-//   */
-//  public void setType(final String type) {
-//    this.put("type", type);
-//  }
-//
-//  /**
-//   * Sets the uid.
-//   *
-//   * @param uid the new uid
-//   */
-//  public void setUid(final Long uid) {
-//    this.put("uid", uid);
-//  }
-//
-//  /**
-//   * Sets the begin.
-//   *
-//   * @param begin the new begin
-//   */
-//  public void setBegin(final Long begin) {
-//    this.put("begin", begin);
-//  }
-//
-//  /**
-//   * Sets the end.
-//   *
-//   * @param end the new end
-//   */
-//  public void setEnd(final Long end) {
-//    this.put("end", end);
-//  }
-//
-//  /**
-//   * Sets the coveredText.
-//   *
-//   * @param coveredText the new coveredText
-//   */
-//  public void setCoveredText(final String coveredText) {
-//    this.put("coveredText", coveredText);
-//  }
-//
-//  /**
-//   * Sets the cui.
-//   *
-//   * @param cui the new cui
-//   */
-//  public void setCui(final Long cui) {
-//    this.put("cui", cui);
-//  }
-//
-//  /**
-//   * Sets the negated.
-//   *
-//   * @param negated the new negated
-//   */
-//  public void setNegated(final Boolean negated) {
-//    this.put("negated", negated);
-//  }
-//
-//  /**
-//   * Sets the hypothetical.
-//   *
-//   * @param hypothetical the new hypothetical
-//   */
-//  public void setHypothetical(final Boolean hypothetical) {
-//    this.put("hypothetical", hypothetical);
-//  }
-//
-//  /**
-//   * Sets the sectionNormalizedName.
-//   *
-//   * @param sectionNormalizedName the new sectionNormalizedName
-//   */
-//  public void setSectionNormalizedName(final String sectionNormalizedName) {
-//    this.put("sectionNormalizedName", sectionNormalizedName);
-//  }
-//
-//  /**
-//   * Sets the modality.
-//   *
-//   * @param modality the new modality
-//   */
-//  public void setModality(final String modality) {
-//    this.put("modality", modality);
-//  }
-//
-//  /**
-//   * Sets the sectionSurfaceForm.
-//   *
-//   * @param sectionSurfaceForm the new sectionSurfaceForm
-//   */
-//  public void setSectionSurfaceForm(final String sectionSurfaceForm) {
-//    this.put("sectionSurfaceForm", sectionSurfaceForm);
-//  }
-//
-//  /**
-//   * Sets the disambiguationData.
-//   *
-//   * @param disambiguationData the new disambiguationData
-//   */
-//  public void setDisambiguationData(final Disambiguation disambiguationData) {
-//    this.put("disambiguationData", disambiguationData);
-//  }
-//
-//  /**
-//   * Sets the cancer.
-//   *
-//   * @param cancer the new cancer
-//   */
-//  public void setCancer(final List<Map> cancer) {
-//    this.put("cancer", cancer);
-//  }
-
-  /*
-   *
-   * Manually added code
-   *
-   * */
-
   public CustomCollection getCancer(int index) {
-      List<Object> listCancer = GsonSerializationHelper.serializeDynamicModelProperty(this.get("cancer"), cancerType);
-      CustomCollection customCollection = new CustomCollection();
-      return customCollection.convertToCustomCollection(listCancer.get(0));
-
+    List<Object> listCancer = new ArrayList<Object>();
+    for (Map map : this.cancer) {
+    	Gson gson = new Gson();
+    	JsonElement jsonElement = gson.toJsonTree(map);
+    	Object mapObj = gson.fromJson(jsonElement, Object.class);
+    	listCancer.add(mapObj);
     }
+    CustomCollection customCollection = new CustomCollection();
+    return customCollection.convertToCustomCollection(listCancer.get(index));
+  }
 }

@@ -1,5 +1,5 @@
 /*
- * Copyright 2018, 2020 IBM Corp. All Rights Reserved.
+ * Copyright 2018, 2022 IBM Corp. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with
  * the License. You may obtain a copy of the License at
@@ -23,12 +23,8 @@ public class TestNegatedSpan {
 		Assert.assertTrue(annotation.getBegin() > -1);
 		Assert.assertNotNull(annotation.getCoveredText());
 		Assert.assertTrue(annotation.getEnd() > annotation.getBegin());
-		Assert.assertNull(annotation.getId());
 		CustomCollection trigger = annotation.getTrigger();
-		TestCustomCollection.testCustomCollection(trigger);
+		TestCustomCollection.testCustomCollectionByName(trigger, "coveredText");
 		Assert.assertNotNull(annotation.getType());
-		Assert.assertNull(annotation.getUid());
-		Assert.assertNotNull(annotation.isHypothetical());
-		Assert.assertNotNull(annotation.isNegated());
 	}
 }

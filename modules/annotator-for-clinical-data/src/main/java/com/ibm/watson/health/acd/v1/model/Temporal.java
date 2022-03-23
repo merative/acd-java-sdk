@@ -1,5 +1,5 @@
 /*
- * Copyright 2018, 2020 IBM Corp. All Rights Reserved.
+ * Copyright 2018, 2022 IBM Corp. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with
  * the License. You may obtain a copy of the License at
@@ -12,24 +12,31 @@
  */
 package com.ibm.watson.health.acd.v1.model;
 
-import java.lang.reflect.Type;
 import java.util.Map;
 
+import com.google.gson.annotations.SerializedName;
 import com.google.gson.reflect.TypeToken;
-import com.ibm.watson.developer_cloud.service.model.DynamicModel;
-import com.ibm.watson.developer_cloud.util.GsonSerializationHelper;
+import com.ibm.cloud.sdk.core.service.model.DynamicModel;
 import com.ibm.watson.health.acd.v1.util.CustomCollection;
 
 /**
  * Temporal.
  */
-public class Temporal extends DynamicModel {
-  private Type beginType = new TypeToken<Long>() { } .getType();
-  private Type endType = new TypeToken<Long>() { } .getType();
-  private Type coveredTextType = new TypeToken<String>() { } .getType();
-  private Type temporalTypeType = new TypeToken<Map>() { } .getType();
-  private Type relationTypesType = new TypeToken<Map>() { } .getType();
+public class Temporal extends DynamicModel<Object> {
+  @SerializedName("begin")
+  protected Long begin;
+  @SerializedName("end")
+  protected Long end;
+  @SerializedName("coveredText")
+  protected String coveredText;
+  @SerializedName("temporalType")
+  protected Map temporalType;
+  @SerializedName("relationTypes")
+  protected Map relationTypes;
 
+  public Temporal() {
+	  super(new TypeToken<Object>() { });
+  }
 
   /**
    * Gets the begin.
@@ -37,7 +44,7 @@ public class Temporal extends DynamicModel {
    * @return the begin
    */
   public Long getBegin() {
-    return GsonSerializationHelper.serializeDynamicModelProperty(this.get("begin"), beginType);
+    return this.begin;
   }
 
   /**
@@ -46,7 +53,7 @@ public class Temporal extends DynamicModel {
    * @return the end
    */
   public Long getEnd() {
-    return GsonSerializationHelper.serializeDynamicModelProperty(this.get("end"), endType);
+    return this.end;
   }
 
   /**
@@ -55,7 +62,7 @@ public class Temporal extends DynamicModel {
    * @return the coveredText
    */
   public String getCoveredText() {
-    return GsonSerializationHelper.serializeDynamicModelProperty(this.get("coveredText"), coveredTextType);
+    return this.coveredText;
   }
 
   /**
@@ -64,9 +71,18 @@ public class Temporal extends DynamicModel {
    * @return the temporal type
    */
   public CustomCollection getTemporalType() {
-    Object temporalTypeObject = GsonSerializationHelper.serializeDynamicModelProperty(this.get("temporalType"), temporalTypeType);
+    Object temporalTypeObject = this.temporalType;
     CustomCollection customCollection = new CustomCollection();
     return customCollection.convertToCustomCollection(temporalTypeObject);
+  }
+
+  /**
+   * Gets the temporal type map.
+   *
+   * @return the temporal type map
+   */
+  public Map getTemporalTypeMap() {
+    return this.temporalType;
   }
 
   /**
@@ -75,55 +91,18 @@ public class Temporal extends DynamicModel {
    * @return the relation types
    */
   public CustomCollection getRelationTypes() {
-    Object relationTypesObject = GsonSerializationHelper.serializeDynamicModelProperty(this.get("relationTypes"), relationTypesType);
+    Object relationTypesObject = this.relationTypes;
     CustomCollection customCollection = new CustomCollection();
     return customCollection.convertToCustomCollection(relationTypesObject);
   }
 
-//
-//  /**
-//   * Sets the begin.
-//   *
-//   * @param begin the new begin
-//   */
-//  public void setBegin(final Long begin) {
-//    this.put("begin", begin);
-//  }
-//
-//  /**
-//   * Sets the end.
-//   *
-//   * @param end the new end
-//   */
-//  public void setEnd(final Long end) {
-//    this.put("end", end);
-//  }
-//
-//  /**
-//   * Sets the coveredText.
-//   *
-//   * @param coveredText the new coveredText
-//   */
-//  public void setCoveredText(final String coveredText) {
-//    this.put("coveredText", coveredText);
-//  }
-//
-//  /**
-//   * Sets the temporalType.
-//   *
-//   * @param temporalType the new temporalType
-//   */
-//  public void setTemporalType(final Map temporalType) {
-//    this.put("temporalType", temporalType);
-//  }
-//
-//  /**
-//   * Sets the relationTypes.
-//   *
-//   * @param relationTypes the new relationTypes
-//   */
-//  public void setRelationTypes(final Map relationTypes) {
-//    this.put("relationTypes", relationTypes);
-//  }
-//
+  /**
+   * Gets the relation types map.
+   *
+   * @return the relation types map
+   */
+  public Map getRelationTypesMap() {
+    return this.relationTypes;
+  }
+
 }

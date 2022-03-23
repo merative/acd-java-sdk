@@ -1,5 +1,5 @@
 /*
- * (C) Copyright IBM Corp. 2020.
+ * (C) Copyright IBM Corp. 2022.
  *
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with
  * the License. You may obtain a copy of the License at
@@ -12,7 +12,9 @@
  */
 package com.ibm.watson.health.acd.v1.cartridges;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.junit.Assert;
 import org.junit.Test;
@@ -37,8 +39,11 @@ public class TestGetCartridges extends WatsonServiceTest {
 	public TestGetCartridges() {
 		super();
 		try {
-			this.setUp();
 			service = this.getServiceInstance();
+			Map<String, String> headers = new HashMap<String, String>();
+			// set tenant ID
+			headers.put("X-IBM-Client-Id", "sdk-test");
+			service.setDefaultHeaders(headers);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

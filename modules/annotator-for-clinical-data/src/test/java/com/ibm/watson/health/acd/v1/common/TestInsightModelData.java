@@ -1,5 +1,5 @@
 /*
- * Copyright 2018, 2021 IBM Corp. All Rights Reserved.
+ * Copyright 2018, 2022 IBM Corp. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with
  * the License. You may obtain a copy of the License at
@@ -17,6 +17,7 @@ import org.junit.Assert;
 import com.ibm.watson.health.acd.v1.model.InsightModelData;
 import com.ibm.watson.health.acd.v1.model.InsightModelAlcohol;
 import com.ibm.watson.health.acd.v1.model.InsightModelAlcoholUsage;
+import com.ibm.watson.health.acd.v1.model.InsightModelAlcoholUseQualifier;
 import com.ibm.watson.health.acd.v1.model.InsightModelAlcoholUseStatus;
 import com.ibm.watson.health.acd.v1.model.InsightModelDataDiagnosis;
 import com.ibm.watson.health.acd.v1.model.InsightModelDataDiagnosisModifier;
@@ -24,6 +25,8 @@ import com.ibm.watson.health.acd.v1.model.InsightModelDataEvent;
 import com.ibm.watson.health.acd.v1.model.InsightModelDataEvidence;
 import com.ibm.watson.health.acd.v1.model.InsightModelIllicitDrug;
 import com.ibm.watson.health.acd.v1.model.InsightModelIllicitDrugUsage;
+import com.ibm.watson.health.acd.v1.model.InsightModelIllicitDrugUseDimension;
+import com.ibm.watson.health.acd.v1.model.InsightModelIllicitDrugUseQualifier;
 import com.ibm.watson.health.acd.v1.model.InsightModelIllicitDrugUseStatus;
 import com.ibm.watson.health.acd.v1.model.InsightModelDataMedication;
 import com.ibm.watson.health.acd.v1.model.InsightModelDataNormality;
@@ -33,6 +36,7 @@ import com.ibm.watson.health.acd.v1.model.InsightModelDataProcedureModifier;
 import com.ibm.watson.health.acd.v1.model.InsightModelDataSite;
 import com.ibm.watson.health.acd.v1.model.InsightModelSubstanceAbuse;
 import com.ibm.watson.health.acd.v1.model.InsightModelDataTask;
+import com.ibm.watson.health.acd.v1.model.InsightModelDataType;
 import com.ibm.watson.health.acd.v1.model.InsightModelTobacco;
 import com.ibm.watson.health.acd.v1.model.InsightModelTobaccoUsage;
 import com.ibm.watson.health.acd.v1.model.InsightModelTobaccoUseStatus;
@@ -42,12 +46,9 @@ import com.ibm.watson.health.acd.v1.model.InsightModelDataUsage;
 public class TestInsightModelData {
 
 	public static void testInsightModelData(InsightModelData insightModelData) {
-		Assert.assertTrue(!insightModelData.isEmpty());
 		if (insightModelData.getMedication() != null) {
-			Assert.assertTrue(!insightModelData.getMedication().isEmpty());
 			InsightModelDataMedication imdMed = insightModelData.getMedication();
 			if (imdMed.getUsage() != null) {
-				Assert.assertTrue(!imdMed.getUsage().isEmpty());
 				InsightModelDataUsage imdMedUsage = imdMed.getUsage();
 				Float explicitScore = imdMedUsage.getExplicitScore();
 				if (explicitScore != null) {
@@ -55,14 +56,12 @@ public class TestInsightModelData {
 				}
 			}
 			if (imdMed.getStarted() != null) {
-				Assert.assertTrue(!imdMed.getStarted().isEmpty());
 				InsightModelDataEvent imdMedStarted = imdMed.getStarted();
 				Float startedScore = imdMedStarted.getScore();
 				if (startedScore != null) {
 					Assert.assertTrue(startedScore >= 0);
 				}
 				if (imdMedStarted.getUsage() != null) {
-					Assert.assertTrue(!imdMedStarted.getUsage().isEmpty());
 					InsightModelDataUsage imdMedStartedUsage = imdMedStarted.getUsage();
 					Float explicitScore = imdMedStartedUsage.getExplicitScore();
 					if (explicitScore != null) {
@@ -72,10 +71,8 @@ public class TestInsightModelData {
 			}
 		}
 		if (insightModelData.getProcedure() != null) {
-			Assert.assertTrue(!insightModelData.getProcedure().isEmpty());
 			InsightModelDataProcedure imdProc = insightModelData.getProcedure();
 			if (imdProc.getTask() != null) {
-				Assert.assertTrue(!imdProc.getTask().isEmpty());
 				InsightModelDataTask imdProcTask = imdProc.getTask();
 				Float clinicalAssessScore = imdProcTask.getClinicalAssessmentScore();
 				if (clinicalAssessScore != null) {
@@ -83,7 +80,6 @@ public class TestInsightModelData {
 				}
 			}
 			if (imdProc.getModifiers() != null) {
-				Assert.assertTrue(!imdProc.getModifiers().isEmpty());
 				InsightModelDataProcedureModifier imdProcModif = imdProc.getModifiers();
 				if (imdProcModif.getSites() != null) {
 					for (InsightModelDataSite imdSite : imdProcModif.getSites()) {
@@ -98,12 +94,17 @@ public class TestInsightModelData {
 					}
 				}
 			}
+			if (imdProc.getType() != null) {
+				InsightModelDataType imdProcType = imdProc.getType();
+				Float deviceScore = imdProcType.getDeviceScore();
+				if (deviceScore != null) {
+					Assert.assertTrue(deviceScore >= 0);
+				}
+			}
 		}
 		if (insightModelData.getDiagnosis() != null) {
-			Assert.assertTrue(!insightModelData.getDiagnosis().isEmpty());
 			InsightModelDataDiagnosis imdDiag = insightModelData.getDiagnosis();
 			if (imdDiag.getUsage() != null) {
-				Assert.assertTrue(!imdDiag.getUsage().isEmpty());
 				InsightModelDataUsage imdDiagUsage = imdDiag.getUsage();
 				Float explicitScore = imdDiagUsage.getExplicitScore();
 				if (explicitScore != null) {
@@ -111,7 +112,6 @@ public class TestInsightModelData {
 				}
 			}
 			if (imdDiag.getModifiers() != null) {
-				Assert.assertTrue(!imdDiag.getModifiers().isEmpty());
 				InsightModelDataDiagnosisModifier imdDiagModif = imdDiag.getModifiers();
 				if (imdDiagModif.getSites() != null) {
 					for (InsightModelDataSite imdSite : imdDiagModif.getSites()) {
@@ -128,10 +128,8 @@ public class TestInsightModelData {
 			}
 		}
 		if (insightModelData.getNormality() != null) {
-			Assert.assertTrue(!insightModelData.getNormality().isEmpty());
 			InsightModelDataNormality imdNorm = insightModelData.getNormality();
 			if (imdNorm.getUsage() != null) {
-				Assert.assertTrue(!imdNorm.getUsage().isEmpty());
 				InsightModelDataNormalityUsage imdNormUsage = imdNorm.getUsage();
 				Float normalScore = imdNormUsage.getNormalScore();
 				if (normalScore != null) {
@@ -148,10 +146,8 @@ public class TestInsightModelData {
 			}
 		}
 		if (insightModelData.getTobacco() != null) {
-			Assert.assertTrue(!insightModelData.getTobacco().isEmpty());
 			InsightModelTobacco imdTobacco = insightModelData.getTobacco();
 			if (imdTobacco.getUsage() != null) {
-				Assert.assertTrue(!imdTobacco.getUsage().isEmpty());
 				InsightModelTobaccoUsage imdSubstUsage = imdTobacco.getUsage();
 				Float useScore = imdSubstUsage.getUseScore();
 				if (useScore != null) {
@@ -159,7 +155,6 @@ public class TestInsightModelData {
 				}
 			}
 			if (imdTobacco.getUseStatus() != null) {
-				Assert.assertTrue(!imdTobacco.getUseStatus().isEmpty());
 				InsightModelTobaccoUseStatus imdUseStatus = imdTobacco.getUseStatus();
 				Float currentScore = imdUseStatus.getCurrentScore();
 				if (currentScore != null) {
@@ -168,10 +163,8 @@ public class TestInsightModelData {
 			}
 		}
 		if (insightModelData.getAlcohol() != null) {
-			Assert.assertTrue(!insightModelData.getAlcohol().isEmpty());
 			InsightModelAlcohol imdAlcohol = insightModelData.getAlcohol();
 			if (imdAlcohol.getUsage() != null) {
-				Assert.assertTrue(!imdAlcohol.getUsage().isEmpty());
 				InsightModelAlcoholUsage imdSubstUsage = imdAlcohol.getUsage();
 				Float useScore = imdSubstUsage.getUseScore();
 				if (useScore != null) {
@@ -179,19 +172,23 @@ public class TestInsightModelData {
 				}
 			}
 			if (imdAlcohol.getUseStatus() != null) {
-				Assert.assertTrue(!imdAlcohol.getUseStatus().isEmpty());
 				InsightModelAlcoholUseStatus imdUseStatus = imdAlcohol.getUseStatus();
 				Float stoppedScore = imdUseStatus.getStoppedScore();
 				if (stoppedScore != null) {
 					Assert.assertTrue(stoppedScore >= 0);
 				}
 			}
+			if (imdAlcohol.getUseQualifier() != null) {
+				InsightModelAlcoholUseQualifier imdUseQual = imdAlcohol.getUseQualifier();
+				Float lightScore = imdUseQual.getLightScore();
+				if (lightScore != null) {
+					Assert.assertTrue(lightScore >= 0);
+				}
+			}
 		}
 		if (insightModelData.getIllicitDrug() != null) {
-			Assert.assertTrue(!insightModelData.getIllicitDrug().isEmpty());
 			InsightModelIllicitDrug imdIllicitDrug = insightModelData.getIllicitDrug();
 			if (imdIllicitDrug.getUsage() != null) {
-				Assert.assertTrue(!imdIllicitDrug.getUsage().isEmpty());
 				InsightModelIllicitDrugUsage imdSubstUsage = imdIllicitDrug.getUsage();
 				Float useScore = imdSubstUsage.getUseScore();
 				if (useScore != null) {
@@ -199,16 +196,28 @@ public class TestInsightModelData {
 				}
 			}
 			if (imdIllicitDrug.getUseStatus() != null) {
-				Assert.assertTrue(!imdIllicitDrug.getUseStatus().isEmpty());
 				InsightModelIllicitDrugUseStatus imdUseStatus = imdIllicitDrug.getUseStatus();
 				Float stoppedScore = imdUseStatus.getStoppedScore();
 				if (stoppedScore != null) {
 					Assert.assertTrue(stoppedScore >= 0);
 				}
 			}
+			if (imdIllicitDrug.getUseDimension() != null) {
+				InsightModelIllicitDrugUseDimension imdUseDimension = imdIllicitDrug.getUseDimension();
+				Float abuseScore = imdUseDimension.getAbuseScore();
+				if (abuseScore != null) {
+					Assert.assertTrue(abuseScore >= 0);
+				}
+			}
+			if (imdIllicitDrug.getUseQualifier() != null) {
+				InsightModelIllicitDrugUseQualifier imdUseQualifier = imdIllicitDrug.getUseQualifier();
+				Float lightScore = imdUseQualifier.getLightScore();
+				if (lightScore != null) {
+					Assert.assertTrue(lightScore >= 0);
+				}
+			}
 		}
 		if (insightModelData.getSubstance() != null) {
-			Assert.assertTrue(!insightModelData.getSubstance().isEmpty());
 			InsightModelSubstanceAbuse imdSubstance = insightModelData.getSubstance();
 			Float treatmentScore = imdSubstance.getTreatmentScore();
 			if (treatmentScore != null) {
@@ -219,7 +228,6 @@ public class TestInsightModelData {
 				Assert.assertTrue(nonPatientScore >= 0);
 			}
 			if (imdSubstance.getTreatment() != null) {
-				Assert.assertTrue(!imdSubstance.getTreatment().isEmpty());
 				InsightModelSubstanceAbuseTreatment imdTreatment = imdSubstance.getTreatment();
 				Float treatmentDiscussedScore = imdTreatment.getDiscussedScore();
 				if (treatmentDiscussedScore != null) {

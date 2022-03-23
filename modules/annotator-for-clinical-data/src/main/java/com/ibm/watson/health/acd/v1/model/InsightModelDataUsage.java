@@ -1,5 +1,5 @@
 /*
- * Copyright 2018 IBM Corp. All Rights Reserved.
+ * Copyright 2018, 2022 IBM Corp. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with
  * the License. You may obtain a copy of the License at
@@ -13,25 +13,35 @@
 
 package com.ibm.watson.health.acd.v1.model;
 
-import java.lang.reflect.Type;
-
+import com.google.gson.annotations.SerializedName;
 import com.google.gson.reflect.TypeToken;
-import com.ibm.watson.developer_cloud.service.model.DynamicModel;
-import com.ibm.watson.developer_cloud.util.GsonSerializationHelper;
+import com.ibm.cloud.sdk.core.service.model.DynamicModel;
 
 /**
  * InsightModelData Usage.
  */
-public class InsightModelDataUsage extends DynamicModel {
+public class InsightModelDataUsage extends DynamicModel<Object> {
 
-  private Type takenScoreType = new TypeToken<Float>() { } .getType();
-  private Type explicitScoreType = new TypeToken<Float>() { } .getType();
-  private Type implicitScoreType = new TypeToken<Float>() { } .getType();
-  private Type consideringScoreType = new TypeToken<Float>() { } .getType();
-  private Type patientReportedScoreType = new TypeToken<Float>() { } .getType();
-  private Type discussedScoreType = new TypeToken<Float>() { } .getType();
-  private Type labMeasurementScoreType = new TypeToken<Float>() { } .getType();
-  private Type pendingScoreType = new TypeToken<Float>() { } .getType();
+  @SerializedName("takenScore")
+  protected Float takenScore;
+  @SerializedName("explicitScore")
+  protected Float explicitScore;
+  @SerializedName("implicitScore")
+  protected Float implicitScore;
+  @SerializedName("consideringScore")
+  protected Float consideringScore;
+  @SerializedName("patientReportedScore")
+  protected Float patientReportedScore;
+  @SerializedName("discussedScore")
+  protected Float discussedScore;
+  @SerializedName("labMeasurementScore")
+  protected Float labMeasurementScore;
+  @SerializedName("pendingScore")
+  protected Float pendingScore;
+
+  public InsightModelDataUsage() {
+	  super(new TypeToken<Object>() { });
+  }
 
   /**
    * Gets the takenScore.
@@ -39,7 +49,7 @@ public class InsightModelDataUsage extends DynamicModel {
    * @return the takenScore
    */
   public Float getTakenScore() {
-	  return GsonSerializationHelper.serializeDynamicModelProperty(this.get("takenScore"), takenScoreType);
+	  return this.takenScore;
   }
 
   /**
@@ -48,7 +58,7 @@ public class InsightModelDataUsage extends DynamicModel {
    * @return the explicitScore
    */
   public Float getExplicitScore() {
-	  return GsonSerializationHelper.serializeDynamicModelProperty(this.get("explicitScore"), explicitScoreType);
+	  return this.explicitScore;
   }
 
   /**
@@ -57,7 +67,7 @@ public class InsightModelDataUsage extends DynamicModel {
    * @return the implicitScore
    */
   public Float getImplicitScore() {
-	  return GsonSerializationHelper.serializeDynamicModelProperty(this.get("implicitScore"), implicitScoreType);
+	  return this.implicitScore;
   }
 
   /**
@@ -66,7 +76,7 @@ public class InsightModelDataUsage extends DynamicModel {
    * @return the consideringScore
    */
   public Float getConsideringScore() {
-	  return GsonSerializationHelper.serializeDynamicModelProperty(this.get("consideringScore"), consideringScoreType);
+	  return this.consideringScore;
   }
 
   /**
@@ -75,7 +85,7 @@ public class InsightModelDataUsage extends DynamicModel {
    * @return the patientReportedScore
    */
   public Float getPatientReportedScore() {
-	  return GsonSerializationHelper.serializeDynamicModelProperty(this.get("patientReportedScore"), patientReportedScoreType);
+	  return this.patientReportedScore;
   }
 
   /**
@@ -84,7 +94,7 @@ public class InsightModelDataUsage extends DynamicModel {
    * @return the discussedScore
    */
   public Float getDiscussedScore() {
-	  return GsonSerializationHelper.serializeDynamicModelProperty(this.get("discussedScore"), discussedScoreType);
+	  return this.discussedScore;
   }
 
   /**
@@ -93,7 +103,7 @@ public class InsightModelDataUsage extends DynamicModel {
    * @return the labMeasurementScore
    */
   public Float getLabMeasurementScore() {
-	  return GsonSerializationHelper.serializeDynamicModelProperty(this.get("labMeasurementScore"), labMeasurementScoreType);
+	  return this.labMeasurementScore;
   }
 
   /**
@@ -102,79 +112,7 @@ public class InsightModelDataUsage extends DynamicModel {
    * @return the pendingScore
    */
   public Float getPendingScore() {
-	  return GsonSerializationHelper.serializeDynamicModelProperty(this.get("pendingScore"), pendingScoreType);
+	  return this.pendingScore;
   }
-
-//  /**
-//   * Sets the takenScore.
-//   *
-//   * @param takenScore the new takenScore
-//   */
-//  public void setTakenScore(final Float takenScore) {
-//    this.put("takenScore", takenScore);
-//  }
-//
-//  /**
-//   * Sets the explicitScore.
-//   *
-//   * @param explicitScore the new explicitScore
-//   */
-//  public void setExplicitScore(final Float explicitScore) {
-//    this.put("explicitScore", explicitScore);
-//  }
-//
-//  /**
-//   * Sets the implicitScore.
-//   *
-//   * @param implicitScore the new implicitScore
-//   */
-//  public void setImplicitScore(final Float implicitScore) {
-//    this.put("implicitScore", implicitScore);
-//  }
-//
-//  /**
-//   * Sets the consideringScore.
-//   *
-//   * @param consideringScore the new consideringScore
-//   */
-//  public void setConsideringScore(final Float consideringScore) {
-//    this.put("consideringScore", consideringScore);
-//  }
-//
-//  /**
-//   * Sets the patientReportedScore.
-//   *
-//   * @param patientReportedScore the new patientReportedScore
-//   */
-//  public void setPatientReportedScore(final Float patientReportedScore) {
-//    this.put("patientReportedScore", patientReportedScore);
-//  }
-//
-//  /**
-//   * Sets the discussedScore.
-//   *
-//   * @param discussedScore the new discussedScore
-//   */
-//  public void setDiscussedScore(final Float discussedScore) {
-//    this.put("discussedScore", discussedScore);
-//  }
-//
-//  /**
-//   * Sets the labMeasurementScore.
-//   *
-//   * @param labMeasurementScore the new labMeasurementScore
-//   */
-//  public void setLabMeasurementScore(final Float labMeasurementScore) {
-//    this.put("labMeasurementScore", labMeasurementScore);
-//  }
-//
-//  /**
-//   * Sets the pendingScore.
-//   *
-//   * @param pendingScore the new pendingScore
-//   */
-//  public void setPendingScore(final Float pendingScore) {
-//    this.put("pendingScore", pendingScore);
-//  }
 
 }

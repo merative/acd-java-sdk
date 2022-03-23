@@ -1,5 +1,5 @@
 /*
- * (C) Copyright IBM Corp. 2020.
+ * (C) Copyright IBM Corp. 2020, 2022.
  *
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with
  * the License. You may obtain a copy of the License at
@@ -16,6 +16,7 @@ package com.ibm.watson.health.acd.v1.model;
 import static org.testng.Assert.assertEquals;
 
 import java.io.InputStream;
+import java.nio.charset.StandardCharsets;
 import java.util.HashMap;
 import java.util.List;
 
@@ -38,7 +39,7 @@ public class CartridgesPutMultipartOptionsTest {
       .archiveFile(TestUtilities.createMockStream("This is a mock file."))
       .archiveFileContentType("testString")
       .build();
-    assertEquals(IOUtils.toString(cartridgesPutMultipartOptionsModel.archiveFile()), IOUtils.toString(TestUtilities.createMockStream("This is a mock file.")));
+    assertEquals(IOUtils.toString(cartridgesPutMultipartOptionsModel.archiveFile(), StandardCharsets.UTF_8), IOUtils.toString(TestUtilities.createMockStream("This is a mock file."), StandardCharsets.UTF_8));
     assertEquals(cartridgesPutMultipartOptionsModel.archiveFileContentType(), "testString");
   }
 }

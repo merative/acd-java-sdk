@@ -12,31 +12,64 @@
  */
 package com.ibm.watson.health.acd.v1.model;
 
+import java.util.List;
+
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.reflect.TypeToken;
 import com.ibm.cloud.sdk.core.service.model.DynamicModel;
 
-public class NluEntity extends DynamicModel<Object> {
-
+/**
+ * AllergyMedicationInd.
+ */
+public class AllergyMedicationInd extends DynamicModel<Object> {
+  @SerializedName("id")
+  protected String id;
+  @SerializedName("type")
+  protected String type;
+  @SerializedName("uid")
+  protected Long uid;
   @SerializedName("begin")
   protected Long begin;
   @SerializedName("end")
   protected Long end;
-  @SerializedName("type")
-  protected String type;
   @SerializedName("coveredText")
   protected String coveredText;
-  @SerializedName("relevance")
-  protected Double relevance;
-  @SerializedName("sectionNormalizedName")
-  protected String sectionNormalizedName;
-  @SerializedName("sectionSurfaceForm")
-  protected String sectionSurfaceForm;
-  @SerializedName("source")
-  protected String source;
+  @SerializedName("negated")
+  protected Boolean negated;
+  @SerializedName("hypothetical")
+  protected Boolean hypothetical;
+  @SerializedName("medication")
+  protected List<MedicationAnnotation> medication;
 
-  public NluEntity() {
+  public AllergyMedicationInd() {
 	  super(new TypeToken<Object>() { });
+  }
+
+  /**
+   * Gets the id.
+   *
+   * @return the id
+   */
+  public String getId() {
+    return this.id;
+  }
+
+  /**
+   * Gets the type.
+   *
+   * @return the type
+   */
+  public String getType() {
+    return this.type;
+  }
+
+  /**
+   * Gets the uid.
+   *
+   * @return the uid
+   */
+  public Long getUid() {
+    return this.uid;
   }
 
   /**
@@ -58,15 +91,6 @@ public class NluEntity extends DynamicModel<Object> {
   }
 
   /**
-   * Gets the type.
-   *
-   * @return the type
-   */
-  public String getType() {
-    return this.type;
-  }
-
-  /**
    * Gets the coveredText.
    *
    * @return the coveredText
@@ -76,39 +100,38 @@ public class NluEntity extends DynamicModel<Object> {
   }
 
   /**
-   * Gets the relevance.
+   * Gets the negated.
    *
-   * @return the type
+   * @return the negated
    */
-  public Double getRelevance() {
-    return this.relevance;
+  public Boolean isNegated() {
+    Boolean negated = this.negated;
+    if (negated == null) {
+      negated = false;
+    }
+    return negated;
   }
 
   /**
-   * Gets the sectionNormalizedName.
+   * Gets the hypothetical.
    *
-   * @return the sectionNormalizedName
+   * @return the hypothetical
    */
-  public String getSectionNormalizedName() {
-    return this.sectionNormalizedName;
+  public Boolean isHypothetical() {
+    Boolean hypothetical = this.hypothetical;
+    if (hypothetical == null) {
+      hypothetical = false;
+    }
+    return hypothetical;
   }
 
   /**
-   * Gets the sectionSurfaceForm.
+   * Gets the medication.
    *
-   * @return the sectionSurfaceForm
+   * @return the medication
    */
-  public String getSectionSurfaceForm() {
-    return this.sectionSurfaceForm;
+  public List<MedicationAnnotation> getMedication() {
+	  return this.medication;
   }
-
-  /**
-   * Gets the source.
-   *
-   * @return the source
-   */
-  public String getSource() {
-    return this.source;
-  }
-
 }
+

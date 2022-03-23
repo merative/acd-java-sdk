@@ -1,5 +1,5 @@
 /*
- * Copyright 2018 IBM Corp. All Rights Reserved.
+ * Copyright 2018, 2022 IBM Corp. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with
  * the License. You may obtain a copy of the License at
@@ -12,32 +12,58 @@
  */
 package com.ibm.watson.health.acd.v1.model;
 
-import java.lang.reflect.Type;
-
+import com.google.gson.annotations.SerializedName;
 import com.google.gson.reflect.TypeToken;
-import com.ibm.watson.developer_cloud.service.model.DynamicModel;
-import com.ibm.watson.developer_cloud.util.GsonSerializationHelper;
+import com.ibm.cloud.sdk.core.service.model.DynamicModel;
 
 /**
  * Smoking.
  */
-public class Smoking extends DynamicModel {
-  private Type idType = new TypeToken<String>() { } .getType();
-  private Type typeType = new TypeToken<String>() { } .getType();
-  private Type uidType = new TypeToken<Long>() { } .getType();
-  private Type beginType = new TypeToken<Long>() { } .getType();
-  private Type endType = new TypeToken<Long>() { } .getType();
-  private Type coveredTextType = new TypeToken<String>() { } .getType();
-  private Type negatedType = new TypeToken<Boolean>() { } .getType();
-  private Type hypotheticalType = new TypeToken<Boolean>() { } .getType();
-  private Type participationType = new TypeToken<String>() { } .getType();
-  private Type sectionNormalizedNameType = new TypeToken<String>() { } .getType();
-  private Type modalityType = new TypeToken<String>() { } .getType();
-  private Type currentType = new TypeToken<String>() { } .getType();
-  private Type smokeTermSurfaceFormType = new TypeToken<String>() { } .getType();
-  private Type smokeTermNormalizedNameType = new TypeToken<String>() { } .getType();
-  private Type sectionSurfaceFormType = new TypeToken<String>() { } .getType();
+public class Smoking extends DynamicModel<Object> {
+  @SerializedName("id")
+  protected String id;
+  @SerializedName("type")
+  protected String type;
+  @SerializedName("uid")
+  protected Long uid;
+  @SerializedName("begin")
+  protected Long begin;
+  @SerializedName("end")
+  protected Long end;
+  @SerializedName("coveredText")
+  protected String coveredText;
+  @SerializedName("negated")
+  protected Boolean negated;
+  @SerializedName("hypothetical")
+  protected Boolean hypothetical;
+  @SerializedName("participation")
+  protected String participation;
+  @SerializedName("sectionNormalizedName")
+  protected String sectionNormalizedName;
+  @SerializedName("modality")
+  protected String modality;
+  @SerializedName("current")
+  protected String current;
+  @SerializedName("smokeTermSurfaceForm")
+  protected String smokeTermSurfaceForm;
+  @SerializedName("smokeTermNormalizedName")
+  protected String smokeTermNormalizedName;
+  @SerializedName("sectionSurfaceForm")
+  protected String sectionSurfaceForm;
+  @SerializedName("illicitDrugNormalizedName")
+  protected String illicitDrugNormalizedName;
+  @SerializedName("illicitDrugSurfaceForm")
+  protected String illicitDrugSurfaceForm;
+  @SerializedName("smokeSubstanceNormalizedName")
+  protected String smokeSubstanceNormalizedName;
+  @SerializedName("smokeSubstanceSurfaceForm")
+  protected String smokeSubstanceSurfaceForm;
+  @SerializedName("duration")
+  protected String duration;
 
+  public Smoking() {
+	  super(new TypeToken<Object>() { });
+  }
 
   /**
    * Gets the id.
@@ -45,7 +71,7 @@ public class Smoking extends DynamicModel {
    * @return the id
    */
   public String getId() {
-    return GsonSerializationHelper.serializeDynamicModelProperty(this.get("id"), idType);
+    return this.id;
   }
 
   /**
@@ -54,7 +80,7 @@ public class Smoking extends DynamicModel {
    * @return the type
    */
   public String getType() {
-    return GsonSerializationHelper.serializeDynamicModelProperty(this.get("type"), typeType);
+    return this.type;
   }
 
   /**
@@ -63,7 +89,7 @@ public class Smoking extends DynamicModel {
    * @return the uid
    */
   public Long getUid() {
-    return GsonSerializationHelper.serializeDynamicModelProperty(this.get("uid"), uidType);
+    return this.uid;
   }
 
   /**
@@ -72,7 +98,7 @@ public class Smoking extends DynamicModel {
    * @return the begin
    */
   public Long getBegin() {
-    return GsonSerializationHelper.serializeDynamicModelProperty(this.get("begin"), beginType);
+    return this.begin;
   }
 
   /**
@@ -81,7 +107,7 @@ public class Smoking extends DynamicModel {
    * @return the end
    */
   public Long getEnd() {
-    return GsonSerializationHelper.serializeDynamicModelProperty(this.get("end"), endType);
+    return this.end;
   }
 
   /**
@@ -90,7 +116,7 @@ public class Smoking extends DynamicModel {
    * @return the coveredText
    */
   public String getCoveredText() {
-    return GsonSerializationHelper.serializeDynamicModelProperty(this.get("coveredText"), coveredTextType);
+    return this.coveredText;
   }
 
   /**
@@ -99,7 +125,7 @@ public class Smoking extends DynamicModel {
    * @return the negated
    */
   public Boolean isNegated() {
-    Boolean negated = GsonSerializationHelper.serializeDynamicModelProperty(this.get("negated"), negatedType);
+    Boolean negated = this.negated;
     if (negated == null) {
       negated = false;
     }
@@ -112,7 +138,7 @@ public class Smoking extends DynamicModel {
    * @return the hypothetical
    */
   public Boolean isHypothetical() {
-    Boolean hypothetical = GsonSerializationHelper.serializeDynamicModelProperty(this.get("hypothetical"), hypotheticalType);
+    Boolean hypothetical = this.hypothetical;
     if (hypothetical == null) {
       hypothetical = false;
     }
@@ -125,7 +151,7 @@ public class Smoking extends DynamicModel {
    * @return the participation
    */
   public String getParticipation() {
-    return GsonSerializationHelper.serializeDynamicModelProperty(this.get("participation"), participationType);
+    return this.participation;
   }
 
   /**
@@ -134,7 +160,7 @@ public class Smoking extends DynamicModel {
    * @return the sectionNormalizedName
    */
   public String getSectionNormalizedName() {
-    return GsonSerializationHelper.serializeDynamicModelProperty(this.get("sectionNormalizedName"), sectionNormalizedNameType);
+    return this.sectionNormalizedName;
   }
 
   /**
@@ -143,7 +169,7 @@ public class Smoking extends DynamicModel {
    * @return the modality
    */
   public String getModality() {
-    return GsonSerializationHelper.serializeDynamicModelProperty(this.get("modality"), modalityType);
+    return this.modality;
   }
 
   /**
@@ -152,7 +178,7 @@ public class Smoking extends DynamicModel {
    * @return the current
    */
   public String getCurrent() {
-    return GsonSerializationHelper.serializeDynamicModelProperty(this.get("current"), currentType);
+    return this.current;
   }
 
   /**
@@ -161,7 +187,7 @@ public class Smoking extends DynamicModel {
    * @return the smokeTermSurfaceForm
    */
   public String getSmokeTermSurfaceForm() {
-    return GsonSerializationHelper.serializeDynamicModelProperty(this.get("smokeTermSurfaceForm"), smokeTermSurfaceFormType);
+    return this.smokeTermSurfaceForm;
   }
 
   /**
@@ -170,7 +196,7 @@ public class Smoking extends DynamicModel {
    * @return the smokeTermNormalizedName
    */
   public String getSmokeTermNormalizedName() {
-    return GsonSerializationHelper.serializeDynamicModelProperty(this.get("smokeTermNormalizedName"), smokeTermNormalizedNameType);
+    return this.smokeTermNormalizedName;
   }
 
   /**
@@ -179,141 +205,52 @@ public class Smoking extends DynamicModel {
    * @return the sectionSurfaceForm
    */
   public String getSectionSurfaceForm() {
-    return GsonSerializationHelper.serializeDynamicModelProperty(this.get("sectionSurfaceForm"), sectionSurfaceFormType);
+    return this.sectionSurfaceForm;
   }
 
-//  /**
-//   * Sets the id.
-//   *
-//   * @param id the new id
-//   */
-//  public void setId(final String id) {
-//    this.put("id", id);
-//  }
-//
-//  /**
-//   * Sets the type.
-//   *
-//   * @param type the new type
-//   */
-//  public void setType(final String type) {
-//    this.put("type", type);
-//  }
-//
-//  /**
-//   * Sets the uid.
-//   *
-//   * @param uid the new uid
-//   */
-//  public void setUid(final Long uid) {
-//    this.put("uid", uid);
-//  }
-//
-//  /**
-//   * Sets the begin.
-//   *
-//   * @param begin the new begin
-//   */
-//  public void setBegin(final Long begin) {
-//    this.put("begin", begin);
-//  }
-//
-//  /**
-//   * Sets the end.
-//   *
-//   * @param end the new end
-//   */
-//  public void setEnd(final Long end) {
-//    this.put("end", end);
-//  }
-//
-//  /**
-//   * Sets the coveredText.
-//   *
-//   * @param coveredText the new coveredText
-//   */
-//  public void setCoveredText(final String coveredText) {
-//    this.put("coveredText", coveredText);
-//  }
-//
-//  /**
-//   * Sets the negated.
-//   *
-//   * @param negated the new negated
-//   */
-//  public void setNegated(final Boolean negated) {
-//    this.put("negated", negated);
-//  }
-//
-//  /**
-//   * Sets the hypothetical.
-//   *
-//   * @param hypothetical the new hypothetical
-//   */
-//  public void setHypothetical(final Boolean hypothetical) {
-//    this.put("hypothetical", hypothetical);
-//  }
-//
-//  /**
-//   * Sets the participation.
-//   *
-//   * @param participation the new participation
-//   */
-//  public void setParticipation(final String participation) {
-//    this.put("participation", participation);
-//  }
-//
-//  /**
-//   * Sets the sectionNormalizedName.
-//   *
-//   * @param sectionNormalizedName the new sectionNormalizedName
-//   */
-//  public void setSectionNormalizedName(final String sectionNormalizedName) {
-//    this.put("sectionNormalizedName", sectionNormalizedName);
-//  }
-//
-//  /**
-//   * Sets the modality.
-//   *
-//   * @param modality the new modality
-//   */
-//  public void setModality(final String modality) {
-//    this.put("modality", modality);
-//  }
-//
-//  /**
-//   * Sets the current.
-//   *
-//   * @param current the new current
-//   */
-//  public void setCurrent(final String current) {
-//    this.put("current", current);
-//  }
-//
-//  /**
-//   * Sets the smokeTermSurfaceForm.
-//   *
-//   * @param smokeTermSurfaceForm the new smokeTermSurfaceForm
-//   */
-//  public void setSmokeTermSurfaceForm(final String smokeTermSurfaceForm) {
-//    this.put("smokeTermSurfaceForm", smokeTermSurfaceForm);
-//  }
-//
-//  /**
-//   * Sets the smokeTermNormalizedName.
-//   *
-//   * @param smokeTermNormalizedName the new smokeTermNormalizedName
-//   */
-//  public void setSmokeTermNormalizedName(final String smokeTermNormalizedName) {
-//    this.put("smokeTermNormalizedName", smokeTermNormalizedName);
-//  }
-//
-//  /**
-//   * Sets the sectionSurfaceForm.
-//   *
-//   * @param sectionSurfaceForm the new sectionSurfaceForm
-//   */
-//  public void setSectionSurfaceForm(final String sectionSurfaceForm) {
-//    this.put("sectionSurfaceForm", sectionSurfaceForm);
-//  }
+  /**
+   * Gets the illicitDrugNormalizedName.
+   *
+   * @return the illicitDrugNormalizedName
+   */
+  public String getIllicitDrugNormalizedName() {
+    return this.illicitDrugNormalizedName;
+  }
+
+  /**
+   * Gets the illicitDrugSurfaceForm.
+   *
+   * @return the illicitDrugSurfaceForm
+   */
+  public String getIllicitDrugSurfaceForm() {
+    return this.illicitDrugSurfaceForm;
+  }
+
+  /**
+   * Gets the smokeSubstanceNormalizedName.
+   *
+   * @return the smokeSubstanceNormalizedName
+   */
+  public String getSmokeSubstanceNormalizedName() {
+    return this.smokeSubstanceNormalizedName;
+  }
+
+  /**
+   * Gets the smokeSubstanceSurfaceForm.
+   *
+   * @return the smokeSubstanceSurfaceForm
+   */
+  public String getSmokeSubstanceSurfaceForm() {
+    return this.smokeSubstanceSurfaceForm;
+  }
+
+  /**
+   * Gets the duration.
+   *
+   * @return the duration
+   */
+  public String getDuration() {
+    return this.duration;
+  }
+
 }

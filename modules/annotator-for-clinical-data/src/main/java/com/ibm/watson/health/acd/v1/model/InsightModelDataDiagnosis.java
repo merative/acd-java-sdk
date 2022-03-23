@@ -1,5 +1,5 @@
 /*
- * Copyright 2018 IBM Corp. All Rights Reserved.
+ * Copyright 2018, 2022 IBM Corp. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with
  * the License. You may obtain a copy of the License at
@@ -13,23 +13,31 @@
 
 package com.ibm.watson.health.acd.v1.model;
 
-import java.lang.reflect.Type;
-
+import com.google.gson.annotations.SerializedName;
 import com.google.gson.reflect.TypeToken;
-import com.ibm.watson.developer_cloud.service.model.DynamicModel;
-import com.ibm.watson.developer_cloud.util.GsonSerializationHelper;
+import com.ibm.cloud.sdk.core.service.model.DynamicModel;
 
 /**
  * InsightModelData Diagnosis.
  */
-public class InsightModelDataDiagnosis extends DynamicModel {
+public class InsightModelDataDiagnosis extends DynamicModel<Object> {
 
-  private Type usageType = new TypeToken<InsightModelDataUsage>() { } .getType();
-  private Type suspectedScoreType = new TypeToken<Float>() { } .getType();
-  private Type symptomScoreType = new TypeToken<Float>() { } .getType();
-  private Type traumaScoreType = new TypeToken<Float>() { } .getType();
-  private Type familyHistoryScoreType = new TypeToken<Float>() { } .getType();
-  private Type modifiersType = new TypeToken<InsightModelDataDiagnosisModifier>() { } .getType();
+  @SerializedName("usage")
+  protected InsightModelDataUsage usage;
+  @SerializedName("suspectedScore")
+  protected Float suspectedScore;
+  @SerializedName("symptomScore")
+  protected Float symptomScore;
+  @SerializedName("traumaScore")
+  protected Float traumaScore;
+  @SerializedName("familyHistoryScore")
+  protected Float familyHistoryScore;
+  @SerializedName("modifiers")
+  protected InsightModelDataDiagnosisModifier modifiers;
+
+  public InsightModelDataDiagnosis() {
+	  super(new TypeToken<Object>() { });
+  }
 
   /**
    * Gets the usage.
@@ -37,7 +45,7 @@ public class InsightModelDataDiagnosis extends DynamicModel {
    * @return the usage
    */
   public InsightModelDataUsage getUsage() {
-    return GsonSerializationHelper.serializeDynamicModelProperty(this.get("usage"), usageType);
+    return this.usage;
   }
 
   /**
@@ -46,7 +54,7 @@ public class InsightModelDataDiagnosis extends DynamicModel {
    * @return the suspectedScore
    */
   public Float getSuspectedScore() {
-	  return GsonSerializationHelper.serializeDynamicModelProperty(this.get("suspectedScore"), suspectedScoreType);
+	  return this.suspectedScore;
   }
 
   /**
@@ -55,7 +63,7 @@ public class InsightModelDataDiagnosis extends DynamicModel {
    * @return the symptomScore
    */
   public Float getSymptomScore() {
-	  return GsonSerializationHelper.serializeDynamicModelProperty(this.get("symptomScore"), symptomScoreType);
+	  return this.symptomScore;
   }
 
   /**
@@ -64,7 +72,7 @@ public class InsightModelDataDiagnosis extends DynamicModel {
    * @return the traumaScore
    */
   public Float getTraumaScore() {
-	  return GsonSerializationHelper.serializeDynamicModelProperty(this.get("traumaScore"), traumaScoreType);
+	  return this.traumaScore;
   }
 
   /**
@@ -73,7 +81,7 @@ public class InsightModelDataDiagnosis extends DynamicModel {
    * @return the familyHistoryScore
    */
   public Float getFamilyHistoryScore() {
-	  return GsonSerializationHelper.serializeDynamicModelProperty(this.get("familyHistoryScore"), familyHistoryScoreType);
+	  return this.familyHistoryScore;
   }
 
   /**
@@ -82,61 +90,7 @@ public class InsightModelDataDiagnosis extends DynamicModel {
    * @return the modifiers
    */
   public InsightModelDataDiagnosisModifier getModifiers() {
-    return GsonSerializationHelper.serializeDynamicModelProperty(this.get("modifiers"), modifiersType);
+    return this.modifiers;
   }
-
-//  /**
-//   * Sets the usage.
-//   *
-//   * @param usage the new usage
-//   */
-//  public void setUsage(final InsightModelDataUsage usage) {
-//    this.put("usage", usage);
-//  }
-//
-//  /**
-//   * Sets the suspectedScore.
-//   *
-//   * @param suspectedScore the new suspectedScore
-//   */
-//  public void setSuspectedScore(final Float suspectedScore) {
-//    this.put("suspectedScore", suspectedScore);
-//  }
-//
-//  /**
-//   * Sets the symptomScore.
-//   *
-//   * @param symptomScore the new symptomScore
-//   */
-//  public void setSymptomScore(final Float symptomScore) {
-//    this.put("symptomScore", symptomScore);
-//  }
-//
-//  /**
-//   * Sets the traumaScore.
-//   *
-//   * @param traumaScore the new traumaScore
-//   */
-//  public void setTraumaScore(final Float traumaScore) {
-//    this.put("traumaScore", traumaScore);
-//  }
-//
-//  /**
-//   * Sets the familyHistoryScore.
-//   *
-//   * @param familyHistoryScore the new familyHistoryScore
-//   */
-//  public void setFamilyHistoryScore(final Float familyHistoryScore) {
-//    this.put("familyHistoryScore", familyHistoryScore);
-//  }
-
-//  /**
-//   * Sets the modifiers.
-//   *
-//   * @param modifiers the new modifiers
-//   */
-//   public void setModifiers(final InsightModelDataDiagnosisModifier modifiers) {
-//     this.put("modifiers", modifiers);
-//   }
 
 }

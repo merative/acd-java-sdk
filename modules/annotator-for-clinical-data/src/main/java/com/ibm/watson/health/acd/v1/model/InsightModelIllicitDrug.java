@@ -1,5 +1,5 @@
 /*
- * Copyright 2021 IBM Corp. All Rights Reserved.
+ * Copyright 2021, 2022 IBM Corp. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with
  * the License. You may obtain a copy of the License at
@@ -13,24 +13,33 @@
 
 package com.ibm.watson.health.acd.v1.model;
 
-import java.lang.reflect.Type;
-
+import com.google.gson.annotations.SerializedName;
 import com.google.gson.reflect.TypeToken;
-import com.ibm.watson.developer_cloud.service.model.DynamicModel;
-import com.ibm.watson.developer_cloud.util.GsonSerializationHelper;
+import com.ibm.cloud.sdk.core.service.model.DynamicModel;
 
 /**
  * InsightModelData Illicit Drug.
  */
-public class InsightModelIllicitDrug extends DynamicModel {
+public class InsightModelIllicitDrug extends DynamicModel<Object> {
 
-  private Type usageType = new TypeToken<InsightModelIllicitDrugUsage>() { } .getType();
-  private Type useStatusType = new TypeToken<InsightModelIllicitDrugUseStatus>() { } .getType();
-  private Type useQualifierType = new TypeToken<InsightModelIllicitDrugUseQualifier>() { } .getType();
-  private Type useDimensionType = new TypeToken<InsightModelIllicitDrugUseDimension>() { } .getType();
-  private Type exposureScoreType  = new TypeToken<Float>() { } .getType();
-  private Type nonPatientScoreType  = new TypeToken<Float>() { } .getType();
-  private Type treatmentScoreType  = new TypeToken<Float>() { } .getType();
+  @SerializedName("usage")
+  protected InsightModelIllicitDrugUsage usage;
+  @SerializedName("useStatus")
+  protected InsightModelIllicitDrugUseStatus useStatus;
+  @SerializedName("useQualifier")
+  protected InsightModelIllicitDrugUseQualifier useQualifier;
+  @SerializedName("useDimension")
+  protected InsightModelIllicitDrugUseDimension useDimension;
+  @SerializedName("exposureScore")
+  protected Float exposureScore;
+  @SerializedName("nonPatientScore")
+  protected Float nonPatientScore;
+  @SerializedName("treatmentScore")
+  protected Float treatmentScore;
+
+  public InsightModelIllicitDrug() {
+	  super(new TypeToken<Object>() { });
+  }
 
   /**
    * Gets the usage.
@@ -38,7 +47,7 @@ public class InsightModelIllicitDrug extends DynamicModel {
    * @return the usage
    */
   public InsightModelIllicitDrugUsage getUsage() {
-    return GsonSerializationHelper.serializeDynamicModelProperty(this.get("usage"), usageType);
+    return this.usage;
   }
 
   /**
@@ -47,7 +56,7 @@ public class InsightModelIllicitDrug extends DynamicModel {
    * @return the useStatus
    */
   public InsightModelIllicitDrugUseStatus getUseStatus() {
-    return GsonSerializationHelper.serializeDynamicModelProperty(this.get("useStatus"), useStatusType);
+    return this.useStatus;
   }
 
   /**
@@ -56,7 +65,7 @@ public class InsightModelIllicitDrug extends DynamicModel {
    * @return the useQualifier
    */
   public InsightModelIllicitDrugUseQualifier getUseQualifier() {
-	  return GsonSerializationHelper.serializeDynamicModelProperty(this.get("useQualifier"), useQualifierType);
+	  return this.useQualifier;
   }
 
   /**
@@ -65,7 +74,7 @@ public class InsightModelIllicitDrug extends DynamicModel {
    * @return the useDimension
    */
   public InsightModelIllicitDrugUseDimension getUseDimension() {
-	  return GsonSerializationHelper.serializeDynamicModelProperty(this.get("useDimension"), useDimensionType);
+	  return this.useDimension;
   }
 
   /**
@@ -74,7 +83,7 @@ public class InsightModelIllicitDrug extends DynamicModel {
    * @return the exposureScore
    */
   public Float getExposureScore() {
-	  return GsonSerializationHelper.serializeDynamicModelProperty(this.get("exposureScore"), exposureScoreType);
+	  return this.exposureScore;
   }
 
   /**
@@ -83,7 +92,7 @@ public class InsightModelIllicitDrug extends DynamicModel {
    * @return the nonPatientScore
    */
   public Float getNonPatientScore() {
-	  return GsonSerializationHelper.serializeDynamicModelProperty(this.get("nonPatientScore"), nonPatientScoreType);
+	  return this.nonPatientScore;
   }
 
   /**
@@ -92,70 +101,7 @@ public class InsightModelIllicitDrug extends DynamicModel {
    * @return the treatmentScore
    */
   public Float getTreatmentScore() {
-	  return GsonSerializationHelper.serializeDynamicModelProperty(this.get("treatmentScore"), treatmentScoreType);
+	  return this.treatmentScore;
   }
-
-//  /**
-//   * Sets the usage.
-//   *
-//   * @param usage the new usage
-//   */
-//  public void setUsage(final InsightModelIllicitDrugUsage usage) {
-//    this.put("usage", usage);
-//  }
-//
-//  /**
-//   * Sets the useStatus.
-//   *
-//   * @param useStatus the new useStatus
-//   */
-//  public void setUseStatus(final InsightModelIllicitDrugUseStatus useStatus) {
-//    this.put("useStatus", useStatus);
-//  }
-//
-//  /**
-//   * Sets the useQualifier.
-//   *
-//   * @param useQualifier the new useQualifier
-//   */
-//  public void setUseQualifier(final InsightModelIllicitDrugUseQualifier useQualifier) {
-//    this.put("useQualifier", useQualifier);
-//  }
-//
-//  /**
-//   * Sets the useDimension.
-//   *
-//   * @param useDimension the new useDimension
-//   */
-//  public void setUseDimension(final InsightModelIllicitDrugUseDimension useDimension) {
-//    this.put("useDimension", useDimension);
-//  }
-//
-//  /**
-//   * Sets the exposureScore.
-//   *
-//   * @param exposureScore the new exposureScore
-//   */
-//  public void setExposureScore(final Float exposureScore) {
-//    this.put("exposureScore", exposureScore);
-//  }
-//
-//  /**
-//   * Sets the nonPatientScore.
-//   *
-//   * @param nonPatientScore the new nonPatientScore
-//   */
-//  public void setNonPatientScore(final Float nonPatientScore) {
-//    this.put("nonPatientScore", nonPatientScore);
-//  }
-//
-//  /**
-//   * Sets the treatmentScore.
-//   *
-//   * @param treatmentScore the new treatmentScore
-//   */
-//  public void setTreatmentScore(final Float treatmentScore) {
-//    this.put("treatmentScore", treatmentScore);
-//  }
 
 }

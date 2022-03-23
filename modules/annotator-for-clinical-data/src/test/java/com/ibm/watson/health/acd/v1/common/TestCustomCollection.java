@@ -1,5 +1,5 @@
 /*
- * Copyright 2018, 2020 IBM Corp. All Rights Reserved.
+ * Copyright 2018, 2022 IBM Corp. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with
  * the License. You may obtain a copy of the License at
@@ -21,5 +21,10 @@ public class TestCustomCollection {
 	public static void testCustomCollection(CustomCollection collection) {
 		Assert.assertNotNull(collection.get("cancer"));
 		Assert.assertNotNull(collection.get(0));
+	}
+	
+	public static void testCustomCollectionByName(CustomCollection collection, String key) {
+		//System.out.println("CustomCollection key: " + key + " value: " + collection.get(key).getObject());
+		Assert.assertNotNull(collection.get(key));
 	}
 }

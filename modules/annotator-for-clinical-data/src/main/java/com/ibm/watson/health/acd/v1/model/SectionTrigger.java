@@ -1,5 +1,5 @@
 /*
- * Copyright 2018 IBM Corp. All Rights Reserved.
+ * Copyright 2018, 2022 IBM Corp. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with
  * the License. You may obtain a copy of the License at
@@ -12,7 +12,7 @@
  */
 package com.ibm.watson.health.acd.v1.model;
 
-import com.ibm.watson.developer_cloud.service.model.GenericModel;
+import com.ibm.cloud.sdk.core.service.model.GenericModel;
 
 /**
  * Section trigger.
@@ -33,9 +33,6 @@ public class SectionTrigger extends GenericModel {
   public String getType() {
     return type;
   }
-//  public void setType(String type) {
-//    this.type = type;
-//  }
 
   /**
    * Get the trigger beginning offset.
@@ -44,9 +41,6 @@ public class SectionTrigger extends GenericModel {
   public Long getBegin() {
     return begin;
   }
-//  public void setBegin(Long begin) {
-//    this.begin = begin;
-//  }
 
   /**
    * Get the trigger ending offset.
@@ -55,9 +49,6 @@ public class SectionTrigger extends GenericModel {
   public Long getEnd() {
     return end;
   }
-//  public void setEnd(Long end) {
-//    this.end = end;
-//  }
 
   /**
    * Get the trigger text.
@@ -66,9 +57,6 @@ public class SectionTrigger extends GenericModel {
   public String getCoveredText() {
     return coveredText;
   }
-//  public void setCoveredText(String coveredText) {
-//    this.coveredText = coveredText;
-//  }
 
   /**
    * Get the trigger ontology source.
@@ -77,9 +65,6 @@ public class SectionTrigger extends GenericModel {
   public String getSource() {
     return source;
   }
-//  public void setSource(String source) {
-//    this.source = source;
-//  }
 
   /**
    * Get the trigger section name.
@@ -88,10 +73,5 @@ public class SectionTrigger extends GenericModel {
   public String getSectionNormalizedName() {
     return sectionNormalizedName;
   }
-//  public void setSectionNormalizedName(String sectionNormalizedName) {
-//    this.sectionNormalizedName = sectionNormalizedName;
-//  }
-
-
 
 }

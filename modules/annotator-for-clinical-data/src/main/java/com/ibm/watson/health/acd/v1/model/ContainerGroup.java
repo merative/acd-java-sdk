@@ -1,5 +1,5 @@
 /*
- * Copyright 2021 IBM Corp. All Rights Reserved.
+ * Copyright 2018, 2022 IBM Corp. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with
  * the License. You may obtain a copy of the License at
@@ -15,8 +15,8 @@ package com.ibm.watson.health.acd.v1.model;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.ibm.watson.developer_cloud.service.model.GenericModel;
-import com.ibm.watson.developer_cloud.util.Validator;
+import com.ibm.cloud.sdk.core.service.model.GenericModel;
+import com.ibm.cloud.sdk.core.util.Validator;
 
 /**
  * ContainerGroup.
@@ -272,6 +272,22 @@ public class ContainerGroup extends GenericModel {
   	try {
       validateUnstructuredElementData("Allergy");
       annotations = this.getUnstructured().get(0).data().getAllergyInd();
+  	} catch (IllegalArgumentException iae) {
+  		//ACD didn't return any annotations
+  	}
+  	return annotations;
+  }
+
+  /**
+   * Gets the AllergyMedicationInd.
+   *
+   * @return the allergyMedicationInd
+   */
+  public List<AllergyMedicationInd> getAllergyMedication() {
+  	List<AllergyMedicationInd> annotations = new ArrayList<AllergyMedicationInd>();
+  	try {
+      validateUnstructuredElementData("MedicationAllergy");
+      annotations = this.getUnstructured().get(0).data().getAllergyMedicationInd();
   	} catch (IllegalArgumentException iae) {
   		//ACD didn't return any annotations
   	}
@@ -904,6 +920,24 @@ public class ContainerGroup extends GenericModel {
 	  } catch (IllegalArgumentException iae) {
 	  	//ACD didn't return any annotations
 	  }
+  	return annotation;
+  }
+
+  /**
+   * Gets the AllergyMedicationInd.
+   *
+   * @param index position to retrieve
+   *
+   * @return the allergyMedicationInd
+   */
+  public AllergyMedicationInd getAllergyMedication(int index) {
+  	AllergyMedicationInd annotation = null;
+  	try {
+      validateUnstructuredElementData("MedicationAllergy");
+      annotation = this.getUnstructured().get(0).data().getAllergyMedicationInd().get(index);
+  	} catch (IllegalArgumentException iae) {
+  		//ACD didn't return any annotations
+  	}
   	return annotation;
   }
 

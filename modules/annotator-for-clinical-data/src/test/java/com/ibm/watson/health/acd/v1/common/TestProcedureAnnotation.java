@@ -1,5 +1,5 @@
 /*
- * Copyright 2018, 2021 IBM Corp. All Rights Reserved.
+ * Copyright 2018, 2022 IBM Corp. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with
  * the License. You may obtain a copy of the License at
@@ -67,7 +67,6 @@ public class TestProcedureAnnotation {
 		Assert.assertNotNull(annotation.isHypothetical());
 		Assert.assertNotNull(annotation.isNegated());
 		if (annotation.getInsightModelData() != null) {
-			Assert.assertTrue(!annotation.getInsightModelData().isEmpty());
 			TestInsightModelData.testInsightModelData(annotation.getInsightModelData());
 		}
 		List<Temporal> temporals = annotation.getTemporal();

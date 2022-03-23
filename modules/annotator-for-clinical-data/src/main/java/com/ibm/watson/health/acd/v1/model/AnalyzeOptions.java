@@ -1,5 +1,5 @@
 /*
- * Copyright 2018 IBM Corp. All Rights Reserved.
+ * Copyright 2018, 2022 IBM Corp. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with
  * the License. You may obtain a copy of the License at
@@ -15,8 +15,8 @@ package com.ibm.watson.health.acd.v1.model;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.ibm.watson.developer_cloud.service.model.GenericModel;
-import com.ibm.watson.developer_cloud.util.Validator;
+import com.ibm.cloud.sdk.core.service.model.GenericModel;
+import com.ibm.cloud.sdk.core.util.Validator;
 
 
 /**

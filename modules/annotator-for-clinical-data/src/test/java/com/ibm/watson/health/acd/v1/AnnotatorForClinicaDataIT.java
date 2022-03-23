@@ -61,9 +61,8 @@ import com.ibm.watson.health.acd.v1.unit.AnnotatorForClinicalDataAcdTest;;
 	TestGetCartridgesCartridgeId.class,
 	TestCreateCartridges.class,
 	TestUpdateCartridges.class,
-	//TestDeployCartridge.class,
-	TestGetHealthCheckStatus.class,
-	TestHttpClientOptions.class
+	//TestDeployCartridge.class,  legacy deployment is deprecated
+	TestGetHealthCheckStatus.class
 })
 
 

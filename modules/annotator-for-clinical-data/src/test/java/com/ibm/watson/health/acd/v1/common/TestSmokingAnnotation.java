@@ -1,5 +1,5 @@
 /*
- * Copyright 2018, 2021 IBM Corp. All Rights Reserved.
+ * Copyright 2018, 2022 IBM Corp. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with
  * the License. You may obtain a copy of the License at
@@ -52,5 +52,14 @@ public class TestSmokingAnnotation {
 		}
 		Assert.assertNotNull(annotation.isHypothetical());
 		Assert.assertNotNull(annotation.isNegated());
+		if (annotation.getIllicitDrugNormalizedName() != null) {
+			Assert.assertTrue(annotation.getIllicitDrugNormalizedName().length() > 0);
+		}
+		if (annotation.getIllicitDrugSurfaceForm() != null) {
+			Assert.assertTrue(annotation.getIllicitDrugSurfaceForm().length() > 0);
+		}
+		if (annotation.getDuration() != null) {
+			Assert.assertTrue(annotation.getDuration().length() > 0);
+		}
 	}
 }

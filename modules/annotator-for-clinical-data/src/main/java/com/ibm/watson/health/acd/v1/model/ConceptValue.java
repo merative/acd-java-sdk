@@ -1,5 +1,5 @@
 /*
- * Copyright 2018 IBM Corp. All Rights Reserved.
+ * Copyright 2018, 2022 IBM Corp. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with
  * the License. You may obtain a copy of the License at
@@ -12,41 +12,69 @@
  */
 package com.ibm.watson.health.acd.v1.model;
 
-import java.lang.reflect.Type;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
+import com.google.gson.Gson;
+import com.google.gson.JsonElement;
+import com.google.gson.annotations.SerializedName;
 import com.google.gson.reflect.TypeToken;
-import com.ibm.watson.developer_cloud.service.model.DynamicModel;
-import com.ibm.watson.developer_cloud.util.GsonSerializationHelper;
+import com.ibm.cloud.sdk.core.service.model.DynamicModel;
 import com.ibm.watson.health.acd.v1.util.CustomCollection;
 
 /**
  * ConceptValue.
  */
-public class ConceptValue extends DynamicModel {
-  private Type idType = new TypeToken<String>() { } .getType();
-  private Type typeType = new TypeToken<String>() { } .getType();
-  private Type uidType = new TypeToken<Long>() { } .getType();
-  private Type beginType = new TypeToken<Long>() { } .getType();
-  private Type endType = new TypeToken<Long>() { } .getType();
-  private Type coveredTextType = new TypeToken<String>() { } .getType();
-  private Type negatedType = new TypeToken<Boolean>() { } .getType();
-  private Type hypotheticalType = new TypeToken<Boolean>() { } .getType();
-  private Type cuiType = new TypeToken<String>() { } .getType();
-  private Type dimensionType = new TypeToken<String>() { } .getType();
-  private Type preferredNameType = new TypeToken<String>() { } .getType();
-  private Type triggerType = new TypeToken<String>() { } .getType();
-  private Type sourceType = new TypeToken<String>() { } .getType();
-  private Type valueType = new TypeToken<String>() { } .getType();
-  private Type sectionNormalizedNameType = new TypeToken<String>() { } .getType();
-  private Type sectionSurfaceFormType = new TypeToken<String>() { } .getType();
-  private Type ruleIdType = new TypeToken<String>() { } .getType();
-  private Type derivedFromType = new TypeToken<List<Concept>>() { } .getType();
-  private Type unitType = new TypeToken<String>() { } .getType();
-  private Type valuesType = new TypeToken<List<Map>>() { } .getType();
-  private Type rangeBeginType = new TypeToken<String>() { } .getType();
-  private Type rangeEndType = new TypeToken<String>() { } .getType();
+public class ConceptValue extends DynamicModel<Object> {
+  @SerializedName("id")
+  protected String id;
+  @SerializedName("type")
+  protected String type;
+  @SerializedName("uid")
+  protected Long uid;
+  @SerializedName("begin")
+  protected Long begin;
+  @SerializedName("end")
+  protected Long end;
+  @SerializedName("coveredText")
+  protected String coveredText;
+  @SerializedName("negated")
+  protected Boolean negated;
+  @SerializedName("hypothetical")
+  protected Boolean hypothetical;
+  @SerializedName("cui")
+  protected String cui;
+  @SerializedName("dimension")
+  protected String dimension;
+  @SerializedName("preferredName")
+  protected String preferredName;
+  @SerializedName("trigger")
+  protected String trigger;
+  @SerializedName("source")
+  protected String source;
+  @SerializedName("value")
+  protected String value;
+  @SerializedName("sectionNormalizedName")
+  protected String sectionNormalizedName;
+  @SerializedName("sectionSurfaceForm")
+  protected String sectionSurfaceForm;
+  @SerializedName("ruleId")
+  protected String ruleId;
+  @SerializedName("derivedFrom")
+  protected List<Concept> derivedFrom;
+  @SerializedName("unit")
+  protected String unit;
+  @SerializedName("values")
+  protected List<Map> values;
+  @SerializedName("rangeBegin")
+  protected String rangeBegin;
+  @SerializedName("rangeEnd")
+  protected String rangeEnd;
+
+  public ConceptValue() {
+	  super(new TypeToken<Object>() { });
+  }
 
   /**
    * Gets the id.
@@ -54,7 +82,7 @@ public class ConceptValue extends DynamicModel {
    * @return the id
    */
   public String getId() {
-    return GsonSerializationHelper.serializeDynamicModelProperty(this.get("id"), idType);
+    return this.id;
   }
 
   /**
@@ -63,7 +91,7 @@ public class ConceptValue extends DynamicModel {
    * @return the type
    */
   public String getType() {
-    return GsonSerializationHelper.serializeDynamicModelProperty(this.get("type"), typeType);
+    return this.type;
   }
 
   /**
@@ -72,7 +100,7 @@ public class ConceptValue extends DynamicModel {
    * @return the uid
    */
   public Long getUid() {
-    return GsonSerializationHelper.serializeDynamicModelProperty(this.get("uid"), uidType);
+    return this.uid;
   }
 
   /**
@@ -81,7 +109,7 @@ public class ConceptValue extends DynamicModel {
    * @return the begin
    */
   public Long getBegin() {
-    return GsonSerializationHelper.serializeDynamicModelProperty(this.get("begin"), beginType);
+    return this.begin;
   }
 
   /**
@@ -90,7 +118,7 @@ public class ConceptValue extends DynamicModel {
    * @return the end
    */
   public Long getEnd() {
-    return GsonSerializationHelper.serializeDynamicModelProperty(this.get("end"), endType);
+    return this.end;
   }
 
   /**
@@ -99,7 +127,7 @@ public class ConceptValue extends DynamicModel {
    * @return the coveredText
    */
   public String getCoveredText() {
-    return GsonSerializationHelper.serializeDynamicModelProperty(this.get("coveredText"), coveredTextType);
+    return this.coveredText;
   }
 
   /**
@@ -108,7 +136,7 @@ public class ConceptValue extends DynamicModel {
    * @return the negated
    */
   public Boolean isNegated() {
-    Boolean negated = GsonSerializationHelper.serializeDynamicModelProperty(this.get("negated"), negatedType);
+    Boolean negated = this.negated;
     if (negated == null) {
       negated = false;
     }
@@ -121,7 +149,7 @@ public class ConceptValue extends DynamicModel {
    * @return the hypothetical
    */
   public Boolean isHypothetical() {
-    Boolean hypothetical = GsonSerializationHelper.serializeDynamicModelProperty(this.get("hypothetical"), hypotheticalType);
+    Boolean hypothetical = this.hypothetical;
     if (hypothetical == null) {
       hypothetical = false;
     }
@@ -134,7 +162,7 @@ public class ConceptValue extends DynamicModel {
    * @return the cui
    */
   public String getCui() {
-    return GsonSerializationHelper.serializeDynamicModelProperty(this.get("cui"), cuiType);
+    return this.cui;
   }
 
   /**
@@ -143,7 +171,7 @@ public class ConceptValue extends DynamicModel {
    * @return the dimension
    */
   public String getDimension() {
-    return GsonSerializationHelper.serializeDynamicModelProperty(this.get("dimension"), dimensionType);
+    return this.dimension;
   }
 
   /**
@@ -152,7 +180,7 @@ public class ConceptValue extends DynamicModel {
    * @return the preferredName
    */
   public String getPreferredName() {
-    return GsonSerializationHelper.serializeDynamicModelProperty(this.get("preferredName"), preferredNameType);
+    return this.preferredName;
   }
 
   /**
@@ -161,7 +189,7 @@ public class ConceptValue extends DynamicModel {
    * @return the trigger
    */
   public String getTrigger() {
-    return GsonSerializationHelper.serializeDynamicModelProperty(this.get("trigger"), triggerType);
+    return this.trigger;
   }
 
   /**
@@ -170,7 +198,7 @@ public class ConceptValue extends DynamicModel {
    * @return the source
    */
   public String getSource() {
-    return GsonSerializationHelper.serializeDynamicModelProperty(this.get("source"), sourceType);
+    return this.source;
   }
 
   /**
@@ -179,7 +207,7 @@ public class ConceptValue extends DynamicModel {
    * @return the value
    */
   public String getValue() {
-    return GsonSerializationHelper.serializeDynamicModelProperty(this.get("value"), valueType);
+    return this.value;
   }
 
   /**
@@ -188,7 +216,7 @@ public class ConceptValue extends DynamicModel {
    * @return the sectionNormalizedName
    */
   public String getSectionNormalizedName() {
-    return GsonSerializationHelper.serializeDynamicModelProperty(this.get("sectionNormalizedName"), sectionNormalizedNameType);
+    return this.sectionNormalizedName;
   }
 
   /**
@@ -197,7 +225,7 @@ public class ConceptValue extends DynamicModel {
    * @return the sectionSurfaceForm
    */
   public String getSectionSurfaceForm() {
-    return GsonSerializationHelper.serializeDynamicModelProperty(this.get("sectionSurfaceForm"), sectionSurfaceFormType);
+    return this.sectionSurfaceForm;
   }
 
   /**
@@ -206,7 +234,7 @@ public class ConceptValue extends DynamicModel {
    * @return the ruleId
    */
   public String getRuleId() {
-    return GsonSerializationHelper.serializeDynamicModelProperty(this.get("ruleId"), ruleIdType);
+    return this.ruleId;
   }
 
   /**
@@ -215,7 +243,7 @@ public class ConceptValue extends DynamicModel {
    * @return the derivedFrom
    */
   public List<Concept> getDerivedFrom() {
-	  return GsonSerializationHelper.serializeDynamicModelProperty(this.get("derivedFrom"), derivedFromType);
+	  return this.derivedFrom;
   }
 
   /**
@@ -224,7 +252,7 @@ public class ConceptValue extends DynamicModel {
    * @return the unit
    */
   public String getUnit() {
-    return GsonSerializationHelper.serializeDynamicModelProperty(this.get("unit"), unitType);
+    return this.unit;
   }
 
   /**
@@ -233,7 +261,13 @@ public class ConceptValue extends DynamicModel {
    * @return the values
    */
   public List<CustomCollection> getValues() {
-    List<Object> listObjects = GsonSerializationHelper.serializeDynamicModelProperty(this.get("values"), valuesType);
+    List<Object> listObjects = new ArrayList<Object>();
+    for (Map map : this.values) {
+    	Gson gson = new Gson();
+    	JsonElement jsonElement = gson.toJsonTree(map);
+    	Object mapObj = gson.fromJson(jsonElement, Object.class);
+    	listObjects.add(mapObj);
+    }
     CustomCollection customCollection = new CustomCollection();
     List<CustomCollection> listValues = customCollection.convertToCustomCollectionList(listObjects);
     return listValues;
@@ -245,7 +279,7 @@ public class ConceptValue extends DynamicModel {
    * @return the rangeBegin
    */
   public String getRangeBegin() {
-    return GsonSerializationHelper.serializeDynamicModelProperty(this.get("rangeBegin"), rangeBeginType);
+    return this.rangeBegin;
   }
 
   /**
@@ -254,205 +288,7 @@ public class ConceptValue extends DynamicModel {
    * @return the rangeEnd
    */
   public String getRangeEnd() {
-    return GsonSerializationHelper.serializeDynamicModelProperty(this.get("rangeEnd"), rangeEndType);
+    return this.rangeEnd;
   }
-
-//  /**
-//   * Sets the id.
-//   *
-//   * @param id the new id
-//   */
-//  public void setId(final String id) {
-//    this.put("id", id);
-//  }
-//
-//  /**
-//   * Sets the type.
-//   *
-//   * @param type the new type
-//   */
-//  public void setType(final String type) {
-//    this.put("type", type);
-//  }
-//
-//  /**
-//   * Sets the uid.
-//   *
-//   * @param uid the new uid
-//   */
-//  public void setUid(final Long uid) {
-//    this.put("uid", uid);
-//  }
-//
-//  /**
-//   * Sets the begin.
-//   *
-//   * @param begin the new begin
-//   */
-//  public void setBegin(final Long begin) {
-//    this.put("begin", begin);
-//  }
-//
-//  /**
-//   * Sets the end.
-//   *
-//   * @param end the new end
-//   */
-//  public void setEnd(final Long end) {
-//    this.put("end", end);
-//  }
-//
-//  /**
-//   * Sets the coveredText.
-//   *
-//   * @param coveredText the new coveredText
-//   */
-//  public void setCoveredText(final String coveredText) {
-//    this.put("coveredText", coveredText);
-//  }
-//
-//  /**
-//   * Sets the negated.
-//   *
-//   * @param negated the new negated
-//   */
-//  public void setNegated(final Boolean negated) {
-//    this.put("negated", negated);
-//  }
-//
-//  /**
-//   * Sets the hypothetical.
-//   *
-//   * @param hypothetical the new hypothetical
-//   */
-//  public void setHypothetical(final Boolean hypothetical) {
-//    this.put("hypothetical", hypothetical);
-//  }
-//
-//  /**
-//   * Sets the cui.
-//   *
-//   * @param cui the new cui
-//   */
-//  public void setCui(final String cui) {
-//    this.put("cui", cui);
-//  }
-//
-//  /**
-//   * Sets the dimension.
-//   *
-//   * @param dimension the new dimension
-//   */
-//  public void setDimension(final String dimension) {
-//    this.put("dimension", dimension);
-//  }
-//
-//  /**
-//   * Sets the preferredName.
-//   *
-//   * @param preferredName the new preferredName
-//   */
-//  public void setPreferredName(final String preferredName) {
-//    this.put("preferredName", preferredName);
-//  }
-//
-//  /**
-//   * Sets the trigger.
-//   *
-//   * @param trigger the new trigger
-//   */
-//  public void setTrigger(final String trigger) {
-//    this.put("trigger", trigger);
-//  }
-//
-//  /**
-//   * Sets the source.
-//   *
-//   * @param source the new source
-//   */
-//  public void setSource(final String source) {
-//    this.put("source", source);
-//  }
-//
-//  /**
-//   * Sets the value.
-//   *
-//   * @param value the new value
-//   */
-//  public void setValue(final String value) {
-//    this.put("value", value);
-//  }
-//
-//  /**
-//   * Sets the sectionSurfaceForm.
-//   *
-//   * @param sectionSurfaceForm the new sectionSurfaceForm
-//   */
-//  public void setSectionSurfaceForm(final String sectionSurfaceForm) {
-//    this.put("sectionSurfaceForm", sectionSurfaceForm);
-//  }
-//
-//  /**
-//   * Sets the sectionNormalizedName.
-//   *
-//   * @param sectionNormalizedName the new sectionNormalizedName
-//   */
-//  public void setSectionNormalizedName(final String sectionNormalizedName) {
-//    this.put("sectionNormalizedName", sectionNormalizedName);
-//  }
-//
-//  /**
-//   * Sets the ruleId.
-//   *
-//   * @param ruleId the new ruleId
-//   */
-//  public void setRuleId(final String ruleId) {
-//    this.put("ruleId", ruleId);
-//  }
-//
-//  /**
-//   * Sets the derivedFrom.
-//   *
-//   * @param derivedFrom the new derivedFrom
-//   */
-//  public void setDerivedFrom(final List<Concept> derivedFrom) {
-//    this.put("derivedFrom", derivedFrom);
-//  }
-//
-//  /**
-//   * Sets the unit.
-//   *
-//   * @param unit the new unit
-//   */
-//  public void setUnit(final String unit) {
-//    this.put("unit", unit);
-//  }
-//
-//  /**
-//   * Sets the values.
-//   *
-//   * @param values the new values
-//   */
-//  public void setValues(final List<Map> values) {
-//    this.put("values", values);
-//  }
-//
-//  /**
-//   * Sets the rangeBegin.
-//   *
-//   * @param rangeBegin the new rangeBegin
-//   */
-//  public void setRangeBegin(final String rangeBegin) {
-//    this.put("rangeBegin", rangeBegin);
-//  }
-//
-//  /**
-//   * Sets the rangeEnd.
-//   *
-//   * @param rangeEnd the new rangeEnd
-//   */
-//  public void setRangeEnd(final String rangeEnd) {
-//    this.put("rangeEnd", rangeEnd);
-//  }
 
 }

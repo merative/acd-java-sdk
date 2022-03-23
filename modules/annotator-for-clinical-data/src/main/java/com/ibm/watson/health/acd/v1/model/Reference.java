@@ -1,5 +1,5 @@
 /*
- * Copyright 2021 IBM Corp. All Rights Reserved.
+ * Copyright 2021, 2022 IBM Corp. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with
  * the License. You may obtain a copy of the License at
@@ -12,17 +12,22 @@
  */
 package com.ibm.watson.health.acd.v1.model;
 
-import java.lang.reflect.Type;
-
+import com.google.gson.annotations.SerializedName;
 import com.google.gson.reflect.TypeToken;
-import com.ibm.watson.developer_cloud.service.model.DynamicModel;
-import com.ibm.watson.developer_cloud.util.GsonSerializationHelper;
+import com.ibm.cloud.sdk.core.service.model.DynamicModel;
 
-public class Reference extends DynamicModel {
+public class Reference extends DynamicModel<Object> {
 
-  private Type uidType = new TypeToken<Long>() { } .getType();
-  private Type selectionLabelType = new TypeToken<String>() { } .getType();
-  private Type valueIndexType = new TypeToken<Integer>() { } .getType();
+  @SerializedName("uid")
+  protected Long uid;
+  @SerializedName("selectionLabel")
+  protected String selectionLabel;
+  @SerializedName("valueIndex")
+  protected Integer valueIndex;
+
+  public Reference() {
+	  super(new TypeToken<Object>() { });
+  }
 
   /**
    * Gets the uid.
@@ -30,7 +35,7 @@ public class Reference extends DynamicModel {
    * @return the uid
    */
   public Long getUid() {
-    return GsonSerializationHelper.serializeDynamicModelProperty(this.get("uid"), uidType);
+    return this.uid;
   }
 
   /**
@@ -38,7 +43,7 @@ public class Reference extends DynamicModel {
    * @return the selectionLabel
    */
   public String getSelectionLabel() {
-    return GsonSerializationHelper.serializeDynamicModelProperty(this.get("selectionLabel"), selectionLabelType);
+    return this.selectionLabel;
   }
 
   /**
@@ -46,7 +51,7 @@ public class Reference extends DynamicModel {
    * @return the valueIndex
    */
   public Integer getValueIndex() {
-    return GsonSerializationHelper.serializeDynamicModelProperty(this.get("valueIndex"), valueIndexType);
+    return this.valueIndex;
   }
 
   /**
@@ -55,7 +60,7 @@ public class Reference extends DynamicModel {
    * @param uid the new uid
    */
   public void setUid(final Long uid) {
-    this.put("uid", uid);
+    this.uid = uid;
   }
 
   /**
@@ -64,7 +69,7 @@ public class Reference extends DynamicModel {
    * @param selectionLabel the new selectionLabel
    */
   public void setSelectionLabel(final String selectionLabel) {
-    this.put("selectionLabel", selectionLabel);
+    this.selectionLabel = selectionLabel;
   }
 
   /**
@@ -73,7 +78,7 @@ public class Reference extends DynamicModel {
    * @param valueIndex the new valueIndex
    */
   public void setValueIndex(final Integer valueIndex) {
-    this.put("valueIndex", valueIndex);
+    this.valueIndex = valueIndex;
   }
 
 }

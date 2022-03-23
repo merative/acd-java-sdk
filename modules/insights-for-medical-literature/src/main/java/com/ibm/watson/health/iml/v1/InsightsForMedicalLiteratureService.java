@@ -148,6 +148,7 @@ public class InsightsForMedicalLiteratureService extends BaseService {
    * @param version The release date of the version of the API you want to use. Specify dates in YYYY-MM-DD format.
    * @return an instance of the `InsightsForMedicalLiteratureService` client using external configuration
    */
+  @Deprecated
   public static InsightsForMedicalLiteratureService newInstance(String version) {
     return newInstance(version, DEFAULT_SERVICE_NAME);
   }
@@ -160,6 +161,7 @@ public class InsightsForMedicalLiteratureService extends BaseService {
    * @param serviceName the service name to be used when configuring the client instance
    * @return an instance of the `InsightsForMedicalLiteratureService` client using external configuration
    */
+  @Deprecated
   public static InsightsForMedicalLiteratureService newInstance(String version, String serviceName) {
     Authenticator authenticator = ConfigBasedAuthenticatorFactory.getAuthenticator(serviceName);
     InsightsForMedicalLiteratureService service = new InsightsForMedicalLiteratureService(version, serviceName, authenticator);
@@ -175,6 +177,7 @@ public class InsightsForMedicalLiteratureService extends BaseService {
    * @param serviceName the service name to be used when configuring the client instance
    * @param authenticator the {@link Authenticator} instance to be configured for this client
    */
+  @Deprecated
   public InsightsForMedicalLiteratureService(String version, String serviceName, Authenticator authenticator) {
     super(serviceName, authenticator);
     setServiceUrl(DEFAULT_SERVICE_URL);
@@ -188,6 +191,7 @@ public class InsightsForMedicalLiteratureService extends BaseService {
    *
    * @return the version
    */
+  @Deprecated
   public String getVersion() {
     return this.version;
   }
@@ -197,6 +201,7 @@ public class InsightsForMedicalLiteratureService extends BaseService {
    *
    * @param version the new version
    */
+  @Deprecated
   public void setVersion(final String version) {
     com.ibm.cloud.sdk.core.util.Validator.notEmpty(version, "version cannot be empty.");
     this.version = version;
@@ -211,6 +216,7 @@ public class InsightsForMedicalLiteratureService extends BaseService {
    * @param getDocumentsOptions the {@link GetDocumentsOptions} containing the options for the call
    * @return a {@link ServiceCall} with a result of type {@link CorpusModel}
    */
+  @Deprecated
   public ServiceCall<CorpusInfoModel> getDocuments(GetDocumentsOptions getDocumentsOptions) {
     com.ibm.cloud.sdk.core.util.Validator.notNull(getDocumentsOptions,
       "getDocumentsOptions cannot be null");
@@ -247,6 +253,7 @@ public class InsightsForMedicalLiteratureService extends BaseService {
    * @param addCorpusDocumentOptions the {@link AddCorpusDocumentOptions} containing the options for the call
    * @return a {@link ServiceCall} with a void result
    */
+  @Deprecated
   public ServiceCall<Void> addCorpusDocument(AddCorpusDocumentOptions addCorpusDocumentOptions) {
     com.ibm.cloud.sdk.core.util.Validator.notNull(addCorpusDocumentOptions,
       "addCorpusDocumentOptions cannot be null");
@@ -293,6 +300,7 @@ public class InsightsForMedicalLiteratureService extends BaseService {
    * @param getDocumentInfoOptions the {@link GetDocumentInfoOptions} containing the options for the call
    * @return a {@link ServiceCall} with a result of type {@link GetDocumentInfoResponse}
    */
+  @Deprecated
   public ServiceCall<GetDocumentInfoResponse> getDocumentInfo(GetDocumentInfoOptions getDocumentInfoOptions) {
     com.ibm.cloud.sdk.core.util.Validator.notNull(getDocumentInfoOptions,
       "getDocumentInfoOptions cannot be null");
@@ -321,6 +329,7 @@ public class InsightsForMedicalLiteratureService extends BaseService {
    * @param getDocumentAnnotationsOptions the {@link GetDocumentAnnotationsOptions} containing the options for the call
    * @return a {@link ServiceCall} with a void result
    */
+  @Deprecated
   public ServiceCall<AnnotationsModel> getDocumentAnnotations(GetDocumentAnnotationsOptions getDocumentAnnotationsOptions) {
     com.ibm.cloud.sdk.core.util.Validator.notNull(getDocumentAnnotationsOptions,
       "getDocumentAnnotationsOptions cannot be null");
@@ -353,6 +362,7 @@ public class InsightsForMedicalLiteratureService extends BaseService {
    * @param getDocumentCategoriesOptions the {@link GetDocumentCategoriesOptions} containing the options for the call
    * @return a {@link ServiceCall} with a result of type {@link CategoriesModel}
    */
+  @Deprecated
   public ServiceCall<CategoriesModel> getDocumentCategories(GetDocumentCategoriesOptions getDocumentCategoriesOptions) {
     com.ibm.cloud.sdk.core.util.Validator.notNull(getDocumentCategoriesOptions,
       "getDocumentCategoriesOptions cannot be null");
@@ -425,6 +435,7 @@ public class InsightsForMedicalLiteratureService extends BaseService {
    * @param getDocumentMultipleCategoriesOptions the {@link GetDocumentMultipleCategoriesOptions} containing the options for the call
    * @return a {@link ServiceCall} with a result of type {@link CategoriesModel}
    */
+  @Deprecated
   public ServiceCall<CategoriesModel> getDocumentMultipleCategories(GetDocumentMultipleCategoriesOptions getDocumentMultipleCategoriesOptions) {
     com.ibm.cloud.sdk.core.util.Validator.notNull(getDocumentMultipleCategoriesOptions,
       "getDocumentMultipleCategoriesOptions cannot be null");
@@ -482,6 +493,7 @@ public class InsightsForMedicalLiteratureService extends BaseService {
    * @param getSearchMatchesOptions the {@link GetSearchMatchesOptions} containing the options for the call
    * @return a {@link ServiceCall} with a result of type {@link SearchMatchesModel}
    */
+  @Deprecated
   public ServiceCall<SearchMatchesModel> getSearchMatches(GetSearchMatchesOptions getSearchMatchesOptions) {
     com.ibm.cloud.sdk.core.util.Validator.notNull(getSearchMatchesOptions,
       "getSearchMatchesOptions cannot be null");
@@ -544,6 +556,7 @@ public class InsightsForMedicalLiteratureService extends BaseService {
    * @param getCorporaConfigOptions the {@link GetCorporaConfigOptions} containing the options for the call
    * @return a {@link ServiceCall} with a result of type {@link CorporaConfig}
    */
+  @Deprecated
   public ServiceCall<CorporaConfig> getCorporaConfig(GetCorporaConfigOptions getCorporaConfigOptions) {
     String[] pathSegments = { "v1/corpora" };
     RequestBuilder builder = RequestBuilder.get(RequestBuilder.constructHttpUrl(getServiceUrl(), pathSegments));
@@ -570,6 +583,7 @@ public class InsightsForMedicalLiteratureService extends BaseService {
    *
    * @return a {@link ServiceCall} with a result of type {@link CorporaConfig}
    */
+  @Deprecated
   public ServiceCall<CorporaConfig> getCorporaConfig() {
     return getCorporaConfig(null);
   }
@@ -603,6 +617,7 @@ public class InsightsForMedicalLiteratureService extends BaseService {
    * @param setCorpusSchemaOptions the {@link SetCorpusSchemaOptions} containing the options for the call
    * @return a {@link ServiceCall} with a result of type {@link CorporaConfig}
    */
+  @Deprecated
   public ServiceCall<CorporaConfig> setCorpusSchema(SetCorpusSchemaOptions setCorpusSchemaOptions) {
     com.ibm.cloud.sdk.core.util.Validator.notNull(setCorpusSchemaOptions,
       "setCorpusSchemaOptions cannot be null");
@@ -661,6 +676,7 @@ public class InsightsForMedicalLiteratureService extends BaseService {
    *
    * @return a {@link ServiceCall} with a result of type {@link CorporaConfig}
    */
+  @Deprecated
   public ServiceCall<CorporaConfig> setCorpusSchema() {
     return setCorpusSchema(null);
   }
@@ -673,6 +689,7 @@ public class InsightsForMedicalLiteratureService extends BaseService {
    * @param deleteCorpusSchemaOptions the {@link DeleteCorpusSchemaOptions} containing the options for the call
    * @return a {@link ServiceCall} with a result of type {@link CorporaConfig}
    */
+  @Deprecated
   public ServiceCall<CorporaConfig> deleteCorpusSchema(DeleteCorpusSchemaOptions deleteCorpusSchemaOptions) {
     com.ibm.cloud.sdk.core.util.Validator.notNull(deleteCorpusSchemaOptions,
       "deleteCorpusSchemaOptions cannot be null");
@@ -704,6 +721,7 @@ public class InsightsForMedicalLiteratureService extends BaseService {
    * @param setCorpusConfigOptions the {@link SetCorpusConfigOptions} containing the options for the call
    * @return a {@link ServiceCall} with a result of type {@link CorporaConfig}
    */
+  @Deprecated
   public ServiceCall<CorporaConfig> setCorpusConfig(SetCorpusConfigOptions setCorpusConfigOptions) {
     com.ibm.cloud.sdk.core.util.Validator.notNull(setCorpusConfigOptions,
       "setCorpusConfigOptions cannot be null");
@@ -744,6 +762,7 @@ public class InsightsForMedicalLiteratureService extends BaseService {
    *
    * @return a {@link ServiceCall} with a result of type {@link CorporaConfig}
    */
+  @Deprecated
   public ServiceCall<CorporaConfig> setCorpusConfig() {
     return setCorpusConfig(null);
   }
@@ -757,6 +776,7 @@ public class InsightsForMedicalLiteratureService extends BaseService {
    * @param monitorCorpusOptions the {@link MonitorCorpusOptions} containing the options for the call
    * @return a {@link ServiceCall} with a void result
    */
+  @Deprecated
   public ServiceCall<Void> monitorCorpus(MonitorCorpusOptions monitorCorpusOptions) {
     com.ibm.cloud.sdk.core.util.Validator.notNull(monitorCorpusOptions,
       "monitorCorpusOptions cannot be null");
@@ -780,6 +800,7 @@ public class InsightsForMedicalLiteratureService extends BaseService {
    * @param enableCorpusSearchTrackingOptions the {@link EnableCorpusSearchTrackingOptions} containing the options for the call
    * @return a {@link ServiceCall} with a void result
    */
+  @Deprecated
   public ServiceCall<Void> enableCorpusSearchTracking(EnableCorpusSearchTrackingOptions enableCorpusSearchTrackingOptions) {
     String[] pathSegments = { "v1/corpora/tracking" };
     RequestBuilder builder = RequestBuilder.put(RequestBuilder.constructHttpUrl(getServiceUrl(), pathSegments));
@@ -804,6 +825,7 @@ public class InsightsForMedicalLiteratureService extends BaseService {
    *
    * @return a {@link ServiceCall} with a void result
    */
+  @Deprecated
   public ServiceCall<Void> enableCorpusSearchTracking() {
     return enableCorpusSearchTracking(null);
   }
@@ -816,6 +838,7 @@ public class InsightsForMedicalLiteratureService extends BaseService {
    * @param getCorpusConfigOptions the {@link GetCorpusConfigOptions} containing the options for the call
    * @return a {@link ServiceCall} with a result of type {@link CorporaConfig}
    */
+  @Deprecated
   public ServiceCall<CorporaConfig> getCorpusConfig(GetCorpusConfigOptions getCorpusConfigOptions) {
     com.ibm.cloud.sdk.core.util.Validator.notNull(getCorpusConfigOptions,
       "getCorpusConfigOptions cannot be null");
@@ -844,6 +867,7 @@ public class InsightsForMedicalLiteratureService extends BaseService {
    * @param getStatisticsOptions the {@link GetStatisticsOptions} containing the options for the call
    * @return a {@link ServiceCall} with a result of type {@link StatisticsModel}
    */
+  @Deprecated
   public ServiceCall<StatisticsModel> getStatistics(GetStatisticsOptions getStatisticsOptions) {
     com.ibm.cloud.sdk.core.util.Validator.notNull(getStatisticsOptions,
       "getStatisticsOptions cannot be null");
@@ -867,6 +891,7 @@ public class InsightsForMedicalLiteratureService extends BaseService {
    * @param getServiceStatusOptions the {@link GetServiceStatusOptions} containing the options for the call
    * @return a {@link ServiceCall} with a result of type {@link ServiceStatus}
    */
+  @Deprecated
   public ServiceCall<ServiceStatus> getServiceStatus(GetServiceStatusOptions getServiceStatusOptions) {
     String[] pathSegments = { "v1/status" };
     RequestBuilder builder = RequestBuilder.get(RequestBuilder.constructHttpUrl(getServiceUrl(), pathSegments));
@@ -895,6 +920,7 @@ public class InsightsForMedicalLiteratureService extends BaseService {
    *
    * @return a {@link ServiceCall} with a result of type {@link ServiceStatus}
    */
+  @Deprecated
   public ServiceCall<ServiceStatus> getServiceStatus() {
     return getServiceStatus(null);
   }
@@ -908,6 +934,7 @@ public class InsightsForMedicalLiteratureService extends BaseService {
    * @param getHealthCheckStatusOptions the {@link GetHealthCheckStatusOptions} containing the options for the call
    * @return a {@link ServiceCall} with a result of type {@link ServiceStatus}
    */
+  @Deprecated
   public ServiceCall<ServiceStatus> getHealthCheckStatus(GetHealthCheckStatusOptions getHealthCheckStatusOptions) {
     String[] pathSegments = { "v1/status/health_check" };
     RequestBuilder builder = RequestBuilder.get(RequestBuilder.constructHttpUrl(getServiceUrl(), pathSegments));
@@ -936,6 +963,7 @@ public class InsightsForMedicalLiteratureService extends BaseService {
    *
    * @return a {@link ServiceCall} with a result of type {@link ServiceStatus}
    */
+  @Deprecated
   public ServiceCall<ServiceStatus> getHealthCheckStatus() {
     return getHealthCheckStatus(null);
   }
@@ -953,6 +981,7 @@ public class InsightsForMedicalLiteratureService extends BaseService {
    * @param searchOptions the {@link SearchOptions} containing the options for the call
    * @return a {@link ServiceCall} with a result of type {@link SearchModel}
    */
+  @Deprecated
   public ServiceCall<SearchModel> search(SearchOptions searchOptions) {
     com.ibm.cloud.sdk.core.util.Validator.notNull(searchOptions,
       "searchOptions cannot be null");
@@ -988,6 +1017,7 @@ public class InsightsForMedicalLiteratureService extends BaseService {
    * @param getFieldsOptions the {@link GetFieldsOptions} containing the options for the call
    * @return a {@link ServiceCall} with a result of type {@link MetadataModel}
    */
+  @Deprecated
   public ServiceCall<MetadataModel> getFields(GetFieldsOptions getFieldsOptions) {
     com.ibm.cloud.sdk.core.util.Validator.notNull(getFieldsOptions,
       "getFieldsOptions cannot be null");
@@ -1015,6 +1045,7 @@ public class InsightsForMedicalLiteratureService extends BaseService {
    * @param typeaheadOptions the {@link TypeaheadOptions} containing the options for the call
    * @return a {@link ServiceCall} with a result of type {@link ConceptListModel}
    */
+  @Deprecated
   public ServiceCall<ConceptListModel> typeahead(TypeaheadOptions typeaheadOptions) {
     com.ibm.cloud.sdk.core.util.Validator.notNull(typeaheadOptions,
       "typeaheadOptions cannot be null");
@@ -1063,6 +1094,7 @@ public class InsightsForMedicalLiteratureService extends BaseService {
    * @param getConceptsOptions the {@link GetConceptsOptions} containing the options for the call
    * @return a {@link ServiceCall} with a result of type {@link ConceptListModel}
    */
+  @Deprecated
   public ServiceCall<ConceptListModel> getConcepts(GetConceptsOptions getConceptsOptions) {
     com.ibm.cloud.sdk.core.util.Validator.notNull(getConceptsOptions,
       "getConceptsOptions cannot be null");
@@ -1107,6 +1139,7 @@ public class InsightsForMedicalLiteratureService extends BaseService {
    * @param addArtifactOptions the {@link AddArtifactOptions} containing the options for the call
    * @return a {@link ServiceCall} with a void result
    */
+  @Deprecated
   public ServiceCall<Void> addArtifact(AddArtifactOptions addArtifactOptions) {
     com.ibm.cloud.sdk.core.util.Validator.notNull(addArtifactOptions,
       "addArtifactOptions cannot be null");
@@ -1141,6 +1174,7 @@ public class InsightsForMedicalLiteratureService extends BaseService {
    * @param getCuiInfoOptions the {@link GetCuiInfoOptions} containing the options for the call
    * @return a {@link ServiceCall} with a result of type {@link ConceptInfoModel}
    */
+  @Deprecated
   public ServiceCall<ConceptInfoModel> getCuiInfo(GetCuiInfoOptions getCuiInfoOptions) {
     com.ibm.cloud.sdk.core.util.Validator.notNull(getCuiInfoOptions,
       "getCuiInfoOptions cannot be null");
@@ -1175,6 +1209,7 @@ public class InsightsForMedicalLiteratureService extends BaseService {
    * @param getHitCountOptions the {@link GetHitCountOptions} containing the options for the call
    * @return a {@link ServiceCall} with a result of type {@link HitCount}
    */
+  @Deprecated
   public ServiceCall<HitCount> getHitCount(GetHitCountOptions getHitCountOptions) {
     com.ibm.cloud.sdk.core.util.Validator.notNull(getHitCountOptions,
       "getHitCountOptions cannot be null");
@@ -1213,6 +1248,7 @@ public class InsightsForMedicalLiteratureService extends BaseService {
    * @param getRelatedConceptsOptions the {@link GetRelatedConceptsOptions} containing the options for the call
    * @return a {@link ServiceCall} with a result of type {@link RelatedConceptsModel}
    */
+  @Deprecated
   public ServiceCall<RelatedConceptsModel> getRelatedConcepts(GetRelatedConceptsOptions getRelatedConceptsOptions) {
     com.ibm.cloud.sdk.core.util.Validator.notNull(getRelatedConceptsOptions,
       "getRelatedConceptsOptions cannot be null");
@@ -1258,6 +1294,7 @@ public class InsightsForMedicalLiteratureService extends BaseService {
    * @param getSimilarConceptsOptions the {@link GetSimilarConceptsOptions} containing the options for the call
    * @return a {@link ServiceCall} with a result of type {@link ConceptListModel}
    */
+  @Deprecated
   public ServiceCall<ConceptListModel> getSimilarConcepts(GetSimilarConceptsOptions getSimilarConceptsOptions) {
     com.ibm.cloud.sdk.core.util.Validator.notNull(getSimilarConceptsOptions,
       "getSimilarConceptsOptions cannot be null");
@@ -1290,6 +1327,7 @@ public class InsightsForMedicalLiteratureService extends BaseService {
    * @param tokenizeOptions the {@link TokenizeOptions} containing the options for the call
    * @return a {@link ServiceCall} with a result of type {@link CommonDataModel}
    */
+  @Deprecated
   public ServiceCall<CommonDataModel> tokenize(TokenizeOptions tokenizeOptions) {
     com.ibm.cloud.sdk.core.util.Validator.notNull(tokenizeOptions,
       "tokenizeOptions cannot be null");

@@ -1,5 +1,5 @@
 /*
- * (C) Copyright IBM Corp. 2020.
+ * (C) Copyright IBM Corp. 2018, 2022.
  *
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with
  * the License. You may obtain a copy of the License at
@@ -12,8 +12,6 @@
  */
 package com.ibm.watson.health.acd.v1.cartridges;
 
-import java.util.List;
-
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -24,7 +22,6 @@ import com.ibm.watson.health.acd.v1.AnnotatorForClinicalData;
 import com.ibm.watson.health.acd.v1.WatsonServiceTest;
 import com.ibm.watson.health.acd.v1.common.Constants;
 import com.ibm.watson.health.acd.v1.model.AcdCartridges;
-import com.ibm.watson.health.acd.v1.model.AcdCartridgesList;
 import com.ibm.watson.health.acd.v1.model.CartridgesGetIdOptions;
 import com.ibm.watson.health.acd.v1.model.CartridgesGetIdOptions.Builder;
 
@@ -39,7 +36,6 @@ public class TestGetCartridgesCartridgeId extends WatsonServiceTest {
 	public TestGetCartridgesCartridgeId() {
 		super();
 		try {
-			this.setUp();
 			service = this.getServiceInstance();
 		} catch (Exception e) {
 			e.printStackTrace();

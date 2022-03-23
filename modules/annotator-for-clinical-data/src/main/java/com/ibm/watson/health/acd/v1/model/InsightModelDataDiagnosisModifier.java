@@ -1,5 +1,5 @@
 /*
- * Copyright 2018 IBM Corp. All Rights Reserved.
+ * Copyright 2018, 2022 IBM Corp. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with
  * the License. You may obtain a copy of the License at
@@ -13,20 +13,25 @@
 
 package com.ibm.watson.health.acd.v1.model;
 
-import java.lang.reflect.Type;
 import java.util.List;
 
+import com.google.gson.annotations.SerializedName;
 import com.google.gson.reflect.TypeToken;
-import com.ibm.watson.developer_cloud.service.model.DynamicModel;
-import com.ibm.watson.developer_cloud.util.GsonSerializationHelper;
+import com.ibm.cloud.sdk.core.service.model.DynamicModel;
 
 /**
  * InsightModelData Diagnosis Modifier .
  */
-public class InsightModelDataDiagnosisModifier extends DynamicModel {
+public class InsightModelDataDiagnosisModifier extends DynamicModel<Object> {
 
-  private Type associatedProceduresType = new TypeToken<List<InsightModelDataEvidence>>() { } .getType();
-  private Type sitesType = new TypeToken<List<InsightModelDataSite>>() { } .getType();
+  @SerializedName("associatedProcedures")
+  protected List<InsightModelDataEvidence> associatedProcedures;
+  @SerializedName("sites")
+  protected List<InsightModelDataSite> sites;
+
+  public InsightModelDataDiagnosisModifier() {
+	  super(new TypeToken<Object>() { });
+  }
 
   /**
    * Gets the associatedProcedures.
@@ -34,7 +39,7 @@ public class InsightModelDataDiagnosisModifier extends DynamicModel {
    * @return the associatedProcedures
    */
   public List<InsightModelDataEvidence> getAssociatedProcedures() {
-	  return GsonSerializationHelper.serializeDynamicModelProperty(this.get("associatedProcedures"), associatedProceduresType);
+	  return this.associatedProcedures;
   }
 
   /**
@@ -43,25 +48,7 @@ public class InsightModelDataDiagnosisModifier extends DynamicModel {
    * @return the sites
    */
   public List<InsightModelDataSite> getSites() {
-	  return GsonSerializationHelper.serializeDynamicModelProperty(this.get("sites"), sitesType);
+	  return this.sites;
   }
-
-//  /**
-//   * Sets the associatedProcedures.
-//   *
-//   * @param associatedProcedures the new associatedProcedures
-//   */
-//  public void setAssociatedProcedures(final List<InsightModelDataEvidence> associatedProcedures) {
-//    this.put("associatedProcedures", associatedProcedures);
-//  }
-//
-//  /**
-//   * Sets the sites.
-//   *
-//   * @param sites the new sites
-//   */
-//  public void setSites(final List<InsightModelDataSite> sites) {
-//    this.put("sites", sites);
-//  }
 
 }

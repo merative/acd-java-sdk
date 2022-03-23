@@ -1,5 +1,5 @@
 /*
- * Copyright 2018, 2021 IBM Corp. All Rights Reserved.
+ * Copyright 2018, 2022 IBM Corp. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with
  * the License. You may obtain a copy of the License at
@@ -13,25 +13,35 @@
 
 package com.ibm.watson.health.acd.v1.model;
 
-import java.lang.reflect.Type;
-
+import com.google.gson.annotations.SerializedName;
 import com.google.gson.reflect.TypeToken;
-import com.ibm.watson.developer_cloud.service.model.DynamicModel;
-import com.ibm.watson.developer_cloud.util.GsonSerializationHelper;
+import com.ibm.cloud.sdk.core.service.model.DynamicModel;
 
 /**
  * InsightModelData.
  */
-public class InsightModelData extends DynamicModel {
+public class InsightModelData extends DynamicModel<Object> {
 
-  private Type medicationType = new TypeToken<InsightModelDataMedication>() { } .getType();
-  private Type procedureType = new TypeToken<InsightModelDataProcedure>() { } .getType();
-  private Type diagnosisType = new TypeToken<InsightModelDataDiagnosis>() { } .getType();
-  private Type normalityType = new TypeToken<InsightModelDataNormality>() { } .getType();
-  private Type tobaccoType = new TypeToken<InsightModelTobacco>() { } .getType();
-  private Type alcoholType = new TypeToken<InsightModelAlcohol>() { } .getType();
-  private Type illicitDrugType = new TypeToken<InsightModelIllicitDrug>() { } .getType();
-  private Type substanceType = new TypeToken<InsightModelSubstanceAbuse>() { } .getType();
+  @SerializedName("medication")
+  protected InsightModelDataMedication medication;
+  @SerializedName("procedure")
+  protected InsightModelDataProcedure procedure;
+  @SerializedName("diagnosis")
+  protected InsightModelDataDiagnosis diagnosis;
+  @SerializedName("normality")
+  protected InsightModelDataNormality normality;
+  @SerializedName("tobacco")
+  protected InsightModelTobacco tobacco;
+  @SerializedName("alcohol")
+  protected InsightModelAlcohol alcohol;
+  @SerializedName("illicitDrug")
+  protected InsightModelIllicitDrug illicitDrug;
+  @SerializedName("substance")
+  protected InsightModelSubstanceAbuse substance;
+
+  public InsightModelData() {
+	  super(new TypeToken<Object>() { });
+  }
 
   /**
    * Gets the medication.
@@ -39,7 +49,7 @@ public class InsightModelData extends DynamicModel {
    * @return the medication
    */
   public InsightModelDataMedication getMedication() {
-    return GsonSerializationHelper.serializeDynamicModelProperty(this.get("medication"), medicationType);
+    return this.medication;
   }
 
   /**
@@ -48,7 +58,7 @@ public class InsightModelData extends DynamicModel {
    * @return the procedure
    */
   public InsightModelDataProcedure getProcedure() {
-    return GsonSerializationHelper.serializeDynamicModelProperty(this.get("procedure"), procedureType);
+    return this.procedure;
   }
 
   /**
@@ -57,7 +67,7 @@ public class InsightModelData extends DynamicModel {
    * @return the diagnosis
    */
   public InsightModelDataDiagnosis getDiagnosis() {
-    return GsonSerializationHelper.serializeDynamicModelProperty(this.get("diagnosis"), diagnosisType);
+    return this.diagnosis;
   }
 
   /**
@@ -66,7 +76,7 @@ public class InsightModelData extends DynamicModel {
    * @return the normality
    */
   public InsightModelDataNormality getNormality() {
-    return GsonSerializationHelper.serializeDynamicModelProperty(this.get("normality"), normalityType);
+    return this.normality;
   }
 
   /**
@@ -75,7 +85,7 @@ public class InsightModelData extends DynamicModel {
    * @return the tobacco
    */
   public InsightModelTobacco getTobacco() {
-	  return GsonSerializationHelper.serializeDynamicModelProperty(this.get("tobacco"), tobaccoType);
+	  return this.tobacco;
   }
 
   /**
@@ -84,7 +94,7 @@ public class InsightModelData extends DynamicModel {
    * @return the alcohol
    */
   public InsightModelAlcohol getAlcohol() {
-	  return GsonSerializationHelper.serializeDynamicModelProperty(this.get("alcohol"), alcoholType);
+	  return this.alcohol;
   }
 
   /**
@@ -93,7 +103,7 @@ public class InsightModelData extends DynamicModel {
    * @return the illicitDrug
    */
   public InsightModelIllicitDrug getIllicitDrug() {
-	  return GsonSerializationHelper.serializeDynamicModelProperty(this.get("illicitDrug"), illicitDrugType);
+	  return this.illicitDrug;
   }
 
   /**
@@ -102,79 +112,7 @@ public class InsightModelData extends DynamicModel {
    * @return the substance
    */
   public InsightModelSubstanceAbuse getSubstance() {
-	  return GsonSerializationHelper.serializeDynamicModelProperty(this.get("substance"), substanceType);
+	  return this.substance;
   }
-
-//  /**
-//   * Sets the medication.
-//   *
-//   * @param medication the new medication
-//   */
-//  public void setMedication(final InsightModelDataMedication medication) {
-//    this.put("medication", medication);
-//  }
-//
-//  /**
-//   * Sets the procedure.
-//   *
-//   * @param procedure the new procedure
-//   */
-//  public void setProcedure(final InsightModelDataProcedure procedure) {
-//    this.put("procedure", procedure);
-//  }
-//
-//  /**
-//   * Sets the diagnosis.
-//   *
-//   * @param diagnosis the new diagnosis
-//   */
-//  public void setDiagnosis(final InsightModelDataDiagnosis diagnosis) {
-//    this.put("diagnosis", diagnosis);
-//  }
-//
-//  /**
-//   * Sets the normality.
-//   *
-//   * @param normality the new normality
-//   */
-//  public void setNormality(final InsightModelDataNormality normality) {
-//    this.put("normality", normality);
-//  }
-//
-//  /**
-//   * Sets the tobacco.
-//   *
-//   * @param tobacco the new tobacco
-//   */
-//  public void setTobacco(final InsightModelTobacco tobacco) {
-//    this.put("tobacco", tobacco);
-//  }
-//
-//  /**
-//   * Sets the alcohol.
-//   *
-//   * @param alcohol the new alcohol
-//   */
-//  public void setAlcohol(final InsightModelAlcohol alcohol) {
-//    this.put("alcohol", alcohol);
-//  }
-//
-//  /**
-//   * Sets the illicitDrug.
-//   *
-//   * @param illicitDrug the new illicitDrug
-//   */
-//  public void setIllicitDrug(final InsightModelIllicitDrug illicitDrug) {
-//    this.put("illicitDrug", illicitDrug);
-//  }
-//
-//  /**
-//   * Sets the substance.
-//   *
-//   * @param substance the new substance
-//   */
-//  public void setSubstance(final InsightModelSubstanceAbuse substance) {
-//    this.put("substance", substance);
-//  }
 
 }
