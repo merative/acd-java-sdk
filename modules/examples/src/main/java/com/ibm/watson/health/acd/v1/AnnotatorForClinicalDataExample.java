@@ -152,17 +152,17 @@ public class AnnotatorForClinicalDataExample {
     } catch (ServiceResponseException e) {
       System.out.println("Service returned status code: Error details: " + e.getStatusCode() + " " + e.getMessage() + " " + e.getDebuggingInfo().toString());
     }
-  
+
     // Get Cartridge by ID
     try {
       System.out.println("\n Get Cartridge by ID =>");
       CartridgesGetIdOptions opts = new CartridgesGetIdOptions.Builder()
         .id("wh_acd.ibm_clinical_insights_v1.0").build();
       ServiceCall<AcdCartridges> getCartridgeCall = acd.cartridgesGetId(opts);
- 
+
       Response<AcdCartridges> resp = getCartridgeCall.execute();
       AcdCartridges cart = resp.getResult();
-  
+
       System.out.println("Cartridge: " + cart.getId() + " Status: " + cart.getStatus());
     } catch (ServiceResponseException e) {
       System.out.println("Service returned status code: Error details: " + e.getStatusCode() + " " + e.getMessage() + " " + e.getDebuggingInfo().toString());
@@ -178,7 +178,7 @@ public class AnnotatorForClinicalDataExample {
 
       ServiceCall<DeployCartridgeResponse> deployCartridgeCall = acd.cartridgesPostMultipart(opts);
       Response<DeployCartridgeResponse> resp = deployCartridgeCall.execute();
-    
+
       System.out.println(resp.getStatusCode());
     } catch (FileNotFoundException e) {
       System.out.println("File " + cartridgeZip + " not found for cartridge deployment: " + e.getMessage());
@@ -239,7 +239,7 @@ public class AnnotatorForClinicalDataExample {
     try {
       System.out.println("\n Get ACD Health Check =>");
       GetHealthCheckStatusOptions options = new GetHealthCheckStatusOptions.Builder().build();
- 
+
       ServiceCall<ServiceStatus> getHealthCheckCall = acd.getHealthCheckStatus(options);
       Response<ServiceStatus> resp = getHealthCheckCall.execute();
 
