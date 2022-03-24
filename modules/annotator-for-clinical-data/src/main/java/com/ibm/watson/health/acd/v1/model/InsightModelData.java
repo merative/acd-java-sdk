@@ -13,6 +13,8 @@
 
 package com.ibm.watson.health.acd.v1.model;
 
+import java.lang.reflect.Field;
+
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.reflect.TypeToken;
 import com.ibm.cloud.sdk.core.service.model.DynamicModel;
@@ -113,6 +115,27 @@ public class InsightModelData extends DynamicModel<Object> {
    */
   public InsightModelSubstanceAbuse getSubstance() {
 	  return this.substance;
+  }
+
+  /**
+   * Returns the value from InsightModelData annotation by specified key.
+   *
+   * @param key the name of the field to get
+   */
+  @Override
+  public Object get(String key) {
+	  Object value = super.get(key);
+	  if (value == null) {
+		  try {
+			  Field field = InsightModelData.class.getDeclaredField(key);
+			  value = field.get(this);
+		  } catch (NoSuchFieldException e) {
+			  return null;
+		  } catch (Exception e1) {
+			  e1.printStackTrace();
+		  }
+	  }
+	  return value;
   }
 
 }
