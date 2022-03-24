@@ -48,13 +48,13 @@ import com.ibm.cloud.sdk.core.service.exception.ServiceResponseException;
  * NOTE: To run this sample class, replace "YOUR_APIKEY" below with your apikey
  * for the Annotator for Clinical Data (ACD) service. Also, make sure the "url"
  * reflects the ACD service instance.
- * 
+ *
  * Optional: Update the "version" if you require a specific version of ACD.
  */
 public class AnnotatorForClinicalDataExample {
-  
+
   protected AnnotatorForClinicalDataExample() { }
-  
+
   public static void main(String[] args) throws Exception {
     String apikey = "YOUR_APIKEY";
     //String url = "https://us-east.wh-acd.cloud.ibm.com/wh-acd/api";
@@ -66,7 +66,7 @@ public class AnnotatorForClinicalDataExample {
         .username("apikey")
         .password(apikey)
         .build();
-    
+
     acd = new AnnotatorForClinicalData(
         version,
         AnnotatorForClinicalData.DEFAULT_SERVICE_NAME,
@@ -118,7 +118,7 @@ public class AnnotatorForClinicalDataExample {
       System.out.println("Service returned status code: Error details: " + e.getStatusCode() + " " + e.getMessage() + " " + e.getDebuggingInfo().toString());
 
     }
-    
+
     // Analyze with Flow
     try {
       System.out.println("\n Analyze with Flow =>");
@@ -128,7 +128,7 @@ public class AnnotatorForClinicalDataExample {
       ContainerGroup response = acd.analyzeWithFlow(flowId, text);
       List<Concept> concepts = response.getConcepts();
 
-      for (Concept c: concepts) {
+      for (Concept c : concepts) {
         System.out.println("Type: " + c.getType()
         + " Name: " + c.getPreferredName()
         + " | CUI: " + c.getCui());
@@ -136,7 +136,7 @@ public class AnnotatorForClinicalDataExample {
     } catch (ServiceResponseException e) {
       System.out.println("Service returned status code: Error details: " + e.getStatusCode() + " " + e.getMessage() + " " + e.getDebuggingInfo().toString());
     }
-  
+
     // Get Cartridges
     try {
       System.out.println("\n Get Cartridges =>");
@@ -146,28 +146,28 @@ public class AnnotatorForClinicalDataExample {
       Response<AcdCartridgesList> resp = getCartridgesCall.execute();
       AcdCartridgesList cartridges = resp.getResult();
 
-      for (AcdCartridges cartridge:cartridges.getCartridges()) {
+      for (AcdCartridges cartridge : cartridges.getCartridges()) {
         System.out.println("Cartridge: " + cartridge.getId() + " Status: " + cartridge.getStatus());
       }
     } catch (ServiceResponseException e) {
       System.out.println("Service returned status code: Error details: " + e.getStatusCode() + " " + e.getMessage() + " " + e.getDebuggingInfo().toString());
     }
-    
+  
     // Get Cartridge by ID
     try {
       System.out.println("\n Get Cartridge by ID =>");
       CartridgesGetIdOptions opts = new CartridgesGetIdOptions.Builder()
         .id("wh_acd.ibm_clinical_insights_v1.0").build();
       ServiceCall<AcdCartridges> getCartridgeCall = acd.cartridgesGetId(opts);
-      
+ 
       Response<AcdCartridges> resp = getCartridgeCall.execute();
       AcdCartridges cart = resp.getResult();
-      
+  
       System.out.println("Cartridge: " + cart.getId() + " Status: " + cart.getStatus());
     } catch (ServiceResponseException e) {
       System.out.println("Service returned status code: Error details: " + e.getStatusCode() + " " + e.getMessage() + " " + e.getDebuggingInfo().toString());
     }
-    
+
     // Deploy Cartridge Asynchronously
     File cartridgeZip = new File("name_of_exported cartridge_zip_file.zip");
     try {
@@ -175,34 +175,34 @@ public class AnnotatorForClinicalDataExample {
       CartridgesPostMultipartOptions opts = new CartridgesPostMultipartOptions.Builder()
           .archiveFile(cartridgeZip)
           .build();
-      
+
       ServiceCall<DeployCartridgeResponse> deployCartridgeCall = acd.cartridgesPostMultipart(opts);
       Response<DeployCartridgeResponse> resp = deployCartridgeCall.execute();
-      
+    
       System.out.println(resp.getStatusCode());
     } catch (FileNotFoundException e) {
       System.out.println("File " + cartridgeZip + " not found for cartridge deployment: " + e.getMessage());
     } catch (ServiceResponseException e) {
       System.out.println("Service returned status code: Error details: " + e.getStatusCode() + " " + e.getMessage() + " " + e.getDebuggingInfo().toString());
     }
-    
+
     // Redeploy Existing Cartridge
     try {
       System.out.println("\n Redeploy Cartridge =>");
       CartridgesPutMultipartOptions opts = new CartridgesPutMultipartOptions.Builder()
           .archiveFile(cartridgeZip)
           .build();
-      
+
       ServiceCall<DeployCartridgeResponse> redeployCartridgeCall = acd.cartridgesPutMultipart(opts);
       Response<DeployCartridgeResponse> resp = redeployCartridgeCall.execute();
-      
+
       System.out.println(resp.getStatusCode());
     } catch (FileNotFoundException e) {
       System.out.println("File " + cartridgeZip + " not found for cartridge redeployment: " + e.getMessage());
     } catch (ServiceResponseException e) {
       System.out.println("Service returned status code: Error details: " + e.getStatusCode() + " " + e.getMessage() + " " + e.getDebuggingInfo().toString());
     }
-    
+
     // Get Flows
     try {
       System.out.println("\n Get Flows =>");
@@ -212,13 +212,13 @@ public class AnnotatorForClinicalDataExample {
       Response<Map<String, AcdFlow>> resp = getFlowsCall.execute();
 
       Map<String, AcdFlow> mapAcdFlow = resp.getResult();
-      for( String id : mapAcdFlow.keySet() ) {
+      for (String id : mapAcdFlow.keySet()) {
         System.out.println("Flow: " + id);
       }
     } catch (ServiceResponseException e) {
       System.out.println("Service returned status code: Error details: " + e.getStatusCode() + " " + e.getMessage() + " " + e.getDebuggingInfo().toString());
     }
-    
+
     // Get Flow by ID
     try {
       System.out.println("\n Get Flows by ID =>");
@@ -234,19 +234,19 @@ public class AnnotatorForClinicalDataExample {
     } catch (ServiceResponseException e) {
       System.out.println("Service returned status code: Error details: " + e.getStatusCode() + " " + e.getMessage() + " " + e.getDebuggingInfo().toString());
     }
-    
+
     // Get ACD Service Health Check
     try {
       System.out.println("\n Get ACD Health Check =>");
       GetHealthCheckStatusOptions options = new GetHealthCheckStatusOptions.Builder().build();
-      
+ 
       ServiceCall<ServiceStatus> getHealthCheckCall = acd.getHealthCheckStatus(options);
       Response<ServiceStatus> resp = getHealthCheckCall.execute();
-      
+
       System.out.println("Service Status: " + resp.getResult().getServiceState());
     } catch (ServiceResponseException e) {
       System.out.println("Service returned status code: Error details: " + e.getStatusCode() + " " + e.getMessage() + " " + e.getDebuggingInfo().toString());
     }
-    
+
   }
 }
