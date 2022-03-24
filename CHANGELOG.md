@@ -1,3 +1,10 @@
+## [1.5.1](https://github.com/IBM/whcs-java-sdk/compare/1.5.0...1.5.1) (2022-03-24)
+
+
+### Bug Fixes
+
+* Include DynamicModel get value by key ([8be35b1](https://github.com/IBM/whcs-java-sdk/commit/8be35b1443fce27afd472b180434c5fe369d5f4f))
+
 # [1.5.0](https://github.com/IBM/whcs-java-sdk/compare/1.4.2...1.5.0) (2022-03-23)
 
 
