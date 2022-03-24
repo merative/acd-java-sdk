@@ -12,6 +12,7 @@
  */
 package com.ibm.watson.health.acd.v1.model;
 
+import java.lang.reflect.Field;
 import java.util.List;
 
 import com.google.gson.annotations.SerializedName;
@@ -232,4 +233,24 @@ public class Procedure extends DynamicModel<Object> {
 	  return this.temporal;
   }
 
+  /**
+   * Returns the value from Procedure annotation by specified key.
+   *
+   * @param key the name of the field to get
+   */
+  @Override
+  public Object get(String key) {
+	  Object value = super.get(key);
+	  if (value == null) {
+		  try {
+			  Field field = Procedure.class.getDeclaredField(key);
+			  value = field.get(this);
+		  } catch (NoSuchFieldException e) {
+			  return null;
+		  } catch (Exception e1) {
+			  e1.printStackTrace();
+		  }
+	  }
+	  return value;
+  }
 }

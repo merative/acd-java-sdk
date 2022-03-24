@@ -100,6 +100,7 @@ public class TestConcept {
 			Assert.assertTrue(concept.getSemanticType().length() > 0);
 		}
 		if (concept.getInsightModelData() != null) {
+			Assert.assertNotNull(concept.get("insightModelData"));
 			TestInsightModelData.testInsightModelData(concept.getInsightModelData());
 		}
 		if (concept.getRuleId() != null) {
