@@ -1,3 +1,10 @@
+## [1.5.2](https://github.com/IBM/whcs-java-sdk/compare/1.5.1...1.5.2) (2022-04-08)
+
+
+### Bug Fixes
+
+* Support analyze debug flag ([ed6ce4e](https://github.com/IBM/whcs-java-sdk/commit/ed6ce4e6cc4696dd03a2d9101d5826293702c63a))
+
 ## [1.5.1](https://github.com/IBM/whcs-java-sdk/compare/1.5.0...1.5.1) (2022-03-24)
 
 
