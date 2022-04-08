@@ -35,6 +35,7 @@ public class AnalyzeWithFlowOptions extends GenericModel {
   private String body;
   private String contentType;
   private boolean returnAnalyzedText;
+  private boolean debug;
 
   /**
    * Builder.
@@ -45,6 +46,7 @@ public class AnalyzeWithFlowOptions extends GenericModel {
       private String body;
       private String contentType;
       private boolean returnAnalyzedText = false;
+      private boolean debug = false;
 
       private Builder(AnalyzeWithFlowOptions analyzeWithFlowOptions) {
           flowId = analyzeWithFlowOptions.flowId;
@@ -52,6 +54,7 @@ public class AnalyzeWithFlowOptions extends GenericModel {
           body = analyzeWithFlowOptions.body;
           contentType = analyzeWithFlowOptions.contentType;
           returnAnalyzedText = analyzeWithFlowOptions.returnAnalyzedText;
+          debug =  analyzeWithFlowOptions.debug;
       }
 
       /**
@@ -134,6 +137,17 @@ public class AnalyzeWithFlowOptions extends GenericModel {
           this.returnAnalyzedText = returnAnalyzedText;
           return this;
       }
+
+      /**
+       * Set the debug.
+       *
+       * @param debug enable analyze debug flag
+       * @return the AnalyzeWithFlowOptions builder
+       */
+      public Builder debug(boolean debug) {
+          this.debug = debug;
+          return this;
+      }
   }
 
 
@@ -145,6 +159,7 @@ public class AnalyzeWithFlowOptions extends GenericModel {
     body = builder.body;
     contentType = builder.contentType;
     returnAnalyzedText = builder.returnAnalyzedText;
+    debug = builder.debug;
   }
 
   /**
@@ -209,5 +224,16 @@ public class AnalyzeWithFlowOptions extends GenericModel {
    */
   public boolean returnAnalyzedText() {
     return returnAnalyzedText;
+  }
+
+  /**
+   * Gets the debug flag.
+   *
+   * true or false
+   *
+   * @return the debug flag
+   */
+  public boolean debug() {
+    return debug;
   }
 }

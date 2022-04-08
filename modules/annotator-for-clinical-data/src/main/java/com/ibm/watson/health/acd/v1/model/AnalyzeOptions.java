@@ -27,6 +27,7 @@ public class AnalyzeOptions extends GenericModel {
   private List<UnstructuredContainer> unstructured;
   private List<AnnotatorFlow> annotatorFlows;
   private boolean returnAnalyzedText;
+  private boolean debug;
 
 
   /**
@@ -36,12 +37,14 @@ public class AnalyzeOptions extends GenericModel {
       private List<UnstructuredContainer> unstructured;
       private List<AnnotatorFlow> annotatorFlows;
       private boolean returnAnalyzedText;
+      private boolean debug;
 
 
       private Builder(AnalyzeOptions analyzeOptions) {
           unstructured = analyzeOptions.unstructured;
           annotatorFlows = analyzeOptions.annotatorFlows;
           returnAnalyzedText = analyzeOptions.returnAnalyzedText;
+          debug = analyzeOptions.debug;
       }
 
       /**
@@ -123,12 +126,24 @@ public class AnalyzeOptions extends GenericModel {
           this.returnAnalyzedText = returnAnalyzedText;
           return this;
       }
+
+      /**
+       * Set the debug flag.
+       *
+       * @param debug enable analyze debug flag
+       * @return the AnalyzeOptionsbuilder
+       */
+      public Builder debug(boolean debug) {
+          this.debug = debug;
+          return this;
+      }
 }
 
   private AnalyzeOptions(Builder builder) {
     unstructured = builder.unstructured;
     annotatorFlows = builder.annotatorFlows;
     returnAnalyzedText = builder.returnAnalyzedText;
+    debug = builder.debug;
   }
 
   /**
@@ -167,5 +182,16 @@ public class AnalyzeOptions extends GenericModel {
    */
   public boolean returnAnalyzedText() {
     return returnAnalyzedText;
+  }
+
+  /**
+   * Gets the debug flag.
+   *
+   * true or false
+   *
+   * @return the debug
+   */
+  public boolean debug() {
+    return debug;
   }
 }

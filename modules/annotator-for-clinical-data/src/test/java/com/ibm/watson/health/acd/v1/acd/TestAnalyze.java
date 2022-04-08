@@ -179,6 +179,28 @@ public class TestAnalyze extends WatsonServiceTest {
 			TestContainerGroup.testContainerGroups(containerGroup);
 		}
 	}
+	
+	@Test
+	public void testAnalyzeTextDebug() {
+		Annotator annotator = new Annotator.Builder().name(Constants.CONCEPT_DETECTION_NAME).build();
+		FlowEntry flowEntry = new FlowEntry.Builder().annotator(annotator).build();
+		Flow elementFlow = new Flow.Builder().addElements(flowEntry).async(false).build();
+
+		for (int i = 0; i < Constants.SAMPLE_TEXT_ARRAY.length; i++) {
+			ContainerGroup containerGroup = null;
+			try {
+				Response<ContainerGroup> response = service.analyzeDebug(Constants.SAMPLE_TEXT_ARRAY[i], elementFlow, true, true);
+				containerGroup = response.getResult();
+			} catch (ServiceResponseException e) {
+				// Base class for all exceptions caused by error responses from the service
+				System.out.println("testAnalyzeTextDebug: Service returned status code "
+						+ e.getStatusCode() + ": " + e.getMessage());
+				System.out.println("Detailed error info:\n" + e.getDebuggingInfo().toString());
+			}
+			Assert.assertNotNull(containerGroup);
+			TestContainerGroup.testContainerGroups(containerGroup);
+		}
+	}
 
 	@Test
 	public void testAnalyzeMultipleAnnotators() {

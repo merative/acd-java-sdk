@@ -26,6 +26,7 @@ public class RunPipelineOptions extends GenericModel {
   protected List<AnnotatorFlow> annotatorFlows;
   protected Boolean debugTextRestore;
   protected Boolean returnAnalyzedText;
+  protected Boolean debug;
 
   /**
    * Builder.
@@ -35,12 +36,14 @@ public class RunPipelineOptions extends GenericModel {
     private List<AnnotatorFlow> annotatorFlows;
     private Boolean debugTextRestore;
     private Boolean returnAnalyzedText;
+    private Boolean debug;
 
     private Builder(RunPipelineOptions runPipelineOptions) {
       this.unstructured = runPipelineOptions.unstructured;
       this.annotatorFlows = runPipelineOptions.annotatorFlows;
       this.debugTextRestore = runPipelineOptions.debugTextRestore;
       this.returnAnalyzedText = runPipelineOptions.returnAnalyzedText;
+      this.debug = runPipelineOptions.debug;
     }
 
     /**
@@ -135,6 +138,17 @@ public class RunPipelineOptions extends GenericModel {
       this.returnAnalyzedText = returnAnalyzedText;
       return this;
     }
+
+    /**
+     * Set the debug flag.
+     *
+     * @param debug enable the analyze debug flag
+     * @return the RunPipelineOptions builder
+     */
+    public Builder debug(Boolean debug) {
+      this.debug = debug;
+      return this;
+    }
   }
 
   protected RunPipelineOptions(Builder builder) {
@@ -142,6 +156,7 @@ public class RunPipelineOptions extends GenericModel {
     annotatorFlows = builder.annotatorFlows;
     debugTextRestore = builder.debugTextRestore;
     returnAnalyzedText = builder.returnAnalyzedText;
+    debug = builder.debug;
   }
 
   /**
@@ -193,6 +208,15 @@ public class RunPipelineOptions extends GenericModel {
    */
   public Boolean returnAnalyzedText() {
     return returnAnalyzedText;
+  }
+
+  /**
+   * Gets the debug flag.
+   *   *
+   * @return the debug
+   */
+  public Boolean debug() {
+    return debug;
   }
 }
 
