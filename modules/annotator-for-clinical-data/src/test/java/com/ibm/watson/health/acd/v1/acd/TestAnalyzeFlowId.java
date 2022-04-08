@@ -241,6 +241,44 @@ public class TestAnalyzeFlowId extends WatsonServiceTest {
 			TestContainerGroup.testContainerGroups(containerGroup);
 		}
 	}
+	
+	@Test
+	public void testAnalyzeFlowIdUnstructuredContainerDebug() {
+
+		for (int i = 0; i < Constants.SAMPLE_TEXT_ARRAY.length; i++) {
+			UnstructuredContainer unstructured = new UnstructuredContainer.Builder().text(Constants.SAMPLE_TEXT_ARRAY[i]).build();
+			ContainerGroup containerGroup = null;
+			try {
+				Response<ContainerGroup> response  = service.analyzeWithFlowDebug(Constants.FLOW_ID, unstructured, false, true);
+				containerGroup = response.getResult();
+			} catch (ServiceResponseException e) {
+				// Base class for all exceptions caused by error responses from the service
+				System.out.println("testAnalyzeFlowIdUnstructuredContainerDebug: Service returned status code "
+						+ e.getStatusCode() + ": " + e.getMessage());
+				System.out.println("Detailed error info:\n" + e.getDebuggingInfo().toString());
+			}
+			Assert.assertNotNull(containerGroup);
+			TestContainerGroup.testContainerGroups(containerGroup);
+		}
+	}
+	
+	@Test
+	public void testAnalyzeFlowIdDebug() {
+
+		for (int i = 0; i < Constants.SAMPLE_TEXT_ARRAY.length; i++) {
+			ContainerGroup containerGroup = null;
+			try {
+				containerGroup = service.analyzeWithFlowDebug(Constants.FLOW_ID, Constants.SAMPLE_TEXT_ARRAY[i], false, true);
+			} catch (ServiceResponseException e) {
+				// Base class for all exceptions caused by error responses from the service
+				System.out.println("testAnalyzeFlowIdDebug: Service returned status code "
+						+ e.getStatusCode() + ": " + e.getMessage());
+				System.out.println("Detailed error info:\n" + e.getDebuggingInfo().toString());
+			}
+			Assert.assertNotNull(containerGroup);
+			TestContainerGroup.testContainerGroups(containerGroup);
+		}
+	}
 
 	@Test
 	public void testGetBuilderFromOptions() {

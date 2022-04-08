@@ -84,6 +84,8 @@ public class AnnotatorForClinicalData extends BaseService {
 
   public static final String VERSION = "version";
 
+  public static final String DEBUG = "debug";
+
   private String version;
 
  /**
@@ -698,6 +700,9 @@ public class AnnotatorForClinicalData extends BaseService {
     if (runPipelineOptions.returnAnalyzedText() != null) {
       builder.query("return_analyzed_text", String.valueOf(runPipelineOptions.returnAnalyzedText()));
     }
+    if (runPipelineOptions.debug() != null) {
+      builder.query("debug", String.valueOf(runPipelineOptions.debug()));
+    }
     final JsonObject contentJson = new JsonObject();
     if (runPipelineOptions.unstructured() != null) {
       contentJson.add("unstructured", com.ibm.cloud.sdk.core.util.GsonSingleton.getGson().toJsonTree(runPipelineOptions.unstructured()));
@@ -811,6 +816,7 @@ public class AnnotatorForClinicalData extends BaseService {
     if (runPipelineWithFlowOptions.debugTextRestore() != null) {
       builder.query("debug_text_restore", String.valueOf(runPipelineWithFlowOptions.debugTextRestore()));
     }
+    builder.query("debug", String.valueOf(runPipelineWithFlowOptions.debug()));
     builder.bodyContent(runPipelineWithFlowOptions.contentType(), runPipelineWithFlowOptions.analyticFlowBeanInput(),
       null, runPipelineWithFlowOptions.body());
     ResponseConverter<Void> responseConverter = ResponseConverterUtils.getVoid();
@@ -869,6 +875,7 @@ public class AnnotatorForClinicalData extends BaseService {
       RequestBuilder builder = RequestBuilder.post(RequestBuilder.constructHttpUrl(getServiceUrl(), pathSegments));
       builder.query(VERSION, version);
       builder.query(RETURN_ANALYZED_TEXT, String.valueOf(analyzeOptions.returnAnalyzedText()));
+      builder.query(DEBUG, String.valueOf(analyzeOptions.debug()));
       Map<String, String> sdkHeaders = SdkCommon.getSdkHeaders(DEFAULT_SERVICE_NAME, "v1", "analyze");
       for (Entry<String, String> header : sdkHeaders.entrySet()) {
           builder.header(header.getKey(), header.getValue());
@@ -918,6 +925,7 @@ public class AnnotatorForClinicalData extends BaseService {
       }
       builder.query(VERSION, version);
       builder.query(RETURN_ANALYZED_TEXT, String.valueOf(analyzeWithFlowOptions.returnAnalyzedText()));
+      builder.query(DEBUG, String.valueOf(analyzeWithFlowOptions.debug()));
       builder.header("content-type", analyzeWithFlowOptions.contentType());
 
       if (analyzeWithFlowOptions.contentType()
@@ -942,7 +950,7 @@ public class AnnotatorForClinicalData extends BaseService {
       AnnotatorFlow annotatorFlow = new AnnotatorFlow.Builder().flow(flow).build();
       UnstructuredContainer unstructuredContainer = new UnstructuredContainer.Builder().text(text).build();
       AnalyzeOptions options = new AnalyzeOptions.Builder().addUnstructured(unstructuredContainer)
-              .returnAnalyzedText(false).addAnnotatorFlows(annotatorFlow).build();
+              .returnAnalyzedText(false).debug(false).addAnnotatorFlows(annotatorFlow).build();
 
       return this.analyze(options).execute().getResult();
   }
@@ -960,7 +968,7 @@ public class AnnotatorForClinicalData extends BaseService {
       AnnotatorFlow annotatorFlow = new AnnotatorFlow.Builder().flow(flow).build();
       UnstructuredContainer unstructuredContainer = new UnstructuredContainer.Builder().text(text).build();
       AnalyzeOptions options = new AnalyzeOptions.Builder().addUnstructured(unstructuredContainer)
-              .returnAnalyzedText(false).addAnnotatorFlows(annotatorFlow).build();
+              .returnAnalyzedText(false).debug(false).addAnnotatorFlows(annotatorFlow).build();
 
       return this.analyze(options).execute();
   }
@@ -979,7 +987,7 @@ public class AnnotatorForClinicalData extends BaseService {
       AnnotatorFlow annotatorFlow = new AnnotatorFlow.Builder().flow(flow).build();
       UnstructuredContainer unstructuredContainer = new UnstructuredContainer.Builder().text(text).build();
       AnalyzeOptions options = new AnalyzeOptions.Builder().addUnstructured(unstructuredContainer)
-              .returnAnalyzedText(returnAnalyzedText).addAnnotatorFlows(annotatorFlow).build();
+              .returnAnalyzedText(returnAnalyzedText).debug(false).addAnnotatorFlows(annotatorFlow).build();
 
       return this.analyze(options).execute().getResult();
   }
@@ -999,7 +1007,28 @@ public class AnnotatorForClinicalData extends BaseService {
       AnnotatorFlow annotatorFlow = new AnnotatorFlow.Builder().flow(flow).build();
       UnstructuredContainer unstructuredContainer = new UnstructuredContainer.Builder().text(text).build();
       AnalyzeOptions options = new AnalyzeOptions.Builder().addUnstructured(unstructuredContainer)
-              .returnAnalyzedText(returnAnalyzedText).addAnnotatorFlows(annotatorFlow).build();
+              .returnAnalyzedText(returnAnalyzedText).debug(false).addAnnotatorFlows(annotatorFlow).build();
+
+      return this.analyze(options).execute();
+  }
+
+  /**
+   * Method to analyze text with a manually defined annotator flow.
+   *
+   * @param text data to be analyzed
+   * @param flow  analytics to appply to the text {@link Flow}
+   * @param returnAnalyzedText where to return the submitted data
+   * @param debug analyze debug flag
+   *
+   * @return the response with result representing {@link ContainerGroup}
+   */
+
+  public Response<ContainerGroup> analyzeDebug(final String text, final Flow flow,
+          final boolean returnAnalyzedText, final boolean debug) {
+      AnnotatorFlow annotatorFlow = new AnnotatorFlow.Builder().flow(flow).build();
+      UnstructuredContainer unstructuredContainer = new UnstructuredContainer.Builder().text(text).build();
+      AnalyzeOptions options = new AnalyzeOptions.Builder().addUnstructured(unstructuredContainer)
+              .returnAnalyzedText(returnAnalyzedText).debug(debug).addAnnotatorFlows(annotatorFlow).build();
 
       return this.analyze(options).execute();
   }
@@ -1015,7 +1044,7 @@ public class AnnotatorForClinicalData extends BaseService {
 
   public ContainerGroup analyzeWithFlow(final String flowId, final String text) {
       AnalyzeWithFlowOptions analyzeWithFlowOptions = new AnalyzeWithFlowOptions.Builder().flowId(flowId).text(text)
-              .returnAnalyzedText(false).build();
+              .returnAnalyzedText(false).debug(false).build();
 
       return this.analyzeWithFlow(analyzeWithFlowOptions).execute().getResult();
   }
@@ -1026,12 +1055,12 @@ public class AnnotatorForClinicalData extends BaseService {
    * @param flowId identifier of existing analytic flow to apply to the text
    * @param text data to be analyzed
    *
-   * @return the resopnse with result representing {@link ContainerGroup}
+   * @return the response with result representing {@link ContainerGroup}
    */
 
   public Response<ContainerGroup> analyzeWithFlowInclResponseDetails(final String flowId, final String text) {
       AnalyzeWithFlowOptions analyzeWithFlowOptions = new AnalyzeWithFlowOptions.Builder().flowId(flowId).text(text)
-              .returnAnalyzedText(false).build();
+              .returnAnalyzedText(false).debug(false).build();
 
       return this.analyzeWithFlow(analyzeWithFlowOptions).execute();
   }
@@ -1043,12 +1072,30 @@ public class AnnotatorForClinicalData extends BaseService {
    * @param text data to be analyzed
    * @param returnAnalyzedText where to return the submitted data
    *
-   * @return the resopnse with result representing {@link ContainerGroup}
+   * @return the response with result representing {@link ContainerGroup}
    */
 
   public ContainerGroup analyzeWithFlow(final String flowId, final String text, final boolean returnAnalyzedText) {
       AnalyzeWithFlowOptions analyzeWithFlowOptions = new AnalyzeWithFlowOptions.Builder().flowId(flowId).text(text)
-              .returnAnalyzedText(returnAnalyzedText).build();
+              .returnAnalyzedText(returnAnalyzedText).debug(false).build();
+
+      return this.analyzeWithFlow(analyzeWithFlowOptions).execute().getResult();
+  }
+
+    /**
+   * Method to analyze text with an existing annotator flow with analyze debug flag enabled.
+   *
+   * @param flowId identifier of existing analytic flow to apply to the text
+   * @param text data to be analyzed
+   * @param returnAnalyzedText where to return the submitted data
+   * @param debug turn on analyze debug flag
+   *
+   * @return the response with result representing {@link ContainerGroup}
+   */
+
+  public ContainerGroup analyzeWithFlowDebug(final String flowId, final String text, final boolean returnAnalyzedText, final boolean debug) {
+      AnalyzeWithFlowOptions analyzeWithFlowOptions = new AnalyzeWithFlowOptions.Builder().flowId(flowId).text(text)
+              .returnAnalyzedText(returnAnalyzedText).debug(debug).build();
 
       return this.analyzeWithFlow(analyzeWithFlowOptions).execute().getResult();
   }
@@ -1060,13 +1107,13 @@ public class AnnotatorForClinicalData extends BaseService {
    * @param text data to be analyzed
    * @param returnAnalyzedText where to return the submitted data
    *
-   * @return the resopnse with result representing {@link ContainerGroup}
+   * @return the response with result representing {@link ContainerGroup}
    */
 
   public Response<ContainerGroup> analyzeWithFlowInclResponseDetails(final String flowId, final String text,
           final boolean returnAnalyzedText) {
       AnalyzeWithFlowOptions analyzeWithFlowOptions = new AnalyzeWithFlowOptions.Builder().flowId(flowId).text(text)
-              .returnAnalyzedText(returnAnalyzedText).build();
+              .returnAnalyzedText(returnAnalyzedText).debug(false).build();
 
       return this.analyzeWithFlow(analyzeWithFlowOptions).execute();
   }
@@ -1075,7 +1122,7 @@ public class AnnotatorForClinicalData extends BaseService {
    * Method to analyze text with an existing annotator flow.
    *
    * @param flowId identifier of existing analytic flow to apply to the text
-   * @param unstructuredContainer {@link UnstructuredContainer} discovered cogntive artifacts
+   * @param unstructuredContainer {@link UnstructuredContainer} discovered cognitive artifacts
    *
    * @return the {@link ContainerGroup}
    */
@@ -1085,7 +1132,7 @@ public class AnnotatorForClinicalData extends BaseService {
               .build();
 
       AnalyzeWithFlowOptions analyzeWithFlowOptions = new AnalyzeWithFlowOptions.Builder().flowId(flowId)
-              .returnAnalyzedText(false).request(requestContainer).build();
+              .returnAnalyzedText(false).debug(false).request(requestContainer).build();
 
       return this.analyzeWithFlow(analyzeWithFlowOptions).execute().getResult();
   }
@@ -1094,18 +1141,23 @@ public class AnnotatorForClinicalData extends BaseService {
    * Method to analyze text with an existing annotator flow.
    *
    * @param flowId identifier of existing analytic flow to apply to the text
-   * @param unstructuredContainer {@link UnstructuredContainer} discovered cogntive artifacts
+   * @param unstructuredContainer {@link UnstructuredContainer} discovered cognitive artifacts
    *
-   * @return the resopnse with result representing {@link ContainerGroup}
+   * @return the response with result representing {@link ContainerGroup}
+   *
+   * Note: This method is incorrectly named (see analyzeWithFlowInclResponseDetails(String, UnstructuredContainer,
+   * boolean) since it does not accept a boolean.  Will leave here for now to prevent a breaking a change and mark
+   * it deprecated.
    */
 
+  @Deprecated
   public Response<ContainerGroup> analyzeWithFlowInclResponseDetails(final String flowId,
           final UnstructuredContainer unstructuredContainer) {
       RequestContainer requestContainer = new RequestContainer.Builder().addUnstructured(unstructuredContainer)
               .build();
 
       AnalyzeWithFlowOptions analyzeWithFlowOptions = new AnalyzeWithFlowOptions.Builder().flowId(flowId)
-              .returnAnalyzedText(false).request(requestContainer).build();
+              .returnAnalyzedText(false).debug(false).request(requestContainer).build();
 
       return this.analyzeWithFlow(analyzeWithFlowOptions).execute();
   }
@@ -1117,7 +1169,7 @@ public class AnnotatorForClinicalData extends BaseService {
    * @param unstructuredContainer {@link UnstructuredContainer}
    * @param returnAnalyzedText where to return the submitted data
    *
-   * @return the {@link ContainerGroup} discovered cogntive artifacts
+   * @return the {@link ContainerGroup} discovered cognitive artifacts
    */
 
   public ContainerGroup analyzeWithFlow(final String flowId, final UnstructuredContainer unstructuredContainer,
@@ -1126,7 +1178,7 @@ public class AnnotatorForClinicalData extends BaseService {
               .build();
 
       AnalyzeWithFlowOptions analyzeWithFlowOptions = new AnalyzeWithFlowOptions.Builder().flowId(flowId)
-              .returnAnalyzedText(returnAnalyzedText).request(requestContainer).build();
+              .returnAnalyzedText(returnAnalyzedText).debug(false).request(requestContainer).build();
 
       return this.analyzeWithFlow(analyzeWithFlowOptions).execute().getResult();
   }
@@ -1138,7 +1190,7 @@ public class AnnotatorForClinicalData extends BaseService {
    * @param unstructuredContainer {@link UnstructuredContainer}
    * @param returnAnalyzedText where to return the submitted data
    *
-   * @return the resopnse with result representing {@link ContainerGroup}
+   * @return the response with result representing {@link ContainerGroup}
    */
 
   public Response<ContainerGroup> analyzeWithFlowInclResponseDetails(final String flowId,
@@ -1147,7 +1199,29 @@ public class AnnotatorForClinicalData extends BaseService {
               .build();
 
       AnalyzeWithFlowOptions analyzeWithFlowOptions = new AnalyzeWithFlowOptions.Builder().flowId(flowId)
-              .returnAnalyzedText(returnAnalyzedText).request(requestContainer).build();
+              .returnAnalyzedText(returnAnalyzedText).debug(false).request(requestContainer).build();
+
+      return this.analyzeWithFlow(analyzeWithFlowOptions).execute();
+  }
+
+    /**
+   * Method to analyze text with an existing annotator flow with analyze debug flag enabled.
+   *
+   * @param flowId identifier of existing analytic flow to apply to the text
+   * @param unstructuredContainer {@link UnstructuredContainer}
+   * @param returnAnalyzedText where to return the submitted data
+   * @param debug analyze debug flag enabled
+   *
+   * @return the response with result representing {@link ContainerGroup}
+   */
+
+  public Response<ContainerGroup> analyzeWithFlowDebug(final String flowId,
+          final UnstructuredContainer unstructuredContainer, final boolean returnAnalyzedText, final boolean debug) {
+      RequestContainer requestContainer = new RequestContainer.Builder().addUnstructured(unstructuredContainer)
+              .build();
+
+      AnalyzeWithFlowOptions analyzeWithFlowOptions = new AnalyzeWithFlowOptions.Builder().flowId(flowId)
+              .returnAnalyzedText(returnAnalyzedText).debug(debug).request(requestContainer).build();
 
       return this.analyzeWithFlow(analyzeWithFlowOptions).execute();
   }

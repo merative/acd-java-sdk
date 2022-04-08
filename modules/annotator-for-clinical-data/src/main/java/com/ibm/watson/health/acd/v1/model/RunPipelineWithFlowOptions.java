@@ -25,6 +25,7 @@ public class RunPipelineWithFlowOptions extends GenericModel {
   protected String body;
   protected String contentType;
   protected Boolean debugTextRestore;
+  protected Boolean debug;
 
   /**
    * Builder.
@@ -36,6 +37,7 @@ public class RunPipelineWithFlowOptions extends GenericModel {
     private String body;
     private String contentType;
     private Boolean debugTextRestore;
+    private Boolean debug;
 
     private Builder(RunPipelineWithFlowOptions runPipelineWithFlowOptions) {
       this.flowId = runPipelineWithFlowOptions.flowId;
@@ -44,6 +46,7 @@ public class RunPipelineWithFlowOptions extends GenericModel {
       this.body = runPipelineWithFlowOptions.body;
       this.contentType = runPipelineWithFlowOptions.contentType;
       this.debugTextRestore = runPipelineWithFlowOptions.debugTextRestore;
+      this.debug = runPipelineWithFlowOptions.debug;
     }
 
     /**
@@ -128,6 +131,17 @@ public class RunPipelineWithFlowOptions extends GenericModel {
       this.contentType = "text/plain";
       return this;
     }
+
+    /**
+     * Set the debug flag.
+     *
+     * @param debug enable the analyze debug flag
+     * @return the RunPipelineWithFlowOptions builder
+     */
+    public Builder debug(Boolean debug) {
+      this.debug = debug;
+      return this;
+    }
   }
 
   protected RunPipelineWithFlowOptions(Builder builder) {
@@ -141,6 +155,7 @@ public class RunPipelineWithFlowOptions extends GenericModel {
     body = builder.body;
     contentType = builder.contentType;
     debugTextRestore = builder.debugTextRestore;
+    debug = builder.debug;
   }
 
   /**
@@ -219,6 +234,15 @@ public class RunPipelineWithFlowOptions extends GenericModel {
    */
   public Boolean debugTextRestore() {
     return debugTextRestore;
+  }
+
+  /**
+   * Gets the debug flag.
+   *
+   * @return the debug
+   */
+  public Boolean debug() {
+    return debug;
   }
 }
 
