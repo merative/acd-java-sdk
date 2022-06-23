@@ -2,20 +2,17 @@
 
 ## Overview
 
-The IBM Watson Health Cognitive Services (WHCS) Java SDK allows developers to programmatically interact with the following IBM Cloud service:
+The IBM Watson Health Cognitive Services (WHCS) Java SDK allows developers to programmatically interact with the following IBM Watson service:
 
 | Service Name | Artifact ID |
 |--------------|-------------|
-| [Annotator for Clinical Data](https://cloud.ibm.com/apidocs/wh-acd) | annotator-for-clinical-data |
-
-NOTE: You must be signed in to IBM Cloud to see the docs.
+| [Annotator for Clinical Data](https://ibm.github.io/acd-containers/) | annotator-for-clinical-data |
 
 ## Prerequisites
 
-[ibm-cloud-onboarding]: https://cloud.ibm.com/registration
-
-* An [IBM Cloud][ibm-cloud-onboarding] account.
-* An IAM API key to allow the SDK to access your service instance. For instructions about copying the credentials of an existing service instance, or creating a new service instance, refer to Getting Started [here](https://cloud.ibm.com/docs/wh-acd?topic=wh-acd-getting-started).
+* Refer to the IBM Watson Annotation for Clinical Data documentation:
+  * [Prerequisites](https://ibm.github.io/acd-containers/installing/prereqs/)
+  * [Software Development Kits](https://ibm.github.io/acd-containers/usage/sdks/)
 * Java 8 or above.
 
 ## Installation
@@ -65,14 +62,13 @@ For general SDK usage information, please see [this link](https://github.com/IBM
 
 ## Questions
 
-If you are having difficulties using this SDK or have a question about the IBM Cloud services,
-please ask a question at
-[Stack Overflow](http://stackoverflow.com/questions/ask?tags=ibm-cloud).
+For questions, refer to: 
+* [IBM Watson Annotator for Clinical Data product site](https://www.ibm.com/cloud/watson-annotator-for-clinical-data)
+* [IBM Watson Annotator for Clinical Data documentation](https://ibm.github.io/acd-containers/)
 
 ## Issues
 If you encounter an issue with the project, you are welcome to submit a
 [bug report](https://github.com/IBM/whcs-java-sdk/issues).
-Before that, please search for similar issues. It's possible that someone has already reported the problem.
 
 ## Open source @ IBM
 Find more open source projects on the [IBM Github Page](http://ibm.github.io/)
