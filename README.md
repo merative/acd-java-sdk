@@ -62,7 +62,9 @@ For general SDK usage information, please see [this link](https://github.com/IBM
 
 ## Questions
 
-For questions, refer to [IBM Watson Annotator for Clinical Data product site](https://www.ibm.com/cloud/watson-annotator-for-clinical-data) or the [IBM Watson Annotator for Clinical Data documentation](https://ibm.github.io/acd-containers/).
+For questions, refer to: 
+* [IBM Watson Annotator for Clinical Data product site](https://www.ibm.com/cloud/watson-annotator-for-clinical-data)
+* [IBM Watson Annotator for Clinical Data documentation](https://ibm.github.io/acd-containers/)
 
 ## Issues
 If you encounter an issue with the project, you are welcome to submit a
