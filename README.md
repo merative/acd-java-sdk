@@ -6,13 +6,13 @@ The IBM Watson Health Cognitive Services (WHCS) Java SDK allows developers to pr
 
 | Service Name | Artifact ID |
 |--------------|-------------|
-| [Annotator for Clinical Data](https://ibm.github.io/acd-containers/) | annotator-for-clinical-data |
+| [Annotator for Clinical Data](https://merative.github.io/acd-containers/) | annotator-for-clinical-data |
 
 ## Prerequisites
 
 * Refer to the IBM Watson Annotation for Clinical Data documentation:
-  * [Prerequisites](https://ibm.github.io/acd-containers/installing/prereqs/)
-  * [Software Development Kits](https://ibm.github.io/acd-containers/usage/sdks/)
+  * [Prerequisites](https://merative.github.io/acd-containers/installing/prereqs/)
+  * [Software Development Kits](https://merative.github.io/acd-containers/usage/sdks/)
 * Java 8 or above.
 
 ## Installation
@@ -64,11 +64,11 @@ For general SDK usage information, please see [this link](https://github.com/IBM
 
 For questions, refer to: 
 * [IBM Watson Annotator for Clinical Data product site](https://www.ibm.com/cloud/watson-annotator-for-clinical-data)
-* [IBM Watson Annotator for Clinical Data documentation](https://ibm.github.io/acd-containers/)
+* [IBM Watson Annotator for Clinical Data documentation](https://merative.github.io/acd-containers/)
 
 ## Issues
 If you encounter an issue with the project, you are welcome to submit a
-[bug report](https://github.com/IBM/whcs-java-sdk/issues).
+[bug report](https://github.com/merative/whcs-java-sdk/issues).
 
 ## Open source @ IBM
 Find more open source projects on the [IBM Github Page](http://ibm.github.io/)
