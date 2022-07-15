@@ -27,11 +27,6 @@
         </dependency>
         <dependency>
             <groupId>${project.groupId}</groupId>
-            <artifactId>insights-for-medical-literature</artifactId>
-            <version>${project.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>${project.groupId}</groupId>
             <artifactId>annotator-for-clinical-data</artifactId>
             <version>${project.version}</version>
         </dependency>
