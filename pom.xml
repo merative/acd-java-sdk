@@ -17,10 +17,10 @@
 
     <developers>
       <developer>
-         <name>Watson Health</name>
-         <email>dcweber@us.ibm.com</email>
-         <organization>IBM</organization>
-         <organizationUrl>https://ibm.com</organizationUrl>
+         <name>Health Insights</name>
+         <email>dlangst@merative.com</email>
+         <organization>Merative</organization>
+         <organizationUrl>https://merative.com</organizationUrl>
       </developer>
     </developers>
 
@@ -31,11 +31,11 @@
         <sdk-core-version>9.14.1</sdk-core-version>
 
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-        <timestamp>${maven.build.timestamp}</timestamp>
-        <maven.build.timestamp.format>yyyyMMdd-HHmm</maven.build.timestamp.format>
-        <java.version>1.8</java.version>
-  	<git-repository-name>whcs-java-sdk</git-repository-name>
+        <!-- <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding> -->
+        <!-- <timestamp>${maven.build.timestamp}</timestamp> -->
+        <!-- <maven.build.timestamp.format>yyyyMMdd-HHmm</maven.build.timestamp.format> -->
+        <!-- <java.version>1.8</java.version> -->
+  	<!-- <git-repository-name>whcs-java-sdk</git-repository-name> -->
         <nexus-staging-plugin-version>1.6.8</nexus-staging-plugin-version>
         <testng-version>7.4.0</testng-version>
         <okhttp3-version>4.9.1</okhttp3-version>
@@ -369,17 +369,12 @@
                 <artifactId>maven-failsafe-plugin</artifactId>
             </plugin>
             <plugin>
-                <groupId>org.codehaus.mojo</groupId>
-                <artifactId>buildnumber-maven-plugin</artifactId>
-            </plugin>
-            <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-jar-plugin</artifactId>
             </plugin>
             <plugin>
                <groupId>org.apache.maven.plugins</groupId>
                <artifactId>maven-source-plugin</artifactId>
-               <version>2.2.1</version>
                <executions>
                  <execution>
                    <id>attach-sources</id>
