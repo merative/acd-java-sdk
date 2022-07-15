@@ -67,7 +67,7 @@
 
 	<!-- >>> List each service's module here -->
         <module>modules/annotator-for-clinical-data</module>
-        <module>modules/insights-for-medical-literature</module>
+	<!-- <module>modules/insights-for-medical-literature</module> -->
 
         <module>modules/coverage-reports</module>
 
