@@ -32,3 +32,27 @@ jobs:
         
       - name: Report Status
         run: echo "This job's status is ${{ job.status }}."
+
+  release:
+    runs-on: ubuntu-latest
+    needs: [verify, test]
+    if: github.event_name == 'push' && github.ref == 'refs/heads/master'
+    steps:
+      - name: Setup Extensions
+        uses: actions/checkout@v3
+        
+      - name: Setup Nodejs
+        uses: actions/setup-node@v2
+        with:
+          node-version: '12'
+          
+      - name: Release Using Semantic Release
+        run:
+          sudo apt-get update
+          sudo apt-get install python
+          pip install --user bumpversion
+          npm install @semantic-release/changelog
+          npm install @semantic-release/exec
+          npm install @semantic-release/git
+          npm install @semantic-release/github
+          npx semantic-release
