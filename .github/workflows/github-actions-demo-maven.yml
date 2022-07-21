@@ -13,7 +13,7 @@ jobs:
           java-version: '8'
           distribution: 'adopt'
       - name: Install Dependencies
-        run: mvn installl
+        run: mvn install
 
   test:
     runs-on: ubuntu-latest
