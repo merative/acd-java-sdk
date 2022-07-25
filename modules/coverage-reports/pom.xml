@@ -3,16 +3,16 @@
     xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 
     <parent>
-        <artifactId>ibm-whcs-services</artifactId>
-        <groupId>com.ibm.watson.health.cognitive-services</groupId>
+        <artifactId>acd-sdk</artifactId>
+        <groupId>com.merative.acd</groupId>
         <version>1.0.1-SNAPSHOT</version>
         <relativePath>../../pom.xml</relativePath>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>ibm-whcs-services-coverage-reports</artifactId>
+    <artifactId>acd-sdk-coverage-reports</artifactId>
 
-    <name>IBM Watson Health Cognitive Services Coverage Reports</name>
+    <name>Merative Annotator for Clinical Data Java SDK Coverage Reports</name>
 
     <properties>
         <maven.deploy.skip>true</maven.deploy.skip>
@@ -21,7 +21,7 @@
 
     <dependencies>
         <dependency>
-            <artifactId>ibm-whcs-services-common</artifactId>
+            <artifactId>acd-sdk-common</artifactId>
             <groupId>${project.groupId}</groupId>
             <version>${project.version}</version>
         </dependency>
