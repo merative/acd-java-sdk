@@ -3,39 +3,39 @@
     xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>ibm-whcs-services</artifactId>
+    <artifactId>acd-sdk</artifactId>
 
-    <name>IBM Watson Health Cognitive Services Java SDK</name>
+    <name>Merative Annotator for Clinical Data Java SDK Parent</name>
 
-    <description>Java Client Library to access the IBM Watson Health Cognitive Services</description>
+    <description>Java Client Library to access the Merative ACD Services</description>
 
-    <url>https://github.com/IBM/whcs-java-sdk</url>
+    <url>https://github.com/merative/whcs-java-sdk</url>
 
-    <groupId>com.ibm.watson.health.cognitive-services</groupId>
+    <groupId>com.merative.acd</groupId>
     <version>1.0.1-SNAPSHOT</version>
     <packaging>pom</packaging>
 
     <developers>
       <developer>
-         <name>Watson Health</name>
-         <email>dcweber@us.ibm.com</email>
-         <organization>IBM</organization>
-         <organizationUrl>https://ibm.com</organizationUrl>
+         <name>Health Insights</name>
+         <email>dlangst@merative.com</email>
+         <organization>Merative</organization>
+         <organizationUrl>https://merative.com</organizationUrl>
       </developer>
     </developers>
 
     <properties>
         <!-- This is the version associated with the Java core. The version used
             here should be compatible with the version of the SDK generator used to generate
-            your SDK code. See this link for details: https://github.ibm.com/CloudEngineering/openapi-sdkgen/wiki/Compatibility-Chart -->
+            your SDK code.  -->
         <sdk-core-version>9.14.1</sdk-core-version>
 
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-        <timestamp>${maven.build.timestamp}</timestamp>
-        <maven.build.timestamp.format>yyyyMMdd-HHmm</maven.build.timestamp.format>
-        <java.version>1.8</java.version>
-  	<git-repository-name>whcs-java-sdk</git-repository-name>
+        <!-- <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding> -->
+        <!-- <timestamp>${maven.build.timestamp}</timestamp> -->
+        <!-- <maven.build.timestamp.format>yyyyMMdd-HHmm</maven.build.timestamp.format> -->
+        <!-- <java.version>1.8</java.version> -->
+  	<!-- <git-repository-name>whcs-java-sdk</git-repository-name> -->
         <nexus-staging-plugin-version>1.6.8</nexus-staging-plugin-version>
         <testng-version>7.4.0</testng-version>
         <okhttp3-version>4.9.1</okhttp3-version>
@@ -67,7 +67,7 @@
 
 	<!-- >>> List each service's module here -->
         <module>modules/annotator-for-clinical-data</module>
-        <module>modules/insights-for-medical-literature</module>
+	<!-- <module>modules/insights-for-medical-literature</module> -->
 
         <module>modules/coverage-reports</module>
 
@@ -83,23 +83,23 @@
     </licenses>
 
     <organization>
-        <name>IBM Cloud</name>
+        <name>Merative</name>
     </organization>
 
     <scm>
-        <connection>scm:git:https://github.com/IBM/whcs-java-sdk</connection>
-        <developerConnection>scm:git:https://github.com/IBM/whcs-java-sdk</developerConnection>
-        <url>https://github.com/IBM/whcs-java-sdk/tree/master</url>
+        <connection>scm:git:https://github.com/merative/whcs-java-sdk</connection>
+        <developerConnection>scm:git:https://github.com/merative/whcs-java-sdk</developerConnection>
+        <url>https://github.com/merative/whcs-java-sdk/tree/master</url>
     </scm>
 
     <issueManagement>
         <system>Github</system>
-        <url>https://github.ibm.com/IBM/whcs-java-sdk/issues</url>
+        <url>https://github.com/merative/whcs-java-sdk/issues</url>
     </issueManagement>
 
     <ciManagement>
-        <system>Travis-CI</system>
-        <url>https://travis-ci.com/IBM/whcs-java-sdk/</url>
+        <system>GitHub Actions</system>
+        <url>https://github.com/merative/whcs-java-sdk/actions</url>
     </ciManagement>
 
     <!-- we define this in the profile below -->
@@ -119,8 +119,8 @@
 
             <!-- Each module (except "common") should depend on this artifact -->
             <dependency>
-                <artifactId>ibm-whcs-services-common</artifactId>
-                <groupId>com.ibm.cloud</groupId>
+                <artifactId>acd-sdk-common</artifactId>
+                <groupId>${project.groupId}</groupId>
                 <version>${project.version}</version>
             </dependency>
 
@@ -317,7 +317,7 @@
                                     <name>Implementation</name>
                                     <manifestEntries>
                                         <Implementation-Title>${project.name}</Implementation-Title>
-                                        <Implementation-Vendor>IBM Corporation</Implementation-Vendor>
+                                        <Implementation-Vendor>Merative</Implementation-Vendor>
                                         <Implementation-Version>${project.version}</Implementation-Version>
                                         <Implementation-SCM-Revision>${buildNumber}</Implementation-SCM-Revision>
                                         <Implementation-SCM-Branch>${scmBranch}</Implementation-SCM-Branch>
@@ -342,7 +342,7 @@
                     <aggregate>true</aggregate>
                     <show>public</show>
                     <doctitle>${project.name}, version ${project.version}</doctitle>
-                    <footer>IBM Corporation</footer>
+                    <footer>Merative</footer>
                     <source>8</source>
                     <detectJavaApiLink>false</detectJavaApiLink>
                 </configuration>
@@ -369,17 +369,12 @@
                 <artifactId>maven-failsafe-plugin</artifactId>
             </plugin>
             <plugin>
-                <groupId>org.codehaus.mojo</groupId>
-                <artifactId>buildnumber-maven-plugin</artifactId>
-            </plugin>
-            <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-jar-plugin</artifactId>
             </plugin>
             <plugin>
                <groupId>org.apache.maven.plugins</groupId>
                <artifactId>maven-source-plugin</artifactId>
-               <version>2.2.1</version>
                <executions>
                  <execution>
                    <id>attach-sources</id>
