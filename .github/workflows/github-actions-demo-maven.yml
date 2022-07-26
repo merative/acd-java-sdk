@@ -48,20 +48,19 @@ jobs:
       - name: Setup Extensions
         uses: actions/checkout@v3
         
-      - name: Setup Nodejs
-        uses: actions/setup-node@v2
+      - name: Setup Node
+        uses: actions/setup-node@v1
         with:
           node-version: '14'
           
       - name: Release Using Semantic Release
         run:
-          sudo apt-get update
-          sudo apt-get install python
           pip3 install --user bumpversion
-          npm install @semantic-release/changelog
-          npm install @semantic-release/exec
-          npm install @semantic-release/git
-          npm install @semantic-release/github
+          npm install -g semantic-release
+          npm install -g @semantic-release/changelog
+          npm install -g @semantic-release/exec
+          npm install -g @semantic-release/git
+          npm install -g @semantic-release/github
           npx semantic-release
 
   publish:
