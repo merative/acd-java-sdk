@@ -53,7 +53,7 @@ jobs:
         with:
           node-version: '14'
           
-      - name: Release Using Semantic Release
+      - name: Install Semantic Release dependencies
         run: |
           pip3 install --user bump2version
           npm install -g semantic-release
@@ -61,6 +61,11 @@ jobs:
           npm install -g @semantic-release/exec
           npm install -g @semantic-release/git
           npm install -g @semantic-release/github
+          
+      - name: Publish to Git Releases and Tags
+        env:
+          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+        run:
           npx semantic-release
 
   publish:
