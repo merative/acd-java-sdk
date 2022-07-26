@@ -1,3 +1,10 @@
+## [1.5.3](https://github.com/merative/whcs-java-sdk/compare/1.5.2...1.5.3) (2022-07-26)
+
+
+### Bug Fixes
+
+* new Maven coordinates ([103d113](https://github.com/merative/whcs-java-sdk/commit/103d11364dc80d531d9f2e3f68e5dcf689a764ef))
+
 ## [1.5.2](https://github.com/IBM/whcs-java-sdk/compare/1.5.1...1.5.2) (2022-04-08)
 
 
