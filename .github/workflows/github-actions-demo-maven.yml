@@ -47,7 +47,9 @@ jobs:
     permissions: write-all
     steps:
       - name: Setup Extensions
-        uses: actions/checkout@v3
+        uses: actions/checkout@v2
+        with:
+          persist-credentials: false
         
       - name: Setup Node
         uses: actions/setup-node@v1
@@ -65,7 +67,8 @@ jobs:
           
       - name: Publish to Git Releases and Tags
         env:
-          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run:
           npx semantic-release
 
