@@ -8,16 +8,16 @@ echo '<!DOCTYPE html>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>IBM Cloud Watson Health Cognitive Services</title>
+    <title>Merative Annotator for Clinical Data Service</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" crossorigin="anonymous">
 </head>
 <body>
 <div class="container">
     <div class="page-header">
-        <h1>IBM Cloud Watson Health Cognitive Services Java SDK Documentation</h1>
+        <h1>Merative Annotator for Clinical Data Service Java SDK Documentation</h1>
     </div>
-    <p><a href="https://cloud.ibm.com/apidocs/wh-acd">Annotator for Clinical Data Info</a>
-        | <a href="https://github.com/IBM/whcs-java-sdk">GitHub</a>
+    <p><a href="https://merative.github.io/acd-containers/apidocs">Annotator for Clinical Data Info</a>
+        | <a href="https://github.com/merative/whcs-java-sdk">GitHub</a>
     </p>
     <p>Javadoc by branch/release:</p>
     <ul><li><a href="docs/latest">Latest</a></li>'

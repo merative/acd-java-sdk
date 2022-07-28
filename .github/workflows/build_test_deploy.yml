@@ -1,4 +1,4 @@
-name: GitHub Actions Demo Java CI
+name: GitHub Actions ACD Java SDK
 
 on: [push, pull_request]
 
@@ -65,21 +65,47 @@ jobs:
           npm install -g @semantic-release/git
           npm install -g @semantic-release/github
           
-      - name: Publish to Git Releases and Tags
+      - name: Get the next release from semantic release
+        id: next_release
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run:
-          npx semantic-release
+        run: echo ::set-output name=NEXT_RELEASE::$(npx semantic-release --dry-run | grep -oP "Published release \K[0-9]+\.[0-9]+\.[0-9]+")
 
-  publish:
-    runs-on: ubuntu-latest
-    if: "github.event_name == 'push' && contains(github.ref, 'refs/tags')"
-    steps:
-      - name: Set Up Extensions
-        uses: actions/checkout@v3
+      - name: Publish to git releases and tags
+        env:
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: npx semantic-release --dry-run #temp use dry-run
 
-      - uses: actions/setup-java@v3
-        with:
-          distribution: 'adopt'
-          java-version: '8'
+      - name: Publish to maven central
+        if: "github.event_name == 'push' && contains(github.ref, 'refs/tags')"
+        env:
+          GHA_TAG: "refs/tags/v${{ steps.next_release.outputs.NEXT_RELEASE }}"
+          OSSRH_USERNAME: ${{ secrets.OSSRH_USERNAME }}
+          OSSRH_PASSWORD: ${{ secrets.OSSRH_PASSWORD }}
+          GPG_KEYNAME: ${{ secrets.GPG_KEYNAME }}
+          GPG_PASSPHRASE: ${{ secrets.GPG_PASSPHRASE }}
+          SIGNING_PASSPHRASE: ${{ secrets.SIGNIN_PASSPHRASE }}
+        run: |
+          echo "The next release is ${{ steps.next_release.outputs.NEXT_RELEASE }}"
+          echo "Running script setupSigning"
+          build/setupSigning_gha.sh
+          echo "Running script setMavenVersion"
+          build/setMavenVersion_gha.sh
+          echo "Running mvn deploy"
+          mvn deploy --settings build/.travis.settings.xml -DskipITs -Dskip.unit-tests -P central
+
+      - name: Publish javadocs
+        if: "github.event_name == 'push' && contains(github.ref, 'refs/tags')"
+        env:
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+          GHA_TAG: "refs/tags/v${{ steps.next_release.outputs.NEXT_RELEASE }}"
+          GHA_COMMIT: ${{ github.sha }}
+        run: |
+          echo "Running script setMavenVersion"
+          build/setMavenVersion_gha.sh
+          echo "Running mvn clean"
+          mvn clean javadocs:aggregate
+          echo "Running script publish"
+          build/publishJavadoc_gha.sh
