@@ -79,9 +79,8 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           echo "The next release is ${{ steps.next_release.outputs.NEXT_RELEASE }}"
-          npx semantic-release --dry-run #temp use dry-run
+          npx semantic-release
         
-
       - name: Publish to maven central
         if: "github.event_name == 'push' && contains(github.ref, 'refs/tags')"
         env:
@@ -90,7 +89,7 @@ jobs:
           OSSRH_PASSWORD: ${{ secrets.OSSRH_PASSWORD }}
           GPG_KEYNAME: ${{ secrets.GPG_KEYNAME }}
           GPG_PASSPHRASE: ${{ secrets.GPG_PASSPHRASE }}
-          SIGNING_PASSPHRASE: ${{ secrets.SIGNIN_PASSPHRASE }}
+          SIGNING_PASSPHRASE: ${{ secrets.SIGNING_PASSPHRASE }}
         run: |
           echo "The next release is ${{ steps.next_release.outputs.NEXT_RELEASE }}"
           echo "Running script setupSigning"
