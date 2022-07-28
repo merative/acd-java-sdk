@@ -82,7 +82,7 @@ jobs:
           npx semantic-release
         
       - name: Publish to maven central
-        if: "github.event_name == 'push' && contains(github.ref, 'refs/tags')"
+        if: ${{ steps.next_release.outputs.NEXT_RELEASE != null }}
         env:
           GHA_TAG: "refs/tags/v${{ steps.next_release.outputs.NEXT_RELEASE }}"
           OSSRH_USERNAME: ${{ secrets.OSSRH_USERNAME }}
@@ -100,7 +100,7 @@ jobs:
           mvn deploy --settings build/.travis.settings.xml -DskipITs -Dskip.unit-tests -P central
 
       - name: Publish javadocs
-        if: "github.event_name == 'push' && contains(github.ref, 'refs/tags')"
+        if: ${{ steps.next_release.outputs.NEXT_RELEASE != null }}
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
           GHA_TAG: "refs/tags/v${{ steps.next_release.outputs.NEXT_RELEASE }}"
