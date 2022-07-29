@@ -83,7 +83,7 @@ jobs:
       - name: Publish to maven central
         if: ${{ steps.next_release.outputs.NEXT_RELEASE != null }}
         env:
-          GHA_TAG: "refs/tags/v${{ steps.next_release.outputs.NEXT_RELEASE }}"
+          GHA_TAG: "refs/tags/${{ steps.next_release.outputs.NEXT_RELEASE }}"
           OSSRH_USERNAME: ${{ secrets.OSSRH_USERNAME }}
           OSSRH_PASSWORD: ${{ secrets.OSSRH_PASSWORD }}
           GPG_KEYNAME: ${{ secrets.GPG_KEYNAME }}
