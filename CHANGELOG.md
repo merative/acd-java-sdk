@@ -1,3 +1,10 @@
+## [1.5.8](https://github.com/merative/whcs-java-sdk/compare/1.5.7...1.5.8) (2022-07-29)
+
+
+### Bug Fixes
+
+* maven deploy update ([51af524](https://github.com/merative/whcs-java-sdk/commit/51af524d89f4f7f5f24e8720984d62b374b3a68d))
+
 ## [1.5.7](https://github.com/merative/whcs-java-sdk/compare/1.5.6...1.5.7) (2022-07-29)
 
 
