@@ -1410,6 +1410,8 @@ public class ContainerGroup extends GenericModel {
   /**
    * Gets the line scope at given index.
    *
+   * @param index position to retrieve
+   *
    * @return the line scope
    */
   public Annotation getLines(int index) {
@@ -1442,6 +1444,8 @@ public class ContainerGroup extends GenericModel {
   /**
    * Gets the sentence scope at given index.
    *
+   * @param index position to retrieve
+   *
    * @return the sentence scope
    */
   public Annotation getSentences(int index) {
@@ -1473,6 +1477,8 @@ public class ContainerGroup extends GenericModel {
 
   /**
    * Gets the paragraph scope at given index.
+   *
+   * @param index position to retrieve
    *
    * @return the paragraph scope
    */

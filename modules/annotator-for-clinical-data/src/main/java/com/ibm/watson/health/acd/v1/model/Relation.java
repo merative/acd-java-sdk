@@ -73,6 +73,8 @@ public class Relation extends DynamicModel<Object> {
   /**
    * Gets the node.
    *
+   * @param index position to retrieve
+   *
    * @return the node
    */
   public RelationNode getNode(int index) {
