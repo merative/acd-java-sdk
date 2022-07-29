@@ -102,7 +102,7 @@ jobs:
         if: ${{ steps.next_release.outputs.NEXT_RELEASE != null }}
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
-          GHA_TAG: "refs/tags/v${{ steps.next_release.outputs.NEXT_RELEASE }}"
+          GHA_TAG: "refs/tags/${{ steps.next_release.outputs.NEXT_RELEASE }}"
           GHA_COMMIT: ${{ github.sha }}
         run: |
           echo "Running script setMavenVersion"
