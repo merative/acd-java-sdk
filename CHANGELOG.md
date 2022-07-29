@@ -1,3 +1,10 @@
+## [1.5.9](https://github.com/merative/whcs-java-sdk/compare/1.5.8...1.5.9) (2022-07-29)
+
+
+### Bug Fixes
+
+* publish javadoc ([df0be9a](https://github.com/merative/whcs-java-sdk/commit/df0be9afca069a1144154dd8cefdc79131f9b2c5))
+
 ## [1.5.8](https://github.com/merative/whcs-java-sdk/compare/1.5.7...1.5.8) (2022-07-29)
 
 
