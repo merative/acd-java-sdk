@@ -1,3 +1,10 @@
+## [1.5.7](https://github.com/merative/whcs-java-sdk/compare/1.5.6...1.5.7) (2022-07-29)
+
+
+### Bug Fixes
+
+* update pom.xml ([44277b7](https://github.com/merative/whcs-java-sdk/commit/44277b734b2627ea8db6d50fff927b3acb52eb93))
+
 ## [1.5.6](https://github.com/merative/whcs-java-sdk/compare/1.5.5...1.5.6) (2022-07-28)
 
 
