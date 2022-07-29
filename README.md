@@ -1,4 +1,4 @@
-# Annotator for Clinical Data Java SDK Version 1.5.11
+# Merative Annotator for Clinical Data Java SDK Version 1.5.11
 
 ## Overview
 
@@ -18,8 +18,8 @@ This Java SDK allows developers to programmatically interact with the following 
 ## Installation
 The current version of this SDK is: 1.5.11
 
-#### WHCS service (Option 1)
-To define a dependency on the service contained in the project, use a dependency like these:
+#### Parent Project (Option 1)
+To define a dependency on the parent project `acd-sdk`, use a dependency like these:
 
 ##### Maven
 
@@ -37,8 +37,8 @@ To define a dependency on the service contained in the project, use a dependency
 'com.merative.acd:acd-sdk:1.5.11'
 ```
 
-#### Annotator for Clinical Data service (Option 2)
-To define a dependency on the Annotator for Clinical Data service, use a dependency like this:
+#### Annotator for Clinical Data Subproject (Option 2)
+To define a dependency on the subproject `annotator-for-clinical-data`, use a dependency like this:
 
 ##### Maven
 
