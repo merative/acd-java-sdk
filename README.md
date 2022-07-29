@@ -1,8 +1,8 @@
-# Watson Health Cognitive Services Java SDK Version 1.5.11
+# Annotator for Clinical Data Java SDK Version 1.5.11
 
 ## Overview
 
-The Watson Health Cognitive Services (WHCS) Java SDK allows developers to programmatically interact with the following service:
+This Java SDK allows developers to programmatically interact with the following service:
 
 | Service Name | Artifact ID |
 |--------------|-------------|
@@ -63,7 +63,7 @@ For general SDK usage information, please see [this link](https://github.com/IBM
 ## Questions
 
 For questions, refer to: 
-* [IBM Watson Annotator for Clinical Data product site](https://www.ibm.com/cloud/watson-annotator-for-clinical-data)
+* [Annotator for Clinical Data product site](https://www.ibm.com/cloud/watson-annotator-for-clinical-data)
 * [Annotator for Clinical Data documentation](https://merative.github.io/acd-containers/)
 
 ## Issues
