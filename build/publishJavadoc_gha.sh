@@ -31,18 +31,10 @@ ls -l latest
 popd
 
 printf "\n>>>>> Committing new javadoc for commit: %s\n" ${GHA_COMMIT}
-printf "\n>>>>> Set and display user info"
 git config user.email "dlangst@merative.com"
 git config user.name "Deb Angst"
-var1=$(git config --get user.name)
-var2=$(git config --get user.email)
-printf "\n>>>>> user name %s\n" $var1
-printf "\n>>>>> user email %s\n" $var2
-printf "\n>>>>> Calling git add"
 git add -f .
-printf "\n>>>>> Calling git commit"
 git commit -m "chore: Javadoc for release ${GHA_TAG} (${GHA_COMMIT})"
-printf "\n>>>>> Calling git push"
 git push -f origin gh-pages
 
 popd
