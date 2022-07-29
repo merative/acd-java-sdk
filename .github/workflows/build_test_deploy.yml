@@ -109,6 +109,6 @@ jobs:
           echo "Running script setMavenVersion"
           build/setMavenVersion_gha.sh
           echo "Running mvn clean"
-          mvn clean javadocs:aggregate
+          mvn clean javadoc:aggregate
           echo "Running script publish"
           build/publishJavadoc_gha.sh
