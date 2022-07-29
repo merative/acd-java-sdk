@@ -1,8 +1,8 @@
-# IBM Watson Health Cognitive Services Java SDK Version 1.5.11
+# Annotator for Clinical Data Java SDK Version 1.5.11
 
 ## Overview
 
-The IBM Watson Health Cognitive Services (WHCS) Java SDK allows developers to programmatically interact with the following IBM Watson service:
+This Java SDK allows developers to programmatically interact with the following service:
 
 | Service Name | Artifact ID |
 |--------------|-------------|
@@ -10,7 +10,7 @@ The IBM Watson Health Cognitive Services (WHCS) Java SDK allows developers to pr
 
 ## Prerequisites
 
-* Refer to the IBM Watson Annotation for Clinical Data documentation:
+* Refer to the Annotation for Clinical Data documentation:
   * [Prerequisites](https://merative.github.io/acd-containers/installing/prereqs/)
   * [Software Development Kits](https://merative.github.io/acd-containers/usage/sdks/)
 * Java 8 or above.
@@ -19,14 +19,14 @@ The IBM Watson Health Cognitive Services (WHCS) Java SDK allows developers to pr
 The current version of this SDK is: 1.5.11
 
 #### WHCS service (Option 1)
-To define a dependency on the WHCS service contained in the project, use a dependency like these:
+To define a dependency on the service contained in the project, use a dependency like these:
 
 ##### Maven
 
 ```xml
 <dependency>
-	<groupId>com.ibm.watson.health.cognitive-services</groupId>
-	<artifactId>ibm-whcs-services</artifactId>
+	<groupId>com.merative.acd</groupId>
+	<artifactId>acd-sdk</artifactId>
 	<version>1.5.11</version>
 </dependency>
 ```
@@ -34,7 +34,7 @@ To define a dependency on the WHCS service contained in the project, use a depen
 ##### Gradle
 
 ```gradle
-'com.ibm.watson.health.cognitive-services:ibm-whcs-services:1.5.11'
+'com.merative.acd:acd-sdk:1.5.11'
 ```
 
 #### Annotator for Clinical Data service (Option 2)
@@ -44,7 +44,7 @@ To define a dependency on the Annotator for Clinical Data service, use a depende
 
 ```xml
 <dependency>
-    <groupId>com.ibm.watson.health.cognitive-services</groupId>
+    <groupId>com.merative.acd</groupId>
     <artifactId>annotator-for-clinical-data</artifactId>
     <version>1.5.11</version>
 </dependency>
@@ -52,7 +52,7 @@ To define a dependency on the Annotator for Clinical Data service, use a depende
 
 ##### Gradle
 ```gradle
-'com.ibm.watson.health.cognitive-services:annotator-for-clinical-data:1.5.11'
+'com.merative.acd:1.5.11'
 ```
 The artifact ID is listed in the table above.
 
@@ -63,20 +63,17 @@ For general SDK usage information, please see [this link](https://github.com/IBM
 ## Questions
 
 For questions, refer to: 
-* [IBM Watson Annotator for Clinical Data product site](https://www.ibm.com/cloud/watson-annotator-for-clinical-data)
-* [IBM Watson Annotator for Clinical Data documentation](https://merative.github.io/acd-containers/)
+* [Annotator for Clinical Data product site](https://www.ibm.com/cloud/watson-annotator-for-clinical-data)
+* [Annotator for Clinical Data documentation](https://merative.github.io/acd-containers/)
 
 ## Issues
 If you encounter an issue with the project, you are welcome to submit a
 [bug report](https://github.com/merative/whcs-java-sdk/issues).
-
-## Open source @ IBM
-Find more open source projects on the [IBM Github Page](http://ibm.github.io/)
 
 ## Contributing
 See [CONTRIBUTING](CONTRIBUTING.md).
 
 ## License
 
-The IBM Watson Health Cognitive Services Java SDK is released under the Apache 2.0 license.
+The Annotator for Clinical Data Java SDK is released under the Apache 2.0 license.
 The license's full text can be found in [LICENSE](LICENSE).
