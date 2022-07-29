@@ -1,3 +1,10 @@
+## [1.5.11](https://github.com/merative/whcs-java-sdk/compare/1.5.10...1.5.11) (2022-07-29)
+
+
+### Bug Fixes
+
+* fix javadoc version label ([1663282](https://github.com/merative/whcs-java-sdk/commit/16632825017b0b9c30d4e0e9884e0fadd1d4d02c))
+
 ## [1.5.10](https://github.com/merative/whcs-java-sdk/compare/1.5.9...1.5.10) (2022-07-29)
 
 
