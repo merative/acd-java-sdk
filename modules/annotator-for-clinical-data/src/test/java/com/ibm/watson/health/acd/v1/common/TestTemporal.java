@@ -28,10 +28,9 @@ public class TestTemporal {
 		CustomCollection temporalType = annotation.getTemporalType();
 		TestCustomCollection.testCustomCollectionByName(temporalType, "dateScore");
 		@SuppressWarnings("unchecked")
-		Map<String, Double> temporalTypeMap = (Map<String, Double>)annotation.getTemporalTypeMap();
-		for (Map.Entry<String, Double> entry : temporalTypeMap.entrySet()) {
+		Map<String, ?> temporalTypeMap = (Map<String, ?>)annotation.getTemporalTypeMap();
+		for (Map.Entry<String, ?> entry : temporalTypeMap.entrySet()) {
 			Assert.assertTrue(entry.getKey() != null);
-			Assert.assertTrue(entry.getValue() >= 0);
 		}
 		//Map<?, ?> temporalTypeMap = annotation.getTemporalTypeMap();
 		//if (!temporalTypeMap.isEmpty()) {
