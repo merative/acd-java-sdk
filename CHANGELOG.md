@@ -1,3 +1,10 @@
+## [1.5.12](https://github.com/merative/whcs-java-sdk/compare/1.5.11...1.5.12) (2023-02-14)
+
+
+### Bug Fixes
+
+* bump core to 9.17.4 ([8f07668](https://github.com/merative/whcs-java-sdk/commit/8f07668849f18299ffd94f9b3d382a6ffd73e838))
+
 ## [1.5.11](https://github.com/merative/whcs-java-sdk/compare/1.5.10...1.5.11) (2022-07-29)
 
 
