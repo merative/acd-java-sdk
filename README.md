@@ -1,4 +1,4 @@
-# Merative Annotator for Clinical Data Java SDK Version 1.5.11
+# Merative Annotator for Clinical Data Java SDK Version 1.5.12
 
 ## Overview
 
@@ -16,7 +16,7 @@ This Java SDK allows developers to programmatically interact with the following 
 * Java 8 or above.
 
 ## Installation
-The current version of this SDK is: 1.5.11
+The current version of this SDK is: 1.5.12
 
 #### Parent Project (Option 1)
 To define a dependency on the parent project `acd-sdk`, use a dependency like these:
@@ -27,14 +27,14 @@ To define a dependency on the parent project `acd-sdk`, use a dependency like th
 <dependency>
 	<groupId>com.merative.acd</groupId>
 	<artifactId>acd-sdk</artifactId>
-	<version>1.5.11</version>
+	<version>1.5.12</version>
 </dependency>
 ```
 
 ##### Gradle
 
 ```gradle
-'com.merative.acd:acd-sdk:1.5.11'
+'com.merative.acd:acd-sdk:1.5.12'
 ```
 
 #### Annotator for Clinical Data Subproject (Option 2)
@@ -46,13 +46,13 @@ To define a dependency on the subproject `annotator-for-clinical-data`, use a de
 <dependency>
     <groupId>com.merative.acd</groupId>
     <artifactId>annotator-for-clinical-data</artifactId>
-    <version>1.5.11</version>
+    <version>1.5.12</version>
 </dependency>
 ```
 
 ##### Gradle
 ```gradle
-'com.merative.acd:1.5.11'
+'com.merative.acd:1.5.12'
 ```
 The artifact ID is listed in the table above.
 
