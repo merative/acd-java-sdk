@@ -17,6 +17,7 @@ import java.io.InputStream;
 import java.util.Properties;
 
 import com.ibm.cloud.sdk.core.http.HttpConfigOptions;
+import com.ibm.cloud.sdk.core.security.BearerTokenAuthenticator;
 import com.ibm.cloud.sdk.core.security.IamAuthenticator;
 import com.ibm.cloud.sdk.core.security.NoAuthAuthenticator;
 import com.ibm.watson.health.acd.v1.common.Constants;
@@ -87,7 +88,14 @@ public abstract class WatsonServiceTest {
 	 */
 	public void setUp() throws Exception {
 
-		if ((getProperty(Constants.APIKEY) == null) || getProperty(Constants.APIKEY).trim().length() == 0) {
+                if (getProperty(Constants.BEARER_TOKEN) != null) {
+			service = new AnnotatorForClinicalData(getProperty(Constants.VERSION),
+				"AnnotatorForClinicalData", new BearerTokenAuthenticator(getProperty(Constants.BEARER_TOKEN)));
+			service.setServiceUrl(getProperty(Constants.URL));
+			HttpConfigOptions options = new HttpConfigOptions.Builder().disableSslVerification(true).build();
+			service.configureClient(options);
+		}
+		else if ((getProperty(Constants.APIKEY) == null) || getProperty(Constants.APIKEY).trim().length() == 0) {
 			service = new AnnotatorForClinicalData(getProperty(Constants.VERSION),
 				"AnnotatorForClinicalData", new NoAuthAuthenticator());
 			service.setServiceUrl(getProperty(Constants.URL));

@@ -14,6 +14,7 @@ package com.ibm.watson.health.acd.v1.common;
 
 public class Constants {
 	public static final String URL = "URL";
+        public static final String BEARER_TOKEN = "BEARER_TOKEN";
 	public static final String APIKEY = "APIKEY";
 	public static final String VERSION = "VERSION";
 	public static final String IAM_URL = "IAM_URL";
