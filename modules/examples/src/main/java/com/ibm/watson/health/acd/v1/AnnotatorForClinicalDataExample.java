@@ -21,8 +21,8 @@ import java.util.Map;
 
 import com.ibm.cloud.sdk.core.http.Response;
 import com.ibm.cloud.sdk.core.http.ServiceCall;
-import com.ibm.cloud.sdk.core.security.Authenticator;
-import com.ibm.cloud.sdk.core.security.BasicAuthenticator;
+import com.ibm.cloud.sdk.core.security.BearerTokenAuthenticator;
+//import com.ibm.cloud.sdk.core.http.HttpConfigOptions;
 import com.ibm.watson.health.acd.v1.model.AcdCartridges;
 import com.ibm.watson.health.acd.v1.model.AcdCartridgesList;
 import com.ibm.watson.health.acd.v1.model.AcdFlow;
@@ -45,33 +45,30 @@ import com.ibm.cloud.sdk.core.service.exception.ServiceResponseException;
 /**
  * Sample ACD Java SDK Calls
  *
- * NOTE: To run this sample class, replace "YOUR_APIKEY" below with your apikey
- * for the Annotator for Clinical Data (ACD) service. Also, make sure the "url"
- * reflects the ACD service instance.
+ * NOTE: To run this sample class, replace "ACD_TOKEN" below with your ACD bearer token,
+ * and replace "ACD_URL" with the URL for the Annotator for Clinical Data (ACD) service endpoint.
  *
- * Optional: Update the "version" if you require a specific version of ACD.
+ * Optional: Update the "version" variable if you require a specific version of ACD.
  */
 public class AnnotatorForClinicalDataExample {
 
   protected AnnotatorForClinicalDataExample() { }
 
   public static void main(String[] args) throws Exception {
-    String apikey = "YOUR_APIKEY";
-    //String url = "https://us-east.wh-acd.cloud.ibm.com/wh-acd/api";
-    String url = "https://us-south.wh-acd.cloud.ibm.com/wh-acd/api";
+    String authToken = "ACD_TOKEN";
+    String url = "ACD_URL";
     String version = "2022-02-24";
     AnnotatorForClinicalData acd = null;
 
-    Authenticator authenticator = new BasicAuthenticator.Builder()
-        .username("apikey")
-        .password(apikey)
-        .build();
-
+    BearerTokenAuthenticator authenticator = new BearerTokenAuthenticator(authToken);
     acd = new AnnotatorForClinicalData(
         version,
         AnnotatorForClinicalData.DEFAULT_SERVICE_NAME,
         authenticator);
     acd.setServiceUrl(url);
+    // Uncomment the next 2 lines to disable SSL verification - not recommended
+    //HttpConfigOptions options = new HttpConfigOptions.Builder().disableSslVerification(true).build();
+    //acd.configureClient(options);
 
 
 
