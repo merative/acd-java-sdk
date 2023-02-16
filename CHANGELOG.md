@@ -1,3 +1,10 @@
+## [1.5.13](https://github.com/merative/whcs-java-sdk/compare/1.5.12...1.5.13) (2023-02-16)
+
+
+### Bug Fixes
+
+* bump core and okhttp3 to avoid CVE ([4f4ad40](https://github.com/merative/whcs-java-sdk/commit/4f4ad4063e12515312527de623e2fdd976e3c489))
+
 ## [1.5.12](https://github.com/merative/whcs-java-sdk/compare/1.5.11...1.5.12) (2023-02-14)
 
 
