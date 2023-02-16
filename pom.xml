@@ -28,7 +28,7 @@
         <!-- This is the version associated with the Java core. The version used
             here should be compatible with the version of the SDK generator used to generate
             your SDK code.  -->
-        <sdk-core-version>9.17.4</sdk-core-version>
+        <sdk-core-version>9.17.5</sdk-core-version>
 
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <!-- <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding> -->
@@ -38,7 +38,7 @@
   	<!-- <git-repository-name>whcs-java-sdk</git-repository-name> -->
         <nexus-staging-plugin-version>1.6.8</nexus-staging-plugin-version>
         <testng-version>7.4.0</testng-version>
-        <okhttp3-version>4.9.1</okhttp3-version>
+        <okhttp3-version>4.10.0</okhttp3-version>
         <surefire-version>3.0.0-M3</surefire-version>
         <jacoco-plugin-version>0.8.5</jacoco-plugin-version>
         <maven-gpg-plugin-version>3.0.1</maven-gpg-plugin-version>

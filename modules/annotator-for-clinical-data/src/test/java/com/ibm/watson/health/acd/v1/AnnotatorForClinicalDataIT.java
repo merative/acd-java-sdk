@@ -36,7 +36,7 @@ import com.ibm.watson.health.acd.v1.cartridges.TestGetCartridges;
 import com.ibm.watson.health.acd.v1.cartridges.TestGetCartridgesCartridgeId;
 import com.ibm.watson.health.acd.v1.cartridges.TestUpdateCartridges;
 import com.ibm.watson.health.acd.v1.status.TestGetHealthCheckStatus;
-import com.ibm.watson.health.acd.v1.unit.AnnotatorForClinicalDataAcdTest;;
+import com.ibm.watson.health.acd.v1.unit.AnnotatorForClinicalDataAcdTest;
 
 
 
@@ -66,6 +66,6 @@ import com.ibm.watson.health.acd.v1.unit.AnnotatorForClinicalDataAcdTest;;
 })
 
 
-public class AnnotatorForClinicaDataIT {
+public class AnnotatorForClinicalDataIT {
 
 }
