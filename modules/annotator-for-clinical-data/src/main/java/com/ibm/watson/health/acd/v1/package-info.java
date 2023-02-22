@@ -7,5 +7,7 @@
 /* SPDX-License-Identifier: Apache 2-0                               */
 /*                                                                   */
 /* ***************************************************************** */
-
+/**
+ * Annotator for Clinical Data v1.
+ */
 package com.ibm.watson.health.acd.v1;
