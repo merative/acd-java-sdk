@@ -61,7 +61,7 @@ The artifact ID is listed in the table above.
 The 2.0 release of the Annotator for Clinical Data Java SDK introduces a Java package name change from `com.ibm.watson.health.acd.v1` to `com.merative.acd.v1`.  For the migration from 1.x.x:
 
 1. Update the Maven dependencies by changing all `acd-sdk` or `annotator-for-clinical-data` dependency version tags to `2.0.0` in the pom.xml.  Verify that there are no SDK module dependencies in the pom.xml with a version earlier than `2.0.0`.
-2. Update any import declarations from `com.ibm.watson.health.acd.v1` to `com.merative.acd.v1`.
+2. In your application files, update any import declarations from `com.ibm.watson.health.acd.v1` to `com.merative.acd.v1`.
 
 ## Using the SDK
 For general SDK usage information, please see [this link](https://github.com/IBM/ibm-cloud-sdk-common/blob/master/README.md)
