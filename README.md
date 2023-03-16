@@ -10,7 +10,7 @@ This Java SDK allows developers to programmatically interact with the following 
 
 ## Prerequisites
 
-* Refer to the Annotation for Clinical Data documentation:
+* Refer to the Annotator for Clinical Data documentation:
   * [Prerequisites](https://merative.github.io/acd-containers/installing/prereqs/)
   * [Software Development Kits](https://merative.github.io/acd-containers/usage/sdks/)
 * Java 8 or above.
