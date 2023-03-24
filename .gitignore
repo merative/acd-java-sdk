@@ -35,8 +35,6 @@ hs_err_pid*
 
 *.iml
 .idea
-.openapi-generator/
-.openapi-generator-ignore
 
 package-lock.json
 .DS_Store

@@ -10,7 +10,7 @@ This Java SDK allows developers to programmatically interact with the following 
 
 ## Prerequisites
 
-* Refer to the Annotation for Clinical Data documentation:
+* Refer to the Annotator for Clinical Data documentation:
   * [Prerequisites](https://merative.github.io/acd-containers/installing/prereqs/)
   * [Software Development Kits](https://merative.github.io/acd-containers/usage/sdks/)
 * Java 8 or above.
@@ -56,6 +56,13 @@ To define a dependency on the subproject `annotator-for-clinical-data`, use a de
 ```
 The artifact ID is listed in the table above.
 
+## Migrating from version 1.x.x 
+
+The 2.0 release of the Annotator for Clinical Data Java SDK introduces a Java package name change from `com.ibm.watson.health.acd.v1` to `com.merative.acd.v1`.  For the migration from 1.x.x:
+
+1. Update the Maven dependencies by changing all `acd-sdk` or `annotator-for-clinical-data` dependency version tags to `2.0.0` in the pom.xml.  Verify that there are no SDK module dependencies in the pom.xml with a version earlier than `2.0.0`.
+2. In your application files, update any import declarations from `com.ibm.watson.health.acd.v1` to `com.merative.acd.v1`.
+
 ## Using the SDK
 For general SDK usage information, please see [this link](https://github.com/IBM/ibm-cloud-sdk-common/blob/master/README.md)
 
@@ -63,8 +70,8 @@ For general SDK usage information, please see [this link](https://github.com/IBM
 ## Questions
 
 For questions, refer to: 
-* [Annotator for Clinical Data product site](https://www.ibm.com/cloud/watson-annotator-for-clinical-data)
-* [Annotator for Clinical Data documentation](https://merative.github.io/acd-containers/)
+* [Annotator for Clinical Data Documentation](https://merative.github.io/acd-containers/)
+* [Annotator for Clinical Data Support Page](https://merative.github.io/acd-containers/support/support/)
 
 ## Issues
 If you encounter an issue with the project, you are welcome to submit a
