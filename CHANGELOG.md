@@ -1,3 +1,15 @@
+# [2.0.0](https://github.com/merative/whcs-java-sdk/compare/1.5.13...2.0.0) (2023-03-24)
+
+
+### Features
+
+* Rebrand ACD SDK ([0b9a7c4](https://github.com/merative/whcs-java-sdk/commit/0b9a7c4e3b848e52b5a878604c3e9642f5671bb1))
+
+
+### BREAKING CHANGES
+
+* Packaging name change to Merative
+
 ## [1.5.13](https://github.com/merative/whcs-java-sdk/compare/1.5.12...1.5.13) (2023-02-16)
 
 
