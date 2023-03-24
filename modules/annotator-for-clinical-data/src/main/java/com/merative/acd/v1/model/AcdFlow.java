@@ -13,7 +13,7 @@ import java.util.List;
 import com.ibm.cloud.sdk.core.service.model.GenericModel;
 
 /**
- * AcdFlow.
+ * AcdFlow contains details about the annotators to use when analyzing text.
  */
 public class AcdFlow extends GenericModel {
 

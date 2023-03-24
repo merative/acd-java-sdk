@@ -15,10 +15,10 @@ import com.ibm.cloud.sdk.core.http.ServiceCall;
 import com.merative.acd.v1.AnnotatorForClinicalData;
 import com.merative.acd.v1.AcdServiceTest;
 import com.merative.acd.v1.common.Constants;
-import com.merative.acd.v1.model.Annotator;
 import com.merative.acd.v1.model.GetAnnotatorOptions;
 import com.merative.acd.v1.model.GetAnnotatorOptions.Builder;
 import com.merative.acd.v1.model.GetAnnotatorsByIdOptions;
+import com.merative.acd.v1.model.ServiceApiBean;
 
 public class TestGetAnnotatorsAnnotatorId extends AcdServiceTest {
 	private AnnotatorForClinicalData service;
@@ -36,28 +36,24 @@ public class TestGetAnnotatorsAnnotatorId extends AcdServiceTest {
 	public void testGetAnnotator() {
 		GetAnnotatorsByIdOptions options = new GetAnnotatorsByIdOptions.Builder().id(Constants.CONCEPT_DETECTION_NAME).build();
 
-		ServiceCall<Annotator> sc = service.getAnnotatorsById(options);
-		Response<Annotator> response = sc.execute();
-		Annotator annotator = response.getResult();
-		if (annotator.description() !=  null) {
-			Assert.assertTrue(annotator.description().length() > 0);
+		ServiceCall<ServiceApiBean> sc = service.getAnnotatorsById(options);
+		Response<ServiceApiBean> response = sc.execute();
+		ServiceApiBean annotator = response.getResult();
+		if (annotator.getDescription() !=  null) {
+			Assert.assertTrue(annotator.getDescription().length() > 0);
 		}
-		Assert.assertNull(annotator.configurations());
-
 	}
 
 	@Test
 	public void testGetAnnotatorBuilder() {
 		GetAnnotatorsByIdOptions options = new GetAnnotatorsByIdOptions.Builder().id(Constants.CONCEPT_DETECTION_NAME).build();
 
-		ServiceCall<Annotator> sc = service.getAnnotatorsById(options);
-		Response<Annotator> response = sc.execute();
-		Annotator annotator = response.getResult();
-		if (annotator.description() !=  null) {
-			Assert.assertTrue(annotator.description().length() > 0);
+		ServiceCall<ServiceApiBean> sc = service.getAnnotatorsById(options);
+		Response<ServiceApiBean> response = sc.execute();
+		ServiceApiBean annotator = response.getResult();
+		if (annotator.getDescription() !=  null) {
+			Assert.assertTrue(annotator.getDescription().length() > 0);
 		}
-		Assert.assertNull(annotator.configurations());
-
 	}
 
 	@Test

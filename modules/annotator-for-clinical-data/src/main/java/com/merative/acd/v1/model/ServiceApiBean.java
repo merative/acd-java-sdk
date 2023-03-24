@@ -12,14 +12,19 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * ServiceApiBean contains annotator details.
+ */
 public class ServiceApiBean {
 
 	private String id;
 	private URL url;
 	private List<URL> urls = new ArrayList<URL>();
+	private String description;
 	private Boolean publish = false;
 	Integer receiveTimeout;
 	Integer connectTimeout;
+	private String version;
 
 	/**
 	 * Gets the identifier.
@@ -58,6 +63,15 @@ public class ServiceApiBean {
 	}
 
 	/**
+	 * Gets the description.
+	 *
+	 * @return description
+	 */
+	public String getDescription() {
+		return description;
+	}
+
+	/**
 	 * Gets receive timeout.
 	 *
 	 * @return the receive timeout
@@ -73,5 +87,14 @@ public class ServiceApiBean {
 	 */
 	public Integer getConnectTimeout() {
 		return connectTimeout;
+	}
+
+	/**
+	 * Gets the version.
+	 *
+	 * @return version
+	 */
+	public String getVersion() {
+		return version;
 	}
 }

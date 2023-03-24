@@ -26,11 +26,8 @@ public class SdkCommon {
      * SDK-specific "user agent" header value.
      */
     private static String userAgent;
-
     private static String projectName;
     private static String version;
-
-    private static String parentArtifactId = "acd-sdk";
 
     static {
         readBuildProperties();
@@ -49,7 +46,7 @@ public class SdkCommon {
 
     protected static void readBuildProperties() {
         final Properties buildProps = new Properties();
-        try (InputStream is = SdkCommon.class.getResourceAsStream("/" + parentArtifactId + ".properties")) {
+        try (InputStream is = SdkCommon.class.getResourceAsStream("/acd-sdk.properties")) {
             buildProps.load(is);
             version = buildProps.getProperty("version", "unknown");
             projectName = buildProps.getProperty("title", "unknown");
@@ -82,26 +79,6 @@ public class SdkCommon {
      * provide SDK-specific HTTP headers that will be sent with an outgoing REST API
      * request.
      * <p>
-     * This function is invoked for <b>each</b> invocation of a generated service
-     * method, so the set of HTTP headers could be request-specific. As an
-     * optimization, if your SDK will be returning the same set of HTTP headers for
-     * each invocation of this function, it is recommended that you initialize the
-     * returned map just once (perhaps by using lazy initialization) and simply
-     * return it each time the function is invoked, instead of building it each time
-     * as in the example below.
-     *
-     * If you plan to gather metrics for your SDK, the User-Agent header value must
-     * be a string similar to the following: my-java-sdk/0.0.1 (lang=java;
-     * java.vendor=AdoptOpenJDK; java.version=1.8.0_232; os.arch=x86_64;
-     * os.name=Linux; os.version=5.1) In the example above, the analytics tool will
-     * parse the user-agent header and use the following properties: "my-java-sdk" -
-     * the name of your sdk "0.0.1"- the version of your sdk "lang=java" - the
-     * language of the current sdk "java.vendor=AdoptOpenJDK;
-     * java.version=1.8.0_232; os.arch=x86_64; os.name=Linux; os.version=5.1" -
-     * system information
-     *
-     * Note: It is very important that the sdk name ends with the string `-sdk`, as
-     * the analytics data collector uses this to gather usage data.
      *
      * @param serviceName    the name of the service as defined in the API
      *                       definition (e.g. "MyService1")

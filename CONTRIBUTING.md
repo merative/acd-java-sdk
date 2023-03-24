@@ -16,24 +16,24 @@ This is because our release tool - [semantic-release](https://github.com/semanti
 uses this format for determining release versions and generating changelogs.
 Tools such as [commitizen](https://github.com/commitizen/cz-cli) or [commitlint](https://github.com/conventional-changelog/commitlint)
 can be used to help contributors and enforce commit messages.
-Here are some examples of acceptable commit messages, along with the release type that would be done based on the commit message:
+Here are some hypothetical examples of acceptable commit messages, along with the release type that would be done based on the commit message:
 
 | Commit message                                                                                                                                                              | Release type               |
 |-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------|
-| `fix: propagate request errors back to request invocation thread`                                                                                                           | Patch Release              |
-| `feat(Insights Model): add support for clinical insights model`                                                                                                             | ~~Minor~~ Feature Release  |
-| `BREAKING CHANGE: The ACD service has been updated to reflect version 2 of the API.`                                                                                        | ~~Major~~ Breaking Release |
+| `fix(cartridges): fix get cartridges missing field JSON response`                                                                                                           | ~~Patch~~ Fix Release      |
+| `feat(insight models): add support for clinical insights normality model`                                                                                                   | ~~Minor~~ Feature Release  |
+| `feat(user data): remove deleteUserSpecificArtifacts option`<br><br>`BREAKING CHANGE: Support for deleteUserSpecificArtifacts method has been removed.`                     | ~~Major~~ Breaking Release <br/> (Note that the `BREAKING CHANGE: ` token must be in the footer of the commit) |
 
 # Pull Requests
 
 If you want to contribute to the repository, here's a quick guide:
   1. Fork the repository
   2. Develop and test your code changes:
-      * To build/test: `mvn clean package` (Java 11+ is required when building the project)
+      * To build/test: `mvn clean package`
       * Please add one or more tests to validate your changes.
   3. Make sure everything builds/tests cleanly
   4. Commit your changes  
-  5. Push to your fork and submit a pull request to the **main** branch
+  5. Push to your fork and submit a pull request to the **master** branch
 
 # Developer's Certificate of Origin 1.1
 By making a contribution to this project, I certify that:

@@ -14,7 +14,7 @@ import com.ibm.cloud.sdk.core.service.model.GenericModel;
 import com.ibm.cloud.sdk.core.util.Validator;
 
 /**
- * ContainerGroup.
+ * ContainerGroup the analyze results container.
  */
 public class ContainerGroup extends GenericModel {
 

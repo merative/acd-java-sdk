@@ -34,8 +34,8 @@ import com.merative.acd.v1.model.AcdCartridges;
 import com.merative.acd.v1.model.AcdCartridgesList;
 import com.merative.acd.v1.model.AcdFlow;
 import com.merative.acd.v1.model.AcdProfile;
-import com.merative.acd.v1.model.AnalyticFlowBeanInput;
 import com.merative.acd.v1.model.AnalyzeOptions;
+import com.merative.acd.v1.model.AnalyzeWithFlowOptions;
 import com.merative.acd.v1.model.Annotator;
 import com.merative.acd.v1.model.AnnotatorFlow;
 import com.merative.acd.v1.model.CartridgesGetIdOptions;
@@ -50,7 +50,6 @@ import com.merative.acd.v1.model.CreateProfileOptions;
 import com.merative.acd.v1.model.DeleteFlowsOptions;
 import com.merative.acd.v1.model.DeleteProfileOptions;
 import com.merative.acd.v1.model.DeleteUserSpecificArtifactsOptions;
-import com.merative.acd.v1.model.DeployCartridgeOptions;
 import com.merative.acd.v1.model.DeployCartridgeResponse;
 import com.merative.acd.v1.model.Flow;
 import com.merative.acd.v1.model.FlowEntry;
@@ -61,8 +60,6 @@ import com.merative.acd.v1.model.GetFlowsOptions;
 import com.merative.acd.v1.model.GetHealthCheckStatusOptions;
 import com.merative.acd.v1.model.GetProfileOptions;
 import com.merative.acd.v1.model.GetProfilesOptions;
-import com.merative.acd.v1.model.RunPipelineOptions;
-import com.merative.acd.v1.model.RunPipelineWithFlowOptions;
 import com.merative.acd.v1.model.ServiceApiBean;
 import com.merative.acd.v1.model.ServiceStatus;
 import com.merative.acd.v1.model.UnstructuredContainer;
@@ -700,10 +697,10 @@ public class AnnotatorForClinicalDataAcdTest extends PowerMockTestCase {
   }
 
   @Test
-  public void testRunPipelineWOptions() throws Throwable {
+  public void testAnalyzeWOptions() throws Throwable {
 	  // Schedule some responses.
 	  String mockResponseBody = "";
-	  String runPipelinePath = "/v1/analyze";
+	  String analyzePath = "/v1/analyze";
 
     server.enqueue(new MockResponse()
     .setResponseCode(200)
@@ -755,18 +752,17 @@ public class AnnotatorForClinicalDataAcdTest extends PowerMockTestCase {
     .uid(Long.valueOf("26"))
     .build();
 
-    // Construct an instance of the RunPipelineOptions model
-    RunPipelineOptions runPipelineOptionsModel = new RunPipelineOptions.Builder()
+    // Construct an instance of the AnalyzeOptions model
+    AnalyzeOptions analyzeOptionsModel = new AnalyzeOptions.Builder()
     .unstructured(new ArrayList<UnstructuredContainer>(Arrays.asList(unstructuredContainerModel)))
     .annotatorFlows(new ArrayList<AnnotatorFlow>(Arrays.asList(annotatorFlowModel)))
-    .debugTextRestore(true)
     .returnAnalyzedText(true)
     .build();
 
     // Invoke operation with valid options model (positive test)
-    Response<Void> response = testService.runPipeline(runPipelineOptionsModel).execute();
+    Response<ContainerGroup> response = testService.analyze(analyzeOptionsModel).execute();
     assertNotNull(response);
-    Void responseObj = response.getResult();
+    ContainerGroup responseObj = response.getResult();
     // Response does not have a return type. Check that the result is null.
     assertNull(responseObj);
 
@@ -780,18 +776,17 @@ public class AnnotatorForClinicalDataAcdTest extends PowerMockTestCase {
     assertNotNull(query);
     // Get query params
     assertEquals(query.get("version"), "testString");
-    assertEquals(Boolean.valueOf(query.get("debug_text_restore")), Boolean.valueOf(true));
     assertEquals(Boolean.valueOf(query.get("return_analyzed_text")), Boolean.valueOf(true));
     // Check request path
     String parsedPath = TestUtilities.parseReqPath(request);
-    assertEquals(parsedPath, runPipelinePath);
+    assertEquals(parsedPath, analyzePath);
   }
 
   @Test
-  public void testRunPipelineWithFlowWOptions() throws Throwable {
+  public void testAnalyzeWithFlowWOptions() throws Throwable {
     // Schedule some responses.
     String mockResponseBody = "";
-    String runPipelineWithFlowPath = "/v1/analyze/testString";
+    String analyzeWithFlowPath = "/v1/analyze/testString";
 
     server.enqueue(new MockResponse()
     .setResponseCode(200)
@@ -799,68 +794,17 @@ public class AnnotatorForClinicalDataAcdTest extends PowerMockTestCase {
 
     constructClientService();
 
-    // Construct an instance of the ConfigurationEntity model
-    ConfigurationEntity configurationEntityModel = new ConfigurationEntity.Builder()
-    .id("testString")
-    .type("testString")
-    .uid(Long.valueOf("26"))
-    .mergeid(Long.valueOf("26"))
-    .build();
-
-    Annotator annotatorModel = new Annotator.Builder()
-    		.name("testString")
-    		.configurations(new ArrayList<ConfigurationEntity>(Arrays.asList(configurationEntityModel)))
-    		.parameters(new java.util.HashMap<String,List<String>>(){{put("foo", new ArrayList<String>(Arrays.asList("testString"))); }})
-    		.build();
-    assertEquals(annotatorModel.name(), "testString");
-    assertEquals(annotatorModel.parameters(), new java.util.HashMap<String,List<String>>(){{put("foo", new ArrayList<String>(Arrays.asList("testString"))); }});
-    assertEquals(annotatorModel.configurations(), new ArrayList<ConfigurationEntity>(Arrays.asList(configurationEntityModel)));
-
-    // Construct an instance of the FlowEntry model
-    FlowEntry flowEntryModel = new FlowEntry.Builder()
-    		.annotator(annotatorModel)
-    		.build();
-
-    // Construct an instance of the Flow model
-    Flow flowModel = new Flow.Builder()
-    .elements(new ArrayList<FlowEntry>(Arrays.asList(flowEntryModel)))
-    .async(true)
-    .build();
-
-    // Construct an instance of the AnnotatorFlow model
-    AnnotatorFlow annotatorFlowModel = new AnnotatorFlow.Builder()
-    .profile("testString")
-    .flow(flowModel)
-    .build();
-
-    // Construct an instance of the UnstructuredContainer model
-    UnstructuredContainer unstructuredContainerModel = new UnstructuredContainer.Builder()
-    .text("testString")
-    .id("testString")
-    .type("testString")
-    .data(new ContainerAnnotation())
-    .metadata(new java.util.HashMap<String,Map>(){{put("foo", new HashMap()); }})
-    .uid(Long.valueOf("26"))
-    .build();
-
-    // Construct an instance of the AnalyticFlowBeanInput model
-    AnalyticFlowBeanInput analyticFlowBeanInputModel = new AnalyticFlowBeanInput.Builder()
-    .unstructured(new ArrayList<UnstructuredContainer>(Arrays.asList(unstructuredContainerModel)))
-    .annotatorFlows(new ArrayList<AnnotatorFlow>(Arrays.asList(annotatorFlowModel)))
-    .build();
-
-    // Construct an instance of the RunPipelineWithFlowOptions model
-    RunPipelineWithFlowOptions runPipelineWithFlowOptionsModel = new RunPipelineWithFlowOptions.Builder()
+    // Construct an instance of the AnalyzeWithFlowOptions model
+    AnalyzeWithFlowOptions analyzeWithFlowOptionsModel = new AnalyzeWithFlowOptions.Builder()
     .flowId("testString")
     .returnAnalyzedText(true)
-    .analyticFlowBeanInput(analyticFlowBeanInputModel)
-    .debugTextRestore(true)
+    .text("testString")
     .build();
 
     // Invoke operation with valid options model (positive test)
-    Response<Void> response = testService.runPipelineWithFlow(runPipelineWithFlowOptionsModel).execute();
+    Response<ContainerGroup> response = testService.analyzeWithFlow(analyzeWithFlowOptionsModel).execute();
     assertNotNull(response);
-    Void responseObj = response.getResult();
+    ContainerGroup responseObj = response.getResult();
     // Response does not have a return type. Check that the result is null.
     assertNull(responseObj);
 
@@ -875,22 +819,21 @@ public class AnnotatorForClinicalDataAcdTest extends PowerMockTestCase {
     // Get query params
     assertEquals(query.get("version"), "testString");
     assertEquals(Boolean.valueOf(query.get("return_analyzed_text")), Boolean.valueOf(true));
-    assertEquals(Boolean.valueOf(query.get("debug_text_restore")), Boolean.valueOf(true));
     // Check request path
     String parsedPath = TestUtilities.parseReqPath(request);
-    assertEquals(parsedPath, runPipelineWithFlowPath);
+    assertEquals(parsedPath, analyzeWithFlowPath);
   }
 
-  // Test the runPipelineWithFlow operation with null options model parameter
+  // Test the analyzeWithFlow operation with null options model parameter
   @Test(expectedExceptions = IllegalArgumentException.class)
-  public void testRunPipelineWithFlowNoOptions() throws Throwable {
+  public void testAnalyzeWithFlowNoOptions() throws Throwable {
     // construct the service
     constructClientService();
 
     server.enqueue(new MockResponse());
 
     // Invoke operation with null options model (negative test)
-    testService.runPipelineWithFlow(null).execute();
+    testService.analyzeWithFlow(null).execute();
   }
 
   @Test
@@ -948,9 +891,9 @@ public class AnnotatorForClinicalDataAcdTest extends PowerMockTestCase {
     .build();
 
     // Invoke operation with valid options model (positive test)
-    Response<Annotator> response = testService.getAnnotatorsById(getAnnotatorsByIdOptionsModel).execute();
+    Response<ServiceApiBean> response = testService.getAnnotatorsById(getAnnotatorsByIdOptionsModel).execute();
     assertNotNull(response);
-    Annotator responseObj = response.getResult();
+    ServiceApiBean responseObj = response.getResult();
     // Response does not have a return type. Check that the result is null.
     assertNull(responseObj);
 
@@ -1184,48 +1127,6 @@ public class AnnotatorForClinicalDataAcdTest extends PowerMockTestCase {
 
     // Invoke operation with null options model (negative test)
     testService.cartridgesGetId(null).execute();
-  }
-
-  @Test
-  public void testDeployCartridgeWOptions() throws Throwable {
-    // Schedule some responses.
-    String mockResponseBody = "{\"code\": 4, \"artifactResponse\": [{\"code\": 4, \"message\": \"message\", \"level\": \"ERROR\", \"description\": \"description\", \"moreInfo\": \"moreInfo\", \"correlationId\": \"correlationId\", \"artifact\": \"artifact\", \"href\": \"href\"}]}";
-    String deployCartridgePath = "/v1/deploy";
-
-    server.enqueue(new MockResponse()
-    .setHeader("Content-type", "application/json")
-    .setResponseCode(200)
-    .setBody(mockResponseBody));
-
-    constructClientService();
-
-    // Construct an instance of the DeployCartridgeOptions model
-    DeployCartridgeOptions deployCartridgeOptionsModel = new DeployCartridgeOptions.Builder()
-    .archiveFile(TestUtilities.createMockStream("This is a mock file."))
-    .archiveFileContentType("testString")
-    .update(true)
-    .build();
-
-    // Invoke operation with valid options model (positive test)
-    Response<DeployCartridgeResponse> response = testService.deployCartridge(deployCartridgeOptionsModel).execute();
-    assertNotNull(response);
-    DeployCartridgeResponse responseObj = response.getResult();
-    assertNotNull(responseObj);
-
-    // Verify the contents of the request
-    RecordedRequest request = server.takeRequest();
-    assertNotNull(request);
-    assertEquals(request.getMethod(), "POST");
-
-    // Check query
-    Map<String, String> query = TestUtilities.parseQueryString(request);
-    assertNotNull(query);
-    // Get query params
-    assertEquals(query.get("version"), "testString");
-    assertEquals(Boolean.valueOf(query.get("update")), Boolean.valueOf(true));
-    // Check request path
-    String parsedPath = TestUtilities.parseReqPath(request);
-    assertEquals(parsedPath, deployCartridgePath);
   }
 
   @Test

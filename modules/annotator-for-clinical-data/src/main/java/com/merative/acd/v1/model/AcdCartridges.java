@@ -12,7 +12,7 @@ import java.util.List;
 import com.ibm.cloud.sdk.core.service.model.GenericModel;
 
 /**
- * AcdCartridges.
+ * AcdCartridges contains details of a deployed cartridge.
  */
 public class AcdCartridges extends GenericModel {
 

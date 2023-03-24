@@ -26,7 +26,6 @@ import com.merative.acd.v1.profiles.TestGetProfiles;
 import com.merative.acd.v1.profiles.TestGetProfilesProfileId;
 import com.merative.acd.v1.profiles.TestUpdateProfiles;
 import com.merative.acd.v1.cartridges.TestCreateCartridges;
-import com.merative.acd.v1.cartridges.TestDeployCartridge;
 import com.merative.acd.v1.cartridges.TestGetCartridges;
 import com.merative.acd.v1.cartridges.TestGetCartridgesCartridgeId;
 import com.merative.acd.v1.cartridges.TestUpdateCartridges;
@@ -56,7 +55,6 @@ import com.merative.acd.v1.unit.AnnotatorForClinicalDataAcdTest;
 	TestGetCartridgesCartridgeId.class,
 	TestCreateCartridges.class,
 	TestUpdateCartridges.class,
-	//TestDeployCartridge.class,  legacy deployment is deprecated
 	TestGetHealthCheckStatus.class
 })
 

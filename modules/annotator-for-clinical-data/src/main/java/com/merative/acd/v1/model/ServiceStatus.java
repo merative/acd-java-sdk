@@ -11,12 +11,12 @@ package com.merative.acd.v1.model;
 import com.ibm.cloud.sdk.core.service.model.GenericModel;
 
 /**
- * Object representing service runtime status.
+ * ServiceStatus contains the current service state.
  */
 public class ServiceStatus extends GenericModel {
 
   /**
-   * scurrent service state.
+   * Current service state.
    */
   public interface ServiceState {
     /** OK. */

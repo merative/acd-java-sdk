@@ -30,7 +30,6 @@ import com.merative.acd.v1.model.AcdFlow;
 import com.merative.acd.v1.model.AcdProfile;
 import com.merative.acd.v1.model.AnalyzeOptions;
 import com.merative.acd.v1.model.AnalyzeWithFlowOptions;
-import com.merative.acd.v1.model.Annotator;
 import com.merative.acd.v1.model.AnnotatorFlow;
 import com.merative.acd.v1.model.CartridgesGetIdOptions;
 import com.merative.acd.v1.model.CartridgesGetOptions;
@@ -42,7 +41,6 @@ import com.merative.acd.v1.model.CreateProfileOptions;
 import com.merative.acd.v1.model.DeleteFlowsOptions;
 import com.merative.acd.v1.model.DeleteProfileOptions;
 import com.merative.acd.v1.model.DeleteUserSpecificArtifactsOptions;
-import com.merative.acd.v1.model.DeployCartridgeOptions;
 import com.merative.acd.v1.model.DeployCartridgeResponse;
 import com.merative.acd.v1.model.Flow;
 import com.merative.acd.v1.model.GetAnnotatorsByIdOptions;
@@ -52,10 +50,7 @@ import com.merative.acd.v1.model.GetFlowsOptions;
 import com.merative.acd.v1.model.GetHealthCheckStatusOptions;
 import com.merative.acd.v1.model.GetProfileOptions;
 import com.merative.acd.v1.model.GetProfilesOptions;
-import com.merative.acd.v1.model.ListStringWrapper;
 import com.merative.acd.v1.model.RequestContainer;
-import com.merative.acd.v1.model.RunPipelineOptions;
-import com.merative.acd.v1.model.RunPipelineWithFlowOptions;
 import com.merative.acd.v1.model.ServiceApiBean;
 import com.merative.acd.v1.model.ServiceStatus;
 import com.merative.acd.v1.model.UnstructuredContainer;
@@ -151,7 +146,7 @@ public class AnnotatorForClinicalData extends BaseService {
    * Returns a summary including ID and description of the available persisted profiles.
    *
    * @param getProfilesOptions the {@link GetProfilesOptions} containing the options for the call
-   * @return a {@link ServiceCall} with a result of type {@link ListStringWrapper}
+   * @return a {@link ServiceCall} with a result of type {@link Map}&lt;String, {@link AcdProfile}&gt;
    */
   public ServiceCall<Map<String, AcdProfile>> getProfiles(GetProfilesOptions getProfilesOptions) {
 	  String[] pathSegments = { "v1/profiles" };
@@ -172,7 +167,7 @@ public class AnnotatorForClinicalData extends BaseService {
    *
    * Returns a summary including ID and description of the available persisted profiles.
    *
-   * @return a {@link ServiceCall} with a result of type {@link ListStringWrapper}
+   * @return a {@link ServiceCall} with a result of type {@link Map}&lt;String, {@link AcdProfile}&gt;
    */
   public ServiceCall<Map<String, AcdProfile>> getProfiles() {
     return getProfiles(null);
@@ -186,23 +181,7 @@ public class AnnotatorForClinicalData extends BaseService {
    * information that will be applied to the annotators specified in the annotator flow.&lt;p&gt;If a caller would
    * choose to have the ID of the new profile generated on their behalf, then in the request body the "id" field of the
    * profile definition should be an empty string ("").  The auto-generated ID would be a normalized form of the "name"
-   * field from the profile definition.&lt;p&gt;&lt;b&gt;Sample Profile #1&lt;/b&gt;&lt;br&gt;A profile definition that
-   * configures the 'concept_detection' annotator to use the UMLS umls.latest library.&lt;br&gt;&lt;pre&gt;{&lt;br&gt;
-   * "id": "acd_profile_cd_umls_latest",&lt;br&gt;  "name": "Profile for the latest Concept Detection UMLS
-   * Library",&lt;br&gt;  "description": "Provides configurations for running Concept Detection with the latest UMLS
-   * library",&lt;br&gt;  "annotators": [&lt;br&gt;    {&lt;br&gt;      "name": "concept_detection",&lt;br&gt;
-   * "parameters": {&lt;br&gt;         "libraries": ["umls.latest"]&lt;br&gt;       }&lt;br&gt;    }&lt;br&gt;
-   * ]&lt;br&gt;}&lt;/pre&gt;&lt;p&gt;&lt;b&gt;Sample Profile #2&lt;/b&gt;&lt;br&gt;A profile definition that configures
-   * the 'concept_detection' annotator to exclude any annotations where the semantic type does not equal
-   * 'neop'.&lt;br&gt;&lt;pre&gt;{&lt;br&gt;  "id": "acd_profile_cd_neop_only",&lt;br&gt;  "name": "Profile for Concept
-   * Detection neop Semantic Type",&lt;br&gt;  "description": "Concept Detection configuration fitler to exclude
-   * annotations where semantic type does not equal 'neop'.",&lt;br&gt;  "annotators": [&lt;br&gt;    {&lt;br&gt;
-   * "name": "concept_detection",&lt;br&gt;       "configurations": [&lt;br&gt;         {&lt;br&gt;           "filter":
-   * {&lt;br&gt;             "target": "unstructured.data.concepts",&lt;br&gt;             "condition": {&lt;br&gt;
-   *           "type": "match",&lt;br&gt;                "field": "semanticType",&lt;br&gt;                "values":
-   * [&lt;br&gt;                   "neop"&lt;br&gt;                 ],&lt;br&gt;                "not": false,&lt;br&gt;
-   *               "caseInsensitive": false,&lt;br&gt;                "operator": "equals"&lt;br&gt;
-   * }&lt;br&gt;            }&lt;br&gt;         }&lt;br&gt;       ]&lt;br&gt;    }&lt;br&gt;  ]&lt;br&gt;}&lt;/pre&gt;.
+   * field from the profile definition.
    *
    * @param createProfileOptions the {@link CreateProfileOptions} containing the options for the call
    * @return a {@link ServiceCall} with a void result
@@ -255,23 +234,7 @@ public class AnnotatorForClinicalData extends BaseService {
    * information that will be applied to the annotators specified in the annotator flow.&lt;p&gt;If a caller would
    * choose to have the ID of the new profile generated on their behalf, then in the request body the "id" field of the
    * profile definition should be an empty string ("").  The auto-generated ID would be a normalized form of the "name"
-   * field from the profile definition.&lt;p&gt;&lt;b&gt;Sample Profile #1&lt;/b&gt;&lt;br&gt;A profile definition that
-   * configures the 'concept_detection' annotator to use the UMLS umls.latest library.&lt;br&gt;&lt;pre&gt;{&lt;br&gt;
-   * "id": "acd_profile_cd_umls_latest",&lt;br&gt;  "name": "Profile for the latest Concept Detection UMLS
-   * Library",&lt;br&gt;  "description": "Provides configurations for running Concept Detection with the latest UMLS
-   * library",&lt;br&gt;  "annotators": [&lt;br&gt;    {&lt;br&gt;      "name": "concept_detection",&lt;br&gt;
-   * "parameters": {&lt;br&gt;         "libraries": ["umls.latest"]&lt;br&gt;       }&lt;br&gt;    }&lt;br&gt;
-   * ]&lt;br&gt;}&lt;/pre&gt;&lt;p&gt;&lt;b&gt;Sample Profile #2&lt;/b&gt;&lt;br&gt;A profile definition that configures
-   * the 'concept_detection' annotator to exclude any annotations where the semantic type does not equal
-   * 'neop'.&lt;br&gt;&lt;pre&gt;{&lt;br&gt;  "id": "acd_profile_cd_neop_only",&lt;br&gt;  "name": "Profile for Concept
-   * Detection neop Semantic Type",&lt;br&gt;  "description": "Concept Detection configuration fitler to exclude
-   * annotations where semantic type does not equal 'neop'.",&lt;br&gt;  "annotators": [&lt;br&gt;    {&lt;br&gt;
-   * "name": "concept_detection",&lt;br&gt;       "configurations": [&lt;br&gt;         {&lt;br&gt;           "filter":
-   * {&lt;br&gt;             "target": "unstructured.data.concepts",&lt;br&gt;             "condition": {&lt;br&gt;
-   *           "type": "match",&lt;br&gt;                "field": "semanticType",&lt;br&gt;                "values":
-   * [&lt;br&gt;                   "neop"&lt;br&gt;                 ],&lt;br&gt;                "not": false,&lt;br&gt;
-   *               "caseInsensitive": false,&lt;br&gt;                "operator": "equals"&lt;br&gt;
-   * }&lt;br&gt;            }&lt;br&gt;         }&lt;br&gt;       ]&lt;br&gt;    }&lt;br&gt;  ]&lt;br&gt;}&lt;/pre&gt;.
+   * field from the profile definition.
    *
    * @return a {@link ServiceCall} with a void result
    */
@@ -383,7 +346,7 @@ public class AnnotatorForClinicalData extends BaseService {
    * Returns a summary including ID and description of the available persisted flows.
    *
    * @param getFlowsOptions the {@link GetFlowsOptions} containing the options for the call
-   * @return a {@link ServiceCall} with a result of type {@link ListStringWrapper}
+   * @return a {@link ServiceCall} with a result of type {@link Map}&lt;String, {@link AcdFlow}&gt;
    */
   public ServiceCall<Map<String, AcdFlow>> getFlows(GetFlowsOptions getFlowsOptions) {
     String[] pathSegments = { "v1/flows" };
@@ -404,7 +367,7 @@ public class AnnotatorForClinicalData extends BaseService {
    *
    * Returns a summary including ID and description of the available persisted flows.
    *
-   * @return a {@link ServiceCall} with a result of type {@link ListStringWrapper}
+   * @return a {@link ServiceCall} with a result of type {@link Map}&lt;String, {@link AcdFlow}&gt;
    */
   public ServiceCall<Map<String, AcdFlow>> getFlows() {
     return getFlows(null);
@@ -418,29 +381,7 @@ public class AnnotatorForClinicalData extends BaseService {
    * annotators, and optionally can include annotator configuration, a flow ID, and/or flow sequence.&lt;p&gt;If a
    * caller would choose to have the ID of the new flow generated on their behalf, then in the request body the "id"
    * field of the flow definition should be an empty string ("").  The auto-generated ID would be a normalized form of
-   * the "name" field from the flow definition.&lt;p&gt;&lt;p&gt;&lt;b&gt;Sample Flow #1&lt;/b&gt;&lt;br&gt;A flow
-   * definition that includes two annotators.&lt;br&gt;&lt;pre&gt;{&lt;br&gt;  "id": "flow_simple",&lt;br&gt;  "name":
-   * "flow simple",&lt;br&gt;  "description": "A simple flow with two annotators",&lt;br&gt;  "annotatorFlows":
-   * [&lt;br&gt;      {&lt;br&gt;       "flow": {&lt;br&gt;          "elements": [&lt;br&gt;             {&lt;br&gt;
-   *           "annotator": {&lt;br&gt;                   "name": "concept_detection"&lt;br&gt;
-   * }&lt;br&gt;             },&lt;br&gt;             {&lt;br&gt;               "annotator": {&lt;br&gt;
-   *   "name": "symptom_disease"&lt;br&gt;                }&lt;br&gt;             }&lt;br&gt;           ],&lt;br&gt;
-   *   "async": false&lt;br&gt;        }&lt;br&gt;      }&lt;br&gt;   ]&lt;br&gt;}&lt;/pre&gt;&lt;p&gt;&lt;b&gt;Sample
-   * Flow #2&lt;/b&gt;&lt;br&gt;A flow definition that includes the 'concept_detection' annotator and configuration
-   * details for the 'concept_detection' annotator.&lt;br&gt;&lt;pre&gt;{&lt;br&gt;  "id":
-   * "flow_concept_detection_exclude_non_neop",&lt;br&gt;  "name": "flow concept detection exclude non neop",&lt;br&gt;
-   * "description": "A flow excluding detected concepts that do not have 'neop' semantic type",&lt;br&gt;
-   * "annotatorFlows": [&lt;br&gt;      {&lt;br&gt;       "flow": {&lt;br&gt;          "elements": [&lt;br&gt;
-   *   {&lt;br&gt;               "annotator": {&lt;br&gt;                   "name": "concept_detection",&lt;br&gt;
-   *             "configurations": [&lt;br&gt;                      {&lt;br&gt;                        "filter":
-   * {&lt;br&gt;                           "target": "unstructured.data.concepts",&lt;br&gt;
-   * "condition": {&lt;br&gt;                              "type": "match",&lt;br&gt;
-   * "field": "semanticType",&lt;br&gt;                              "values": [&lt;br&gt;
-   *   "neop"&lt;br&gt;                                ],&lt;br&gt;                              "not": false,&lt;br&gt;
-   *                              "caseInsensitive": false,&lt;br&gt;                              "operator":
-   * "equals"&lt;br&gt;                            }&lt;br&gt;                         }&lt;br&gt;
-   * }&lt;br&gt;                    ]&lt;br&gt;                 }&lt;br&gt;              }&lt;br&gt;
-   * ],&lt;br&gt;       "async": false&lt;br&gt;        }&lt;br&gt;      }&lt;br&gt;   ]&lt;br&gt;}&lt;/pre&gt;.
+   * the "name" field from the flow definition.
    *
    * @param createFlowsOptions the {@link CreateFlowsOptions} containing the options for the call
    * @return a {@link ServiceCall} with a void result
@@ -493,29 +434,7 @@ public class AnnotatorForClinicalData extends BaseService {
    * annotators, and optionally can include annotator configuration, a flow ID, and/or flow sequence.&lt;p&gt;If a
    * caller would choose to have the ID of the new flow generated on their behalf, then in the request body the "id"
    * field of the flow definition should be an empty string ("").  The auto-generated ID would be a normalized form of
-   * the "name" field from the flow definition.&lt;p&gt;&lt;p&gt;&lt;b&gt;Sample Flow #1&lt;/b&gt;&lt;br&gt;A flow
-   * definition that includes two annotators.&lt;br&gt;&lt;pre&gt;{&lt;br&gt;  "id": "flow_simple",&lt;br&gt;  "name":
-   * "flow simple",&lt;br&gt;  "description": "A simple flow with two annotators",&lt;br&gt;  "annotatorFlows":
-   * [&lt;br&gt;      {&lt;br&gt;       "flow": {&lt;br&gt;          "elements": [&lt;br&gt;             {&lt;br&gt;
-   *           "annotator": {&lt;br&gt;                   "name": "concept_detection"&lt;br&gt;
-   * }&lt;br&gt;             },&lt;br&gt;             {&lt;br&gt;               "annotator": {&lt;br&gt;
-   *   "name": "symptom_disease"&lt;br&gt;                }&lt;br&gt;             }&lt;br&gt;           ],&lt;br&gt;
-   *   "async": false&lt;br&gt;        }&lt;br&gt;      }&lt;br&gt;   ]&lt;br&gt;}&lt;/pre&gt;&lt;p&gt;&lt;b&gt;Sample
-   * Flow #2&lt;/b&gt;&lt;br&gt;A flow definition that includes the 'concept_detection' annotator and configuration
-   * details for the 'concept_detection' annotator.&lt;br&gt;&lt;pre&gt;{&lt;br&gt;  "id":
-   * "flow_concept_detection_exclude_non_neop",&lt;br&gt;  "name": "flow concept detection exclude non neop",&lt;br&gt;
-   * "description": "A flow excluding detected concepts that do not have 'neop' semantic type",&lt;br&gt;
-   * "annotatorFlows": [&lt;br&gt;      {&lt;br&gt;       "flow": {&lt;br&gt;          "elements": [&lt;br&gt;
-   *   {&lt;br&gt;               "annotator": {&lt;br&gt;                   "name": "concept_detection",&lt;br&gt;
-   *             "configurations": [&lt;br&gt;                      {&lt;br&gt;                        "filter":
-   * {&lt;br&gt;                           "target": "unstructured.data.concepts",&lt;br&gt;
-   * "condition": {&lt;br&gt;                              "type": "match",&lt;br&gt;
-   * "field": "semanticType",&lt;br&gt;                              "values": [&lt;br&gt;
-   *   "neop"&lt;br&gt;                                ],&lt;br&gt;                              "not": false,&lt;br&gt;
-   *                              "caseInsensitive": false,&lt;br&gt;                              "operator":
-   * "equals"&lt;br&gt;                            }&lt;br&gt;                         }&lt;br&gt;
-   * }&lt;br&gt;                    ]&lt;br&gt;                 }&lt;br&gt;              }&lt;br&gt;
-   * ],&lt;br&gt;       "async": false&lt;br&gt;        }&lt;br&gt;      }&lt;br&gt;   ]&lt;br&gt;}&lt;/pre&gt;.
+   * the "name" field from the flow definition.
    *
    * @return a {@link ServiceCall} with a void result
    */
@@ -622,292 +541,49 @@ public class AnnotatorForClinicalData extends BaseService {
   }
 
   /**
-   * Detect entities &amp; relations from unstructured data.
-   *
-   * &lt;p&gt;This API accepts a JSON request model featuring both the unstructured data to be analyzed as well as the
-   * desired annotator flow.&lt;p/&gt;&lt;p&gt;&lt;b&gt;Annotator Chaining&lt;/b&gt;&lt;br/&gt;Sample request invoking
-   * both the concept_detection and symptom_disease annotators asynchronously. This sample request references
-   * configurations via a profile id. Profiles define configurations that can be referenced within a request. Profile is
-   * optional. A default profile is used if no profile id is available in the annotator flow. The default profile
-   * contains the parameters for the concept detection and the attribute detection. An empty profile can be used if
-   * absolutely no parameters are attached to any annotators. See &lt;a href=".."
-   * target="_blank"&gt;documentation&lt;/a&gt; for more information. &lt;/p&gt;&lt;pre&gt;{&lt;br/&gt;
-   * "annotatorFlows": [&lt;br/&gt;    {&lt;br/&gt;      "profile" : "default_profile_v1.0", &lt;br/&gt;      "flow":
-   * {&lt;br/&gt;        "elements": [&lt;br/&gt;          {&lt;br/&gt;            "annotator": {&lt;br/&gt;
-   *  "name": "concept_detection"&lt;br/&gt;            }&lt;br/&gt;          },&lt;br/&gt;          {&lt;br/&gt;
-   *     "annotator": {&lt;br/&gt;              "name": "symptom_disease"&lt;br/&gt;             }&lt;br/&gt;
-   * }&lt;br/&gt;        ],&lt;br/&gt;        "async": false&lt;br/&gt;      }&lt;br/&gt;    }&lt;br/&gt;  ],&lt;br/&gt;
-   *  "unstructured": [&lt;br/&gt;    {&lt;br/&gt;      "text": "Patient has lung cancer, but did not smoke. She may
-   * consider chemotherapy as part of a treatment plan."&lt;br/&gt;    }&lt;br/&gt;
-   * ]&lt;br/&gt;}&lt;br/&gt;&lt;/pre&gt;&lt;p&gt;&lt;b&gt;Annotation Filtering&lt;/b&gt;&lt;br/&gt;Sample request
-   * invoking concept_detection with a filter defined to exclude any annotations detected from concept_detection where
-   * the semanticType field does not equal "neop".&lt;/p&gt;&lt;pre&gt;{&lt;br/&gt;  "annotatorFlows": [&lt;br/&gt;
-   * {&lt;br/&gt;      "flow": {&lt;br/&gt;        "elements": [&lt;br/&gt;          {&lt;br/&gt;
-   * "annotator": {&lt;br/&gt;              "name": "concept_detection",&lt;br/&gt;              "configurations":
-   * [&lt;br/&gt;                {&lt;br/&gt;                  "filter": {&lt;br/&gt;                     "target":
-   * "unstructured.data.concepts",&lt;br/&gt;                     "condition": {&lt;br/&gt;
-   * "type": "match",&lt;br/&gt;                        "field": "semanticType",&lt;br/&gt;
-   * "values": [&lt;br/&gt;                           "neop"&lt;br/&gt;                         ],&lt;br/&gt;
-   *             "not": false,&lt;br/&gt;                        "caseInsensitive": false,&lt;br/&gt;
-   *     "operator": "equals"&lt;br/&gt;                     }&lt;br/&gt;                  }&lt;br/&gt;
-   * }&lt;br/&gt;              ]&lt;br/&gt;            }&lt;br/&gt;          }&lt;br/&gt;        ],&lt;br/&gt;
-   * "async": false&lt;br/&gt;      }&lt;br/&gt;    }&lt;br/&gt;  ],&lt;br/&gt;  "unstructured": [&lt;br/&gt;
-   * {&lt;br/&gt;      "text": "Patient has lung cancer, but did not smoke. She may consider chemotherapy as part of a
-   * treatment plan."&lt;br/&gt;    }&lt;br/&gt;  ]&lt;br/&gt;}&lt;br/&gt;&lt;/pre&gt;&lt;p&gt;&lt;b&gt;Annotators that
-   * support annotation filtering:&lt;/b&gt; allergy, bathing_assistance, cancer, concept_detection,
-   * dressing_assistance, eating_assistance, ejection_fraction, lab_value, medication, named_entities, procedure,
-   * seeing_assistance, smoking, symptom_disease, toileting_assistance,
-   * walking_assistance.&lt;/p&gt;&lt;hr/&gt;&lt;p&gt;&lt;b&gt;Annotation Augmentation&lt;/b&gt;&lt;br/&gt;Sample
-   * request invoking the cancer annotator and providing a whitelist entry for a new custom surface form:
-   * "lungcancer".&lt;/p&gt;&lt;pre&gt;{&lt;br/&gt; "annotatorFlows": [&lt;br/&gt;    {&lt;br/&gt;     "flow":
-   * {&lt;br/&gt;       "elements": [&lt;br/&gt;          {&lt;br/&gt;           "annotator": {&lt;br/&gt;
-   * "name": "cancer",&lt;br/&gt;             "configurations": [&lt;br/&gt;                {&lt;br/&gt;
-   * "whitelist": {&lt;br/&gt;                   "name": "cancer",&lt;br/&gt;                   "entries": [&lt;br/&gt;
-   *                     {&lt;br/&gt;                  "surfaceForms": [&lt;br/&gt;
-   * "lungcancer"&lt;br/&gt;                ],&lt;br/&gt;               "features": {&lt;br/&gt;
-   * "normalizedName": "lung cancer",&lt;br/&gt;                   "hccCode": "9",&lt;br/&gt;
-   * "icd10Code": "C34.9",&lt;br/&gt;                   "ccsCode": "19",&lt;br/&gt;                   "icd9Code":
-   * "162.9",&lt;br/&gt;                   "conceptId": "93880001"&lt;br/&gt;                }&lt;br/&gt;
-   *       }&lt;br/&gt;                    ]&lt;br/&gt;                  }&lt;br/&gt;                }&lt;br/&gt;
-   *       ]&lt;br/&gt;            }&lt;br/&gt;          }&lt;br/&gt;        ],&lt;br/&gt;       "async":
-   * false&lt;br/&gt;      }&lt;br/&gt;    }&lt;br/&gt;  ],&lt;br/&gt; "unstructured": [&lt;br/&gt;    {&lt;br/&gt;
-   * "text": "The patient was diagnosed with lungcancer, on Dec 23, 2011."&lt;br/&gt;    }&lt;br/&gt;
-   * ]&lt;br/&gt;}&lt;br/&gt;&lt;/pre&gt;&lt;b&gt;Annotators that support annotation augmentation:&lt;/b&gt; allergy,
-   * bathing_assistance, cancer, dressing_assistance, eating_assistance, ejection_fraction, lab_value, medication,
-   * named_entities, procedure, seeing_assistance, smoking, symptom_disease, toileting_assistance,
-   * walking_assistance.&lt;br/&gt;.
-   *
-   * @param runPipelineOptions the {@link RunPipelineOptions} containing the options for the call
-   * @return a {@link ServiceCall} with a void result
-   */
-  public ServiceCall<Void> runPipeline(RunPipelineOptions runPipelineOptions) {
-    com.ibm.cloud.sdk.core.util.Validator.notNull(runPipelineOptions,
-      "runPipelineOptions cannot be null");
-    String[] pathSegments = { "v1/analyze" };
-    RequestBuilder builder = RequestBuilder.post(RequestBuilder.constructHttpUrl(getServiceUrl(), pathSegments));
-    Map<String, String> sdkHeaders = SdkCommon.getSdkHeaders("annotator_for_clinical_data_acd", "v1", "runPipeline");
-    for (Entry<String, String> header : sdkHeaders.entrySet()) {
-      builder.header(header.getKey(), header.getValue());
-    }
-    builder.query("version", this.version);
-    if (runPipelineOptions.debugTextRestore() != null) {
-      builder.query("debug_text_restore", String.valueOf(runPipelineOptions.debugTextRestore()));
-    }
-    if (runPipelineOptions.returnAnalyzedText() != null) {
-      builder.query("return_analyzed_text", String.valueOf(runPipelineOptions.returnAnalyzedText()));
-    }
-    if (runPipelineOptions.debug() != null) {
-      builder.query("debug", String.valueOf(runPipelineOptions.debug()));
-    }
-    final JsonObject contentJson = new JsonObject();
-    if (runPipelineOptions.unstructured() != null) {
-      contentJson.add("unstructured", com.ibm.cloud.sdk.core.util.GsonSingleton.getGson().toJsonTree(runPipelineOptions.unstructured()));
-    }
-    if (runPipelineOptions.annotatorFlows() != null) {
-      contentJson.add("annotatorFlows", com.ibm.cloud.sdk.core.util.GsonSingleton.getGson().toJsonTree(runPipelineOptions.annotatorFlows()));
-    }
-    builder.bodyJson(contentJson);
-    ResponseConverter<Void> responseConverter = ResponseConverterUtils.getVoid();
-    return createServiceCall(builder.build(), responseConverter);
-  }
-
-  /**
    * Detect entities and relations from unstructured data.
    *
-   * &lt;p&gt;This API accepts a JSON request model featuring both the unstructured data to be analyzed as well as the
-   * desired annotator flow.&lt;p/&gt;&lt;p&gt;&lt;b&gt;Annotator Chaining&lt;/b&gt;&lt;br/&gt;Sample request invoking
-   * both the concept_detection and symptom_disease annotators asynchronously. This sample request references
-   * configurations via a profile id. Profiles define configurations that can be referenced within a request. Profile is
-   * optional. A default profile is used if no profile id is available in the annotator flow. The default profile
-   * contains the parameters for the concept detection and the attribute detection. An empty profile can be used if
-   * absolutely no parameters are attached to any annotators. See &lt;a href=".."
-   * target="_blank"&gt;documentation&lt;/a&gt; for more information. &lt;/p&gt;&lt;pre&gt;{&lt;br/&gt;
-   * "annotatorFlows": [&lt;br/&gt;    {&lt;br/&gt;      "profile" : "default_profile_v1.0", &lt;br/&gt;      "flow":
-   * {&lt;br/&gt;        "elements": [&lt;br/&gt;          {&lt;br/&gt;            "annotator": {&lt;br/&gt;
-   *  "name": "concept_detection"&lt;br/&gt;            }&lt;br/&gt;          },&lt;br/&gt;          {&lt;br/&gt;
-   *     "annotator": {&lt;br/&gt;              "name": "symptom_disease"&lt;br/&gt;             }&lt;br/&gt;
-   * }&lt;br/&gt;        ],&lt;br/&gt;        "async": false&lt;br/&gt;      }&lt;br/&gt;    }&lt;br/&gt;  ],&lt;br/&gt;
-   *  "unstructured": [&lt;br/&gt;    {&lt;br/&gt;      "text": "Patient has lung cancer, but did not smoke. She may
-   * consider chemotherapy as part of a treatment plan."&lt;br/&gt;    }&lt;br/&gt;
-   * ]&lt;br/&gt;}&lt;br/&gt;&lt;/pre&gt;&lt;p&gt;&lt;b&gt;Annotation Filtering&lt;/b&gt;&lt;br/&gt;Sample request
-   * invoking concept_detection with a filter defined to exclude any annotations detected from concept_detection where
-   * the semanticType field does not equal "neop".&lt;/p&gt;&lt;pre&gt;{&lt;br/&gt;  "annotatorFlows": [&lt;br/&gt;
-   * {&lt;br/&gt;      "flow": {&lt;br/&gt;        "elements": [&lt;br/&gt;          {&lt;br/&gt;
-   * "annotator": {&lt;br/&gt;              "name": "concept_detection",&lt;br/&gt;              "configurations":
-   * [&lt;br/&gt;                {&lt;br/&gt;                  "filter": {&lt;br/&gt;                     "target":
-   * "unstructured.data.concepts",&lt;br/&gt;                     "condition": {&lt;br/&gt;
-   * "type": "match",&lt;br/&gt;                        "field": "semanticType",&lt;br/&gt;
-   * "values": [&lt;br/&gt;                           "neop"&lt;br/&gt;                         ],&lt;br/&gt;
-   *             "not": false,&lt;br/&gt;                        "caseInsensitive": false,&lt;br/&gt;
-   *     "operator": "equals"&lt;br/&gt;                     }&lt;br/&gt;                  }&lt;br/&gt;
-   * }&lt;br/&gt;              ]&lt;br/&gt;            }&lt;br/&gt;          }&lt;br/&gt;        ],&lt;br/&gt;
-   * "async": false&lt;br/&gt;      }&lt;br/&gt;    }&lt;br/&gt;  ],&lt;br/&gt;  "unstructured": [&lt;br/&gt;
-   * {&lt;br/&gt;      "text": "Patient has lung cancer, but did not smoke. She may consider chemotherapy as part of a
-   * treatment plan."&lt;br/&gt;    }&lt;br/&gt;  ]&lt;br/&gt;}&lt;br/&gt;&lt;/pre&gt;&lt;p&gt;&lt;b&gt;Annotators that
-   * support annotation filtering:&lt;/b&gt; allergy, bathing_assistance, cancer, concept_detection,
-   * dressing_assistance, eating_assistance, ejection_fraction, lab_value, medication, named_entities, procedure,
-   * seeing_assistance, smoking, symptom_disease, toileting_assistance,
-   * walking_assistance.&lt;/p&gt;&lt;hr/&gt;&lt;p&gt;&lt;b&gt;Annotation Augmentation&lt;/b&gt;&lt;br/&gt;Sample
-   * request invoking the cancer annotator and providing a whitelist entry for a new custom surface form:
-   * "lungcancer".&lt;/p&gt;&lt;pre&gt;{&lt;br/&gt; "annotatorFlows": [&lt;br/&gt;    {&lt;br/&gt;     "flow":
-   * {&lt;br/&gt;       "elements": [&lt;br/&gt;          {&lt;br/&gt;           "annotator": {&lt;br/&gt;
-   * "name": "cancer",&lt;br/&gt;             "configurations": [&lt;br/&gt;                {&lt;br/&gt;
-   * "whitelist": {&lt;br/&gt;                   "name": "cancer",&lt;br/&gt;                   "entries": [&lt;br/&gt;
-   *                     {&lt;br/&gt;                  "surfaceForms": [&lt;br/&gt;
-   * "lungcancer"&lt;br/&gt;                ],&lt;br/&gt;               "features": {&lt;br/&gt;
-   * "normalizedName": "lung cancer",&lt;br/&gt;                   "hccCode": "9",&lt;br/&gt;
-   * "icd10Code": "C34.9",&lt;br/&gt;                   "ccsCode": "19",&lt;br/&gt;                   "icd9Code":
-   * "162.9",&lt;br/&gt;                   "conceptId": "93880001"&lt;br/&gt;                }&lt;br/&gt;
-   *       }&lt;br/&gt;                    ]&lt;br/&gt;                  }&lt;br/&gt;                }&lt;br/&gt;
-   *       ]&lt;br/&gt;            }&lt;br/&gt;          }&lt;br/&gt;        ],&lt;br/&gt;       "async":
-   * false&lt;br/&gt;      }&lt;br/&gt;    }&lt;br/&gt;  ],&lt;br/&gt; "unstructured": [&lt;br/&gt;    {&lt;br/&gt;
-   * "text": "The patient was diagnosed with lungcancer, on Dec 23, 2011."&lt;br/&gt;    }&lt;br/&gt;
-   * ]&lt;br/&gt;}&lt;br/&gt;&lt;/pre&gt;&lt;b&gt;Annotators that support annotation augmentation:&lt;/b&gt; allergy,
-   * bathing_assistance, cancer, dressing_assistance, eating_assistance, ejection_fraction, lab_value, medication,
-   * named_entities, procedure, seeing_assistance, smoking, symptom_disease, toileting_assistance,
-   * walking_assistance.&lt;br/&gt;.
+   * This API accepts a JSON request model featuring both the unstructured data to
+   * be analyzed as well as the desired annotator flow.
    *
-   * @return a {@link ServiceCall} with a void result
+   * @param analyzeOptions the {@link AnalyzeOptions} containing the options for
+   *                        the call
+   * @return a {@link ServiceCall} with a result of type {@link ContainerGroup}
    */
-  public ServiceCall<Void> runPipeline() {
-    return runPipeline(null);
+  public ServiceCall<ContainerGroup> analyze(final AnalyzeOptions analyzeOptions) {
+	  Validator.notNull(analyzeOptions, "analyzeOptions cannot be null");
+	  String[] pathSegments = { "v1/analyze" };
+	  RequestBuilder builder = RequestBuilder.post(RequestBuilder.constructHttpUrl(getServiceUrl(), pathSegments));
+	  builder.query(VERSION, version);
+	  builder.query(RETURN_ANALYZED_TEXT, String.valueOf(analyzeOptions.returnAnalyzedText()));
+	  builder.query(DEBUG, String.valueOf(analyzeOptions.debug()));
+	  Map<String, String> sdkHeaders = SdkCommon.getSdkHeaders(DEFAULT_SERVICE_NAME, "v1", "analyze");
+	  for (Entry<String, String> header : sdkHeaders.entrySet()) {
+		  builder.header(header.getKey(), header.getValue());
+	  }
+	  if (analyzeOptions != null) {
+		  final JsonObject contentJson = new JsonObject();
+		  if (analyzeOptions.unstructured() != null) {
+			  contentJson.add("unstructured", GsonSingleton.getGson().toJsonTree(analyzeOptions.unstructured()));
+		  }
+		  if (analyzeOptions.annotatorFlows() != null) {
+			  contentJson.add("annotatorFlows", GsonSingleton.getGson().toJsonTree(analyzeOptions.annotatorFlows()));
+		  }
+		  builder.bodyJson(contentJson);
+	  }
+	  return createServiceCall(builder.build(), ResponseConverterUtils.getObject(ContainerGroup.class));
   }
 
   /**
-   * analyze with a pre-specified flow.
-   *
-   * &lt;p&gt;This API accepts a flow identifier as well as a &lt;emph&gt;TEXT&lt;/emph&gt; or a
-   * &lt;emph&gt;JSON&lt;/emph&gt; request model featuring the unstructured text to be analyzed.
-   * &lt;p/&gt;&lt;p&gt;&lt;b&gt;JSON request model with unstructured text &lt;/b&gt;&lt;/p&gt;&lt;pre&gt;{&lt;br/&gt;
-   * "unstructured": [&lt;br/&gt;    {&lt;br/&gt;      "text": "Patient has lung cancer, but did not smoke. She may
-   * consider chemotherapy as part of a treatment plan."&lt;br/&gt;    }&lt;br/&gt;
-   * ]&lt;br/&gt;}&lt;br/&gt;&lt;/pre&gt;&lt;p&gt;&lt;b&gt;JSON request model with existing annotations
-   * &lt;/b&gt;&lt;br/&gt;&lt;/p&gt;&lt;pre&gt;{&lt;br&gt; "unstructured": [&lt;br&gt;    {&lt;br&gt;      "text":
-   * "Patient will not start on cisplatin 80mg on 1/1/2018. Patient is also diabetic.",&lt;br&gt;      "data":
-   * {&lt;br&gt;        "concepts": [&lt;br&gt;          {&lt;br&gt;            "cui": "C0030705",&lt;br&gt;
-   * "preferredName": "Patients",&lt;br&gt;            "semanticType": "podg",&lt;br&gt;            "source":
-   * "umls",&lt;br&gt;            "sourceVersion": "2017AA",&lt;br&gt;            "type":
-   * "umls.PatientOrDisabledGroup",&lt;br&gt;            "begin": 0,&lt;br&gt;            "end": 7,&lt;br&gt;
-   * "coveredText": "Patient"&lt;br&gt;          }&lt;br&gt; ]&lt;br&gt;      }  &lt;br&gt;    } &lt;br&gt;
-   * ]&lt;br&gt;}&lt;br&gt;&lt;/pre&gt;.
-   *
-   * @param runPipelineWithFlowOptions the {@link RunPipelineWithFlowOptions} containing the options for the call
-   * @return a {@link ServiceCall} with a void result
-   */
-  public ServiceCall<Void> runPipelineWithFlow(RunPipelineWithFlowOptions runPipelineWithFlowOptions) {
-    com.ibm.cloud.sdk.core.util.Validator.notNull(runPipelineWithFlowOptions,
-      "runPipelineWithFlowOptions cannot be null");
-    String[] pathSegments = { "v1/analyze" };
-    String[] pathParameters = { runPipelineWithFlowOptions.flowId() };
-    RequestBuilder builder = RequestBuilder.post(RequestBuilder.constructHttpUrl(getServiceUrl(), pathSegments, pathParameters));
-    Map<String, String> sdkHeaders = SdkCommon.getSdkHeaders("annotator_for_clinical_data_acd", "v1", "runPipelineWithFlow");
-    for (Entry<String, String> header : sdkHeaders.entrySet()) {
-      builder.header(header.getKey(), header.getValue());
-    }
-    if (runPipelineWithFlowOptions.contentType() != null) {
-      builder.header("Content-Type", runPipelineWithFlowOptions.contentType());
-    }
-    builder.query("version", this.version);
-    builder.query("return_analyzed_text", String.valueOf(runPipelineWithFlowOptions.returnAnalyzedText()));
-    if (runPipelineWithFlowOptions.debugTextRestore() != null) {
-      builder.query("debug_text_restore", String.valueOf(runPipelineWithFlowOptions.debugTextRestore()));
-    }
-    builder.query("debug", String.valueOf(runPipelineWithFlowOptions.debug()));
-    builder.bodyContent(runPipelineWithFlowOptions.contentType(), runPipelineWithFlowOptions.analyticFlowBeanInput(),
-      null, runPipelineWithFlowOptions.body());
-    ResponseConverter<Void> responseConverter = ResponseConverterUtils.getVoid();
-    return createServiceCall(builder.build(), responseConverter);
-  }
-
-     /**
-     * Derive entities and relations from unstructured data.
-     *
-     * This API accepts a JSON request model featuring both the unstructured data to
-     * be analyzed as well as the desired annotator flow.
-     *
-     * Annotator Chaining Sample request invoking both the concept_detection and
-     * symptom_disease annotators asynchronously. { "annotatorFlows": [ { "flow": {
-     * "elements": [ { "annotator": { "name": "concept_detection" } }, {
-     * "annotator": { "name": "symptom_disease" } } ], "async": true } } ],
-     * "unstructured\": [ { "text": "Patient has lung cancer, but did not smoke. She
-     * may consider chemotherapy as part of a treatment plan." } ] }
-     *
-     * Annotation Filtering Sample request invoking concept_detection with a filter
-     * defined to exclude any annotations derived from concept_detection where the
-     * semanticType field does not equal "neop".
-     *
-     * { "annotatorFlows": {"flow": {"elements": [{"annotator": {"name":
-     * "concept_detection", "configurations": [ {"filter": {"target":
-     * "unstructured.data.concepts","condition": { "type": "match", "field":
-     * "semanticType", "values": ["neop"], "not": false, "caseInsensitive": false,
-     * "operator": "equals" } }}]}}], "async": false }}], unstructured": [{"text":
-     * "Patient has lung cancer, but did not smoke. She may consider chemotherapy as
-     * part of a treatment plan."} ]}Annotators that support annotation filtering:
-     * allergy, bathing_assistance, cancer, concept_detection, dressing_assistance,
-     * eating_assistance, ejection_fraction, lab_value, medication, named_entities,
-     * procedure, seeing_assistance, smoking, symptom_disease, toileting_assistance,
-     * walking_assistance. Annotation Augmentation Sample request invoking the
-     * cancer annotator and providing a whitelist entry for a new custom surface
-     * form: "lungcancer". {"annotatorFlows": [{"flow": {"elements": [ {
-     * "annotator": {"name": "cancer", "configurations": [{"whitelist": {"name":
-     * "cancer","entries": [ {"surfaceForms": ["lungcancer"],"features":
-     * {"normalizedName": "lung cancer", "hccCode": "9", "icd10Code": "C34.9",
-     * "ccsCode": "19", "icd9Code": "162.9", "conceptId": "93880001" } }]}}]}}],
-     * "async": false}}], "unstructured": [{"text": "The patient was diagnosed with
-     * lungcancer, on Dec 23, 2011." }]}
-     *
-     * Annotators that support annotation augmentation: allergy, bathing_assistance,
-     * cancer, dressing_assistance, eating_assistance, ejection_fraction, lab_value,
-     * medication, named_entities, procedure, seeing_assistance, smoking,
-     * symptom_disease, toileting_assistance, walking_assistance. .
-     *
-     * @param analyzeOptions the {@link AnalyzeOptions} containing the options for
-     *                       the call
-     * @return the service call
-     */
-    public ServiceCall<ContainerGroup> analyze(final AnalyzeOptions analyzeOptions) {
-      Validator.notNull(analyzeOptions, "analyzeOptions cannot be null");
-      String[] pathSegments = { "v1/analyze" };
-      RequestBuilder builder = RequestBuilder.post(RequestBuilder.constructHttpUrl(getServiceUrl(), pathSegments));
-      builder.query(VERSION, version);
-      builder.query(RETURN_ANALYZED_TEXT, String.valueOf(analyzeOptions.returnAnalyzedText()));
-      builder.query(DEBUG, String.valueOf(analyzeOptions.debug()));
-      Map<String, String> sdkHeaders = SdkCommon.getSdkHeaders(DEFAULT_SERVICE_NAME, "v1", "analyze");
-      for (Entry<String, String> header : sdkHeaders.entrySet()) {
-          builder.header(header.getKey(), header.getValue());
-      }
-      if (analyzeOptions != null) {
-          final JsonObject contentJson = new JsonObject();
-          if (analyzeOptions.unstructured() != null) {
-              contentJson.add("unstructured", GsonSingleton.getGson().toJsonTree(analyzeOptions.unstructured()));
-          }
-          if (analyzeOptions.annotatorFlows() != null) {
-              contentJson.add("annotatorFlows", GsonSingleton.getGson().toJsonTree(analyzeOptions.annotatorFlows()));
-          }
-          builder.bodyJson(contentJson);
-      }
-      return createServiceCall(builder.build(), ResponseConverterUtils.getObject(ContainerGroup.class));
-  }
-
-  /**
-   * analyze with a persisted flow.
+   * Detect entities and relations from unstructured data using a persisted flow.
    *
    * This API accepts a flow identifier as well as a TEXT or a JSON request model
    * featuring the unstructured text to be analyzed. JSON request model with
    * unstructured text
    *
-   * { "unstructured": [ {"text": "Patient has lung cancer, but did not smoke. She
-   * may consider chemotherapy as part of a treatment plan." } ]} JSON request
-   * model with existing annotations {"unstructured": [{"text": "Patient will not
-   * start on cisplatin 80mg on 1/1/2018. Patient is also diabetic.", "data":
-   * {"concepts": [{"cui": "C0030705", "preferredName": "Patients",
-   * "semanticType": "podg", "source": "umls", "sourceVersion": "2017AA", "type":
-   * "umls.PatientOrDisabledGroup", "begin": 0, "end": 7, "coveredText":
-   * "Patient"}]}}]} .
-   *
    * @param analyzeWithFlowOptions the {@link AnalyzeWithFlowOptions} containing
    *                               the options for the call
-   * @return the service call
+   * @return a {@link ServiceCall} with a result of type {@link ContainerGroup}
    */
   public ServiceCall<ContainerGroup> analyzeWithFlow(final AnalyzeWithFlowOptions analyzeWithFlowOptions) {
       Validator.notNull(analyzeWithFlowOptions, "analyzeWithFlowOptions cannot be null");
@@ -933,33 +609,31 @@ public class AnnotatorForClinicalData extends BaseService {
       return createServiceCall(builder.build(), ResponseConverterUtils.getObject(ContainerGroup.class));
   }
 
-      /**
-     * Method to analyze text with a manually defined annotator flow.
-     *
-     * @param text data to be analyzed
-     * @param flow {@link Flow} analytics to apply to the text
-     *
-     * @return the {@link ContainerGroup} discovered cogntive artifacts
-     */
-
-    public ContainerGroup analyze(final String text, final Flow flow) {
-      AnnotatorFlow annotatorFlow = new AnnotatorFlow.Builder().flow(flow).build();
-      UnstructuredContainer unstructuredContainer = new UnstructuredContainer.Builder().text(text).build();
-      AnalyzeOptions options = new AnalyzeOptions.Builder().addUnstructured(unstructuredContainer)
-              .returnAnalyzedText(false).debug(false).addAnnotatorFlows(annotatorFlow).build();
-
-      return this.analyze(options).execute().getResult();
-  }
-
   /**
-   * Method to analyze text with a manually defined annotator flow.
+   * Method to analyze text with a provided annotator flow definition.
    *
    * @param text data to be analyzed
    * @param flow {@link Flow} analytics to apply to the text
    *
-   * @return the response with {@link ContainerGroup}
+   * @return the {@link ContainerGroup} discovered cognitive entities
    */
+  public ContainerGroup analyze(final String text, final Flow flow) {
+	  AnnotatorFlow annotatorFlow = new AnnotatorFlow.Builder().flow(flow).build();
+	  UnstructuredContainer unstructuredContainer = new UnstructuredContainer.Builder().text(text).build();
+	  AnalyzeOptions options = new AnalyzeOptions.Builder().addUnstructured(unstructuredContainer)
+			  .returnAnalyzedText(false).debug(false).addAnnotatorFlows(annotatorFlow).build();
 
+	  return this.analyze(options).execute().getResult();
+  }
+
+  /**
+   * Method to analyze text using a provided annotator flow definition.
+   *
+   * @param text data to be analyzed
+   * @param flow {@link Flow} annotator flow definition
+   *
+   * @return the {@link Response} with a result of type {@link ContainerGroup}
+   */
   public Response<ContainerGroup> analyzeInclResponseDetails(final String text, final Flow flow) {
       AnnotatorFlow annotatorFlow = new AnnotatorFlow.Builder().flow(flow).build();
       UnstructuredContainer unstructuredContainer = new UnstructuredContainer.Builder().text(text).build();
@@ -970,15 +644,14 @@ public class AnnotatorForClinicalData extends BaseService {
   }
 
   /**
-   * Method to analyze text with a manually defined annotator flow.
+   * Method to analyze text using a provided annotator flow definition.
    *
    * @param text data to be analyzed
-   * @param flow analytics to appply to the text {@link Flow}
-   * @param returnAnalyzedText where to return the submitted data
+   * @param flow {@link Flow} annotator flow definition
+   * @param returnAnalyzedText if true, analyzed text is included in response
    *
    * @return the {@link ContainerGroup}
    */
-
   public ContainerGroup analyze(final String text, final Flow flow, final boolean returnAnalyzedText) {
       AnnotatorFlow annotatorFlow = new AnnotatorFlow.Builder().flow(flow).build();
       UnstructuredContainer unstructuredContainer = new UnstructuredContainer.Builder().text(text).build();
@@ -989,15 +662,14 @@ public class AnnotatorForClinicalData extends BaseService {
   }
 
   /**
-   * Method to analyze text with a manually defined annotator flow.
+   * Method to analyze text using a provided annotator flow definition.
    *
    * @param text data to be analyzed
-   * @param flow  analytics to appply to the text {@link Flow}
-   * @param returnAnalyzedText where to return the submitted data
+   * @param flow {@link Flow} annotator flow definition
+   * @param returnAnalyzedText if true, analyzed text is included in response
    *
-   * @return the resopnse with result representing {@link ContainerGroup}
+   * @return the {@link Response} with a result of type {@link ContainerGroup}
    */
-
   public Response<ContainerGroup> analyzeInclResponseDetails(final String text, final Flow flow,
           final boolean returnAnalyzedText) {
       AnnotatorFlow annotatorFlow = new AnnotatorFlow.Builder().flow(flow).build();
@@ -1009,16 +681,15 @@ public class AnnotatorForClinicalData extends BaseService {
   }
 
   /**
-   * Method to analyze text with a manually defined annotator flow.
+   * Method to analyze text using a provided annotator flow definition.
    *
    * @param text data to be analyzed
-   * @param flow  analytics to appply to the text {@link Flow}
-   * @param returnAnalyzedText where to return the submitted data
+   * @param flow {@link Flow} annotator flow definition
+   * @param returnAnalyzedText if true, analyzed text is included in response
    * @param debug analyze debug flag
    *
-   * @return the response with result representing {@link ContainerGroup}
+   * @return the {@link Response} with a result of type {@link ContainerGroup}
    */
-
   public Response<ContainerGroup> analyzeDebug(final String text, final Flow flow,
           final boolean returnAnalyzedText, final boolean debug) {
       AnnotatorFlow annotatorFlow = new AnnotatorFlow.Builder().flow(flow).build();
@@ -1030,14 +701,13 @@ public class AnnotatorForClinicalData extends BaseService {
   }
 
   /**
-   * Method to analyze text with an existing annotator flow.
+   * Method to analyze text with a persisted annotator flow.
    *
-   * @param flowId identifier of existing analytic flow to apply to the text
+   * @param flowId identifier of persisted annotator flow to apply to the text
    * @param text data to be analyzed
    *
    * @return the {@link ContainerGroup}
    */
-
   public ContainerGroup analyzeWithFlow(final String flowId, final String text) {
       AnalyzeWithFlowOptions analyzeWithFlowOptions = new AnalyzeWithFlowOptions.Builder().flowId(flowId).text(text)
               .returnAnalyzedText(false).debug(false).build();
@@ -1046,14 +716,13 @@ public class AnnotatorForClinicalData extends BaseService {
   }
 
   /**
-   * Method to analyze text with an existing annotator flow.
+   * Method to analyze text with a persisted annotator flow.
    *
-   * @param flowId identifier of existing analytic flow to apply to the text
+   * @param flowId identifier of persisted annotator flow to apply to the text
    * @param text data to be analyzed
    *
-   * @return the response with result representing {@link ContainerGroup}
+   * @return the {@link Response} with a result of type {@link ContainerGroup}
    */
-
   public Response<ContainerGroup> analyzeWithFlowInclResponseDetails(final String flowId, final String text) {
       AnalyzeWithFlowOptions analyzeWithFlowOptions = new AnalyzeWithFlowOptions.Builder().flowId(flowId).text(text)
               .returnAnalyzedText(false).debug(false).build();
@@ -1062,15 +731,14 @@ public class AnnotatorForClinicalData extends BaseService {
   }
 
   /**
-   * Method to analyze text with an existing annotator flow.
+   * Method to analyze text with a persisted annotator flow.
    *
-   * @param flowId identifier of existing analytic flow to apply to the text
+   * @param flowId identifier of persisted annotator flow to apply to the text
    * @param text data to be analyzed
-   * @param returnAnalyzedText where to return the submitted data
+   * @param returnAnalyzedText if true, analyzed text is included in response
    *
-   * @return the response with result representing {@link ContainerGroup}
+   * @return the {@link ContainerGroup}
    */
-
   public ContainerGroup analyzeWithFlow(final String flowId, final String text, final boolean returnAnalyzedText) {
       AnalyzeWithFlowOptions analyzeWithFlowOptions = new AnalyzeWithFlowOptions.Builder().flowId(flowId).text(text)
               .returnAnalyzedText(returnAnalyzedText).debug(false).build();
@@ -1078,17 +746,16 @@ public class AnnotatorForClinicalData extends BaseService {
       return this.analyzeWithFlow(analyzeWithFlowOptions).execute().getResult();
   }
 
-    /**
-   * Method to analyze text with an existing annotator flow with analyze debug flag enabled.
+  /**
+   * Method to analyze text with a persisted annotator flow with analyze debug flag enabled.
    *
-   * @param flowId identifier of existing analytic flow to apply to the text
+   * @param flowId identifier of persisted annotator flow to apply to the text
    * @param text data to be analyzed
-   * @param returnAnalyzedText where to return the submitted data
+   * @param returnAnalyzedText if true, analyzed text is included in response
    * @param debug turn on analyze debug flag
    *
-   * @return the response with result representing {@link ContainerGroup}
+   * @return the {@link ContainerGroup}
    */
-
   public ContainerGroup analyzeWithFlowDebug(final String flowId, final String text, final boolean returnAnalyzedText, final boolean debug) {
       AnalyzeWithFlowOptions analyzeWithFlowOptions = new AnalyzeWithFlowOptions.Builder().flowId(flowId).text(text)
               .returnAnalyzedText(returnAnalyzedText).debug(debug).build();
@@ -1097,15 +764,14 @@ public class AnnotatorForClinicalData extends BaseService {
   }
 
   /**
-   * Method to analyze text with an existing annotator flow.
+   * Method to analyze text with a persisted annotator flow.
    *
-   * @param flowId identifier of existing analytic flow to apply to the text
+   * @param flowId identifier of persisted annotator flow to apply to the text
    * @param text data to be analyzed
-   * @param returnAnalyzedText where to return the submitted data
+   * @param returnAnalyzedText if true, analyzed text is included in response
    *
-   * @return the response with result representing {@link ContainerGroup}
+   * @return the {@link Response} with a result of type {@link ContainerGroup}
    */
-
   public Response<ContainerGroup> analyzeWithFlowInclResponseDetails(final String flowId, final String text,
           final boolean returnAnalyzedText) {
       AnalyzeWithFlowOptions analyzeWithFlowOptions = new AnalyzeWithFlowOptions.Builder().flowId(flowId).text(text)
@@ -1115,14 +781,13 @@ public class AnnotatorForClinicalData extends BaseService {
   }
 
   /**
-   * Method to analyze text with an existing annotator flow.
+   * Method to analyze text with a persisted annotator flow.
    *
-   * @param flowId identifier of existing analytic flow to apply to the text
-   * @param unstructuredContainer {@link UnstructuredContainer} discovered cognitive artifacts
+   * @param flowId identifier of persisted annotator flow to apply to the text
+   * @param unstructuredContainer {@link UnstructuredContainer} text to analyze and discovered cognitive entities
    *
    * @return the {@link ContainerGroup}
    */
-
   public ContainerGroup analyzeWithFlow(final String flowId, final UnstructuredContainer unstructuredContainer) {
       RequestContainer requestContainer = new RequestContainer.Builder().addUnstructured(unstructuredContainer)
               .build();
@@ -1134,40 +799,14 @@ public class AnnotatorForClinicalData extends BaseService {
   }
 
   /**
-   * Method to analyze text with an existing annotator flow.
+   * Method to analyze text with a persisted annotator flow.
    *
-   * @param flowId identifier of existing analytic flow to apply to the text
-   * @param unstructuredContainer {@link UnstructuredContainer} discovered cognitive artifacts
+   * @param flowId identifier of persisted annotator flow to apply to the text
+   * @param unstructuredContainer {@link UnstructuredContainer} text to analyze and discovered cognitive entities
+   * @param returnAnalyzedText if true, analyzed text is included in response
    *
-   * @return the response with result representing {@link ContainerGroup}
-   *
-   * Note: This method is incorrectly named (see analyzeWithFlowInclResponseDetails(String, UnstructuredContainer,
-   * boolean) since it does not accept a boolean.  Will leave here for now to prevent a breaking a change and mark
-   * it deprecated.
+   * @return the {@link ContainerGroup} discovered cognitive entities
    */
-
-  @Deprecated
-  public Response<ContainerGroup> analyzeWithFlowInclResponseDetails(final String flowId,
-          final UnstructuredContainer unstructuredContainer) {
-      RequestContainer requestContainer = new RequestContainer.Builder().addUnstructured(unstructuredContainer)
-              .build();
-
-      AnalyzeWithFlowOptions analyzeWithFlowOptions = new AnalyzeWithFlowOptions.Builder().flowId(flowId)
-              .returnAnalyzedText(false).debug(false).request(requestContainer).build();
-
-      return this.analyzeWithFlow(analyzeWithFlowOptions).execute();
-  }
-
-  /**
-   * Method to analyze text with an existing annotator flow.
-   *
-   * @param flowId identifier of existing analytic flow to apply to the text
-   * @param unstructuredContainer {@link UnstructuredContainer}
-   * @param returnAnalyzedText where to return the submitted data
-   *
-   * @return the {@link ContainerGroup} discovered cognitive artifacts
-   */
-
   public ContainerGroup analyzeWithFlow(final String flowId, final UnstructuredContainer unstructuredContainer,
           final boolean returnAnalyzedText) {
       RequestContainer requestContainer = new RequestContainer.Builder().addUnstructured(unstructuredContainer)
@@ -1180,15 +819,34 @@ public class AnnotatorForClinicalData extends BaseService {
   }
 
   /**
-   * Method to analyze text with an existing annotator flow.
+   * Method to analyze text with a persisted annotator flow.
    *
-   * @param flowId identifier of existing analytic flow to apply to the text
-   * @param unstructuredContainer {@link UnstructuredContainer}
-   * @param returnAnalyzedText where to return the submitted data
+   * @param flowId identifier of persisted annotator flow to apply to the text
+   * @param unstructuredContainer {@link UnstructuredContainer} text to analyze and discovered cognitive entities
    *
-   * @return the response with result representing {@link ContainerGroup}
+   * @return the {@link Response} with a result of type {@link ContainerGroup}
    */
 
+  public Response<ContainerGroup> analyzeWithFlowInclResponseDetails(final String flowId,
+          final UnstructuredContainer unstructuredContainer) {
+      RequestContainer requestContainer = new RequestContainer.Builder().addUnstructured(unstructuredContainer)
+              .build();
+
+      AnalyzeWithFlowOptions analyzeWithFlowOptions = new AnalyzeWithFlowOptions.Builder().flowId(flowId)
+              .returnAnalyzedText(false).debug(false).request(requestContainer).build();
+
+      return this.analyzeWithFlow(analyzeWithFlowOptions).execute();
+  }
+
+  /**
+   * Method to analyze text with a persisted annotator flow.
+   *
+   * @param flowId identifier of persisted annotator flow to apply to the text
+   * @param unstructuredContainer {@link UnstructuredContainer} text to analyze and discovered cognitive entities
+   * @param returnAnalyzedText if true, analyzed text is included in response
+   *
+   * @return the {@link Response} with a result of type {@link ContainerGroup}
+   */
   public Response<ContainerGroup> analyzeWithFlowInclResponseDetails(final String flowId,
           final UnstructuredContainer unstructuredContainer, final boolean returnAnalyzedText) {
       RequestContainer requestContainer = new RequestContainer.Builder().addUnstructured(unstructuredContainer)
@@ -1200,17 +858,16 @@ public class AnnotatorForClinicalData extends BaseService {
       return this.analyzeWithFlow(analyzeWithFlowOptions).execute();
   }
 
-    /**
-   * Method to analyze text with an existing annotator flow with analyze debug flag enabled.
+  /**
+   * Method to analyze text with a persisted annotator flow with analyze debug flag enabled.
    *
-   * @param flowId identifier of existing analytic flow to apply to the text
-   * @param unstructuredContainer {@link UnstructuredContainer}
-   * @param returnAnalyzedText where to return the submitted data
+   * @param flowId identifier of persisted annotator flow to apply to the text
+   * @param unstructuredContainer {@link UnstructuredContainer} text to analyze and discovered cognitive entities
+   * @param returnAnalyzedText if true, analyzed text is included in response
    * @param debug analyze debug flag enabled
    *
-   * @return the response with result representing {@link ContainerGroup}
+   * @return the {@link Response} with a result of type {@link ContainerGroup}
    */
-
   public Response<ContainerGroup> analyzeWithFlowDebug(final String flowId,
           final UnstructuredContainer unstructuredContainer, final boolean returnAnalyzedText, final boolean debug) {
       RequestContainer requestContainer = new RequestContainer.Builder().addUnstructured(unstructuredContainer)
@@ -1226,10 +883,10 @@ public class AnnotatorForClinicalData extends BaseService {
    * Get list of available annotators.
    *
    * Get list of available annotators that can be leveraged to detect information from unstructured data. One or more
-   * annnotators can be leveraged within a single request to the service.
+   * annotators can be leveraged within a single request to the service.
    *
    * @param getAnnotatorsOptions the {@link GetAnnotatorsOptions} containing the options for the call
-   * @return a {@link ServiceCall} with a void result
+   * @return a {@link ServiceCall} with a result of type {@link Map}&lt;String, {@link ServiceApiBean}&gt;
    */
   public ServiceCall<Map<String, ServiceApiBean>> getAnnotators(GetAnnotatorsOptions getAnnotatorsOptions) {
 	  String[] pathSegments = { "v1/annotators" };
@@ -1248,9 +905,9 @@ public class AnnotatorForClinicalData extends BaseService {
    * Get list of available annotators.
    *
    * Get list of available annotators that can be leveraged to detect information from unstructured data. One or more
-   * annnotators can be leveraged within a single request to the service.
+   * annotators can be leveraged within a single request to the service.
    *
-   * @return a {@link ServiceCall} with a void result
+   * @return a {@link ServiceCall} with a result of type {@link Map}&lt;String, {@link ServiceApiBean}&gt;
    */
   public ServiceCall<Map<String, ServiceApiBean>> getAnnotators() {
     return getAnnotators(null);
@@ -1262,9 +919,9 @@ public class AnnotatorForClinicalData extends BaseService {
    * Get details of an annotator that can be used to detect information from unstructured data.
    *
    * @param getAnnotatorsByIdOptions the {@link GetAnnotatorsByIdOptions} containing the options for the call
-   * @return a {@link ServiceCall} with a void result
+   * @return a {@link ServiceCall} with a {@link ServiceApiBean} result
    */
-  public ServiceCall<Annotator> getAnnotatorsById(GetAnnotatorsByIdOptions getAnnotatorsByIdOptions) {
+  public ServiceCall<ServiceApiBean> getAnnotatorsById(GetAnnotatorsByIdOptions getAnnotatorsByIdOptions) {
     com.ibm.cloud.sdk.core.util.Validator.notNull(getAnnotatorsByIdOptions,
       "getAnnotatorsByIdOptions cannot be null");
     String[] pathSegments = { "v1/annotators" };
@@ -1275,7 +932,7 @@ public class AnnotatorForClinicalData extends BaseService {
       builder.header(header.getKey(), header.getValue());
     }
     builder.query("version", this.version);
-    ResponseConverter<Annotator> responseConverter = ResponseConverterUtils.getValue(new com.google.gson.reflect.TypeToken<Annotator>() { }.getType());
+    ResponseConverter<ServiceApiBean> responseConverter = ResponseConverterUtils.getValue(new com.google.gson.reflect.TypeToken<ServiceApiBean>() { }.getType());
     return createServiceCall(builder.build(), responseConverter);
   }
 
@@ -1311,12 +968,12 @@ public class AnnotatorForClinicalData extends BaseService {
   }
 
   /**
-   * Get list of available deployment status.
+   * Get list of cartridge deployment statuses.
    *
    * Returns a summary including ID and status of the available deployments.
    *
    * @param cartridgesGetOptions the {@link CartridgesGetOptions} containing the options for the call
-   * @return a {@link ServiceCall} with a result of type {@link ListStringWrapper}
+   * @return a {@link ServiceCall} with a result of type {@link AcdCartridgesList}
    */
   public ServiceCall<AcdCartridgesList> cartridgesGet(CartridgesGetOptions cartridgesGetOptions) {
     String[] pathSegments = { "v1/cartridges" };
@@ -1337,7 +994,7 @@ public class AnnotatorForClinicalData extends BaseService {
    *
    * Returns a summary including ID and status of the available deployments.
    *
-   * @return a {@link ServiceCall} with a result of type {@link ListStringWrapper}
+   * @return a {@link ServiceCall} with a result of type {@link AcdCartridgesList}
    */
   public ServiceCall<AcdCartridgesList> cartridgesGet() {
     return cartridgesGet(null);
@@ -1452,55 +1109,6 @@ public class AnnotatorForClinicalData extends BaseService {
     ResponseConverter<AcdCartridges> responseConverter =
       ResponseConverterUtils.getValue(new com.google.gson.reflect.TypeToken<AcdCartridges>() { }.getType());
     return createServiceCall(builder.build(), responseConverter);
-  }
-
-  /**
-   * Deploy a cartridge.
-   *
-   * Deploy a cartridge from a cartridge archive file.
-   *
-   * @param deployCartridgeOptions the {@link DeployCartridgeOptions} containing the options for the call
-   * @return a {@link ServiceCall} with a result of type {@link DeployCartridgeResponse}
-   *
-   * @deprecated Instead use cartridgesPostMultipart to create a new deployment or cartridgesPutMultipart to update existing deployment.
-   */
-  @Deprecated
-  public ServiceCall<DeployCartridgeResponse> deployCartridge(DeployCartridgeOptions deployCartridgeOptions) {
-    com.ibm.cloud.sdk.core.util.Validator.notNull(deployCartridgeOptions,
-      "deployCartridgeOptions cannot be null");
-    com.ibm.cloud.sdk.core.util.Validator.isTrue((deployCartridgeOptions.archiveFile() != null), "At least one of  or archiveFile must be supplied.");
-    String[] pathSegments = { "v1/deploy" };
-    RequestBuilder builder = RequestBuilder.post(RequestBuilder.constructHttpUrl(getServiceUrl(), pathSegments));
-    Map<String, String> sdkHeaders = SdkCommon.getSdkHeaders("annotator_for_clinical_data_acd", "v1", "deployCartridge");
-    for (Entry<String, String> header : sdkHeaders.entrySet()) {
-      builder.header(header.getKey(), header.getValue());
-    }
-    builder.header("Accept", "application/json");
-    builder.query("version", this.version);
-    if (deployCartridgeOptions.update() != null) {
-      builder.query("update", String.valueOf(deployCartridgeOptions.update()));
-    }
-    MultipartBody.Builder multipartBuilder = new MultipartBody.Builder();
-    multipartBuilder.setType(MultipartBody.FORM);
-    if (deployCartridgeOptions.archiveFile() != null) {
-      okhttp3.RequestBody archiveFileBody = RequestUtils.inputStreamBody(deployCartridgeOptions.archiveFile(), deployCartridgeOptions.archiveFileContentType());
-      multipartBuilder.addFormDataPart("archive_file", "filename", archiveFileBody);
-    }
-    builder.body(multipartBuilder.build());
-    ResponseConverter<DeployCartridgeResponse> responseConverter =
-      ResponseConverterUtils.getValue(new com.google.gson.reflect.TypeToken<DeployCartridgeResponse>() { }.getType());
-    return createServiceCall(builder.build(), responseConverter);
-  }
-
-  /**
-   * Deploy a cartridge.
-   *
-   * Deploy a cartridge from a cartridge archive file.
-   *
-   * @return a {@link ServiceCall} with a result of type {@link DeployCartridgeResponse}
-   */
-  public ServiceCall<DeployCartridgeResponse> deployCartridge() {
-    return deployCartridge(null);
   }
 
   /**

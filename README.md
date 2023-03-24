@@ -10,7 +10,7 @@ This Java SDK allows developers to programmatically interact with the following 
 
 ## Prerequisites
 
-* Refer to the Annotation for Clinical Data documentation:
+* Refer to the Annotator for Clinical Data documentation:
   * [Prerequisites](https://merative.github.io/acd-containers/installing/prereqs/)
   * [Software Development Kits](https://merative.github.io/acd-containers/usage/sdks/)
 * Java 8 or above.
@@ -70,8 +70,8 @@ For general SDK usage information, please see [this link](https://github.com/IBM
 ## Questions
 
 For questions, refer to: 
-* [Annotator for Clinical Data product site](https://www.ibm.com/cloud/watson-annotator-for-clinical-data)
-* [Annotator for Clinical Data documentation](https://merative.github.io/acd-containers/)
+* [Annotator for Clinical Data Documentation](https://merative.github.io/acd-containers/)
+* [Annotator for Clinical Data Support Page](https://merative.github.io/acd-containers/support/support/)
 
 ## Issues
 If you encounter an issue with the project, you are welcome to submit a

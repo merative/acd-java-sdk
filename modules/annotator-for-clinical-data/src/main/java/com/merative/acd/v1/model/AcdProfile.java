@@ -13,7 +13,7 @@ import java.util.List;
 import com.ibm.cloud.sdk.core.service.model.GenericModel;
 
 /**
- * AcdProfile.
+ * AcdProfile contains annotator configuration.
  */
 public class AcdProfile extends GenericModel {
 

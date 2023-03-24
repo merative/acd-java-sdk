@@ -43,7 +43,7 @@ import com.ibm.cloud.sdk.core.service.exception.ServiceResponseException;
  * NOTE: To run this sample class, replace "ACD_TOKEN" below with your ACD bearer token,
  * and replace "ACD_URL" with the URL for the Annotator for Clinical Data (ACD) service endpoint.
  *
- * Optional: Update the "version" variable if you require a specific version of ACD.
+ * Optional: Update the "version" variable if you require a specific version of the ACD REST APIs.
  */
 public class AnnotatorForClinicalDataExample {
 
@@ -52,8 +52,20 @@ public class AnnotatorForClinicalDataExample {
   public static void main(String[] args) throws Exception {
     String authToken = "ACD_TOKEN";
     String url = "ACD_URL";
-    String version = "2022-02-24";
+    String version = "2023-02-24";
     AnnotatorForClinicalData acd = null;
+
+    // In the analyzeWithFlow and getFlowsById examples, they require a flow ID parameter.  Replace
+    // "PERSISTED_FLOW_ID" on the next line with the ID of a flow that is persisted within your ACD instance.
+    String persistedFlowId = "PERSISTED_FLOW_ID";
+
+    // In the cartridgesGetId example, it requires a cartridge ID parameter.  Replace
+    // "DEPLOYED_CARTRIDGE_ID" on the next line with the ID of a cartridge that is deployed within your ACD instance.
+    String deployedCartridgeId = "DEPLOYED_CARTRIDGE_ID";
+
+    // In the deploy and redeploy cartridge examples, they require a cartridge zip file name.  Replace
+    // "NAME_OF_EXPORTED_CARTRIDGE_ZIP_FILE" on the next line with the name of your exported cartridge zip file.
+    File cartridgeZip = new File("NAME_OF_EXPORTED_CARTRIDGE_ZIP_FILE");
 
     BearerTokenAuthenticator authenticator = new BearerTokenAuthenticator(authToken);
     acd = new AnnotatorForClinicalData(
@@ -61,35 +73,32 @@ public class AnnotatorForClinicalDataExample {
         AnnotatorForClinicalData.DEFAULT_SERVICE_NAME,
         authenticator);
     acd.setServiceUrl(url);
+
     // Uncomment the next 2 lines to disable SSL verification - not recommended
-    //HttpConfigOptions options = new HttpConfigOptions.Builder().disableSslVerification(true).build();
-    //acd.configureClient(options);
+    // HttpConfigOptions options = new HttpConfigOptions.Builder().disableSslVerification(true).build();
+    // acd.configureClient(options);
 
 
-
-    /* Analyze */
+    /** Examples of the following methods are provided: **/
     // analyze();
     // analyzeWithFlow();
 
-    /* Cartridge deployment */
     // getCartridges();
-    // getCartridge();
-    // deployCartridge();
-    // redeployCartridge();
+    // cartridgesGetId();
+    // cartridgesPostMultipart();
+    // cartridgesPutMultipart();
 
-    /* Annotator flow  */
     // getFlows();
-    // getFlow();
+    // getFlowsById();
 
-    /* Misc */
-    // getHealthCheck();
+    // getHealthCheckStatus();
 
 
     /*
      * Annotator for Clinical Data
      */
 
-    // Analyze
+    // Analyze your text with a dynamic annotator flow
     try {
       System.out.println("\n Analyze =>");
       List<String> annotators = Arrays.asList(
@@ -111,10 +120,10 @@ public class AnnotatorForClinicalDataExample {
 
     }
 
-    // Analyze with Flow
+    // Analyze your text with a persisted annotator flow
     try {
       System.out.println("\n Analyze with Flow =>");
-      String flowId = "wh_acd.ibm_clinical_insights_v1.0_standard_flow";
+      String flowId = persistedFlowId;
       String text = "Patient has lung cancer, but did not smoke. She may consider chemotherapy as part of a treatment plan.";
 
       ContainerGroup response = acd.analyzeWithFlow(flowId, text);
@@ -129,7 +138,7 @@ public class AnnotatorForClinicalDataExample {
       System.out.println("Service returned status code: Error details: " + e.getStatusCode() + " " + e.getMessage() + " " + e.getDebuggingInfo().toString());
     }
 
-    // Get Cartridges
+    // Get the list of deployed cartridges
     try {
       System.out.println("\n Get Cartridges =>");
       CartridgesGetOptions opts = new CartridgesGetOptions();
@@ -145,11 +154,11 @@ public class AnnotatorForClinicalDataExample {
       System.out.println("Service returned status code: Error details: " + e.getStatusCode() + " " + e.getMessage() + " " + e.getDebuggingInfo().toString());
     }
 
-    // Get Cartridge by ID
+    // Get details of a deployed cartridge
     try {
       System.out.println("\n Get Cartridge by ID =>");
       CartridgesGetIdOptions opts = new CartridgesGetIdOptions.Builder()
-        .id("wh_acd.ibm_clinical_insights_v1.0").build();
+        .id(deployedCartridgeId).build();
       ServiceCall<AcdCartridges> getCartridgeCall = acd.cartridgesGetId(opts);
 
       Response<AcdCartridges> resp = getCartridgeCall.execute();
@@ -160,8 +169,7 @@ public class AnnotatorForClinicalDataExample {
       System.out.println("Service returned status code: Error details: " + e.getStatusCode() + " " + e.getMessage() + " " + e.getDebuggingInfo().toString());
     }
 
-    // Deploy Cartridge Asynchronously
-    File cartridgeZip = new File("name_of_exported cartridge_zip_file.zip");
+    // Deploy a new cartridge asynchronously
     try {
       System.out.println("\n Deploy Cartridge =>");
       CartridgesPostMultipartOptions opts = new CartridgesPostMultipartOptions.Builder()
@@ -178,7 +186,7 @@ public class AnnotatorForClinicalDataExample {
       System.out.println("Service returned status code: Error details: " + e.getStatusCode() + " " + e.getMessage() + " " + e.getDebuggingInfo().toString());
     }
 
-    // Redeploy Existing Cartridge
+    // Redeploy a cartridge asynchronously
     try {
       System.out.println("\n Redeploy Cartridge =>");
       CartridgesPutMultipartOptions opts = new CartridgesPutMultipartOptions.Builder()
@@ -195,7 +203,7 @@ public class AnnotatorForClinicalDataExample {
       System.out.println("Service returned status code: Error details: " + e.getStatusCode() + " " + e.getMessage() + " " + e.getDebuggingInfo().toString());
     }
 
-    // Get Flows
+    // Get the list of persisted annotator flows
     try {
       System.out.println("\n Get Flows =>");
       GetFlowsOptions options = new GetFlowsOptions.Builder().build();
@@ -211,11 +219,11 @@ public class AnnotatorForClinicalDataExample {
       System.out.println("Service returned status code: Error details: " + e.getStatusCode() + " " + e.getMessage() + " " + e.getDebuggingInfo().toString());
     }
 
-    // Get Flow by ID
+    // Get details of a persisted annotator flow
     try {
       System.out.println("\n Get Flows by ID =>");
       GetFlowsByIdOptions options = new GetFlowsByIdOptions.Builder()
-          .id("wh_acd.ibm_clinical_insights_v1.0_standard_flow")
+          .id(persistedFlowId)
           .build();
 
       ServiceCall<AcdFlow> getFlowIdCall = acd.getFlowsById(options);
@@ -227,7 +235,7 @@ public class AnnotatorForClinicalDataExample {
       System.out.println("Service returned status code: Error details: " + e.getStatusCode() + " " + e.getMessage() + " " + e.getDebuggingInfo().toString());
     }
 
-    // Get ACD Service Health Check
+    // Get ACD service health check
     try {
       System.out.println("\n Get ACD Health Check =>");
       GetHealthCheckStatusOptions options = new GetHealthCheckStatusOptions.Builder().build();

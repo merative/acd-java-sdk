@@ -10,6 +10,9 @@ package com.merative.acd.v1.model;
 
 import java.util.List;
 
+/**
+ * AcdCartridgesList contains a summarized list of deployed cartridges.
+ */
 public class AcdCartridgesList {
 
 	protected List<AcdCartridges> cartridges;
