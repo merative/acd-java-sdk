@@ -1,3 +1,10 @@
+## [2.0.1](https://github.com/merative/whcs-java-sdk/compare/2.0.0...2.0.1) (2023-03-25)
+
+
+### Bug Fixes
+
+* minor rebrand update ([2bdf994](https://github.com/merative/whcs-java-sdk/commit/2bdf9949b3b749ddd67e59c41f3d21f2dfc40ea8))
+
 # [2.0.0](https://github.com/merative/whcs-java-sdk/compare/1.5.13...2.0.0) (2023-03-24)
 
 
