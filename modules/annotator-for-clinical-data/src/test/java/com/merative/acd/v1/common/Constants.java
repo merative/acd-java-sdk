@@ -15,9 +15,9 @@ public class Constants {
 	public static final String VERSION = "VERSION";
 	public static final String IAM_URL = "IAM_URL";
 	public static final String DISABLE_SSL = "DISABLE_SSL";
-	public static final String PROFILE_ID = "wh_acd.ibm_clinical_insights_v1.0_profile";
-	public static final String FLOW_ID = "wh_acd.ibm_clinical_insights_v1.0_standard_flow";
-	public static final String CARTRIDGE_ID = "wh_acd.ibm_clinical_insights_v1.0";
+	public static final String PROFILE_ID = "acd.acd_clinical_insights_v1.0_profile";
+	public static final String FLOW_ID = "acd.acd_clinical_insights_v1.0_standard_flow";
+	public static final String CARTRIDGE_ID = "acd.acd_clinical_insights_v1.0";
 	public static final String ATTRIBUTE_DETECTION_NAME = "attribute_detection";
 	public static final String ALLERGY = "allergy";
 	public static final String BATHING = "bathing_assistance";

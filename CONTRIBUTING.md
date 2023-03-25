@@ -3,7 +3,7 @@ If you are having problems using this SDK or have a question about the Annotator
 refer here:
 * [README](README.md)
 * [Annotator for Clinical Data documentation](https://merative.github.io/acd-containers/)
-* [Annotator for Clinical Data product site](https://www.ibm.com/cloud/watson-annotator-for-clinical-data)
+* [Annotator for Clinical Data Support page](https://merative.github.io/acd-containers/support/support/)
 
 # Issues
 If you encounter an issue with the project, you are welcome to submit a
