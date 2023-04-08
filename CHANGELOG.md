@@ -1,3 +1,10 @@
+## [2.0.2](https://github.com/merative/whcs-java-sdk/compare/2.0.1...2.0.2) (2023-04-08)
+
+
+### Bug Fixes
+
+* File required for publish ([23e0805](https://github.com/merative/whcs-java-sdk/commit/23e0805722235b925929b6196f113153cc0caff8))
+
 ## [2.0.1](https://github.com/merative/whcs-java-sdk/compare/2.0.0...2.0.1) (2023-03-25)
 
 
