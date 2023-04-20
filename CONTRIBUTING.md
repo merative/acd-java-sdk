@@ -7,7 +7,7 @@ refer here:
 
 # Issues
 If you encounter an issue with the project, you are welcome to submit a
-[bug report](https://github.com/merative/whcs-java-sdk/issues).
+[bug report](https://github.com/merative/acd-java-sdk/issues).
 
 # Code
 ## Commit Messages
