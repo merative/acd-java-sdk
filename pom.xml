@@ -17,7 +17,7 @@
 
     <description>Java Client Library to access the Merative ACD Services</description>
 
-    <url>https://github.com/merative/whcs-java-sdk</url>
+    <url>https://github.com/merative/acd-java-sdk</url>
 
     <groupId>com.merative.acd</groupId>
     <version>1.0.1-SNAPSHOT</version>
@@ -43,7 +43,7 @@
         <!-- <timestamp>${maven.build.timestamp}</timestamp> -->
         <!-- <maven.build.timestamp.format>yyyyMMdd-HHmm</maven.build.timestamp.format> -->
         <!-- <java.version>1.8</java.version> -->
-  	<!-- <git-repository-name>whcs-java-sdk</git-repository-name> -->
+  	<!-- <git-repository-name>acd-java-sdk</git-repository-name> -->
         <nexus-staging-plugin-version>1.6.8</nexus-staging-plugin-version>
         <testng-version>7.4.0</testng-version>
         <okhttp3-version>4.10.0</okhttp3-version>
@@ -95,19 +95,19 @@
     </organization>
 
     <scm>
-        <connection>scm:git:https://github.com/merative/whcs-java-sdk</connection>
-        <developerConnection>scm:git:https://github.com/merative/whcs-java-sdk</developerConnection>
-        <url>https://github.com/merative/whcs-java-sdk/tree/master</url>
+        <connection>scm:git:https://github.com/merative/acd-java-sdk</connection>
+        <developerConnection>scm:git:https://github.com/merative/acd-java-sdk</developerConnection>
+        <url>https://github.com/merative/acd-java-sdk/tree/master</url>
     </scm>
 
     <issueManagement>
         <system>Github</system>
-        <url>https://github.com/merative/whcs-java-sdk/issues</url>
+        <url>https://github.com/merative/acd-java-sdk/issues</url>
     </issueManagement>
 
     <ciManagement>
         <system>GitHub Actions</system>
-        <url>https://github.com/merative/whcs-java-sdk/actions</url>
+        <url>https://github.com/merative/acd-java-sdk/actions</url>
     </ciManagement>
 
     <!-- we define this in the profile below -->
