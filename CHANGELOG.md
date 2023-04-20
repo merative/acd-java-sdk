@@ -1,3 +1,10 @@
+## [2.0.3](https://github.com/merative/acd-java-sdk/compare/2.0.2...2.0.3) (2023-04-20)
+
+
+### Bug Fixes
+
+* Renamed URL Updates ([e79a52a](https://github.com/merative/acd-java-sdk/commit/e79a52a76613834823247a73551b127789d62b60))
+
 ## [2.0.2](https://github.com/merative/whcs-java-sdk/compare/2.0.1...2.0.2) (2023-04-08)
 
 
