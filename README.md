@@ -1,4 +1,4 @@
-# Merative Annotator for Clinical Data Java SDK Version 2.0.2
+# Merative Annotator for Clinical Data Java SDK Version 2.0.3
 
 ## Overview
 
@@ -16,7 +16,7 @@ This Java SDK allows developers to programmatically interact with the following 
 * Java 8 or above.
 
 ## Installation
-The current version of this SDK is: 2.0.2
+The current version of this SDK is: 2.0.3
 
 #### Parent Project (Option 1)
 To define a dependency on the parent project `acd-sdk`, use a dependency like these:
@@ -27,14 +27,14 @@ To define a dependency on the parent project `acd-sdk`, use a dependency like th
 <dependency>
 	<groupId>com.merative.acd</groupId>
 	<artifactId>acd-sdk</artifactId>
-	<version>2.0.2</version>
+	<version>2.0.3</version>
 </dependency>
 ```
 
 ##### Gradle
 
 ```gradle
-'com.merative.acd:acd-sdk:2.0.2'
+'com.merative.acd:acd-sdk:2.0.3'
 ```
 
 #### Annotator for Clinical Data Subproject (Option 2)
@@ -46,13 +46,13 @@ To define a dependency on the subproject `annotator-for-clinical-data`, use a de
 <dependency>
     <groupId>com.merative.acd</groupId>
     <artifactId>annotator-for-clinical-data</artifactId>
-    <version>2.0.2</version>
+    <version>2.0.3</version>
 </dependency>
 ```
 
 ##### Gradle
 ```gradle
-'com.merative.acd:2.0.2'
+'com.merative.acd:2.0.3'
 ```
 The artifact ID is listed in the table above.
 
@@ -60,7 +60,7 @@ The artifact ID is listed in the table above.
 
 The 2.0 release of the Annotator for Clinical Data Java SDK introduces a Java package name change from `com.ibm.watson.health.acd.v1` to `com.merative.acd.v1`.  For the migration from 1.x.x:
 
-1. Update the Maven dependencies by changing all `acd-sdk` or `annotator-for-clinical-data` dependency version tags to `2.0.2` in the pom.xml.  Verify that there are no SDK module dependencies in the pom.xml with a version earlier than `2.0.2`.
+1. Update the Maven dependencies by changing all `acd-sdk` or `annotator-for-clinical-data` dependency version tags to `2.0.3` in the pom.xml.  Verify that there are no SDK module dependencies in the pom.xml with a version earlier than `2.0.3`.
 2. In your application files, update any import declarations from `com.ibm.watson.health.acd.v1` to `com.merative.acd.v1`.
 
 ## Using the SDK
