@@ -1,3 +1,10 @@
+## [2.0.4](https://github.com/merative/acd-java-sdk/compare/2.0.3...2.0.4) (2023-06-22)
+
+
+### Bug Fixes
+
+* Sync signing ([f25c756](https://github.com/merative/acd-java-sdk/commit/f25c756eb64ac16d58615b54874ec05358b708ee))
+
 ## [2.0.3](https://github.com/merative/acd-java-sdk/compare/2.0.2...2.0.3) (2023-04-20)
 
 
